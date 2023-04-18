@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\Models\AccessReviewInstanceDecisionItemCollec
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Decisions\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Decisions\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Decisions\Item\AccessReviewInstanceDecisionItemItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Decisions\RecordAllDecisions\RecordAllDecisionsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -52,6 +53,17 @@ class DecisionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the decisions property of the microsoft.graph.accessReviewInstance entity.
+     * @param string $accessReviewInstanceDecisionItemId Unique identifier of the item
+     * @return AccessReviewInstanceDecisionItemItemRequestBuilder
+    */
+    public function byAccessReviewInstanceDecisionItemId(string $accessReviewInstanceDecisionItemId): AccessReviewInstanceDecisionItemItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['accessReviewInstanceDecisionItem%2Did'] = $accessReviewInstanceDecisionItemId;
+        return new AccessReviewInstanceDecisionItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DecisionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

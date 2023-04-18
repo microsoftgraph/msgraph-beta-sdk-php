@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\AllMessages\AllMessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\GetAllMessages\GetAllMessagesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\ChannelItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Channel;
 use Microsoft\Graph\Beta\Generated\Models\ChannelCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -59,6 +60,17 @@ class ChannelsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the channels property of the microsoft.graph.team entity.
+     * @param string $channelId Unique identifier of the item
+     * @return ChannelItemRequestBuilder
+    */
+    public function byChannelId(string $channelId): ChannelItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['channel%2Did'] = $channelId;
+        return new ChannelItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ChannelsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

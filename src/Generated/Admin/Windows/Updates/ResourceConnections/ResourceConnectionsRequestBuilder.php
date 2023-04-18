@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\ResourceConnections\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\ResourceConnections\Item\ResourceConnectionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\ResourceConnection;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\ResourceConnectionCollectionResponse;
@@ -43,6 +44,17 @@ class ResourceConnectionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the resourceConnections property of the microsoft.graph.adminWindowsUpdates entity.
+     * @param string $resourceConnectionId Unique identifier of the item
+     * @return ResourceConnectionItemRequestBuilder
+    */
+    public function byResourceConnectionId(string $resourceConnectionId): ResourceConnectionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['resourceConnection%2Did'] = $resourceConnectionId;
+        return new ResourceConnectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ResourceConnectionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

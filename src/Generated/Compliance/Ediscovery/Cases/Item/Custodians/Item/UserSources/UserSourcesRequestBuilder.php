@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\UserSources\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\UserSources\Item\UserSourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\UserSource;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\UserSourceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class UserSourcesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userSources property of the microsoft.graph.ediscovery.custodian entity.
+     * @param string $userSourceId Unique identifier of the item
+     * @return UserSourceItemRequestBuilder
+    */
+    public function byUserSourceId(string $userSourceId): UserSourceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userSource%2Did'] = $userSourceId;
+        return new UserSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserSourcesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -7,9 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackages\Item\AccessPackageResourceRoleScopes\Item\AccessPackageResourceRole\AccessPackageResource\AccessPackageResourceEnvironment\AccessPackageResourceEnvironmentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackages\Item\AccessPackageResourceRoleScopes\Item\AccessPackageResourceRole\AccessPackageResource\AccessPackageResourceRoles\AccessPackageResourceRolesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackages\Item\AccessPackageResourceRoleScopes\Item\AccessPackageResourceRole\AccessPackageResource\AccessPackageResourceRoles\Item\AccessPackageResourceRoleItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackages\Item\AccessPackageResourceRoleScopes\Item\AccessPackageResourceRole\AccessPackageResource\AccessPackageResourceScopes\AccessPackageResourceScopesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackages\Item\AccessPackageResourceRoleScopes\Item\AccessPackageResourceRole\AccessPackageResource\AccessPackageResourceScopes\Item\AccessPackageResourceScopeItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessPackageResource;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -60,28 +58,6 @@ class AccessPackageResourceRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the accessPackageResourceRoles property of the microsoft.graph.accessPackageResource entity.
-     * @param string $id Unique identifier of the item
-     * @return AccessPackageResourceRoleItemRequestBuilder
-    */
-    public function accessPackageResourceRolesById(string $id): AccessPackageResourceRoleItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['accessPackageResourceRole%2Did'] = $id;
-        return new AccessPackageResourceRoleItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the accessPackageResourceScopes property of the microsoft.graph.accessPackageResource entity.
-     * @param string $id Unique identifier of the item
-     * @return AccessPackageResourceScopeItemRequestBuilder
-    */
-    public function accessPackageResourceScopesById(string $id): AccessPackageResourceScopeItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['accessPackageResourceScope%2Did'] = $id;
-        return new AccessPackageResourceScopeItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new AccessPackageResourceRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

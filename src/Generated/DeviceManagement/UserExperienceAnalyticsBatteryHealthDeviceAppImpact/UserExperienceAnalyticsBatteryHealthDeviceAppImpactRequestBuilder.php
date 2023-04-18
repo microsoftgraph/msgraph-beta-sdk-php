@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBatteryHealthDeviceAppImpact\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBatteryHealthDeviceAppImpact\Item\UserExperienceAnalyticsBatteryHealthDeviceAppImpactItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsBatteryHealthDeviceAppImpact;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsBatteryHealthDeviceAppImpactCollectionResponse;
@@ -43,6 +44,17 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpactRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userExperienceAnalyticsBatteryHealthDeviceAppImpact property of the microsoft.graph.deviceManagement entity.
+     * @param string $userExperienceAnalyticsBatteryHealthDeviceAppImpactId Unique identifier of the item
+     * @return UserExperienceAnalyticsBatteryHealthDeviceAppImpactItemRequestBuilder
+    */
+    public function byUserExperienceAnalyticsBatteryHealthDeviceAppImpactId(string $userExperienceAnalyticsBatteryHealthDeviceAppImpactId): UserExperienceAnalyticsBatteryHealthDeviceAppImpactItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userExperienceAnalyticsBatteryHealthDeviceAppImpact%2Did'] = $userExperienceAnalyticsBatteryHealthDeviceAppImpactId;
+        return new UserExperienceAnalyticsBatteryHealthDeviceAppImpactItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserExperienceAnalyticsBatteryHealthDeviceAppImpactRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

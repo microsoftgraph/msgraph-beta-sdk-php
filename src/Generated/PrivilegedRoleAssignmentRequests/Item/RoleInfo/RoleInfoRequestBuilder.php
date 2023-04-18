@@ -8,7 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegedRole;
 use Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignmentRequests\Item\RoleInfo\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignmentRequests\Item\RoleInfo\Assignments\Item\PrivilegedRoleAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignmentRequests\Item\RoleInfo\SelfActivate\SelfActivateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignmentRequests\Item\RoleInfo\SelfDeactivate\SelfDeactivateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignmentRequests\Item\RoleInfo\Settings\SettingsRequestBuilder;
@@ -75,17 +74,6 @@ class RoleInfoRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the assignments property of the microsoft.graph.privilegedRole entity.
-     * @param string $id Unique identifier of the item
-     * @return PrivilegedRoleAssignmentItemRequestBuilder
-    */
-    public function assignmentsById(string $id): PrivilegedRoleAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['privilegedRoleAssignment%2Did'] = $id;
-        return new PrivilegedRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new RoleInfoRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

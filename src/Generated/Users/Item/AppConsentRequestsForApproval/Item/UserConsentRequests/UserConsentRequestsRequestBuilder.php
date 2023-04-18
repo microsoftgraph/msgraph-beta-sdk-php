@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\Models\UserConsentRequest;
 use Microsoft\Graph\Beta\Generated\Models\UserConsentRequestCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApproval\Item\UserConsentRequests\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApproval\Item\UserConsentRequests\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApproval\Item\UserConsentRequests\Item\UserConsentRequestItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -44,6 +45,17 @@ class UserConsentRequestsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userConsentRequests property of the microsoft.graph.appConsentRequest entity.
+     * @param string $userConsentRequestId Unique identifier of the item
+     * @return UserConsentRequestItemRequestBuilder
+    */
+    public function byUserConsentRequestId(string $userConsentRequestId): UserConsentRequestItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userConsentRequest%2Did'] = $userConsentRequestId;
+        return new UserConsentRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserConsentRequestsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

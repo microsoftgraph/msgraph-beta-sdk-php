@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\DirectorySettingTemplates\Count\CountRequestB
 use Microsoft\Graph\Beta\Generated\DirectorySettingTemplates\Delta\DeltaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DirectorySettingTemplates\GetByIds\GetByIdsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DirectorySettingTemplates\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DirectorySettingTemplates\Item\DirectorySettingTemplateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DirectorySettingTemplates\ValidateProperties\ValidatePropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DirectorySettingTemplate;
 use Microsoft\Graph\Beta\Generated\Models\DirectorySettingTemplateCollectionResponse;
@@ -75,6 +76,17 @@ class DirectorySettingTemplatesRequestBuilder
         return new ValidatePropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * Provides operations to manage the collection of directorySettingTemplate entities.
+     * @param string $directorySettingTemplateId Unique identifier of the item
+     * @return DirectorySettingTemplateItemRequestBuilder
+    */
+    public function byDirectorySettingTemplateId(string $directorySettingTemplateId): DirectorySettingTemplateItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['directorySettingTemplate%2Did'] = $directorySettingTemplateId;
+        return new DirectorySettingTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DirectorySettingTemplatesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

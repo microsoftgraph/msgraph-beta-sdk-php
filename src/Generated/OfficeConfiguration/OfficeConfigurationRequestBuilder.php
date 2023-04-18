@@ -8,7 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\OfficeConfiguration;
 use Microsoft\Graph\Beta\Generated\OfficeConfiguration\ClientConfigurations\ClientConfigurationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\OfficeConfiguration\ClientConfigurations\Item\OfficeClientConfigurationItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,17 +42,6 @@ class OfficeConfigurationRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the clientConfigurations property of the microsoft.graph.officeConfiguration entity.
-     * @param string $id Unique identifier of the item
-     * @return OfficeClientConfigurationItemRequestBuilder
-    */
-    public function clientConfigurationsById(string $id): OfficeClientConfigurationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['officeClientConfiguration%2Did'] = $id;
-        return new OfficeClientConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new OfficeConfigurationRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

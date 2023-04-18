@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Security\InformationProtection\SensitivityLabels\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Security\InformationProtection\SensitivityLabels\Item\SensitivityLabelItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Security\InformationProtection\SensitivityLabels\SecurityEvaluateApplication\SecurityEvaluateApplicationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Security\InformationProtection\SensitivityLabels\SecurityEvaluateClassificationResults\SecurityEvaluateClassificationResultsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Security\InformationProtection\SensitivityLabels\SecurityEvaluateRemoval\SecurityEvaluateRemovalRequestBuilder;
@@ -75,6 +76,17 @@ class SensitivityLabelsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the sensitivityLabels property of the microsoft.graph.security.informationProtection entity.
+     * @param string $sensitivityLabelId Unique identifier of the item
+     * @return SensitivityLabelItemRequestBuilder
+    */
+    public function bySensitivityLabelId(string $sensitivityLabelId): SensitivityLabelItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['sensitivityLabel%2Did'] = $sensitivityLabelId;
+        return new SensitivityLabelItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SensitivityLabelsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -8,7 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\OnPremisesAgent;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\AgentGroups\Item\Agents\Item\AgentGroups\AgentGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\AgentGroups\Item\Agents\Item\AgentGroups\Item\OnPremisesAgentGroupItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,17 +42,6 @@ class OnPremisesAgentItemRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.onPremisesPublishingProfiles.item.agentGroups.item.agents.item.agentGroups.item collection
-     * @param string $id Unique identifier of the item
-     * @return OnPremisesAgentGroupItemRequestBuilder
-    */
-    public function agentGroupsById(string $id): OnPremisesAgentGroupItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['onPremisesAgentGroup%2Did1'] = $id;
-        return new OnPremisesAgentGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new OnPremisesAgentItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

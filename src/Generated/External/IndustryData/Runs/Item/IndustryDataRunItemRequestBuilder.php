@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\External\IndustryData\Runs\Item\Activities\ActivitiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\Runs\Item\Activities\Item\IndustryDataRunActivityItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\External\IndustryData\Runs\Item\IndustryDataGetStatistics\IndustryDataGetStatisticsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IndustryData\IndustryDataRun;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -51,17 +50,6 @@ class IndustryDataRunItemRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the activities property of the microsoft.graph.industryData.industryDataRun entity.
-     * @param string $id Unique identifier of the item
-     * @return IndustryDataRunActivityItemRequestBuilder
-    */
-    public function activitiesById(string $id): IndustryDataRunActivityItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['industryDataRunActivity%2Did'] = $id;
-        return new IndustryDataRunActivityItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new IndustryDataRunItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

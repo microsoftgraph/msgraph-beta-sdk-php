@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Approvals\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Approvals\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Approvals\Item\ApprovalItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Approval;
 use Microsoft\Graph\Beta\Generated\Models\ApprovalCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -44,6 +45,17 @@ class ApprovalsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the approvals property of the microsoft.graph.user entity.
+     * @param string $approvalId Unique identifier of the item
+     * @return ApprovalItemRequestBuilder
+    */
+    public function byApprovalId(string $approvalId): ApprovalItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['approval%2Did'] = $approvalId;
+        return new ApprovalItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ApprovalsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

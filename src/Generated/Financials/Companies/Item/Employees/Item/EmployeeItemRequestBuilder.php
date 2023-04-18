@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Employees\Ite
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Employees\Item\Picture\Item\PictureItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Employees\Item\Picture\PictureRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Employee;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -111,17 +110,6 @@ class EmployeeItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the picture property of the microsoft.graph.employee entity.
-     * @param string $id Unique identifier of the item
-     * @return PictureItemRequestBuilder
-    */
-    public function pictureById(string $id): PictureItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['picture%2Did'] = $id;
-        return new PictureItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\InformationProtection\SensitivityLabels\Item\Sublabels\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\InformationProtection\SensitivityLabels\Item\Sublabels\Evaluate\EvaluateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\InformationProtection\SensitivityLabels\Item\Sublabels\Item\SensitivityLabelItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SensitivityLabel;
 use Microsoft\Graph\Beta\Generated\Models\SensitivityLabelCollectionResponse;
@@ -51,6 +52,17 @@ class SublabelsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the sublabels property of the microsoft.graph.sensitivityLabel entity.
+     * @param string $sensitivityLabelId1 Unique identifier of the item
+     * @return SensitivityLabelItemRequestBuilder
+    */
+    public function bySensitivityLabelId1(string $sensitivityLabelId1): SensitivityLabelItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['sensitivityLabel%2Did1'] = $sensitivityLabelId1;
+        return new SensitivityLabelItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SublabelsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

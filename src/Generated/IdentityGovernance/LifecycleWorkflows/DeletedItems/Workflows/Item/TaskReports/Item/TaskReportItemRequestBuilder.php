@@ -7,7 +7,6 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\TaskReports\Item\Task\TaskRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\TaskReports\Item\TaskDefinition\TaskDefinitionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\TaskReports\Item\TaskProcessingResults\Item\TaskProcessingResultItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\TaskReports\Item\TaskProcessingResults\TaskProcessingResultsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\TaskReport;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -90,17 +89,6 @@ class TaskReportItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the taskProcessingResults property of the microsoft.graph.identityGovernance.taskReport entity.
-     * @param string $id Unique identifier of the item
-     * @return TaskProcessingResultItemRequestBuilder
-    */
-    public function taskProcessingResultsById(string $id): TaskProcessingResultItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['taskProcessingResult%2Did'] = $id;
-        return new TaskProcessingResultItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

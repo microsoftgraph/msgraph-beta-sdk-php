@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Directory\AttributeSets\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\AttributeSets\Item\AttributeSetItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AttributeSet;
 use Microsoft\Graph\Beta\Generated\Models\AttributeSetCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AttributeSetsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the attributeSets property of the microsoft.graph.directory entity.
+     * @param string $attributeSetId Unique identifier of the item
+     * @return AttributeSetItemRequestBuilder
+    */
+    public function byAttributeSetId(string $attributeSetId): AttributeSetItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['attributeSet%2Did'] = $attributeSetId;
+        return new AttributeSetItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AttributeSetsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

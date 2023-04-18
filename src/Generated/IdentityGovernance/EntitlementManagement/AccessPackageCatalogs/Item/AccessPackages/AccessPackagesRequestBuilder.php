@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackages\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackages\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackages\Item\AccessPackageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackages\Search\SearchRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessPackage;
 use Microsoft\Graph\Beta\Generated\Models\AccessPackageCollectionResponse;
@@ -52,6 +53,17 @@ class AccessPackagesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the accessPackages property of the microsoft.graph.accessPackageCatalog entity.
+     * @param string $accessPackageId Unique identifier of the item
+     * @return AccessPackageItemRequestBuilder
+    */
+    public function byAccessPackageId(string $accessPackageId): AccessPackageItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['accessPackage%2Did'] = $accessPackageId;
+        return new AccessPackageItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AccessPackagesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

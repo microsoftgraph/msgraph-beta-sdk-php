@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ApplicationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\ConnectorGroups\Item\Applications\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\ConnectorGroups\Item\Applications\Item\ApplicationItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -42,6 +43,17 @@ class ApplicationsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the applications property of the microsoft.graph.connectorGroup entity.
+     * @param string $applicationId Unique identifier of the item
+     * @return ApplicationItemRequestBuilder
+    */
+    public function byApplicationId(string $applicationId): ApplicationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['application%2Did'] = $applicationId;
+        return new ApplicationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ApplicationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

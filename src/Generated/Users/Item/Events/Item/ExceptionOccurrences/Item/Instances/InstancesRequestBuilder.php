@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\EventCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\ExceptionOccurrences\Item\Instances\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\ExceptionOccurrences\Item\Instances\Delta\DeltaRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\ExceptionOccurrences\Item\Instances\Item\EventItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -50,6 +51,17 @@ class InstancesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the instances property of the microsoft.graph.event entity.
+     * @param string $eventId2 Unique identifier of the item
+     * @return EventItemRequestBuilder
+    */
+    public function byEventId2(string $eventId2): EventItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['event%2Did2'] = $eventId2;
+        return new EventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new InstancesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

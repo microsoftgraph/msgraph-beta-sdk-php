@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Directory\ImpactedResources\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\ImpactedResources\Item\ImpactedResourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ImpactedResource;
 use Microsoft\Graph\Beta\Generated\Models\ImpactedResourceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class ImpactedResourcesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the impactedResources property of the microsoft.graph.directory entity.
+     * @param string $impactedResourceId Unique identifier of the item
+     * @return ImpactedResourceItemRequestBuilder
+    */
+    public function byImpactedResourceId(string $impactedResourceId): ImpactedResourceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['impactedResource%2Did'] = $impactedResourceId;
+        return new ImpactedResourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ImpactedResourcesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

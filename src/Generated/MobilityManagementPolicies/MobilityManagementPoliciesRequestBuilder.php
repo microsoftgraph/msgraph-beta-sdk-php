@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\MobilityManagementPolicies\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\MobilityManagementPolicies\Item\MobilityManagementPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MobilityManagementPolicy;
 use Microsoft\Graph\Beta\Generated\Models\MobilityManagementPolicyCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class MobilityManagementPoliciesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the collection of mobilityManagementPolicy entities.
+     * @param string $mobilityManagementPolicyId Unique identifier of the item
+     * @return MobilityManagementPolicyItemRequestBuilder
+    */
+    public function byMobilityManagementPolicyId(string $mobilityManagementPolicyId): MobilityManagementPolicyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['mobilityManagementPolicy%2Did'] = $mobilityManagementPolicyId;
+        return new MobilityManagementPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new MobilityManagementPoliciesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\StaffMembers\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\StaffMembers\Item\BookingStaffMemberItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\BookingStaffMember;
 use Microsoft\Graph\Beta\Generated\Models\BookingStaffMemberCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class StaffMembersRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the staffMembers property of the microsoft.graph.bookingBusiness entity.
+     * @param string $bookingStaffMemberId Unique identifier of the item
+     * @return BookingStaffMemberItemRequestBuilder
+    */
+    public function byBookingStaffMemberId(string $bookingStaffMemberId): BookingStaffMemberItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['bookingStaffMember%2Did'] = $bookingStaffMemberId;
+        return new BookingStaffMemberItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new StaffMembersRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

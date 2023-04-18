@@ -6,17 +6,12 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\ExecutionScope\ExecutionScopeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\ExecutionScope\Item\UserItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\IdentityGovernanceActivate\IdentityGovernanceActivateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\IdentityGovernanceCreateNewVersion\IdentityGovernanceCreateNewVersionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\IdentityGovernanceRestore\IdentityGovernanceRestoreRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\Runs\Item\RunItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\Runs\RunsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\TaskReports\Item\TaskReportItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\TaskReports\TaskReportsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\UserProcessingResults\Item\UserProcessingResultItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\UserProcessingResults\UserProcessingResultsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\Versions\Item\WorkflowVersionVersionNumberItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\Versions\VersionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\Workflow;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -137,17 +132,6 @@ class WorkflowItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the executionScope property of the microsoft.graph.identityGovernance.workflow entity.
-     * @param string $id Unique identifier of the item
-     * @return UserItemRequestBuilder
-    */
-    public function executionScopeById(string $id): UserItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['user%2Did'] = $id;
-        return new UserItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Deleted workflows that end up in the deletedItemsContainer.
      * @param WorkflowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -163,28 +147,6 @@ class WorkflowItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the runs property of the microsoft.graph.identityGovernance.workflow entity.
-     * @param string $id Unique identifier of the item
-     * @return RunItemRequestBuilder
-    */
-    public function runsById(string $id): RunItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['run%2Did'] = $id;
-        return new RunItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the taskReports property of the microsoft.graph.identityGovernance.workflow entity.
-     * @param string $id Unique identifier of the item
-     * @return TaskReportItemRequestBuilder
-    */
-    public function taskReportsById(string $id): TaskReportItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['taskReport%2Did'] = $id;
-        return new TaskReportItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -231,28 +193,6 @@ class WorkflowItemRequestBuilder
             }
         }
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the userProcessingResults property of the microsoft.graph.identityGovernance.workflow entity.
-     * @param string $id Unique identifier of the item
-     * @return UserProcessingResultItemRequestBuilder
-    */
-    public function userProcessingResultsById(string $id): UserProcessingResultItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['userProcessingResult%2Did'] = $id;
-        return new UserProcessingResultItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the versions property of the microsoft.graph.identityGovernance.workflow entity.
-     * @param string $id Unique identifier of the item
-     * @return WorkflowVersionVersionNumberItemRequestBuilder
-    */
-    public function versionsById(string $id): WorkflowVersionVersionNumberItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['workflowVersion%2DversionNumber'] = $id;
-        return new WorkflowVersionVersionNumberItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

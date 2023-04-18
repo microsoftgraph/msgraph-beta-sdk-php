@@ -8,7 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\Item\Children\ChildrenRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\Item\DefinitionFile\DefinitionFileRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\Item\Definitions\DefinitionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\Item\Definitions\Item\GroupPolicyDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\Item\Parent\ParentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyCategory;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -68,17 +67,6 @@ class GroupPolicyCategoryItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Provides operations to manage the children property of the microsoft.graph.groupPolicyCategory entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\Item\Children\Item\GroupPolicyCategoryItemRequestBuilder
-    */
-    public function childrenById(string $id): \Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\Item\Children\Item\GroupPolicyCategoryItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['groupPolicyCategory%2Did1'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\Item\Children\Item\GroupPolicyCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new GroupPolicyCategoryItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -91,17 +79,6 @@ class GroupPolicyCategoryItemRequestBuilder
         } else {
             $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
         }
-    }
-
-    /**
-     * Provides operations to manage the definitions property of the microsoft.graph.groupPolicyCategory entity.
-     * @param string $id Unique identifier of the item
-     * @return GroupPolicyDefinitionItemRequestBuilder
-    */
-    public function definitionsById(string $id): GroupPolicyDefinitionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['groupPolicyDefinition%2Did'] = $id;
-        return new GroupPolicyDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

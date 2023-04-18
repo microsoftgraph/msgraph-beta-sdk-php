@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\EmbeddedSIMActivationCodePools\Item\DeviceStates\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\EmbeddedSIMActivationCodePools\Item\DeviceStates\Item\EmbeddedSIMDeviceStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EmbeddedSIMDeviceState;
 use Microsoft\Graph\Beta\Generated\Models\EmbeddedSIMDeviceStateCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class DeviceStatesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the deviceStates property of the microsoft.graph.embeddedSIMActivationCodePool entity.
+     * @param string $embeddedSIMDeviceStateId Unique identifier of the item
+     * @return EmbeddedSIMDeviceStateItemRequestBuilder
+    */
+    public function byEmbeddedSIMDeviceStateId(string $embeddedSIMDeviceStateId): EmbeddedSIMDeviceStateItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['embeddedSIMDeviceState%2Did'] = $embeddedSIMDeviceStateId;
+        return new EmbeddedSIMDeviceStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DeviceStatesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

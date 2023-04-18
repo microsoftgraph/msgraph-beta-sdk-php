@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagementTemplateColle
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagementTemplateCollectionTenantSummaryCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateCollectionTenantSummaries\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateCollectionTenantSummaries\Item\ManagementTemplateCollectionTenantSummaryItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class ManagementTemplateCollectionTenantSummariesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the managementTemplateCollectionTenantSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $managementTemplateCollectionTenantSummaryId Unique identifier of the item
+     * @return ManagementTemplateCollectionTenantSummaryItemRequestBuilder
+    */
+    public function byManagementTemplateCollectionTenantSummaryId(string $managementTemplateCollectionTenantSummaryId): ManagementTemplateCollectionTenantSummaryItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managementTemplateCollectionTenantSummary%2Did'] = $managementTemplateCollectionTenantSummaryId;
+        return new ManagementTemplateCollectionTenantSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ManagementTemplateCollectionTenantSummariesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

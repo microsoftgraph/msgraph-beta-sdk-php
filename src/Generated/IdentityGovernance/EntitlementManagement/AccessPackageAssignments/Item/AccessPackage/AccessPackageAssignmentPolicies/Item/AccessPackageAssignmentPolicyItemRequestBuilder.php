@@ -8,9 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackage\AccessPackageAssignmentPolicies\Item\AccessPackage\AccessPackageRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackage\AccessPackageAssignmentPolicies\Item\AccessPackageCatalog\AccessPackageCatalogRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackage\AccessPackageAssignmentPolicies\Item\CustomExtensionHandlers\CustomExtensionHandlersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackage\AccessPackageAssignmentPolicies\Item\CustomExtensionHandlers\Item\CustomExtensionHandlerItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackage\AccessPackageAssignmentPolicies\Item\CustomExtensionStageSettings\CustomExtensionStageSettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackage\AccessPackageAssignmentPolicies\Item\CustomExtensionStageSettings\Item\CustomExtensionStageSettingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessPackageAssignmentPolicy;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -81,28 +79,6 @@ class AccessPackageAssignmentPolicyItemRequestBuilder
         } else {
             $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
         }
-    }
-
-    /**
-     * Provides operations to manage the customExtensionHandlers property of the microsoft.graph.accessPackageAssignmentPolicy entity.
-     * @param string $id Unique identifier of the item
-     * @return CustomExtensionHandlerItemRequestBuilder
-    */
-    public function customExtensionHandlersById(string $id): CustomExtensionHandlerItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['customExtensionHandler%2Did'] = $id;
-        return new CustomExtensionHandlerItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the customExtensionStageSettings property of the microsoft.graph.accessPackageAssignmentPolicy entity.
-     * @param string $id Unique identifier of the item
-     * @return CustomExtensionStageSettingItemRequestBuilder
-    */
-    public function customExtensionStageSettingsById(string $id): CustomExtensionStageSettingItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['customExtensionStageSetting%2Did'] = $id;
-        return new CustomExtensionStageSettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

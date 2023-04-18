@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackageCustomWorkflowExtensions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackageCustomWorkflowExtensions\Item\CustomCalloutExtensionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CustomCalloutExtension;
 use Microsoft\Graph\Beta\Generated\Models\CustomCalloutExtensionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AccessPackageCustomWorkflowExtensionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the accessPackageCustomWorkflowExtensions property of the microsoft.graph.accessPackageCatalog entity.
+     * @param string $customCalloutExtensionId Unique identifier of the item
+     * @return CustomCalloutExtensionItemRequestBuilder
+    */
+    public function byCustomCalloutExtensionId(string $customCalloutExtensionId): CustomCalloutExtensionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['customCalloutExtension%2Did'] = $customCalloutExtensionId;
+        return new CustomCalloutExtensionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AccessPackageCustomWorkflowExtensionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

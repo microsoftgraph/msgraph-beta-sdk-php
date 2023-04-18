@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Education\SynchronizationProfiles\Item\Errors\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Education\SynchronizationProfiles\Item\Errors\Item\EducationSynchronizationErrorItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EducationSynchronizationError;
 use Microsoft\Graph\Beta\Generated\Models\EducationSynchronizationErrorCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class ErrorsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the errors property of the microsoft.graph.educationSynchronizationProfile entity.
+     * @param string $educationSynchronizationErrorId Unique identifier of the item
+     * @return EducationSynchronizationErrorItemRequestBuilder
+    */
+    public function byEducationSynchronizationErrorId(string $educationSynchronizationErrorId): EducationSynchronizationErrorItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['educationSynchronizationError%2Did'] = $educationSynchronizationErrorId;
+        return new EducationSynchronizationErrorItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ErrorsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

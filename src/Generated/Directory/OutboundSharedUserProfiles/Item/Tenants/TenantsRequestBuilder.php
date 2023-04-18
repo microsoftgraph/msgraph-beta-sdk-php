@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\Item\Tenants\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\Item\Tenants\Item\TenantReferenceTenantItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TenantReference;
 use Microsoft\Graph\Beta\Generated\Models\TenantReferenceCollectionResponse;
@@ -43,6 +44,17 @@ class TenantsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the tenants property of the microsoft.graph.outboundSharedUserProfile entity.
+     * @param string $tenantReferenceTenantId Unique identifier of the item
+     * @return TenantReferenceTenantItemRequestBuilder
+    */
+    public function byTenantReferenceTenantId(string $tenantReferenceTenantId): TenantReferenceTenantItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['tenantReference%2DtenantId'] = $tenantReferenceTenantId;
+        return new TenantReferenceTenantItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new TenantsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

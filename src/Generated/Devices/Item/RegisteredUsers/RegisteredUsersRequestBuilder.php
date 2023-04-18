@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Devices\Item\RegisteredUsers\Count\CountReque
 use Microsoft\Graph\Beta\Generated\Devices\Item\RegisteredUsers\GraphEndpoint\GraphEndpointRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Devices\Item\RegisteredUsers\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Devices\Item\RegisteredUsers\GraphUser\GraphUserRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Devices\Item\RegisteredUsers\Item\DirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Devices\Item\RegisteredUsers\Ref\RefRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DirectoryObjectCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -74,6 +75,17 @@ class RegisteredUsersRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Gets an item from the Microsoft/Graph/Beta/Generated.devices.item.registeredUsers.item collection
+     * @param string $directoryObjectId Unique identifier of the item
+     * @return DirectoryObjectItemRequestBuilder
+    */
+    public function byDirectoryObjectId(string $directoryObjectId): DirectoryObjectItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['directoryObject%2Did'] = $directoryObjectId;
+        return new DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new RegisteredUsersRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

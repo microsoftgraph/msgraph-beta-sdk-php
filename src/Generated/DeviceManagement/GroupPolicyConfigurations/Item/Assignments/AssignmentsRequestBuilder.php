@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\Assignments\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\Assignments\Item\GroupPolicyConfigurationAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyConfigurationAssignment;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyConfigurationAssignmentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AssignmentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.groupPolicyConfiguration entity.
+     * @param string $groupPolicyConfigurationAssignmentId Unique identifier of the item
+     * @return GroupPolicyConfigurationAssignmentItemRequestBuilder
+    */
+    public function byGroupPolicyConfigurationAssignmentId(string $groupPolicyConfigurationAssignmentId): GroupPolicyConfigurationAssignmentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['groupPolicyConfigurationAssignment%2Did'] = $groupPolicyConfigurationAssignmentId;
+        return new GroupPolicyConfigurationAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AssignmentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

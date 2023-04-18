@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\Item\GroupAssignments\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\Item\GroupAssignments\Item\TermsAndConditionsGroupAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TermsAndConditionsGroupAssignment;
 use Microsoft\Graph\Beta\Generated\Models\TermsAndConditionsGroupAssignmentCollectionResponse;
@@ -43,6 +44,17 @@ class GroupAssignmentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the groupAssignments property of the microsoft.graph.termsAndConditions entity.
+     * @param string $termsAndConditionsGroupAssignmentId Unique identifier of the item
+     * @return TermsAndConditionsGroupAssignmentItemRequestBuilder
+    */
+    public function byTermsAndConditionsGroupAssignmentId(string $termsAndConditionsGroupAssignmentId): TermsAndConditionsGroupAssignmentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['termsAndConditionsGroupAssignment%2Did'] = $termsAndConditionsGroupAssignmentId;
+        return new TermsAndConditionsGroupAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new GroupAssignmentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

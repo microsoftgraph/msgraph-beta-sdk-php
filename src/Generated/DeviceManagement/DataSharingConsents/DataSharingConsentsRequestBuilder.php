@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DataSharingConsents\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DataSharingConsents\Item\DataSharingConsentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DataSharingConsent;
 use Microsoft\Graph\Beta\Generated\Models\DataSharingConsentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class DataSharingConsentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the dataSharingConsents property of the microsoft.graph.deviceManagement entity.
+     * @param string $dataSharingConsentId Unique identifier of the item
+     * @return DataSharingConsentItemRequestBuilder
+    */
+    public function byDataSharingConsentId(string $dataSharingConsentId): DataSharingConsentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['dataSharingConsent%2Did'] = $dataSharingConsentId;
+        return new DataSharingConsentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DataSharingConsentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

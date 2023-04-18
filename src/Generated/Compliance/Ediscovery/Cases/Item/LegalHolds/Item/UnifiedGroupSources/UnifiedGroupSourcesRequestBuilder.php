@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\UnifiedGroupSources\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\UnifiedGroupSources\Item\UnifiedGroupSourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\UnifiedGroupSource;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\UnifiedGroupSourceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class UnifiedGroupSourcesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the unifiedGroupSources property of the microsoft.graph.ediscovery.legalHold entity.
+     * @param string $unifiedGroupSourceId Unique identifier of the item
+     * @return UnifiedGroupSourceItemRequestBuilder
+    */
+    public function byUnifiedGroupSourceId(string $unifiedGroupSourceId): UnifiedGroupSourceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['unifiedGroupSource%2Did'] = $unifiedGroupSourceId;
+        return new UnifiedGroupSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UnifiedGroupSourcesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

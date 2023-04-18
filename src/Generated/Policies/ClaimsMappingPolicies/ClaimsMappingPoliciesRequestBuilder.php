@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ClaimsMappingPolicy;
 use Microsoft\Graph\Beta\Generated\Models\ClaimsMappingPolicyCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Policies\ClaimsMappingPolicies\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Policies\ClaimsMappingPolicies\Item\ClaimsMappingPolicyItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class ClaimsMappingPoliciesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.policyRoot entity.
+     * @param string $claimsMappingPolicyId Unique identifier of the item
+     * @return ClaimsMappingPolicyItemRequestBuilder
+    */
+    public function byClaimsMappingPolicyId(string $claimsMappingPolicyId): ClaimsMappingPolicyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['claimsMappingPolicy%2Did'] = $claimsMappingPolicyId;
+        return new ClaimsMappingPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ClaimsMappingPoliciesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

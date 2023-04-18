@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PlannerRoster;
 use Microsoft\Graph\Beta\Generated\Models\PlannerRosterCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Planner\Rosters\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Planner\Rosters\Item\PlannerRosterItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class RostersRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the rosters property of the microsoft.graph.planner entity.
+     * @param string $plannerRosterId Unique identifier of the item
+     * @return PlannerRosterItemRequestBuilder
+    */
+    public function byPlannerRosterId(string $plannerRosterId): PlannerRosterItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['plannerRoster%2Did'] = $plannerRosterId;
+        return new PlannerRosterItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new RostersRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

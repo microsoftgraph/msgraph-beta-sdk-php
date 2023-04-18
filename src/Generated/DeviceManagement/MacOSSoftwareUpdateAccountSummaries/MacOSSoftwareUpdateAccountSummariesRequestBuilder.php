@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MacOSSoftwareUpdateAccountSummaries\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MacOSSoftwareUpdateAccountSummaries\Item\MacOSSoftwareUpdateAccountSummaryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MacOSSoftwareUpdateAccountSummary;
 use Microsoft\Graph\Beta\Generated\Models\MacOSSoftwareUpdateAccountSummaryCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class MacOSSoftwareUpdateAccountSummariesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the macOSSoftwareUpdateAccountSummaries property of the microsoft.graph.deviceManagement entity.
+     * @param string $macOSSoftwareUpdateAccountSummaryId Unique identifier of the item
+     * @return MacOSSoftwareUpdateAccountSummaryItemRequestBuilder
+    */
+    public function byMacOSSoftwareUpdateAccountSummaryId(string $macOSSoftwareUpdateAccountSummaryId): MacOSSoftwareUpdateAccountSummaryItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['macOSSoftwareUpdateAccountSummary%2Did'] = $macOSSoftwareUpdateAccountSummaryId;
+        return new MacOSSoftwareUpdateAccountSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new MacOSSoftwareUpdateAccountSummariesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

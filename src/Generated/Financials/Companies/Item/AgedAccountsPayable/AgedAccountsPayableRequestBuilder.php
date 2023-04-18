@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\AgedAccountsPayable\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\AgedAccountsPayable\Item\AgedAccountsPayableItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AgedAccountsPayableCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -42,6 +43,17 @@ class AgedAccountsPayableRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the agedAccountsPayable property of the microsoft.graph.company entity.
+     * @param string $agedAccountsPayableId Unique identifier of the item
+     * @return AgedAccountsPayableItemRequestBuilder
+    */
+    public function byAgedAccountsPayableId(string $agedAccountsPayableId): AgedAccountsPayableItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['agedAccountsPayable%2Did'] = $agedAccountsPayableId;
+        return new AgedAccountsPayableItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AgedAccountsPayableRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -7,15 +7,12 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\InformationProtection\Bitlocker\BitlockerRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\InformationProtection\DataLossPreventionPolicies\DataLossPreventionPoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\InformationProtection\DataLossPreventionPolicies\Item\DataLossPreventionPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\InformationProtection\DecryptBuffer\DecryptBufferRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\InformationProtection\EncryptBuffer\EncryptBufferRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\InformationProtection\Policy\PolicyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\InformationProtection\SensitivityLabels\Item\SensitivityLabelItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\InformationProtection\SensitivityLabels\SensitivityLabelsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\InformationProtection\SensitivityPolicySettings\SensitivityPolicySettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\InformationProtection\SignDigest\SignDigestRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\InformationProtection\ThreatAssessmentRequests\Item\ThreatAssessmentRequestItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\InformationProtection\ThreatAssessmentRequests\ThreatAssessmentRequestsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\InformationProtection\VerifySignature\VerifySignatureRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\InformationProtection;
@@ -133,17 +130,6 @@ class InformationProtectionRequestBuilder
     }
 
     /**
-     * Provides operations to manage the dataLossPreventionPolicies property of the microsoft.graph.informationProtection entity.
-     * @param string $id Unique identifier of the item
-     * @return DataLossPreventionPolicyItemRequestBuilder
-    */
-    public function dataLossPreventionPoliciesById(string $id): DataLossPreventionPolicyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['dataLossPreventionPolicy%2Did'] = $id;
-        return new DataLossPreventionPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Delete navigation property informationProtection for me
      * @param InformationProtectionRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -196,28 +182,6 @@ class InformationProtectionRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the sensitivityLabels property of the microsoft.graph.informationProtection entity.
-     * @param string $id Unique identifier of the item
-     * @return SensitivityLabelItemRequestBuilder
-    */
-    public function sensitivityLabelsById(string $id): SensitivityLabelItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['sensitivityLabel%2Did'] = $id;
-        return new SensitivityLabelItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity.
-     * @param string $id Unique identifier of the item
-     * @return ThreatAssessmentRequestItemRequestBuilder
-    */
-    public function threatAssessmentRequestsById(string $id): ThreatAssessmentRequestItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['threatAssessmentRequest%2Did'] = $id;
-        return new ThreatAssessmentRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Journals\Item\Account\AccountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Journals\Item\JournalLines\Item\JournalLineItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Journals\Item\JournalLines\JournalLinesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Journals\Item\Post\PostRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Journal;
@@ -108,17 +107,6 @@ class JournalItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the journalLines property of the microsoft.graph.journal entity.
-     * @param string $id Unique identifier of the item
-     * @return JournalLineItemRequestBuilder
-    */
-    public function journalLinesById(string $id): JournalLineItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['journalLine%2Did'] = $id;
-        return new JournalLineItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

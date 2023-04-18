@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\MyRole;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\MyRoleCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\MyRoles\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\MyRoles\Item\MyRoleTenantItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class MyRolesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the myRoles property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $myRoleTenantId Unique identifier of the item
+     * @return MyRoleTenantItemRequestBuilder
+    */
+    public function byMyRoleTenantId(string $myRoleTenantId): MyRoleTenantItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['myRole%2DtenantId'] = $myRoleTenantId;
+        return new MyRoleTenantItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new MyRolesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

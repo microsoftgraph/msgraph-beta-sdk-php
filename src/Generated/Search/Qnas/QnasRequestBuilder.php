@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Search\Qna;
 use Microsoft\Graph\Beta\Generated\Models\Search\QnaCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Search\Qnas\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Search\Qnas\Item\QnaItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class QnasRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the qnas property of the microsoft.graph.searchEntity entity.
+     * @param string $qnaId Unique identifier of the item
+     * @return QnaItemRequestBuilder
+    */
+    public function byQnaId(string $qnaId): QnaItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['qna%2Did'] = $qnaId;
+        return new QnaItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new QnasRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatePolicies\Item\ComplianceChanges\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatePolicies\Item\ComplianceChanges\Item\ComplianceChangeItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\ComplianceChange;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\ComplianceChangeCollectionResponse;
@@ -43,6 +44,17 @@ class ComplianceChangesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the complianceChanges property of the microsoft.graph.windowsUpdates.updatePolicy entity.
+     * @param string $complianceChangeId Unique identifier of the item
+     * @return ComplianceChangeItemRequestBuilder
+    */
+    public function byComplianceChangeId(string $complianceChangeId): ComplianceChangeItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['complianceChange%2Did'] = $complianceChangeId;
+        return new ComplianceChangeItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ComplianceChangesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

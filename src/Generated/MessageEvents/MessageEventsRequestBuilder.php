@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\MessageEvents\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\MessageEvents\Item\MessageEventItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MessageEvent;
 use Microsoft\Graph\Beta\Generated\Models\MessageEventCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class MessageEventsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the collection of messageEvent entities.
+     * @param string $messageEventId Unique identifier of the item
+     * @return MessageEventItemRequestBuilder
+    */
+    public function byMessageEventId(string $messageEventId): MessageEventItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['messageEvent%2Did'] = $messageEventId;
+        return new MessageEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new MessageEventsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

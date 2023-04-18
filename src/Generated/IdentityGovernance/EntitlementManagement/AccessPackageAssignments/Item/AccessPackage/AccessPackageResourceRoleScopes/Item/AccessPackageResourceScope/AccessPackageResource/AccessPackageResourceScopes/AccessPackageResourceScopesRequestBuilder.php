@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackage\AccessPackageResourceRoleScopes\Item\AccessPackageResourceScope\AccessPackageResource\AccessPackageResourceScopes\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackage\AccessPackageResourceRoleScopes\Item\AccessPackageResourceScope\AccessPackageResource\AccessPackageResourceScopes\Item\AccessPackageResourceScopeItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessPackageResourceScope;
 use Microsoft\Graph\Beta\Generated\Models\AccessPackageResourceScopeCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AccessPackageResourceScopesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the accessPackageResourceScopes property of the microsoft.graph.accessPackageResource entity.
+     * @param string $accessPackageResourceScopeId Unique identifier of the item
+     * @return AccessPackageResourceScopeItemRequestBuilder
+    */
+    public function byAccessPackageResourceScopeId(string $accessPackageResourceScopeId): AccessPackageResourceScopeItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['accessPackageResourceScope%2Did'] = $accessPackageResourceScopeId;
+        return new AccessPackageResourceScopeItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AccessPackageResourceScopesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

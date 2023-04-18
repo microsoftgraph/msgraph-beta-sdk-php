@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidDeviceOwnerEnrollmentProfiles\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidDeviceOwnerEnrollmentProfiles\Item\AndroidDeviceOwnerEnrollmentProfileItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AndroidDeviceOwnerEnrollmentProfile;
 use Microsoft\Graph\Beta\Generated\Models\AndroidDeviceOwnerEnrollmentProfileCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AndroidDeviceOwnerEnrollmentProfilesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the androidDeviceOwnerEnrollmentProfiles property of the microsoft.graph.deviceManagement entity.
+     * @param string $androidDeviceOwnerEnrollmentProfileId Unique identifier of the item
+     * @return AndroidDeviceOwnerEnrollmentProfileItemRequestBuilder
+    */
+    public function byAndroidDeviceOwnerEnrollmentProfileId(string $androidDeviceOwnerEnrollmentProfileId): AndroidDeviceOwnerEnrollmentProfileItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['androidDeviceOwnerEnrollmentProfile%2Did'] = $androidDeviceOwnerEnrollmentProfileId;
+        return new AndroidDeviceOwnerEnrollmentProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AndroidDeviceOwnerEnrollmentProfilesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

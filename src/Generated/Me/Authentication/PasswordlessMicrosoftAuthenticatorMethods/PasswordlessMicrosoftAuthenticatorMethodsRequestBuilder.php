@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Item\PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PasswordlessMicrosoftAuthenticatorAuthenticationMethodCollectionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -42,6 +43,17 @@ class PasswordlessMicrosoftAuthenticatorMethodsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the passwordlessMicrosoftAuthenticatorMethods property of the microsoft.graph.authentication entity.
+     * @param string $passwordlessMicrosoftAuthenticatorAuthenticationMethodId Unique identifier of the item
+     * @return PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder
+    */
+    public function byPasswordlessMicrosoftAuthenticatorAuthenticationMethodId(string $passwordlessMicrosoftAuthenticatorAuthenticationMethodId): PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['passwordlessMicrosoftAuthenticatorAuthenticationMethod%2Did'] = $passwordlessMicrosoftAuthenticatorAuthenticationMethodId;
+        return new PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PasswordlessMicrosoftAuthenticatorMethodsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

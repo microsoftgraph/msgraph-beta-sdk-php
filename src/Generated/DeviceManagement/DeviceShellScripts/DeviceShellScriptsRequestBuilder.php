@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceShellScripts\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceShellScripts\Item\DeviceShellScriptItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceShellScript;
 use Microsoft\Graph\Beta\Generated\Models\DeviceShellScriptCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class DeviceShellScriptsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the deviceShellScripts property of the microsoft.graph.deviceManagement entity.
+     * @param string $deviceShellScriptId Unique identifier of the item
+     * @return DeviceShellScriptItemRequestBuilder
+    */
+    public function byDeviceShellScriptId(string $deviceShellScriptId): DeviceShellScriptItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceShellScript%2Did'] = $deviceShellScriptId;
+        return new DeviceShellScriptItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DeviceShellScriptsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

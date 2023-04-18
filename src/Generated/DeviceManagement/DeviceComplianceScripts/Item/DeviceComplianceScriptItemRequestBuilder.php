@@ -7,9 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceComplianceScripts\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceComplianceScripts\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceComplianceScripts\Item\Assignments\Item\DeviceHealthScriptAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceComplianceScripts\Item\DeviceRunStates\DeviceRunStatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceComplianceScripts\Item\DeviceRunStates\Item\DeviceComplianceScriptDeviceStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceComplianceScripts\Item\RunSummary\RunSummaryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceComplianceScript;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -69,17 +67,6 @@ class DeviceComplianceScriptItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Provides operations to manage the assignments property of the microsoft.graph.deviceComplianceScript entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceHealthScriptAssignmentItemRequestBuilder
-    */
-    public function assignmentsById(string $id): DeviceHealthScriptAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceHealthScriptAssignment%2Did'] = $id;
-        return new DeviceHealthScriptAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new DeviceComplianceScriptItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -110,17 +97,6 @@ class DeviceComplianceScriptItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the deviceRunStates property of the microsoft.graph.deviceComplianceScript entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceComplianceScriptDeviceStateItemRequestBuilder
-    */
-    public function deviceRunStatesById(string $id): DeviceComplianceScriptDeviceStateItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceComplianceScriptDeviceState%2Did'] = $id;
-        return new DeviceComplianceScriptDeviceStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

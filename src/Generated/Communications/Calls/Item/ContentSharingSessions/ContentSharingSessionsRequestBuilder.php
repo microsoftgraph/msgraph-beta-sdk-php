@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Communications\Calls\Item\ContentSharingSessions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\Calls\Item\ContentSharingSessions\Item\ContentSharingSessionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ContentSharingSession;
 use Microsoft\Graph\Beta\Generated\Models\ContentSharingSessionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class ContentSharingSessionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the contentSharingSessions property of the microsoft.graph.call entity.
+     * @param string $contentSharingSessionId Unique identifier of the item
+     * @return ContentSharingSessionItemRequestBuilder
+    */
+    public function byContentSharingSessionId(string $contentSharingSessionId): ContentSharingSessionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['contentSharingSession%2Did'] = $contentSharingSessionId;
+        return new ContentSharingSessionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ContentSharingSessionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

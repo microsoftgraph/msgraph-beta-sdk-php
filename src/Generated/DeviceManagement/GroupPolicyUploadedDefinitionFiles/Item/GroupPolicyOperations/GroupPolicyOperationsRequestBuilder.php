@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyUploadedDefinitionFiles\Item\GroupPolicyOperations\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyUploadedDefinitionFiles\Item\GroupPolicyOperations\Item\GroupPolicyOperationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyOperation;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyOperationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class GroupPolicyOperationsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the groupPolicyOperations property of the microsoft.graph.groupPolicyUploadedDefinitionFile entity.
+     * @param string $groupPolicyOperationId Unique identifier of the item
+     * @return GroupPolicyOperationItemRequestBuilder
+    */
+    public function byGroupPolicyOperationId(string $groupPolicyOperationId): GroupPolicyOperationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['groupPolicyOperation%2Did'] = $groupPolicyOperationId;
+        return new GroupPolicyOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new GroupPolicyOperationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

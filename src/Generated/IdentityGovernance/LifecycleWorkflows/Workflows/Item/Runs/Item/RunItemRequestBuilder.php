@@ -5,9 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\W
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\Runs\Item\TaskProcessingResults\Item\TaskProcessingResultItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\Runs\Item\TaskProcessingResults\TaskProcessingResultsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\Runs\Item\UserProcessingResults\Item\UserProcessingResultItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\Runs\Item\UserProcessingResults\UserProcessingResultsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\Run;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -86,17 +84,6 @@ class RunItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the taskProcessingResults property of the microsoft.graph.identityGovernance.run entity.
-     * @param string $id Unique identifier of the item
-     * @return TaskProcessingResultItemRequestBuilder
-    */
-    public function taskProcessingResultsById(string $id): TaskProcessingResultItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['taskProcessingResult%2Did'] = $id;
-        return new TaskProcessingResultItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Workflow runs.
      * @param RunItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -119,17 +106,6 @@ class RunItemRequestBuilder
             }
         }
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the userProcessingResults property of the microsoft.graph.identityGovernance.run entity.
-     * @param string $id Unique identifier of the item
-     * @return UserProcessingResultItemRequestBuilder
-    */
-    public function userProcessingResultsById(string $id): UserProcessingResultItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['userProcessingResult%2Did'] = $id;
-        return new UserProcessingResultItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

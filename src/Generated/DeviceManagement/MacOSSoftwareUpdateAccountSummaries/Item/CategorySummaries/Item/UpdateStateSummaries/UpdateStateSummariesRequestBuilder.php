@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MacOSSoftwareUpdateAccountSummaries\Item\CategorySummaries\Item\UpdateStateSummaries\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MacOSSoftwareUpdateAccountSummaries\Item\CategorySummaries\Item\UpdateStateSummaries\Item\MacOSSoftwareUpdateStateSummaryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MacOSSoftwareUpdateStateSummary;
 use Microsoft\Graph\Beta\Generated\Models\MacOSSoftwareUpdateStateSummaryCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class UpdateStateSummariesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the updateStateSummaries property of the microsoft.graph.macOSSoftwareUpdateCategorySummary entity.
+     * @param string $macOSSoftwareUpdateStateSummaryId Unique identifier of the item
+     * @return MacOSSoftwareUpdateStateSummaryItemRequestBuilder
+    */
+    public function byMacOSSoftwareUpdateStateSummaryId(string $macOSSoftwareUpdateStateSummaryId): MacOSSoftwareUpdateStateSummaryItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['macOSSoftwareUpdateStateSummary%2Did'] = $macOSSoftwareUpdateStateSummaryId;
+        return new MacOSSoftwareUpdateStateSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UpdateStateSummariesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

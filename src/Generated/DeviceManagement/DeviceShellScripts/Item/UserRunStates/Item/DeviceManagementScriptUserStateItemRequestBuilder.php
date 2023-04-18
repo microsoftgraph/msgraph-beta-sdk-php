@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceShellScripts\Item\UserRunStates\Item\DeviceRunStates\DeviceRunStatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceShellScripts\Item\UserRunStates\Item\DeviceRunStates\Item\DeviceManagementScriptDeviceStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementScriptUserState;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -74,17 +73,6 @@ class DeviceManagementScriptUserStateItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the deviceRunStates property of the microsoft.graph.deviceManagementScriptUserState entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceManagementScriptDeviceStateItemRequestBuilder
-    */
-    public function deviceRunStatesById(string $id): DeviceManagementScriptDeviceStateItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceManagementScriptDeviceState%2Did'] = $id;
-        return new DeviceManagementScriptDeviceStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

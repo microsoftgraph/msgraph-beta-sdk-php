@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\FileThreatSubmission;
 use Microsoft\Graph\Beta\Generated\Models\Security\FileThreatSubmissionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\ThreatSubmission\FileThreats\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\ThreatSubmission\FileThreats\Item\FileThreatSubmissionItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class FileThreatsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the fileThreats property of the microsoft.graph.security.threatSubmissionRoot entity.
+     * @param string $fileThreatSubmissionId Unique identifier of the item
+     * @return FileThreatSubmissionItemRequestBuilder
+    */
+    public function byFileThreatSubmissionId(string $fileThreatSubmissionId): FileThreatSubmissionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['fileThreatSubmission%2Did'] = $fileThreatSubmissionId;
+        return new FileThreatSubmissionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new FileThreatsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Profile\Awards\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Profile\Awards\Item\PersonAwardItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PersonAward;
 use Microsoft\Graph\Beta\Generated\Models\PersonAwardCollectionResponse;
@@ -43,6 +44,17 @@ class AwardsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the awards property of the microsoft.graph.profile entity.
+     * @param string $personAwardId Unique identifier of the item
+     * @return PersonAwardItemRequestBuilder
+    */
+    public function byPersonAwardId(string $personAwardId): PersonAwardItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['personAward%2Did'] = $personAwardId;
+        return new PersonAwardItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AwardsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

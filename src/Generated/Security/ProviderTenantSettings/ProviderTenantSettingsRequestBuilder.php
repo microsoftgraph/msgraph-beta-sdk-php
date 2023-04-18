@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\ProviderTenantSetting;
 use Microsoft\Graph\Beta\Generated\Models\ProviderTenantSettingCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\ProviderTenantSettings\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\ProviderTenantSettings\Item\ProviderTenantSettingItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class ProviderTenantSettingsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the providerTenantSettings property of the microsoft.graph.security entity.
+     * @param string $providerTenantSettingId Unique identifier of the item
+     * @return ProviderTenantSettingItemRequestBuilder
+    */
+    public function byProviderTenantSettingId(string $providerTenantSettingId): ProviderTenantSettingItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['providerTenantSetting%2Did'] = $providerTenantSettingId;
+        return new ProviderTenantSettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ProviderTenantSettingsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

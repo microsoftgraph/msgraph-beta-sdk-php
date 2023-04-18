@@ -8,11 +8,9 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\DefaultIosEnrollmentProfile\DefaultIosEnrollmentProfileRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\DefaultMacOsEnrollmentProfile\DefaultMacOsEnrollmentProfileRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\EnrollmentProfiles\EnrollmentProfilesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\EnrollmentProfiles\Item\EnrollmentProfileItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\GenerateEncryptionPublicKey\GenerateEncryptionPublicKeyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\GetEncryptionPublicKey\GetEncryptionPublicKeyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\ImportedAppleDeviceIdentities\ImportedAppleDeviceIdentitiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\ImportedAppleDeviceIdentities\Item\ImportedAppleDeviceIdentityItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\ShareForSchoolDataSyncService\ShareForSchoolDataSyncServiceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\SyncWithAppleDeviceEnrollmentProgram\SyncWithAppleDeviceEnrollmentProgramRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\UnshareForSchoolDataSyncService\UnshareForSchoolDataSyncServiceRequestBuilder;
@@ -150,17 +148,6 @@ class DepOnboardingSettingItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the enrollmentProfiles property of the microsoft.graph.depOnboardingSetting entity.
-     * @param string $id Unique identifier of the item
-     * @return EnrollmentProfileItemRequestBuilder
-    */
-    public function enrollmentProfilesById(string $id): EnrollmentProfileItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['enrollmentProfile%2Did'] = $id;
-        return new EnrollmentProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * This collections of multiple DEP tokens per-tenant.
      * @param DepOnboardingSettingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -176,17 +163,6 @@ class DepOnboardingSettingItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the importedAppleDeviceIdentities property of the microsoft.graph.depOnboardingSetting entity.
-     * @param string $id Unique identifier of the item
-     * @return ImportedAppleDeviceIdentityItemRequestBuilder
-    */
-    public function importedAppleDeviceIdentitiesById(string $id): ImportedAppleDeviceIdentityItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['importedAppleDeviceIdentity%2Did'] = $id;
-        return new ImportedAppleDeviceIdentityItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

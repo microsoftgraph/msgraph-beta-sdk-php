@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationConflictSummary\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationConflictSummary\Item\DeviceConfigurationConflictSummaryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceConfigurationConflictSummary;
 use Microsoft\Graph\Beta\Generated\Models\DeviceConfigurationConflictSummaryCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class DeviceConfigurationConflictSummaryRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the deviceConfigurationConflictSummary property of the microsoft.graph.deviceManagement entity.
+     * @param string $deviceConfigurationConflictSummaryId Unique identifier of the item
+     * @return DeviceConfigurationConflictSummaryItemRequestBuilder
+    */
+    public function byDeviceConfigurationConflictSummaryId(string $deviceConfigurationConflictSummaryId): DeviceConfigurationConflictSummaryItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceConfigurationConflictSummary%2Did'] = $deviceConfigurationConflictSummaryId;
+        return new DeviceConfigurationConflictSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DeviceConfigurationConflictSummaryRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

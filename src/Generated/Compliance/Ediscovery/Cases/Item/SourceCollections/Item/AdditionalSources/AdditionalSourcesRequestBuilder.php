@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\AdditionalSources\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\AdditionalSources\Item\DataSourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSource;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\DataSourceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AdditionalSourcesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the additionalSources property of the microsoft.graph.ediscovery.sourceCollection entity.
+     * @param string $dataSourceId Unique identifier of the item
+     * @return DataSourceItemRequestBuilder
+    */
+    public function byDataSourceId(string $dataSourceId): DataSourceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['dataSource%2Did'] = $dataSourceId;
+        return new DataSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AdditionalSourcesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

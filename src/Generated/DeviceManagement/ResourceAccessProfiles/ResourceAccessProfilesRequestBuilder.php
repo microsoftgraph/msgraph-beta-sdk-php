@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ResourceAccessProfiles\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ResourceAccessProfiles\Item\DeviceManagementResourceAccessProfileBaseItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ResourceAccessProfiles\QueryByPlatformType\QueryByPlatformTypeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementResourceAccessProfileBase;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementResourceAccessProfileBaseCollectionResponse;
@@ -51,6 +52,17 @@ class ResourceAccessProfilesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the resourceAccessProfiles property of the microsoft.graph.deviceManagement entity.
+     * @param string $deviceManagementResourceAccessProfileBaseId Unique identifier of the item
+     * @return DeviceManagementResourceAccessProfileBaseItemRequestBuilder
+    */
+    public function byDeviceManagementResourceAccessProfileBaseId(string $deviceManagementResourceAccessProfileBaseId): DeviceManagementResourceAccessProfileBaseItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceManagementResourceAccessProfileBase%2Did'] = $deviceManagementResourceAccessProfileBaseId;
+        return new DeviceManagementResourceAccessProfileBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ResourceAccessProfilesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

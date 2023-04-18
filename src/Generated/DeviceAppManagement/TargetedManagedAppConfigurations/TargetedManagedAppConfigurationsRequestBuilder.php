@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\TargetedManagedAppConfigurations\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\TargetedManagedAppConfigurations\HasPayloadLinks\HasPayloadLinksRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\TargetedManagedAppConfigurations\Item\TargetedManagedAppConfigurationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TargetedManagedAppConfiguration;
 use Microsoft\Graph\Beta\Generated\Models\TargetedManagedAppConfigurationCollectionResponse;
@@ -51,6 +52,17 @@ class TargetedManagedAppConfigurationsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the targetedManagedAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
+     * @param string $targetedManagedAppConfigurationId Unique identifier of the item
+     * @return TargetedManagedAppConfigurationItemRequestBuilder
+    */
+    public function byTargetedManagedAppConfigurationId(string $targetedManagedAppConfigurationId): TargetedManagedAppConfigurationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['targetedManagedAppConfiguration%2Did'] = $targetedManagedAppConfigurationId;
+        return new TargetedManagedAppConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new TargetedManagedAppConfigurationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

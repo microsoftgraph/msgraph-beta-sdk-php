@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegedRoleAssignmentRequest;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegedRoleAssignmentRequestCollectionResponse;
 use Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignmentRequests\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignmentRequests\Item\PrivilegedRoleAssignmentRequestItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignmentRequests\My\MyRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -51,6 +52,17 @@ class PrivilegedRoleAssignmentRequestsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the collection of privilegedRoleAssignmentRequest entities.
+     * @param string $privilegedRoleAssignmentRequestId Unique identifier of the item
+     * @return PrivilegedRoleAssignmentRequestItemRequestBuilder
+    */
+    public function byPrivilegedRoleAssignmentRequestId(string $privilegedRoleAssignmentRequestId): PrivilegedRoleAssignmentRequestItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['privilegedRoleAssignmentRequest%2Did'] = $privilegedRoleAssignmentRequestId;
+        return new PrivilegedRoleAssignmentRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PrivilegedRoleAssignmentRequestsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

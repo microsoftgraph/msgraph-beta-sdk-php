@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SecurityBaselineSettingState;
 use Microsoft\Graph\Beta\Generated\Models\SecurityBaselineSettingStateCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\SecurityBaselineStates\Item\SettingStates\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\SecurityBaselineStates\Item\SettingStates\Item\SecurityBaselineSettingStateItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class SettingStatesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the settingStates property of the microsoft.graph.securityBaselineState entity.
+     * @param string $securityBaselineSettingStateId Unique identifier of the item
+     * @return SecurityBaselineSettingStateItemRequestBuilder
+    */
+    public function bySecurityBaselineSettingStateId(string $securityBaselineSettingStateId): SecurityBaselineSettingStateItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['securityBaselineSettingState%2Did'] = $securityBaselineSettingStateId;
+        return new SecurityBaselineSettingStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SettingStatesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

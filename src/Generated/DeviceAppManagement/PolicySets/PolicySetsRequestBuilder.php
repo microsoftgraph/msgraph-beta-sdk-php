@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\PolicySets\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\PolicySets\GetPolicySets\GetPolicySetsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\PolicySets\Item\PolicySetItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PolicySet;
 use Microsoft\Graph\Beta\Generated\Models\PolicySetCollectionResponse;
@@ -51,6 +52,17 @@ class PolicySetsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the policySets property of the microsoft.graph.deviceAppManagement entity.
+     * @param string $policySetId Unique identifier of the item
+     * @return PolicySetItemRequestBuilder
+    */
+    public function byPolicySetId(string $policySetId): PolicySetItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['policySet%2Did'] = $policySetId;
+        return new PolicySetItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PolicySetsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

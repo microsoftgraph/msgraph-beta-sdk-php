@@ -6,11 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Decisions\DecisionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Decisions\Item\AccessReviewInstanceDecisionItemItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Definitions\DefinitionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Definitions\Item\AccessReviewScheduleDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\HistoryDefinitions\HistoryDefinitionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\HistoryDefinitions\Item\AccessReviewHistoryDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Policy\PolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessReviewSet;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -85,28 +82,6 @@ class AccessReviewsRequestBuilder
     }
 
     /**
-     * Provides operations to manage the decisions property of the microsoft.graph.accessReviewSet entity.
-     * @param string $id Unique identifier of the item
-     * @return AccessReviewInstanceDecisionItemItemRequestBuilder
-    */
-    public function decisionsById(string $id): AccessReviewInstanceDecisionItemItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['accessReviewInstanceDecisionItem%2Did'] = $id;
-        return new AccessReviewInstanceDecisionItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity.
-     * @param string $id Unique identifier of the item
-     * @return AccessReviewScheduleDefinitionItemRequestBuilder
-    */
-    public function definitionsById(string $id): AccessReviewScheduleDefinitionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['accessReviewScheduleDefinition%2Did'] = $id;
-        return new AccessReviewScheduleDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Delete navigation property accessReviews for identityGovernance
      * @param AccessReviewsRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -140,17 +115,6 @@ class AccessReviewsRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the historyDefinitions property of the microsoft.graph.accessReviewSet entity.
-     * @param string $id Unique identifier of the item
-     * @return AccessReviewHistoryDefinitionItemRequestBuilder
-    */
-    public function historyDefinitionsById(string $id): AccessReviewHistoryDefinitionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['accessReviewHistoryDefinition%2Did'] = $id;
-        return new AccessReviewHistoryDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

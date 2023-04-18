@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\Item\ManagedDeviceMobileAppConfigurationStates\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\Item\ManagedDeviceMobileAppConfigurationStates\Item\ManagedDeviceMobileAppConfigurationStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceMobileAppConfigurationState;
 use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceMobileAppConfigurationStateCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class ManagedDeviceMobileAppConfigurationStatesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the managedDeviceMobileAppConfigurationStates property of the microsoft.graph.managedDevice entity.
+     * @param string $managedDeviceMobileAppConfigurationStateId Unique identifier of the item
+     * @return ManagedDeviceMobileAppConfigurationStateItemRequestBuilder
+    */
+    public function byManagedDeviceMobileAppConfigurationStateId(string $managedDeviceMobileAppConfigurationStateId): ManagedDeviceMobileAppConfigurationStateItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managedDeviceMobileAppConfigurationState%2Did'] = $managedDeviceMobileAppConfigurationStateId;
+        return new ManagedDeviceMobileAppConfigurationStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ManagedDeviceMobileAppConfigurationStatesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

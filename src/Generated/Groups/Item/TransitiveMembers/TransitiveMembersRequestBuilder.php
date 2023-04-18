@@ -12,6 +12,7 @@ use Microsoft\Graph\Beta\Generated\Groups\Item\TransitiveMembers\GraphGroup\Grap
 use Microsoft\Graph\Beta\Generated\Groups\Item\TransitiveMembers\GraphOrgContact\GraphOrgContactRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\TransitiveMembers\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\TransitiveMembers\GraphUser\GraphUserRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\TransitiveMembers\Item\DirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DirectoryObjectCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -90,6 +91,17 @@ class TransitiveMembersRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the transitiveMembers property of the microsoft.graph.group entity.
+     * @param string $directoryObjectId Unique identifier of the item
+     * @return DirectoryObjectItemRequestBuilder
+    */
+    public function byDirectoryObjectId(string $directoryObjectId): DirectoryObjectItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['directoryObject%2Did'] = $directoryObjectId;
+        return new DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new TransitiveMembersRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -7,9 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\Assignments\Item\DeviceHealthScriptAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\DeviceRunStates\DeviceRunStatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\DeviceRunStates\Item\DeviceHealthScriptDeviceStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\GetGlobalScriptHighestAvailableVersion\GetGlobalScriptHighestAvailableVersionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\GetRemediationHistory\GetRemediationHistoryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\RunSummary\RunSummaryRequestBuilder;
@@ -93,17 +91,6 @@ class DeviceHealthScriptItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Provides operations to manage the assignments property of the microsoft.graph.deviceHealthScript entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceHealthScriptAssignmentItemRequestBuilder
-    */
-    public function assignmentsById(string $id): DeviceHealthScriptAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceHealthScriptAssignment%2Did'] = $id;
-        return new DeviceHealthScriptAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new DeviceHealthScriptItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -134,17 +121,6 @@ class DeviceHealthScriptItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the deviceRunStates property of the microsoft.graph.deviceHealthScript entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceHealthScriptDeviceStateItemRequestBuilder
-    */
-    public function deviceRunStatesById(string $id): DeviceHealthScriptDeviceStateItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceHealthScriptDeviceState%2Did'] = $id;
-        return new DeviceHealthScriptDeviceStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

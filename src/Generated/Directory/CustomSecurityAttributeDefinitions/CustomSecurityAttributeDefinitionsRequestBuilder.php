@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Directory\CustomSecurityAttributeDefinitions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\CustomSecurityAttributeDefinitions\Item\CustomSecurityAttributeDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CustomSecurityAttributeDefinition;
 use Microsoft\Graph\Beta\Generated\Models\CustomSecurityAttributeDefinitionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class CustomSecurityAttributeDefinitionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity.
+     * @param string $customSecurityAttributeDefinitionId Unique identifier of the item
+     * @return CustomSecurityAttributeDefinitionItemRequestBuilder
+    */
+    public function byCustomSecurityAttributeDefinitionId(string $customSecurityAttributeDefinitionId): CustomSecurityAttributeDefinitionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['customSecurityAttributeDefinition%2Did'] = $customSecurityAttributeDefinitionId;
+        return new CustomSecurityAttributeDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CustomSecurityAttributeDefinitionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\ApplyConfig\ApplyConfigRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\CloudPcProvisioningPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcProvisioningPolicy;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcProvisioningPolicyCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -51,6 +52,17 @@ class ProvisioningPoliciesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the provisioningPolicies property of the microsoft.graph.virtualEndpoint entity.
+     * @param string $cloudPcProvisioningPolicyId Unique identifier of the item
+     * @return CloudPcProvisioningPolicyItemRequestBuilder
+    */
+    public function byCloudPcProvisioningPolicyId(string $cloudPcProvisioningPolicyId): CloudPcProvisioningPolicyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['cloudPcProvisioningPolicy%2Did'] = $cloudPcProvisioningPolicyId;
+        return new CloudPcProvisioningPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ProvisioningPoliciesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

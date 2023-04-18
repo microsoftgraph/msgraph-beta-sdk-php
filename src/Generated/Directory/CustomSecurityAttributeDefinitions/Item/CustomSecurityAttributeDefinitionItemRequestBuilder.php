@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Directory\CustomSecurityAttributeDefinitions\Item\AllowedValues\AllowedValuesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\CustomSecurityAttributeDefinitions\Item\AllowedValues\Item\AllowedValueItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CustomSecurityAttributeDefinition;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -43,17 +42,6 @@ class CustomSecurityAttributeDefinitionItemRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the allowedValues property of the microsoft.graph.customSecurityAttributeDefinition entity.
-     * @param string $id Unique identifier of the item
-     * @return AllowedValueItemRequestBuilder
-    */
-    public function allowedValuesById(string $id): AllowedValueItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['allowedValue%2Did'] = $id;
-        return new AllowedValueItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new CustomSecurityAttributeDefinitionItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

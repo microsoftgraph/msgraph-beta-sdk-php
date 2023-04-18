@@ -8,8 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\OnPremisesAgentGroup;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\AgentGroups\Item\Agents\AgentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\AgentGroups\Item\Agents\Item\OnPremisesAgentItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\AgentGroups\Item\PublishedResources\Item\PublishedResourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\AgentGroups\Item\PublishedResources\PublishedResourcesRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -52,17 +50,6 @@ class OnPremisesAgentGroupItemRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the agents property of the microsoft.graph.onPremisesAgentGroup entity.
-     * @param string $id Unique identifier of the item
-     * @return OnPremisesAgentItemRequestBuilder
-    */
-    public function agentsById(string $id): OnPremisesAgentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['onPremisesAgent%2Did'] = $id;
-        return new OnPremisesAgentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new OnPremisesAgentGroupItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
@@ -131,17 +118,6 @@ class OnPremisesAgentGroupItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the publishedResources property of the microsoft.graph.onPremisesAgentGroup entity.
-     * @param string $id Unique identifier of the item
-     * @return PublishedResourceItemRequestBuilder
-    */
-    public function publishedResourcesById(string $id): PublishedResourceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['publishedResource%2Did'] = $id;
-        return new PublishedResourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

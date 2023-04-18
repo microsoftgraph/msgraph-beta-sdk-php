@@ -8,7 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\MobilityManagementPolicy;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Policies\MobileDeviceManagementPolicies\Item\IncludedGroups\IncludedGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Policies\MobileDeviceManagementPolicies\Item\IncludedGroups\Item\GroupItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -92,17 +91,6 @@ class MobilityManagementPolicyItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.policies.mobileDeviceManagementPolicies.item.includedGroups.item collection
-     * @param string $id Unique identifier of the item
-     * @return GroupItemRequestBuilder
-    */
-    public function includedGroupsById(string $id): GroupItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['group%2Did'] = $id;
-        return new GroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

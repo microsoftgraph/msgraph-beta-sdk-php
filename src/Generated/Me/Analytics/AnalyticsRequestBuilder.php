@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Analytics\ActivityStatistics\ActivityStatisticsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Analytics\ActivityStatistics\Item\ActivityStatisticsItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserAnalytics;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -43,17 +42,6 @@ class AnalyticsRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the activityStatistics property of the microsoft.graph.userAnalytics entity.
-     * @param string $id Unique identifier of the item
-     * @return ActivityStatisticsItemRequestBuilder
-    */
-    public function activityStatisticsById(string $id): ActivityStatisticsItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['activityStatistics%2Did'] = $id;
-        return new ActivityStatisticsItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new AnalyticsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

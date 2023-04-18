@@ -7,9 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TrustFramework;
-use Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item\TrustFrameworkKeySetItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\KeySetsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TrustFramework\Policies\Item\TrustFrameworkPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TrustFramework\Policies\PoliciesRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -86,17 +84,6 @@ class TrustFrameworkRequestBuilder
     }
 
     /**
-     * Provides operations to manage the keySets property of the microsoft.graph.trustFramework entity.
-     * @param string $id Unique identifier of the item
-     * @return TrustFrameworkKeySetItemRequestBuilder
-    */
-    public function keySetsById(string $id): TrustFrameworkKeySetItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['trustFrameworkKeySet%2Did'] = $id;
-        return new TrustFrameworkKeySetItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Update trustFramework
      * @param TrustFramework $body The request body
      * @param TrustFrameworkRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -113,17 +100,6 @@ class TrustFrameworkRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the policies property of the microsoft.graph.trustFramework entity.
-     * @param string $id Unique identifier of the item
-     * @return TrustFrameworkPolicyItemRequestBuilder
-    */
-    public function policiesById(string $id): TrustFrameworkPolicyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['trustFrameworkPolicy%2Did'] = $id;
-        return new TrustFrameworkPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

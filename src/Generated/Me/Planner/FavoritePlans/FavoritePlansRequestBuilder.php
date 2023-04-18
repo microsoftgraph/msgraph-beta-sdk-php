@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Planner\FavoritePlans\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Planner\FavoritePlans\Item\PlannerPlanItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PlannerPlanCollectionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -42,6 +43,17 @@ class FavoritePlansRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the favoritePlans property of the microsoft.graph.plannerUser entity.
+     * @param string $plannerPlanId Unique identifier of the item
+     * @return PlannerPlanItemRequestBuilder
+    */
+    public function byPlannerPlanId(string $plannerPlanId): PlannerPlanItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['plannerPlan%2Did'] = $plannerPlanId;
+        return new PlannerPlanItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new FavoritePlansRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,11 +6,9 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\Categories\CategoriesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\Categories\Item\DeviceManagementTemplateSettingCategoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\CompareWithTemplateId\CompareWithTemplateIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\CreateInstance\CreateInstanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\MigratableTo\MigratableToRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\Settings\Item\DeviceManagementSettingInstanceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\Settings\SettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementTemplate;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -69,17 +67,6 @@ class DeviceManagementTemplateItemRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the categories property of the microsoft.graph.deviceManagementTemplate entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceManagementTemplateSettingCategoryItemRequestBuilder
-    */
-    public function categoriesById(string $id): DeviceManagementTemplateSettingCategoryItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceManagementTemplateSettingCategory%2Did'] = $id;
-        return new DeviceManagementTemplateSettingCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Provides operations to call the compare method.
      * @param string $templateId Usage: templateId='{templateId}'
@@ -141,17 +128,6 @@ class DeviceManagementTemplateItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the migratableTo property of the microsoft.graph.deviceManagementTemplate entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\MigratableTo\Item\DeviceManagementTemplateItemRequestBuilder
-    */
-    public function migratableToById(string $id): \Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\MigratableTo\Item\DeviceManagementTemplateItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceManagementTemplate%2Did1'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\MigratableTo\Item\DeviceManagementTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Update the navigation property templates in deviceManagement
      * @param DeviceManagementTemplate $body The request body
      * @param DeviceManagementTemplateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -168,17 +144,6 @@ class DeviceManagementTemplateItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the settings property of the microsoft.graph.deviceManagementTemplate entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceManagementSettingInstanceItemRequestBuilder
-    */
-    public function settingsById(string $id): DeviceManagementSettingInstanceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceManagementSettingInstance%2Did'] = $id;
-        return new DeviceManagementSettingInstanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

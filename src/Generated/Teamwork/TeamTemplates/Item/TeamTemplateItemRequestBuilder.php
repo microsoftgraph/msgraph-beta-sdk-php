@@ -8,7 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TeamTemplate;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\DefinitionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamTemplateDefinitionItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -56,17 +55,6 @@ class TeamTemplateItemRequestBuilder
         } else {
             $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
         }
-    }
-
-    /**
-     * Provides operations to manage the definitions property of the microsoft.graph.teamTemplate entity.
-     * @param string $id Unique identifier of the item
-     * @return TeamTemplateDefinitionItemRequestBuilder
-    */
-    public function definitionsById(string $id): TeamTemplateDefinitionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['teamTemplateDefinition%2Did'] = $id;
-        return new TeamTemplateDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

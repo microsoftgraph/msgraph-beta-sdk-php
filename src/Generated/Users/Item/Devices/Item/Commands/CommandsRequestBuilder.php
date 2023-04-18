@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\Command;
 use Microsoft\Graph\Beta\Generated\Models\CommandCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\Commands\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\Commands\Item\CommandItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class CommandsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the commands property of the microsoft.graph.device entity.
+     * @param string $commandId Unique identifier of the item
+     * @return CommandItemRequestBuilder
+    */
+    public function byCommandId(string $commandId): CommandItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['command%2Did'] = $commandId;
+        return new CommandItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CommandsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

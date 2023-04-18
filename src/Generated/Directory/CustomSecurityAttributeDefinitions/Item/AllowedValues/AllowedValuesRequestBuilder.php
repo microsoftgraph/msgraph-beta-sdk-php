@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Directory\CustomSecurityAttributeDefinitions\Item\AllowedValues\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\CustomSecurityAttributeDefinitions\Item\AllowedValues\Item\AllowedValueItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AllowedValue;
 use Microsoft\Graph\Beta\Generated\Models\AllowedValueCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AllowedValuesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the allowedValues property of the microsoft.graph.customSecurityAttributeDefinition entity.
+     * @param string $allowedValueId Unique identifier of the item
+     * @return AllowedValueItemRequestBuilder
+    */
+    public function byAllowedValueId(string $allowedValueId): AllowedValueItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['allowedValue%2Did'] = $allowedValueId;
+        return new AllowedValueItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AllowedValuesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

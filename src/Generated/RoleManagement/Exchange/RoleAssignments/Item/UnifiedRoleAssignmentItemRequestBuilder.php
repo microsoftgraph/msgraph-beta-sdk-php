@@ -100,7 +100,7 @@ class UnifiedRoleAssignmentItemRequestBuilder
     }
 
     /**
-     * Get roleAssignments from roleManagement
+     * Resource to grant access to users or groups.
      * @param UnifiedRoleAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -158,7 +158,7 @@ class UnifiedRoleAssignmentItemRequestBuilder
     }
 
     /**
-     * Get roleAssignments from roleManagement
+     * Resource to grant access to users or groups.
      * @param UnifiedRoleAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

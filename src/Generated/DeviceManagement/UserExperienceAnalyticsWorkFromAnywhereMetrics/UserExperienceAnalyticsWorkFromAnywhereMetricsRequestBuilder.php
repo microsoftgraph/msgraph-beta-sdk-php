@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsWorkFromAnywhereMetrics\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsWorkFromAnywhereMetrics\Item\UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsWorkFromAnywhereMetric;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsWorkFromAnywhereMetricCollectionResponse;
@@ -43,6 +44,17 @@ class UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userExperienceAnalyticsWorkFromAnywhereMetrics property of the microsoft.graph.deviceManagement entity.
+     * @param string $userExperienceAnalyticsWorkFromAnywhereMetricId Unique identifier of the item
+     * @return UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilder
+    */
+    public function byUserExperienceAnalyticsWorkFromAnywhereMetricId(string $userExperienceAnalyticsWorkFromAnywhereMetricId): UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userExperienceAnalyticsWorkFromAnywhereMetric%2Did'] = $userExperienceAnalyticsWorkFromAnywhereMetricId;
+        return new UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

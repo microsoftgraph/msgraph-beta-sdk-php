@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsUpdateCatalogItems\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsUpdateCatalogItems\Item\WindowsUpdateCatalogItemItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdateCatalogItem;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdateCatalogItemCollectionResponse;
@@ -43,6 +44,17 @@ class WindowsUpdateCatalogItemsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the windowsUpdateCatalogItems property of the microsoft.graph.deviceManagement entity.
+     * @param string $windowsUpdateCatalogItemId Unique identifier of the item
+     * @return WindowsUpdateCatalogItemItemRequestBuilder
+    */
+    public function byWindowsUpdateCatalogItemId(string $windowsUpdateCatalogItemId): WindowsUpdateCatalogItemItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['windowsUpdateCatalogItem%2Did'] = $windowsUpdateCatalogItemId;
+        return new WindowsUpdateCatalogItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new WindowsUpdateCatalogItemsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

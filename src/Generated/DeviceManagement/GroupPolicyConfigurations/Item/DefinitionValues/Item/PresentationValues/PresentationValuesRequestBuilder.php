@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\DefinitionValues\Item\PresentationValues\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\DefinitionValues\Item\PresentationValues\Item\GroupPolicyPresentationValueItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyPresentationValue;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyPresentationValueCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class PresentationValuesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the presentationValues property of the microsoft.graph.groupPolicyDefinitionValue entity.
+     * @param string $groupPolicyPresentationValueId Unique identifier of the item
+     * @return GroupPolicyPresentationValueItemRequestBuilder
+    */
+    public function byGroupPolicyPresentationValueId(string $groupPolicyPresentationValueId): GroupPolicyPresentationValueItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['groupPolicyPresentationValue%2Did'] = $groupPolicyPresentationValueId;
+        return new GroupPolicyPresentationValueItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PresentationValuesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

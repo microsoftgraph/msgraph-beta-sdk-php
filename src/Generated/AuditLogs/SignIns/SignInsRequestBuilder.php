@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\AuditLogs\SignIns\ConfirmCompromised\ConfirmCompromisedRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\SignIns\ConfirmSafe\ConfirmSafeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\SignIns\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AuditLogs\SignIns\Item\SignInItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SignIn;
 use Microsoft\Graph\Beta\Generated\Models\SignInCollectionResponse;
@@ -59,6 +60,17 @@ class SignInsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity.
+     * @param string $signInId Unique identifier of the item
+     * @return SignInItemRequestBuilder
+    */
+    public function bySignInId(string $signInId): SignInItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['signIn%2Did'] = $signInId;
+        return new SignInItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SignInsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\MultiValueLegacyExtendedProperty;
 use Microsoft\Graph\Beta\Generated\Models\MultiValueLegacyExtendedPropertyCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\ExceptionOccurrences\Item\Instances\Item\MultiValueExtendedProperties\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\ExceptionOccurrences\Item\Instances\Item\MultiValueExtendedProperties\Item\MultiValueLegacyExtendedPropertyItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class MultiValueExtendedPropertiesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.event entity.
+     * @param string $multiValueLegacyExtendedPropertyId Unique identifier of the item
+     * @return MultiValueLegacyExtendedPropertyItemRequestBuilder
+    */
+    public function byMultiValueLegacyExtendedPropertyId(string $multiValueLegacyExtendedPropertyId): MultiValueLegacyExtendedPropertyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['multiValueLegacyExtendedProperty%2Did'] = $multiValueLegacyExtendedPropertyId;
+        return new MultiValueLegacyExtendedPropertyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new MultiValueExtendedPropertiesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

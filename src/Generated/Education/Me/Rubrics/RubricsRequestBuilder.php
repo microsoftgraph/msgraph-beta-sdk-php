@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Education\Me\Rubrics\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Education\Me\Rubrics\Item\EducationRubricItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EducationRubric;
 use Microsoft\Graph\Beta\Generated\Models\EducationRubricCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class RubricsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the rubrics property of the microsoft.graph.educationUser entity.
+     * @param string $educationRubricId Unique identifier of the item
+     * @return EducationRubricItemRequestBuilder
+    */
+    public function byEducationRubricId(string $educationRubricId): EducationRubricItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['educationRubric%2Did'] = $educationRubricId;
+        return new EducationRubricItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new RubricsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

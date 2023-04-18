@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\Categories\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\Categories\Item\DeviceManagementIntentSettingCategoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementIntentSettingCategory;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementIntentSettingCategoryCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class CategoriesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the categories property of the microsoft.graph.deviceManagementIntent entity.
+     * @param string $deviceManagementIntentSettingCategoryId Unique identifier of the item
+     * @return DeviceManagementIntentSettingCategoryItemRequestBuilder
+    */
+    public function byDeviceManagementIntentSettingCategoryId(string $deviceManagementIntentSettingCategoryId): DeviceManagementIntentSettingCategoryItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceManagementIntentSettingCategory%2Did'] = $deviceManagementIntentSettingCategoryId;
+        return new DeviceManagementIntentSettingCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CategoriesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

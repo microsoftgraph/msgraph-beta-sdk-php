@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Conversations\Item\Threads\Item\Posts\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Conversations\Item\Threads\Item\Posts\Item\PostItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PostCollectionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -42,6 +43,17 @@ class PostsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the posts property of the microsoft.graph.conversationThread entity.
+     * @param string $postId Unique identifier of the item
+     * @return PostItemRequestBuilder
+    */
+    public function byPostId(string $postId): PostItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['post%2Did'] = $postId;
+        return new PostItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PostsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

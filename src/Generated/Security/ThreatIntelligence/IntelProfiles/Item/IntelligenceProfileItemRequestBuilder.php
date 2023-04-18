@@ -8,7 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\IntelligenceProfile;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\IntelProfiles\Item\Indicators\IndicatorsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\IntelProfiles\Item\Indicators\Item\IntelligenceProfileIndicatorItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -92,17 +91,6 @@ class IntelligenceProfileItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the indicators property of the microsoft.graph.security.intelligenceProfile entity.
-     * @param string $id Unique identifier of the item
-     * @return IntelligenceProfileIndicatorItemRequestBuilder
-    */
-    public function indicatorsById(string $id): IntelligenceProfileIndicatorItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['intelligenceProfileIndicator%2Did'] = $id;
-        return new IntelligenceProfileIndicatorItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

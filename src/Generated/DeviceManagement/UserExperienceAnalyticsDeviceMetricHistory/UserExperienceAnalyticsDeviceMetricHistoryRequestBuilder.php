@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceMetricHistory\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceMetricHistory\Item\UserExperienceAnalyticsMetricHistoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsMetricHistory;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsMetricHistoryCollectionResponse;
@@ -43,6 +44,17 @@ class UserExperienceAnalyticsDeviceMetricHistoryRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userExperienceAnalyticsDeviceMetricHistory property of the microsoft.graph.deviceManagement entity.
+     * @param string $userExperienceAnalyticsMetricHistoryId Unique identifier of the item
+     * @return UserExperienceAnalyticsMetricHistoryItemRequestBuilder
+    */
+    public function byUserExperienceAnalyticsMetricHistoryId(string $userExperienceAnalyticsMetricHistoryId): UserExperienceAnalyticsMetricHistoryItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userExperienceAnalyticsMetricHistory%2Did'] = $userExperienceAnalyticsMetricHistoryId;
+        return new UserExperienceAnalyticsMetricHistoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserExperienceAnalyticsDeviceMetricHistoryRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

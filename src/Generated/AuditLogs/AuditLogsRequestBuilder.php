@@ -6,10 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\AuditLogs\DirectoryAudits\DirectoryAuditsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AuditLogs\DirectoryAudits\Item\DirectoryAuditItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\DirectoryProvisioning\DirectoryProvisioningRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\Provisioning\ProvisioningRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AuditLogs\SignIns\Item\SignInItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\SignIns\SignInsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AuditLogRoot;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -84,28 +82,6 @@ class AuditLogsRequestBuilder
     }
 
     /**
-     * Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return DirectoryAuditItemRequestBuilder
-    */
-    public function directoryAuditsById(string $id): DirectoryAuditItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryAudit%2Did'] = $id;
-        return new DirectoryAuditItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the directoryProvisioning property of the microsoft.graph.auditLogRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\AuditLogs\DirectoryProvisioning\Item\ProvisioningObjectSummaryItemRequestBuilder
-    */
-    public function directoryProvisioningById(string $id): \Microsoft\Graph\Beta\Generated\AuditLogs\DirectoryProvisioning\Item\ProvisioningObjectSummaryItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['provisioningObjectSummary%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\AuditLogs\DirectoryProvisioning\Item\ProvisioningObjectSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Get auditLogs
      * @param AuditLogsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -140,28 +116,6 @@ class AuditLogsRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the provisioning property of the microsoft.graph.auditLogRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\AuditLogs\Provisioning\Item\ProvisioningObjectSummaryItemRequestBuilder
-    */
-    public function provisioningById(string $id): \Microsoft\Graph\Beta\Generated\AuditLogs\Provisioning\Item\ProvisioningObjectSummaryItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['provisioningObjectSummary%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\AuditLogs\Provisioning\Item\ProvisioningObjectSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return SignInItemRequestBuilder
-    */
-    public function signInsById(string $id): SignInItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['signIn%2Did'] = $id;
-        return new SignInItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

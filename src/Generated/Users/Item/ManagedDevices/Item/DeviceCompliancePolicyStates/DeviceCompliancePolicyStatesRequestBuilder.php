@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\DeviceCompliancePolicyState;
 use Microsoft\Graph\Beta\Generated\Models\DeviceCompliancePolicyStateCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\DeviceCompliancePolicyStates\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\DeviceCompliancePolicyStates\Item\DeviceCompliancePolicyStateItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class DeviceCompliancePolicyStatesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the deviceCompliancePolicyStates property of the microsoft.graph.managedDevice entity.
+     * @param string $deviceCompliancePolicyStateId Unique identifier of the item
+     * @return DeviceCompliancePolicyStateItemRequestBuilder
+    */
+    public function byDeviceCompliancePolicyStateId(string $deviceCompliancePolicyStateId): DeviceCompliancePolicyStateItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceCompliancePolicyState%2Did'] = $deviceCompliancePolicyStateId;
+        return new DeviceCompliancePolicyStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DeviceCompliancePolicyStatesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -9,39 +9,29 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\ServicePrincipal;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\AddTokenSigningCertificate\AddTokenSigningCertificateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\AppManagementPolicies\AppManagementPoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\AppManagementPolicies\Item\AppManagementPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\AppRoleAssignedTo\AppRoleAssignedToRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\AppRoleAssignments\AppRoleAssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\CheckMemberGroups\CheckMemberGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\ClaimsMappingPolicies\ClaimsMappingPoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\ClaimsMappingPolicies\Item\ClaimsMappingPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\CreatedObjects\CreatedObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\CreatePasswordSingleSignOnCredentials\CreatePasswordSingleSignOnCredentialsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\DelegatedPermissionClassifications\DelegatedPermissionClassificationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\DelegatedPermissionClassifications\Item\DelegatedPermissionClassificationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\DeletePasswordSingleSignOnCredentials\DeletePasswordSingleSignOnCredentialsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Endpoints\EndpointsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Endpoints\Item\EndpointItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\FederatedIdentityCredentials\FederatedIdentityCredentialsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\FederatedIdentityCredentials\Item\FederatedIdentityCredentialItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\GetPasswordSingleSignOnCredentials\GetPasswordSingleSignOnCredentialsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\HomeRealmDiscoveryPolicies\HomeRealmDiscoveryPoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\HomeRealmDiscoveryPolicies\Item\HomeRealmDiscoveryPolicyItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\LicenseDetails\Item\LicenseDetailsItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\LicenseDetails\LicenseDetailsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\MemberOf\MemberOfRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Oauth2PermissionGrants\Item\OAuth2PermissionGrantItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Oauth2PermissionGrants\Oauth2PermissionGrantsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects\OwnedObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Owners\OwnersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Restore\RestoreRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\SynchronizationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\TokenIssuancePolicies\Item\TokenIssuancePolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\TokenIssuancePolicies\TokenIssuancePoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\TokenLifetimePolicies\Item\TokenLifetimePolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\TokenLifetimePolicies\TokenLifetimePoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\TransitiveMemberOf\TransitiveMemberOfRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\UpdatePasswordSingleSignOnCredentials\UpdatePasswordSingleSignOnCredentialsRequestBuilder;
@@ -269,50 +259,6 @@ class ServicePrincipalItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Provides operations to manage the appManagementPolicies property of the microsoft.graph.servicePrincipal entity.
-     * @param string $id Unique identifier of the item
-     * @return AppManagementPolicyItemRequestBuilder
-    */
-    public function appManagementPoliciesById(string $id): AppManagementPolicyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['appManagementPolicy%2Did'] = $id;
-        return new AppManagementPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the appRoleAssignedTo property of the microsoft.graph.servicePrincipal entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\AppRoleAssignedTo\Item\AppRoleAssignmentItemRequestBuilder
-    */
-    public function appRoleAssignedToById(string $id): \Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\AppRoleAssignedTo\Item\AppRoleAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['appRoleAssignment%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\AppRoleAssignedTo\Item\AppRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the appRoleAssignments property of the microsoft.graph.servicePrincipal entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\AppRoleAssignments\Item\AppRoleAssignmentItemRequestBuilder
-    */
-    public function appRoleAssignmentsById(string $id): \Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\AppRoleAssignments\Item\AppRoleAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['appRoleAssignment%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\AppRoleAssignments\Item\AppRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.servicePrincipals.item.claimsMappingPolicies.item collection
-     * @param string $id Unique identifier of the item
-     * @return ClaimsMappingPolicyItemRequestBuilder
-    */
-    public function claimsMappingPoliciesById(string $id): ClaimsMappingPolicyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['claimsMappingPolicy%2Did'] = $id;
-        return new ClaimsMappingPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new ServicePrincipalItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -325,28 +271,6 @@ class ServicePrincipalItemRequestBuilder
         } else {
             $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
         }
-    }
-
-    /**
-     * Provides operations to manage the createdObjects property of the microsoft.graph.servicePrincipal entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\CreatedObjects\Item\DirectoryObjectItemRequestBuilder
-    */
-    public function createdObjectsById(string $id): \Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\CreatedObjects\Item\DirectoryObjectItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\CreatedObjects\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the delegatedPermissionClassifications property of the microsoft.graph.servicePrincipal entity.
-     * @param string $id Unique identifier of the item
-     * @return DelegatedPermissionClassificationItemRequestBuilder
-    */
-    public function delegatedPermissionClassificationsById(string $id): DelegatedPermissionClassificationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['delegatedPermissionClassification%2Did'] = $id;
-        return new DelegatedPermissionClassificationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -369,28 +293,6 @@ class ServicePrincipalItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the endpoints property of the microsoft.graph.servicePrincipal entity.
-     * @param string $id Unique identifier of the item
-     * @return EndpointItemRequestBuilder
-    */
-    public function endpointsById(string $id): EndpointItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['endpoint%2Did'] = $id;
-        return new EndpointItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.servicePrincipal entity.
-     * @param string $id Unique identifier of the item
-     * @return FederatedIdentityCredentialItemRequestBuilder
-    */
-    public function federatedIdentityCredentialsById(string $id): FederatedIdentityCredentialItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['federatedIdentityCredential%2Did'] = $id;
-        return new FederatedIdentityCredentialItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Retrieve the properties and relationships of a servicePrincipal object.
      * @param ServicePrincipalItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -407,72 +309,6 @@ class ServicePrincipalItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.servicePrincipals.item.homeRealmDiscoveryPolicies.item collection
-     * @param string $id Unique identifier of the item
-     * @return HomeRealmDiscoveryPolicyItemRequestBuilder
-    */
-    public function homeRealmDiscoveryPoliciesById(string $id): HomeRealmDiscoveryPolicyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['homeRealmDiscoveryPolicy%2Did'] = $id;
-        return new HomeRealmDiscoveryPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the licenseDetails property of the microsoft.graph.servicePrincipal entity.
-     * @param string $id Unique identifier of the item
-     * @return LicenseDetailsItemRequestBuilder
-    */
-    public function licenseDetailsById(string $id): LicenseDetailsItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['licenseDetails%2Did'] = $id;
-        return new LicenseDetailsItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the memberOf property of the microsoft.graph.servicePrincipal entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\MemberOf\Item\DirectoryObjectItemRequestBuilder
-    */
-    public function memberOfById(string $id): \Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\MemberOf\Item\DirectoryObjectItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\MemberOf\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the oauth2PermissionGrants property of the microsoft.graph.servicePrincipal entity.
-     * @param string $id Unique identifier of the item
-     * @return OAuth2PermissionGrantItemRequestBuilder
-    */
-    public function oauth2PermissionGrantsById(string $id): OAuth2PermissionGrantItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['oAuth2PermissionGrant%2Did'] = $id;
-        return new OAuth2PermissionGrantItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the ownedObjects property of the microsoft.graph.servicePrincipal entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects\Item\DirectoryObjectItemRequestBuilder
-    */
-    public function ownedObjectsById(string $id): \Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects\Item\DirectoryObjectItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.servicePrincipals.item.owners.item collection
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Owners\Item\DirectoryObjectItemRequestBuilder
-    */
-    public function ownersById(string $id): \Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Owners\Item\DirectoryObjectItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Owners\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -542,28 +378,6 @@ class ServicePrincipalItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.servicePrincipal entity.
-     * @param string $id Unique identifier of the item
-     * @return TokenIssuancePolicyItemRequestBuilder
-    */
-    public function tokenIssuancePoliciesById(string $id): TokenIssuancePolicyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['tokenIssuancePolicy%2Did'] = $id;
-        return new TokenIssuancePolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.servicePrincipal entity.
-     * @param string $id Unique identifier of the item
-     * @return TokenLifetimePolicyItemRequestBuilder
-    */
-    public function tokenLifetimePoliciesById(string $id): TokenLifetimePolicyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['tokenLifetimePolicy%2Did'] = $id;
-        return new TokenLifetimePolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Update the properties of servicePrincipal object.
      * @param ServicePrincipal $body The request body
      * @param ServicePrincipalItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -585,17 +399,6 @@ class ServicePrincipalItemRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.servicePrincipal entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder
-    */
-    public function transitiveMemberOfById(string $id): \Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

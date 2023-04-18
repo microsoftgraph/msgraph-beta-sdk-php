@@ -7,11 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\RbacApplicationMultiple;
-use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\ResourceNamespaces\Item\UnifiedRbacResourceNamespaceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\ResourceNamespaces\ResourceNamespacesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\UnifiedRoleAssignmentMultipleItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\RoleAssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleDefinitions\Item\UnifiedRoleDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleDefinitions\RoleDefinitionsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -129,39 +126,6 @@ class CloudPCRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the resourceNamespaces property of the microsoft.graph.rbacApplicationMultiple entity.
-     * @param string $id Unique identifier of the item
-     * @return UnifiedRbacResourceNamespaceItemRequestBuilder
-    */
-    public function resourceNamespacesById(string $id): UnifiedRbacResourceNamespaceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['unifiedRbacResourceNamespace%2Did'] = $id;
-        return new UnifiedRbacResourceNamespaceItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplicationMultiple entity.
-     * @param string $id Unique identifier of the item
-     * @return UnifiedRoleAssignmentMultipleItemRequestBuilder
-    */
-    public function roleAssignmentsById(string $id): UnifiedRoleAssignmentMultipleItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['unifiedRoleAssignmentMultiple%2Did'] = $id;
-        return new UnifiedRoleAssignmentMultipleItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplicationMultiple entity.
-     * @param string $id Unique identifier of the item
-     * @return UnifiedRoleDefinitionItemRequestBuilder
-    */
-    public function roleDefinitionsById(string $id): UnifiedRoleDefinitionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['unifiedRoleDefinition%2Did'] = $id;
-        return new UnifiedRoleDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\MobileAppIntentAndState;
 use Microsoft\Graph\Beta\Generated\Models\MobileAppIntentAndStateCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\MobileAppIntentAndStates\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\MobileAppIntentAndStates\Item\MobileAppIntentAndStateItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class MobileAppIntentAndStatesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the mobileAppIntentAndStates property of the microsoft.graph.user entity.
+     * @param string $mobileAppIntentAndStateId Unique identifier of the item
+     * @return MobileAppIntentAndStateItemRequestBuilder
+    */
+    public function byMobileAppIntentAndStateId(string $mobileAppIntentAndStateId): MobileAppIntentAndStateItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['mobileAppIntentAndState%2Did'] = $mobileAppIntentAndStateId;
+        return new MobileAppIntentAndStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new MobileAppIntentAndStatesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

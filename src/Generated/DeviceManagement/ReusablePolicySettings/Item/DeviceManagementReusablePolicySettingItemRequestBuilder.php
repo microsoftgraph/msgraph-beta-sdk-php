@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\EscapedClone\CloneRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\ReferencingConfigurationPolicies\Item\DeviceManagementConfigurationPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\ReferencingConfigurationPolicies\ReferencingConfigurationPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementReusablePolicySetting;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -119,17 +118,6 @@ class DeviceManagementReusablePolicySettingItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the referencingConfigurationPolicies property of the microsoft.graph.deviceManagementReusablePolicySetting entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceManagementConfigurationPolicyItemRequestBuilder
-    */
-    public function referencingConfigurationPoliciesById(string $id): DeviceManagementConfigurationPolicyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceManagementConfigurationPolicy%2Did'] = $id;
-        return new DeviceManagementConfigurationPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

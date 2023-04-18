@@ -8,13 +8,10 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\CheckMemberGroups\CheckMemberGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Extensions\ExtensionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Extensions\Item\ExtensionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Members\Item\DirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Members\MembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Restore\RestoreRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\ScopedRoleMembers\Item\ScopedRoleMembershipItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\ScopedRoleMembers\ScopedRoleMembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AdministrativeUnit;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -136,17 +133,6 @@ class AdministrativeUnitItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the extensions property of the microsoft.graph.administrativeUnit entity.
-     * @param string $id Unique identifier of the item
-     * @return ExtensionItemRequestBuilder
-    */
-    public function extensionsById(string $id): ExtensionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['extension%2Did'] = $id;
-        return new ExtensionItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Retrieve the properties and relationships of an administrativeUnit object. Since the **administrativeUnit** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in an **administrativeUnit** instance.
      * @param AdministrativeUnitItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -163,17 +149,6 @@ class AdministrativeUnitItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.administrativeUnits.item.members.item collection
-     * @param string $id Unique identifier of the item
-     * @return DirectoryObjectItemRequestBuilder
-    */
-    public function membersById(string $id): DirectoryObjectItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
-        return new DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -194,17 +169,6 @@ class AdministrativeUnitItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the scopedRoleMembers property of the microsoft.graph.administrativeUnit entity.
-     * @param string $id Unique identifier of the item
-     * @return ScopedRoleMembershipItemRequestBuilder
-    */
-    public function scopedRoleMembersById(string $id): ScopedRoleMembershipItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['scopedRoleMembership%2Did'] = $id;
-        return new ScopedRoleMembershipItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

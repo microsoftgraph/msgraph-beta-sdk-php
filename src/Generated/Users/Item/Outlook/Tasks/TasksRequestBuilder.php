@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\OutlookTask;
 use Microsoft\Graph\Beta\Generated\Models\OutlookTaskCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\Tasks\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\Tasks\Item\OutlookTaskItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -44,6 +45,17 @@ class TasksRequestBuilder
     private string $urlTemplate;
     
     /**
+     * Provides operations to manage the tasks property of the microsoft.graph.outlookUser entity.
+     * @param string $outlookTaskId Unique identifier of the item
+     * @return OutlookTaskItemRequestBuilder
+    */
+    public function byOutlookTaskId(string $outlookTaskId): OutlookTaskItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['outlookTask%2Did'] = $outlookTaskId;
+        return new OutlookTaskItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
      * Instantiates a new TasksRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -78,11 +90,11 @@ class TasksRequestBuilder
     }
 
     /**
-     * Create an Outlook task in the specified task folder. The POST method always ignores the time portion of **startDateTime** and **dueDateTime** in the request body, and assumes the time to be always midnight in the specified time zone.
+     * Create an Outlook task in the default task group (`My Tasks`) and default task folder (`Tasks`) in the user's mailbox. The POST method always ignores the time portion of **startDateTime** and **dueDateTime** in the request body, and assumes the time to be always midnight in the specified time zone. By default, this operation (and the GET, PATCH, and complete task operations) returns date-related properties in UTC. You can use the `Prefer: outlook.timezone` header to have all the date-related properties in the response represented in a time zone different than UTC.
      * @param OutlookTask $body The request body
      * @param TasksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/outlooktaskfolder-post-tasks?view=graph-rest-1.0 Find more info here
+     * @link https://docs.microsoft.com/graph/api/outlookuser-post-tasks?view=graph-rest-1.0 Find more info here
     */
     public function post(OutlookTask $body, ?TasksRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -123,7 +135,7 @@ class TasksRequestBuilder
     }
 
     /**
-     * Create an Outlook task in the specified task folder. The POST method always ignores the time portion of **startDateTime** and **dueDateTime** in the request body, and assumes the time to be always midnight in the specified time zone.
+     * Create an Outlook task in the default task group (`My Tasks`) and default task folder (`Tasks`) in the user's mailbox. The POST method always ignores the time portion of **startDateTime** and **dueDateTime** in the request body, and assumes the time to be always midnight in the specified time zone. By default, this operation (and the GET, PATCH, and complete task operations) returns date-related properties in UTC. You can use the `Prefer: outlook.timezone` header to have all the date-related properties in the response represented in a time zone different than UTC.
      * @param OutlookTask $body The request body
      * @param TasksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

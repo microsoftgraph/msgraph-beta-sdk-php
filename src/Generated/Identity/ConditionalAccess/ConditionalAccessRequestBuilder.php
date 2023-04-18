@@ -6,14 +6,10 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationContextClassReferences\AuthenticationContextClassReferencesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationContextClassReferences\Item\AuthenticationContextClassReferenceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationStrength\AuthenticationStrengthRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationStrengths\AuthenticationStrengthsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\NamedLocations\Item\NamedLocationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\NamedLocations\NamedLocationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Policies\Item\ConditionalAccessPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Policies\PoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Templates\Item\ConditionalAccessTemplateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Templates\TemplatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ConditionalAccessRoot;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -87,17 +83,6 @@ class ConditionalAccessRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Provides operations to manage the authenticationContextClassReferences property of the microsoft.graph.conditionalAccessRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return AuthenticationContextClassReferenceItemRequestBuilder
-    */
-    public function authenticationContextClassReferencesById(string $id): AuthenticationContextClassReferenceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['authenticationContextClassReference%2Did'] = $id;
-        return new AuthenticationContextClassReferenceItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new ConditionalAccessRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -149,17 +134,6 @@ class ConditionalAccessRequestBuilder
     }
 
     /**
-     * Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return NamedLocationItemRequestBuilder
-    */
-    public function namedLocationsById(string $id): NamedLocationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['namedLocation%2Did'] = $id;
-        return new NamedLocationItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Update the navigation property conditionalAccess in identity
      * @param ConditionalAccessRoot $body The request body
      * @param ConditionalAccessRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -176,28 +150,6 @@ class ConditionalAccessRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the policies property of the microsoft.graph.conditionalAccessRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return ConditionalAccessPolicyItemRequestBuilder
-    */
-    public function policiesById(string $id): ConditionalAccessPolicyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['conditionalAccessPolicy%2Did'] = $id;
-        return new ConditionalAccessPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the templates property of the microsoft.graph.conditionalAccessRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return ConditionalAccessTemplateItemRequestBuilder
-    */
-    public function templatesById(string $id): ConditionalAccessTemplateItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['conditionalAccessTemplate%2Did'] = $id;
-        return new ConditionalAccessTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

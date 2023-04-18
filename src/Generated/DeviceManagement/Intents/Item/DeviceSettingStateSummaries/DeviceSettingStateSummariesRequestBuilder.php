@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\DeviceSettingStateSummaries\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\DeviceSettingStateSummaries\Item\DeviceManagementIntentDeviceSettingStateSummaryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementIntentDeviceSettingStateSummary;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementIntentDeviceSettingStateSummaryCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class DeviceSettingStateSummariesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceManagementIntent entity.
+     * @param string $deviceManagementIntentDeviceSettingStateSummaryId Unique identifier of the item
+     * @return DeviceManagementIntentDeviceSettingStateSummaryItemRequestBuilder
+    */
+    public function byDeviceManagementIntentDeviceSettingStateSummaryId(string $deviceManagementIntentDeviceSettingStateSummaryId): DeviceManagementIntentDeviceSettingStateSummaryItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceManagementIntentDeviceSettingStateSummary%2Did'] = $deviceManagementIntentDeviceSettingStateSummaryId;
+        return new DeviceManagementIntentDeviceSettingStateSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DeviceSettingStateSummariesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

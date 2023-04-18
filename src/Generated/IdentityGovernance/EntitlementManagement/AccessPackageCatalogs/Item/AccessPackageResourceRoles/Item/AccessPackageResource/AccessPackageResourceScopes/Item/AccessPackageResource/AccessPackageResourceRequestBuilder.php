@@ -7,7 +7,6 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackageResourceRoles\Item\AccessPackageResource\AccessPackageResourceScopes\Item\AccessPackageResource\AccessPackageResourceEnvironment\AccessPackageResourceEnvironmentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackageResourceRoles\Item\AccessPackageResource\AccessPackageResourceScopes\Item\AccessPackageResource\AccessPackageResourceRoles\AccessPackageResourceRolesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackageResourceRoles\Item\AccessPackageResource\AccessPackageResourceScopes\Item\AccessPackageResource\AccessPackageResourceRoles\Item\AccessPackageResourceRoleItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessPackageResource;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -51,17 +50,6 @@ class AccessPackageResourceRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the accessPackageResourceRoles property of the microsoft.graph.accessPackageResource entity.
-     * @param string $id Unique identifier of the item
-     * @return AccessPackageResourceRoleItemRequestBuilder
-    */
-    public function accessPackageResourceRolesById(string $id): AccessPackageResourceRoleItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['accessPackageResourceRole%2Did1'] = $id;
-        return new AccessPackageResourceRoleItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new AccessPackageResourceRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Applications\Item\TokenLifetimePolicies\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Applications\Item\TokenLifetimePolicies\Item\TokenLifetimePolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\TokenLifetimePolicies\Ref\RefRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TokenLifetimePolicyCollectionResponse;
@@ -50,6 +51,17 @@ class TokenLifetimePoliciesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Gets an item from the Microsoft/Graph/Beta/Generated.applications.item.tokenLifetimePolicies.item collection
+     * @param string $tokenLifetimePolicyId Unique identifier of the item
+     * @return TokenLifetimePolicyItemRequestBuilder
+    */
+    public function byTokenLifetimePolicyId(string $tokenLifetimePolicyId): TokenLifetimePolicyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['tokenLifetimePolicy%2Did'] = $tokenLifetimePolicyId;
+        return new TokenLifetimePolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new TokenLifetimePoliciesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

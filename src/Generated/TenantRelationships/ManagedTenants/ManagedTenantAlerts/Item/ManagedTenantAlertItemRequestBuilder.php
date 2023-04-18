@@ -8,12 +8,9 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagedTenantAlert;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantAlerts\Item\AlertLogs\AlertLogsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantAlerts\Item\AlertLogs\Item\ManagedTenantAlertLogItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantAlerts\Item\AlertRule\AlertRuleRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantAlerts\Item\ApiNotifications\ApiNotificationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantAlerts\Item\ApiNotifications\Item\ManagedTenantApiNotificationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantAlerts\Item\EmailNotifications\EmailNotificationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantAlerts\Item\EmailNotifications\Item\ManagedTenantEmailNotificationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantAlerts\Item\ManagedTenantsAddUserInputLog\ManagedTenantsAddUserInputLogRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -78,28 +75,6 @@ class ManagedTenantAlertItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Provides operations to manage the alertLogs property of the microsoft.graph.managedTenants.managedTenantAlert entity.
-     * @param string $id Unique identifier of the item
-     * @return ManagedTenantAlertLogItemRequestBuilder
-    */
-    public function alertLogsById(string $id): ManagedTenantAlertLogItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['managedTenantAlertLog%2Did'] = $id;
-        return new ManagedTenantAlertLogItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the apiNotifications property of the microsoft.graph.managedTenants.managedTenantAlert entity.
-     * @param string $id Unique identifier of the item
-     * @return ManagedTenantApiNotificationItemRequestBuilder
-    */
-    public function apiNotificationsById(string $id): ManagedTenantApiNotificationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['managedTenantApiNotification%2Did'] = $id;
-        return new ManagedTenantApiNotificationItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new ManagedTenantAlertItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -130,17 +105,6 @@ class ManagedTenantAlertItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the emailNotifications property of the microsoft.graph.managedTenants.managedTenantAlert entity.
-     * @param string $id Unique identifier of the item
-     * @return ManagedTenantEmailNotificationItemRequestBuilder
-    */
-    public function emailNotificationsById(string $id): ManagedTenantEmailNotificationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['managedTenantEmailNotification%2Did'] = $id;
-        return new ManagedTenantEmailNotificationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

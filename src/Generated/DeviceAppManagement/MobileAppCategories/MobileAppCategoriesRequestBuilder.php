@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileAppCategories\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileAppCategories\Item\MobileAppCategoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MobileAppCategory;
 use Microsoft\Graph\Beta\Generated\Models\MobileAppCategoryCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class MobileAppCategoriesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the mobileAppCategories property of the microsoft.graph.deviceAppManagement entity.
+     * @param string $mobileAppCategoryId Unique identifier of the item
+     * @return MobileAppCategoryItemRequestBuilder
+    */
+    public function byMobileAppCategoryId(string $mobileAppCategoryId): MobileAppCategoryItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['mobileAppCategory%2Did'] = $mobileAppCategoryId;
+        return new MobileAppCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new MobileAppCategoriesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

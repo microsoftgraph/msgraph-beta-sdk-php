@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\IntuneBrandingProfiles\Item\Assignments\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\IntuneBrandingProfiles\Item\Assignments\Item\IntuneBrandingProfileAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IntuneBrandingProfileAssignment;
 use Microsoft\Graph\Beta\Generated\Models\IntuneBrandingProfileAssignmentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AssignmentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.intuneBrandingProfile entity.
+     * @param string $intuneBrandingProfileAssignmentId Unique identifier of the item
+     * @return IntuneBrandingProfileAssignmentItemRequestBuilder
+    */
+    public function byIntuneBrandingProfileAssignmentId(string $intuneBrandingProfileAssignmentId): IntuneBrandingProfileAssignmentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['intuneBrandingProfileAssignment%2Did'] = $intuneBrandingProfileAssignmentId;
+        return new IntuneBrandingProfileAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AssignmentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Functions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Functions\Item\AttributeMappingFunctionSchemaItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AttributeMappingFunctionSchema;
 use Microsoft\Graph\Beta\Generated\Models\AttributeMappingFunctionSchemaCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class FunctionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the collection of attributeMappingFunctionSchema entities.
+     * @param string $attributeMappingFunctionSchemaId Unique identifier of the item
+     * @return AttributeMappingFunctionSchemaItemRequestBuilder
+    */
+    public function byAttributeMappingFunctionSchemaId(string $attributeMappingFunctionSchemaId): AttributeMappingFunctionSchemaItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['attributeMappingFunctionSchema%2Did'] = $attributeMappingFunctionSchemaId;
+        return new AttributeMappingFunctionSchemaItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new FunctionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

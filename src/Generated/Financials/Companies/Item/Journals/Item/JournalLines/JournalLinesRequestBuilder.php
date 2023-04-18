@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Journals\Item\JournalLines\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Journals\Item\JournalLines\Item\JournalLineItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\JournalLine;
 use Microsoft\Graph\Beta\Generated\Models\JournalLineCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class JournalLinesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the journalLines property of the microsoft.graph.journal entity.
+     * @param string $journalLineId Unique identifier of the item
+     * @return JournalLineItemRequestBuilder
+    */
+    public function byJournalLineId(string $journalLineId): JournalLineItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['journalLine%2Did'] = $journalLineId;
+        return new JournalLineItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new JournalLinesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

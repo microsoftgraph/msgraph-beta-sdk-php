@@ -11,6 +11,7 @@ use Microsoft\Graph\Beta\Generated\Models\RiskyUserCollectionResponse;
 use Microsoft\Graph\Beta\Generated\RiskyUsers\ConfirmCompromised\ConfirmCompromisedRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RiskyUsers\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RiskyUsers\Dismiss\DismissRequestBuilder;
+use Microsoft\Graph\Beta\Generated\RiskyUsers\Item\RiskyUserItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -59,6 +60,17 @@ class RiskyUsersRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the collection of riskyUser entities.
+     * @param string $riskyUserId Unique identifier of the item
+     * @return RiskyUserItemRequestBuilder
+    */
+    public function byRiskyUserId(string $riskyUserId): RiskyUserItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['riskyUser%2Did'] = $riskyUserId;
+        return new RiskyUserItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new RiskyUsersRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

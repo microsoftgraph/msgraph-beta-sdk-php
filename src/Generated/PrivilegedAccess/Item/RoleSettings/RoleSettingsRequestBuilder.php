@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\GovernanceRoleSetting;
 use Microsoft\Graph\Beta\Generated\Models\GovernanceRoleSettingCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleSettings\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleSettings\Item\GovernanceRoleSettingItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class RoleSettingsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the roleSettings property of the microsoft.graph.privilegedAccess entity.
+     * @param string $governanceRoleSettingId Unique identifier of the item
+     * @return GovernanceRoleSettingItemRequestBuilder
+    */
+    public function byGovernanceRoleSettingId(string $governanceRoleSettingId): GovernanceRoleSettingItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['governanceRoleSetting%2Did'] = $governanceRoleSettingId;
+        return new GovernanceRoleSettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new RoleSettingsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

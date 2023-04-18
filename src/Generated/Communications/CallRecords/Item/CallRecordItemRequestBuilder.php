@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\Communications\CallRecords\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Communications\CallRecords\Item\Sessions\Item\SessionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\CallRecords\Item\Sessions\SessionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CallRecords\CallRecord;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -111,17 +110,6 @@ class CallRecordItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the sessions property of the microsoft.graph.callRecords.callRecord entity.
-     * @param string $id Unique identifier of the item
-     * @return SessionItemRequestBuilder
-    */
-    public function sessionsById(string $id): SessionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['session%2Did'] = $id;
-        return new SessionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\PendingAccessReviewInstances\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\PendingAccessReviewInstances\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\PendingAccessReviewInstances\Item\AccessReviewInstanceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessReviewInstance;
 use Microsoft\Graph\Beta\Generated\Models\AccessReviewInstanceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -44,6 +45,17 @@ class PendingAccessReviewInstancesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the pendingAccessReviewInstances property of the microsoft.graph.user entity.
+     * @param string $accessReviewInstanceId Unique identifier of the item
+     * @return AccessReviewInstanceItemRequestBuilder
+    */
+    public function byAccessReviewInstanceId(string $accessReviewInstanceId): AccessReviewInstanceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['accessReviewInstance%2Did'] = $accessReviewInstanceId;
+        return new AccessReviewInstanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PendingAccessReviewInstancesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\AppRoleAssignedResources\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\AppRoleAssignedResources\Item\ServicePrincipalItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\ServicePrincipalCollectionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -42,6 +43,17 @@ class AppRoleAssignedResourcesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the appRoleAssignedResources property of the microsoft.graph.user entity.
+     * @param string $servicePrincipalId Unique identifier of the item
+     * @return ServicePrincipalItemRequestBuilder
+    */
+    public function byServicePrincipalId(string $servicePrincipalId): ServicePrincipalItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['servicePrincipal%2Did'] = $servicePrincipalId;
+        return new ServicePrincipalItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AppRoleAssignedResourcesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

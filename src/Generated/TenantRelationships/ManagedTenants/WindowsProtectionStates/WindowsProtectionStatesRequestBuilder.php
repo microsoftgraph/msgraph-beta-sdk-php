@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\WindowsProtectionState;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\WindowsProtectionStateCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\WindowsProtectionStates\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\WindowsProtectionStates\Item\WindowsProtectionStateItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class WindowsProtectionStatesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the windowsProtectionStates property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $windowsProtectionStateId Unique identifier of the item
+     * @return WindowsProtectionStateItemRequestBuilder
+    */
+    public function byWindowsProtectionStateId(string $windowsProtectionStateId): WindowsProtectionStateItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['windowsProtectionState%2Did'] = $windowsProtectionStateId;
+        return new WindowsProtectionStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new WindowsProtectionStatesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

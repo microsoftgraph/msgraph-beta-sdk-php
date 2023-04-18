@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item\DeviceManagementConfigurationPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementConfigurationPolicy;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementConfigurationPolicyCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class ConfigurationPoliciesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the configurationPolicies property of the microsoft.graph.deviceManagement entity.
+     * @param string $deviceManagementConfigurationPolicyId Unique identifier of the item
+     * @return DeviceManagementConfigurationPolicyItemRequestBuilder
+    */
+    public function byDeviceManagementConfigurationPolicyId(string $deviceManagementConfigurationPolicyId): DeviceManagementConfigurationPolicyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceManagementConfigurationPolicy%2Did'] = $deviceManagementConfigurationPolicyId;
+        return new DeviceManagementConfigurationPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ConfigurationPoliciesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

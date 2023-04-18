@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsFeatureUpdateProfiles\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsFeatureUpdateProfiles\Item\WindowsFeatureUpdateProfileItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsFeatureUpdateProfile;
 use Microsoft\Graph\Beta\Generated\Models\WindowsFeatureUpdateProfileCollectionResponse;
@@ -43,6 +44,17 @@ class WindowsFeatureUpdateProfilesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the windowsFeatureUpdateProfiles property of the microsoft.graph.deviceManagement entity.
+     * @param string $windowsFeatureUpdateProfileId Unique identifier of the item
+     * @return WindowsFeatureUpdateProfileItemRequestBuilder
+    */
+    public function byWindowsFeatureUpdateProfileId(string $windowsFeatureUpdateProfileId): WindowsFeatureUpdateProfileItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['windowsFeatureUpdateProfile%2Did'] = $windowsFeatureUpdateProfileId;
+        return new WindowsFeatureUpdateProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new WindowsFeatureUpdateProfilesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

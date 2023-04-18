@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Identity\UserFlows\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Identity\UserFlows\Item\IdentityUserFlowItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityUserFlow;
 use Microsoft\Graph\Beta\Generated\Models\IdentityUserFlowCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class UserFlowsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userFlows property of the microsoft.graph.identityContainer entity.
+     * @param string $identityUserFlowId Unique identifier of the item
+     * @return IdentityUserFlowItemRequestBuilder
+    */
+    public function byIdentityUserFlowId(string $identityUserFlowId): IdentityUserFlowItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['identityUserFlow%2Did'] = $identityUserFlowId;
+        return new IdentityUserFlowItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserFlowsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyUploadedDefinitionFiles\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyUploadedDefinitionFiles\Item\GroupPolicyUploadedDefinitionFileItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyUploadedDefinitionFile;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyUploadedDefinitionFileCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class GroupPolicyUploadedDefinitionFilesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the groupPolicyUploadedDefinitionFiles property of the microsoft.graph.deviceManagement entity.
+     * @param string $groupPolicyUploadedDefinitionFileId Unique identifier of the item
+     * @return GroupPolicyUploadedDefinitionFileItemRequestBuilder
+    */
+    public function byGroupPolicyUploadedDefinitionFileId(string $groupPolicyUploadedDefinitionFileId): GroupPolicyUploadedDefinitionFileItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['groupPolicyUploadedDefinitionFile%2Did'] = $groupPolicyUploadedDefinitionFileId;
+        return new GroupPolicyUploadedDefinitionFileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new GroupPolicyUploadedDefinitionFilesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

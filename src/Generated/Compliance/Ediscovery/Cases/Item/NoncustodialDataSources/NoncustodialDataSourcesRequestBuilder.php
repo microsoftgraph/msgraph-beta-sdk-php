@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\EdiscoveryApplyHold\EdiscoveryApplyHoldRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\EdiscoveryRemoveHold\EdiscoveryRemoveHoldRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\NoncustodialDataSourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\NoncustodialDataSource;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\NoncustodialDataSourceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -59,6 +60,17 @@ class NoncustodialDataSourcesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the noncustodialDataSources property of the microsoft.graph.ediscovery.case entity.
+     * @param string $noncustodialDataSourceId Unique identifier of the item
+     * @return NoncustodialDataSourceItemRequestBuilder
+    */
+    public function byNoncustodialDataSourceId(string $noncustodialDataSourceId): NoncustodialDataSourceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['noncustodialDataSource%2Did'] = $noncustodialDataSourceId;
+        return new NoncustodialDataSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new NoncustodialDataSourcesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\DailyPrintUsage\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\DailyPrintUsage\Item\PrintUsageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PrintUsage;
 use Microsoft\Graph\Beta\Generated\Models\PrintUsageCollectionResponse;
@@ -43,6 +44,17 @@ class DailyPrintUsageRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the dailyPrintUsage property of the microsoft.graph.reportRoot entity.
+     * @param string $printUsageId Unique identifier of the item
+     * @return PrintUsageItemRequestBuilder
+    */
+    public function byPrintUsageId(string $printUsageId): PrintUsageItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['printUsage%2Did'] = $printUsageId;
+        return new PrintUsageItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DailyPrintUsageRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

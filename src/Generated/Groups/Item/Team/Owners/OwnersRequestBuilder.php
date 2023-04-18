@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Owners\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Owners\Item\UserItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserCollectionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -42,6 +43,17 @@ class OwnersRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the owners property of the microsoft.graph.team entity.
+     * @param string $userId Unique identifier of the item
+     * @return UserItemRequestBuilder
+    */
+    public function byUserId(string $userId): UserItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['user%2Did'] = $userId;
+        return new UserItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new OwnersRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

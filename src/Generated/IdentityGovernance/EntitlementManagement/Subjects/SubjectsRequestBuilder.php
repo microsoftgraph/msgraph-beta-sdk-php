@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Subjects\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Subjects\Item\AccessPackageSubjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessPackageSubject;
 use Microsoft\Graph\Beta\Generated\Models\AccessPackageSubjectCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class SubjectsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the subjects property of the microsoft.graph.entitlementManagement entity.
+     * @param string $accessPackageSubjectId Unique identifier of the item
+     * @return AccessPackageSubjectItemRequestBuilder
+    */
+    public function byAccessPackageSubjectId(string $accessPackageSubjectId): AccessPackageSubjectItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['accessPackageSubject%2Did'] = $accessPackageSubjectId;
+        return new AccessPackageSubjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SubjectsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

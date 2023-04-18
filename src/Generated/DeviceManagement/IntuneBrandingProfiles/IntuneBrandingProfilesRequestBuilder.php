@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\IntuneBrandingProfiles\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\IntuneBrandingProfiles\Item\IntuneBrandingProfileItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IntuneBrandingProfile;
 use Microsoft\Graph\Beta\Generated\Models\IntuneBrandingProfileCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class IntuneBrandingProfilesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the intuneBrandingProfiles property of the microsoft.graph.deviceManagement entity.
+     * @param string $intuneBrandingProfileId Unique identifier of the item
+     * @return IntuneBrandingProfileItemRequestBuilder
+    */
+    public function byIntuneBrandingProfileId(string $intuneBrandingProfileId): IntuneBrandingProfileItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['intuneBrandingProfile%2Did'] = $intuneBrandingProfileId;
+        return new IntuneBrandingProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new IntuneBrandingProfilesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\HostComponent;
 use Microsoft\Graph\Beta\Generated\Models\Security\HostComponentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\HostComponents\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\HostComponents\Item\HostComponentItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class HostComponentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the hostComponents property of the microsoft.graph.security.threatIntelligence entity.
+     * @param string $hostComponentId Unique identifier of the item
+     * @return HostComponentItemRequestBuilder
+    */
+    public function byHostComponentId(string $hostComponentId): HostComponentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['hostComponent%2Did'] = $hostComponentId;
+        return new HostComponentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new HostComponentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

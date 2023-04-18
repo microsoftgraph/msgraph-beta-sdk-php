@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\RecommendationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Recommendation;
 use Microsoft\Graph\Beta\Generated\Models\RecommendationCollectionResponse;
@@ -43,6 +44,17 @@ class RecommendationsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the recommendations property of the microsoft.graph.directory entity.
+     * @param string $recommendationId Unique identifier of the item
+     * @return RecommendationItemRequestBuilder
+    */
+    public function byRecommendationId(string $recommendationId): RecommendationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['recommendation%2Did'] = $recommendationId;
+        return new RecommendationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new RecommendationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

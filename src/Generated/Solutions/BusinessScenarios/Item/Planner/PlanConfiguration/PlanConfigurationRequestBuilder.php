@@ -7,7 +7,6 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PlannerPlanConfiguration;
-use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planner\PlanConfiguration\Localizations\Item\PlannerPlanConfigurationLocalizationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planner\PlanConfiguration\Localizations\LocalizationsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -93,17 +92,6 @@ class PlanConfigurationRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the localizations property of the microsoft.graph.plannerPlanConfiguration entity.
-     * @param string $id Unique identifier of the item
-     * @return PlannerPlanConfigurationLocalizationItemRequestBuilder
-    */
-    public function localizationsById(string $id): PlannerPlanConfigurationLocalizationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['plannerPlanConfigurationLocalization%2Did'] = $id;
-        return new PlannerPlanConfigurationLocalizationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

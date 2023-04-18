@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\TimeCards\ClockIn\ClockInRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\TimeCards\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\TimeCards\Item\TimeCardItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TimeCard;
 use Microsoft\Graph\Beta\Generated\Models\TimeCardCollectionResponse;
@@ -52,6 +53,17 @@ class TimeCardsRequestBuilder
     private string $urlTemplate;
     
     /**
+     * Provides operations to manage the timeCards property of the microsoft.graph.schedule entity.
+     * @param string $timeCardId Unique identifier of the item
+     * @return TimeCardItemRequestBuilder
+    */
+    public function byTimeCardId(string $timeCardId): TimeCardItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['timeCard%2Did'] = $timeCardId;
+        return new TimeCardItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
      * Instantiates a new TimeCardsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -86,10 +98,11 @@ class TimeCardsRequestBuilder
     }
 
     /**
-     * Create new navigation property to timeCards for groups
+     * Create a timeCard instance in a schedule.
      * @param TimeCard $body The request body
      * @param TimeCardsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/timecard-post?view=graph-rest-1.0 Find more info here
     */
     public function post(TimeCard $body, ?TimeCardsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -130,7 +143,7 @@ class TimeCardsRequestBuilder
     }
 
     /**
-     * Create new navigation property to timeCards for groups
+     * Create a timeCard instance in a schedule.
      * @param TimeCard $body The request body
      * @param TimeCardsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

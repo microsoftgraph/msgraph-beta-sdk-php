@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDevicesWithoutCloudIdentity\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDevicesWithoutCloudIdentity\Item\UserExperienceAnalyticsDeviceWithoutCloudIdentityItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDeviceWithoutCloudIdentity;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDeviceWithoutCloudIdentityCollectionResponse;
@@ -43,6 +44,17 @@ class UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userExperienceAnalyticsDevicesWithoutCloudIdentity property of the microsoft.graph.deviceManagement entity.
+     * @param string $userExperienceAnalyticsDeviceWithoutCloudIdentityId Unique identifier of the item
+     * @return UserExperienceAnalyticsDeviceWithoutCloudIdentityItemRequestBuilder
+    */
+    public function byUserExperienceAnalyticsDeviceWithoutCloudIdentityId(string $userExperienceAnalyticsDeviceWithoutCloudIdentityId): UserExperienceAnalyticsDeviceWithoutCloudIdentityItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userExperienceAnalyticsDeviceWithoutCloudIdentity%2Did'] = $userExperienceAnalyticsDeviceWithoutCloudIdentityId;
+        return new UserExperienceAnalyticsDeviceWithoutCloudIdentityItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

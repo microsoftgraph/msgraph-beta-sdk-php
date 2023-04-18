@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Search\Bookmark;
 use Microsoft\Graph\Beta\Generated\Models\Search\BookmarkCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Search\Bookmarks\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Search\Bookmarks\Item\BookmarkItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class BookmarksRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the bookmarks property of the microsoft.graph.searchEntity entity.
+     * @param string $bookmarkId Unique identifier of the item
+     * @return BookmarkItemRequestBuilder
+    */
+    public function byBookmarkId(string $bookmarkId): BookmarkItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['bookmark%2Did'] = $bookmarkId;
+        return new BookmarkItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new BookmarksRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

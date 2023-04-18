@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Security\InformationProtection\LabelPolicySettings\LabelPolicySettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Security\InformationProtection\SensitivityLabels\Item\SensitivityLabelItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Security\InformationProtection\SensitivityLabels\SensitivityLabelsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\InformationProtection;
@@ -119,17 +118,6 @@ class InformationProtectionRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the sensitivityLabels property of the microsoft.graph.security.informationProtection entity.
-     * @param string $id Unique identifier of the item
-     * @return SensitivityLabelItemRequestBuilder
-    */
-    public function sensitivityLabelsById(string $id): SensitivityLabelItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['sensitivityLabel%2Did'] = $id;
-        return new SensitivityLabelItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

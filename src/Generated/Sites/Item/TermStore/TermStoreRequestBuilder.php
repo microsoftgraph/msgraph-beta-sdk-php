@@ -8,8 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TermStore\Store;
 use Microsoft\Graph\Beta\Generated\Sites\Item\TermStore\Groups\GroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Item\TermStore\Groups\Item\GroupItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Item\TermStore\Sets\Item\SetItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\TermStore\Sets\SetsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -105,17 +103,6 @@ class TermStoreRequestBuilder
     }
 
     /**
-     * Provides operations to manage the groups property of the microsoft.graph.termStore.store entity.
-     * @param string $id Unique identifier of the item
-     * @return GroupItemRequestBuilder
-    */
-    public function groupsById(string $id): GroupItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['group%2Did'] = $id;
-        return new GroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Update the navigation property termStore in sites
      * @param Store $body The request body
      * @param TermStoreRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -132,17 +119,6 @@ class TermStoreRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the sets property of the microsoft.graph.termStore.store entity.
-     * @param string $id Unique identifier of the item
-     * @return SetItemRequestBuilder
-    */
-    public function setsById(string $id): SetItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['set%2Did'] = $id;
-        return new SetItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

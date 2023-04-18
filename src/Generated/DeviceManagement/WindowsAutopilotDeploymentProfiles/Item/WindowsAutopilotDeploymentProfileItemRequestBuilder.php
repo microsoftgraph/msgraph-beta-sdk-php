@@ -7,9 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeploymentProfiles\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeploymentProfiles\Item\AssignedDevices\AssignedDevicesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeploymentProfiles\Item\AssignedDevices\Item\WindowsAutopilotDeviceIdentityItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeploymentProfiles\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeploymentProfiles\Item\Assignments\Item\WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsAutopilotDeploymentProfile;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -60,28 +58,6 @@ class WindowsAutopilotDeploymentProfileItemRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the assignedDevices property of the microsoft.graph.windowsAutopilotDeploymentProfile entity.
-     * @param string $id Unique identifier of the item
-     * @return WindowsAutopilotDeviceIdentityItemRequestBuilder
-    */
-    public function assignedDevicesById(string $id): WindowsAutopilotDeviceIdentityItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['windowsAutopilotDeviceIdentity%2Did'] = $id;
-        return new WindowsAutopilotDeviceIdentityItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the assignments property of the microsoft.graph.windowsAutopilotDeploymentProfile entity.
-     * @param string $id Unique identifier of the item
-     * @return WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilder
-    */
-    public function assignmentsById(string $id): WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['windowsAutopilotDeploymentProfileAssignment%2Did'] = $id;
-        return new WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new WindowsAutopilotDeploymentProfileItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

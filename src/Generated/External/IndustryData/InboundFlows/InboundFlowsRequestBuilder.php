@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\External\IndustryData\InboundFlows\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\External\IndustryData\InboundFlows\Item\InboundFlowItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IndustryData\InboundFlow;
 use Microsoft\Graph\Beta\Generated\Models\IndustryData\InboundFlowCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -44,6 +45,17 @@ class InboundFlowsRequestBuilder
     private string $urlTemplate;
     
     /**
+     * Provides operations to manage the inboundFlows property of the microsoft.graph.industryData.industryDataRoot entity.
+     * @param string $inboundFlowId Unique identifier of the item
+     * @return InboundFlowItemRequestBuilder
+    */
+    public function byInboundFlowId(string $inboundFlowId): InboundFlowItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['inboundFlow%2Did'] = $inboundFlowId;
+        return new InboundFlowItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
      * Instantiates a new InboundFlowsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -59,10 +71,10 @@ class InboundFlowsRequestBuilder
     }
 
     /**
-     * Get a list of the inboundFlow objects and their properties.
+     * Get a list of the inboundFileFlow objects and their properties.
      * @param InboundFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/industrydata-inboundflow-list?view=graph-rest-1.0 Find more info here
+     * @link https://docs.microsoft.com/graph/api/industrydata-inboundfileflow-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?InboundFlowsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -78,11 +90,11 @@ class InboundFlowsRequestBuilder
     }
 
     /**
-     * Create a new inboundFlow object. The following prerequisite resources are required when you create an **inboundFlow**:
+     * Create a new inboundFileFlow object. The following prerequisite resources are required when you create an **inboundFileFlow**:
      * @param InboundFlow $body The request body
      * @param InboundFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/industrydata-inboundflow-post?view=graph-rest-1.0 Find more info here
+     * @link https://docs.microsoft.com/graph/api/industrydata-inboundfileflow-post?view=graph-rest-1.0 Find more info here
     */
     public function post(InboundFlow $body, ?InboundFlowsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -98,7 +110,7 @@ class InboundFlowsRequestBuilder
     }
 
     /**
-     * Get a list of the inboundFlow objects and their properties.
+     * Get a list of the inboundFileFlow objects and their properties.
      * @param InboundFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -123,7 +135,7 @@ class InboundFlowsRequestBuilder
     }
 
     /**
-     * Create a new inboundFlow object. The following prerequisite resources are required when you create an **inboundFlow**:
+     * Create a new inboundFileFlow object. The following prerequisite resources are required when you create an **inboundFileFlow**:
      * @param InboundFlow $body The request body
      * @param InboundFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

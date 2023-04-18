@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WdacSupplementalPolicies\Item\Assignments\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WdacSupplementalPolicies\Item\Assignments\Item\WindowsDefenderApplicationControlSupplementalPolicyAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsDefenderApplicationControlSupplementalPolicyAssignment;
 use Microsoft\Graph\Beta\Generated\Models\WindowsDefenderApplicationControlSupplementalPolicyAssignmentCollectionResponse;
@@ -43,6 +44,17 @@ class AssignmentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.windowsDefenderApplicationControlSupplementalPolicy entity.
+     * @param string $windowsDefenderApplicationControlSupplementalPolicyAssignmentId Unique identifier of the item
+     * @return WindowsDefenderApplicationControlSupplementalPolicyAssignmentItemRequestBuilder
+    */
+    public function byWindowsDefenderApplicationControlSupplementalPolicyAssignmentId(string $windowsDefenderApplicationControlSupplementalPolicyAssignmentId): WindowsDefenderApplicationControlSupplementalPolicyAssignmentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['windowsDefenderApplicationControlSupplementalPolicyAssignment%2Did'] = $windowsDefenderApplicationControlSupplementalPolicyAssignmentId;
+        return new WindowsDefenderApplicationControlSupplementalPolicyAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AssignmentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

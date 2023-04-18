@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelSites\Item\MicrosoftTunnelServers\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelSites\Item\MicrosoftTunnelServers\Item\MicrosoftTunnelServerItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MicrosoftTunnelServer;
 use Microsoft\Graph\Beta\Generated\Models\MicrosoftTunnelServerCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class MicrosoftTunnelServersRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the microsoftTunnelServers property of the microsoft.graph.microsoftTunnelSite entity.
+     * @param string $microsoftTunnelServerId Unique identifier of the item
+     * @return MicrosoftTunnelServerItemRequestBuilder
+    */
+    public function byMicrosoftTunnelServerId(string $microsoftTunnelServerId): MicrosoftTunnelServerItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['microsoftTunnelServer%2Did'] = $microsoftTunnelServerId;
+        return new MicrosoftTunnelServerItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new MicrosoftTunnelServersRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

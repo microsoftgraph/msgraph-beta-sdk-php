@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\External\IndustryData\ReferenceDefinitions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\External\IndustryData\ReferenceDefinitions\Item\ReferenceDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IndustryData\ReferenceDefinition;
 use Microsoft\Graph\Beta\Generated\Models\IndustryData\ReferenceDefinitionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class ReferenceDefinitionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the referenceDefinitions property of the microsoft.graph.industryData.industryDataRoot entity.
+     * @param string $referenceDefinitionId Unique identifier of the item
+     * @return ReferenceDefinitionItemRequestBuilder
+    */
+    public function byReferenceDefinitionId(string $referenceDefinitionId): ReferenceDefinitionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['referenceDefinition%2Did'] = $referenceDefinitionId;
+        return new ReferenceDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ReferenceDefinitionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

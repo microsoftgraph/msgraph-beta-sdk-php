@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DataPolicyOperations\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DataPolicyOperations\Item\DataPolicyOperationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DataPolicyOperation;
 use Microsoft\Graph\Beta\Generated\Models\DataPolicyOperationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class DataPolicyOperationsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the collection of dataPolicyOperation entities.
+     * @param string $dataPolicyOperationId Unique identifier of the item
+     * @return DataPolicyOperationItemRequestBuilder
+    */
+    public function byDataPolicyOperationId(string $dataPolicyOperationId): DataPolicyOperationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['dataPolicyOperation%2Did'] = $dataPolicyOperationId;
+        return new DataPolicyOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DataPolicyOperationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

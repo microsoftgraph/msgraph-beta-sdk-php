@@ -8,6 +8,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\Runs\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\Runs\IdentityGovernanceSummaryWithStartDateTimeWithEndDateTime\IdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\Runs\Item\RunItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\RunCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -44,6 +45,17 @@ class RunsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the runs property of the microsoft.graph.identityGovernance.workflow entity.
+     * @param string $runId Unique identifier of the item
+     * @return RunItemRequestBuilder
+    */
+    public function byRunId(string $runId): RunItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['run%2Did'] = $runId;
+        return new RunItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new RunsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

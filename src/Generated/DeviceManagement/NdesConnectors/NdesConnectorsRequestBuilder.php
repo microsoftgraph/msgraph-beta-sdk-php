@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\NdesConnectors\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\NdesConnectors\Item\NdesConnectorItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\NdesConnector;
 use Microsoft\Graph\Beta\Generated\Models\NdesConnectorCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class NdesConnectorsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the ndesConnectors property of the microsoft.graph.deviceManagement entity.
+     * @param string $ndesConnectorId Unique identifier of the item
+     * @return NdesConnectorItemRequestBuilder
+    */
+    public function byNdesConnectorId(string $ndesConnectorId): NdesConnectorItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['ndesConnector%2Did'] = $ndesConnectorId;
+        return new NdesConnectorItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new NdesConnectorsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

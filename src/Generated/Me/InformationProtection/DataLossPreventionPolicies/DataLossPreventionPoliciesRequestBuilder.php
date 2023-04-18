@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\InformationProtection\DataLossPreventionPolicies\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\InformationProtection\DataLossPreventionPolicies\Evaluate\EvaluateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\InformationProtection\DataLossPreventionPolicies\Item\DataLossPreventionPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DataLossPreventionPolicy;
 use Microsoft\Graph\Beta\Generated\Models\DataLossPreventionPolicyCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -51,6 +52,17 @@ class DataLossPreventionPoliciesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the dataLossPreventionPolicies property of the microsoft.graph.informationProtection entity.
+     * @param string $dataLossPreventionPolicyId Unique identifier of the item
+     * @return DataLossPreventionPolicyItemRequestBuilder
+    */
+    public function byDataLossPreventionPolicyId(string $dataLossPreventionPolicyId): DataLossPreventionPolicyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['dataLossPreventionPolicy%2Did'] = $dataLossPreventionPolicyId;
+        return new DataLossPreventionPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DataLossPreventionPoliciesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

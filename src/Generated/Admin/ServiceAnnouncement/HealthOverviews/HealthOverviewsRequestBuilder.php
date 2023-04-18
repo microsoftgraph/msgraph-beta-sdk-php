@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\HealthOverviews\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\HealthOverviews\Item\ServiceHealthItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\ServiceHealth;
 use Microsoft\Graph\Beta\Generated\Models\ServiceHealthCollectionResponse;
@@ -43,6 +44,17 @@ class HealthOverviewsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the healthOverviews property of the microsoft.graph.serviceAnnouncement entity.
+     * @param string $serviceHealthId Unique identifier of the item
+     * @return ServiceHealthItemRequestBuilder
+    */
+    public function byServiceHealthId(string $serviceHealthId): ServiceHealthItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['serviceHealth%2Did'] = $serviceHealthId;
+        return new ServiceHealthItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new HealthOverviewsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -11,6 +11,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\Delta\DeltaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\DeltaWithToken\DeltaWithTokenRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\Item\ListItemItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -52,6 +53,17 @@ class ItemsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the items property of the microsoft.graph.list entity.
+     * @param string $listItemId Unique identifier of the item
+     * @return ListItemItemRequestBuilder
+    */
+    public function byListItemId(string $listItemId): ListItemItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['listItem%2Did'] = $listItemId;
+        return new ListItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ItemsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

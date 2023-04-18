@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AdvancedThreatProtectionOnboardingStateSummary\AdvancedThreatProtectionOnboardingDeviceSettingStates\AdvancedThreatProtectionOnboardingDeviceSettingStatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AdvancedThreatProtectionOnboardingStateSummary\AdvancedThreatProtectionOnboardingDeviceSettingStates\Item\AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AdvancedThreatProtectionOnboardingStateSummary;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -43,17 +42,6 @@ class AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the advancedThreatProtectionOnboardingDeviceSettingStates property of the microsoft.graph.advancedThreatProtectionOnboardingStateSummary entity.
-     * @param string $id Unique identifier of the item
-     * @return AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilder
-    */
-    public function advancedThreatProtectionOnboardingDeviceSettingStatesById(string $id): AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['advancedThreatProtectionOnboardingDeviceSettingState%2Did'] = $id;
-        return new AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

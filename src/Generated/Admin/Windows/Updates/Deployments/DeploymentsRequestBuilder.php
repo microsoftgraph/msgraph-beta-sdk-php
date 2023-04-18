@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\DeploymentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\Deployment;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\DeploymentCollectionResponse;
@@ -43,6 +44,17 @@ class DeploymentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the deployments property of the microsoft.graph.adminWindowsUpdates entity.
+     * @param string $deploymentId Unique identifier of the item
+     * @return DeploymentItemRequestBuilder
+    */
+    public function byDeploymentId(string $deploymentId): DeploymentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deployment%2Did'] = $deploymentId;
+        return new DeploymentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DeploymentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TeamsAppInstallation;
 use Microsoft\Graph\Beta\Generated\Models\TeamsAppInstallationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\InstalledApps\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\InstalledApps\Item\TeamsAppInstallationItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class InstalledAppsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the installedApps property of the microsoft.graph.team entity.
+     * @param string $teamsAppInstallationId Unique identifier of the item
+     * @return TeamsAppInstallationItemRequestBuilder
+    */
+    public function byTeamsAppInstallationId(string $teamsAppInstallationId): TeamsAppInstallationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['teamsAppInstallation%2Did'] = $teamsAppInstallationId;
+        return new TeamsAppInstallationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new InstalledAppsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

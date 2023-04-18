@@ -8,12 +8,8 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\ThreatSubmissionRoot;
 use Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\EmailThreats\EmailThreatsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\EmailThreats\Item\EmailThreatSubmissionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\EmailThreatSubmissionPolicies\EmailThreatSubmissionPoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\EmailThreatSubmissionPolicies\Item\EmailThreatSubmissionPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\FileThreats\FileThreatsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\FileThreats\Item\FileThreatSubmissionItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\UrlThreats\Item\UrlThreatSubmissionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\UrlThreats\UrlThreatsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -101,39 +97,6 @@ class ThreatSubmissionRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the emailThreats property of the microsoft.graph.security.threatSubmissionRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return EmailThreatSubmissionItemRequestBuilder
-    */
-    public function emailThreatsById(string $id): EmailThreatSubmissionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['emailThreatSubmission%2Did'] = $id;
-        return new EmailThreatSubmissionItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the emailThreatSubmissionPolicies property of the microsoft.graph.security.threatSubmissionRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return EmailThreatSubmissionPolicyItemRequestBuilder
-    */
-    public function emailThreatSubmissionPoliciesById(string $id): EmailThreatSubmissionPolicyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['emailThreatSubmissionPolicy%2Did'] = $id;
-        return new EmailThreatSubmissionPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the fileThreats property of the microsoft.graph.security.threatSubmissionRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return FileThreatSubmissionItemRequestBuilder
-    */
-    public function fileThreatsById(string $id): FileThreatSubmissionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['fileThreatSubmission%2Did'] = $id;
-        return new FileThreatSubmissionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -241,17 +204,6 @@ class ThreatSubmissionRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the urlThreats property of the microsoft.graph.security.threatSubmissionRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return UrlThreatSubmissionItemRequestBuilder
-    */
-    public function urlThreatsById(string $id): UrlThreatSubmissionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['urlThreatSubmission%2Did'] = $id;
-        return new UrlThreatSubmissionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

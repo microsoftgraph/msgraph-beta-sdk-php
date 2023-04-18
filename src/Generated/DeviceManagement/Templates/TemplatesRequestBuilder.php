@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\ImportOffice365DeviceConfigurationPolicies\ImportOffice365DeviceConfigurationPoliciesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\DeviceManagementTemplateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementTemplate;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementTemplateCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -51,6 +52,17 @@ class TemplatesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the templates property of the microsoft.graph.deviceManagement entity.
+     * @param string $deviceManagementTemplateId Unique identifier of the item
+     * @return DeviceManagementTemplateItemRequestBuilder
+    */
+    public function byDeviceManagementTemplateId(string $deviceManagementTemplateId): DeviceManagementTemplateItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceManagementTemplate%2Did'] = $deviceManagementTemplateId;
+        return new DeviceManagementTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new TemplatesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PayloadResponse;
 use Microsoft\Graph\Beta\Generated\Models\PayloadResponseCollectionResponse;
 use Microsoft\Graph\Beta\Generated\PayloadResponse\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\PayloadResponse\Item\PayloadResponseItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class PayloadResponseRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the collection of payloadResponse entities.
+     * @param string $payloadResponseId Unique identifier of the item
+     * @return PayloadResponseItemRequestBuilder
+    */
+    public function byPayloadResponseId(string $payloadResponseId): PayloadResponseItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['payloadResponse%2Did'] = $payloadResponseId;
+        return new PayloadResponseItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PayloadResponseRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

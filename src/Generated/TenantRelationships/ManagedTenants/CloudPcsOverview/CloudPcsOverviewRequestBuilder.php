@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\CloudPcOverview;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\CloudPcOverviewCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\CloudPcsOverview\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\CloudPcsOverview\Item\CloudPcOverviewTenantItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class CloudPcsOverviewRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the cloudPcsOverview property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $cloudPcOverviewTenantId Unique identifier of the item
+     * @return CloudPcOverviewTenantItemRequestBuilder
+    */
+    public function byCloudPcOverviewTenantId(string $cloudPcOverviewTenantId): CloudPcOverviewTenantItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['cloudPcOverview%2DtenantId'] = $cloudPcOverviewTenantId;
+        return new CloudPcOverviewTenantItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CloudPcsOverviewRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

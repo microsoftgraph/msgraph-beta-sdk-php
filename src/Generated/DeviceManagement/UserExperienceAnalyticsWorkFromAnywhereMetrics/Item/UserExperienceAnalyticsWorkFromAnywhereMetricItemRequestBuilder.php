@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalytic
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsWorkFromAnywhereMetrics\Item\MetricDevices\Item\UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsWorkFromAnywhereMetrics\Item\MetricDevices\MetricDevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsWorkFromAnywhereMetric;
@@ -92,17 +91,6 @@ class UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the metricDevices property of the microsoft.graph.userExperienceAnalyticsWorkFromAnywhereMetric entity.
-     * @param string $id Unique identifier of the item
-     * @return UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilder
-    */
-    public function metricDevicesById(string $id): UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['userExperienceAnalyticsWorkFromAnywhereDevice%2Did'] = $id;
-        return new UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

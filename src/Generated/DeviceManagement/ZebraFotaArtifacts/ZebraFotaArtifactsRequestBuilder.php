@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaArtifacts\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaArtifacts\Item\ZebraFotaArtifactItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\ZebraFotaArtifact;
 use Microsoft\Graph\Beta\Generated\Models\ZebraFotaArtifactCollectionResponse;
@@ -43,6 +44,17 @@ class ZebraFotaArtifactsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the zebraFotaArtifacts property of the microsoft.graph.deviceManagement entity.
+     * @param string $zebraFotaArtifactId Unique identifier of the item
+     * @return ZebraFotaArtifactItemRequestBuilder
+    */
+    public function byZebraFotaArtifactId(string $zebraFotaArtifactId): ZebraFotaArtifactItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['zebraFotaArtifact%2Did'] = $zebraFotaArtifactId;
+        return new ZebraFotaArtifactItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ZebraFotaArtifactsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

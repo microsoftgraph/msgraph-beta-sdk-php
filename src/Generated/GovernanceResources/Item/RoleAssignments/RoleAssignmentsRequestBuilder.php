@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\GovernanceResources\Item\RoleAssignments\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\GovernanceResources\Item\RoleAssignments\Export\ExportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\GovernanceResources\Item\RoleAssignments\Item\GovernanceRoleAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\GovernanceRoleAssignment;
 use Microsoft\Graph\Beta\Generated\Models\GovernanceRoleAssignmentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -51,6 +52,17 @@ class RoleAssignmentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the roleAssignments property of the microsoft.graph.governanceResource entity.
+     * @param string $governanceRoleAssignmentId Unique identifier of the item
+     * @return GovernanceRoleAssignmentItemRequestBuilder
+    */
+    public function byGovernanceRoleAssignmentId(string $governanceRoleAssignmentId): GovernanceRoleAssignmentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['governanceRoleAssignment%2Did'] = $governanceRoleAssignmentId;
+        return new GovernanceRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new RoleAssignmentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

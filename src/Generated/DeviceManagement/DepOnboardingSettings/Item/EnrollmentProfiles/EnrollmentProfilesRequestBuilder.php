@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\EnrollmentProfiles\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\EnrollmentProfiles\Item\EnrollmentProfileItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EnrollmentProfile;
 use Microsoft\Graph\Beta\Generated\Models\EnrollmentProfileCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class EnrollmentProfilesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the enrollmentProfiles property of the microsoft.graph.depOnboardingSetting entity.
+     * @param string $enrollmentProfileId Unique identifier of the item
+     * @return EnrollmentProfileItemRequestBuilder
+    */
+    public function byEnrollmentProfileId(string $enrollmentProfileId): EnrollmentProfileItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['enrollmentProfile%2Did'] = $enrollmentProfileId;
+        return new EnrollmentProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new EnrollmentProfilesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Decisions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Decisions\Item\AccessReviewDecisionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessReviewDecision;
 use Microsoft\Graph\Beta\Generated\Models\AccessReviewDecisionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class DecisionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the decisions property of the microsoft.graph.accessReview entity.
+     * @param string $accessReviewDecisionId Unique identifier of the item
+     * @return AccessReviewDecisionItemRequestBuilder
+    */
+    public function byAccessReviewDecisionId(string $accessReviewDecisionId): AccessReviewDecisionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['accessReviewDecision%2Did'] = $accessReviewDecisionId;
+        return new AccessReviewDecisionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DecisionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

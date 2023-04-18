@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagementEligibleDevices\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagementEligibleDevices\Item\ComanagementEligibleDeviceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ComanagementEligibleDevice;
 use Microsoft\Graph\Beta\Generated\Models\ComanagementEligibleDeviceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class ComanagementEligibleDevicesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the comanagementEligibleDevices property of the microsoft.graph.deviceManagement entity.
+     * @param string $comanagementEligibleDeviceId Unique identifier of the item
+     * @return ComanagementEligibleDeviceItemRequestBuilder
+    */
+    public function byComanagementEligibleDeviceId(string $comanagementEligibleDeviceId): ComanagementEligibleDeviceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['comanagementEligibleDevice%2Did'] = $comanagementEligibleDeviceId;
+        return new ComanagementEligibleDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ComanagementEligibleDevicesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\RiskDetection;
 use Microsoft\Graph\Beta\Generated\Models\RiskDetectionCollectionResponse;
+use Microsoft\Graph\Beta\Generated\RiskDetections\Item\RiskDetectionItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -35,6 +36,17 @@ class RiskDetectionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the collection of riskDetection entities.
+     * @param string $riskDetectionId Unique identifier of the item
+     * @return RiskDetectionItemRequestBuilder
+    */
+    public function byRiskDetectionId(string $riskDetectionId): RiskDetectionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['riskDetection%2Did'] = $riskDetectionId;
+        return new RiskDetectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new RiskDetectionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

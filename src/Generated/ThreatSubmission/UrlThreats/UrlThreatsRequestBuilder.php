@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\UrlThreatSubmission;
 use Microsoft\Graph\Beta\Generated\Models\Security\UrlThreatSubmissionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\ThreatSubmission\UrlThreats\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\ThreatSubmission\UrlThreats\Item\UrlThreatSubmissionItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class UrlThreatsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the urlThreats property of the microsoft.graph.security.threatSubmissionRoot entity.
+     * @param string $urlThreatSubmissionId Unique identifier of the item
+     * @return UrlThreatSubmissionItemRequestBuilder
+    */
+    public function byUrlThreatSubmissionId(string $urlThreatSubmissionId): UrlThreatSubmissionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['urlThreatSubmission%2Did'] = $urlThreatSubmissionId;
+        return new UrlThreatSubmissionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UrlThreatsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

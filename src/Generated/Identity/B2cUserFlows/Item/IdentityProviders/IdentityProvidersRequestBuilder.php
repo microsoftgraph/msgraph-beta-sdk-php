@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\IdentityProviders\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\IdentityProviders\Item\IdentityProviderItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\IdentityProviders\Ref\RefRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityProviderCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -50,6 +51,17 @@ class IdentityProvidersRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Gets an item from the Microsoft/Graph/Beta/Generated.identity.b2cUserFlows.item.identityProviders.item collection
+     * @param string $identityProviderId Unique identifier of the item
+     * @return IdentityProviderItemRequestBuilder
+    */
+    public function byIdentityProviderId(string $identityProviderId): IdentityProviderItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['identityProvider%2Did'] = $identityProviderId;
+        return new IdentityProviderItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new IdentityProvidersRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

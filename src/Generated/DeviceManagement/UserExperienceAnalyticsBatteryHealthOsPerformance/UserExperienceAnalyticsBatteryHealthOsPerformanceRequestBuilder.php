@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBatteryHealthOsPerformance\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBatteryHealthOsPerformance\Item\UserExperienceAnalyticsBatteryHealthOsPerformanceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsBatteryHealthOsPerformance;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsBatteryHealthOsPerformanceCollectionResponse;
@@ -43,6 +44,17 @@ class UserExperienceAnalyticsBatteryHealthOsPerformanceRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userExperienceAnalyticsBatteryHealthOsPerformance property of the microsoft.graph.deviceManagement entity.
+     * @param string $userExperienceAnalyticsBatteryHealthOsPerformanceId Unique identifier of the item
+     * @return UserExperienceAnalyticsBatteryHealthOsPerformanceItemRequestBuilder
+    */
+    public function byUserExperienceAnalyticsBatteryHealthOsPerformanceId(string $userExperienceAnalyticsBatteryHealthOsPerformanceId): UserExperienceAnalyticsBatteryHealthOsPerformanceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userExperienceAnalyticsBatteryHealthOsPerformance%2Did'] = $userExperienceAnalyticsBatteryHealthOsPerformanceId;
+        return new UserExperienceAnalyticsBatteryHealthOsPerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserExperienceAnalyticsBatteryHealthOsPerformanceRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidForWorkEnrollmentProfiles\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidForWorkEnrollmentProfiles\Item\AndroidForWorkEnrollmentProfileItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AndroidForWorkEnrollmentProfile;
 use Microsoft\Graph\Beta\Generated\Models\AndroidForWorkEnrollmentProfileCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AndroidForWorkEnrollmentProfilesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the androidForWorkEnrollmentProfiles property of the microsoft.graph.deviceManagement entity.
+     * @param string $androidForWorkEnrollmentProfileId Unique identifier of the item
+     * @return AndroidForWorkEnrollmentProfileItemRequestBuilder
+    */
+    public function byAndroidForWorkEnrollmentProfileId(string $androidForWorkEnrollmentProfileId): AndroidForWorkEnrollmentProfileItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['androidForWorkEnrollmentProfile%2Did'] = $androidForWorkEnrollmentProfileId;
+        return new AndroidForWorkEnrollmentProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AndroidForWorkEnrollmentProfilesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

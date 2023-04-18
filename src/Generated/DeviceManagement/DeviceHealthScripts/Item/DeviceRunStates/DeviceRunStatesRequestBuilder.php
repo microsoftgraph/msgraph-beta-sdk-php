@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\DeviceRunStates\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\DeviceRunStates\Item\DeviceHealthScriptDeviceStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceHealthScriptDeviceState;
 use Microsoft\Graph\Beta\Generated\Models\DeviceHealthScriptDeviceStateCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class DeviceRunStatesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the deviceRunStates property of the microsoft.graph.deviceHealthScript entity.
+     * @param string $deviceHealthScriptDeviceStateId Unique identifier of the item
+     * @return DeviceHealthScriptDeviceStateItemRequestBuilder
+    */
+    public function byDeviceHealthScriptDeviceStateId(string $deviceHealthScriptDeviceStateId): DeviceHealthScriptDeviceStateItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceHealthScriptDeviceState%2Did'] = $deviceHealthScriptDeviceStateId;
+        return new DeviceHealthScriptDeviceStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DeviceRunStatesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

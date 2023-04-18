@@ -68,7 +68,7 @@ class SwapShiftsChangeRequestItemRequestBuilder
     }
 
     /**
-     * Get swapShiftsChangeRequests from teamTemplateDefinition
+     * The swap requests for shifts in the schedule.
      * @param SwapShiftsChangeRequestItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -126,7 +126,7 @@ class SwapShiftsChangeRequestItemRequestBuilder
     }
 
     /**
-     * Get swapShiftsChangeRequests from teamTemplateDefinition
+     * The swap requests for shifts in the schedule.
      * @param SwapShiftsChangeRequestItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

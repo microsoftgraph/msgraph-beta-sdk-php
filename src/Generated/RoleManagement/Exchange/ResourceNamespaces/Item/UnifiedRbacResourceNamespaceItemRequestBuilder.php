@@ -8,7 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UnifiedRbacResourceNamespace;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\ResourceNamespaces\Item\ImportResourceActions\ImportResourceActionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\ResourceNamespaces\Item\ResourceActions\Item\UnifiedRbacResourceActionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\ResourceNamespaces\Item\ResourceActions\ResourceActionsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -85,7 +84,7 @@ class UnifiedRbacResourceNamespaceItemRequestBuilder
     }
 
     /**
-     * Get resourceNamespaces from roleManagement
+     * Resource that represents a collection of related actions.
      * @param UnifiedRbacResourceNamespaceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -122,17 +121,6 @@ class UnifiedRbacResourceNamespaceItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the resourceActions property of the microsoft.graph.unifiedRbacResourceNamespace entity.
-     * @param string $id Unique identifier of the item
-     * @return UnifiedRbacResourceActionItemRequestBuilder
-    */
-    public function resourceActionsById(string $id): UnifiedRbacResourceActionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['unifiedRbacResourceAction%2Did'] = $id;
-        return new UnifiedRbacResourceActionItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Delete navigation property resourceNamespaces for roleManagement
      * @param UnifiedRbacResourceNamespaceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -154,7 +142,7 @@ class UnifiedRbacResourceNamespaceItemRequestBuilder
     }
 
     /**
-     * Get resourceNamespaces from roleManagement
+     * Resource that represents a collection of related actions.
      * @param UnifiedRbacResourceNamespaceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

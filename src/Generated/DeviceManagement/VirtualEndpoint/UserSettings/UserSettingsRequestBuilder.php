@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\UserSettings\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\UserSettings\Item\CloudPcUserSettingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcUserSetting;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcUserSettingCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class UserSettingsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userSettings property of the microsoft.graph.virtualEndpoint entity.
+     * @param string $cloudPcUserSettingId Unique identifier of the item
+     * @return CloudPcUserSettingItemRequestBuilder
+    */
+    public function byCloudPcUserSettingId(string $cloudPcUserSettingId): CloudPcUserSettingItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['cloudPcUserSetting%2Did'] = $cloudPcUserSettingId;
+        return new CloudPcUserSettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserSettingsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\RoleManagementAlerts\Alerts\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\RoleManagementAlerts\Alerts\Item\UnifiedRoleManagementAlertItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\RoleManagementAlerts\Alerts\Refresh\RefreshRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UnifiedRoleManagementAlert;
@@ -51,6 +52,17 @@ class AlertsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the alerts property of the microsoft.graph.roleManagementAlert entity.
+     * @param string $unifiedRoleManagementAlertId Unique identifier of the item
+     * @return UnifiedRoleManagementAlertItemRequestBuilder
+    */
+    public function byUnifiedRoleManagementAlertId(string $unifiedRoleManagementAlertId): UnifiedRoleManagementAlertItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['unifiedRoleManagementAlert%2Did'] = $unifiedRoleManagementAlertId;
+        return new UnifiedRoleManagementAlertItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AlertsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

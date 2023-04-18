@@ -8,21 +8,14 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\EdiscoveryCase;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Custodians\CustodiansRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Custodians\Item\EdiscoveryCustodianItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\LegalHolds\Item\EdiscoveryHoldPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\LegalHolds\LegalHoldsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\NoncustodialDataSources\Item\EdiscoveryNoncustodialDataSourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\NoncustodialDataSources\NoncustodialDataSourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Operations\Item\CaseOperationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Operations\OperationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\EdiscoveryReviewSetItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\ReviewSetsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Searches\Item\EdiscoverySearchItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Searches\SearchesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\SecurityClose\SecurityCloseRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\SecurityReopen\SecurityReopenRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Settings\SettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Tags\Item\EdiscoveryReviewTagItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Tags\TagsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -137,17 +130,6 @@ class EdiscoveryCaseItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
-     * @param string $id Unique identifier of the item
-     * @return EdiscoveryCustodianItemRequestBuilder
-    */
-    public function custodiansById(string $id): EdiscoveryCustodianItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['ediscoveryCustodian%2Did'] = $id;
-        return new EdiscoveryCustodianItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Delete navigation property ediscoveryCases for security
      * @param EdiscoveryCaseItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -184,39 +166,6 @@ class EdiscoveryCaseItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the legalHolds property of the microsoft.graph.security.ediscoveryCase entity.
-     * @param string $id Unique identifier of the item
-     * @return EdiscoveryHoldPolicyItemRequestBuilder
-    */
-    public function legalHoldsById(string $id): EdiscoveryHoldPolicyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['ediscoveryHoldPolicy%2Did'] = $id;
-        return new EdiscoveryHoldPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the noncustodialDataSources property of the microsoft.graph.security.ediscoveryCase entity.
-     * @param string $id Unique identifier of the item
-     * @return EdiscoveryNoncustodialDataSourceItemRequestBuilder
-    */
-    public function noncustodialDataSourcesById(string $id): EdiscoveryNoncustodialDataSourceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['ediscoveryNoncustodialDataSource%2Did'] = $id;
-        return new EdiscoveryNoncustodialDataSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the operations property of the microsoft.graph.security.ediscoveryCase entity.
-     * @param string $id Unique identifier of the item
-     * @return CaseOperationItemRequestBuilder
-    */
-    public function operationsById(string $id): CaseOperationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['caseOperation%2Did'] = $id;
-        return new CaseOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Update the navigation property ediscoveryCases in security
      * @param EdiscoveryCase $body The request body
      * @param EdiscoveryCaseItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -233,39 +182,6 @@ class EdiscoveryCaseItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity.
-     * @param string $id Unique identifier of the item
-     * @return EdiscoveryReviewSetItemRequestBuilder
-    */
-    public function reviewSetsById(string $id): EdiscoveryReviewSetItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['ediscoveryReviewSet%2Did'] = $id;
-        return new EdiscoveryReviewSetItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity.
-     * @param string $id Unique identifier of the item
-     * @return EdiscoverySearchItemRequestBuilder
-    */
-    public function searchesById(string $id): EdiscoverySearchItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['ediscoverySearch%2Did'] = $id;
-        return new EdiscoverySearchItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryCase entity.
-     * @param string $id Unique identifier of the item
-     * @return EdiscoveryReviewTagItemRequestBuilder
-    */
-    public function tagsById(string $id): EdiscoveryReviewTagItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['ediscoveryReviewTag%2Did'] = $id;
-        return new EdiscoveryReviewTagItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Tabs\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Tabs\Item\TeamsTabItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TeamsTab;
 use Microsoft\Graph\Beta\Generated\Models\TeamsTabCollectionResponse;
@@ -43,6 +44,17 @@ class TabsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the tabs property of the microsoft.graph.channel entity.
+     * @param string $teamsTabId Unique identifier of the item
+     * @return TeamsTabItemRequestBuilder
+    */
+    public function byTeamsTabId(string $teamsTabId): TeamsTabItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['teamsTab%2Did'] = $teamsTabId;
+        return new TeamsTabItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new TabsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

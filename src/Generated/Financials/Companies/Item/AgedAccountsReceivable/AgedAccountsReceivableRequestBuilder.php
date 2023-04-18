@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\AgedAccountsReceivable\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\AgedAccountsReceivable\Item\AgedAccountsReceivableItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AgedAccountsReceivableCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -42,6 +43,17 @@ class AgedAccountsReceivableRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the agedAccountsReceivable property of the microsoft.graph.company entity.
+     * @param string $agedAccountsReceivableId Unique identifier of the item
+     * @return AgedAccountsReceivableItemRequestBuilder
+    */
+    public function byAgedAccountsReceivableId(string $agedAccountsReceivableId): AgedAccountsReceivableItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['agedAccountsReceivable%2Did'] = $agedAccountsReceivableId;
+        return new AgedAccountsReceivableItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AgedAccountsReceivableRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -11,6 +11,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\BulkResize\BulkResizeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\GetProvisionedCloudPCsWithGroupIdWithServicePlanId\GetProvisionedCloudPCsWithGroupIdWithServicePlanIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\CloudPCItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\ValidateBulkResize\ValidateBulkResizeRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -60,6 +61,17 @@ class CloudPCsRequestBuilder
         return new ValidateBulkResizeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * Provides operations to manage the cloudPCs property of the microsoft.graph.user entity.
+     * @param string $cloudPCId Unique identifier of the item
+     * @return CloudPCItemRequestBuilder
+    */
+    public function byCloudPCId(string $cloudPCId): CloudPCItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['cloudPC%2Did'] = $cloudPCId;
+        return new CloudPCItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CloudPCsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

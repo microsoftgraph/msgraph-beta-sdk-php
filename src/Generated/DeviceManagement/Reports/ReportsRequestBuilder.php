@@ -6,9 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\CachedReportConfigurations\CachedReportConfigurationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\CachedReportConfigurations\Item\DeviceManagementCachedReportConfigurationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\ExportJobs\ExportJobsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\ExportJobs\Item\DeviceManagementExportJobItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetActiveMalwareReport\GetActiveMalwareReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetActiveMalwareSummaryReport\GetActiveMalwareSummaryReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetAllCertificatesReport\GetAllCertificatesReportRequestBuilder;
@@ -597,17 +595,6 @@ class ReportsRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Provides operations to manage the cachedReportConfigurations property of the microsoft.graph.deviceManagementReports entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceManagementCachedReportConfigurationItemRequestBuilder
-    */
-    public function cachedReportConfigurationsById(string $id): DeviceManagementCachedReportConfigurationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceManagementCachedReportConfiguration%2Did'] = $id;
-        return new DeviceManagementCachedReportConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new ReportsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -638,17 +625,6 @@ class ReportsRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the exportJobs property of the microsoft.graph.deviceManagementReports entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceManagementExportJobItemRequestBuilder
-    */
-    public function exportJobsById(string $id): DeviceManagementExportJobItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceManagementExportJob%2Did'] = $id;
-        return new DeviceManagementExportJobItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

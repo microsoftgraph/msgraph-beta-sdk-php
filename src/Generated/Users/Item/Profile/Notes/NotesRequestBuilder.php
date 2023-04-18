@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PersonAnnotation;
 use Microsoft\Graph\Beta\Generated\Models\PersonAnnotationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Notes\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Notes\Item\PersonAnnotationItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class NotesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the notes property of the microsoft.graph.profile entity.
+     * @param string $personAnnotationId Unique identifier of the item
+     * @return PersonAnnotationItemRequestBuilder
+    */
+    public function byPersonAnnotationId(string $personAnnotationId): PersonAnnotationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['personAnnotation%2Did'] = $personAnnotationId;
+        return new PersonAnnotationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new NotesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

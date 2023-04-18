@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\UserAttributeAssignments\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\UserAttributeAssignments\GetOrder\GetOrderRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\UserAttributeAssignments\Item\IdentityUserFlowAttributeAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\UserAttributeAssignments\SetOrder\SetOrderRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityUserFlowAttributeAssignment;
 use Microsoft\Graph\Beta\Generated\Models\IdentityUserFlowAttributeAssignmentCollectionResponse;
@@ -59,6 +60,17 @@ class UserAttributeAssignmentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userAttributeAssignments property of the microsoft.graph.b2cIdentityUserFlow entity.
+     * @param string $identityUserFlowAttributeAssignmentId Unique identifier of the item
+     * @return IdentityUserFlowAttributeAssignmentItemRequestBuilder
+    */
+    public function byIdentityUserFlowAttributeAssignmentId(string $identityUserFlowAttributeAssignmentId): IdentityUserFlowAttributeAssignmentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['identityUserFlowAttributeAssignment%2Did'] = $identityUserFlowAttributeAssignmentId;
+        return new IdentityUserFlowAttributeAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserAttributeAssignmentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

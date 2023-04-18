@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceScopes\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceScopes\Item\UserExperienceAnalyticsDeviceScopeItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDeviceScope;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDeviceScopeCollectionResponse;
@@ -43,6 +44,17 @@ class UserExperienceAnalyticsDeviceScopesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userExperienceAnalyticsDeviceScopes property of the microsoft.graph.deviceManagement entity.
+     * @param string $userExperienceAnalyticsDeviceScopeId Unique identifier of the item
+     * @return UserExperienceAnalyticsDeviceScopeItemRequestBuilder
+    */
+    public function byUserExperienceAnalyticsDeviceScopeId(string $userExperienceAnalyticsDeviceScopeId): UserExperienceAnalyticsDeviceScopeItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userExperienceAnalyticsDeviceScope%2Did'] = $userExperienceAnalyticsDeviceScopeId;
+        return new UserExperienceAnalyticsDeviceScopeItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserExperienceAnalyticsDeviceScopesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\D
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\WorkflowItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\WorkflowsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeletedItemContainer;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -138,17 +137,6 @@ class DeletedItemsRequestBuilder
             }
         }
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the workflows property of the microsoft.graph.deletedItemContainer entity.
-     * @param string $id Unique identifier of the item
-     * @return WorkflowItemRequestBuilder
-    */
-    public function workflowsById(string $id): WorkflowItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['workflow%2Did'] = $id;
-        return new WorkflowItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

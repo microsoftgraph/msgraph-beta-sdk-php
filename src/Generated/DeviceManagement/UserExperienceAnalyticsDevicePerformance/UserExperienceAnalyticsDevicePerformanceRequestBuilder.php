@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDevicePerformance\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDevicePerformance\Item\UserExperienceAnalyticsDevicePerformanceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDevicePerformance\SummarizeDevicePerformanceDevicesWithSummarizeBy\SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDevicePerformance;
@@ -44,6 +45,17 @@ class UserExperienceAnalyticsDevicePerformanceRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userExperienceAnalyticsDevicePerformance property of the microsoft.graph.deviceManagement entity.
+     * @param string $userExperienceAnalyticsDevicePerformanceId Unique identifier of the item
+     * @return UserExperienceAnalyticsDevicePerformanceItemRequestBuilder
+    */
+    public function byUserExperienceAnalyticsDevicePerformanceId(string $userExperienceAnalyticsDevicePerformanceId): UserExperienceAnalyticsDevicePerformanceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userExperienceAnalyticsDevicePerformance%2Did'] = $userExperienceAnalyticsDevicePerformanceId;
+        return new UserExperienceAnalyticsDevicePerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserExperienceAnalyticsDevicePerformanceRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

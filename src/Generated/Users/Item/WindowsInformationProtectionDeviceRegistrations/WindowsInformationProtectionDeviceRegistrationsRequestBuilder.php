@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsInformationProtectionDeviceRegistrationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Users\Item\WindowsInformationProtectionDeviceRegistrations\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\WindowsInformationProtectionDeviceRegistrations\Item\WindowsInformationProtectionDeviceRegistrationItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -42,6 +43,17 @@ class WindowsInformationProtectionDeviceRegistrationsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the windowsInformationProtectionDeviceRegistrations property of the microsoft.graph.user entity.
+     * @param string $windowsInformationProtectionDeviceRegistrationId Unique identifier of the item
+     * @return WindowsInformationProtectionDeviceRegistrationItemRequestBuilder
+    */
+    public function byWindowsInformationProtectionDeviceRegistrationId(string $windowsInformationProtectionDeviceRegistrationId): WindowsInformationProtectionDeviceRegistrationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['windowsInformationProtectionDeviceRegistration%2Did'] = $windowsInformationProtectionDeviceRegistrationId;
+        return new WindowsInformationProtectionDeviceRegistrationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new WindowsInformationProtectionDeviceRegistrationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

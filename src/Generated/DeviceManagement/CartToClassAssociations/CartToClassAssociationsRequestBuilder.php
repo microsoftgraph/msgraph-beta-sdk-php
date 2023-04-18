@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CartToClassAssociations\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\CartToClassAssociations\Item\CartToClassAssociationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CartToClassAssociation;
 use Microsoft\Graph\Beta\Generated\Models\CartToClassAssociationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class CartToClassAssociationsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the cartToClassAssociations property of the microsoft.graph.deviceManagement entity.
+     * @param string $cartToClassAssociationId Unique identifier of the item
+     * @return CartToClassAssociationItemRequestBuilder
+    */
+    public function byCartToClassAssociationId(string $cartToClassAssociationId): CartToClassAssociationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['cartToClassAssociation%2Did'] = $cartToClassAssociationId;
+        return new CartToClassAssociationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CartToClassAssociationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

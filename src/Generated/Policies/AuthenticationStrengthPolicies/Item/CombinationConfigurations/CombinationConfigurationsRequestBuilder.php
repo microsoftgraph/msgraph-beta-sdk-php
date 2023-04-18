@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\AuthenticationCombinationConfiguration
 use Microsoft\Graph\Beta\Generated\Models\AuthenticationCombinationConfigurationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Policies\AuthenticationStrengthPolicies\Item\CombinationConfigurations\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Policies\AuthenticationStrengthPolicies\Item\CombinationConfigurations\Item\AuthenticationCombinationConfigurationItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class CombinationConfigurationsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the combinationConfigurations property of the microsoft.graph.authenticationStrengthPolicy entity.
+     * @param string $authenticationCombinationConfigurationId Unique identifier of the item
+     * @return AuthenticationCombinationConfigurationItemRequestBuilder
+    */
+    public function byAuthenticationCombinationConfigurationId(string $authenticationCombinationConfigurationId): AuthenticationCombinationConfigurationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['authenticationCombinationConfiguration%2Did'] = $authenticationCombinationConfigurationId;
+        return new AuthenticationCombinationConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CombinationConfigurationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

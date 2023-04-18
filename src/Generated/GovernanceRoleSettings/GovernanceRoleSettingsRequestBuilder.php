@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\GovernanceRoleSettings\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\GovernanceRoleSettings\Item\GovernanceRoleSettingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\GovernanceRoleSetting;
 use Microsoft\Graph\Beta\Generated\Models\GovernanceRoleSettingCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class GovernanceRoleSettingsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the collection of governanceRoleSetting entities.
+     * @param string $governanceRoleSettingId Unique identifier of the item
+     * @return GovernanceRoleSettingItemRequestBuilder
+    */
+    public function byGovernanceRoleSettingId(string $governanceRoleSettingId): GovernanceRoleSettingItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['governanceRoleSetting%2Did'] = $governanceRoleSettingId;
+        return new GovernanceRoleSettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new GovernanceRoleSettingsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

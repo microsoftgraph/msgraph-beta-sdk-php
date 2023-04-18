@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\MessageRecipients\Item\Events\EventsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\MessageRecipients\Item\Events\Item\MessageEventItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MessageRecipient;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -74,17 +73,6 @@ class MessageRecipientItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the events property of the microsoft.graph.messageRecipient entity.
-     * @param string $id Unique identifier of the item
-     * @return MessageEventItemRequestBuilder
-    */
-    public function eventsById(string $id): MessageEventItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['messageEvent%2Did'] = $id;
-        return new MessageEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

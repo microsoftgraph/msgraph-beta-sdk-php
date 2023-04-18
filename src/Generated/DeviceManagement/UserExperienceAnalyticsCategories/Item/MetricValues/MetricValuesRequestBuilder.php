@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsCategories\Item\MetricValues\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsCategories\Item\MetricValues\Item\UserExperienceAnalyticsMetricItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsMetric;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsMetricCollectionResponse;
@@ -43,6 +44,17 @@ class MetricValuesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the metricValues property of the microsoft.graph.userExperienceAnalyticsCategory entity.
+     * @param string $userExperienceAnalyticsMetricId Unique identifier of the item
+     * @return UserExperienceAnalyticsMetricItemRequestBuilder
+    */
+    public function byUserExperienceAnalyticsMetricId(string $userExperienceAnalyticsMetricId): UserExperienceAnalyticsMetricItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userExperienceAnalyticsMetric%2Did'] = $userExperienceAnalyticsMetricId;
+        return new UserExperienceAnalyticsMetricItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new MetricValuesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

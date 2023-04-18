@@ -7,7 +7,6 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\UserSettings\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\UserSettings\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\UserSettings\Item\Assignments\Item\CloudPcUserSettingAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcUserSetting;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -51,17 +50,6 @@ class CloudPcUserSettingItemRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the assignments property of the microsoft.graph.cloudPcUserSetting entity.
-     * @param string $id Unique identifier of the item
-     * @return CloudPcUserSettingAssignmentItemRequestBuilder
-    */
-    public function assignmentsById(string $id): CloudPcUserSettingAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['cloudPcUserSettingAssignment%2Did'] = $id;
-        return new CloudPcUserSettingAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new CloudPcUserSettingItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserAccountInformation;
 use Microsoft\Graph\Beta\Generated\Models\UserAccountInformationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Account\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Account\Item\UserAccountInformationItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class AccountRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the account property of the microsoft.graph.profile entity.
+     * @param string $userAccountInformationId Unique identifier of the item
+     * @return UserAccountInformationItemRequestBuilder
+    */
+    public function byUserAccountInformationId(string $userAccountInformationId): UserAccountInformationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userAccountInformation%2Did'] = $userAccountInformationId;
+        return new UserAccountInformationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AccountRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

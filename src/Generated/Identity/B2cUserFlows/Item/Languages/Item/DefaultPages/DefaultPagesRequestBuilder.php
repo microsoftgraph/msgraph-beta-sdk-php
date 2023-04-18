@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\Languages\Item\DefaultPages\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\Languages\Item\DefaultPages\Item\UserFlowLanguagePageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserFlowLanguagePage;
 use Microsoft\Graph\Beta\Generated\Models\UserFlowLanguagePageCollectionResponse;
@@ -43,6 +44,17 @@ class DefaultPagesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the defaultPages property of the microsoft.graph.userFlowLanguageConfiguration entity.
+     * @param string $userFlowLanguagePageId Unique identifier of the item
+     * @return UserFlowLanguagePageItemRequestBuilder
+    */
+    public function byUserFlowLanguagePageId(string $userFlowLanguagePageId): UserFlowLanguagePageItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userFlowLanguagePage%2Did'] = $userFlowLanguagePageId;
+        return new UserFlowLanguagePageItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DefaultPagesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

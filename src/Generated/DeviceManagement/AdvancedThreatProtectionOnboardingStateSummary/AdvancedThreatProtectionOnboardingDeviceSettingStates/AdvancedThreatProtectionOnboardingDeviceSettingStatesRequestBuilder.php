@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AdvancedThreatProtectionOnboardingStateSummary\AdvancedThreatProtectionOnboardingDeviceSettingStates\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\AdvancedThreatProtectionOnboardingStateSummary\AdvancedThreatProtectionOnboardingDeviceSettingStates\Item\AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AdvancedThreatProtectionOnboardingDeviceSettingState;
 use Microsoft\Graph\Beta\Generated\Models\AdvancedThreatProtectionOnboardingDeviceSettingStateCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AdvancedThreatProtectionOnboardingDeviceSettingStatesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the advancedThreatProtectionOnboardingDeviceSettingStates property of the microsoft.graph.advancedThreatProtectionOnboardingStateSummary entity.
+     * @param string $advancedThreatProtectionOnboardingDeviceSettingStateId Unique identifier of the item
+     * @return AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilder
+    */
+    public function byAdvancedThreatProtectionOnboardingDeviceSettingStateId(string $advancedThreatProtectionOnboardingDeviceSettingStateId): AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['advancedThreatProtectionOnboardingDeviceSettingState%2Did'] = $advancedThreatProtectionOnboardingDeviceSettingStateId;
+        return new AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AdvancedThreatProtectionOnboardingDeviceSettingStatesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

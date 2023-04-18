@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ServicePlans\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ServicePlans\Item\CloudPcServicePlanItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcServicePlan;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcServicePlanCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class ServicePlansRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the servicePlans property of the microsoft.graph.virtualEndpoint entity.
+     * @param string $cloudPcServicePlanId Unique identifier of the item
+     * @return CloudPcServicePlanItemRequestBuilder
+    */
+    public function byCloudPcServicePlanId(string $cloudPcServicePlanId): CloudPcServicePlanItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['cloudPcServicePlan%2Did'] = $cloudPcServicePlanId;
+        return new CloudPcServicePlanItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ServicePlansRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

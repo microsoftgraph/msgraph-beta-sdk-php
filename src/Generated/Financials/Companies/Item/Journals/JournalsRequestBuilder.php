@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Journals\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Journals\Item\JournalItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Journal;
 use Microsoft\Graph\Beta\Generated\Models\JournalCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class JournalsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the journals property of the microsoft.graph.company entity.
+     * @param string $journalId Unique identifier of the item
+     * @return JournalItemRequestBuilder
+    */
+    public function byJournalId(string $journalId): JournalItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['journal%2Did'] = $journalId;
+        return new JournalItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new JournalsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

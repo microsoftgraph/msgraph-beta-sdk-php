@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\AuthenticationMeth
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\AuthenticationMethods\UserRegistrationDetails\Item\UserRegistrationDetailsItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\AuthenticationMethods\UserRegistrationDetails\UserRegistrationDetailsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\AuthenticationMethods\UsersRegisteredByFeature\UsersRegisteredByFeatureRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\AuthenticationMethods\UsersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRoles\UsersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRolesRequestBuilder;
@@ -199,17 +198,6 @@ class AuthenticationMethodsRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the userRegistrationDetails property of the microsoft.graph.authenticationMethodsRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return UserRegistrationDetailsItemRequestBuilder
-    */
-    public function userRegistrationDetailsById(string $id): UserRegistrationDetailsItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['userRegistrationDetails%2Did'] = $id;
-        return new UserRegistrationDetailsItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

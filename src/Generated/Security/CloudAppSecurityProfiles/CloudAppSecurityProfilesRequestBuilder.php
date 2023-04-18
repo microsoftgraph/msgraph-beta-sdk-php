@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\CloudAppSecurityProfile;
 use Microsoft\Graph\Beta\Generated\Models\CloudAppSecurityProfileCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Security\CloudAppSecurityProfiles\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\CloudAppSecurityProfiles\Item\CloudAppSecurityProfileItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class CloudAppSecurityProfilesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the cloudAppSecurityProfiles property of the microsoft.graph.security entity.
+     * @param string $cloudAppSecurityProfileId Unique identifier of the item
+     * @return CloudAppSecurityProfileItemRequestBuilder
+    */
+    public function byCloudAppSecurityProfileId(string $cloudAppSecurityProfileId): CloudAppSecurityProfileItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['cloudAppSecurityProfile%2Did'] = $cloudAppSecurityProfileId;
+        return new CloudAppSecurityProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CloudAppSecurityProfilesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

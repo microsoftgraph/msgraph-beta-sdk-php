@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelHealthThresholds\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelHealthThresholds\Item\MicrosoftTunnelHealthThresholdItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MicrosoftTunnelHealthThreshold;
 use Microsoft\Graph\Beta\Generated\Models\MicrosoftTunnelHealthThresholdCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class MicrosoftTunnelHealthThresholdsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the microsoftTunnelHealthThresholds property of the microsoft.graph.deviceManagement entity.
+     * @param string $microsoftTunnelHealthThresholdId Unique identifier of the item
+     * @return MicrosoftTunnelHealthThresholdItemRequestBuilder
+    */
+    public function byMicrosoftTunnelHealthThresholdId(string $microsoftTunnelHealthThresholdId): MicrosoftTunnelHealthThresholdItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['microsoftTunnelHealthThreshold%2Did'] = $microsoftTunnelHealthThresholdId;
+        return new MicrosoftTunnelHealthThresholdItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new MicrosoftTunnelHealthThresholdsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

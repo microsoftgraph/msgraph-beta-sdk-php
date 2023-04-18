@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\ProgramControl;
 use Microsoft\Graph\Beta\Generated\Models\ProgramControlCollectionResponse;
 use Microsoft\Graph\Beta\Generated\ProgramControls\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\ProgramControls\Item\ProgramControlItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class ProgramControlsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the collection of programControl entities.
+     * @param string $programControlId Unique identifier of the item
+     * @return ProgramControlItemRequestBuilder
+    */
+    public function byProgramControlId(string $programControlId): ProgramControlItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['programControl%2Did'] = $programControlId;
+        return new ProgramControlItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ProgramControlsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

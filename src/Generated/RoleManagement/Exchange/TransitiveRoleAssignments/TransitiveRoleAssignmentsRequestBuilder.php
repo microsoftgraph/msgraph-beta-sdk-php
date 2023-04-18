@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UnifiedRoleAssignment;
 use Microsoft\Graph\Beta\Generated\Models\UnifiedRoleAssignmentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\TransitiveRoleAssignments\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\TransitiveRoleAssignments\Item\UnifiedRoleAssignmentItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -44,6 +45,17 @@ class TransitiveRoleAssignmentsRequestBuilder
     private string $urlTemplate;
     
     /**
+     * Provides operations to manage the transitiveRoleAssignments property of the microsoft.graph.unifiedRbacApplication entity.
+     * @param string $unifiedRoleAssignmentId Unique identifier of the item
+     * @return UnifiedRoleAssignmentItemRequestBuilder
+    */
+    public function byUnifiedRoleAssignmentId(string $unifiedRoleAssignmentId): UnifiedRoleAssignmentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['unifiedRoleAssignment%2Did'] = $unifiedRoleAssignmentId;
+        return new UnifiedRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
      * Instantiates a new TransitiveRoleAssignmentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -59,7 +71,7 @@ class TransitiveRoleAssignmentsRequestBuilder
     }
 
     /**
-     * Get transitiveRoleAssignments from roleManagement
+     * Resource to grant access to users or groups that are transitive.
      * @param TransitiveRoleAssignmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -96,7 +108,7 @@ class TransitiveRoleAssignmentsRequestBuilder
     }
 
     /**
-     * Get transitiveRoleAssignments from roleManagement
+     * Resource to grant access to users or groups that are transitive.
      * @param TransitiveRoleAssignmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

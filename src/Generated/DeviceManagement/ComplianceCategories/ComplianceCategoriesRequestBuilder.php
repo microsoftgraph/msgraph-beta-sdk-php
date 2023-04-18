@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComplianceCategories\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ComplianceCategories\Item\DeviceManagementConfigurationCategoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementConfigurationCategory;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementConfigurationCategoryCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class ComplianceCategoriesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the complianceCategories property of the microsoft.graph.deviceManagement entity.
+     * @param string $deviceManagementConfigurationCategoryId Unique identifier of the item
+     * @return DeviceManagementConfigurationCategoryItemRequestBuilder
+    */
+    public function byDeviceManagementConfigurationCategoryId(string $deviceManagementConfigurationCategoryId): DeviceManagementConfigurationCategoryItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceManagementConfigurationCategory%2Did'] = $deviceManagementConfigurationCategoryId;
+        return new DeviceManagementConfigurationCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ComplianceCategoriesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

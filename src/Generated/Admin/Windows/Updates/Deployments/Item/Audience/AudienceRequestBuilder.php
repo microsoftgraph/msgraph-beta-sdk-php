@@ -100,17 +100,6 @@ class AudienceRequestBuilder
     }
 
     /**
-     * Provides operations to manage the exclusions property of the microsoft.graph.windowsUpdates.deploymentAudience entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\Item\UpdatableAssetItemRequestBuilder
-    */
-    public function exclusionsById(string $id): \Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\Item\UpdatableAssetItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['updatableAsset%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\Item\UpdatableAssetItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Specifies the audience to which content is deployed.
      * @param AudienceRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -126,17 +115,6 @@ class AudienceRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the members property of the microsoft.graph.windowsUpdates.deploymentAudience entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Members\Item\UpdatableAssetItemRequestBuilder
-    */
-    public function membersById(string $id): \Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Members\Item\UpdatableAssetItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['updatableAsset%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Members\Item\UpdatableAssetItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

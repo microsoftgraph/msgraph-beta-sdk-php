@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\External\IndustryData\RoleGroups\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\External\IndustryData\RoleGroups\Item\RoleGroupItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IndustryData\RoleGroup;
 use Microsoft\Graph\Beta\Generated\Models\IndustryData\RoleGroupCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class RoleGroupsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the roleGroups property of the microsoft.graph.industryData.industryDataRoot entity.
+     * @param string $roleGroupId Unique identifier of the item
+     * @return RoleGroupItemRequestBuilder
+    */
+    public function byRoleGroupId(string $roleGroupId): RoleGroupItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['roleGroup%2Did'] = $roleGroupId;
+        return new RoleGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new RoleGroupsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Directory\FeatureRolloutPolicies\Item\AppliesTo\AppliesToRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\FeatureRolloutPolicies\Item\AppliesTo\Item\DirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\FeatureRolloutPolicy;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -43,17 +42,6 @@ class FeatureRolloutPolicyItemRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.directory.featureRolloutPolicies.item.appliesTo.item collection
-     * @param string $id Unique identifier of the item
-     * @return DirectoryObjectItemRequestBuilder
-    */
-    public function appliesToById(string $id): DirectoryObjectItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
-        return new DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new FeatureRolloutPolicyItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

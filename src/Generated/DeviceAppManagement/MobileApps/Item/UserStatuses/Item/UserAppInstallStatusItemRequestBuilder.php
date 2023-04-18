@@ -7,7 +7,6 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\UserStatuses\Item\App\AppRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\UserStatuses\Item\DeviceStatuses\DeviceStatusesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\UserStatuses\Item\DeviceStatuses\Item\MobileAppInstallStatusItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserAppInstallStatus;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -82,17 +81,6 @@ class UserAppInstallStatusItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the deviceStatuses property of the microsoft.graph.userAppInstallStatus entity.
-     * @param string $id Unique identifier of the item
-     * @return MobileAppInstallStatusItemRequestBuilder
-    */
-    public function deviceStatusesById(string $id): MobileAppInstallStatusItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['mobileAppInstallStatus%2Did'] = $id;
-        return new MobileAppInstallStatusItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

@@ -8,7 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\Article;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Articles\Item\Indicators\IndicatorsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Articles\Item\Indicators\Item\ArticleIndicatorItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -92,17 +91,6 @@ class ArticleItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the indicators property of the microsoft.graph.security.article entity.
-     * @param string $id Unique identifier of the item
-     * @return ArticleIndicatorItemRequestBuilder
-    */
-    public function indicatorsById(string $id): ArticleIndicatorItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['articleIndicator%2Did'] = $id;
-        return new ArticleIndicatorItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

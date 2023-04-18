@@ -10,7 +10,6 @@ use Microsoft\Graph\Beta\Generated\Models\Security\EdiscoveryFile;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\Files\Item\Content\ContentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\Files\Item\Custodian\CustodianRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\Files\Item\ExtractedTextContent\ExtractedTextContentRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\Files\Item\Tags\Item\EdiscoveryReviewTagItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\Files\Item\Tags\TagsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -135,17 +134,6 @@ class EdiscoveryFileItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryFile entity.
-     * @param string $id Unique identifier of the item
-     * @return EdiscoveryReviewTagItemRequestBuilder
-    */
-    public function tagsById(string $id): EdiscoveryReviewTagItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['ediscoveryReviewTag%2Did'] = $id;
-        return new EdiscoveryReviewTagItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

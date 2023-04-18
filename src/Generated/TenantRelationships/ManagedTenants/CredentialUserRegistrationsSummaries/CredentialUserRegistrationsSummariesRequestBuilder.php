@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\CredentialUserRegistrat
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\CredentialUserRegistrationsSummaryCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\CredentialUserRegistrationsSummaries\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\CredentialUserRegistrationsSummaries\Item\CredentialUserRegistrationsSummaryItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class CredentialUserRegistrationsSummariesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the credentialUserRegistrationsSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $credentialUserRegistrationsSummaryId Unique identifier of the item
+     * @return CredentialUserRegistrationsSummaryItemRequestBuilder
+    */
+    public function byCredentialUserRegistrationsSummaryId(string $credentialUserRegistrationsSummaryId): CredentialUserRegistrationsSummaryItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['credentialUserRegistrationsSummary%2Did'] = $credentialUserRegistrationsSummaryId;
+        return new CredentialUserRegistrationsSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CredentialUserRegistrationsSummariesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

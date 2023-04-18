@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\CustomAccessPackageWorkflowExtensions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\CustomAccessPackageWorkflowExtensions\Item\CustomAccessPackageWorkflowExtensionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CustomAccessPackageWorkflowExtension;
 use Microsoft\Graph\Beta\Generated\Models\CustomAccessPackageWorkflowExtensionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class CustomAccessPackageWorkflowExtensionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the customAccessPackageWorkflowExtensions property of the microsoft.graph.accessPackageCatalog entity.
+     * @param string $customAccessPackageWorkflowExtensionId Unique identifier of the item
+     * @return CustomAccessPackageWorkflowExtensionItemRequestBuilder
+    */
+    public function byCustomAccessPackageWorkflowExtensionId(string $customAccessPackageWorkflowExtensionId): CustomAccessPackageWorkflowExtensionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['customAccessPackageWorkflowExtension%2Did'] = $customAccessPackageWorkflowExtensionId;
+        return new CustomAccessPackageWorkflowExtensionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CustomAccessPackageWorkflowExtensionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

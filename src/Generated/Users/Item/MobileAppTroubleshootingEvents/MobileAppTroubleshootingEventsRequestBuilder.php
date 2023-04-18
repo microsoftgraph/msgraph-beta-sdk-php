@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\MobileAppTroubleshootingEvent;
 use Microsoft\Graph\Beta\Generated\Models\MobileAppTroubleshootingEventCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\MobileAppTroubleshootingEvents\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\MobileAppTroubleshootingEvents\Item\MobileAppTroubleshootingEventItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class MobileAppTroubleshootingEventsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the mobileAppTroubleshootingEvents property of the microsoft.graph.user entity.
+     * @param string $mobileAppTroubleshootingEventId Unique identifier of the item
+     * @return MobileAppTroubleshootingEventItemRequestBuilder
+    */
+    public function byMobileAppTroubleshootingEventId(string $mobileAppTroubleshootingEventId): MobileAppTroubleshootingEventItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['mobileAppTroubleshootingEvent%2Did'] = $mobileAppTroubleshootingEventId;
+        return new MobileAppTroubleshootingEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new MobileAppTroubleshootingEventsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

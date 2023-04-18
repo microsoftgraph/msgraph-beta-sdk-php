@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ExternalPartnerSettings\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ExternalPartnerSettings\Item\CloudPcExternalPartnerSettingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcExternalPartnerSetting;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcExternalPartnerSettingCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class ExternalPartnerSettingsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the externalPartnerSettings property of the microsoft.graph.virtualEndpoint entity.
+     * @param string $cloudPcExternalPartnerSettingId Unique identifier of the item
+     * @return CloudPcExternalPartnerSettingItemRequestBuilder
+    */
+    public function byCloudPcExternalPartnerSettingId(string $cloudPcExternalPartnerSettingId): CloudPcExternalPartnerSettingItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['cloudPcExternalPartnerSetting%2Did'] = $cloudPcExternalPartnerSettingId;
+        return new CloudPcExternalPartnerSettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ExternalPartnerSettingsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

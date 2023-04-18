@@ -8,14 +8,10 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Teamwork;
 use Microsoft\Graph\Beta\Generated\Teamwork\DeletedTeams\DeletedTeamsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\DeletedTeams\Item\DeletedTeamItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\Devices\DevicesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\TeamworkDeviceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\SendActivityNotificationToRecipients\SendActivityNotificationToRecipientsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamsAppSettings\TeamsAppSettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\TeamTemplateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\TeamTemplatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\WorkforceIntegrations\Item\WorkforceIntegrationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\WorkforceIntegrations\WorkforceIntegrationsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -102,28 +98,6 @@ class TeamworkRequestBuilder
     }
 
     /**
-     * Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.
-     * @param string $id Unique identifier of the item
-     * @return DeletedTeamItemRequestBuilder
-    */
-    public function deletedTeamsById(string $id): DeletedTeamItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deletedTeam%2Did'] = $id;
-        return new DeletedTeamItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the devices property of the microsoft.graph.teamwork entity.
-     * @param string $id Unique identifier of the item
-     * @return TeamworkDeviceItemRequestBuilder
-    */
-    public function devicesById(string $id): TeamworkDeviceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['teamworkDevice%2Did'] = $id;
-        return new TeamworkDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Get teamwork
      * @param TeamworkRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -158,17 +132,6 @@ class TeamworkRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the teamTemplates property of the microsoft.graph.teamwork entity.
-     * @param string $id Unique identifier of the item
-     * @return TeamTemplateItemRequestBuilder
-    */
-    public function teamTemplatesById(string $id): TeamTemplateItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['teamTemplate%2Did'] = $id;
-        return new TeamTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -218,17 +181,6 @@ class TeamworkRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the workforceIntegrations property of the microsoft.graph.teamwork entity.
-     * @param string $id Unique identifier of the item
-     * @return WorkforceIntegrationItemRequestBuilder
-    */
-    public function workforceIntegrationsById(string $id): WorkforceIntegrationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['workforceIntegration%2Did'] = $id;
-        return new WorkforceIntegrationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

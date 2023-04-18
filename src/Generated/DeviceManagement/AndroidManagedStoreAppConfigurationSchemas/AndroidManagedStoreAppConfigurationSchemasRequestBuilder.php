@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAppConfigurationSchemas\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAppConfigurationSchemas\Item\AndroidManagedStoreAppConfigurationSchemaItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AndroidManagedStoreAppConfigurationSchema;
 use Microsoft\Graph\Beta\Generated\Models\AndroidManagedStoreAppConfigurationSchemaCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AndroidManagedStoreAppConfigurationSchemasRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the androidManagedStoreAppConfigurationSchemas property of the microsoft.graph.deviceManagement entity.
+     * @param string $androidManagedStoreAppConfigurationSchemaId Unique identifier of the item
+     * @return AndroidManagedStoreAppConfigurationSchemaItemRequestBuilder
+    */
+    public function byAndroidManagedStoreAppConfigurationSchemaId(string $androidManagedStoreAppConfigurationSchemaId): AndroidManagedStoreAppConfigurationSchemaItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['androidManagedStoreAppConfigurationSchema%2Did'] = $androidManagedStoreAppConfigurationSchemaId;
+        return new AndroidManagedStoreAppConfigurationSchemaItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AndroidManagedStoreAppConfigurationSchemasRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

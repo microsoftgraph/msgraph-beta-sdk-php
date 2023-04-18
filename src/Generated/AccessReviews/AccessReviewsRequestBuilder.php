@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\AccessReviews\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AccessReviews\Item\AccessReviewItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessReview;
 use Microsoft\Graph\Beta\Generated\Models\AccessReviewCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AccessReviewsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the collection of accessReview entities.
+     * @param string $accessReviewId Unique identifier of the item
+     * @return AccessReviewItemRequestBuilder
+    */
+    public function byAccessReviewId(string $accessReviewId): AccessReviewItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['accessReview%2Did'] = $accessReviewId;
+        return new AccessReviewItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AccessReviewsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

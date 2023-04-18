@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesCreditMemos\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesCreditMemos\Item\SalesCreditMemoItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SalesCreditMemoCollectionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -42,6 +43,17 @@ class SalesCreditMemosRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the salesCreditMemos property of the microsoft.graph.company entity.
+     * @param string $salesCreditMemoId Unique identifier of the item
+     * @return SalesCreditMemoItemRequestBuilder
+    */
+    public function bySalesCreditMemoId(string $salesCreditMemoId): SalesCreditMemoItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['salesCreditMemo%2Did'] = $salesCreditMemoId;
+        return new SalesCreditMemoItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SalesCreditMemosRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

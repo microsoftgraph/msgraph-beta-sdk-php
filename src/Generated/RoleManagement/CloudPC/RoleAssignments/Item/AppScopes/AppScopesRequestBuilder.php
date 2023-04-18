@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\AppScope;
 use Microsoft\Graph\Beta\Generated\Models\AppScopeCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\AppScopes\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\AppScopes\Item\AppScopeItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class AppScopesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the appScopes property of the microsoft.graph.unifiedRoleAssignmentMultiple entity.
+     * @param string $appScopeId Unique identifier of the item
+     * @return AppScopeItemRequestBuilder
+    */
+    public function byAppScopeId(string $appScopeId): AppScopeItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['appScope%2Did'] = $appScopeId;
+        return new AppScopeItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AppScopesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

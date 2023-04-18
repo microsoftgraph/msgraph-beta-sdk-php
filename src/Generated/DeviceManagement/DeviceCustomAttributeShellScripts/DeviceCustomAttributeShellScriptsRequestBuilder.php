@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCustomAttributeShellScripts\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCustomAttributeShellScripts\Item\DeviceCustomAttributeShellScriptItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceCustomAttributeShellScript;
 use Microsoft\Graph\Beta\Generated\Models\DeviceCustomAttributeShellScriptCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class DeviceCustomAttributeShellScriptsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the deviceCustomAttributeShellScripts property of the microsoft.graph.deviceManagement entity.
+     * @param string $deviceCustomAttributeShellScriptId Unique identifier of the item
+     * @return DeviceCustomAttributeShellScriptItemRequestBuilder
+    */
+    public function byDeviceCustomAttributeShellScriptId(string $deviceCustomAttributeShellScriptId): DeviceCustomAttributeShellScriptItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceCustomAttributeShellScript%2Did'] = $deviceCustomAttributeShellScriptId;
+        return new DeviceCustomAttributeShellScriptItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DeviceCustomAttributeShellScriptsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

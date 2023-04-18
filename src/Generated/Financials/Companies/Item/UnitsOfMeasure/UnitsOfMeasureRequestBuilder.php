@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\UnitsOfMeasure\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\UnitsOfMeasure\Item\UnitOfMeasureItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UnitOfMeasure;
 use Microsoft\Graph\Beta\Generated\Models\UnitOfMeasureCollectionResponse;
@@ -43,6 +44,17 @@ class UnitsOfMeasureRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the unitsOfMeasure property of the microsoft.graph.company entity.
+     * @param string $unitOfMeasureId Unique identifier of the item
+     * @return UnitOfMeasureItemRequestBuilder
+    */
+    public function byUnitOfMeasureId(string $unitOfMeasureId): UnitOfMeasureItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['unitOfMeasure%2Did'] = $unitOfMeasureId;
+        return new UnitOfMeasureItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UnitsOfMeasureRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

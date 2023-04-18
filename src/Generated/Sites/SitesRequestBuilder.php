@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\Models\SiteCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Sites\Add\AddRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Delta\DeltaRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\SiteItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Remove\RemoveRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -66,6 +67,17 @@ class SitesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the collection of site entities.
+     * @param string $siteId Unique identifier of the item
+     * @return SiteItemRequestBuilder
+    */
+    public function bySiteId(string $siteId): SiteItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['site%2Did'] = $siteId;
+        return new SiteItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SitesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

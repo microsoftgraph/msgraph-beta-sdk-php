@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\W
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\WorkflowTemplates\Item\Tasks\Item\TaskItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\WorkflowTemplates\Item\Tasks\TasksRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\WorkflowTemplate;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -74,17 +73,6 @@ class WorkflowTemplateItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the tasks property of the microsoft.graph.identityGovernance.workflowTemplate entity.
-     * @param string $id Unique identifier of the item
-     * @return TaskItemRequestBuilder
-    */
-    public function tasksById(string $id): TaskItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['task%2Did'] = $id;
-        return new TaskItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

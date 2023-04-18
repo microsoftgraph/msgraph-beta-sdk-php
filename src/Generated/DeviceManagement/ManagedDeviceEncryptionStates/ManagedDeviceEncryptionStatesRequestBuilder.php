@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceEncryptionStates\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceEncryptionStates\Item\ManagedDeviceEncryptionStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceEncryptionState;
 use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceEncryptionStateCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class ManagedDeviceEncryptionStatesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the managedDeviceEncryptionStates property of the microsoft.graph.deviceManagement entity.
+     * @param string $managedDeviceEncryptionStateId Unique identifier of the item
+     * @return ManagedDeviceEncryptionStateItemRequestBuilder
+    */
+    public function byManagedDeviceEncryptionStateId(string $managedDeviceEncryptionStateId): ManagedDeviceEncryptionStateItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managedDeviceEncryptionState%2Did'] = $managedDeviceEncryptionStateId;
+        return new ManagedDeviceEncryptionStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ManagedDeviceEncryptionStatesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

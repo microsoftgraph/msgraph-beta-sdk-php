@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Threads\Item\Posts\Item\Mentions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Threads\Item\Posts\Item\Mentions\Item\MentionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Mention;
 use Microsoft\Graph\Beta\Generated\Models\MentionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class MentionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the mentions property of the microsoft.graph.post entity.
+     * @param string $mentionId Unique identifier of the item
+     * @return MentionItemRequestBuilder
+    */
+    public function byMentionId(string $mentionId): MentionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['mention%2Did'] = $mentionId;
+        return new MentionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new MentionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

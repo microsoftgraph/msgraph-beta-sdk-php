@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\SecurityBaselineStates\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\SecurityBaselineStates\Item\SecurityBaselineStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SecurityBaselineState;
 use Microsoft\Graph\Beta\Generated\Models\SecurityBaselineStateCollectionResponse;
@@ -43,6 +44,17 @@ class SecurityBaselineStatesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the securityBaselineStates property of the microsoft.graph.managedDevice entity.
+     * @param string $securityBaselineStateId Unique identifier of the item
+     * @return SecurityBaselineStateItemRequestBuilder
+    */
+    public function bySecurityBaselineStateId(string $securityBaselineStateId): SecurityBaselineStateItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['securityBaselineState%2Did'] = $securityBaselineStateId;
+        return new SecurityBaselineStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SecurityBaselineStatesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

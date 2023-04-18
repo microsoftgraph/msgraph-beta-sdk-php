@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DataClassification\ClassifyFileJobs\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DataClassification\ClassifyFileJobs\Item\JobResponseBaseItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\JobResponseBase;
 use Microsoft\Graph\Beta\Generated\Models\JobResponseBaseCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class ClassifyFileJobsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the classifyFileJobs property of the microsoft.graph.dataClassificationService entity.
+     * @param string $jobResponseBaseId Unique identifier of the item
+     * @return JobResponseBaseItemRequestBuilder
+    */
+    public function byJobResponseBaseId(string $jobResponseBaseId): JobResponseBaseItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['jobResponseBase%2Did'] = $jobResponseBaseId;
+        return new JobResponseBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ClassifyFileJobsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

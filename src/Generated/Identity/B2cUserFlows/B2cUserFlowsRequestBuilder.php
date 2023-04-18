@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\B2cIdentityUserFlowItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\B2cIdentityUserFlow;
 use Microsoft\Graph\Beta\Generated\Models\B2cIdentityUserFlowCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class B2cUserFlowsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the b2cUserFlows property of the microsoft.graph.identityContainer entity.
+     * @param string $b2cIdentityUserFlowId Unique identifier of the item
+     * @return B2cIdentityUserFlowItemRequestBuilder
+    */
+    public function byB2cIdentityUserFlowId(string $b2cIdentityUserFlowId): B2cIdentityUserFlowItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['b2cIdentityUserFlow%2Did'] = $b2cIdentityUserFlowId;
+        return new B2cIdentityUserFlowItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new B2cUserFlowsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

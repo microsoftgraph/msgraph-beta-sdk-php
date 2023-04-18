@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PaymentMethods\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PaymentMethods\Item\PaymentMethodItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PaymentMethod;
 use Microsoft\Graph\Beta\Generated\Models\PaymentMethodCollectionResponse;
@@ -43,6 +44,17 @@ class PaymentMethodsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the paymentMethods property of the microsoft.graph.company entity.
+     * @param string $paymentMethodId Unique identifier of the item
+     * @return PaymentMethodItemRequestBuilder
+    */
+    public function byPaymentMethodId(string $paymentMethodId): PaymentMethodItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['paymentMethod%2Did'] = $paymentMethodId;
+        return new PaymentMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PaymentMethodsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

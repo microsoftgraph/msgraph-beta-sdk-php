@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\TermsOfUse\Agreement
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\TermsOfUse\Agreements\Item\File\Localizations\Item\AgreementFileLocalizationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\TermsOfUse\Agreements\Item\File\Localizations\LocalizationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AgreementFile;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -93,17 +92,6 @@ class FileRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the localizations property of the microsoft.graph.agreementFile entity.
-     * @param string $id Unique identifier of the item
-     * @return AgreementFileLocalizationItemRequestBuilder
-    */
-    public function localizationsById(string $id): AgreementFileLocalizationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['agreementFileLocalization%2Did'] = $id;
-        return new AgreementFileLocalizationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Templates\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Templates\Item\SynchronizationTemplateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SynchronizationTemplate;
 use Microsoft\Graph\Beta\Generated\Models\SynchronizationTemplateCollectionResponse;
@@ -43,6 +44,17 @@ class TemplatesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the templates property of the microsoft.graph.synchronization entity.
+     * @param string $synchronizationTemplateId Unique identifier of the item
+     * @return SynchronizationTemplateItemRequestBuilder
+    */
+    public function bySynchronizationTemplateId(string $synchronizationTemplateId): SynchronizationTemplateItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['synchronizationTemplate%2Did'] = $synchronizationTemplateId;
+        return new SynchronizationTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new TemplatesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

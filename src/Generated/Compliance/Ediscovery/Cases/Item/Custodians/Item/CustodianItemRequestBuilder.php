@@ -10,11 +10,8 @@ use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\I
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\EdiscoveryRelease\EdiscoveryReleaseRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\EdiscoveryRemoveHold\EdiscoveryRemoveHoldRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\EdiscoveryUpdateIndex\EdiscoveryUpdateIndexRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\SiteSources\Item\SiteSourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\SiteSources\SiteSourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\UnifiedGroupSources\Item\UnifiedGroupSourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\UnifiedGroupSources\UnifiedGroupSourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\UserSources\Item\UserSourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\UserSources\UserSourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\Custodian;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -172,17 +169,6 @@ class CustodianItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the siteSources property of the microsoft.graph.ediscovery.custodian entity.
-     * @param string $id Unique identifier of the item
-     * @return SiteSourceItemRequestBuilder
-    */
-    public function siteSourcesById(string $id): SiteSourceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['siteSource%2Did'] = $id;
-        return new SiteSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Delete navigation property custodians for compliance
      * @param CustodianItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -250,28 +236,6 @@ class CustodianItemRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the unifiedGroupSources property of the microsoft.graph.ediscovery.custodian entity.
-     * @param string $id Unique identifier of the item
-     * @return UnifiedGroupSourceItemRequestBuilder
-    */
-    public function unifiedGroupSourcesById(string $id): UnifiedGroupSourceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['unifiedGroupSource%2Did'] = $id;
-        return new UnifiedGroupSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the userSources property of the microsoft.graph.ediscovery.custodian entity.
-     * @param string $id Unique identifier of the item
-     * @return UserSourceItemRequestBuilder
-    */
-    public function userSourcesById(string $id): UserSourceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['userSource%2Did'] = $id;
-        return new UserSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

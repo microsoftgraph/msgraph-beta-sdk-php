@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Accounts\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Accounts\Item\AccountItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccountCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -42,6 +43,17 @@ class AccountsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the accounts property of the microsoft.graph.company entity.
+     * @param string $accountId Unique identifier of the item
+     * @return AccountItemRequestBuilder
+    */
+    public function byAccountId(string $accountId): AccountItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['account%2Did'] = $accountId;
+        return new AccountItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AccountsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

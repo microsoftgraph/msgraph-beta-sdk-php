@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\IntelligenceProfile;
 use Microsoft\Graph\Beta\Generated\Models\Security\IntelligenceProfileCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\IntelProfiles\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\IntelProfiles\Item\IntelligenceProfileItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class IntelProfilesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the intelProfiles property of the microsoft.graph.security.threatIntelligence entity.
+     * @param string $intelligenceProfileId Unique identifier of the item
+     * @return IntelligenceProfileItemRequestBuilder
+    */
+    public function byIntelligenceProfileId(string $intelligenceProfileId): IntelligenceProfileItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['intelligenceProfile%2Did'] = $intelligenceProfileId;
+        return new IntelligenceProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new IntelProfilesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

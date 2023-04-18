@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Group\AssignmentScheduleRequests\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Group\AssignmentScheduleRequests\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Group\AssignmentScheduleRequests\Item\PrivilegedAccessGroupAssignmentScheduleRequestItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegedAccessGroupAssignmentScheduleRequest;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegedAccessGroupAssignmentScheduleRequestCollectionResponse;
@@ -44,6 +45,17 @@ class AssignmentScheduleRequestsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the assignmentScheduleRequests property of the microsoft.graph.privilegedAccessGroup entity.
+     * @param string $privilegedAccessGroupAssignmentScheduleRequestId Unique identifier of the item
+     * @return PrivilegedAccessGroupAssignmentScheduleRequestItemRequestBuilder
+    */
+    public function byPrivilegedAccessGroupAssignmentScheduleRequestId(string $privilegedAccessGroupAssignmentScheduleRequestId): PrivilegedAccessGroupAssignmentScheduleRequestItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['privilegedAccessGroupAssignmentScheduleRequest%2Did'] = $privilegedAccessGroupAssignmentScheduleRequestId;
+        return new PrivilegedAccessGroupAssignmentScheduleRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AssignmentScheduleRequestsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

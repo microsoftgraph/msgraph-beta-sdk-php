@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\VulnerabilityComponent;
 use Microsoft\Graph\Beta\Generated\Models\Security\VulnerabilityComponentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Vulnerabilities\Item\Components\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Vulnerabilities\Item\Components\Item\VulnerabilityComponentItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class ComponentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the components property of the microsoft.graph.security.vulnerability entity.
+     * @param string $vulnerabilityComponentId Unique identifier of the item
+     * @return VulnerabilityComponentItemRequestBuilder
+    */
+    public function byVulnerabilityComponentId(string $vulnerabilityComponentId): VulnerabilityComponentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['vulnerabilityComponent%2Did'] = $vulnerabilityComponentId;
+        return new VulnerabilityComponentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ComponentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

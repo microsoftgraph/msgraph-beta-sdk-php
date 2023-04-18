@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WindowsManagedAppProtections\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WindowsManagedAppProtections\Item\WindowsManagedAppProtectionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsManagedAppProtection;
 use Microsoft\Graph\Beta\Generated\Models\WindowsManagedAppProtectionCollectionResponse;
@@ -43,6 +44,17 @@ class WindowsManagedAppProtectionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the windowsManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
+     * @param string $windowsManagedAppProtectionId Unique identifier of the item
+     * @return WindowsManagedAppProtectionItemRequestBuilder
+    */
+    public function byWindowsManagedAppProtectionId(string $windowsManagedAppProtectionId): WindowsManagedAppProtectionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['windowsManagedAppProtection%2Did'] = $windowsManagedAppProtectionId;
+        return new WindowsManagedAppProtectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new WindowsManagedAppProtectionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

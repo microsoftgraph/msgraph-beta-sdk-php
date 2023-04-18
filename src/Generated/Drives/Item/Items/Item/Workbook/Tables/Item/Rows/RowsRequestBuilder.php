@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Tables\Item\Rows\Add\AddRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Tables\Item\Rows\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Tables\Item\Rows\Item\WorkbookTableRowItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Tables\Item\Rows\ItemAtWithIndex\ItemAtWithIndexRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WorkbookTableRow;
@@ -52,6 +53,17 @@ class RowsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the rows property of the microsoft.graph.workbookTable entity.
+     * @param string $workbookTableRowId Unique identifier of the item
+     * @return WorkbookTableRowItemRequestBuilder
+    */
+    public function byWorkbookTableRowId(string $workbookTableRowId): WorkbookTableRowItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['workbookTableRow%2Did'] = $workbookTableRowId;
+        return new WorkbookTableRowItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new RowsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

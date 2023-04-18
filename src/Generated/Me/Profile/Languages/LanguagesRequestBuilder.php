@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Profile\Languages\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Profile\Languages\Item\LanguageProficiencyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\LanguageProficiency;
 use Microsoft\Graph\Beta\Generated\Models\LanguageProficiencyCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class LanguagesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the languages property of the microsoft.graph.profile entity.
+     * @param string $languageProficiencyId Unique identifier of the item
+     * @return LanguageProficiencyItemRequestBuilder
+    */
+    public function byLanguageProficiencyId(string $languageProficiencyId): LanguageProficiencyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['languageProficiency%2Did'] = $languageProficiencyId;
+        return new LanguageProficiencyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new LanguagesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

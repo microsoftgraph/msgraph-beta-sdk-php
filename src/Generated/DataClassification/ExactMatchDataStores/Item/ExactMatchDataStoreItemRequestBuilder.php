@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Item\Lookup\LookupRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Item\Sessions\Item\ExactMatchSessionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Item\Sessions\SessionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ExactMatchDataStore;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -119,17 +118,6 @@ class ExactMatchDataStoreItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the sessions property of the microsoft.graph.exactMatchDataStore entity.
-     * @param string $id Unique identifier of the item
-     * @return ExactMatchSessionItemRequestBuilder
-    */
-    public function sessionsById(string $id): ExactMatchSessionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['exactMatchSession%2Did'] = $id;
-        return new ExactMatchSessionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

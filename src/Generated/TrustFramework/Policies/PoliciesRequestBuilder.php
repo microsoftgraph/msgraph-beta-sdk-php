@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TrustFrameworkPolicy;
 use Microsoft\Graph\Beta\Generated\Models\TrustFrameworkPolicyCollectionResponse;
 use Microsoft\Graph\Beta\Generated\TrustFramework\Policies\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TrustFramework\Policies\Item\TrustFrameworkPolicyItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class PoliciesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the policies property of the microsoft.graph.trustFramework entity.
+     * @param string $trustFrameworkPolicyId Unique identifier of the item
+     * @return TrustFrameworkPolicyItemRequestBuilder
+    */
+    public function byTrustFrameworkPolicyId(string $trustFrameworkPolicyId): TrustFrameworkPolicyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['trustFrameworkPolicy%2Did'] = $trustFrameworkPolicyId;
+        return new TrustFrameworkPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PoliciesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

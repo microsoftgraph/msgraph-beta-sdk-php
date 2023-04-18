@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegedAccess;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegedAccessCollectionResponse;
 use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\PrivilegedAccessItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class PrivilegedAccessRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the collection of privilegedAccess entities.
+     * @param string $privilegedAccessId Unique identifier of the item
+     * @return PrivilegedAccessItemRequestBuilder
+    */
+    public function byPrivilegedAccessId(string $privilegedAccessId): PrivilegedAccessItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['privilegedAccess%2Did'] = $privilegedAccessId;
+        return new PrivilegedAccessItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PrivilegedAccessRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

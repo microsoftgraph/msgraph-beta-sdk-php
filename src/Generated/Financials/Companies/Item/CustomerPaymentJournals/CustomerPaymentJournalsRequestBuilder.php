@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\CustomerPaymentJournals\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\CustomerPaymentJournals\Item\CustomerPaymentJournalItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CustomerPaymentJournal;
 use Microsoft\Graph\Beta\Generated\Models\CustomerPaymentJournalCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class CustomerPaymentJournalsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the customerPaymentJournals property of the microsoft.graph.company entity.
+     * @param string $customerPaymentJournalId Unique identifier of the item
+     * @return CustomerPaymentJournalItemRequestBuilder
+    */
+    public function byCustomerPaymentJournalId(string $customerPaymentJournalId): CustomerPaymentJournalItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['customerPaymentJournal%2Did'] = $customerPaymentJournalId;
+        return new CustomerPaymentJournalItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CustomerPaymentJournalsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

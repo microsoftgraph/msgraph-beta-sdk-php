@@ -10,7 +10,6 @@ use Microsoft\Graph\Beta\Generated\Models\SectionGroup;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Onenote\Notebooks\Item\SectionGroups\Item\ParentNotebook\ParentNotebookRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Onenote\Notebooks\Item\SectionGroups\Item\ParentSectionGroup\ParentSectionGroupRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Onenote\Notebooks\Item\SectionGroups\Item\SectionGroups\SectionGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Item\Onenote\Notebooks\Item\SectionGroups\Item\Sections\Item\OnenoteSectionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Onenote\Notebooks\Item\SectionGroups\Item\Sections\SectionsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -135,28 +134,6 @@ class SectionGroupItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the sectionGroups property of the microsoft.graph.sectionGroup entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Sites\Item\Onenote\Notebooks\Item\SectionGroups\Item\SectionGroups\Item\SectionGroupItemRequestBuilder
-    */
-    public function sectionGroupsById(string $id): \Microsoft\Graph\Beta\Generated\Sites\Item\Onenote\Notebooks\Item\SectionGroups\Item\SectionGroups\Item\SectionGroupItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['sectionGroup%2Did1'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Sites\Item\Onenote\Notebooks\Item\SectionGroups\Item\SectionGroups\Item\SectionGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the sections property of the microsoft.graph.sectionGroup entity.
-     * @param string $id Unique identifier of the item
-     * @return OnenoteSectionItemRequestBuilder
-    */
-    public function sectionsById(string $id): OnenoteSectionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['onenoteSection%2Did'] = $id;
-        return new OnenoteSectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

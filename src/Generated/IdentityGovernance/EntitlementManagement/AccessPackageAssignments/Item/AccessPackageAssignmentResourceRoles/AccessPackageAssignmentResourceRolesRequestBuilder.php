@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackageAssignmentResourceRoles\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackageAssignmentResourceRoles\Item\AccessPackageAssignmentResourceRoleItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackageAssignmentResourceRoles\My\MyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessPackageAssignmentResourceRole;
 use Microsoft\Graph\Beta\Generated\Models\AccessPackageAssignmentResourceRoleCollectionResponse;
@@ -51,6 +52,17 @@ class AccessPackageAssignmentResourceRolesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the accessPackageAssignmentResourceRoles property of the microsoft.graph.accessPackageAssignment entity.
+     * @param string $accessPackageAssignmentResourceRoleId Unique identifier of the item
+     * @return AccessPackageAssignmentResourceRoleItemRequestBuilder
+    */
+    public function byAccessPackageAssignmentResourceRoleId(string $accessPackageAssignmentResourceRoleId): AccessPackageAssignmentResourceRoleItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['accessPackageAssignmentResourceRole%2Did'] = $accessPackageAssignmentResourceRoleId;
+        return new AccessPackageAssignmentResourceRoleItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AccessPackageAssignmentResourceRolesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

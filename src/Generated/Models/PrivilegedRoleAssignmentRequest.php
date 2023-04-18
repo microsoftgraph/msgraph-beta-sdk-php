@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrivilegedRoleAssignmentRequest extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new PrivilegedRoleAssignmentRequest and sets the default values.
+     * Instantiates a new privilegedRoleAssignmentRequest and sets the default values.
     */
     public function __construct() {
         parent::__construct();

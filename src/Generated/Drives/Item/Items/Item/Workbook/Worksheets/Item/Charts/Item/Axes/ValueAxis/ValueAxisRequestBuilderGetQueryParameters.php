@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Workshe
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents the value axis in an axis. Read-only.
+ * Retrieve the properties and relationships of chartaxis object.
 */
 class ValueAxisRequestBuilderGetQueryParameters 
 {

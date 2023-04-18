@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventListeners\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventListeners\Item\AuthenticationEventListenerItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AuthenticationEventListener;
 use Microsoft\Graph\Beta\Generated\Models\AuthenticationEventListenerCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AuthenticationEventListenersRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the authenticationEventListeners property of the microsoft.graph.identityContainer entity.
+     * @param string $authenticationEventListenerId Unique identifier of the item
+     * @return AuthenticationEventListenerItemRequestBuilder
+    */
+    public function byAuthenticationEventListenerId(string $authenticationEventListenerId): AuthenticationEventListenerItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['authenticationEventListener%2Did'] = $authenticationEventListenerId;
+        return new AuthenticationEventListenerItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AuthenticationEventListenersRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

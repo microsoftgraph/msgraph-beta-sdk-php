@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Education\SynchronizationProfiles\Item\Errors\ErrorsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\SynchronizationProfiles\Item\Errors\Item\EducationSynchronizationErrorItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\SynchronizationProfiles\Item\Pause\PauseRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\SynchronizationProfiles\Item\ProfileStatus\ProfileStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\SynchronizationProfiles\Item\Reset\ResetRequestBuilder;
@@ -122,17 +121,6 @@ class EducationSynchronizationProfileItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the errors property of the microsoft.graph.educationSynchronizationProfile entity.
-     * @param string $id Unique identifier of the item
-     * @return EducationSynchronizationErrorItemRequestBuilder
-    */
-    public function errorsById(string $id): EducationSynchronizationErrorItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['educationSynchronizationError%2Did'] = $id;
-        return new EducationSynchronizationErrorItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

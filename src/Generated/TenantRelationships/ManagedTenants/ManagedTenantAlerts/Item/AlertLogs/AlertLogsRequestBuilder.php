@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagedTenantAlertLogCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantAlerts\Item\AlertLogs\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantAlerts\Item\AlertLogs\Item\ManagedTenantAlertLogItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -42,6 +43,17 @@ class AlertLogsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the alertLogs property of the microsoft.graph.managedTenants.managedTenantAlert entity.
+     * @param string $managedTenantAlertLogId Unique identifier of the item
+     * @return ManagedTenantAlertLogItemRequestBuilder
+    */
+    public function byManagedTenantAlertLogId(string $managedTenantAlertLogId): ManagedTenantAlertLogItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managedTenantAlertLog%2Did'] = $managedTenantAlertLogId;
+        return new ManagedTenantAlertLogItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AlertLogsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

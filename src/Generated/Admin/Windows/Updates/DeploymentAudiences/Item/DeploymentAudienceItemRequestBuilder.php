@@ -100,17 +100,6 @@ class DeploymentAudienceItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the exclusions property of the microsoft.graph.windowsUpdates.deploymentAudience entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudiences\Item\Exclusions\Item\UpdatableAssetItemRequestBuilder
-    */
-    public function exclusionsById(string $id): \Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudiences\Item\Exclusions\Item\UpdatableAssetItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['updatableAsset%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudiences\Item\Exclusions\Item\UpdatableAssetItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * The set of updatableAsset resources to which a deployment can apply.
      * @param DeploymentAudienceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -126,17 +115,6 @@ class DeploymentAudienceItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the members property of the microsoft.graph.windowsUpdates.deploymentAudience entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudiences\Item\Members\Item\UpdatableAssetItemRequestBuilder
-    */
-    public function membersById(string $id): \Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudiences\Item\Members\Item\UpdatableAssetItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['updatableAsset%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudiences\Item\Members\Item\UpdatableAssetItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Snapshots\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Snapshots\GetStorageAccountsWithSubscriptionId\GetStorageAccountsWithSubscriptionIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Snapshots\GetSubscriptions\GetSubscriptionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Snapshots\Item\CloudPcSnapshotItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcSnapshot;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcSnapshotCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -52,6 +53,17 @@ class SnapshotsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the snapshots property of the microsoft.graph.virtualEndpoint entity.
+     * @param string $cloudPcSnapshotId Unique identifier of the item
+     * @return CloudPcSnapshotItemRequestBuilder
+    */
+    public function byCloudPcSnapshotId(string $cloudPcSnapshotId): CloudPcSnapshotItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['cloudPcSnapshot%2Did'] = $cloudPcSnapshotId;
+        return new CloudPcSnapshotItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SnapshotsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

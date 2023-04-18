@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\GovernanceRoleDefinition;
 use Microsoft\Graph\Beta\Generated\Models\GovernanceRoleDefinitionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleDefinitions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleDefinitions\Item\GovernanceRoleDefinitionItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class RoleDefinitionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the roleDefinitions property of the microsoft.graph.privilegedAccess entity.
+     * @param string $governanceRoleDefinitionId Unique identifier of the item
+     * @return GovernanceRoleDefinitionItemRequestBuilder
+    */
+    public function byGovernanceRoleDefinitionId(string $governanceRoleDefinitionId): GovernanceRoleDefinitionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['governanceRoleDefinition%2Did'] = $governanceRoleDefinitionId;
+        return new GovernanceRoleDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new RoleDefinitionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

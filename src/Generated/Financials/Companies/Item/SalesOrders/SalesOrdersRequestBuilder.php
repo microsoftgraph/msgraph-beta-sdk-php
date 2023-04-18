@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesOrders\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesOrders\Item\SalesOrderItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SalesOrderCollectionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -42,6 +43,17 @@ class SalesOrdersRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the salesOrders property of the microsoft.graph.company entity.
+     * @param string $salesOrderId Unique identifier of the item
+     * @return SalesOrderItemRequestBuilder
+    */
+    public function bySalesOrderId(string $salesOrderId): SalesOrderItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['salesOrder%2Did'] = $salesOrderId;
+        return new SalesOrderItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SalesOrdersRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

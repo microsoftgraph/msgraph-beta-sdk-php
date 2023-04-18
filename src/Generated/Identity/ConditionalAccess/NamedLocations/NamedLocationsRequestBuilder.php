@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\NamedLocations\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\NamedLocations\Item\NamedLocationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\NamedLocation;
 use Microsoft\Graph\Beta\Generated\Models\NamedLocationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class NamedLocationsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity.
+     * @param string $namedLocationId Unique identifier of the item
+     * @return NamedLocationItemRequestBuilder
+    */
+    public function byNamedLocationId(string $namedLocationId): NamedLocationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['namedLocation%2Did'] = $namedLocationId;
+        return new NamedLocationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new NamedLocationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

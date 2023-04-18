@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Count\C
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\GetIosAvailableUpdateVersions\GetIosAvailableUpdateVersionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\GetTargetedUsersAndDevices\GetTargetedUsersAndDevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\HasPayloadLinks\HasPayloadLinksRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\DeviceConfigurationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceConfiguration;
 use Microsoft\Graph\Beta\Generated\Models\DeviceConfigurationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -67,6 +68,17 @@ class DeviceConfigurationsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the deviceConfigurations property of the microsoft.graph.deviceManagement entity.
+     * @param string $deviceConfigurationId Unique identifier of the item
+     * @return DeviceConfigurationItemRequestBuilder
+    */
+    public function byDeviceConfigurationId(string $deviceConfigurationId): DeviceConfigurationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceConfiguration%2Did'] = $deviceConfigurationId;
+        return new DeviceConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DeviceConfigurationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

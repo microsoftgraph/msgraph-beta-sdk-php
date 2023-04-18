@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\OnPremisesConnections\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\OnPremisesConnections\Item\CloudPcOnPremisesConnectionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcOnPremisesConnection;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcOnPremisesConnectionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class OnPremisesConnectionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the onPremisesConnections property of the microsoft.graph.virtualEndpoint entity.
+     * @param string $cloudPcOnPremisesConnectionId Unique identifier of the item
+     * @return CloudPcOnPremisesConnectionItemRequestBuilder
+    */
+    public function byCloudPcOnPremisesConnectionId(string $cloudPcOnPremisesConnectionId): CloudPcOnPremisesConnectionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['cloudPcOnPremisesConnection%2Did'] = $cloudPcOnPremisesConnectionId;
+        return new CloudPcOnPremisesConnectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new OnPremisesConnectionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

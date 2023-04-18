@@ -7,9 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\Assignments\Item\GroupPolicyConfigurationAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\DefinitionValues\DefinitionValuesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\DefinitionValues\Item\GroupPolicyDefinitionValueItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\UpdateDefinitionValues\UpdateDefinitionValuesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyConfiguration;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -69,17 +67,6 @@ class GroupPolicyConfigurationItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Provides operations to manage the assignments property of the microsoft.graph.groupPolicyConfiguration entity.
-     * @param string $id Unique identifier of the item
-     * @return GroupPolicyConfigurationAssignmentItemRequestBuilder
-    */
-    public function assignmentsById(string $id): GroupPolicyConfigurationAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['groupPolicyConfigurationAssignment%2Did'] = $id;
-        return new GroupPolicyConfigurationAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new GroupPolicyConfigurationItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -92,17 +79,6 @@ class GroupPolicyConfigurationItemRequestBuilder
         } else {
             $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
         }
-    }
-
-    /**
-     * Provides operations to manage the definitionValues property of the microsoft.graph.groupPolicyConfiguration entity.
-     * @param string $id Unique identifier of the item
-     * @return GroupPolicyDefinitionValueItemRequestBuilder
-    */
-    public function definitionValuesById(string $id): GroupPolicyDefinitionValueItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['groupPolicyDefinitionValue%2Did'] = $id;
-        return new GroupPolicyDefinitionValueItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

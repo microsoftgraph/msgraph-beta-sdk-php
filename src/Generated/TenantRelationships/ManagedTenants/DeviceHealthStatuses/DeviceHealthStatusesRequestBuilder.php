@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\DeviceHealthStatus;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\DeviceHealthStatusCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\DeviceHealthStatuses\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\DeviceHealthStatuses\Item\DeviceHealthStatusItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class DeviceHealthStatusesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the deviceHealthStatuses property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $deviceHealthStatusId Unique identifier of the item
+     * @return DeviceHealthStatusItemRequestBuilder
+    */
+    public function byDeviceHealthStatusId(string $deviceHealthStatusId): DeviceHealthStatusItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceHealthStatus%2Did'] = $deviceHealthStatusId;
+        return new DeviceHealthStatusItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DeviceHealthStatusesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

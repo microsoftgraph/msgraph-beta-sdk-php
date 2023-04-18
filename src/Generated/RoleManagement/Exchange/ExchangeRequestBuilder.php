@@ -7,10 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UnifiedRbacApplication;
-use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\ResourceNamespaces\Item\UnifiedRbacResourceNamespaceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\ResourceNamespaces\ResourceNamespacesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\RoleAssignments\RoleAssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\RoleDefinitions\Item\UnifiedRoleDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\RoleDefinitions\RoleDefinitionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\TransitiveRoleAssignments\TransitiveRoleAssignmentsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -139,39 +137,6 @@ class ExchangeRequestBuilder
     }
 
     /**
-     * Provides operations to manage the resourceNamespaces property of the microsoft.graph.unifiedRbacApplication entity.
-     * @param string $id Unique identifier of the item
-     * @return UnifiedRbacResourceNamespaceItemRequestBuilder
-    */
-    public function resourceNamespacesById(string $id): UnifiedRbacResourceNamespaceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['unifiedRbacResourceNamespace%2Did'] = $id;
-        return new UnifiedRbacResourceNamespaceItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the roleAssignments property of the microsoft.graph.unifiedRbacApplication entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\RoleAssignments\Item\UnifiedRoleAssignmentItemRequestBuilder
-    */
-    public function roleAssignmentsById(string $id): \Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\RoleAssignments\Item\UnifiedRoleAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['unifiedRoleAssignment%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\RoleAssignments\Item\UnifiedRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the roleDefinitions property of the microsoft.graph.unifiedRbacApplication entity.
-     * @param string $id Unique identifier of the item
-     * @return UnifiedRoleDefinitionItemRequestBuilder
-    */
-    public function roleDefinitionsById(string $id): UnifiedRoleDefinitionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['unifiedRoleDefinition%2Did'] = $id;
-        return new UnifiedRoleDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Delete navigation property exchange for roleManagement
      * @param ExchangeRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -239,17 +204,6 @@ class ExchangeRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the transitiveRoleAssignments property of the microsoft.graph.unifiedRbacApplication entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\TransitiveRoleAssignments\Item\UnifiedRoleAssignmentItemRequestBuilder
-    */
-    public function transitiveRoleAssignmentsById(string $id): \Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\TransitiveRoleAssignments\Item\UnifiedRoleAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['unifiedRoleAssignment%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\TransitiveRoleAssignments\Item\UnifiedRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

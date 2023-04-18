@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\AreGloba
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\EnableGlobalScripts\EnableGlobalScriptsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\GetRemediationSummary\GetRemediationSummaryRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\DeviceHealthScriptItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceHealthScript;
 use Microsoft\Graph\Beta\Generated\Models\DeviceHealthScriptCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -67,6 +68,17 @@ class DeviceHealthScriptsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the deviceHealthScripts property of the microsoft.graph.deviceManagement entity.
+     * @param string $deviceHealthScriptId Unique identifier of the item
+     * @return DeviceHealthScriptItemRequestBuilder
+    */
+    public function byDeviceHealthScriptId(string $deviceHealthScriptId): DeviceHealthScriptItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceHealthScript%2Did'] = $deviceHealthScriptId;
+        return new DeviceHealthScriptItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DeviceHealthScriptsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

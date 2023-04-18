@@ -12,6 +12,7 @@ use Microsoft\Graph\Beta\Generated\PrivilegedSignupStatus\CanSignUp\CanSignUpReq
 use Microsoft\Graph\Beta\Generated\PrivilegedSignupStatus\CompleteSetup\CompleteSetupRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedSignupStatus\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedSignupStatus\IsSignedUp\IsSignedUpRequestBuilder;
+use Microsoft\Graph\Beta\Generated\PrivilegedSignupStatus\Item\PrivilegedSignupStatusItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedSignupStatus\SignUp\SignUpRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -75,6 +76,17 @@ class PrivilegedSignupStatusRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the collection of privilegedSignupStatus entities.
+     * @param string $privilegedSignupStatusId Unique identifier of the item
+     * @return PrivilegedSignupStatusItemRequestBuilder
+    */
+    public function byPrivilegedSignupStatusId(string $privilegedSignupStatusId): PrivilegedSignupStatusItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['privilegedSignupStatus%2Did'] = $privilegedSignupStatusId;
+        return new PrivilegedSignupStatusItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PrivilegedSignupStatusRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

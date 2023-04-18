@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyDefinitions\Item\NextVersionDefinition\Presentations\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyDefinitions\Item\NextVersionDefinition\Presentations\Item\GroupPolicyPresentationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyPresentation;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyPresentationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class PresentationsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the presentations property of the microsoft.graph.groupPolicyDefinition entity.
+     * @param string $groupPolicyPresentationId Unique identifier of the item
+     * @return GroupPolicyPresentationItemRequestBuilder
+    */
+    public function byGroupPolicyPresentationId(string $groupPolicyPresentationId): GroupPolicyPresentationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['groupPolicyPresentation%2Did'] = $groupPolicyPresentationId;
+        return new GroupPolicyPresentationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PresentationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

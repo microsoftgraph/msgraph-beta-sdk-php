@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Item\ScheduledActionsForRule\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Item\ScheduledActionsForRule\Item\DeviceManagementComplianceScheduledActionForRuleItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementComplianceScheduledActionForRule;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementComplianceScheduledActionForRuleCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class ScheduledActionsForRuleRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceManagementCompliancePolicy entity.
+     * @param string $deviceManagementComplianceScheduledActionForRuleId Unique identifier of the item
+     * @return DeviceManagementComplianceScheduledActionForRuleItemRequestBuilder
+    */
+    public function byDeviceManagementComplianceScheduledActionForRuleId(string $deviceManagementComplianceScheduledActionForRuleId): DeviceManagementComplianceScheduledActionForRuleItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceManagementComplianceScheduledActionForRule%2Did'] = $deviceManagementComplianceScheduledActionForRuleId;
+        return new DeviceManagementComplianceScheduledActionForRuleItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ScheduledActionsForRuleRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

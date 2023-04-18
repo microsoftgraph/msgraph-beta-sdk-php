@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AppleUserInitiatedEnrollmentProfiles\Item\Assignments\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\AppleUserInitiatedEnrollmentProfiles\Item\Assignments\Item\AppleEnrollmentProfileAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AppleEnrollmentProfileAssignment;
 use Microsoft\Graph\Beta\Generated\Models\AppleEnrollmentProfileAssignmentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AssignmentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.appleUserInitiatedEnrollmentProfile entity.
+     * @param string $appleEnrollmentProfileAssignmentId Unique identifier of the item
+     * @return AppleEnrollmentProfileAssignmentItemRequestBuilder
+    */
+    public function byAppleEnrollmentProfileAssignmentId(string $appleEnrollmentProfileAssignmentId): AppleEnrollmentProfileAssignmentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['appleEnrollmentProfileAssignment%2Did'] = $appleEnrollmentProfileAssignmentId;
+        return new AppleEnrollmentProfileAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AssignmentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -8,8 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\EdiscoveryReviewSet;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\Files\FilesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\Files\Item\EdiscoveryFileItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\Queries\Item\EdiscoveryReviewSetQueryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\Queries\QueriesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\SecurityAddToReviewSet\SecurityAddToReviewSetRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\SecurityExport\SecurityExportRequestBuilder;
@@ -102,17 +100,6 @@ class EdiscoveryReviewSetItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the files property of the microsoft.graph.security.ediscoveryReviewSet entity.
-     * @param string $id Unique identifier of the item
-     * @return EdiscoveryFileItemRequestBuilder
-    */
-    public function filesById(string $id): EdiscoveryFileItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['ediscoveryFile%2Did'] = $id;
-        return new EdiscoveryFileItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Returns a list of eDiscoveryReviewSet objects in the case.
      * @param EdiscoveryReviewSetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -147,17 +134,6 @@ class EdiscoveryReviewSetItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the queries property of the microsoft.graph.security.ediscoveryReviewSet entity.
-     * @param string $id Unique identifier of the item
-     * @return EdiscoveryReviewSetQueryItemRequestBuilder
-    */
-    public function queriesById(string $id): EdiscoveryReviewSetQueryItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['ediscoveryReviewSetQuery%2Did'] = $id;
-        return new EdiscoveryReviewSetQueryItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

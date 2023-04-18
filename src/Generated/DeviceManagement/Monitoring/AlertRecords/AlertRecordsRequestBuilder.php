@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\AlertRecords\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\AlertRecords\DeviceManagementGetPortalNotifications\DeviceManagementGetPortalNotificationsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\AlertRecords\Item\AlertRecordItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagement\AlertRecord;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagement\AlertRecordCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -51,6 +52,17 @@ class AlertRecordsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the alertRecords property of the microsoft.graph.deviceManagement.monitoring entity.
+     * @param string $alertRecordId Unique identifier of the item
+     * @return AlertRecordItemRequestBuilder
+    */
+    public function byAlertRecordId(string $alertRecordId): AlertRecordItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['alertRecord%2Did'] = $alertRecordId;
+        return new AlertRecordItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AlertRecordsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

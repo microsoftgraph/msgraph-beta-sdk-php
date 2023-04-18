@@ -7,9 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PlannerRoster;
-use Microsoft\Graph\Beta\Generated\Planner\Rosters\Item\Members\Item\PlannerRosterMemberItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Rosters\Item\Members\MembersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Planner\Rosters\Item\Plans\Item\PlannerPlanItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Rosters\Item\Plans\PlansRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -104,17 +102,6 @@ class PlannerRosterItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the members property of the microsoft.graph.plannerRoster entity.
-     * @param string $id Unique identifier of the item
-     * @return PlannerRosterMemberItemRequestBuilder
-    */
-    public function membersById(string $id): PlannerRosterMemberItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['plannerRosterMember%2Did'] = $id;
-        return new PlannerRosterMemberItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Update the navigation property rosters in planner
      * @param PlannerRoster $body The request body
      * @param PlannerRosterItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -131,17 +118,6 @@ class PlannerRosterItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the plans property of the microsoft.graph.plannerRoster entity.
-     * @param string $id Unique identifier of the item
-     * @return PlannerPlanItemRequestBuilder
-    */
-    public function plansById(string $id): PlannerPlanItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['plannerPlan%2Did'] = $id;
-        return new PlannerPlanItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

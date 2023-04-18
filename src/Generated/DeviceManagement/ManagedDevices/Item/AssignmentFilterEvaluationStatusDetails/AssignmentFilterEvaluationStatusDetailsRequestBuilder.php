@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\AssignmentFilterEvaluationStatusDetails\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\AssignmentFilterEvaluationStatusDetails\Item\AssignmentFilterEvaluationStatusDetailsItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AssignmentFilterEvaluationStatusDetails;
 use Microsoft\Graph\Beta\Generated\Models\AssignmentFilterEvaluationStatusDetailsCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AssignmentFilterEvaluationStatusDetailsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the assignmentFilterEvaluationStatusDetails property of the microsoft.graph.managedDevice entity.
+     * @param string $assignmentFilterEvaluationStatusDetailsId Unique identifier of the item
+     * @return AssignmentFilterEvaluationStatusDetailsItemRequestBuilder
+    */
+    public function byAssignmentFilterEvaluationStatusDetailsId(string $assignmentFilterEvaluationStatusDetailsId): AssignmentFilterEvaluationStatusDetailsItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['assignmentFilterEvaluationStatusDetails%2Did'] = $assignmentFilterEvaluationStatusDetailsId;
+        return new AssignmentFilterEvaluationStatusDetailsItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AssignmentFilterEvaluationStatusDetailsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

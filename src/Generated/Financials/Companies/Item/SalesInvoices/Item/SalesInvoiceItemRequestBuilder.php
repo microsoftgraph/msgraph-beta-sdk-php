@@ -12,7 +12,6 @@ use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\PaymentTerm\PaymentTermRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\Post\PostRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\PostAndSend\PostAndSendRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\SalesInvoiceLines\Item\SalesInvoiceLineItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\SalesInvoiceLines\SalesInvoiceLinesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\Send\SendRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\ShipmentMethod\ShipmentMethodRequestBuilder;
@@ -165,17 +164,6 @@ class SalesInvoiceItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the salesInvoiceLines property of the microsoft.graph.salesInvoice entity.
-     * @param string $id Unique identifier of the item
-     * @return SalesInvoiceLineItemRequestBuilder
-    */
-    public function salesInvoiceLinesById(string $id): SalesInvoiceLineItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['salesInvoiceLine%2Did'] = $id;
-        return new SalesInvoiceLineItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

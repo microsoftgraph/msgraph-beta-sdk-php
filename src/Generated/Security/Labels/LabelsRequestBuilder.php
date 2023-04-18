@@ -7,7 +7,6 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\LabelsRoot;
-use Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\Item\RetentionLabelItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\RetentionLabelsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -111,17 +110,6 @@ class LabelsRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the retentionLabels property of the microsoft.graph.security.labelsRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return RetentionLabelItemRequestBuilder
-    */
-    public function retentionLabelsById(string $id): RetentionLabelItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['retentionLabel%2Did'] = $id;
-        return new RetentionLabelItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

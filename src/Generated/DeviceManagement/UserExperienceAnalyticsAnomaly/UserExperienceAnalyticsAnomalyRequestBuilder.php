@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAnomaly\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAnomaly\Item\UserExperienceAnalyticsAnomalyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAnomaly;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAnomalyCollectionResponse;
@@ -43,6 +44,17 @@ class UserExperienceAnalyticsAnomalyRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userExperienceAnalyticsAnomaly property of the microsoft.graph.deviceManagement entity.
+     * @param string $userExperienceAnalyticsAnomalyId Unique identifier of the item
+     * @return UserExperienceAnalyticsAnomalyItemRequestBuilder
+    */
+    public function byUserExperienceAnalyticsAnomalyId(string $userExperienceAnalyticsAnomalyId): UserExperienceAnalyticsAnomalyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userExperienceAnalyticsAnomaly%2Did'] = $userExperienceAnalyticsAnomalyId;
+        return new UserExperienceAnalyticsAnomalyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserExperienceAnalyticsAnomalyRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

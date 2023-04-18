@@ -1,0 +1,214 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Models;
+
+use Microsoft\Graph\Beta\Generated\Models\Security\BehaviorDuringRetentionPeriod;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
+use Microsoft\Kiota\Abstractions\Serialization\Parsable;
+use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
+use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+
+class RetentionLabelSettings implements AdditionalDataHolder, BackedModel, Parsable 
+{
+    /**
+     * @var BackingStore $backingStore Stores model information.
+    */
+    private BackingStore $backingStore;
+    
+    /**
+     * Instantiates a new retentionLabelSettings and sets the default values.
+    */
+    public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
+        $this->setAdditionalData([]);
+    }
+
+    /**
+     * Creates a new instance of the appropriate class based on discriminator value
+     * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
+     * @return RetentionLabelSettings
+    */
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): RetentionLabelSettings {
+        return new RetentionLabelSettings();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>|null
+    */
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
+    }
+
+    /**
+     * Gets the behaviorDuringRetentionPeriod property value. The behaviorDuringRetentionPeriod property
+     * @return BehaviorDuringRetentionPeriod|null
+    */
+    public function getBehaviorDuringRetentionPeriod(): ?BehaviorDuringRetentionPeriod {
+        return $this->getBackingStore()->get('behaviorDuringRetentionPeriod');
+    }
+
+    /**
+     * The deserialization information for the current model
+     * @return array<string, callable>
+    */
+    public function getFieldDeserializers(): array {
+        $o = $this;
+        return  [
+            'behaviorDuringRetentionPeriod' => fn(ParseNode $n) => $o->setBehaviorDuringRetentionPeriod($n->getEnumValue(BehaviorDuringRetentionPeriod::class)),
+            'isContentUpdateAllowed' => fn(ParseNode $n) => $o->setIsContentUpdateAllowed($n->getBooleanValue()),
+            'isDeleteAllowed' => fn(ParseNode $n) => $o->setIsDeleteAllowed($n->getBooleanValue()),
+            'isLabelUpdateAllowed' => fn(ParseNode $n) => $o->setIsLabelUpdateAllowed($n->getBooleanValue()),
+            'isMetadataUpdateAllowed' => fn(ParseNode $n) => $o->setIsMetadataUpdateAllowed($n->getBooleanValue()),
+            'isRecordLocked' => fn(ParseNode $n) => $o->setIsRecordLocked($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+        ];
+    }
+
+    /**
+     * Gets the isContentUpdateAllowed property value. The isContentUpdateAllowed property
+     * @return bool|null
+    */
+    public function getIsContentUpdateAllowed(): ?bool {
+        return $this->getBackingStore()->get('isContentUpdateAllowed');
+    }
+
+    /**
+     * Gets the isDeleteAllowed property value. The isDeleteAllowed property
+     * @return bool|null
+    */
+    public function getIsDeleteAllowed(): ?bool {
+        return $this->getBackingStore()->get('isDeleteAllowed');
+    }
+
+    /**
+     * Gets the isLabelUpdateAllowed property value. The isLabelUpdateAllowed property
+     * @return bool|null
+    */
+    public function getIsLabelUpdateAllowed(): ?bool {
+        return $this->getBackingStore()->get('isLabelUpdateAllowed');
+    }
+
+    /**
+     * Gets the isMetadataUpdateAllowed property value. The isMetadataUpdateAllowed property
+     * @return bool|null
+    */
+    public function getIsMetadataUpdateAllowed(): ?bool {
+        return $this->getBackingStore()->get('isMetadataUpdateAllowed');
+    }
+
+    /**
+     * Gets the isRecordLocked property value. The isRecordLocked property
+     * @return bool|null
+    */
+    public function getIsRecordLocked(): ?bool {
+        return $this->getBackingStore()->get('isRecordLocked');
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->getBackingStore()->get('odataType');
+    }
+
+    /**
+     * Serializes information the current object
+     * @param SerializationWriter $writer Serialization writer to use to serialize this model
+    */
+    public function serialize(SerializationWriter $writer): void {
+        $writer->writeEnumValue('behaviorDuringRetentionPeriod', $this->getBehaviorDuringRetentionPeriod());
+        $writer->writeBooleanValue('isContentUpdateAllowed', $this->getIsContentUpdateAllowed());
+        $writer->writeBooleanValue('isDeleteAllowed', $this->getIsDeleteAllowed());
+        $writer->writeBooleanValue('isLabelUpdateAllowed', $this->getIsLabelUpdateAllowed());
+        $writer->writeBooleanValue('isMetadataUpdateAllowed', $this->getIsMetadataUpdateAllowed());
+        $writer->writeBooleanValue('isRecordLocked', $this->getIsRecordLocked());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the behaviorDuringRetentionPeriod property value. The behaviorDuringRetentionPeriod property
+     * @param BehaviorDuringRetentionPeriod|null $value Value to set for the behaviorDuringRetentionPeriod property.
+    */
+    public function setBehaviorDuringRetentionPeriod(?BehaviorDuringRetentionPeriod $value): void {
+        $this->getBackingStore()->set('behaviorDuringRetentionPeriod', $value);
+    }
+
+    /**
+     * Sets the isContentUpdateAllowed property value. The isContentUpdateAllowed property
+     * @param bool|null $value Value to set for the isContentUpdateAllowed property.
+    */
+    public function setIsContentUpdateAllowed(?bool $value): void {
+        $this->getBackingStore()->set('isContentUpdateAllowed', $value);
+    }
+
+    /**
+     * Sets the isDeleteAllowed property value. The isDeleteAllowed property
+     * @param bool|null $value Value to set for the isDeleteAllowed property.
+    */
+    public function setIsDeleteAllowed(?bool $value): void {
+        $this->getBackingStore()->set('isDeleteAllowed', $value);
+    }
+
+    /**
+     * Sets the isLabelUpdateAllowed property value. The isLabelUpdateAllowed property
+     * @param bool|null $value Value to set for the isLabelUpdateAllowed property.
+    */
+    public function setIsLabelUpdateAllowed(?bool $value): void {
+        $this->getBackingStore()->set('isLabelUpdateAllowed', $value);
+    }
+
+    /**
+     * Sets the isMetadataUpdateAllowed property value. The isMetadataUpdateAllowed property
+     * @param bool|null $value Value to set for the isMetadataUpdateAllowed property.
+    */
+    public function setIsMetadataUpdateAllowed(?bool $value): void {
+        $this->getBackingStore()->set('isMetadataUpdateAllowed', $value);
+    }
+
+    /**
+     * Sets the isRecordLocked property value. The isRecordLocked property
+     * @param bool|null $value Value to set for the isRecordLocked property.
+    */
+    public function setIsRecordLocked(?bool $value): void {
+        $this->getBackingStore()->set('isRecordLocked', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
+    }
+
+}

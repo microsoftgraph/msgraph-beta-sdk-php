@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Decisions\Item\Instance\Stages\Item\Decisions\DecisionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Decisions\Item\Instance\Stages\Item\Decisions\Item\AccessReviewInstanceDecisionItemItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Decisions\Item\Instance\Stages\Item\Stop\StopRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessReviewStage;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -64,17 +63,6 @@ class AccessReviewStageItemRequestBuilder
         } else {
             $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
         }
-    }
-
-    /**
-     * Provides operations to manage the decisions property of the microsoft.graph.accessReviewStage entity.
-     * @param string $id Unique identifier of the item
-     * @return AccessReviewInstanceDecisionItemItemRequestBuilder
-    */
-    public function decisionsById(string $id): AccessReviewInstanceDecisionItemItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['accessReviewInstanceDecisionItem%2Did1'] = $id;
-        return new AccessReviewInstanceDecisionItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

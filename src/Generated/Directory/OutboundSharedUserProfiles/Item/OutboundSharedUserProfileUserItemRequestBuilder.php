@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\It
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\Item\Tenants\Item\TenantReferenceTenantItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\Item\Tenants\TenantsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\OutboundSharedUserProfile;
@@ -111,17 +110,6 @@ class OutboundSharedUserProfileUserItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the tenants property of the microsoft.graph.outboundSharedUserProfile entity.
-     * @param string $id Unique identifier of the item
-     * @return TenantReferenceTenantItemRequestBuilder
-    */
-    public function tenantsById(string $id): TenantReferenceTenantItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['tenantReference%2DtenantId'] = $id;
-        return new TenantReferenceTenantItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\Item\BusinessFlowsWithRequestsAwaitingMyDecision\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\Item\BusinessFlowsWithRequestsAwaitingMyDecision\Item\BusinessFlowItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\BusinessFlow;
 use Microsoft\Graph\Beta\Generated\Models\BusinessFlowCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the businessFlowsWithRequestsAwaitingMyDecision property of the microsoft.graph.approvalWorkflowProvider entity.
+     * @param string $businessFlowId Unique identifier of the item
+     * @return BusinessFlowItemRequestBuilder
+    */
+    public function byBusinessFlowId(string $businessFlowId): BusinessFlowItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['businessFlow%2Did'] = $businessFlowId;
+        return new BusinessFlowItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyMigrationReports\Item\UnsupportedGroupPolicyExtensions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyMigrationReports\Item\UnsupportedGroupPolicyExtensions\Item\UnsupportedGroupPolicyExtensionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UnsupportedGroupPolicyExtension;
 use Microsoft\Graph\Beta\Generated\Models\UnsupportedGroupPolicyExtensionCollectionResponse;
@@ -43,6 +44,17 @@ class UnsupportedGroupPolicyExtensionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the unsupportedGroupPolicyExtensions property of the microsoft.graph.groupPolicyMigrationReport entity.
+     * @param string $unsupportedGroupPolicyExtensionId Unique identifier of the item
+     * @return UnsupportedGroupPolicyExtensionItemRequestBuilder
+    */
+    public function byUnsupportedGroupPolicyExtensionId(string $unsupportedGroupPolicyExtensionId): UnsupportedGroupPolicyExtensionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['unsupportedGroupPolicyExtension%2Did'] = $unsupportedGroupPolicyExtensionId;
+        return new UnsupportedGroupPolicyExtensionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UnsupportedGroupPolicyExtensionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

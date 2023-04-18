@@ -8,7 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\CanvasLayout\CanvasLayoutRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\GetWebPartsByPosition\GetWebPartsByPositionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\Publish\PublishRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\WebParts\Item\WebPartItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\WebParts\WebPartsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SitePage;
@@ -205,17 +204,6 @@ class SitePageItemRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the webParts property of the microsoft.graph.sitePage entity.
-     * @param string $id Unique identifier of the item
-     * @return WebPartItemRequestBuilder
-    */
-    public function webPartsById(string $id): WebPartItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['webPart%2Did'] = $id;
-        return new WebPartItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

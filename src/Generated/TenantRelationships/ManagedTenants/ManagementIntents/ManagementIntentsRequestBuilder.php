@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagementIntent;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagementIntentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementIntents\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementIntents\Item\ManagementIntentItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class ManagementIntentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the managementIntents property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $managementIntentId Unique identifier of the item
+     * @return ManagementIntentItemRequestBuilder
+    */
+    public function byManagementIntentId(string $managementIntentId): ManagementIntentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managementIntent%2Did'] = $managementIntentId;
+        return new ManagementIntentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ManagementIntentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

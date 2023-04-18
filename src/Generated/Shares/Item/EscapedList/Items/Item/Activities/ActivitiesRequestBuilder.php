@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ItemActivityOLD;
 use Microsoft\Graph\Beta\Generated\Models\ItemActivityOLDCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Items\Item\Activities\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Items\Item\Activities\Item\ItemActivityOLDItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class ActivitiesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the activities property of the microsoft.graph.listItem entity.
+     * @param string $itemActivityOLDId Unique identifier of the item
+     * @return ItemActivityOLDItemRequestBuilder
+    */
+    public function byItemActivityOLDId(string $itemActivityOLDId): ItemActivityOLDItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['itemActivityOLD%2Did'] = $itemActivityOLDId;
+        return new ItemActivityOLDItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ActivitiesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

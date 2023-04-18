@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\Assignments\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\Assignments\Item\IosLobAppProvisioningConfigurationAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IosLobAppProvisioningConfigurationAssignment;
 use Microsoft\Graph\Beta\Generated\Models\IosLobAppProvisioningConfigurationAssignmentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AssignmentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.iosLobAppProvisioningConfiguration entity.
+     * @param string $iosLobAppProvisioningConfigurationAssignmentId Unique identifier of the item
+     * @return IosLobAppProvisioningConfigurationAssignmentItemRequestBuilder
+    */
+    public function byIosLobAppProvisioningConfigurationAssignmentId(string $iosLobAppProvisioningConfigurationAssignmentId): IosLobAppProvisioningConfigurationAssignmentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['iosLobAppProvisioningConfigurationAssignment%2Did'] = $iosLobAppProvisioningConfigurationAssignmentId;
+        return new IosLobAppProvisioningConfigurationAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AssignmentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

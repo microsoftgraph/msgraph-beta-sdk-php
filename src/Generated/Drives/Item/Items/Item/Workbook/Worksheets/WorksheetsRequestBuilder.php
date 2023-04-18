@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Worksheets\Add\AddRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Worksheets\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Worksheets\Item\WorkbookWorksheetItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WorkbookWorksheet;
 use Microsoft\Graph\Beta\Generated\Models\WorkbookWorksheetCollectionResponse;
@@ -52,6 +53,17 @@ class WorksheetsRequestBuilder
     private string $urlTemplate;
     
     /**
+     * Provides operations to manage the worksheets property of the microsoft.graph.workbook entity.
+     * @param string $workbookWorksheetId Unique identifier of the item
+     * @return WorkbookWorksheetItemRequestBuilder
+    */
+    public function byWorkbookWorksheetId(string $workbookWorksheetId): WorkbookWorksheetItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['workbookWorksheet%2Did'] = $workbookWorksheetId;
+        return new WorkbookWorksheetItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
      * Instantiates a new WorksheetsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -70,7 +82,7 @@ class WorksheetsRequestBuilder
      * Retrieve a list of worksheet objects.
      * @param WorksheetsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/workbook-list-worksheets?view=graph-rest-1.0 Find more info here
+     * @link https://docs.microsoft.com/graph/api/worksheet-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?WorksheetsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

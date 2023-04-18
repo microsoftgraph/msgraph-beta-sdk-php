@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagedTenantEmailNotif
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagedTenantEmailNotificationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantEmailNotifications\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantEmailNotifications\Item\ManagedTenantEmailNotificationItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class ManagedTenantEmailNotificationsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the managedTenantEmailNotifications property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $managedTenantEmailNotificationId Unique identifier of the item
+     * @return ManagedTenantEmailNotificationItemRequestBuilder
+    */
+    public function byManagedTenantEmailNotificationId(string $managedTenantEmailNotificationId): ManagedTenantEmailNotificationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managedTenantEmailNotification%2Did'] = $managedTenantEmailNotificationId;
+        return new ManagedTenantEmailNotificationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ManagedTenantEmailNotificationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

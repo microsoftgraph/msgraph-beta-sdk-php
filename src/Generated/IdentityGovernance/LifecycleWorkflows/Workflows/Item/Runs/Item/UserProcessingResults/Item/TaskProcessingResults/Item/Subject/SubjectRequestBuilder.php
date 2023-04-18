@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\W
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\Runs\Item\UserProcessingResults\Item\TaskProcessingResults\Item\Subject\MailboxSettings\MailboxSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\User;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -19,6 +20,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 */
 class SubjectRequestBuilder 
 {
+    /**
+     * The mailboxSettings property
+    */
+    public function mailboxSettings(): MailboxSettingsRequestBuilder {
+        return new MailboxSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * @var array<string, mixed> $pathParameters Path parameters for the request
     */

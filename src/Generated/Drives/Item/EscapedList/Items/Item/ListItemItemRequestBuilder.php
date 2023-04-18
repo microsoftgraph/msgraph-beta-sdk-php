@@ -6,15 +6,12 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\Activities\ActivitiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\Activities\Item\ItemActivityOLDItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\Analytics\AnalyticsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\CreateLink\CreateLinkRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\DocumentSetVersions\DocumentSetVersionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\DocumentSetVersions\Item\DocumentSetVersionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\DriveItem\DriveItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\Fields\FieldsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\Versions\Item\ListItemVersionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\Versions\VersionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ListItem;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -95,17 +92,6 @@ class ListItemItemRequestBuilder
     }
     
     /**
-     * Provides operations to manage the activities property of the microsoft.graph.listItem entity.
-     * @param string $id Unique identifier of the item
-     * @return ItemActivityOLDItemRequestBuilder
-    */
-    public function activitiesById(string $id): ItemActivityOLDItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['itemActivityOLD%2Did'] = $id;
-        return new ItemActivityOLDItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new ListItemItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -136,17 +122,6 @@ class ListItemItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.
-     * @param string $id Unique identifier of the item
-     * @return DocumentSetVersionItemRequestBuilder
-    */
-    public function documentSetVersionsById(string $id): DocumentSetVersionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['documentSetVersion%2Did'] = $id;
-        return new DocumentSetVersionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -265,17 +240,6 @@ class ListItemItemRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the versions property of the microsoft.graph.listItem entity.
-     * @param string $id Unique identifier of the item
-     * @return ListItemVersionItemRequestBuilder
-    */
-    public function versionsById(string $id): ListItemVersionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['listItemVersion%2Did'] = $id;
-        return new ListItemVersionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

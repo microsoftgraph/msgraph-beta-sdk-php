@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\TaskDefinitions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\TaskDefinitions\Item\TaskDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\TaskDefinitionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -42,6 +43,17 @@ class TaskDefinitionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the taskDefinitions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
+     * @param string $taskDefinitionId Unique identifier of the item
+     * @return TaskDefinitionItemRequestBuilder
+    */
+    public function byTaskDefinitionId(string $taskDefinitionId): TaskDefinitionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['taskDefinition%2Did'] = $taskDefinitionId;
+        return new TaskDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new TaskDefinitionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

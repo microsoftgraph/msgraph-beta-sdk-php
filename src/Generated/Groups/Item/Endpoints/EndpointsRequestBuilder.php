@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Endpoints\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Endpoints\Item\EndpointItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Endpoint;
 use Microsoft\Graph\Beta\Generated\Models\EndpointCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class EndpointsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the endpoints property of the microsoft.graph.group entity.
+     * @param string $endpointId Unique identifier of the item
+     * @return EndpointItemRequestBuilder
+    */
+    public function byEndpointId(string $endpointId): EndpointItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['endpoint%2Did'] = $endpointId;
+        return new EndpointItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new EndpointsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

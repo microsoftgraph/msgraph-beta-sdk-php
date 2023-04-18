@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Identity\CustomAuthenticationExtensions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Identity\CustomAuthenticationExtensions\Item\CustomAuthenticationExtensionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\CustomAuthenticationExtensions\ValidateAuthenticationConfiguration\ValidateAuthenticationConfigurationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CustomAuthenticationExtension;
 use Microsoft\Graph\Beta\Generated\Models\CustomAuthenticationExtensionCollectionResponse;
@@ -51,6 +52,17 @@ class CustomAuthenticationExtensionsRequestBuilder
         return new ValidateAuthenticationConfigurationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * Provides operations to manage the customAuthenticationExtensions property of the microsoft.graph.identityContainer entity.
+     * @param string $customAuthenticationExtensionId Unique identifier of the item
+     * @return CustomAuthenticationExtensionItemRequestBuilder
+    */
+    public function byCustomAuthenticationExtensionId(string $customAuthenticationExtensionId): CustomAuthenticationExtensionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['customAuthenticationExtension%2Did'] = $customAuthenticationExtensionId;
+        return new CustomAuthenticationExtensionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CustomAuthenticationExtensionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

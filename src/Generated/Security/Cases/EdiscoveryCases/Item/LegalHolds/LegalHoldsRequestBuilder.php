@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\EdiscoveryHoldPolicy;
 use Microsoft\Graph\Beta\Generated\Models\Security\EdiscoveryHoldPolicyCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\LegalHolds\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\LegalHolds\Item\EdiscoveryHoldPolicyItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class LegalHoldsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the legalHolds property of the microsoft.graph.security.ediscoveryCase entity.
+     * @param string $ediscoveryHoldPolicyId Unique identifier of the item
+     * @return EdiscoveryHoldPolicyItemRequestBuilder
+    */
+    public function byEdiscoveryHoldPolicyId(string $ediscoveryHoldPolicyId): EdiscoveryHoldPolicyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['ediscoveryHoldPolicy%2Did'] = $ediscoveryHoldPolicyId;
+        return new EdiscoveryHoldPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new LegalHoldsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

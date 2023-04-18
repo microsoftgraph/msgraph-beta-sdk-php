@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\Count\Coun
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\Enable\EnableRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\GetPlatformSupportedPropertiesWithPlatform\GetPlatformSupportedPropertiesWithPlatformRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\GetState\GetStateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\Item\DeviceAndAppManagementAssignmentFilterItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\ValidateFilter\ValidateFilterRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceAndAppManagementAssignmentFilter;
 use Microsoft\Graph\Beta\Generated\Models\DeviceAndAppManagementAssignmentFilterCollectionResponse;
@@ -68,6 +69,17 @@ class AssignmentFiltersRequestBuilder
         return new ValidateFilterRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * Provides operations to manage the assignmentFilters property of the microsoft.graph.deviceManagement entity.
+     * @param string $deviceAndAppManagementAssignmentFilterId Unique identifier of the item
+     * @return DeviceAndAppManagementAssignmentFilterItemRequestBuilder
+    */
+    public function byDeviceAndAppManagementAssignmentFilterId(string $deviceAndAppManagementAssignmentFilterId): DeviceAndAppManagementAssignmentFilterItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceAndAppManagementAssignmentFilter%2Did'] = $deviceAndAppManagementAssignmentFilterId;
+        return new DeviceAndAppManagementAssignmentFilterItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AssignmentFiltersRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

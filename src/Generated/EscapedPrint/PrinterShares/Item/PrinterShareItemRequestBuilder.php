@@ -6,9 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\AllowedGroups\AllowedGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\AllowedGroups\Item\GroupItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\AllowedUsers\AllowedUsersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\AllowedUsers\Item\UserItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\Printer\PrinterRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PrinterShare;
@@ -60,28 +58,6 @@ class PrinterShareItemRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.print.printerShares.item.allowedGroups.item collection
-     * @param string $id Unique identifier of the item
-     * @return GroupItemRequestBuilder
-    */
-    public function allowedGroupsById(string $id): GroupItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['group%2Did'] = $id;
-        return new GroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.print.printerShares.item.allowedUsers.item collection
-     * @param string $id Unique identifier of the item
-     * @return UserItemRequestBuilder
-    */
-    public function allowedUsersById(string $id): UserItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['user%2Did'] = $id;
-        return new UserItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new PrinterShareItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

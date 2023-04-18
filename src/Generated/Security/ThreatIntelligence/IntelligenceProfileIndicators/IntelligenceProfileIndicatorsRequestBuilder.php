@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\IntelligenceProfileIndicator;
 use Microsoft\Graph\Beta\Generated\Models\Security\IntelligenceProfileIndicatorCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\IntelligenceProfileIndicators\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\IntelligenceProfileIndicators\Item\IntelligenceProfileIndicatorItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class IntelligenceProfileIndicatorsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the intelligenceProfileIndicators property of the microsoft.graph.security.threatIntelligence entity.
+     * @param string $intelligenceProfileIndicatorId Unique identifier of the item
+     * @return IntelligenceProfileIndicatorItemRequestBuilder
+    */
+    public function byIntelligenceProfileIndicatorId(string $intelligenceProfileIndicatorId): IntelligenceProfileIndicatorItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['intelligenceProfileIndicator%2Did'] = $intelligenceProfileIndicatorId;
+        return new IntelligenceProfileIndicatorItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new IntelligenceProfileIndicatorsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

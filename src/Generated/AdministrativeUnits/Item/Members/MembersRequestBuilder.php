@@ -12,6 +12,7 @@ use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Members\GraphGroup\G
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Members\GraphOrgContact\GraphOrgContactRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Members\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Members\GraphUser\GraphUserRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Members\Item\DirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Members\Ref\RefRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DirectoryObjectCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -98,6 +99,17 @@ class MembersRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Gets an item from the Microsoft/Graph/Beta/Generated.administrativeUnits.item.members.item collection
+     * @param string $directoryObjectId Unique identifier of the item
+     * @return DirectoryObjectItemRequestBuilder
+    */
+    public function byDirectoryObjectId(string $directoryObjectId): DirectoryObjectItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['directoryObject%2Did'] = $directoryObjectId;
+        return new DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new MembersRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

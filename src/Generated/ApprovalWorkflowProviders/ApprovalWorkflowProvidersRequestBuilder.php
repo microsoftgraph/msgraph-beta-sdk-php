@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\Item\ApprovalWorkflowProviderItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ApprovalWorkflowProvider;
 use Microsoft\Graph\Beta\Generated\Models\ApprovalWorkflowProviderCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class ApprovalWorkflowProvidersRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the collection of approvalWorkflowProvider entities.
+     * @param string $approvalWorkflowProviderId Unique identifier of the item
+     * @return ApprovalWorkflowProviderItemRequestBuilder
+    */
+    public function byApprovalWorkflowProviderId(string $approvalWorkflowProviderId): ApprovalWorkflowProviderItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['approvalWorkflowProvider%2Did'] = $approvalWorkflowProviderId;
+        return new ApprovalWorkflowProviderItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ApprovalWorkflowProvidersRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

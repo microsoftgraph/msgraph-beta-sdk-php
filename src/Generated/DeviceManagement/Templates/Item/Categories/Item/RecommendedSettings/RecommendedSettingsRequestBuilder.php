@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\Categories\Item\RecommendedSettings\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\Categories\Item\RecommendedSettings\Item\DeviceManagementSettingInstanceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementSettingInstance;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementSettingInstanceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class RecommendedSettingsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the recommendedSettings property of the microsoft.graph.deviceManagementTemplateSettingCategory entity.
+     * @param string $deviceManagementSettingInstanceId Unique identifier of the item
+     * @return DeviceManagementSettingInstanceItemRequestBuilder
+    */
+    public function byDeviceManagementSettingInstanceId(string $deviceManagementSettingInstanceId): DeviceManagementSettingInstanceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceManagementSettingInstance%2Did'] = $deviceManagementSettingInstanceId;
+        return new DeviceManagementSettingInstanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new RecommendedSettingsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

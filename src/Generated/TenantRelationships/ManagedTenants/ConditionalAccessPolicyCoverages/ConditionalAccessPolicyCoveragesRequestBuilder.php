@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ConditionalAccessPolicy
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ConditionalAccessPolicyCoverageCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ConditionalAccessPolicyCoverages\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ConditionalAccessPolicyCoverages\Item\ConditionalAccessPolicyCoverageItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class ConditionalAccessPolicyCoveragesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the conditionalAccessPolicyCoverages property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $conditionalAccessPolicyCoverageId Unique identifier of the item
+     * @return ConditionalAccessPolicyCoverageItemRequestBuilder
+    */
+    public function byConditionalAccessPolicyCoverageId(string $conditionalAccessPolicyCoverageId): ConditionalAccessPolicyCoverageItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['conditionalAccessPolicyCoverage%2Did'] = $conditionalAccessPolicyCoverageId;
+        return new ConditionalAccessPolicyCoverageItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ConditionalAccessPolicyCoveragesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

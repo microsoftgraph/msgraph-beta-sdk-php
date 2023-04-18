@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PublishedResource;
 use Microsoft\Graph\Beta\Generated\Models\PublishedResourceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\AgentGroups\Item\PublishedResources\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\AgentGroups\Item\PublishedResources\Item\PublishedResourceItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class PublishedResourcesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the publishedResources property of the microsoft.graph.onPremisesAgentGroup entity.
+     * @param string $publishedResourceId Unique identifier of the item
+     * @return PublishedResourceItemRequestBuilder
+    */
+    public function byPublishedResourceId(string $publishedResourceId): PublishedResourceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['publishedResource%2Did'] = $publishedResourceId;
+        return new PublishedResourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PublishedResourcesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ConnectorGroup;
 use Microsoft\Graph\Beta\Generated\Models\ConnectorGroupCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\ConnectorGroups\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\ConnectorGroups\Item\ConnectorGroupItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -44,6 +45,17 @@ class ConnectorGroupsRequestBuilder
     private string $urlTemplate;
     
     /**
+     * Provides operations to manage the connectorGroups property of the microsoft.graph.onPremisesPublishingProfile entity.
+     * @param string $connectorGroupId Unique identifier of the item
+     * @return ConnectorGroupItemRequestBuilder
+    */
+    public function byConnectorGroupId(string $connectorGroupId): ConnectorGroupItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['connectorGroup%2Did'] = $connectorGroupId;
+        return new ConnectorGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
      * Instantiates a new ConnectorGroupsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -78,11 +90,11 @@ class ConnectorGroupsRequestBuilder
     }
 
     /**
-     * Create a new connectorGroup.
+     * Create a connectorGroup object.
      * @param ConnectorGroup $body The request body
      * @param ConnectorGroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/connectorgroup-post-connectorgroups?view=graph-rest-1.0 Find more info here
+     * @link https://docs.microsoft.com/graph/api/connectorgroup-post?view=graph-rest-1.0 Find more info here
     */
     public function post(ConnectorGroup $body, ?ConnectorGroupsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -123,7 +135,7 @@ class ConnectorGroupsRequestBuilder
     }
 
     /**
-     * Create a new connectorGroup.
+     * Create a connectorGroup object.
      * @param ConnectorGroup $body The request body
      * @param ConnectorGroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyMigrationReports\Item\GroupPolicySettingMappings\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyMigrationReports\Item\GroupPolicySettingMappings\Item\GroupPolicySettingMappingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicySettingMapping;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicySettingMappingCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class GroupPolicySettingMappingsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the groupPolicySettingMappings property of the microsoft.graph.groupPolicyMigrationReport entity.
+     * @param string $groupPolicySettingMappingId Unique identifier of the item
+     * @return GroupPolicySettingMappingItemRequestBuilder
+    */
+    public function byGroupPolicySettingMappingId(string $groupPolicySettingMappingId): GroupPolicySettingMappingItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['groupPolicySettingMapping%2Did'] = $groupPolicySettingMappingId;
+        return new GroupPolicySettingMappingItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new GroupPolicySettingMappingsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

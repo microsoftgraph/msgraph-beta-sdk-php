@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicyTem
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicyTemplates\Item\SettingTemplates\Item\DeviceManagementConfigurationSettingTemplateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicyTemplates\Item\SettingTemplates\SettingTemplatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementConfigurationPolicyTemplate;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -111,17 +110,6 @@ class DeviceManagementConfigurationPolicyTemplateItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the settingTemplates property of the microsoft.graph.deviceManagementConfigurationPolicyTemplate entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceManagementConfigurationSettingTemplateItemRequestBuilder
-    */
-    public function settingTemplatesById(string $id): DeviceManagementConfigurationSettingTemplateItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceManagementConfigurationSettingTemplate%2Did'] = $id;
-        return new DeviceManagementConfigurationSettingTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

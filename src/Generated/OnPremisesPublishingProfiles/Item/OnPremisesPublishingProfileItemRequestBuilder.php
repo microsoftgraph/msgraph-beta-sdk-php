@@ -8,14 +8,9 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\OnPremisesPublishingProfile;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\AgentGroups\AgentGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\AgentGroups\Item\OnPremisesAgentGroupItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Agents\AgentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Agents\Item\OnPremisesAgentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\ConnectorGroups\ConnectorGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\ConnectorGroups\Item\ConnectorGroupItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Connectors\ConnectorsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Connectors\Item\ConnectorItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\PublishedResources\Item\PublishedResourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\PublishedResources\PublishedResourcesRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -79,50 +74,6 @@ class OnPremisesPublishingProfileItemRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the agentGroups property of the microsoft.graph.onPremisesPublishingProfile entity.
-     * @param string $id Unique identifier of the item
-     * @return OnPremisesAgentGroupItemRequestBuilder
-    */
-    public function agentGroupsById(string $id): OnPremisesAgentGroupItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['onPremisesAgentGroup%2Did'] = $id;
-        return new OnPremisesAgentGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the agents property of the microsoft.graph.onPremisesPublishingProfile entity.
-     * @param string $id Unique identifier of the item
-     * @return OnPremisesAgentItemRequestBuilder
-    */
-    public function agentsById(string $id): OnPremisesAgentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['onPremisesAgent%2Did'] = $id;
-        return new OnPremisesAgentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the connectorGroups property of the microsoft.graph.onPremisesPublishingProfile entity.
-     * @param string $id Unique identifier of the item
-     * @return ConnectorGroupItemRequestBuilder
-    */
-    public function connectorGroupsById(string $id): ConnectorGroupItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['connectorGroup%2Did'] = $id;
-        return new ConnectorGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the connectors property of the microsoft.graph.onPremisesPublishingProfile entity.
-     * @param string $id Unique identifier of the item
-     * @return ConnectorItemRequestBuilder
-    */
-    public function connectorsById(string $id): ConnectorItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['connector%2Did'] = $id;
-        return new ConnectorItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new OnPremisesPublishingProfileItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
@@ -191,17 +142,6 @@ class OnPremisesPublishingProfileItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the publishedResources property of the microsoft.graph.onPremisesPublishingProfile entity.
-     * @param string $id Unique identifier of the item
-     * @return PublishedResourceItemRequestBuilder
-    */
-    public function publishedResourcesById(string $id): PublishedResourceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['publishedResource%2Did'] = $id;
-        return new PublishedResourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

@@ -9,7 +9,6 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagementTemplateStep;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateSteps\Item\AcceptedVersion\AcceptedVersionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateSteps\Item\ManagementTemplate\ManagementTemplateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateSteps\Item\Versions\Item\ManagementTemplateStepVersionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateSteps\Item\Versions\VersionsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -197,17 +196,6 @@ class ManagementTemplateStepItemRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the versions property of the microsoft.graph.managedTenants.managementTemplateStep entity.
-     * @param string $id Unique identifier of the item
-     * @return ManagementTemplateStepVersionItemRequestBuilder
-    */
-    public function versionsById(string $id): ManagementTemplateStepVersionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['managementTemplateStepVersion%2Did'] = $id;
-        return new ManagementTemplateStepVersionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

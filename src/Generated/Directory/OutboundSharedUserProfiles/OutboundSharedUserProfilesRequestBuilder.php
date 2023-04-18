@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\Item\OutboundSharedUserProfileUserItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\OutboundSharedUserProfile;
 use Microsoft\Graph\Beta\Generated\Models\OutboundSharedUserProfileCollectionResponse;
@@ -43,6 +44,17 @@ class OutboundSharedUserProfilesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the outboundSharedUserProfiles property of the microsoft.graph.directory entity.
+     * @param string $outboundSharedUserProfileUserId Unique identifier of the item
+     * @return OutboundSharedUserProfileUserItemRequestBuilder
+    */
+    public function byOutboundSharedUserProfileUserId(string $outboundSharedUserProfileUserId): OutboundSharedUserProfileUserItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['outboundSharedUserProfile%2DuserId'] = $outboundSharedUserProfileUserId;
+        return new OutboundSharedUserProfileUserItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new OutboundSharedUserProfilesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

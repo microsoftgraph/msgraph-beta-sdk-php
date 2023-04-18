@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\Connector;
 use Microsoft\Graph\Beta\Generated\Models\ConnectorCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Connectors\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Connectors\Item\ConnectorItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class ConnectorsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the connectors property of the microsoft.graph.onPremisesPublishingProfile entity.
+     * @param string $connectorId Unique identifier of the item
+     * @return ConnectorItemRequestBuilder
+    */
+    public function byConnectorId(string $connectorId): ConnectorItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['connector%2Did'] = $connectorId;
+        return new ConnectorItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ConnectorsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

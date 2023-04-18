@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\SalesInvoiceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SalesInvoiceCollectionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -42,6 +43,17 @@ class SalesInvoicesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the salesInvoices property of the microsoft.graph.company entity.
+     * @param string $salesInvoiceId Unique identifier of the item
+     * @return SalesInvoiceItemRequestBuilder
+    */
+    public function bySalesInvoiceId(string $salesInvoiceId): SalesInvoiceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['salesInvoice%2Did'] = $salesInvoiceId;
+        return new SalesInvoiceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SalesInvoicesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

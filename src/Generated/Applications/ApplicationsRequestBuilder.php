@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Applications\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Delta\DeltaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\GetByIds\GetByIdsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Applications\Item\ApplicationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\ValidateProperties\ValidatePropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Application;
 use Microsoft\Graph\Beta\Generated\Models\ApplicationCollectionResponse;
@@ -75,6 +76,17 @@ class ApplicationsRequestBuilder
         return new ValidatePropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * Provides operations to manage the collection of application entities.
+     * @param string $applicationId Unique identifier of the item
+     * @return ApplicationItemRequestBuilder
+    */
+    public function byApplicationId(string $applicationId): ApplicationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['application%2Did'] = $applicationId;
+        return new ApplicationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ApplicationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

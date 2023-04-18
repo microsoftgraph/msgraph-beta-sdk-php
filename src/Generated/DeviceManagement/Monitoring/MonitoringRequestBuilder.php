@@ -6,9 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\AlertRecords\AlertRecordsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\AlertRecords\Item\AlertRecordItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\AlertRules\AlertRulesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\AlertRules\Item\AlertRuleItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagement\Monitoring;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -52,28 +50,6 @@ class MonitoringRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the alertRecords property of the microsoft.graph.deviceManagement.monitoring entity.
-     * @param string $id Unique identifier of the item
-     * @return AlertRecordItemRequestBuilder
-    */
-    public function alertRecordsById(string $id): AlertRecordItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['alertRecord%2Did'] = $id;
-        return new AlertRecordItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the alertRules property of the microsoft.graph.deviceManagement.monitoring entity.
-     * @param string $id Unique identifier of the item
-     * @return AlertRuleItemRequestBuilder
-    */
-    public function alertRulesById(string $id): AlertRuleItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['alertRule%2Did'] = $id;
-        return new AlertRuleItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new MonitoringRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

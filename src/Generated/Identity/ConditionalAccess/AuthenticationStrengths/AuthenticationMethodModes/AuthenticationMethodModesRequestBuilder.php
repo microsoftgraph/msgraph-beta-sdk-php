@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationStrengths\AuthenticationMethodModes\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationStrengths\AuthenticationMethodModes\Item\AuthenticationMethodModeDetailItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AuthenticationMethodModeDetail;
 use Microsoft\Graph\Beta\Generated\Models\AuthenticationMethodModeDetailCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AuthenticationMethodModesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the authenticationMethodModes property of the microsoft.graph.authenticationStrengthRoot entity.
+     * @param string $authenticationMethodModeDetailId Unique identifier of the item
+     * @return AuthenticationMethodModeDetailItemRequestBuilder
+    */
+    public function byAuthenticationMethodModeDetailId(string $authenticationMethodModeDetailId): AuthenticationMethodModeDetailItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['authenticationMethodModeDetail%2Did'] = $authenticationMethodModeDetailId;
+        return new AuthenticationMethodModeDetailItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AuthenticationMethodModesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

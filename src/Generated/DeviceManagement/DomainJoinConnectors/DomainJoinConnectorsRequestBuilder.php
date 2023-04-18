@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DomainJoinConnectors\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DomainJoinConnectors\Item\DeviceManagementDomainJoinConnectorItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementDomainJoinConnector;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementDomainJoinConnectorCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class DomainJoinConnectorsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the domainJoinConnectors property of the microsoft.graph.deviceManagement entity.
+     * @param string $deviceManagementDomainJoinConnectorId Unique identifier of the item
+     * @return DeviceManagementDomainJoinConnectorItemRequestBuilder
+    */
+    public function byDeviceManagementDomainJoinConnectorId(string $deviceManagementDomainJoinConnectorId): DeviceManagementDomainJoinConnectorItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceManagementDomainJoinConnector%2Did'] = $deviceManagementDomainJoinConnectorId;
+        return new DeviceManagementDomainJoinConnectorItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DomainJoinConnectorsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

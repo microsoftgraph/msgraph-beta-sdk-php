@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PaymentTerms\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PaymentTerms\Item\PaymentTermItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PaymentTerm;
 use Microsoft\Graph\Beta\Generated\Models\PaymentTermCollectionResponse;
@@ -43,6 +44,17 @@ class PaymentTermsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the paymentTerms property of the microsoft.graph.company entity.
+     * @param string $paymentTermId Unique identifier of the item
+     * @return PaymentTermItemRequestBuilder
+    */
+    public function byPaymentTermId(string $paymentTermId): PaymentTermItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['paymentTerm%2Did'] = $paymentTermId;
+        return new PaymentTermItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PaymentTermsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

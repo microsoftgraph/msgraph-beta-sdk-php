@@ -8,7 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\MobileAppTroubleshootingEvent;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\MobileAppTroubleshootingEvents\Item\AppLogCollectionRequests\AppLogCollectionRequestsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\MobileAppTroubleshootingEvents\Item\AppLogCollectionRequests\Item\AppLogCollectionRequestItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,17 +42,6 @@ class MobileAppTroubleshootingEventItemRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the appLogCollectionRequests property of the microsoft.graph.mobileAppTroubleshootingEvent entity.
-     * @param string $id Unique identifier of the item
-     * @return AppLogCollectionRequestItemRequestBuilder
-    */
-    public function appLogCollectionRequestsById(string $id): AppLogCollectionRequestItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['appLogCollectionRequest%2Did'] = $id;
-        return new AppLogCollectionRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new MobileAppTroubleshootingEventItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

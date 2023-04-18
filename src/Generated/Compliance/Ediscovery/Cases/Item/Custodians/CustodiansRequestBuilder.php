@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\EdiscoveryApplyHold\EdiscoveryApplyHoldRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\EdiscoveryRemoveHold\EdiscoveryRemoveHoldRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\CustodianItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\Custodian;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\CustodianCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -59,6 +60,17 @@ class CustodiansRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the custodians property of the microsoft.graph.ediscovery.case entity.
+     * @param string $custodianId Unique identifier of the item
+     * @return CustodianItemRequestBuilder
+    */
+    public function byCustodianId(string $custodianId): CustodianItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['custodian%2Did'] = $custodianId;
+        return new CustodianItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CustodiansRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

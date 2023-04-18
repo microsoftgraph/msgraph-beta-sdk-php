@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\DeviceCompliancePolicyS
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\DeviceCompliancePolicySettingStateSummaryCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\DeviceCompliancePolicySettingStateSummaries\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\DeviceCompliancePolicySettingStateSummaries\Item\DeviceCompliancePolicySettingStateSummaryItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class DeviceCompliancePolicySettingStateSummariesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the deviceCompliancePolicySettingStateSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $deviceCompliancePolicySettingStateSummaryId Unique identifier of the item
+     * @return DeviceCompliancePolicySettingStateSummaryItemRequestBuilder
+    */
+    public function byDeviceCompliancePolicySettingStateSummaryId(string $deviceCompliancePolicySettingStateSummaryId): DeviceCompliancePolicySettingStateSummaryItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceCompliancePolicySettingStateSummary%2Did'] = $deviceCompliancePolicySettingStateSummaryId;
+        return new DeviceCompliancePolicySettingStateSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DeviceCompliancePolicySettingStateSummariesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -7,12 +7,11 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\AlternativeRecording\AlternativeRecordingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\AttendanceReports\AttendanceReportsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\AttendanceReports\Item\MeetingAttendanceReportItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\AttendeeReport\AttendeeReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\GetVirtualAppointmentJoinWebUrl\GetVirtualAppointmentJoinWebUrlRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\MeetingAttendanceReport\MeetingAttendanceReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\Recording\RecordingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\Registration\RegistrationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\Transcripts\Item\CallTranscriptItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\Transcripts\TranscriptsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\VirtualAppointment\VirtualAppointmentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -48,6 +47,13 @@ class OnlineMeetingItemRequestBuilder
     */
     public function attendeeReport(): AttendeeReportRequestBuilder {
         return new AttendeeReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getVirtualAppointmentJoinWebUrl method.
+    */
+    public function getVirtualAppointmentJoinWebUrl(): GetVirtualAppointmentJoinWebUrlRequestBuilder {
+        return new GetVirtualAppointmentJoinWebUrlRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -100,17 +106,6 @@ class OnlineMeetingItemRequestBuilder
         return new VirtualAppointmentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeeting entity.
-     * @param string $id Unique identifier of the item
-     * @return MeetingAttendanceReportItemRequestBuilder
-    */
-    public function attendanceReportsById(string $id): MeetingAttendanceReportItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['meetingAttendanceReport%2Did'] = $id;
-        return new MeetingAttendanceReportItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new OnlineMeetingItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
@@ -249,17 +244,6 @@ class OnlineMeetingItemRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the transcripts property of the microsoft.graph.onlineMeeting entity.
-     * @param string $id Unique identifier of the item
-     * @return CallTranscriptItemRequestBuilder
-    */
-    public function transcriptsById(string $id): CallTranscriptItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['callTranscript%2Did'] = $id;
-        return new CallTranscriptItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

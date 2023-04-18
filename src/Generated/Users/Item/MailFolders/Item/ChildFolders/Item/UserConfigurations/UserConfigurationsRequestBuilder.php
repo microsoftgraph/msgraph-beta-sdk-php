@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserConfigurationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item\UserConfigurations\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item\UserConfigurations\Item\UserConfigurationItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -42,6 +43,17 @@ class UserConfigurationsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userConfigurations property of the microsoft.graph.mailFolder entity.
+     * @param string $userConfigurationId Unique identifier of the item
+     * @return UserConfigurationItemRequestBuilder
+    */
+    public function byUserConfigurationId(string $userConfigurationId): UserConfigurationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userConfiguration%2Did'] = $userConfigurationId;
+        return new UserConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserConfigurationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\Categor
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\Categories\Item\RecommendedSettings\Item\DeviceManagementSettingInstanceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\Categories\Item\RecommendedSettings\RecommendedSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementTemplateSettingCategory;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -111,17 +110,6 @@ class DeviceManagementTemplateSettingCategoryItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the recommendedSettings property of the microsoft.graph.deviceManagementTemplateSettingCategory entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceManagementSettingInstanceItemRequestBuilder
-    */
-    public function recommendedSettingsById(string $id): DeviceManagementSettingInstanceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceManagementSettingInstance%2Did'] = $id;
-        return new DeviceManagementSettingInstanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

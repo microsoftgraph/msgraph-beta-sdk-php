@@ -7,26 +7,16 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Schedule;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\OfferShiftRequests\Item\OfferShiftRequestItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\OfferShiftRequests\OfferShiftRequestsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\OpenShiftChangeRequests\Item\OpenShiftChangeRequestItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\OpenShiftChangeRequests\OpenShiftChangeRequestsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\OpenShifts\Item\OpenShiftItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\OpenShifts\OpenShiftsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\SchedulingGroups\Item\SchedulingGroupItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\SchedulingGroups\SchedulingGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\Share\ShareRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\Shifts\Item\ShiftItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\Shifts\ShiftsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\SwapShiftsChangeRequests\Item\SwapShiftsChangeRequestItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\SwapShiftsChangeRequests\SwapShiftsChangeRequestsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\TimeCards\Item\TimeCardItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\TimeCards\TimeCardsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\TimeOffReasons\Item\TimeOffReasonItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\TimeOffReasons\TimeOffReasonsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\TimeOffRequests\Item\TimeOffRequestItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\TimeOffRequests\TimeOffRequestsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\TimesOff\Item\TimeOffItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\TimesOff\TimesOffRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -185,39 +175,6 @@ class ScheduleRequestBuilder
     }
 
     /**
-     * Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity.
-     * @param string $id Unique identifier of the item
-     * @return OfferShiftRequestItemRequestBuilder
-    */
-    public function offerShiftRequestsById(string $id): OfferShiftRequestItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['offerShiftRequest%2Did'] = $id;
-        return new OfferShiftRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the openShiftChangeRequests property of the microsoft.graph.schedule entity.
-     * @param string $id Unique identifier of the item
-     * @return OpenShiftChangeRequestItemRequestBuilder
-    */
-    public function openShiftChangeRequestsById(string $id): OpenShiftChangeRequestItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['openShiftChangeRequest%2Did'] = $id;
-        return new OpenShiftChangeRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the openShifts property of the microsoft.graph.schedule entity.
-     * @param string $id Unique identifier of the item
-     * @return OpenShiftItemRequestBuilder
-    */
-    public function openShiftsById(string $id): OpenShiftItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['openShift%2Did'] = $id;
-        return new OpenShiftItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Update the navigation property schedule in teamTemplateDefinition
      * @param Schedule $body The request body
      * @param ScheduleRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -234,83 +191,6 @@ class ScheduleRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the schedulingGroups property of the microsoft.graph.schedule entity.
-     * @param string $id Unique identifier of the item
-     * @return SchedulingGroupItemRequestBuilder
-    */
-    public function schedulingGroupsById(string $id): SchedulingGroupItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['schedulingGroup%2Did'] = $id;
-        return new SchedulingGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the shifts property of the microsoft.graph.schedule entity.
-     * @param string $id Unique identifier of the item
-     * @return ShiftItemRequestBuilder
-    */
-    public function shiftsById(string $id): ShiftItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['shift%2Did'] = $id;
-        return new ShiftItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the swapShiftsChangeRequests property of the microsoft.graph.schedule entity.
-     * @param string $id Unique identifier of the item
-     * @return SwapShiftsChangeRequestItemRequestBuilder
-    */
-    public function swapShiftsChangeRequestsById(string $id): SwapShiftsChangeRequestItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['swapShiftsChangeRequest%2Did'] = $id;
-        return new SwapShiftsChangeRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the timeCards property of the microsoft.graph.schedule entity.
-     * @param string $id Unique identifier of the item
-     * @return TimeCardItemRequestBuilder
-    */
-    public function timeCardsById(string $id): TimeCardItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['timeCard%2Did'] = $id;
-        return new TimeCardItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the timeOffReasons property of the microsoft.graph.schedule entity.
-     * @param string $id Unique identifier of the item
-     * @return TimeOffReasonItemRequestBuilder
-    */
-    public function timeOffReasonsById(string $id): TimeOffReasonItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['timeOffReason%2Did'] = $id;
-        return new TimeOffReasonItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the timeOffRequests property of the microsoft.graph.schedule entity.
-     * @param string $id Unique identifier of the item
-     * @return TimeOffRequestItemRequestBuilder
-    */
-    public function timeOffRequestsById(string $id): TimeOffRequestItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['timeOffRequest%2Did'] = $id;
-        return new TimeOffRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the timesOff property of the microsoft.graph.schedule entity.
-     * @param string $id Unique identifier of the item
-     * @return TimeOffItemRequestBuilder
-    */
-    public function timesOffById(string $id): TimeOffItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['timeOff%2Did'] = $id;
-        return new TimeOffItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

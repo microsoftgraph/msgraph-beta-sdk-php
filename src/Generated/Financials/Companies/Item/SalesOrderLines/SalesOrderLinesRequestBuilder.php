@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesOrderLines\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesOrderLines\Item\SalesOrderLineItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SalesOrderLineCollectionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -42,6 +43,17 @@ class SalesOrderLinesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the salesOrderLines property of the microsoft.graph.company entity.
+     * @param string $salesOrderLineId Unique identifier of the item
+     * @return SalesOrderLineItemRequestBuilder
+    */
+    public function bySalesOrderLineId(string $salesOrderLineId): SalesOrderLineItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['salesOrderLine%2Did'] = $salesOrderLineId;
+        return new SalesOrderLineItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SalesOrderLinesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

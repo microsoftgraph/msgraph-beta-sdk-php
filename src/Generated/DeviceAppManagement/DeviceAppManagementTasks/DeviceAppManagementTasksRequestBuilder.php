@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\DeviceAppManagementTasks\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\DeviceAppManagementTasks\Item\DeviceAppManagementTaskItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceAppManagementTask;
 use Microsoft\Graph\Beta\Generated\Models\DeviceAppManagementTaskCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class DeviceAppManagementTasksRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the deviceAppManagementTasks property of the microsoft.graph.deviceAppManagement entity.
+     * @param string $deviceAppManagementTaskId Unique identifier of the item
+     * @return DeviceAppManagementTaskItemRequestBuilder
+    */
+    public function byDeviceAppManagementTaskId(string $deviceAppManagementTaskId): DeviceAppManagementTaskItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceAppManagementTask%2Did'] = $deviceAppManagementTaskId;
+        return new DeviceAppManagementTaskItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DeviceAppManagementTasksRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

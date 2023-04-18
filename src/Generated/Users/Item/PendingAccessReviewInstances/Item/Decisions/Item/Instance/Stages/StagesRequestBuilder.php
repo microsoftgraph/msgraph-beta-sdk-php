@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\Models\AccessReviewStageCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Decisions\Item\Instance\Stages\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Decisions\Item\Instance\Stages\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Decisions\Item\Instance\Stages\Item\AccessReviewStageItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -44,6 +45,17 @@ class StagesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity.
+     * @param string $accessReviewStageId Unique identifier of the item
+     * @return AccessReviewStageItemRequestBuilder
+    */
+    public function byAccessReviewStageId(string $accessReviewStageId): AccessReviewStageItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['accessReviewStage%2Did'] = $accessReviewStageId;
+        return new AccessReviewStageItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new StagesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

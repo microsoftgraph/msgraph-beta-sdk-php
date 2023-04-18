@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Customers\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Customers\Item\CustomerItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Customer;
 use Microsoft\Graph\Beta\Generated\Models\CustomerCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class CustomersRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the customers property of the microsoft.graph.company entity.
+     * @param string $customerId Unique identifier of the item
+     * @return CustomerItemRequestBuilder
+    */
+    public function byCustomerId(string $customerId): CustomerItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['customer%2Did'] = $customerId;
+        return new CustomerItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CustomersRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

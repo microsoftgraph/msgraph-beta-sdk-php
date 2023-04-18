@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudPCConnectivityIssues\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudPCConnectivityIssues\Item\CloudPCConnectivityIssueItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPCConnectivityIssue;
 use Microsoft\Graph\Beta\Generated\Models\CloudPCConnectivityIssueCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class CloudPCConnectivityIssuesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the cloudPCConnectivityIssues property of the microsoft.graph.deviceManagement entity.
+     * @param string $cloudPCConnectivityIssueId Unique identifier of the item
+     * @return CloudPCConnectivityIssueItemRequestBuilder
+    */
+    public function byCloudPCConnectivityIssueId(string $cloudPCConnectivityIssueId): CloudPCConnectivityIssueItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['cloudPCConnectivityIssue%2Did'] = $cloudPCConnectivityIssueId;
+        return new CloudPCConnectivityIssueItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CloudPCConnectivityIssuesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

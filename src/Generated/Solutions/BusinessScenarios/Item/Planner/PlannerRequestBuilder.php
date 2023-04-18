@@ -10,7 +10,6 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planner\GetPlan\GetPlanRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planner\PlanConfiguration\PlanConfigurationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planner\TaskConfiguration\TaskConfigurationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planner\Tasks\Item\BusinessScenarioTaskItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planner\Tasks\TasksRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -136,17 +135,6 @@ class PlannerRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the tasks property of the microsoft.graph.businessScenarioPlanner entity.
-     * @param string $id Unique identifier of the item
-     * @return BusinessScenarioTaskItemRequestBuilder
-    */
-    public function tasksById(string $id): BusinessScenarioTaskItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['businessScenarioTask%2Did'] = $id;
-        return new BusinessScenarioTaskItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

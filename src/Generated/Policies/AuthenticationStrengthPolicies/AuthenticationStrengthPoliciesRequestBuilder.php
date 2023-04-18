@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\Models\AuthenticationStrengthPolicyCollection
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Policies\AuthenticationStrengthPolicies\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\AuthenticationStrengthPolicies\FindByMethodModeWithAuthenticationMethodModes\FindByMethodModeWithAuthenticationMethodModesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Policies\AuthenticationStrengthPolicies\Item\AuthenticationStrengthPolicyItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -44,6 +45,17 @@ class AuthenticationStrengthPoliciesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the authenticationStrengthPolicies property of the microsoft.graph.policyRoot entity.
+     * @param string $authenticationStrengthPolicyId Unique identifier of the item
+     * @return AuthenticationStrengthPolicyItemRequestBuilder
+    */
+    public function byAuthenticationStrengthPolicyId(string $authenticationStrengthPolicyId): AuthenticationStrengthPolicyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['authenticationStrengthPolicy%2Did'] = $authenticationStrengthPolicyId;
+        return new AuthenticationStrengthPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AuthenticationStrengthPoliciesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

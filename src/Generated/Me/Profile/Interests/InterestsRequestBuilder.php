@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Profile\Interests\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Profile\Interests\Item\PersonInterestItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PersonInterest;
 use Microsoft\Graph\Beta\Generated\Models\PersonInterestCollectionResponse;
@@ -43,6 +44,17 @@ class InterestsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the interests property of the microsoft.graph.profile entity.
+     * @param string $personInterestId Unique identifier of the item
+     * @return PersonInterestItemRequestBuilder
+    */
+    public function byPersonInterestId(string $personInterestId): PersonInterestItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['personInterest%2Did'] = $personInterestId;
+        return new PersonInterestItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new InterestsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

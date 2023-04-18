@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PersonAnnualEvent;
 use Microsoft\Graph\Beta\Generated\Models\PersonAnnualEventCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Anniversaries\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Anniversaries\Item\PersonAnnualEventItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class AnniversariesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the anniversaries property of the microsoft.graph.profile entity.
+     * @param string $personAnnualEventId Unique identifier of the item
+     * @return PersonAnnualEventItemRequestBuilder
+    */
+    public function byPersonAnnualEventId(string $personAnnualEventId): PersonAnnualEventItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['personAnnualEvent%2Did'] = $personAnnualEventId;
+        return new PersonAnnualEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AnniversariesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

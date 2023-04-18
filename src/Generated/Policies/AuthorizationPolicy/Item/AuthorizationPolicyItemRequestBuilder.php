@@ -8,7 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\AuthorizationPolicy;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Policies\AuthorizationPolicy\Item\DefaultUserRoleOverrides\DefaultUserRoleOverridesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Policies\AuthorizationPolicy\Item\DefaultUserRoleOverrides\Item\DefaultUserRoleOverrideItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -56,17 +55,6 @@ class AuthorizationPolicyItemRequestBuilder
         } else {
             $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
         }
-    }
-
-    /**
-     * Provides operations to manage the defaultUserRoleOverrides property of the microsoft.graph.authorizationPolicy entity.
-     * @param string $id Unique identifier of the item
-     * @return DefaultUserRoleOverrideItemRequestBuilder
-    */
-    public function defaultUserRoleOverridesById(string $id): DefaultUserRoleOverrideItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['defaultUserRoleOverride%2Did'] = $id;
-        return new DefaultUserRoleOverrideItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

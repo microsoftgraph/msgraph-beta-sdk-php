@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Settings\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Settings\Item\DirectorySettingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DirectorySetting;
 use Microsoft\Graph\Beta\Generated\Models\DirectorySettingCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class SettingsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the settings property of the microsoft.graph.group entity.
+     * @param string $directorySettingId Unique identifier of the item
+     * @return DirectorySettingItemRequestBuilder
+    */
+    public function byDirectorySettingId(string $directorySettingId): DirectorySettingItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['directorySetting%2Did'] = $directorySettingId;
+        return new DirectorySettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SettingsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

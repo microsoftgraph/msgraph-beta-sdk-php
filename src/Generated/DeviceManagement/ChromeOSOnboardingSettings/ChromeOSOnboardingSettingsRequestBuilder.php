@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ChromeOSOnboardingSettings\Connect\ConnectRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ChromeOSOnboardingSettings\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ChromeOSOnboardingSettings\Disconnect\DisconnectRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ChromeOSOnboardingSettings\Item\ChromeOSOnboardingSettingsItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ChromeOSOnboardingSettings;
 use Microsoft\Graph\Beta\Generated\Models\ChromeOSOnboardingSettingsCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -59,6 +60,17 @@ class ChromeOSOnboardingSettingsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the chromeOSOnboardingSettings property of the microsoft.graph.deviceManagement entity.
+     * @param string $chromeOSOnboardingSettingsId Unique identifier of the item
+     * @return ChromeOSOnboardingSettingsItemRequestBuilder
+    */
+    public function byChromeOSOnboardingSettingsId(string $chromeOSOnboardingSettingsId): ChromeOSOnboardingSettingsItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['chromeOSOnboardingSettings%2Did'] = $chromeOSOnboardingSettingsId;
+        return new ChromeOSOnboardingSettingsItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ChromeOSOnboardingSettingsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\HostSecurityProfile;
 use Microsoft\Graph\Beta\Generated\Models\HostSecurityProfileCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Security\HostSecurityProfiles\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\HostSecurityProfiles\Item\HostSecurityProfileItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class HostSecurityProfilesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the hostSecurityProfiles property of the microsoft.graph.security entity.
+     * @param string $hostSecurityProfileId Unique identifier of the item
+     * @return HostSecurityProfileItemRequestBuilder
+    */
+    public function byHostSecurityProfileId(string $hostSecurityProfileId): HostSecurityProfileItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['hostSecurityProfile%2Did'] = $hostSecurityProfileId;
+        return new HostSecurityProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new HostSecurityProfilesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

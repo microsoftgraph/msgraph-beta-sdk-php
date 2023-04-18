@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Outlook\TaskGroups\Item\TaskFolders\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Outlook\TaskGroups\Item\TaskFolders\Item\OutlookTaskFolderItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\OutlookTaskFolder;
 use Microsoft\Graph\Beta\Generated\Models\OutlookTaskFolderCollectionResponse;
@@ -44,6 +45,17 @@ class TaskFoldersRequestBuilder
     private string $urlTemplate;
     
     /**
+     * Provides operations to manage the taskFolders property of the microsoft.graph.outlookTaskGroup entity.
+     * @param string $outlookTaskFolderId Unique identifier of the item
+     * @return OutlookTaskFolderItemRequestBuilder
+    */
+    public function byOutlookTaskFolderId(string $outlookTaskFolderId): OutlookTaskFolderItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['outlookTaskFolder%2Did'] = $outlookTaskFolderId;
+        return new OutlookTaskFolderItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
      * Instantiates a new TaskFoldersRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -78,10 +90,11 @@ class TaskFoldersRequestBuilder
     }
 
     /**
-     * Create new navigation property to taskFolders for me
+     * Create an Outlook task folder under a specified outlookTaskGroup.
      * @param OutlookTaskFolder $body The request body
      * @param TaskFoldersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/outlooktaskgroup-post-taskfolders?view=graph-rest-1.0 Find more info here
     */
     public function post(OutlookTaskFolder $body, ?TaskFoldersRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -122,7 +135,7 @@ class TaskFoldersRequestBuilder
     }
 
     /**
-     * Create new navigation property to taskFolders for me
+     * Create an Outlook task folder under a specified outlookTaskGroup.
      * @param OutlookTaskFolder $body The request body
      * @param TaskFoldersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

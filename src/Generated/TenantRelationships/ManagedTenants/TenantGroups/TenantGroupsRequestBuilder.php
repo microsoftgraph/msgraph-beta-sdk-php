@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\TenantGroup;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\TenantGroupCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantGroups\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantGroups\Item\TenantGroupItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantGroups\ManagedTenantsTenantSearch\ManagedTenantsTenantSearchRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -51,6 +52,17 @@ class TenantGroupsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the tenantGroups property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $tenantGroupId Unique identifier of the item
+     * @return TenantGroupItemRequestBuilder
+    */
+    public function byTenantGroupId(string $tenantGroupId): TenantGroupItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['tenantGroup%2Did'] = $tenantGroupId;
+        return new TenantGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new TenantGroupsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

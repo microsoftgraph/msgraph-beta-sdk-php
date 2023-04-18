@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\GeneralLedgerEntries\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\GeneralLedgerEntries\Item\GeneralLedgerEntryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\GeneralLedgerEntryCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -42,6 +43,17 @@ class GeneralLedgerEntriesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the generalLedgerEntries property of the microsoft.graph.company entity.
+     * @param string $generalLedgerEntryId Unique identifier of the item
+     * @return GeneralLedgerEntryItemRequestBuilder
+    */
+    public function byGeneralLedgerEntryId(string $generalLedgerEntryId): GeneralLedgerEntryItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['generalLedgerEntry%2Did'] = $generalLedgerEntryId;
+        return new GeneralLedgerEntryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new GeneralLedgerEntriesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

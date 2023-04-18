@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\MonthlyPrintUsageByPrinter\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\MonthlyPrintUsageByPrinter\Item\PrintUsageByPrinterItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PrintUsageByPrinter;
 use Microsoft\Graph\Beta\Generated\Models\PrintUsageByPrinterCollectionResponse;
@@ -43,6 +44,17 @@ class MonthlyPrintUsageByPrinterRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the monthlyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
+     * @param string $printUsageByPrinterId Unique identifier of the item
+     * @return PrintUsageByPrinterItemRequestBuilder
+    */
+    public function byPrintUsageByPrinterId(string $printUsageByPrinterId): PrintUsageByPrinterItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['printUsageByPrinter%2Did'] = $printUsageByPrinterId;
+        return new PrintUsageByPrinterItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new MonthlyPrintUsageByPrinterRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

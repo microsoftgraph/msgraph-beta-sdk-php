@@ -7,7 +7,6 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices\Item\Currency\CurrencyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices\Item\Post\PostRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices\Item\PurchaseInvoiceLines\Item\PurchaseInvoiceLineItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices\Item\PurchaseInvoiceLines\PurchaseInvoiceLinesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices\Item\Vendor\VendorRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -117,17 +116,6 @@ class PurchaseInvoiceItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the purchaseInvoiceLines property of the microsoft.graph.purchaseInvoice entity.
-     * @param string $id Unique identifier of the item
-     * @return PurchaseInvoiceLineItemRequestBuilder
-    */
-    public function purchaseInvoiceLinesById(string $id): PurchaseInvoiceLineItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['purchaseInvoiceLine%2Did'] = $id;
-        return new PurchaseInvoiceLineItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

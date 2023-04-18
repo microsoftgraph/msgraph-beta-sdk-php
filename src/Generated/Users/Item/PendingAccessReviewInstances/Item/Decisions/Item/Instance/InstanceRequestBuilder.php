@@ -11,11 +11,9 @@ use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Decisions\Item\Instance\ApplyDecisions\ApplyDecisionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Decisions\Item\Instance\BatchRecordDecisions\BatchRecordDecisionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Decisions\Item\Instance\ContactedReviewers\ContactedReviewersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Decisions\Item\Instance\ContactedReviewers\Item\AccessReviewReviewerItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Decisions\Item\Instance\Definition\DefinitionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Decisions\Item\Instance\ResetDecisions\ResetDecisionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Decisions\Item\Instance\SendReminder\SendReminderRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Decisions\Item\Instance\Stages\Item\AccessReviewStageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Decisions\Item\Instance\Stages\StagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Decisions\Item\Instance\Stop\StopRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -124,17 +122,6 @@ class InstanceRequestBuilder
     }
 
     /**
-     * Provides operations to manage the contactedReviewers property of the microsoft.graph.accessReviewInstance entity.
-     * @param string $id Unique identifier of the item
-     * @return AccessReviewReviewerItemRequestBuilder
-    */
-    public function contactedReviewersById(string $id): AccessReviewReviewerItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['accessReviewReviewer%2Did'] = $id;
-        return new AccessReviewReviewerItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Delete navigation property instance for users
      * @param InstanceRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -187,17 +174,6 @@ class InstanceRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity.
-     * @param string $id Unique identifier of the item
-     * @return AccessReviewStageItemRequestBuilder
-    */
-    public function stagesById(string $id): AccessReviewStageItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['accessReviewStage%2Did'] = $id;
-        return new AccessReviewStageItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

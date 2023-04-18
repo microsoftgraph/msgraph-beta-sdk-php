@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets\Item\UpdatableAssetItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets\WindowsUpdatesEnrollAssets\WindowsUpdatesEnrollAssetsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets\WindowsUpdatesEnrollAssetsById\WindowsUpdatesEnrollAssetsByIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets\WindowsUpdatesUnenrollAssets\WindowsUpdatesUnenrollAssetsRequestBuilder;
@@ -75,6 +76,17 @@ class UpdatableAssetsRequestBuilder
         return new WindowsUpdatesUnenrollAssetsByIdRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * Provides operations to manage the updatableAssets property of the microsoft.graph.adminWindowsUpdates entity.
+     * @param string $updatableAssetId Unique identifier of the item
+     * @return UpdatableAssetItemRequestBuilder
+    */
+    public function byUpdatableAssetId(string $updatableAssetId): UpdatableAssetItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['updatableAsset%2Did'] = $updatableAssetId;
+        return new UpdatableAssetItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UpdatableAssetsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

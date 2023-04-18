@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserSecurityProfile;
 use Microsoft\Graph\Beta\Generated\Models\UserSecurityProfileCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\UserSecurityProfiles\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\UserSecurityProfiles\Item\UserSecurityProfileItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class UserSecurityProfilesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userSecurityProfiles property of the microsoft.graph.security entity.
+     * @param string $userSecurityProfileId Unique identifier of the item
+     * @return UserSecurityProfileItemRequestBuilder
+    */
+    public function byUserSecurityProfileId(string $userSecurityProfileId): UserSecurityProfileItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userSecurityProfile%2Did'] = $userSecurityProfileId;
+        return new UserSecurityProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserSecurityProfilesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

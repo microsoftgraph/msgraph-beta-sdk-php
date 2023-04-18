@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\OnPremisesAgentGroupCollectionResponse;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Agents\Item\AgentGroups\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Agents\Item\AgentGroups\Item\OnPremisesAgentGroupItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Agents\Item\AgentGroups\Ref\RefRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -50,6 +51,17 @@ class AgentGroupsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Gets an item from the Microsoft/Graph/Beta/Generated.onPremisesPublishingProfiles.item.agents.item.agentGroups.item collection
+     * @param string $onPremisesAgentGroupId Unique identifier of the item
+     * @return OnPremisesAgentGroupItemRequestBuilder
+    */
+    public function byOnPremisesAgentGroupId(string $onPremisesAgentGroupId): OnPremisesAgentGroupItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['onPremisesAgentGroup%2Did'] = $onPremisesAgentGroupId;
+        return new OnPremisesAgentGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AgentGroupsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

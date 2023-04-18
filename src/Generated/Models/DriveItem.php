@@ -119,6 +119,7 @@ class DriveItem extends BaseItem implements Parsable
             'photo' => fn(ParseNode $n) => $o->setPhoto($n->getObjectValue([Photo::class, 'createFromDiscriminatorValue'])),
             'publication' => fn(ParseNode $n) => $o->setPublication($n->getObjectValue([PublicationFacet::class, 'createFromDiscriminatorValue'])),
             'remoteItem' => fn(ParseNode $n) => $o->setRemoteItem($n->getObjectValue([RemoteItem::class, 'createFromDiscriminatorValue'])),
+            'retentionLabel' => fn(ParseNode $n) => $o->setRetentionLabel($n->getObjectValue([ItemRetentionLabel::class, 'createFromDiscriminatorValue'])),
             'root' => fn(ParseNode $n) => $o->setRoot($n->getObjectValue([Root::class, 'createFromDiscriminatorValue'])),
             'searchResult' => fn(ParseNode $n) => $o->setSearchResult($n->getObjectValue([SearchResult::class, 'createFromDiscriminatorValue'])),
             'shared' => fn(ParseNode $n) => $o->setShared($n->getObjectValue([Shared::class, 'createFromDiscriminatorValue'])),
@@ -245,6 +246,14 @@ class DriveItem extends BaseItem implements Parsable
     */
     public function getRemoteItem(): ?RemoteItem {
         return $this->getBackingStore()->get('remoteItem');
+    }
+
+    /**
+     * Gets the retentionLabel property value. The retentionLabel property
+     * @return ItemRetentionLabel|null
+    */
+    public function getRetentionLabel(): ?ItemRetentionLabel {
+        return $this->getBackingStore()->get('retentionLabel');
     }
 
     /**
@@ -379,6 +388,7 @@ class DriveItem extends BaseItem implements Parsable
         $writer->writeObjectValue('photo', $this->getPhoto());
         $writer->writeObjectValue('publication', $this->getPublication());
         $writer->writeObjectValue('remoteItem', $this->getRemoteItem());
+        $writer->writeObjectValue('retentionLabel', $this->getRetentionLabel());
         $writer->writeObjectValue('root', $this->getRoot());
         $writer->writeObjectValue('searchResult', $this->getSearchResult());
         $writer->writeObjectValue('shared', $this->getShared());
@@ -568,6 +578,14 @@ class DriveItem extends BaseItem implements Parsable
     */
     public function setRemoteItem(?RemoteItem $value): void {
         $this->getBackingStore()->set('remoteItem', $value);
+    }
+
+    /**
+     * Sets the retentionLabel property value. The retentionLabel property
+     * @param ItemRetentionLabel|null $value Value to set for the retentionLabel property.
+    */
+    public function setRetentionLabel(?ItemRetentionLabel $value): void {
+        $this->getBackingStore()->set('retentionLabel', $value);
     }
 
     /**

@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\HostCookieCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\Cookies\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\Cookies\Item\HostCookieItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -42,6 +43,17 @@ class CookiesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the cookies property of the microsoft.graph.security.host entity.
+     * @param string $hostCookieId Unique identifier of the item
+     * @return HostCookieItemRequestBuilder
+    */
+    public function byHostCookieId(string $hostCookieId): HostCookieItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['hostCookie%2Did'] = $hostCookieId;
+        return new HostCookieItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CookiesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

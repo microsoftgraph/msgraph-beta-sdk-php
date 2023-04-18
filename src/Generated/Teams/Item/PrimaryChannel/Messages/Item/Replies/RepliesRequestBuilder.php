@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\Models\ChatMessageCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Messages\Item\Replies\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Messages\Item\Replies\Delta\DeltaRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Messages\Item\Replies\Item\ChatMessageItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -51,6 +52,17 @@ class RepliesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the replies property of the microsoft.graph.chatMessage entity.
+     * @param string $chatMessageId1 Unique identifier of the item
+     * @return ChatMessageItemRequestBuilder
+    */
+    public function byChatMessageId1(string $chatMessageId1): ChatMessageItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['chatMessage%2Did1'] = $chatMessageId1;
+        return new ChatMessageItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new RepliesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

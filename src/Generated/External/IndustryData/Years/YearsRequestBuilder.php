@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\External\IndustryData\Years\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\External\IndustryData\Years\Item\YearTimePeriodDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IndustryData\YearTimePeriodDefinition;
 use Microsoft\Graph\Beta\Generated\Models\IndustryData\YearTimePeriodDefinitionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class YearsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the years property of the microsoft.graph.industryData.industryDataRoot entity.
+     * @param string $yearTimePeriodDefinitionId Unique identifier of the item
+     * @return YearTimePeriodDefinitionItemRequestBuilder
+    */
+    public function byYearTimePeriodDefinitionId(string $yearTimePeriodDefinitionId): YearTimePeriodDefinitionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['yearTimePeriodDefinition%2Did'] = $yearTimePeriodDefinitionId;
+        return new YearTimePeriodDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new YearsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

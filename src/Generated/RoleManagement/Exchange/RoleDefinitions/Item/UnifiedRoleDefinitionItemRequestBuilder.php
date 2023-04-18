@@ -84,7 +84,7 @@ class UnifiedRoleDefinitionItemRequestBuilder
     }
 
     /**
-     * Get roleDefinitions from roleManagement
+     * The roles allowed by RBAC providers and the permissions assigned to the roles.
      * @param UnifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -99,17 +99,6 @@ class UnifiedRoleDefinitionItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the inheritsPermissionsFrom property of the microsoft.graph.unifiedRoleDefinition entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\RoleDefinitions\Item\InheritsPermissionsFrom\Item\UnifiedRoleDefinitionItemRequestBuilder
-    */
-    public function inheritsPermissionsFromById(string $id): \Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\RoleDefinitions\Item\InheritsPermissionsFrom\Item\UnifiedRoleDefinitionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['unifiedRoleDefinition%2Did1'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\RoleDefinitions\Item\InheritsPermissionsFrom\Item\UnifiedRoleDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -153,7 +142,7 @@ class UnifiedRoleDefinitionItemRequestBuilder
     }
 
     /**
-     * Get roleDefinitions from roleManagement
+     * The roles allowed by RBAC providers and the permissions assigned to the roles.
      * @param UnifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

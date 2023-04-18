@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\EmbeddedSIMActivationCodePools\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\EmbeddedSIMActivationCodePools\Item\EmbeddedSIMActivationCodePoolItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EmbeddedSIMActivationCodePool;
 use Microsoft\Graph\Beta\Generated\Models\EmbeddedSIMActivationCodePoolCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class EmbeddedSIMActivationCodePoolsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the embeddedSIMActivationCodePools property of the microsoft.graph.deviceManagement entity.
+     * @param string $embeddedSIMActivationCodePoolId Unique identifier of the item
+     * @return EmbeddedSIMActivationCodePoolItemRequestBuilder
+    */
+    public function byEmbeddedSIMActivationCodePoolId(string $embeddedSIMActivationCodePoolId): EmbeddedSIMActivationCodePoolItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['embeddedSIMActivationCodePool%2Did'] = $embeddedSIMActivationCodePoolId;
+        return new EmbeddedSIMActivationCodePoolItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new EmbeddedSIMActivationCodePoolsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

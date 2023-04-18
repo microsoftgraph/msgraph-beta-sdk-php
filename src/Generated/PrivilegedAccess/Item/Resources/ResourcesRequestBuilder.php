@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\GovernanceResource;
 use Microsoft\Graph\Beta\Generated\Models\GovernanceResourceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\Resources\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\Resources\Item\GovernanceResourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\Resources\Register\RegisterRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -51,6 +52,17 @@ class ResourcesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the resources property of the microsoft.graph.privilegedAccess entity.
+     * @param string $governanceResourceId Unique identifier of the item
+     * @return GovernanceResourceItemRequestBuilder
+    */
+    public function byGovernanceResourceId(string $governanceResourceId): GovernanceResourceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['governanceResource%2Did'] = $governanceResourceId;
+        return new GovernanceResourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ResourcesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -9,7 +9,6 @@ use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\Item\Cu
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\Item\Customer\CustomerRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\Item\MakeInvoice\MakeInvoiceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\Item\PaymentTerm\PaymentTermRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\Item\SalesQuoteLines\Item\SalesQuoteLineItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\Item\SalesQuoteLines\SalesQuoteLinesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\Item\Send\SendRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\Item\ShipmentMethod\ShipmentMethodRequestBuilder;
@@ -141,17 +140,6 @@ class SalesQuoteItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the salesQuoteLines property of the microsoft.graph.salesQuote entity.
-     * @param string $id Unique identifier of the item
-     * @return SalesQuoteLineItemRequestBuilder
-    */
-    public function salesQuoteLinesById(string $id): SalesQuoteLineItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['salesQuoteLine%2Did'] = $id;
-        return new SalesQuoteLineItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

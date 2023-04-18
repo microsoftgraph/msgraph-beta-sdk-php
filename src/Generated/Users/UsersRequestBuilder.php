@@ -13,6 +13,7 @@ use Microsoft\Graph\Beta\Generated\Users\Delta\DeltaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\GetByIds\GetByIdsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\GetManagedAppBlockedUsers\GetManagedAppBlockedUsersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\UserItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\ValidatePassword\ValidatePasswordRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\ValidateProperties\ValidatePropertiesRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -92,6 +93,17 @@ class UsersRequestBuilder
     }
     
     /**
+     * Provides operations to manage the collection of user entities.
+     * @param string $userId Unique identifier of the item
+     * @return UserItemRequestBuilder
+    */
+    public function byUserId(string $userId): UserItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['user%2Did'] = $userId;
+        return new UserItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
      * Instantiates a new UsersRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -107,10 +119,10 @@ class UsersRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of user object. This operation returns by default only a subset of the more commonly used properties for each user. These _default_ properties are noted in the Properties section. To get properties that are _not_ returned by default, do a GET operation for the user and specify the properties in a `$select` OData query option. Because the **user** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in a **user** instance.
+     * Retrieve a list of user objects. This operation returns by default only a subset of the more commonly used properties for each user. These _default_ properties are noted in the Properties section. To get properties that are _not_ returned by default, do a GET operation for the user and specify the properties in a `$select` OData query option.
      * @param UsersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/user-get?view=graph-rest-1.0 Find more info here
+     * @link https://docs.microsoft.com/graph/api/user-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?UsersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -146,7 +158,7 @@ class UsersRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of user object. This operation returns by default only a subset of the more commonly used properties for each user. These _default_ properties are noted in the Properties section. To get properties that are _not_ returned by default, do a GET operation for the user and specify the properties in a `$select` OData query option. Because the **user** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in a **user** instance.
+     * Retrieve a list of user objects. This operation returns by default only a subset of the more commonly used properties for each user. These _default_ properties are noted in the Properties section. To get properties that are _not_ returned by default, do a GET operation for the user and specify the properties in a `$select` OData query option.
      * @param UsersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

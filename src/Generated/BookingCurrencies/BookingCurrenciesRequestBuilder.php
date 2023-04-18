@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\BookingCurrencies\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\BookingCurrencies\Item\BookingCurrencyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\BookingCurrency;
 use Microsoft\Graph\Beta\Generated\Models\BookingCurrencyCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class BookingCurrenciesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the collection of bookingCurrency entities.
+     * @param string $bookingCurrencyId Unique identifier of the item
+     * @return BookingCurrencyItemRequestBuilder
+    */
+    public function byBookingCurrencyId(string $bookingCurrencyId): BookingCurrencyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['bookingCurrency%2Did'] = $bookingCurrencyId;
+        return new BookingCurrencyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new BookingCurrenciesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

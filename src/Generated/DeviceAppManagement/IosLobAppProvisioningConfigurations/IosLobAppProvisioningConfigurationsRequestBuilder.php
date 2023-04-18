@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\HasPayloadLinks\HasPayloadLinksRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\IosLobAppProvisioningConfigurationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IosLobAppProvisioningConfiguration;
 use Microsoft\Graph\Beta\Generated\Models\IosLobAppProvisioningConfigurationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -51,6 +52,17 @@ class IosLobAppProvisioningConfigurationsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the iosLobAppProvisioningConfigurations property of the microsoft.graph.deviceAppManagement entity.
+     * @param string $iosLobAppProvisioningConfigurationId Unique identifier of the item
+     * @return IosLobAppProvisioningConfigurationItemRequestBuilder
+    */
+    public function byIosLobAppProvisioningConfigurationId(string $iosLobAppProvisioningConfigurationId): IosLobAppProvisioningConfigurationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['iosLobAppProvisioningConfiguration%2Did'] = $iosLobAppProvisioningConfigurationId;
+        return new IosLobAppProvisioningConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new IosLobAppProvisioningConfigurationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

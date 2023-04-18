@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Profile\Account\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Profile\Account\Item\UserAccountInformationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserAccountInformation;
 use Microsoft\Graph\Beta\Generated\Models\UserAccountInformationCollectionResponse;
@@ -43,6 +44,17 @@ class AccountRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the account property of the microsoft.graph.profile entity.
+     * @param string $userAccountInformationId Unique identifier of the item
+     * @return UserAccountInformationItemRequestBuilder
+    */
+    public function byUserAccountInformationId(string $userAccountInformationId): UserAccountInformationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userAccountInformation%2Did'] = $userAccountInformationId;
+        return new UserAccountInformationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AccountRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\DeviceLogCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\DeviceLogCollectionResponseCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\LogCollectionRequests\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\LogCollectionRequests\Item\DeviceLogCollectionResponseItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class LogCollectionRequestsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the logCollectionRequests property of the microsoft.graph.managedDevice entity.
+     * @param string $deviceLogCollectionResponseId Unique identifier of the item
+     * @return DeviceLogCollectionResponseItemRequestBuilder
+    */
+    public function byDeviceLogCollectionResponseId(string $deviceLogCollectionResponseId): DeviceLogCollectionResponseItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceLogCollectionResponse%2Did'] = $deviceLogCollectionResponseId;
+        return new DeviceLogCollectionResponseItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new LogCollectionRequestsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

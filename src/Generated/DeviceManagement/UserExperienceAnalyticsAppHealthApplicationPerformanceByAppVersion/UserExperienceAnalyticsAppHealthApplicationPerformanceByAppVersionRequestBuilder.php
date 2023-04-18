@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion\Item\UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionCollectionResponse;
@@ -43,6 +44,17 @@ class UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionRequestB
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion property of the microsoft.graph.deviceManagement entity.
+     * @param string $userExperienceAnalyticsAppHealthAppPerformanceByAppVersionId Unique identifier of the item
+     * @return UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionItemRequestBuilder
+    */
+    public function byUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionId(string $userExperienceAnalyticsAppHealthAppPerformanceByAppVersionId): UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userExperienceAnalyticsAppHealthAppPerformanceByAppVersion%2Did'] = $userExperienceAnalyticsAppHealthAppPerformanceByAppVersionId;
+        return new UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TeamTemplateDefinition;
 use Microsoft\Graph\Beta\Generated\Models\TeamTemplateDefinitionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamTemplateDefinitionItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class DefinitionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the definitions property of the microsoft.graph.teamTemplate entity.
+     * @param string $teamTemplateDefinitionId Unique identifier of the item
+     * @return TeamTemplateDefinitionItemRequestBuilder
+    */
+    public function byTeamTemplateDefinitionId(string $teamTemplateDefinitionId): TeamTemplateDefinitionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['teamTemplateDefinition%2Did'] = $teamTemplateDefinitionId;
+        return new TeamTemplateDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DefinitionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

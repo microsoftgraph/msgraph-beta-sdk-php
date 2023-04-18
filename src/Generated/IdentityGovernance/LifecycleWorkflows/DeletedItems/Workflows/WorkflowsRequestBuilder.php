@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\WorkflowItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\WorkflowCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -42,6 +43,17 @@ class WorkflowsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the workflows property of the microsoft.graph.deletedItemContainer entity.
+     * @param string $workflowId Unique identifier of the item
+     * @return WorkflowItemRequestBuilder
+    */
+    public function byWorkflowId(string $workflowId): WorkflowItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['workflow%2Did'] = $workflowId;
+        return new WorkflowItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new WorkflowsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

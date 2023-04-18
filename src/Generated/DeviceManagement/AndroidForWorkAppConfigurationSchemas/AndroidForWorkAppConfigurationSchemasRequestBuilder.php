@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidForWorkAppConfigurationSchemas\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidForWorkAppConfigurationSchemas\Item\AndroidForWorkAppConfigurationSchemaItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AndroidForWorkAppConfigurationSchema;
 use Microsoft\Graph\Beta\Generated\Models\AndroidForWorkAppConfigurationSchemaCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AndroidForWorkAppConfigurationSchemasRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the androidForWorkAppConfigurationSchemas property of the microsoft.graph.deviceManagement entity.
+     * @param string $androidForWorkAppConfigurationSchemaId Unique identifier of the item
+     * @return AndroidForWorkAppConfigurationSchemaItemRequestBuilder
+    */
+    public function byAndroidForWorkAppConfigurationSchemaId(string $androidForWorkAppConfigurationSchemaId): AndroidForWorkAppConfigurationSchemaItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['androidForWorkAppConfigurationSchema%2Did'] = $androidForWorkAppConfigurationSchemaId;
+        return new AndroidForWorkAppConfigurationSchemaItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AndroidForWorkAppConfigurationSchemasRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

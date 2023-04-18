@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\External\Connections\Item\Items\Item\Activities\ActivitiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\External\Connections\Item\Items\Item\Activities\Item\ExternalActivityItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\External\Connections\Item\Items\Item\ExternalConnectorsAddActivities\ExternalConnectorsAddActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ExternalConnectors\ExternalItem;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -51,17 +50,6 @@ class ExternalItemItemRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the activities property of the microsoft.graph.externalConnectors.externalItem entity.
-     * @param string $id Unique identifier of the item
-     * @return ExternalActivityItemRequestBuilder
-    */
-    public function activitiesById(string $id): ExternalActivityItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['externalActivity%2Did'] = $id;
-        return new ExternalActivityItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new ExternalItemItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\Assignments\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\Assignments\Item\DeviceManagementIntentAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementIntentAssignment;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementIntentAssignmentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AssignmentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.deviceManagementIntent entity.
+     * @param string $deviceManagementIntentAssignmentId Unique identifier of the item
+     * @return DeviceManagementIntentAssignmentItemRequestBuilder
+    */
+    public function byDeviceManagementIntentAssignmentId(string $deviceManagementIntentAssignmentId): DeviceManagementIntentAssignmentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceManagementIntentAssignment%2Did'] = $deviceManagementIntentAssignmentId;
+        return new DeviceManagementIntentAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AssignmentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

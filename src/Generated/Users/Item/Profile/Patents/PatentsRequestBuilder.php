@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ItemPatent;
 use Microsoft\Graph\Beta\Generated\Models\ItemPatentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Patents\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Patents\Item\ItemPatentItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class PatentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the patents property of the microsoft.graph.profile entity.
+     * @param string $itemPatentId Unique identifier of the item
+     * @return ItemPatentItemRequestBuilder
+    */
+    public function byItemPatentId(string $itemPatentId): ItemPatentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['itemPatent%2Did'] = $itemPatentId;
+        return new ItemPatentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PatentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

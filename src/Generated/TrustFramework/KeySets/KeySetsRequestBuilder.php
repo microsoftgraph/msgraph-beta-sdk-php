@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TrustFrameworkKeySet;
 use Microsoft\Graph\Beta\Generated\Models\TrustFrameworkKeySetCollectionResponse;
 use Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item\TrustFrameworkKeySetItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class KeySetsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the keySets property of the microsoft.graph.trustFramework entity.
+     * @param string $trustFrameworkKeySetId Unique identifier of the item
+     * @return TrustFrameworkKeySetItemRequestBuilder
+    */
+    public function byTrustFrameworkKeySetId(string $trustFrameworkKeySetId): TrustFrameworkKeySetItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['trustFrameworkKeySet%2Did'] = $trustFrameworkKeySetId;
+        return new TrustFrameworkKeySetItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new KeySetsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

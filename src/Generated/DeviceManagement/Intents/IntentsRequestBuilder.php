@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\DeviceManagementIntentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementIntent;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementIntentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class IntentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the intents property of the microsoft.graph.deviceManagement entity.
+     * @param string $deviceManagementIntentId Unique identifier of the item
+     * @return DeviceManagementIntentItemRequestBuilder
+    */
+    public function byDeviceManagementIntentId(string $deviceManagementIntentId): DeviceManagementIntentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceManagementIntent%2Did'] = $deviceManagementIntentId;
+        return new DeviceManagementIntentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new IntentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

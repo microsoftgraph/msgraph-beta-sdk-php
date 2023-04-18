@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TeamTemplate;
 use Microsoft\Graph\Beta\Generated\Models\TeamTemplateCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\TeamTemplateItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class TeamTemplatesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the teamTemplates property of the microsoft.graph.teamwork entity.
+     * @param string $teamTemplateId Unique identifier of the item
+     * @return TeamTemplateItemRequestBuilder
+    */
+    public function byTeamTemplateId(string $teamTemplateId): TeamTemplateItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['teamTemplate%2Did'] = $teamTemplateId;
+        return new TeamTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new TeamTemplatesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

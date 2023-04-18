@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsImpactingProcess\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsImpactingProcess\Item\UserExperienceAnalyticsImpactingProcessItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsImpactingProcess;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsImpactingProcessCollectionResponse;
@@ -43,6 +44,17 @@ class UserExperienceAnalyticsImpactingProcessRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userExperienceAnalyticsImpactingProcess property of the microsoft.graph.deviceManagement entity.
+     * @param string $userExperienceAnalyticsImpactingProcessId Unique identifier of the item
+     * @return UserExperienceAnalyticsImpactingProcessItemRequestBuilder
+    */
+    public function byUserExperienceAnalyticsImpactingProcessId(string $userExperienceAnalyticsImpactingProcessId): UserExperienceAnalyticsImpactingProcessItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userExperienceAnalyticsImpactingProcess%2Did'] = $userExperienceAnalyticsImpactingProcessId;
+        return new UserExperienceAnalyticsImpactingProcessItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserExperienceAnalyticsImpactingProcessRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

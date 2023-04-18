@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageResourceEnvironments\Item\AccessPackageResources\AccessPackageResourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageResourceEnvironments\Item\AccessPackageResources\Item\AccessPackageResourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessPackageResourceEnvironment;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -43,17 +42,6 @@ class AccessPackageResourceEnvironmentItemRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the accessPackageResources property of the microsoft.graph.accessPackageResourceEnvironment entity.
-     * @param string $id Unique identifier of the item
-     * @return AccessPackageResourceItemRequestBuilder
-    */
-    public function accessPackageResourcesById(string $id): AccessPackageResourceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['accessPackageResource%2Did'] = $id;
-        return new AccessPackageResourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new AccessPackageResourceEnvironmentItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

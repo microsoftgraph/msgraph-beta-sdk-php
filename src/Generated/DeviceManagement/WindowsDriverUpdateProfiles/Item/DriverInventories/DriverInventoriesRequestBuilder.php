@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsDriverUpdateProfiles\Item\DriverInventories\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsDriverUpdateProfiles\Item\DriverInventories\Item\WindowsDriverUpdateInventoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsDriverUpdateInventory;
 use Microsoft\Graph\Beta\Generated\Models\WindowsDriverUpdateInventoryCollectionResponse;
@@ -43,6 +44,17 @@ class DriverInventoriesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the driverInventories property of the microsoft.graph.windowsDriverUpdateProfile entity.
+     * @param string $windowsDriverUpdateInventoryId Unique identifier of the item
+     * @return WindowsDriverUpdateInventoryItemRequestBuilder
+    */
+    public function byWindowsDriverUpdateInventoryId(string $windowsDriverUpdateInventoryId): WindowsDriverUpdateInventoryItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['windowsDriverUpdateInventory%2Did'] = $windowsDriverUpdateInventoryId;
+        return new WindowsDriverUpdateInventoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DriverInventoriesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

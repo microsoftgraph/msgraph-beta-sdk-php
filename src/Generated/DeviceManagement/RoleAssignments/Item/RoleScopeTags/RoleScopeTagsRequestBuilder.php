@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleAssignments\Item\RoleScopeTags\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleAssignments\Item\RoleScopeTags\Item\RoleScopeTagItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\RoleScopeTagCollectionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -42,6 +43,17 @@ class RoleScopeTagsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the roleScopeTags property of the microsoft.graph.deviceAndAppManagementRoleAssignment entity.
+     * @param string $roleScopeTagId Unique identifier of the item
+     * @return RoleScopeTagItemRequestBuilder
+    */
+    public function byRoleScopeTagId(string $roleScopeTagId): RoleScopeTagItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['roleScopeTag%2Did'] = $roleScopeTagId;
+        return new RoleScopeTagItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new RoleScopeTagsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

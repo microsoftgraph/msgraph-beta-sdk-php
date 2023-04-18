@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\SiteSource;
 use Microsoft\Graph\Beta\Generated\Models\Security\SiteSourceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\LegalHolds\Item\SiteSources\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\LegalHolds\Item\SiteSources\Item\SiteSourceItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class SiteSourcesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the siteSources property of the microsoft.graph.security.ediscoveryHoldPolicy entity.
+     * @param string $siteSourceId Unique identifier of the item
+     * @return SiteSourceItemRequestBuilder
+    */
+    public function bySiteSourceId(string $siteSourceId): SiteSourceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['siteSource%2Did'] = $siteSourceId;
+        return new SiteSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SiteSourcesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

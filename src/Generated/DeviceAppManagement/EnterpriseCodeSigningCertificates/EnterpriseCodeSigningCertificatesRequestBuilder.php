@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\EnterpriseCodeSigningCertificates\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\EnterpriseCodeSigningCertificates\Item\EnterpriseCodeSigningCertificateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EnterpriseCodeSigningCertificate;
 use Microsoft\Graph\Beta\Generated\Models\EnterpriseCodeSigningCertificateCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class EnterpriseCodeSigningCertificatesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the enterpriseCodeSigningCertificates property of the microsoft.graph.deviceAppManagement entity.
+     * @param string $enterpriseCodeSigningCertificateId Unique identifier of the item
+     * @return EnterpriseCodeSigningCertificateItemRequestBuilder
+    */
+    public function byEnterpriseCodeSigningCertificateId(string $enterpriseCodeSigningCertificateId): EnterpriseCodeSigningCertificateItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['enterpriseCodeSigningCertificate%2Did'] = $enterpriseCodeSigningCertificateId;
+        return new EnterpriseCodeSigningCertificateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new EnterpriseCodeSigningCertificatesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

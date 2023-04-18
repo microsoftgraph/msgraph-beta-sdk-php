@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\AuthorizationPolicy;
 use Microsoft\Graph\Beta\Generated\Models\AuthorizationPolicyCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Policies\AuthorizationPolicy\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Policies\AuthorizationPolicy\Item\AuthorizationPolicyItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class AuthorizationPolicyRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the authorizationPolicy property of the microsoft.graph.policyRoot entity.
+     * @param string $authorizationPolicyId Unique identifier of the item
+     * @return AuthorizationPolicyItemRequestBuilder
+    */
+    public function byAuthorizationPolicyId(string $authorizationPolicyId): AuthorizationPolicyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['authorizationPolicy%2Did'] = $authorizationPolicyId;
+        return new AuthorizationPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AuthorizationPolicyRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

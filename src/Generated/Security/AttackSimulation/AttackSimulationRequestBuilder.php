@@ -7,13 +7,9 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\AttackSimulationRoot;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Operations\Item\AttackSimulationOperationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Operations\OperationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Payloads\Item\PayloadItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Payloads\PayloadsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\SimulationAutomations\Item\SimulationAutomationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\SimulationAutomations\SimulationAutomationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Simulations\Item\SimulationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Simulations\SimulationsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -122,17 +118,6 @@ class AttackSimulationRequestBuilder
     }
 
     /**
-     * Provides operations to manage the operations property of the microsoft.graph.attackSimulationRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return AttackSimulationOperationItemRequestBuilder
-    */
-    public function operationsById(string $id): AttackSimulationOperationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['attackSimulationOperation%2Did'] = $id;
-        return new AttackSimulationOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Update the navigation property attackSimulation in security
      * @param AttackSimulationRoot $body The request body
      * @param AttackSimulationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -149,39 +134,6 @@ class AttackSimulationRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the payloads property of the microsoft.graph.attackSimulationRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return PayloadItemRequestBuilder
-    */
-    public function payloadsById(string $id): PayloadItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['payload%2Did'] = $id;
-        return new PayloadItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the simulationAutomations property of the microsoft.graph.attackSimulationRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return SimulationAutomationItemRequestBuilder
-    */
-    public function simulationAutomationsById(string $id): SimulationAutomationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['simulationAutomation%2Did'] = $id;
-        return new SimulationAutomationItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return SimulationItemRequestBuilder
-    */
-    public function simulationsById(string $id): SimulationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['simulation%2Did'] = $id;
-        return new SimulationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

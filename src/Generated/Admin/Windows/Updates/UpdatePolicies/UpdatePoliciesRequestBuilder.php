@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatePolicies\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatePolicies\Item\UpdatePolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdatePolicy;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdatePolicyCollectionResponse;
@@ -43,6 +44,17 @@ class UpdatePoliciesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the updatePolicies property of the microsoft.graph.adminWindowsUpdates entity.
+     * @param string $updatePolicyId Unique identifier of the item
+     * @return UpdatePolicyItemRequestBuilder
+    */
+    public function byUpdatePolicyId(string $updatePolicyId): UpdatePolicyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['updatePolicy%2Did'] = $updatePolicyId;
+        return new UpdatePolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UpdatePoliciesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

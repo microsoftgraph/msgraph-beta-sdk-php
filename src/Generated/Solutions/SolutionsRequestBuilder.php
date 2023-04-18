@@ -8,7 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SolutionsRoot;
 use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\BusinessScenariosRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\BusinessScenarioItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,17 +42,6 @@ class SolutionsRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the businessScenarios property of the microsoft.graph.solutionsRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return BusinessScenarioItemRequestBuilder
-    */
-    public function businessScenariosById(string $id): BusinessScenarioItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['businessScenario%2Did'] = $id;
-        return new BusinessScenarioItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new SolutionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

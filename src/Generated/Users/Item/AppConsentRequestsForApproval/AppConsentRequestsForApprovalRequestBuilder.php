@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\Models\AppConsentRequestCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApproval\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApproval\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApproval\Item\AppConsentRequestItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -44,6 +45,17 @@ class AppConsentRequestsForApprovalRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the appConsentRequestsForApproval property of the microsoft.graph.user entity.
+     * @param string $appConsentRequestId Unique identifier of the item
+     * @return AppConsentRequestItemRequestBuilder
+    */
+    public function byAppConsentRequestId(string $appConsentRequestId): AppConsentRequestItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['appConsentRequest%2Did'] = $appConsentRequestId;
+        return new AppConsentRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AppConsentRequestsForApprovalRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

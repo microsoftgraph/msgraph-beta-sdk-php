@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\PrivilegeManagementElevations\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\PrivilegeManagementElevations\Item\PrivilegeManagementElevationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegeManagementElevation;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegeManagementElevationCollectionResponse;
@@ -43,6 +44,17 @@ class PrivilegeManagementElevationsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the privilegeManagementElevations property of the microsoft.graph.deviceManagement entity.
+     * @param string $privilegeManagementElevationId Unique identifier of the item
+     * @return PrivilegeManagementElevationItemRequestBuilder
+    */
+    public function byPrivilegeManagementElevationId(string $privilegeManagementElevationId): PrivilegeManagementElevationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['privilegeManagementElevation%2Did'] = $privilegeManagementElevationId;
+        return new PrivilegeManagementElevationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PrivilegeManagementElevationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

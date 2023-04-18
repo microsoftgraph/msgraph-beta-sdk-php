@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WindowsInformationProtectionWipeActions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WindowsInformationProtectionWipeActions\Item\WindowsInformationProtectionWipeActionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsInformationProtectionWipeAction;
 use Microsoft\Graph\Beta\Generated\Models\WindowsInformationProtectionWipeActionCollectionResponse;
@@ -43,6 +44,17 @@ class WindowsInformationProtectionWipeActionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the windowsInformationProtectionWipeActions property of the microsoft.graph.deviceAppManagement entity.
+     * @param string $windowsInformationProtectionWipeActionId Unique identifier of the item
+     * @return WindowsInformationProtectionWipeActionItemRequestBuilder
+    */
+    public function byWindowsInformationProtectionWipeActionId(string $windowsInformationProtectionWipeActionId): WindowsInformationProtectionWipeActionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['windowsInformationProtectionWipeAction%2Did'] = $windowsInformationProtectionWipeActionId;
+        return new WindowsInformationProtectionWipeActionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new WindowsInformationProtectionWipeActionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

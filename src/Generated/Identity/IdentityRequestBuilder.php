@@ -6,22 +6,14 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Identity\ApiConnectors\ApiConnectorsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\ApiConnectors\Item\IdentityApiConnectorItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventListeners\AuthenticationEventListenersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventListeners\Item\AuthenticationEventListenerItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\B2cUserFlowsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\B2cIdentityUserFlowItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\B2xUserFlowsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\Item\B2xIdentityUserFlowItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\ConditionalAccessRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ContinuousAccessEvaluationPolicy\ContinuousAccessEvaluationPolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\CustomAuthenticationExtensions\CustomAuthenticationExtensionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\CustomAuthenticationExtensions\Item\CustomAuthenticationExtensionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\IdentityProviders\IdentityProvidersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\IdentityProviders\Item\IdentityProviderBaseItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\UserFlowAttributes\Item\IdentityUserFlowAttributeItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\UserFlowAttributes\UserFlowAttributesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\UserFlows\Item\IdentityUserFlowItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\UserFlows\UserFlowsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityContainer;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -123,50 +115,6 @@ class IdentityRequestBuilder
     }
     
     /**
-     * Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.
-     * @param string $id Unique identifier of the item
-     * @return IdentityApiConnectorItemRequestBuilder
-    */
-    public function apiConnectorsById(string $id): IdentityApiConnectorItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['identityApiConnector%2Did'] = $id;
-        return new IdentityApiConnectorItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the authenticationEventListeners property of the microsoft.graph.identityContainer entity.
-     * @param string $id Unique identifier of the item
-     * @return AuthenticationEventListenerItemRequestBuilder
-    */
-    public function authenticationEventListenersById(string $id): AuthenticationEventListenerItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['authenticationEventListener%2Did'] = $id;
-        return new AuthenticationEventListenerItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the b2cUserFlows property of the microsoft.graph.identityContainer entity.
-     * @param string $id Unique identifier of the item
-     * @return B2cIdentityUserFlowItemRequestBuilder
-    */
-    public function b2cUserFlowsById(string $id): B2cIdentityUserFlowItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['b2cIdentityUserFlow%2Did'] = $id;
-        return new B2cIdentityUserFlowItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity.
-     * @param string $id Unique identifier of the item
-     * @return B2xIdentityUserFlowItemRequestBuilder
-    */
-    public function b2xUserFlowsById(string $id): B2xIdentityUserFlowItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['b2xIdentityUserFlow%2Did'] = $id;
-        return new B2xIdentityUserFlowItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new IdentityRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -179,17 +127,6 @@ class IdentityRequestBuilder
         } else {
             $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
         }
-    }
-
-    /**
-     * Provides operations to manage the customAuthenticationExtensions property of the microsoft.graph.identityContainer entity.
-     * @param string $id Unique identifier of the item
-     * @return CustomAuthenticationExtensionItemRequestBuilder
-    */
-    public function customAuthenticationExtensionsById(string $id): CustomAuthenticationExtensionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['customAuthenticationExtension%2Did'] = $id;
-        return new CustomAuthenticationExtensionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -208,17 +145,6 @@ class IdentityRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the identityProviders property of the microsoft.graph.identityContainer entity.
-     * @param string $id Unique identifier of the item
-     * @return IdentityProviderBaseItemRequestBuilder
-    */
-    public function identityProvidersById(string $id): IdentityProviderBaseItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['identityProviderBase%2Did'] = $id;
-        return new IdentityProviderBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -287,28 +213,6 @@ class IdentityRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity.
-     * @param string $id Unique identifier of the item
-     * @return IdentityUserFlowAttributeItemRequestBuilder
-    */
-    public function userFlowAttributesById(string $id): IdentityUserFlowAttributeItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['identityUserFlowAttribute%2Did'] = $id;
-        return new IdentityUserFlowAttributeItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the userFlows property of the microsoft.graph.identityContainer entity.
-     * @param string $id Unique identifier of the item
-     * @return IdentityUserFlowItemRequestBuilder
-    */
-    public function userFlowsById(string $id): IdentityUserFlowItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['identityUserFlow%2Did'] = $id;
-        return new IdentityUserFlowItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

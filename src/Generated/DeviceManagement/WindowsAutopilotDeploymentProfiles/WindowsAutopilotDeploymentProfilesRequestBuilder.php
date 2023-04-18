@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeploymentProfiles\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeploymentProfiles\HasPayloadLinks\HasPayloadLinksRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeploymentProfiles\Item\WindowsAutopilotDeploymentProfileItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsAutopilotDeploymentProfile;
 use Microsoft\Graph\Beta\Generated\Models\WindowsAutopilotDeploymentProfileCollectionResponse;
@@ -51,6 +52,17 @@ class WindowsAutopilotDeploymentProfilesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the windowsAutopilotDeploymentProfiles property of the microsoft.graph.deviceManagement entity.
+     * @param string $windowsAutopilotDeploymentProfileId Unique identifier of the item
+     * @return WindowsAutopilotDeploymentProfileItemRequestBuilder
+    */
+    public function byWindowsAutopilotDeploymentProfileId(string $windowsAutopilotDeploymentProfileId): WindowsAutopilotDeploymentProfileItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['windowsAutopilotDeploymentProfile%2Did'] = $windowsAutopilotDeploymentProfileId;
+        return new WindowsAutopilotDeploymentProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new WindowsAutopilotDeploymentProfilesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

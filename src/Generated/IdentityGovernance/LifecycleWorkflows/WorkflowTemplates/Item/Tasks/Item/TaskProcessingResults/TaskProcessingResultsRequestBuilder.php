@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\WorkflowTemplates\Item\Tasks\Item\TaskProcessingResults\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\WorkflowTemplates\Item\Tasks\Item\TaskProcessingResults\Item\TaskProcessingResultItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\TaskProcessingResultCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -42,6 +43,17 @@ class TaskProcessingResultsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the taskProcessingResults property of the microsoft.graph.identityGovernance.task entity.
+     * @param string $taskProcessingResultId Unique identifier of the item
+     * @return TaskProcessingResultItemRequestBuilder
+    */
+    public function byTaskProcessingResultId(string $taskProcessingResultId): TaskProcessingResultItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['taskProcessingResult%2Did'] = $taskProcessingResultId;
+        return new TaskProcessingResultItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new TaskProcessingResultsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

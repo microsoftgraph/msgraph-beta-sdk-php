@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\SharedUseServicePlans\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\SharedUseServicePlans\Item\CloudPcSharedUseServicePlanItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcSharedUseServicePlan;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcSharedUseServicePlanCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class SharedUseServicePlansRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the sharedUseServicePlans property of the microsoft.graph.virtualEndpoint entity.
+     * @param string $cloudPcSharedUseServicePlanId Unique identifier of the item
+     * @return CloudPcSharedUseServicePlanItemRequestBuilder
+    */
+    public function byCloudPcSharedUseServicePlanId(string $cloudPcSharedUseServicePlanId): CloudPcSharedUseServicePlanItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['cloudPcSharedUseServicePlan%2Did'] = $cloudPcSharedUseServicePlanId;
+        return new CloudPcSharedUseServicePlanItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SharedUseServicePlansRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

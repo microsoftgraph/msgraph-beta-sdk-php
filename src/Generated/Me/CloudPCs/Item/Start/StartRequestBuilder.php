@@ -49,9 +49,10 @@ class StartRequestBuilder
     }
 
     /**
-     * Invoke action start
+     * Start a specific Cloud PC for a user. Currently, only Windows 365 Frontline Cloud PCs are supported.
      * @param StartRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/cloudpc-start?view=graph-rest-1.0 Find more info here
     */
     public function post(?StartRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -67,7 +68,7 @@ class StartRequestBuilder
     }
 
     /**
-     * Invoke action start
+     * Start a specific Cloud PC for a user. Currently, only Windows 365 Frontline Cloud PCs are supported.
      * @param StartRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolici
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\Item\ScheduledActionsForRule\Item\ScheduledActionConfigurations\Item\DeviceComplianceActionItemItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\Item\ScheduledActionsForRule\Item\ScheduledActionConfigurations\ScheduledActionConfigurationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceComplianceScheduledActionForRule;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -111,17 +110,6 @@ class DeviceComplianceScheduledActionForRuleItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the scheduledActionConfigurations property of the microsoft.graph.deviceComplianceScheduledActionForRule entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceComplianceActionItemItemRequestBuilder
-    */
-    public function scheduledActionConfigurationsById(string $id): DeviceComplianceActionItemItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceComplianceActionItem%2Did'] = $id;
-        return new DeviceComplianceActionItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

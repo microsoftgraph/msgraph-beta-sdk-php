@@ -8,7 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UnifiedRoleAssignmentMultiple;
 use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\AppScopes\AppScopesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\AppScopes\Item\AppScopeItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\DirectoryScopes\DirectoryScopesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\Principals\PrincipalsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\RoleDefinition\RoleDefinitionRequestBuilder;
@@ -68,17 +67,6 @@ class UnifiedRoleAssignmentMultipleItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Provides operations to manage the appScopes property of the microsoft.graph.unifiedRoleAssignmentMultiple entity.
-     * @param string $id Unique identifier of the item
-     * @return AppScopeItemRequestBuilder
-    */
-    public function appScopesById(string $id): AppScopeItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['appScope%2Did'] = $id;
-        return new AppScopeItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new UnifiedRoleAssignmentMultipleItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -109,17 +97,6 @@ class UnifiedRoleAssignmentMultipleItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the directoryScopes property of the microsoft.graph.unifiedRoleAssignmentMultiple entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\DirectoryScopes\Item\DirectoryObjectItemRequestBuilder
-    */
-    public function directoryScopesById(string $id): \Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\DirectoryScopes\Item\DirectoryObjectItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\DirectoryScopes\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -157,17 +134,6 @@ class UnifiedRoleAssignmentMultipleItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the principals property of the microsoft.graph.unifiedRoleAssignmentMultiple entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\Principals\Item\DirectoryObjectItemRequestBuilder
-    */
-    public function principalsById(string $id): \Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\Principals\Item\DirectoryObjectItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\Principals\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

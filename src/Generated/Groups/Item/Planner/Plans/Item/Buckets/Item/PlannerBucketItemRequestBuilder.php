@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Planner\Plans\Item\Buckets\
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Planner\Plans\Item\Buckets\Item\Tasks\Item\PlannerTaskItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Planner\Plans\Item\Buckets\Item\Tasks\TasksRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PlannerBucket;
@@ -111,17 +110,6 @@ class PlannerBucketItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the tasks property of the microsoft.graph.plannerBucket entity.
-     * @param string $id Unique identifier of the item
-     * @return PlannerTaskItemRequestBuilder
-    */
-    public function tasksById(string $id): PlannerTaskItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['plannerTask%2Did'] = $id;
-        return new PlannerTaskItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

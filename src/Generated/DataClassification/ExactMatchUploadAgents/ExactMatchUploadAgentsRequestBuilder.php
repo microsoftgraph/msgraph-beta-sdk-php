@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchUploadAgents\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchUploadAgents\Item\ExactMatchUploadAgentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ExactMatchUploadAgent;
 use Microsoft\Graph\Beta\Generated\Models\ExactMatchUploadAgentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class ExactMatchUploadAgentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the exactMatchUploadAgents property of the microsoft.graph.dataClassificationService entity.
+     * @param string $exactMatchUploadAgentId Unique identifier of the item
+     * @return ExactMatchUploadAgentItemRequestBuilder
+    */
+    public function byExactMatchUploadAgentId(string $exactMatchUploadAgentId): ExactMatchUploadAgentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['exactMatchUploadAgent%2Did'] = $exactMatchUploadAgentId;
+        return new ExactMatchUploadAgentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ExactMatchUploadAgentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

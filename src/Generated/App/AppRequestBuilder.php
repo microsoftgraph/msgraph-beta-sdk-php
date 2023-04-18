@@ -6,8 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\App\Calls\CallsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\App\Calls\Item\CallItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\OnlineMeetingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\OnlineMeetingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CommsApplication;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -53,17 +51,6 @@ class AppRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Provides operations to manage the calls property of the microsoft.graph.commsApplication entity.
-     * @param string $id Unique identifier of the item
-     * @return CallItemRequestBuilder
-    */
-    public function callsById(string $id): CallItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['call%2Did'] = $id;
-        return new CallItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new AppRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -94,17 +81,6 @@ class AppRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the onlineMeetings property of the microsoft.graph.commsApplication entity.
-     * @param string $id Unique identifier of the item
-     * @return OnlineMeetingItemRequestBuilder
-    */
-    public function onlineMeetingsById(string $id): OnlineMeetingItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['onlineMeeting%2Did'] = $id;
-        return new OnlineMeetingItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

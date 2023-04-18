@@ -7,7 +7,6 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\Approval;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleAssignmentApprovals\Item\Steps\Item\ApprovalStepItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleAssignmentApprovals\Item\Steps\StepsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -111,17 +110,6 @@ class ApprovalItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the steps property of the microsoft.graph.approval entity.
-     * @param string $id Unique identifier of the item
-     * @return ApprovalStepItemRequestBuilder
-    */
-    public function stepsById(string $id): ApprovalStepItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['approvalStep%2Did'] = $id;
-        return new ApprovalStepItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

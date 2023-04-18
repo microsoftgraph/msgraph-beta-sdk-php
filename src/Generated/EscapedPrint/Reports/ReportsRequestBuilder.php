@@ -7,12 +7,9 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\ApplicationSignInDetailedSummary\ApplicationSignInDetailedSummaryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\ApplicationSignInDetailedSummary\Item\ApplicationSignInDetailedSummaryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\AuthenticationMethods\AuthenticationMethodsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\CredentialUserRegistrationDetails\CredentialUserRegistrationDetailsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\CredentialUserRegistrationDetails\Item\CredentialUserRegistrationDetailsItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\DailyPrintUsage\DailyPrintUsageRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\DailyPrintUsage\Item\PrintUsageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\DailyPrintUsageByPrinter\DailyPrintUsageByPrinterRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\DailyPrintUsageByUser\DailyPrintUsageByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\DailyPrintUsageSummariesByPrinter\DailyPrintUsageSummariesByPrinterRequestBuilder;
@@ -147,7 +144,6 @@ use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\MonthlyPrintUsageByUser\
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\MonthlyPrintUsageSummariesByPrinter\MonthlyPrintUsageSummariesByPrinterRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\MonthlyPrintUsageSummariesByUser\MonthlyPrintUsageSummariesByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\Security\SecurityRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\UserCredentialUsageDetails\Item\UserCredentialUsageDetailsItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\UserCredentialUsageDetails\UserCredentialUsageDetailsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\ReportRoot;
@@ -362,17 +358,6 @@ class ReportsRequestBuilder
     }
     
     /**
-     * Provides operations to manage the applicationSignInDetailedSummary property of the microsoft.graph.reportRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return ApplicationSignInDetailedSummaryItemRequestBuilder
-    */
-    public function applicationSignInDetailedSummaryById(string $id): ApplicationSignInDetailedSummaryItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['applicationSignInDetailedSummary%2Did'] = $id;
-        return new ApplicationSignInDetailedSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new ReportsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -385,72 +370,6 @@ class ReportsRequestBuilder
         } else {
             $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
         }
-    }
-
-    /**
-     * Provides operations to manage the credentialUserRegistrationDetails property of the microsoft.graph.reportRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return CredentialUserRegistrationDetailsItemRequestBuilder
-    */
-    public function credentialUserRegistrationDetailsById(string $id): CredentialUserRegistrationDetailsItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['credentialUserRegistrationDetails%2Did'] = $id;
-        return new CredentialUserRegistrationDetailsItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the dailyPrintUsage property of the microsoft.graph.reportRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return PrintUsageItemRequestBuilder
-    */
-    public function dailyPrintUsageById(string $id): PrintUsageItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['printUsage%2Did'] = $id;
-        return new PrintUsageItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the dailyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\DailyPrintUsageByPrinter\Item\PrintUsageByPrinterItemRequestBuilder
-    */
-    public function dailyPrintUsageByPrinterById(string $id): \Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\DailyPrintUsageByPrinter\Item\PrintUsageByPrinterItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['printUsageByPrinter%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\DailyPrintUsageByPrinter\Item\PrintUsageByPrinterItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the dailyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\DailyPrintUsageByUser\Item\PrintUsageByUserItemRequestBuilder
-    */
-    public function dailyPrintUsageByUserById(string $id): \Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\DailyPrintUsageByUser\Item\PrintUsageByUserItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['printUsageByUser%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\DailyPrintUsageByUser\Item\PrintUsageByUserItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the dailyPrintUsageSummariesByPrinter property of the microsoft.graph.reportRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\DailyPrintUsageSummariesByPrinter\Item\PrintUsageByPrinterItemRequestBuilder
-    */
-    public function dailyPrintUsageSummariesByPrinterById(string $id): \Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\DailyPrintUsageSummariesByPrinter\Item\PrintUsageByPrinterItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['printUsageByPrinter%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\DailyPrintUsageSummariesByPrinter\Item\PrintUsageByPrinterItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the dailyPrintUsageSummariesByUser property of the microsoft.graph.reportRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\DailyPrintUsageSummariesByUser\Item\PrintUsageByUserItemRequestBuilder
-    */
-    public function dailyPrintUsageSummariesByUserById(string $id): \Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\DailyPrintUsageSummariesByUser\Item\PrintUsageByUserItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['printUsageByUser%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\DailyPrintUsageSummariesByUser\Item\PrintUsageByUserItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -1522,50 +1441,6 @@ class ReportsRequestBuilder
     }
 
     /**
-     * Provides operations to manage the monthlyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\MonthlyPrintUsageByPrinter\Item\PrintUsageByPrinterItemRequestBuilder
-    */
-    public function monthlyPrintUsageByPrinterById(string $id): \Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\MonthlyPrintUsageByPrinter\Item\PrintUsageByPrinterItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['printUsageByPrinter%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\MonthlyPrintUsageByPrinter\Item\PrintUsageByPrinterItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the monthlyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\MonthlyPrintUsageByUser\Item\PrintUsageByUserItemRequestBuilder
-    */
-    public function monthlyPrintUsageByUserById(string $id): \Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\MonthlyPrintUsageByUser\Item\PrintUsageByUserItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['printUsageByUser%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\MonthlyPrintUsageByUser\Item\PrintUsageByUserItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the monthlyPrintUsageSummariesByPrinter property of the microsoft.graph.reportRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\MonthlyPrintUsageSummariesByPrinter\Item\PrintUsageByPrinterItemRequestBuilder
-    */
-    public function monthlyPrintUsageSummariesByPrinterById(string $id): \Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\MonthlyPrintUsageSummariesByPrinter\Item\PrintUsageByPrinterItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['printUsageByPrinter%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\MonthlyPrintUsageSummariesByPrinter\Item\PrintUsageByPrinterItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the monthlyPrintUsageSummariesByUser property of the microsoft.graph.reportRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\MonthlyPrintUsageSummariesByUser\Item\PrintUsageByUserItemRequestBuilder
-    */
-    public function monthlyPrintUsageSummariesByUserById(string $id): \Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\MonthlyPrintUsageSummariesByUser\Item\PrintUsageByUserItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['printUsageByUser%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\MonthlyPrintUsageSummariesByUser\Item\PrintUsageByUserItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Update the navigation property reports in print
      * @param ReportRoot $body The request body
      * @param ReportsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -1652,17 +1527,6 @@ class ReportsRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the userCredentialUsageDetails property of the microsoft.graph.reportRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return UserCredentialUsageDetailsItemRequestBuilder
-    */
-    public function userCredentialUsageDetailsById(string $id): UserCredentialUsageDetailsItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['userCredentialUsageDetails%2Did'] = $id;
-        return new UserCredentialUsageDetailsItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

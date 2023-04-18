@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Conversations\Item\Threads\
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Conversations\Item\Threads\Item\Posts\Item\PostItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Conversations\Item\Threads\Item\Posts\PostsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Conversations\Item\Threads\Item\Reply\ReplyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ConversationThread;
@@ -119,17 +118,6 @@ class ConversationThreadItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the posts property of the microsoft.graph.conversationThread entity.
-     * @param string $id Unique identifier of the item
-     * @return PostItemRequestBuilder
-    */
-    public function postsById(string $id): PostItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['post%2Did'] = $id;
-        return new PostItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

@@ -8,7 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Program;
 use Microsoft\Graph\Beta\Generated\Programs\Item\Controls\ControlsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Programs\Item\Controls\Item\ProgramControlItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -56,17 +55,6 @@ class ProgramItemRequestBuilder
         } else {
             $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
         }
-    }
-
-    /**
-     * Provides operations to manage the controls property of the microsoft.graph.program entity.
-     * @param string $id Unique identifier of the item
-     * @return ProgramControlItemRequestBuilder
-    */
-    public function controlsById(string $id): ProgramControlItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['programControl%2Did'] = $id;
-        return new ProgramControlItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

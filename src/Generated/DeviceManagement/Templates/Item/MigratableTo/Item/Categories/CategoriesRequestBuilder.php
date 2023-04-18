@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\MigratableTo\Item\Categories\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\MigratableTo\Item\Categories\Item\DeviceManagementTemplateSettingCategoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementTemplateSettingCategory;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementTemplateSettingCategoryCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class CategoriesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the categories property of the microsoft.graph.deviceManagementTemplate entity.
+     * @param string $deviceManagementTemplateSettingCategoryId Unique identifier of the item
+     * @return DeviceManagementTemplateSettingCategoryItemRequestBuilder
+    */
+    public function byDeviceManagementTemplateSettingCategoryId(string $deviceManagementTemplateSettingCategoryId): DeviceManagementTemplateSettingCategoryItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceManagementTemplateSettingCategory%2Did'] = $deviceManagementTemplateSettingCategoryId;
+        return new DeviceManagementTemplateSettingCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CategoriesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

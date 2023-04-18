@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DerivedCredentials\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DerivedCredentials\Item\DeviceManagementDerivedCredentialSettingsItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementDerivedCredentialSettings;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementDerivedCredentialSettingsCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class DerivedCredentialsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the derivedCredentials property of the microsoft.graph.deviceManagement entity.
+     * @param string $deviceManagementDerivedCredentialSettingsId Unique identifier of the item
+     * @return DeviceManagementDerivedCredentialSettingsItemRequestBuilder
+    */
+    public function byDeviceManagementDerivedCredentialSettingsId(string $deviceManagementDerivedCredentialSettingsId): DeviceManagementDerivedCredentialSettingsItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceManagementDerivedCredentialSettings%2Did'] = $deviceManagementDerivedCredentialSettingsId;
+        return new DeviceManagementDerivedCredentialSettingsItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DerivedCredentialsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

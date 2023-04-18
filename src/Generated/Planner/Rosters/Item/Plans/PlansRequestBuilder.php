@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PlannerPlanCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Planner\Rosters\Item\Plans\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Planner\Rosters\Item\Plans\Item\PlannerPlanItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -42,6 +43,17 @@ class PlansRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the plans property of the microsoft.graph.plannerRoster entity.
+     * @param string $plannerPlanId Unique identifier of the item
+     * @return PlannerPlanItemRequestBuilder
+    */
+    public function byPlannerPlanId(string $plannerPlanId): PlannerPlanItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['plannerPlan%2Did'] = $plannerPlanId;
+        return new PlannerPlanItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PlansRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

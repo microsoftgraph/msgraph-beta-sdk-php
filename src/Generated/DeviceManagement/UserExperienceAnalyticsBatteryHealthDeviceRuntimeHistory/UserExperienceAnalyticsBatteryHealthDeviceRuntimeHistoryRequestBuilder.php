@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory\Item\UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryCollectionResponse;
@@ -43,6 +44,17 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory property of the microsoft.graph.deviceManagement entity.
+     * @param string $userExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryId Unique identifier of the item
+     * @return UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryItemRequestBuilder
+    */
+    public function byUserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryId(string $userExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryId): UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory%2Did'] = $userExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryId;
+        return new UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

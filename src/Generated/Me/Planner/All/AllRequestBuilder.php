@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Planner\All\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Planner\All\Delta\DeltaRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Planner\All\Item\PlannerDeltaItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PlannerDelta;
 use Microsoft\Graph\Beta\Generated\Models\PlannerDeltaCollectionResponse;
@@ -51,6 +52,17 @@ class AllRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the all property of the microsoft.graph.plannerUser entity.
+     * @param string $plannerDeltaId Unique identifier of the item
+     * @return PlannerDeltaItemRequestBuilder
+    */
+    public function byPlannerDeltaId(string $plannerDeltaId): PlannerDeltaItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['plannerDelta%2Did'] = $plannerDeltaId;
+        return new PlannerDeltaItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AllRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

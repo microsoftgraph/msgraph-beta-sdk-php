@@ -8,7 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\RetentionLabel;
 use Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\Item\DispositionReviewStages\DispositionReviewStagesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\Item\DispositionReviewStages\Item\DispositionReviewStageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\Item\RetentionEventType\RetentionEventTypeRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -82,17 +81,6 @@ class RetentionLabelItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the dispositionReviewStages property of the microsoft.graph.security.retentionLabel entity.
-     * @param string $id Unique identifier of the item
-     * @return DispositionReviewStageItemRequestBuilder
-    */
-    public function dispositionReviewStagesById(string $id): DispositionReviewStageItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['dispositionReviewStage%2Did'] = $id;
-        return new DispositionReviewStageItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

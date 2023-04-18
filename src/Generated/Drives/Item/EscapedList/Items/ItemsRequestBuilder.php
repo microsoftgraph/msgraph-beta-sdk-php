@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Delta\DeltaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\DeltaWithToken\DeltaWithTokenRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\ListItemItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ListItem;
 use Microsoft\Graph\Beta\Generated\Models\ListItemCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -52,6 +53,17 @@ class ItemsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the items property of the microsoft.graph.list entity.
+     * @param string $listItemId Unique identifier of the item
+     * @return ListItemItemRequestBuilder
+    */
+    public function byListItemId(string $listItemId): ListItemItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['listItem%2Did'] = $listItemId;
+        return new ListItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ItemsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

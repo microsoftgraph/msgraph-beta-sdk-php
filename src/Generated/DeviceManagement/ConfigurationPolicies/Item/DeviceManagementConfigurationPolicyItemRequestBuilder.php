@@ -7,10 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item\Assignments\Item\DeviceManagementConfigurationPolicyAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item\CreateCopy\CreateCopyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item\Reorder\ReorderRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item\Settings\Item\DeviceManagementConfigurationSettingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item\Settings\SettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementConfigurationPolicy;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -76,17 +74,6 @@ class DeviceManagementConfigurationPolicyItemRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the assignments property of the microsoft.graph.deviceManagementConfigurationPolicy entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceManagementConfigurationPolicyAssignmentItemRequestBuilder
-    */
-    public function assignmentsById(string $id): DeviceManagementConfigurationPolicyAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceManagementConfigurationPolicyAssignment%2Did'] = $id;
-        return new DeviceManagementConfigurationPolicyAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new DeviceManagementConfigurationPolicyItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
@@ -155,17 +142,6 @@ class DeviceManagementConfigurationPolicyItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the settings property of the microsoft.graph.deviceManagementConfigurationPolicy entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceManagementConfigurationSettingItemRequestBuilder
-    */
-    public function settingsById(string $id): DeviceManagementConfigurationSettingItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceManagementConfigurationSetting%2Did'] = $id;
-        return new DeviceManagementConfigurationSettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

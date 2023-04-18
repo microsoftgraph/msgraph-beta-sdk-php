@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TeamworkDevice;
 use Microsoft\Graph\Beta\Generated\Models\TeamworkDeviceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Teamwork\Devices\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\TeamworkDeviceItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class DevicesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the devices property of the microsoft.graph.teamwork entity.
+     * @param string $teamworkDeviceId Unique identifier of the item
+     * @return TeamworkDeviceItemRequestBuilder
+    */
+    public function byTeamworkDeviceId(string $teamworkDeviceId): TeamworkDeviceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['teamworkDevice%2Did'] = $teamworkDeviceId;
+        return new TeamworkDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DevicesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

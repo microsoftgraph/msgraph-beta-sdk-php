@@ -7,9 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsDriverUpdateProfiles\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsDriverUpdateProfiles\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsDriverUpdateProfiles\Item\Assignments\Item\WindowsDriverUpdateProfileAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsDriverUpdateProfiles\Item\DriverInventories\DriverInventoriesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsDriverUpdateProfiles\Item\DriverInventories\Item\WindowsDriverUpdateInventoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsDriverUpdateProfiles\Item\ExecuteAction\ExecuteActionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsDriverUpdateProfiles\Item\SyncInventory\SyncInventoryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -77,17 +75,6 @@ class WindowsDriverUpdateProfileItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Provides operations to manage the assignments property of the microsoft.graph.windowsDriverUpdateProfile entity.
-     * @param string $id Unique identifier of the item
-     * @return WindowsDriverUpdateProfileAssignmentItemRequestBuilder
-    */
-    public function assignmentsById(string $id): WindowsDriverUpdateProfileAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['windowsDriverUpdateProfileAssignment%2Did'] = $id;
-        return new WindowsDriverUpdateProfileAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new WindowsDriverUpdateProfileItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -118,17 +105,6 @@ class WindowsDriverUpdateProfileItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the driverInventories property of the microsoft.graph.windowsDriverUpdateProfile entity.
-     * @param string $id Unique identifier of the item
-     * @return WindowsDriverUpdateInventoryItemRequestBuilder
-    */
-    public function driverInventoriesById(string $id): WindowsDriverUpdateInventoryItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['windowsDriverUpdateInventory%2Did'] = $id;
-        return new WindowsDriverUpdateInventoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

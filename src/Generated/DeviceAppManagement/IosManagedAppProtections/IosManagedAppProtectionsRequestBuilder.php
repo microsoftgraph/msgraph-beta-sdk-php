@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosManagedAppProtections\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosManagedAppProtections\HasPayloadLinks\HasPayloadLinksRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosManagedAppProtections\Item\IosManagedAppProtectionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IosManagedAppProtection;
 use Microsoft\Graph\Beta\Generated\Models\IosManagedAppProtectionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -51,6 +52,17 @@ class IosManagedAppProtectionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the iosManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
+     * @param string $iosManagedAppProtectionId Unique identifier of the item
+     * @return IosManagedAppProtectionItemRequestBuilder
+    */
+    public function byIosManagedAppProtectionId(string $iosManagedAppProtectionId): IosManagedAppProtectionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['iosManagedAppProtection%2Did'] = $iosManagedAppProtectionId;
+        return new IosManagedAppProtectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new IosManagedAppProtectionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

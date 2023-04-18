@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ExchangeOnPremisesPolicies\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ExchangeOnPremisesPolicies\Item\DeviceManagementExchangeOnPremisesPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementExchangeOnPremisesPolicy;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementExchangeOnPremisesPolicyCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class ExchangeOnPremisesPoliciesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the exchangeOnPremisesPolicies property of the microsoft.graph.deviceManagement entity.
+     * @param string $deviceManagementExchangeOnPremisesPolicyId Unique identifier of the item
+     * @return DeviceManagementExchangeOnPremisesPolicyItemRequestBuilder
+    */
+    public function byDeviceManagementExchangeOnPremisesPolicyId(string $deviceManagementExchangeOnPremisesPolicyId): DeviceManagementExchangeOnPremisesPolicyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceManagementExchangeOnPremisesPolicy%2Did'] = $deviceManagementExchangeOnPremisesPolicyId;
+        return new DeviceManagementExchangeOnPremisesPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ExchangeOnPremisesPoliciesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Payload;
 use Microsoft\Graph\Beta\Generated\Models\PayloadCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Payloads\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Payloads\Item\PayloadItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class PayloadsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the payloads property of the microsoft.graph.attackSimulationRoot entity.
+     * @param string $payloadId Unique identifier of the item
+     * @return PayloadItemRequestBuilder
+    */
+    public function byPayloadId(string $payloadId): PayloadItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['payload%2Did'] = $payloadId;
+        return new PayloadItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PayloadsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Operations\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Operations\Item\CaseOperationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Operations\MicrosoftGraphEdiscoveryCaseExportOperation\MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperation;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperationCollectionResponse;
@@ -51,6 +52,17 @@ class OperationsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.ediscovery.case entity.
+     * @param string $caseOperationId Unique identifier of the item
+     * @return CaseOperationItemRequestBuilder
+    */
+    public function byCaseOperationId(string $caseOperationId): CaseOperationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['caseOperation%2Did'] = $caseOperationId;
+        return new CaseOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new OperationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

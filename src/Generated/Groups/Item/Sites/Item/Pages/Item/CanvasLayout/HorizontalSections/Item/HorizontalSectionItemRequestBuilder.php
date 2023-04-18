@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\CanvasLayout\HorizontalSections\Item\Columns\ColumnsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\CanvasLayout\HorizontalSections\Item\Columns\Item\HorizontalSectionColumnItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\HorizontalSection;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -43,17 +42,6 @@ class HorizontalSectionItemRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the columns property of the microsoft.graph.horizontalSection entity.
-     * @param string $id Unique identifier of the item
-     * @return HorizontalSectionColumnItemRequestBuilder
-    */
-    public function columnsById(string $id): HorizontalSectionColumnItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['horizontalSectionColumn%2Did'] = $id;
-        return new HorizontalSectionColumnItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new HorizontalSectionItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

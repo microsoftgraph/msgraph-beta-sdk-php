@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\ArticleIndicatorCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Articles\Item\Indicators\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Articles\Item\Indicators\Item\ArticleIndicatorItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -42,6 +43,17 @@ class IndicatorsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the indicators property of the microsoft.graph.security.article entity.
+     * @param string $articleIndicatorId Unique identifier of the item
+     * @return ArticleIndicatorItemRequestBuilder
+    */
+    public function byArticleIndicatorId(string $articleIndicatorId): ArticleIndicatorItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['articleIndicator%2Did'] = $articleIndicatorId;
+        return new ArticleIndicatorItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new IndicatorsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

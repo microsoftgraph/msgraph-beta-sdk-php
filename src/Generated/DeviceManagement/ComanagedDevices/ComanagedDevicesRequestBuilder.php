@@ -12,6 +12,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\BulkSetClou
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\DownloadAppDiagnostics\DownloadAppDiagnosticsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\ExecuteAction\ExecuteActionRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\ManagedDeviceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\MoveDevicesToOU\MoveDevicesToOURequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ManagedDevice;
 use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceCollectionResponse;
@@ -99,6 +100,17 @@ class ComanagedDevicesRequestBuilder
     */
     public function appDiagnosticsWithUpn(string $upn): AppDiagnosticsWithUpnRequestBuilder {
         return new AppDiagnosticsWithUpnRequestBuilder($this->pathParameters, $this->requestAdapter, $upn);
+    }
+
+    /**
+     * Provides operations to manage the comanagedDevices property of the microsoft.graph.deviceManagement entity.
+     * @param string $managedDeviceId Unique identifier of the item
+     * @return ManagedDeviceItemRequestBuilder
+    */
+    public function byManagedDeviceId(string $managedDeviceId): ManagedDeviceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managedDevice%2Did'] = $managedDeviceId;
+        return new ManagedDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

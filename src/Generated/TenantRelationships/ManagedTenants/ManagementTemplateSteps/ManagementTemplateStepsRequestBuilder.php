@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagementTemplateStep;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagementTemplateStepCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateSteps\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateSteps\Item\ManagementTemplateStepItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class ManagementTemplateStepsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the managementTemplateSteps property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $managementTemplateStepId Unique identifier of the item
+     * @return ManagementTemplateStepItemRequestBuilder
+    */
+    public function byManagementTemplateStepId(string $managementTemplateStepId): ManagementTemplateStepItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managementTemplateStep%2Did'] = $managementTemplateStepId;
+        return new ManagementTemplateStepItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ManagementTemplateStepsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

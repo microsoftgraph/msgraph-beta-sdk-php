@@ -11,6 +11,7 @@ use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\GetTopMobileAp
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\GraphManagedMobileLobApp\GraphManagedMobileLobAppRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\GraphMobileLobApp\GraphMobileLobAppRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\HasPayloadLinks\HasPayloadLinksRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\MobileAppItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\ValidateXml\ValidateXmlRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MobileApp;
 use Microsoft\Graph\Beta\Generated\Models\MobileAppCollectionResponse;
@@ -77,6 +78,17 @@ class MobileAppsRequestBuilder
         return new ValidateXmlRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity.
+     * @param string $mobileAppId Unique identifier of the item
+     * @return MobileAppItemRequestBuilder
+    */
+    public function byMobileAppId(string $mobileAppId): MobileAppItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['mobileApp%2Did'] = $mobileAppId;
+        return new MobileAppItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new MobileAppsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

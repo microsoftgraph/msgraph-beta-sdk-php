@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackages\Item\AccessPackageAssignmentPolicies\Item\CustomExtensionHandlers\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackages\Item\AccessPackageAssignmentPolicies\Item\CustomExtensionHandlers\Item\CustomExtensionHandlerItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CustomExtensionHandler;
 use Microsoft\Graph\Beta\Generated\Models\CustomExtensionHandlerCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class CustomExtensionHandlersRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the customExtensionHandlers property of the microsoft.graph.accessPackageAssignmentPolicy entity.
+     * @param string $customExtensionHandlerId Unique identifier of the item
+     * @return CustomExtensionHandlerItemRequestBuilder
+    */
+    public function byCustomExtensionHandlerId(string $customExtensionHandlerId): CustomExtensionHandlerItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['customExtensionHandler%2Did'] = $customExtensionHandlerId;
+        return new CustomExtensionHandlerItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CustomExtensionHandlersRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

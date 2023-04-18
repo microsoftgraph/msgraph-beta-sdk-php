@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceTimelineEvent\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceTimelineEvent\Item\UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDeviceTimelineEvent;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDeviceTimelineEventCollectionResponse;
@@ -43,6 +44,17 @@ class UserExperienceAnalyticsDeviceTimelineEventRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userExperienceAnalyticsDeviceTimelineEvent property of the microsoft.graph.deviceManagement entity.
+     * @param string $userExperienceAnalyticsDeviceTimelineEventId Unique identifier of the item
+     * @return UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilder
+    */
+    public function byUserExperienceAnalyticsDeviceTimelineEventId(string $userExperienceAnalyticsDeviceTimelineEventId): UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userExperienceAnalyticsDeviceTimelineEvent%2Did'] = $userExperienceAnalyticsDeviceTimelineEventId;
+        return new UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserExperienceAnalyticsDeviceTimelineEventRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Domains\Item\SharedEmailDomainInvitations\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Domains\Item\SharedEmailDomainInvitations\Item\SharedEmailDomainInvitationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SharedEmailDomainInvitation;
 use Microsoft\Graph\Beta\Generated\Models\SharedEmailDomainInvitationCollectionResponse;
@@ -43,6 +44,17 @@ class SharedEmailDomainInvitationsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the sharedEmailDomainInvitations property of the microsoft.graph.domain entity.
+     * @param string $sharedEmailDomainInvitationId Unique identifier of the item
+     * @return SharedEmailDomainInvitationItemRequestBuilder
+    */
+    public function bySharedEmailDomainInvitationId(string $sharedEmailDomainInvitationId): SharedEmailDomainInvitationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['sharedEmailDomainInvitation%2Did'] = $sharedEmailDomainInvitationId;
+        return new SharedEmailDomainInvitationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SharedEmailDomainInvitationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

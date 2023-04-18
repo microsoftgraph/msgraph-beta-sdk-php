@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\WindowsProtectionState\DetectedMalwareState\DetectedMalwareStateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\WindowsProtectionState\DetectedMalwareState\Item\WindowsDeviceMalwareStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsProtectionState;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -74,17 +73,6 @@ class WindowsProtectionStateRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the detectedMalwareState property of the microsoft.graph.windowsProtectionState entity.
-     * @param string $id Unique identifier of the item
-     * @return WindowsDeviceMalwareStateItemRequestBuilder
-    */
-    public function detectedMalwareStateById(string $id): WindowsDeviceMalwareStateItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['windowsDeviceMalwareState%2Did'] = $id;
-        return new WindowsDeviceMalwareStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

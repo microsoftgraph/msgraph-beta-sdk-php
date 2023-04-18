@@ -100,7 +100,7 @@ class UnifiedRoleAssignmentItemRequestBuilder
     }
 
     /**
-     * Get transitiveRoleAssignments from roleManagement
+     * Resource to grant access to users or groups that are transitive.
      * @param UnifiedRoleAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -158,7 +158,7 @@ class UnifiedRoleAssignmentItemRequestBuilder
     }
 
     /**
-     * Get transitiveRoleAssignments from roleManagement
+     * Resource to grant access to users or groups that are transitive.
      * @param UnifiedRoleAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

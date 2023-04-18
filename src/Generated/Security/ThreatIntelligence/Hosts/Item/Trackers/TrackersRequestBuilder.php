@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\HostTrackerCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\Trackers\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\Trackers\Item\HostTrackerItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -42,6 +43,17 @@ class TrackersRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the trackers property of the microsoft.graph.security.host entity.
+     * @param string $hostTrackerId Unique identifier of the item
+     * @return HostTrackerItemRequestBuilder
+    */
+    public function byHostTrackerId(string $hostTrackerId): HostTrackerItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['hostTracker%2Did'] = $hostTrackerId;
+        return new HostTrackerItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new TrackersRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

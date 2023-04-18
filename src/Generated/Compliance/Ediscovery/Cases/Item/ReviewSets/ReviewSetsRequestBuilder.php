@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\Item\ReviewSetItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\ReviewSet;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\ReviewSetCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class ReviewSetsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the reviewSets property of the microsoft.graph.ediscovery.case entity.
+     * @param string $reviewSetId Unique identifier of the item
+     * @return ReviewSetItemRequestBuilder
+    */
+    public function byReviewSetId(string $reviewSetId): ReviewSetItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['reviewSet%2Did'] = $reviewSetId;
+        return new ReviewSetItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ReviewSetsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

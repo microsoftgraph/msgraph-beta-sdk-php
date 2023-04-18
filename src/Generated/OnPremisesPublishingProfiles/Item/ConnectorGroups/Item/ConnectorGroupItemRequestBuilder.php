@@ -8,8 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ConnectorGroup;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\ConnectorGroups\Item\Applications\ApplicationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\ConnectorGroups\Item\Applications\Item\ApplicationItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\ConnectorGroups\Item\Members\Item\ConnectorItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\ConnectorGroups\Item\Members\MembersRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -52,17 +50,6 @@ class ConnectorGroupItemRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the applications property of the microsoft.graph.connectorGroup entity.
-     * @param string $id Unique identifier of the item
-     * @return ApplicationItemRequestBuilder
-    */
-    public function applicationsById(string $id): ApplicationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['application%2Did'] = $id;
-        return new ApplicationItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new ConnectorGroupItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
@@ -112,17 +99,6 @@ class ConnectorGroupItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.onPremisesPublishingProfiles.item.connectorGroups.item.members.item collection
-     * @param string $id Unique identifier of the item
-     * @return ConnectorItemRequestBuilder
-    */
-    public function membersById(string $id): ConnectorItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['connector%2Did'] = $id;
-        return new ConnectorItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

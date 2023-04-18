@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\GroupAssignments\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\GroupAssignments\Item\MobileAppProvisioningConfigGroupAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MobileAppProvisioningConfigGroupAssignment;
 use Microsoft\Graph\Beta\Generated\Models\MobileAppProvisioningConfigGroupAssignmentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class GroupAssignmentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the groupAssignments property of the microsoft.graph.iosLobAppProvisioningConfiguration entity.
+     * @param string $mobileAppProvisioningConfigGroupAssignmentId Unique identifier of the item
+     * @return MobileAppProvisioningConfigGroupAssignmentItemRequestBuilder
+    */
+    public function byMobileAppProvisioningConfigGroupAssignmentId(string $mobileAppProvisioningConfigGroupAssignmentId): MobileAppProvisioningConfigGroupAssignmentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['mobileAppProvisioningConfigGroupAssignment%2Did'] = $mobileAppProvisioningConfigGroupAssignmentId;
+        return new MobileAppProvisioningConfigGroupAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new GroupAssignmentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

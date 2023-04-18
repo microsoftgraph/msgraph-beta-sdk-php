@@ -8,13 +8,10 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\Host;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\Components\ComponentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\Components\Item\HostComponentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\Cookies\CookiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\Cookies\Item\HostCookieItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\PassiveDns\PassiveDnsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\PassiveDnsReverse\PassiveDnsReverseRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\Reputation\ReputationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\Trackers\Item\HostTrackerItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\Trackers\TrackersRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -86,17 +83,6 @@ class HostItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Provides operations to manage the components property of the microsoft.graph.security.host entity.
-     * @param string $id Unique identifier of the item
-     * @return HostComponentItemRequestBuilder
-    */
-    public function componentsById(string $id): HostComponentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['hostComponent%2Did'] = $id;
-        return new HostComponentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new HostItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -109,17 +95,6 @@ class HostItemRequestBuilder
         } else {
             $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
         }
-    }
-
-    /**
-     * Provides operations to manage the cookies property of the microsoft.graph.security.host entity.
-     * @param string $id Unique identifier of the item
-     * @return HostCookieItemRequestBuilder
-    */
-    public function cookiesById(string $id): HostCookieItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['hostCookie%2Did'] = $id;
-        return new HostCookieItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -156,28 +131,6 @@ class HostItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the passiveDns property of the microsoft.graph.security.host entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\PassiveDns\Item\PassiveDnsRecordItemRequestBuilder
-    */
-    public function passiveDnsById(string $id): \Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\PassiveDns\Item\PassiveDnsRecordItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['passiveDnsRecord%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\PassiveDns\Item\PassiveDnsRecordItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the passiveDnsReverse property of the microsoft.graph.security.host entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\PassiveDnsReverse\Item\PassiveDnsRecordItemRequestBuilder
-    */
-    public function passiveDnsReverseById(string $id): \Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\PassiveDnsReverse\Item\PassiveDnsRecordItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['passiveDnsRecord%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\PassiveDnsReverse\Item\PassiveDnsRecordItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -267,17 +220,6 @@ class HostItemRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the trackers property of the microsoft.graph.security.host entity.
-     * @param string $id Unique identifier of the item
-     * @return HostTrackerItemRequestBuilder
-    */
-    public function trackersById(string $id): HostTrackerItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['hostTracker%2Did'] = $id;
-        return new HostTrackerItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

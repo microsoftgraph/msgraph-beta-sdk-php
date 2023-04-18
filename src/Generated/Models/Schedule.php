@@ -80,7 +80,7 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
-     * Gets the openShiftChangeRequests property value. The openShiftChangeRequests property
+     * Gets the openShiftChangeRequests property value. The open shift requests in the schedule.
      * @return array<OpenShiftChangeRequest>|null
     */
     public function getOpenShiftChangeRequests(): ?array {
@@ -88,7 +88,7 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
-     * Gets the openShifts property value. The openShifts property
+     * Gets the openShifts property value. The set of open shifts in a scheduling group in the schedule.
      * @return array<OpenShift>|null
     */
     public function getOpenShifts(): ?array {
@@ -136,7 +136,7 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
-     * Gets the swapShiftsChangeRequests property value. The swapShiftsChangeRequests property
+     * Gets the swapShiftsChangeRequests property value. The swap requests for shifts in the schedule.
      * @return array<SwapShiftsChangeRequest>|null
     */
     public function getSwapShiftsChangeRequests(): ?array {
@@ -184,7 +184,7 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
-     * Gets the timeOffRequests property value. The timeOffRequests property
+     * Gets the timeOffRequests property value. The time off requests in the schedule.
      * @return array<TimeOffRequest>|null
     */
     public function getTimeOffRequests(): ?array {
@@ -275,7 +275,7 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
-     * Sets the openShiftChangeRequests property value. The openShiftChangeRequests property
+     * Sets the openShiftChangeRequests property value. The open shift requests in the schedule.
      * @param array<OpenShiftChangeRequest>|null $value Value to set for the openShiftChangeRequests property.
     */
     public function setOpenShiftChangeRequests(?array $value): void {
@@ -283,7 +283,7 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
-     * Sets the openShifts property value. The openShifts property
+     * Sets the openShifts property value. The set of open shifts in a scheduling group in the schedule.
      * @param array<OpenShift>|null $value Value to set for the openShifts property.
     */
     public function setOpenShifts(?array $value): void {
@@ -331,7 +331,7 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
-     * Sets the swapShiftsChangeRequests property value. The swapShiftsChangeRequests property
+     * Sets the swapShiftsChangeRequests property value. The swap requests for shifts in the schedule.
      * @param array<SwapShiftsChangeRequest>|null $value Value to set for the swapShiftsChangeRequests property.
     */
     public function setSwapShiftsChangeRequests(?array $value): void {
@@ -379,7 +379,7 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
-     * Sets the timeOffRequests property value. The timeOffRequests property
+     * Sets the timeOffRequests property value. The time off requests in the schedule.
      * @param array<TimeOffRequest>|null $value Value to set for the timeOffRequests property.
     */
     public function setTimeOffRequests(?array $value): void {

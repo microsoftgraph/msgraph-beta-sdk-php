@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Chats\AllMessages\AllMessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Chats\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Chats\GetAllMessages\GetAllMessagesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Chats\Item\ChatItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Chat;
 use Microsoft\Graph\Beta\Generated\Models\ChatCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -59,6 +60,17 @@ class ChatsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the collection of chat entities.
+     * @param string $chatId Unique identifier of the item
+     * @return ChatItemRequestBuilder
+    */
+    public function byChatId(string $chatId): ChatItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['chat%2Did'] = $chatId;
+        return new ChatItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ChatsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

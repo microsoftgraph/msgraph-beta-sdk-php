@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\IntelligenceProfileIndicatorCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\IntelProfiles\Item\Indicators\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\IntelProfiles\Item\Indicators\Item\IntelligenceProfileIndicatorItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -42,6 +43,17 @@ class IndicatorsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the indicators property of the microsoft.graph.security.intelligenceProfile entity.
+     * @param string $intelligenceProfileIndicatorId Unique identifier of the item
+     * @return IntelligenceProfileIndicatorItemRequestBuilder
+    */
+    public function byIntelligenceProfileIndicatorId(string $intelligenceProfileIndicatorId): IntelligenceProfileIndicatorItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['intelligenceProfileIndicator%2Did'] = $intelligenceProfileIndicatorId;
+        return new IntelligenceProfileIndicatorItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new IndicatorsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\TenantDetailedInformati
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\TenantDetailedInformationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantsDetailedInformation\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantsDetailedInformation\Item\TenantDetailedInformationItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class TenantsDetailedInformationRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the tenantsDetailedInformation property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $tenantDetailedInformationId Unique identifier of the item
+     * @return TenantDetailedInformationItemRequestBuilder
+    */
+    public function byTenantDetailedInformationId(string $tenantDetailedInformationId): TenantDetailedInformationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['tenantDetailedInformation%2Did'] = $tenantDetailedInformationId;
+        return new TenantDetailedInformationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new TenantsDetailedInformationRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\CaseItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\EscapedCase;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class CasesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the cases property of the microsoft.graph.ediscovery.ediscoveryroot entity.
+     * @param string $caseId Unique identifier of the item
+     * @return CaseItemRequestBuilder
+    */
+    public function byCaseId(string $caseId): CaseItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['case%2Did'] = $caseId;
+        return new CaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CasesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

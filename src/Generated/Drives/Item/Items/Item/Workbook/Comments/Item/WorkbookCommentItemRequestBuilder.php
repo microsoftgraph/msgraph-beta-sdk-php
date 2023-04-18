@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Comment
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Comments\Item\Replies\Item\WorkbookCommentReplyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Comments\Item\Replies\RepliesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WorkbookComment;
@@ -111,17 +110,6 @@ class WorkbookCommentItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the replies property of the microsoft.graph.workbookComment entity.
-     * @param string $id Unique identifier of the item
-     * @return WorkbookCommentReplyItemRequestBuilder
-    */
-    public function repliesById(string $id): WorkbookCommentReplyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['workbookCommentReply%2Did'] = $id;
-        return new WorkbookCommentReplyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\EdiscoveryAsHierarchy\EdiscoveryAsHierarchyRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\Item\TagItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\TagCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -51,6 +52,17 @@ class TagsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the tags property of the microsoft.graph.ediscovery.case entity.
+     * @param string $tagId Unique identifier of the item
+     * @return TagItemRequestBuilder
+    */
+    public function byTagId(string $tagId): TagItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['tag%2Did'] = $tagId;
+        return new TagItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new TagsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

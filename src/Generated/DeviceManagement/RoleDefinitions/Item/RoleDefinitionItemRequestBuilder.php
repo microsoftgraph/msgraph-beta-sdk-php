@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\RoleDefinitions\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleDefinitions\Item\RoleAssignments\Item\RoleAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleDefinitions\Item\RoleAssignments\RoleAssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\RoleDefinition;
@@ -111,17 +110,6 @@ class RoleDefinitionItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the roleAssignments property of the microsoft.graph.roleDefinition entity.
-     * @param string $id Unique identifier of the item
-     * @return RoleAssignmentItemRequestBuilder
-    */
-    public function roleAssignmentsById(string $id): RoleAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['roleAssignment%2Did'] = $id;
-        return new RoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

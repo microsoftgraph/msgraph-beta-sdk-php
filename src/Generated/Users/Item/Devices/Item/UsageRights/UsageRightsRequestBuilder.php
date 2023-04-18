@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UsageRight;
 use Microsoft\Graph\Beta\Generated\Models\UsageRightCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\UsageRights\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\UsageRights\Item\UsageRightItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class UsageRightsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the usageRights property of the microsoft.graph.device entity.
+     * @param string $usageRightId Unique identifier of the item
+     * @return UsageRightItemRequestBuilder
+    */
+    public function byUsageRightId(string $usageRightId): UsageRightItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['usageRight%2Did'] = $usageRightId;
+        return new UsageRightItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UsageRightsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

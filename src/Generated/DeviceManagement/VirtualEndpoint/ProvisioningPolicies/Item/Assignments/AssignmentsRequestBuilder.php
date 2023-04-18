@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Assignments\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Assignments\Item\CloudPcProvisioningPolicyAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcProvisioningPolicyAssignment;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcProvisioningPolicyAssignmentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AssignmentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.cloudPcProvisioningPolicy entity.
+     * @param string $cloudPcProvisioningPolicyAssignmentId Unique identifier of the item
+     * @return CloudPcProvisioningPolicyAssignmentItemRequestBuilder
+    */
+    public function byCloudPcProvisioningPolicyAssignmentId(string $cloudPcProvisioningPolicyAssignmentId): CloudPcProvisioningPolicyAssignmentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['cloudPcProvisioningPolicyAssignment%2Did'] = $cloudPcProvisioningPolicyAssignmentId;
+        return new CloudPcProvisioningPolicyAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AssignmentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

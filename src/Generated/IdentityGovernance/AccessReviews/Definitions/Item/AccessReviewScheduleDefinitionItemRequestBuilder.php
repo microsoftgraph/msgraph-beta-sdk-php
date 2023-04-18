@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Definitions\Item\Instances\InstancesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Definitions\Item\Instances\Item\AccessReviewInstanceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Definitions\Item\Stop\StopRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessReviewScheduleDefinition;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -100,17 +99,6 @@ class AccessReviewScheduleDefinitionItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the instances property of the microsoft.graph.accessReviewScheduleDefinition entity.
-     * @param string $id Unique identifier of the item
-     * @return AccessReviewInstanceItemRequestBuilder
-    */
-    public function instancesById(string $id): AccessReviewInstanceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['accessReviewInstance%2Did'] = $id;
-        return new AccessReviewInstanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

@@ -8,7 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Apply\ApplyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Assignments\Item\CloudPcProvisioningPolicyAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcProvisioningPolicy;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -59,17 +58,6 @@ class CloudPcProvisioningPolicyItemRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the assignments property of the microsoft.graph.cloudPcProvisioningPolicy entity.
-     * @param string $id Unique identifier of the item
-     * @return CloudPcProvisioningPolicyAssignmentItemRequestBuilder
-    */
-    public function assignmentsById(string $id): CloudPcProvisioningPolicyAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['cloudPcProvisioningPolicyAssignment%2Did'] = $id;
-        return new CloudPcProvisioningPolicyAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new CloudPcProvisioningPolicyItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

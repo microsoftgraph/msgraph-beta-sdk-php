@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelSites\Item\MicrosoftTunnelConfiguration\MicrosoftTunnelConfigurationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelSites\Item\MicrosoftTunnelServers\Item\MicrosoftTunnelServerItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelSites\Item\MicrosoftTunnelServers\MicrosoftTunnelServersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelSites\Item\RequestUpgrade\RequestUpgradeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MicrosoftTunnelSite;
@@ -108,17 +107,6 @@ class MicrosoftTunnelSiteItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the microsoftTunnelServers property of the microsoft.graph.microsoftTunnelSite entity.
-     * @param string $id Unique identifier of the item
-     * @return MicrosoftTunnelServerItemRequestBuilder
-    */
-    public function microsoftTunnelServersById(string $id): MicrosoftTunnelServerItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['microsoftTunnelServer%2Did'] = $id;
-        return new MicrosoftTunnelServerItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

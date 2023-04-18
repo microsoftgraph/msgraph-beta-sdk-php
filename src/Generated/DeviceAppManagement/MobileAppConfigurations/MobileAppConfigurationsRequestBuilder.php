@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileAppConfigurations\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileAppConfigurations\Item\ManagedDeviceMobileAppConfigurationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceMobileAppConfiguration;
 use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceMobileAppConfigurationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class MobileAppConfigurationsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the mobileAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
+     * @param string $managedDeviceMobileAppConfigurationId Unique identifier of the item
+     * @return ManagedDeviceMobileAppConfigurationItemRequestBuilder
+    */
+    public function byManagedDeviceMobileAppConfigurationId(string $managedDeviceMobileAppConfigurationId): ManagedDeviceMobileAppConfigurationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managedDeviceMobileAppConfiguration%2Did'] = $managedDeviceMobileAppConfigurationId;
+        return new ManagedDeviceMobileAppConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new MobileAppConfigurationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

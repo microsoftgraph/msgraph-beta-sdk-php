@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Connections\Item\Groups\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Connections\Item\Groups\Item\ExternalGroupItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ExternalConnectors\ExternalGroup;
 use Microsoft\Graph\Beta\Generated\Models\ExternalConnectors\ExternalGroupCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class GroupsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the groups property of the microsoft.graph.externalConnectors.externalConnection entity.
+     * @param string $externalGroupId Unique identifier of the item
+     * @return ExternalGroupItemRequestBuilder
+    */
+    public function byExternalGroupId(string $externalGroupId): ExternalGroupItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['externalGroup%2Did'] = $externalGroupId;
+        return new ExternalGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new GroupsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBaselines\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBaselines\Item\UserExperienceAnalyticsBaselineItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsBaseline;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsBaselineCollectionResponse;
@@ -43,6 +44,17 @@ class UserExperienceAnalyticsBaselinesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userExperienceAnalyticsBaselines property of the microsoft.graph.deviceManagement entity.
+     * @param string $userExperienceAnalyticsBaselineId Unique identifier of the item
+     * @return UserExperienceAnalyticsBaselineItemRequestBuilder
+    */
+    public function byUserExperienceAnalyticsBaselineId(string $userExperienceAnalyticsBaselineId): UserExperienceAnalyticsBaselineItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userExperienceAnalyticsBaseline%2Did'] = $userExperienceAnalyticsBaselineId;
+        return new UserExperienceAnalyticsBaselineItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserExperienceAnalyticsBaselinesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

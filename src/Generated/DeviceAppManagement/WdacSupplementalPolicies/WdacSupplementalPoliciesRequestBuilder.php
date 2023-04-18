@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WdacSupplementalPolicies\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WdacSupplementalPolicies\Item\WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsDefenderApplicationControlSupplementalPolicy;
 use Microsoft\Graph\Beta\Generated\Models\WindowsDefenderApplicationControlSupplementalPolicyCollectionResponse;
@@ -43,6 +44,17 @@ class WdacSupplementalPoliciesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the wdacSupplementalPolicies property of the microsoft.graph.deviceAppManagement entity.
+     * @param string $windowsDefenderApplicationControlSupplementalPolicyId Unique identifier of the item
+     * @return WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder
+    */
+    public function byWindowsDefenderApplicationControlSupplementalPolicyId(string $windowsDefenderApplicationControlSupplementalPolicyId): WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['windowsDefenderApplicationControlSupplementalPolicy%2Did'] = $windowsDefenderApplicationControlSupplementalPolicyId;
+        return new WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new WdacSupplementalPoliciesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

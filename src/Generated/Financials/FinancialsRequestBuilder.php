@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\CompaniesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\CompanyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Financials;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -43,17 +42,6 @@ class FinancialsRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the companies property of the microsoft.graph.financials entity.
-     * @param string $id Unique identifier of the item
-     * @return CompanyItemRequestBuilder
-    */
-    public function companiesById(string $id): CompanyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['company%2Did'] = $id;
-        return new CompanyItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new FinancialsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

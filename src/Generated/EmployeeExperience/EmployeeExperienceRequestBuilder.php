@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\EmployeeExperience;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningProviders\Item\LearningProviderItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningProviders\LearningProvidersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EmployeeExperience;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -74,17 +73,6 @@ class EmployeeExperienceRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
-     * @param string $id Unique identifier of the item
-     * @return LearningProviderItemRequestBuilder
-    */
-    public function learningProvidersById(string $id): LearningProviderItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['learningProvider%2Did'] = $id;
-        return new LearningProviderItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

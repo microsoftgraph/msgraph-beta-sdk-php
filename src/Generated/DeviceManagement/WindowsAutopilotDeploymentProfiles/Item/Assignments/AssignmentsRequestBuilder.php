@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeploymentProfiles\Item\Assignments\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeploymentProfiles\Item\Assignments\Item\WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsAutopilotDeploymentProfileAssignment;
 use Microsoft\Graph\Beta\Generated\Models\WindowsAutopilotDeploymentProfileAssignmentCollectionResponse;
@@ -43,6 +44,17 @@ class AssignmentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.windowsAutopilotDeploymentProfile entity.
+     * @param string $windowsAutopilotDeploymentProfileAssignmentId Unique identifier of the item
+     * @return WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilder
+    */
+    public function byWindowsAutopilotDeploymentProfileAssignmentId(string $windowsAutopilotDeploymentProfileAssignmentId): WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['windowsAutopilotDeploymentProfileAssignment%2Did'] = $windowsAutopilotDeploymentProfileAssignmentId;
+        return new WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AssignmentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

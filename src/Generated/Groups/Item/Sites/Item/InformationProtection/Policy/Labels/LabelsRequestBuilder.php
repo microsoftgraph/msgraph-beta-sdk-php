@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\Policy\Labels\EvaluateClassificationResults\EvaluateClassificationResultsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\Policy\Labels\EvaluateRemoval\EvaluateRemovalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\Policy\Labels\ExtractLabel\ExtractLabelRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\Policy\Labels\Item\InformationProtectionLabelItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\InformationProtectionLabel;
 use Microsoft\Graph\Beta\Generated\Models\InformationProtectionLabelCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -75,6 +76,17 @@ class LabelsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the labels property of the microsoft.graph.informationProtectionPolicy entity.
+     * @param string $informationProtectionLabelId Unique identifier of the item
+     * @return InformationProtectionLabelItemRequestBuilder
+    */
+    public function byInformationProtectionLabelId(string $informationProtectionLabelId): InformationProtectionLabelItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['informationProtectionLabel%2Did'] = $informationProtectionLabelId;
+        return new InformationProtectionLabelItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new LabelsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

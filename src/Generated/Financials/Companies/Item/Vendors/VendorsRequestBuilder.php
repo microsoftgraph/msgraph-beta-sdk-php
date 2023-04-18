@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Vendors\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Vendors\Item\VendorItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Vendor;
 use Microsoft\Graph\Beta\Generated\Models\VendorCollectionResponse;
@@ -43,6 +44,17 @@ class VendorsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the vendors property of the microsoft.graph.company entity.
+     * @param string $vendorId Unique identifier of the item
+     * @return VendorItemRequestBuilder
+    */
+    public function byVendorId(string $vendorId): VendorItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['vendor%2Did'] = $vendorId;
+        return new VendorItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new VendorsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

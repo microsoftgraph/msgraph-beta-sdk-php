@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesCreditMemos\Item\SalesCreditMemoLines\Item\Item\ItemCategory\ItemCategoryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesCreditMemos\Item\SalesCreditMemoLines\Item\Item\Picture\Item\PictureItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesCreditMemos\Item\SalesCreditMemoLines\Item\Item\Picture\PictureRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Item;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -119,17 +118,6 @@ class ItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the picture property of the microsoft.graph.item entity.
-     * @param string $id Unique identifier of the item
-     * @return PictureItemRequestBuilder
-    */
-    public function pictureById(string $id): PictureItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['picture%2Did'] = $id;
-        return new PictureItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

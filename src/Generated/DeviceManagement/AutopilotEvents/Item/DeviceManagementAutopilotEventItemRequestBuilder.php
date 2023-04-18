@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AutopilotEvents\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AutopilotEvents\Item\PolicyStatusDetails\Item\DeviceManagementAutopilotPolicyStatusDetailItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AutopilotEvents\Item\PolicyStatusDetails\PolicyStatusDetailsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementAutopilotEvent;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -111,17 +110,6 @@ class DeviceManagementAutopilotEventItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the policyStatusDetails property of the microsoft.graph.deviceManagementAutopilotEvent entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceManagementAutopilotPolicyStatusDetailItemRequestBuilder
-    */
-    public function policyStatusDetailsById(string $id): DeviceManagementAutopilotPolicyStatusDetailItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceManagementAutopilotPolicyStatusDetail%2Did'] = $id;
-        return new DeviceManagementAutopilotPolicyStatusDetailItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

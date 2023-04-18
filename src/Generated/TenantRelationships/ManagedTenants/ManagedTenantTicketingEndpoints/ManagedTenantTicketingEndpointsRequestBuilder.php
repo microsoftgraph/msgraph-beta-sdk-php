@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagedTenantTicketingE
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagedTenantTicketingEndpointCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantTicketingEndpoints\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantTicketingEndpoints\Item\ManagedTenantTicketingEndpointItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class ManagedTenantTicketingEndpointsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the managedTenantTicketingEndpoints property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $managedTenantTicketingEndpointId Unique identifier of the item
+     * @return ManagedTenantTicketingEndpointItemRequestBuilder
+    */
+    public function byManagedTenantTicketingEndpointId(string $managedTenantTicketingEndpointId): ManagedTenantTicketingEndpointItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managedTenantTicketingEndpoint%2Did'] = $managedTenantTicketingEndpointId;
+        return new ManagedTenantTicketingEndpointItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ManagedTenantTicketingEndpointsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

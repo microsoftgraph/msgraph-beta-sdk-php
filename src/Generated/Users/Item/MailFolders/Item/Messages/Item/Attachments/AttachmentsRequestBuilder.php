@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\Models\AttachmentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\Messages\Item\Attachments\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\Messages\Item\Attachments\CreateUploadSession\CreateUploadSessionRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\Messages\Item\Attachments\Item\AttachmentItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -52,6 +53,17 @@ class AttachmentsRequestBuilder
     private string $urlTemplate;
     
     /**
+     * Provides operations to manage the attachments property of the microsoft.graph.message entity.
+     * @param string $attachmentId Unique identifier of the item
+     * @return AttachmentItemRequestBuilder
+    */
+    public function byAttachmentId(string $attachmentId): AttachmentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['attachment%2Did'] = $attachmentId;
+        return new AttachmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
      * Instantiates a new AttachmentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -67,10 +79,10 @@ class AttachmentsRequestBuilder
     }
 
     /**
-     * Retrieve a list of attachment objects attached to a message.
+     * Retrieve a list of attachment objects.
      * @param AttachmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/message-list-attachments?view=graph-rest-1.0 Find more info here
+     * @link https://docs.microsoft.com/graph/api/eventmessage-list-attachments?view=graph-rest-1.0 Find more info here
     */
     public function get(?AttachmentsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -106,7 +118,7 @@ class AttachmentsRequestBuilder
     }
 
     /**
-     * Retrieve a list of attachment objects attached to a message.
+     * Retrieve a list of attachment objects.
      * @param AttachmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

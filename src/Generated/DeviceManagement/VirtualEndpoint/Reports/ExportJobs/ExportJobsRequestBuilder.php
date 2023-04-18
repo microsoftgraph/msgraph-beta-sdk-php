@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\ExportJobs\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\ExportJobs\Item\CloudPcExportJobItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcExportJob;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcExportJobCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class ExportJobsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the exportJobs property of the microsoft.graph.cloudPcReports entity.
+     * @param string $cloudPcExportJobId Unique identifier of the item
+     * @return CloudPcExportJobItemRequestBuilder
+    */
+    public function byCloudPcExportJobId(string $cloudPcExportJobId): CloudPcExportJobItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['cloudPcExportJob%2Did'] = $cloudPcExportJobId;
+        return new CloudPcExportJobItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ExportJobsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

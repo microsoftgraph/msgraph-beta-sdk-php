@@ -8,6 +8,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\TaskReports\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\TaskReports\IdentityGovernanceSummaryWithStartDateTimeWithEndDateTime\IdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\TaskReports\Item\TaskReportItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\TaskReportCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -44,6 +45,17 @@ class TaskReportsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the taskReports property of the microsoft.graph.identityGovernance.workflow entity.
+     * @param string $taskReportId Unique identifier of the item
+     * @return TaskReportItemRequestBuilder
+    */
+    public function byTaskReportId(string $taskReportId): TaskReportItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['taskReport%2Did'] = $taskReportId;
+        return new TaskReportItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new TaskReportsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

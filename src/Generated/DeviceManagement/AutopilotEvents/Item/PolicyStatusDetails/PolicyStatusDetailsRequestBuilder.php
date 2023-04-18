@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AutopilotEvents\Item\PolicyStatusDetails\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\AutopilotEvents\Item\PolicyStatusDetails\Item\DeviceManagementAutopilotPolicyStatusDetailItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementAutopilotPolicyStatusDetail;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementAutopilotPolicyStatusDetailCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class PolicyStatusDetailsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the policyStatusDetails property of the microsoft.graph.deviceManagementAutopilotEvent entity.
+     * @param string $deviceManagementAutopilotPolicyStatusDetailId Unique identifier of the item
+     * @return DeviceManagementAutopilotPolicyStatusDetailItemRequestBuilder
+    */
+    public function byDeviceManagementAutopilotPolicyStatusDetailId(string $deviceManagementAutopilotPolicyStatusDetailId): DeviceManagementAutopilotPolicyStatusDetailItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceManagementAutopilotPolicyStatusDetail%2Did'] = $deviceManagementAutopilotPolicyStatusDetailId;
+        return new DeviceManagementAutopilotPolicyStatusDetailItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PolicyStatusDetailsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

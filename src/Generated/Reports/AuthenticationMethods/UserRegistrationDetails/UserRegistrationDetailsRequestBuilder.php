@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserRegistrationDetails;
 use Microsoft\Graph\Beta\Generated\Models\UserRegistrationDetailsCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UserRegistrationDetails\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UserRegistrationDetails\Item\UserRegistrationDetailsItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class UserRegistrationDetailsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userRegistrationDetails property of the microsoft.graph.authenticationMethodsRoot entity.
+     * @param string $userRegistrationDetailsId Unique identifier of the item
+     * @return UserRegistrationDetailsItemRequestBuilder
+    */
+    public function byUserRegistrationDetailsId(string $userRegistrationDetailsId): UserRegistrationDetailsItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userRegistrationDetails%2Did'] = $userRegistrationDetailsId;
+        return new UserRegistrationDetailsItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserRegistrationDetailsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

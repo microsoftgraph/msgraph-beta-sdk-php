@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\TaxGroups\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\TaxGroups\Item\TaxGroupItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TaxGroup;
 use Microsoft\Graph\Beta\Generated\Models\TaxGroupCollectionResponse;
@@ -43,6 +44,17 @@ class TaxGroupsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the taxGroups property of the microsoft.graph.company entity.
+     * @param string $taxGroupId Unique identifier of the item
+     * @return TaxGroupItemRequestBuilder
+    */
+    public function byTaxGroupId(string $taxGroupId): TaxGroupItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['taxGroup%2Did'] = $taxGroupId;
+        return new TaxGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new TaxGroupsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

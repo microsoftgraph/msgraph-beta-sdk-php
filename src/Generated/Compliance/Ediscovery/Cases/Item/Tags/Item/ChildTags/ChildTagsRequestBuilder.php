@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\Item\ChildTags\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\Item\ChildTags\Item\TagItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\TagCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -42,6 +43,17 @@ class ChildTagsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the childTags property of the microsoft.graph.ediscovery.tag entity.
+     * @param string $tagId1 Unique identifier of the item
+     * @return TagItemRequestBuilder
+    */
+    public function byTagId1(string $tagId1): TagItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['tag%2Did1'] = $tagId1;
+        return new TagItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ChildTagsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

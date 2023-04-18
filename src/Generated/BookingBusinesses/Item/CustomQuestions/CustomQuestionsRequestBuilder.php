@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\CustomQuestions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\CustomQuestions\Item\BookingCustomQuestionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\BookingCustomQuestion;
 use Microsoft\Graph\Beta\Generated\Models\BookingCustomQuestionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class CustomQuestionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the customQuestions property of the microsoft.graph.bookingBusiness entity.
+     * @param string $bookingCustomQuestionId Unique identifier of the item
+     * @return BookingCustomQuestionItemRequestBuilder
+    */
+    public function byBookingCustomQuestionId(string $bookingCustomQuestionId): BookingCustomQuestionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['bookingCustomQuestion%2Did'] = $bookingCustomQuestionId;
+        return new BookingCustomQuestionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CustomQuestionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

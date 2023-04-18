@@ -8,6 +8,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\UserProcessingResults\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\UserProcessingResults\IdentityGovernanceSummaryWithStartDateTimeWithEndDateTime\IdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\UserProcessingResults\Item\UserProcessingResultItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\UserProcessingResultCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -44,6 +45,17 @@ class UserProcessingResultsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userProcessingResults property of the microsoft.graph.identityGovernance.workflow entity.
+     * @param string $userProcessingResultId Unique identifier of the item
+     * @return UserProcessingResultItemRequestBuilder
+    */
+    public function byUserProcessingResultId(string $userProcessingResultId): UserProcessingResultItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userProcessingResult%2Did'] = $userProcessingResultId;
+        return new UserProcessingResultItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserProcessingResultsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

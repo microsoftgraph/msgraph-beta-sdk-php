@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\TenantTag;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\TenantTagCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantTags\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantTags\Item\TenantTagItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class TenantTagsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the tenantTags property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $tenantTagId Unique identifier of the item
+     * @return TenantTagItemRequestBuilder
+    */
+    public function byTenantTagId(string $tenantTagId): TenantTagItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['tenantTag%2Did'] = $tenantTagId;
+        return new TenantTagItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new TenantTagsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

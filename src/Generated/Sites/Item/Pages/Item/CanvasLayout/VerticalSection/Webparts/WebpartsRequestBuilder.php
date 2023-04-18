@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WebPart;
 use Microsoft\Graph\Beta\Generated\Models\WebPartCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\CanvasLayout\VerticalSection\Webparts\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\CanvasLayout\VerticalSection\Webparts\Item\WebPartItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class WebpartsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the webparts property of the microsoft.graph.verticalSection entity.
+     * @param string $webPartId Unique identifier of the item
+     * @return WebPartItemRequestBuilder
+    */
+    public function byWebPartId(string $webPartId): WebPartItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['webPart%2Did'] = $webPartId;
+        return new WebPartItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new WebpartsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

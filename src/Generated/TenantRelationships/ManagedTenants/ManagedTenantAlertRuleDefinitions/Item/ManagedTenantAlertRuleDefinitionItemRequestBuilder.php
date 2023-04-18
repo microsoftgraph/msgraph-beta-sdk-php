@@ -8,7 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagedTenantAlertRuleDefinition;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantAlertRuleDefinitions\Item\AlertRules\AlertRulesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantAlertRuleDefinitions\Item\AlertRules\Item\ManagedTenantAlertRuleItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,17 +42,6 @@ class ManagedTenantAlertRuleDefinitionItemRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the alertRules property of the microsoft.graph.managedTenants.managedTenantAlertRuleDefinition entity.
-     * @param string $id Unique identifier of the item
-     * @return ManagedTenantAlertRuleItemRequestBuilder
-    */
-    public function alertRulesById(string $id): ManagedTenantAlertRuleItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['managedTenantAlertRule%2Did'] = $id;
-        return new ManagedTenantAlertRuleItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new ManagedTenantAlertRuleDefinitionItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

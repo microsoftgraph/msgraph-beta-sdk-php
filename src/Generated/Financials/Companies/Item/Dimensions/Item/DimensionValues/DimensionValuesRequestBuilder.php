@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Dimensions\Item\DimensionValues\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Dimensions\Item\DimensionValues\Item\DimensionValueItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DimensionValueCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -42,6 +43,17 @@ class DimensionValuesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the dimensionValues property of the microsoft.graph.dimension entity.
+     * @param string $dimensionValueId Unique identifier of the item
+     * @return DimensionValueItemRequestBuilder
+    */
+    public function byDimensionValueId(string $dimensionValueId): DimensionValueItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['dimensionValue%2Did'] = $dimensionValueId;
+        return new DimensionValueItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DimensionValuesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

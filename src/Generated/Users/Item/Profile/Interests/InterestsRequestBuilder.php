@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PersonInterest;
 use Microsoft\Graph\Beta\Generated\Models\PersonInterestCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Interests\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Interests\Item\PersonInterestItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class InterestsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the interests property of the microsoft.graph.profile entity.
+     * @param string $personInterestId Unique identifier of the item
+     * @return PersonInterestItemRequestBuilder
+    */
+    public function byPersonInterestId(string $personInterestId): PersonInterestItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['personInterest%2Did'] = $personInterestId;
+        return new PersonInterestItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new InterestsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

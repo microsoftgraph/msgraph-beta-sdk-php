@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WebPart;
 use Microsoft\Graph\Beta\Generated\Models\WebPartCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\WebParts\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\WebParts\Item\WebPartItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class WebPartsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the webParts property of the microsoft.graph.sitePage entity.
+     * @param string $webPartId Unique identifier of the item
+     * @return WebPartItemRequestBuilder
+    */
+    public function byWebPartId(string $webPartId): WebPartItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['webPart%2Did'] = $webPartId;
+        return new WebPartItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new WebPartsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

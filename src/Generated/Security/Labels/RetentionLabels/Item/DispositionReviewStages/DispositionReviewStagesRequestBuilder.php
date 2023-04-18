@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\DispositionReviewStage;
 use Microsoft\Graph\Beta\Generated\Models\Security\DispositionReviewStageCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\Item\DispositionReviewStages\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\Item\DispositionReviewStages\Item\DispositionReviewStageItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class DispositionReviewStagesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the dispositionReviewStages property of the microsoft.graph.security.retentionLabel entity.
+     * @param string $dispositionReviewStageId Unique identifier of the item
+     * @return DispositionReviewStageItemRequestBuilder
+    */
+    public function byDispositionReviewStageId(string $dispositionReviewStageId): DispositionReviewStageItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['dispositionReviewStage%2Did'] = $dispositionReviewStageId;
+        return new DispositionReviewStageItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DispositionReviewStagesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

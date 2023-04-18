@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\AlertRules\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\AlertRules\Item\AlertRuleItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagement\AlertRule;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagement\AlertRuleCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AlertRulesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the alertRules property of the microsoft.graph.deviceManagement.monitoring entity.
+     * @param string $alertRuleId Unique identifier of the item
+     * @return AlertRuleItemRequestBuilder
+    */
+    public function byAlertRuleId(string $alertRuleId): AlertRuleItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['alertRule%2Did'] = $alertRuleId;
+        return new AlertRuleItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AlertRulesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

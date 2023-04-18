@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\ImportedAppleDeviceIdentities\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\ImportedAppleDeviceIdentities\ImportAppleDeviceIdentityList\ImportAppleDeviceIdentityListRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\ImportedAppleDeviceIdentities\Item\ImportedAppleDeviceIdentityItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ImportedAppleDeviceIdentity;
 use Microsoft\Graph\Beta\Generated\Models\ImportedAppleDeviceIdentityCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -51,6 +52,17 @@ class ImportedAppleDeviceIdentitiesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the importedAppleDeviceIdentities property of the microsoft.graph.depOnboardingSetting entity.
+     * @param string $importedAppleDeviceIdentityId Unique identifier of the item
+     * @return ImportedAppleDeviceIdentityItemRequestBuilder
+    */
+    public function byImportedAppleDeviceIdentityId(string $importedAppleDeviceIdentityId): ImportedAppleDeviceIdentityItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['importedAppleDeviceIdentity%2Did'] = $importedAppleDeviceIdentityId;
+        return new ImportedAppleDeviceIdentityItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ImportedAppleDeviceIdentitiesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

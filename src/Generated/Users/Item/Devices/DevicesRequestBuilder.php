@@ -12,6 +12,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Delta\DeltaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Devices\GetByIds\GetByIdsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Devices\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\DeviceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Devices\ValidateProperties\ValidatePropertiesRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -75,6 +76,17 @@ class DevicesRequestBuilder
         return new ValidatePropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * Provides operations to manage the devices property of the microsoft.graph.user entity.
+     * @param string $deviceId Unique identifier of the item
+     * @return DeviceItemRequestBuilder
+    */
+    public function byDeviceId(string $deviceId): DeviceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['device%2Did'] = $deviceId;
+        return new DeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DevicesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -7,7 +7,6 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SecurityBaselineState;
-use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\SecurityBaselineStates\Item\SettingStates\Item\SecurityBaselineSettingStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\SecurityBaselineStates\Item\SettingStates\SettingStatesRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -111,17 +110,6 @@ class SecurityBaselineStateItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the settingStates property of the microsoft.graph.securityBaselineState entity.
-     * @param string $id Unique identifier of the item
-     * @return SecurityBaselineSettingStateItemRequestBuilder
-    */
-    public function settingStatesById(string $id): SecurityBaselineSettingStateItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['securityBaselineSettingState%2Did'] = $id;
-        return new SecurityBaselineSettingStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

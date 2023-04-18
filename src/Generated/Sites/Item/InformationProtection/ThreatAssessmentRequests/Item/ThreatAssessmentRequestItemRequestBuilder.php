@@ -7,7 +7,6 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\ThreatAssessmentRequest;
-use Microsoft\Graph\Beta\Generated\Sites\Item\InformationProtection\ThreatAssessmentRequests\Item\Results\Item\ThreatAssessmentResultItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\InformationProtection\ThreatAssessmentRequests\Item\Results\ResultsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -111,17 +110,6 @@ class ThreatAssessmentRequestItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the results property of the microsoft.graph.threatAssessmentRequest entity.
-     * @param string $id Unique identifier of the item
-     * @return ThreatAssessmentResultItemRequestBuilder
-    */
-    public function resultsById(string $id): ThreatAssessmentResultItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['threatAssessmentResult%2Did'] = $id;
-        return new ThreatAssessmentResultItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

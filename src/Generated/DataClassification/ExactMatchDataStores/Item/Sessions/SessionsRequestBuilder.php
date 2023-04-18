@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Item\Sessions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Item\Sessions\Item\ExactMatchSessionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ExactMatchSession;
 use Microsoft\Graph\Beta\Generated\Models\ExactMatchSessionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class SessionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the sessions property of the microsoft.graph.exactMatchDataStore entity.
+     * @param string $exactMatchSessionId Unique identifier of the item
+     * @return ExactMatchSessionItemRequestBuilder
+    */
+    public function byExactMatchSessionId(string $exactMatchSessionId): ExactMatchSessionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['exactMatchSession%2Did'] = $exactMatchSessionId;
+        return new ExactMatchSessionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SessionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\External\IndustryData\SourceSystems\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\External\IndustryData\SourceSystems\Item\SourceSystemDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IndustryData\SourceSystemDefinition;
 use Microsoft\Graph\Beta\Generated\Models\IndustryData\SourceSystemDefinitionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class SourceSystemsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the sourceSystems property of the microsoft.graph.industryData.industryDataRoot entity.
+     * @param string $sourceSystemDefinitionId Unique identifier of the item
+     * @return SourceSystemDefinitionItemRequestBuilder
+    */
+    public function bySourceSystemDefinitionId(string $sourceSystemDefinitionId): SourceSystemDefinitionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['sourceSystemDefinition%2Did'] = $sourceSystemDefinitionId;
+        return new SourceSystemDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SourceSystemsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

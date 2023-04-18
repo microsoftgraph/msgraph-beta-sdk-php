@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthOSVersionPerformance\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthOSVersionPerformance\Item\UserExperienceAnalyticsAppHealthOSVersionPerformanceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAppHealthOSVersionPerformance;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAppHealthOSVersionPerformanceCollectionResponse;
@@ -43,6 +44,17 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userExperienceAnalyticsAppHealthOSVersionPerformance property of the microsoft.graph.deviceManagement entity.
+     * @param string $userExperienceAnalyticsAppHealthOSVersionPerformanceId Unique identifier of the item
+     * @return UserExperienceAnalyticsAppHealthOSVersionPerformanceItemRequestBuilder
+    */
+    public function byUserExperienceAnalyticsAppHealthOSVersionPerformanceId(string $userExperienceAnalyticsAppHealthOSVersionPerformanceId): UserExperienceAnalyticsAppHealthOSVersionPerformanceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userExperienceAnalyticsAppHealthOSVersionPerformance%2Did'] = $userExperienceAnalyticsAppHealthOSVersionPerformanceId;
+        return new UserExperienceAnalyticsAppHealthOSVersionPerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -11,6 +11,7 @@ use Microsoft\Graph\Beta\Generated\Models\TiIndicatorCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\TiIndicators\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\TiIndicators\DeleteTiIndicators\DeleteTiIndicatorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\TiIndicators\DeleteTiIndicatorsByExternalId\DeleteTiIndicatorsByExternalIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\TiIndicators\Item\TiIndicatorItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\TiIndicators\SubmitTiIndicators\SubmitTiIndicatorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\TiIndicators\UpdateTiIndicators\UpdateTiIndicatorsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -75,6 +76,17 @@ class TiIndicatorsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the tiIndicators property of the microsoft.graph.security entity.
+     * @param string $tiIndicatorId Unique identifier of the item
+     * @return TiIndicatorItemRequestBuilder
+    */
+    public function byTiIndicatorId(string $tiIndicatorId): TiIndicatorItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['tiIndicator%2Did'] = $tiIndicatorId;
+        return new TiIndicatorItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new TiIndicatorsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

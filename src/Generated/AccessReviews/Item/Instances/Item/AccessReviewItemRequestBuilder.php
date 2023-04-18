@@ -9,7 +9,6 @@ use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\ApplyDecisi
 use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\Decisions\DecisionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\MyDecisions\MyDecisionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\ResetDecisions\ResetDecisionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\Reviewers\Item\AccessReviewReviewerItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\Reviewers\ReviewersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\SendReminder\SendReminderRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\Stop\StopRequestBuilder;
@@ -107,17 +106,6 @@ class AccessReviewItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the decisions property of the microsoft.graph.accessReview entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\Decisions\Item\AccessReviewDecisionItemRequestBuilder
-    */
-    public function decisionsById(string $id): \Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\Decisions\Item\AccessReviewDecisionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['accessReviewDecision%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\Decisions\Item\AccessReviewDecisionItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Delete navigation property instances for accessReviews
      * @param AccessReviewItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -154,17 +142,6 @@ class AccessReviewItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the myDecisions property of the microsoft.graph.accessReview entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\MyDecisions\Item\AccessReviewDecisionItemRequestBuilder
-    */
-    public function myDecisionsById(string $id): \Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\MyDecisions\Item\AccessReviewDecisionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['accessReviewDecision%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\MyDecisions\Item\AccessReviewDecisionItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Update the navigation property instances in accessReviews
      * @param AccessReview $body The request body
      * @param AccessReviewItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -181,17 +158,6 @@ class AccessReviewItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the reviewers property of the microsoft.graph.accessReview entity.
-     * @param string $id Unique identifier of the item
-     * @return AccessReviewReviewerItemRequestBuilder
-    */
-    public function reviewersById(string $id): AccessReviewReviewerItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['accessReviewReviewer%2Did'] = $id;
-        return new AccessReviewReviewerItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

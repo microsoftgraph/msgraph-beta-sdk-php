@@ -11,6 +11,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\DeviceEnrollmentConfigurations\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\DeviceEnrollmentConfigurations\CreateEnrollmentNotificationConfiguration\CreateEnrollmentNotificationConfigurationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\DeviceEnrollmentConfigurations\HasPayloadLinks\HasPayloadLinksRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\DeviceEnrollmentConfigurations\Item\DeviceEnrollmentConfigurationItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -59,6 +60,17 @@ class DeviceEnrollmentConfigurationsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the deviceEnrollmentConfigurations property of the microsoft.graph.user entity.
+     * @param string $deviceEnrollmentConfigurationId Unique identifier of the item
+     * @return DeviceEnrollmentConfigurationItemRequestBuilder
+    */
+    public function byDeviceEnrollmentConfigurationId(string $deviceEnrollmentConfigurationId): DeviceEnrollmentConfigurationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceEnrollmentConfiguration%2Did'] = $deviceEnrollmentConfigurationId;
+        return new DeviceEnrollmentConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DeviceEnrollmentConfigurationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

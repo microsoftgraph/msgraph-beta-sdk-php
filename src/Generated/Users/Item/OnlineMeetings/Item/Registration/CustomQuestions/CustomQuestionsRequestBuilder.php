@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\MeetingRegistrationQuestion;
 use Microsoft\Graph\Beta\Generated\Models\MeetingRegistrationQuestionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\Registration\CustomQuestions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\Registration\CustomQuestions\Item\MeetingRegistrationQuestionItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class CustomQuestionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the customQuestions property of the microsoft.graph.meetingRegistration entity.
+     * @param string $meetingRegistrationQuestionId Unique identifier of the item
+     * @return MeetingRegistrationQuestionItemRequestBuilder
+    */
+    public function byMeetingRegistrationQuestionId(string $meetingRegistrationQuestionId): MeetingRegistrationQuestionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['meetingRegistrationQuestion%2Did'] = $meetingRegistrationQuestionId;
+        return new MeetingRegistrationQuestionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CustomQuestionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

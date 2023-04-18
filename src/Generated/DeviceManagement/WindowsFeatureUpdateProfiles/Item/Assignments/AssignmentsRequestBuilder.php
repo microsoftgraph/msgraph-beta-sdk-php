@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsFeatureUpdateProfiles\Item\Assignments\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsFeatureUpdateProfiles\Item\Assignments\Item\WindowsFeatureUpdateProfileAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsFeatureUpdateProfileAssignment;
 use Microsoft\Graph\Beta\Generated\Models\WindowsFeatureUpdateProfileAssignmentCollectionResponse;
@@ -43,6 +44,17 @@ class AssignmentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.windowsFeatureUpdateProfile entity.
+     * @param string $windowsFeatureUpdateProfileAssignmentId Unique identifier of the item
+     * @return WindowsFeatureUpdateProfileAssignmentItemRequestBuilder
+    */
+    public function byWindowsFeatureUpdateProfileAssignmentId(string $windowsFeatureUpdateProfileAssignmentId): WindowsFeatureUpdateProfileAssignmentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['windowsFeatureUpdateProfileAssignment%2Did'] = $windowsFeatureUpdateProfileAssignmentId;
+        return new WindowsFeatureUpdateProfileAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AssignmentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

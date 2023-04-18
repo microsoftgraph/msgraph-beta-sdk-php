@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\BulkResize\BulkResizeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\GetProvisionedCloudPCsWithGroupIdWithServicePlanId\GetProvisionedCloudPCsWithGroupIdWithServicePlanIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\CloudPCItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\ValidateBulkResize\ValidateBulkResizeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPC;
 use Microsoft\Graph\Beta\Generated\Models\CloudPCCollectionResponse;
@@ -60,6 +61,17 @@ class CloudPCsRequestBuilder
         return new ValidateBulkResizeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * Provides operations to manage the cloudPCs property of the microsoft.graph.virtualEndpoint entity.
+     * @param string $cloudPCId Unique identifier of the item
+     * @return CloudPCItemRequestBuilder
+    */
+    public function byCloudPCId(string $cloudPCId): CloudPCItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['cloudPC%2Did'] = $cloudPCId;
+        return new CloudPCItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CloudPCsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\GetExpiringVppTokenCountWithExpiringBeforeDateTime\GetExpiringVppTokenCountWithExpiringBeforeDateTimeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\DepOnboardingSettingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DepOnboardingSetting;
 use Microsoft\Graph\Beta\Generated\Models\DepOnboardingSettingCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -44,6 +45,17 @@ class DepOnboardingSettingsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the depOnboardingSettings property of the microsoft.graph.deviceManagement entity.
+     * @param string $depOnboardingSettingId Unique identifier of the item
+     * @return DepOnboardingSettingItemRequestBuilder
+    */
+    public function byDepOnboardingSettingId(string $depOnboardingSettingId): DepOnboardingSettingItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['depOnboardingSetting%2Did'] = $depOnboardingSettingId;
+        return new DepOnboardingSettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DepOnboardingSettingsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

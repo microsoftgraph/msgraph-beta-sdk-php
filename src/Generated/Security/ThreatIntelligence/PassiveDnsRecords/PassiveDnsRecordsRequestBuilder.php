@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\PassiveDnsRecord;
 use Microsoft\Graph\Beta\Generated\Models\Security\PassiveDnsRecordCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\PassiveDnsRecords\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\PassiveDnsRecords\Item\PassiveDnsRecordItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class PassiveDnsRecordsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the passiveDnsRecords property of the microsoft.graph.security.threatIntelligence entity.
+     * @param string $passiveDnsRecordId Unique identifier of the item
+     * @return PassiveDnsRecordItemRequestBuilder
+    */
+    public function byPassiveDnsRecordId(string $passiveDnsRecordId): PassiveDnsRecordItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['passiveDnsRecord%2Did'] = $passiveDnsRecordId;
+        return new PassiveDnsRecordItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PassiveDnsRecordsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

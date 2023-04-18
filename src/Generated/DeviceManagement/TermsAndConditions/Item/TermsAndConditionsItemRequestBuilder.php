@@ -6,11 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\Item\AcceptanceStatuses\AcceptanceStatusesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\Item\AcceptanceStatuses\Item\TermsAndConditionsAcceptanceStatusItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\Item\Assignments\Item\TermsAndConditionsAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\Item\GroupAssignments\GroupAssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\Item\GroupAssignments\Item\TermsAndConditionsGroupAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TermsAndConditions;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -62,28 +59,6 @@ class TermsAndConditionsItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Provides operations to manage the acceptanceStatuses property of the microsoft.graph.termsAndConditions entity.
-     * @param string $id Unique identifier of the item
-     * @return TermsAndConditionsAcceptanceStatusItemRequestBuilder
-    */
-    public function acceptanceStatusesById(string $id): TermsAndConditionsAcceptanceStatusItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['termsAndConditionsAcceptanceStatus%2Did'] = $id;
-        return new TermsAndConditionsAcceptanceStatusItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the assignments property of the microsoft.graph.termsAndConditions entity.
-     * @param string $id Unique identifier of the item
-     * @return TermsAndConditionsAssignmentItemRequestBuilder
-    */
-    public function assignmentsById(string $id): TermsAndConditionsAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['termsAndConditionsAssignment%2Did'] = $id;
-        return new TermsAndConditionsAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new TermsAndConditionsItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -132,17 +107,6 @@ class TermsAndConditionsItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the groupAssignments property of the microsoft.graph.termsAndConditions entity.
-     * @param string $id Unique identifier of the item
-     * @return TermsAndConditionsGroupAssignmentItemRequestBuilder
-    */
-    public function groupAssignmentsById(string $id): TermsAndConditionsGroupAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['termsAndConditionsGroupAssignment%2Did'] = $id;
-        return new TermsAndConditionsGroupAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

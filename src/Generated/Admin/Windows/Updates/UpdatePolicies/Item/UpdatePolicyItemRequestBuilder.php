@@ -7,7 +7,6 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatePolicies\Item\Audience\AudienceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatePolicies\Item\ComplianceChanges\ComplianceChangesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatePolicies\Item\ComplianceChanges\Item\ComplianceChangeItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdatePolicy;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -51,17 +50,6 @@ class UpdatePolicyItemRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the complianceChanges property of the microsoft.graph.windowsUpdates.updatePolicy entity.
-     * @param string $id Unique identifier of the item
-     * @return ComplianceChangeItemRequestBuilder
-    */
-    public function complianceChangesById(string $id): ComplianceChangeItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['complianceChange%2Did'] = $id;
-        return new ComplianceChangeItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new UpdatePolicyItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

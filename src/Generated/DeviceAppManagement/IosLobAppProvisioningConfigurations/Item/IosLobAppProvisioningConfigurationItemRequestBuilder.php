@@ -7,12 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\Assignments\Item\IosLobAppProvisioningConfigurationAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\DeviceStatuses\DeviceStatusesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\DeviceStatuses\Item\ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\GroupAssignments\GroupAssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\GroupAssignments\Item\MobileAppProvisioningConfigGroupAssignmentItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\UserStatuses\Item\ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\UserStatuses\UserStatusesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IosLobAppProvisioningConfiguration;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -79,17 +75,6 @@ class IosLobAppProvisioningConfigurationItemRequestBuilder
     }
     
     /**
-     * Provides operations to manage the assignments property of the microsoft.graph.iosLobAppProvisioningConfiguration entity.
-     * @param string $id Unique identifier of the item
-     * @return IosLobAppProvisioningConfigurationAssignmentItemRequestBuilder
-    */
-    public function assignmentsById(string $id): IosLobAppProvisioningConfigurationAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['iosLobAppProvisioningConfigurationAssignment%2Did'] = $id;
-        return new IosLobAppProvisioningConfigurationAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new IosLobAppProvisioningConfigurationItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -123,17 +108,6 @@ class IosLobAppProvisioningConfigurationItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the deviceStatuses property of the microsoft.graph.iosLobAppProvisioningConfiguration entity.
-     * @param string $id Unique identifier of the item
-     * @return ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder
-    */
-    public function deviceStatusesById(string $id): ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['managedDeviceMobileAppConfigurationDeviceStatus%2Did'] = $id;
-        return new ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * The IOS Lob App Provisioning Configurations.
      * @param IosLobAppProvisioningConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -149,17 +123,6 @@ class IosLobAppProvisioningConfigurationItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the groupAssignments property of the microsoft.graph.iosLobAppProvisioningConfiguration entity.
-     * @param string $id Unique identifier of the item
-     * @return MobileAppProvisioningConfigGroupAssignmentItemRequestBuilder
-    */
-    public function groupAssignmentsById(string $id): MobileAppProvisioningConfigGroupAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['mobileAppProvisioningConfigGroupAssignment%2Did'] = $id;
-        return new MobileAppProvisioningConfigGroupAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -249,17 +212,6 @@ class IosLobAppProvisioningConfigurationItemRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the userStatuses property of the microsoft.graph.iosLobAppProvisioningConfiguration entity.
-     * @param string $id Unique identifier of the item
-     * @return ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder
-    */
-    public function userStatusesById(string $id): ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['managedDeviceMobileAppConfigurationUserStatus%2Did'] = $id;
-        return new ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

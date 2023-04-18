@@ -11,6 +11,7 @@ use Microsoft\Graph\Beta\Generated\Models\ResourceSpecificPermissionGrantCollect
 use Microsoft\Graph\Beta\Generated\PermissionGrants\Delta\DeltaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PermissionGrants\GetByIds\GetByIdsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PermissionGrants\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\PermissionGrants\Item\ResourceSpecificPermissionGrantItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PermissionGrants\ValidateProperties\ValidatePropertiesRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -67,6 +68,17 @@ class PermissionGrantsRequestBuilder
         return new ValidatePropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * Provides operations to manage the collection of resourceSpecificPermissionGrant entities.
+     * @param string $resourceSpecificPermissionGrantId Unique identifier of the item
+     * @return ResourceSpecificPermissionGrantItemRequestBuilder
+    */
+    public function byResourceSpecificPermissionGrantId(string $resourceSpecificPermissionGrantId): ResourceSpecificPermissionGrantItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['resourceSpecificPermissionGrant%2Did'] = $resourceSpecificPermissionGrantId;
+        return new ResourceSpecificPermissionGrantItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PermissionGrantsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

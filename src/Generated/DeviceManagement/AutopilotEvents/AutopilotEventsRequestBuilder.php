@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AutopilotEvents\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\AutopilotEvents\Item\DeviceManagementAutopilotEventItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementAutopilotEvent;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementAutopilotEventCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AutopilotEventsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the autopilotEvents property of the microsoft.graph.deviceManagement entity.
+     * @param string $deviceManagementAutopilotEventId Unique identifier of the item
+     * @return DeviceManagementAutopilotEventItemRequestBuilder
+    */
+    public function byDeviceManagementAutopilotEventId(string $deviceManagementAutopilotEventId): DeviceManagementAutopilotEventItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceManagementAutopilotEvent%2Did'] = $deviceManagementAutopilotEventId;
+        return new DeviceManagementAutopilotEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AutopilotEventsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

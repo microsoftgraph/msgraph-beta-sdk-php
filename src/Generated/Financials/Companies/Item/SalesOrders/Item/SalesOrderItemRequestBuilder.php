@@ -8,7 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesOrders\Item\Currency\CurrencyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesOrders\Item\Customer\CustomerRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesOrders\Item\PaymentTerm\PaymentTermRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesOrders\Item\SalesOrderLines\Item\SalesOrderLineItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesOrders\Item\SalesOrderLines\SalesOrderLinesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SalesOrder;
@@ -117,17 +116,6 @@ class SalesOrderItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the salesOrderLines property of the microsoft.graph.salesOrder entity.
-     * @param string $id Unique identifier of the item
-     * @return SalesOrderLineItemRequestBuilder
-    */
-    public function salesOrderLinesById(string $id): SalesOrderLineItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['salesOrderLine%2Did'] = $id;
-        return new SalesOrderLineItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Catalog\Entries\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Catalog\Entries\Item\CatalogEntryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\CatalogEntry;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\CatalogEntryCollectionResponse;
@@ -43,6 +44,17 @@ class EntriesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the entries property of the microsoft.graph.windowsUpdates.catalog entity.
+     * @param string $catalogEntryId Unique identifier of the item
+     * @return CatalogEntryItemRequestBuilder
+    */
+    public function byCatalogEntryId(string $catalogEntryId): CatalogEntryItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['catalogEntry%2Did'] = $catalogEntryId;
+        return new CatalogEntryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new EntriesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

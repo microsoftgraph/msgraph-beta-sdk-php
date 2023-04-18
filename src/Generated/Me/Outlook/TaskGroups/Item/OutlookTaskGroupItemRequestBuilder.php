@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\Me\Outlook\TaskGroups\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Me\Outlook\TaskGroups\Item\TaskFolders\Item\OutlookTaskFolderItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Outlook\TaskGroups\Item\TaskFolders\TaskFoldersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\OutlookTaskGroup;
@@ -111,17 +110,6 @@ class OutlookTaskGroupItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the taskFolders property of the microsoft.graph.outlookTaskGroup entity.
-     * @param string $id Unique identifier of the item
-     * @return OutlookTaskFolderItemRequestBuilder
-    */
-    public function taskFoldersById(string $id): OutlookTaskFolderItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['outlookTaskFolder%2Did'] = $id;
-        return new OutlookTaskFolderItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

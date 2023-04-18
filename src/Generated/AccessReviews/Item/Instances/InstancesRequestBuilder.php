@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\AccessReviewItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessReview;
 use Microsoft\Graph\Beta\Generated\Models\AccessReviewCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class InstancesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the instances property of the microsoft.graph.accessReview entity.
+     * @param string $accessReviewId1 Unique identifier of the item
+     * @return AccessReviewItemRequestBuilder
+    */
+    public function byAccessReviewId1(string $accessReviewId1): AccessReviewItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['accessReview%2Did1'] = $accessReviewId1;
+        return new AccessReviewItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new InstancesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

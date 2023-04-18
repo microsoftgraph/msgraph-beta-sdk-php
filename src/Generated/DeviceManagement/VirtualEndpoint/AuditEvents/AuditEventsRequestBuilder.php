@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\AuditEvents\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\AuditEvents\GetAuditActivityTypes\GetAuditActivityTypesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\AuditEvents\Item\CloudPcAuditEventItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcAuditEvent;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcAuditEventCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -51,6 +52,17 @@ class AuditEventsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the auditEvents property of the microsoft.graph.virtualEndpoint entity.
+     * @param string $cloudPcAuditEventId Unique identifier of the item
+     * @return CloudPcAuditEventItemRequestBuilder
+    */
+    public function byCloudPcAuditEventId(string $cloudPcAuditEventId): CloudPcAuditEventItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['cloudPcAuditEvent%2Did'] = $cloudPcAuditEventId;
+        return new CloudPcAuditEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AuditEventsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

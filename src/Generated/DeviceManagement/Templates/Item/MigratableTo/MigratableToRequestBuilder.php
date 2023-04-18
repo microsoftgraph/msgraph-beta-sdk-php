@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\MigratableTo\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\MigratableTo\ImportOffice365DeviceConfigurationPolicies\ImportOffice365DeviceConfigurationPoliciesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\MigratableTo\Item\DeviceManagementTemplateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementTemplate;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementTemplateCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -51,6 +52,17 @@ class MigratableToRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the migratableTo property of the microsoft.graph.deviceManagementTemplate entity.
+     * @param string $deviceManagementTemplateId1 Unique identifier of the item
+     * @return DeviceManagementTemplateItemRequestBuilder
+    */
+    public function byDeviceManagementTemplateId1(string $deviceManagementTemplateId1): DeviceManagementTemplateItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceManagementTemplate%2Did1'] = $deviceManagementTemplateId1;
+        return new DeviceManagementTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new MigratableToRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

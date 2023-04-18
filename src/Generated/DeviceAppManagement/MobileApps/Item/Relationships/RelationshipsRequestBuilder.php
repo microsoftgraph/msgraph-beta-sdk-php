@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\Relationships\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\Relationships\Item\MobileAppRelationshipItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MobileAppRelationship;
 use Microsoft\Graph\Beta\Generated\Models\MobileAppRelationshipCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class RelationshipsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the relationships property of the microsoft.graph.mobileApp entity.
+     * @param string $mobileAppRelationshipId Unique identifier of the item
+     * @return MobileAppRelationshipItemRequestBuilder
+    */
+    public function byMobileAppRelationshipId(string $mobileAppRelationshipId): MobileAppRelationshipItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['mobileAppRelationship%2Did'] = $mobileAppRelationshipId;
+        return new MobileAppRelationshipItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new RelationshipsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

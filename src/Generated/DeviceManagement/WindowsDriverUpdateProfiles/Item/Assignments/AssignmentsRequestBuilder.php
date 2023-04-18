@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsDriverUpdateProfiles\Item\Assignments\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsDriverUpdateProfiles\Item\Assignments\Item\WindowsDriverUpdateProfileAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsDriverUpdateProfileAssignment;
 use Microsoft\Graph\Beta\Generated\Models\WindowsDriverUpdateProfileAssignmentCollectionResponse;
@@ -43,6 +44,17 @@ class AssignmentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.windowsDriverUpdateProfile entity.
+     * @param string $windowsDriverUpdateProfileAssignmentId Unique identifier of the item
+     * @return WindowsDriverUpdateProfileAssignmentItemRequestBuilder
+    */
+    public function byWindowsDriverUpdateProfileAssignmentId(string $windowsDriverUpdateProfileAssignmentId): WindowsDriverUpdateProfileAssignmentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['windowsDriverUpdateProfileAssignment%2Did'] = $windowsDriverUpdateProfileAssignmentId;
+        return new WindowsDriverUpdateProfileAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AssignmentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

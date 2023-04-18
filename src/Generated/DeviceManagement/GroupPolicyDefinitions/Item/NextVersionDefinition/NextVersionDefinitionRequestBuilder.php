@@ -7,7 +7,6 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyDefinitions\Item\NextVersionDefinition\Category\CategoryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyDefinitions\Item\NextVersionDefinition\DefinitionFile\DefinitionFileRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyDefinitions\Item\NextVersionDefinition\Presentations\Item\GroupPolicyPresentationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyDefinitions\Item\NextVersionDefinition\Presentations\PresentationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyDefinitions\Item\NextVersionDefinition\PreviousVersionDefinition\PreviousVersionDefinitionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyDefinition;
@@ -135,17 +134,6 @@ class NextVersionDefinitionRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the presentations property of the microsoft.graph.groupPolicyDefinition entity.
-     * @param string $id Unique identifier of the item
-     * @return GroupPolicyPresentationItemRequestBuilder
-    */
-    public function presentationsById(string $id): GroupPolicyPresentationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['groupPolicyPresentation%2Did'] = $id;
-        return new GroupPolicyPresentationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

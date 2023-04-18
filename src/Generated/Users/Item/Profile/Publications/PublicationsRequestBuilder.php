@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ItemPublication;
 use Microsoft\Graph\Beta\Generated\Models\ItemPublicationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Publications\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Publications\Item\ItemPublicationItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class PublicationsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the publications property of the microsoft.graph.profile entity.
+     * @param string $itemPublicationId Unique identifier of the item
+     * @return ItemPublicationItemRequestBuilder
+    */
+    public function byItemPublicationId(string $itemPublicationId): ItemPublicationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['itemPublication%2Did'] = $itemPublicationId;
+        return new ItemPublicationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PublicationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

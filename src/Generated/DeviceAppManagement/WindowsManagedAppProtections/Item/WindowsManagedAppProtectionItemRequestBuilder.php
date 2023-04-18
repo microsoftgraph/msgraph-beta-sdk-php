@@ -6,10 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WindowsManagedAppProtections\Item\Apps\AppsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WindowsManagedAppProtections\Item\Apps\Item\ManagedMobileAppItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WindowsManagedAppProtections\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WindowsManagedAppProtections\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WindowsManagedAppProtections\Item\Assignments\Item\TargetedManagedAppPolicyAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WindowsManagedAppProtections\Item\TargetApps\TargetAppsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsManagedAppProtection;
@@ -68,28 +66,6 @@ class WindowsManagedAppProtectionItemRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the apps property of the microsoft.graph.windowsManagedAppProtection entity.
-     * @param string $id Unique identifier of the item
-     * @return ManagedMobileAppItemRequestBuilder
-    */
-    public function appsById(string $id): ManagedMobileAppItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['managedMobileApp%2Did'] = $id;
-        return new ManagedMobileAppItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the assignments property of the microsoft.graph.windowsManagedAppProtection entity.
-     * @param string $id Unique identifier of the item
-     * @return TargetedManagedAppPolicyAssignmentItemRequestBuilder
-    */
-    public function assignmentsById(string $id): TargetedManagedAppPolicyAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['targetedManagedAppPolicyAssignment%2Did'] = $id;
-        return new TargetedManagedAppPolicyAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new WindowsManagedAppProtectionItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

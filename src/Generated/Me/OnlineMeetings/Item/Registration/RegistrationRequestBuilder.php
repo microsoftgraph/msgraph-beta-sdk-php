@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\OnlineMeetings\Item\Registration\CustomQuestions\CustomQuestionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\OnlineMeetings\Item\Registration\CustomQuestions\Item\MeetingRegistrationQuestionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MeetingRegistration;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -59,17 +58,6 @@ class RegistrationRequestBuilder
     }
 
     /**
-     * Provides operations to manage the customQuestions property of the microsoft.graph.meetingRegistration entity.
-     * @param string $id Unique identifier of the item
-     * @return MeetingRegistrationQuestionItemRequestBuilder
-    */
-    public function customQuestionsById(string $id): MeetingRegistrationQuestionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['meetingRegistrationQuestion%2Did'] = $id;
-        return new MeetingRegistrationQuestionItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Disable and delete the meetingRegistration of an onlineMeeting on behalf of the organizer.
      * @param RegistrationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -89,10 +77,10 @@ class RegistrationRequestBuilder
     }
 
     /**
-     * Get the meetingRegistration details associated with an onlineMeeting on behalf of the organizer.
+     * Get the externalMeetingRegistration details associated with an onlineMeeting.
      * @param RegistrationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/meetingregistration-get?view=graph-rest-1.0 Find more info here
+     * @link https://docs.microsoft.com/graph/api/externalmeetingregistration-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?RegistrationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -149,7 +137,7 @@ class RegistrationRequestBuilder
     }
 
     /**
-     * Get the meetingRegistration details associated with an onlineMeeting on behalf of the organizer.
+     * Get the externalMeetingRegistration details associated with an onlineMeeting.
      * @param RegistrationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

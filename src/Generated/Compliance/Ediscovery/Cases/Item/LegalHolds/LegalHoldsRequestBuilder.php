@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\LegalHoldItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\LegalHold;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\LegalHoldCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class LegalHoldsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the legalHolds property of the microsoft.graph.ediscovery.case entity.
+     * @param string $legalHoldId Unique identifier of the item
+     * @return LegalHoldItemRequestBuilder
+    */
+    public function byLegalHoldId(string $legalHoldId): LegalHoldItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['legalHold%2Did'] = $legalHoldId;
+        return new LegalHoldItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new LegalHoldsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

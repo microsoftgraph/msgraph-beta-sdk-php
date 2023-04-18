@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\EmbeddedSIMActivationCodePools\Item\Assignments\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\EmbeddedSIMActivationCodePools\Item\Assignments\Item\EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EmbeddedSIMActivationCodePoolAssignment;
 use Microsoft\Graph\Beta\Generated\Models\EmbeddedSIMActivationCodePoolAssignmentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AssignmentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.embeddedSIMActivationCodePool entity.
+     * @param string $embeddedSIMActivationCodePoolAssignmentId Unique identifier of the item
+     * @return EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilder
+    */
+    public function byEmbeddedSIMActivationCodePoolAssignmentId(string $embeddedSIMActivationCodePoolAssignmentId): EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['embeddedSIMActivationCodePoolAssignment%2Did'] = $embeddedSIMActivationCodePoolAssignmentId;
+        return new EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AssignmentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

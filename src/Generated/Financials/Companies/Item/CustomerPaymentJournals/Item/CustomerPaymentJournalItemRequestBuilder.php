@@ -7,7 +7,6 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\CustomerPaymentJournals\Item\Account\AccountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\CustomerPaymentJournals\Item\CustomerPayments\CustomerPaymentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\CustomerPaymentJournals\Item\CustomerPayments\Item\CustomerPaymentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CustomerPaymentJournal;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -64,17 +63,6 @@ class CustomerPaymentJournalItemRequestBuilder
         } else {
             $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
         }
-    }
-
-    /**
-     * Provides operations to manage the customerPayments property of the microsoft.graph.customerPaymentJournal entity.
-     * @param string $id Unique identifier of the item
-     * @return CustomerPaymentItemRequestBuilder
-    */
-    public function customerPaymentsById(string $id): CustomerPaymentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['customerPayment%2Did'] = $id;
-        return new CustomerPaymentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

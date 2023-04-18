@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\ServicePrincipalCreationConditionSet;
 use Microsoft\Graph\Beta\Generated\Models\ServicePrincipalCreationConditionSetCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\Item\Excludes\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\Item\Excludes\Item\ServicePrincipalCreationConditionSetItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class ExcludesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the excludes property of the microsoft.graph.servicePrincipalCreationPolicy entity.
+     * @param string $servicePrincipalCreationConditionSetId Unique identifier of the item
+     * @return ServicePrincipalCreationConditionSetItemRequestBuilder
+    */
+    public function byServicePrincipalCreationConditionSetId(string $servicePrincipalCreationConditionSetId): ServicePrincipalCreationConditionSetItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['servicePrincipalCreationConditionSet%2Did'] = $servicePrincipalCreationConditionSetId;
+        return new ServicePrincipalCreationConditionSetItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ExcludesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

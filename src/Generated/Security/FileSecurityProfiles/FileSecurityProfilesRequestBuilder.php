@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\FileSecurityProfile;
 use Microsoft\Graph\Beta\Generated\Models\FileSecurityProfileCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Security\FileSecurityProfiles\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\FileSecurityProfiles\Item\FileSecurityProfileItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class FileSecurityProfilesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the fileSecurityProfiles property of the microsoft.graph.security entity.
+     * @param string $fileSecurityProfileId Unique identifier of the item
+     * @return FileSecurityProfileItemRequestBuilder
+    */
+    public function byFileSecurityProfileId(string $fileSecurityProfileId): FileSecurityProfileItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['fileSecurityProfile%2Did'] = $fileSecurityProfileId;
+        return new FileSecurityProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new FileSecurityProfilesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

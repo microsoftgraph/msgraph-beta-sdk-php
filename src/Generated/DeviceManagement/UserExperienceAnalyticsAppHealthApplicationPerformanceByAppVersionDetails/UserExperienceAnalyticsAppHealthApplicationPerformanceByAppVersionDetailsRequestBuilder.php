@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails\Item\UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsCollectionResponse;
@@ -43,6 +44,17 @@ class UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsR
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails property of the microsoft.graph.deviceManagement entity.
+     * @param string $userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsId Unique identifier of the item
+     * @return UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsItemRequestBuilder
+    */
+    public function byUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsId(string $userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsId): UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails%2Did'] = $userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsId;
+        return new UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudiences\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudiences\Item\DeploymentAudienceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\DeploymentAudience;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\DeploymentAudienceCollectionResponse;
@@ -43,6 +44,17 @@ class DeploymentAudiencesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the deploymentAudiences property of the microsoft.graph.adminWindowsUpdates entity.
+     * @param string $deploymentAudienceId Unique identifier of the item
+     * @return DeploymentAudienceItemRequestBuilder
+    */
+    public function byDeploymentAudienceId(string $deploymentAudienceId): DeploymentAudienceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deploymentAudience%2Did'] = $deploymentAudienceId;
+        return new DeploymentAudienceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DeploymentAudiencesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

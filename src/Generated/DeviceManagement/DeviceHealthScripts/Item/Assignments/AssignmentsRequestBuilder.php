@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\Assignments\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\Assignments\Item\DeviceHealthScriptAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceHealthScriptAssignment;
 use Microsoft\Graph\Beta\Generated\Models\DeviceHealthScriptAssignmentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AssignmentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.deviceHealthScript entity.
+     * @param string $deviceHealthScriptAssignmentId Unique identifier of the item
+     * @return DeviceHealthScriptAssignmentItemRequestBuilder
+    */
+    public function byDeviceHealthScriptAssignmentId(string $deviceHealthScriptAssignmentId): DeviceHealthScriptAssignmentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceHealthScriptAssignment%2Did'] = $deviceHealthScriptAssignmentId;
+        return new DeviceHealthScriptAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AssignmentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

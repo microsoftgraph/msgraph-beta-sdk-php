@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\EdiscoveryFile;
 use Microsoft\Graph\Beta\Generated\Models\Security\EdiscoveryFileCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\Files\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\Files\Item\EdiscoveryFileItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class FilesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the files property of the microsoft.graph.security.ediscoveryReviewSet entity.
+     * @param string $ediscoveryFileId Unique identifier of the item
+     * @return EdiscoveryFileItemRequestBuilder
+    */
+    public function byEdiscoveryFileId(string $ediscoveryFileId): EdiscoveryFileItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['ediscoveryFile%2Did'] = $ediscoveryFileId;
+        return new EdiscoveryFileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new FilesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

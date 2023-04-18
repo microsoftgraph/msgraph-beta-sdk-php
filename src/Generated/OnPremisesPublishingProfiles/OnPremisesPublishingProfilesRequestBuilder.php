@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\OnPremisesPublishingProfile;
 use Microsoft\Graph\Beta\Generated\Models\OnPremisesPublishingProfileCollectionResponse;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\OnPremisesPublishingProfileItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class OnPremisesPublishingProfilesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the collection of onPremisesPublishingProfile entities.
+     * @param string $onPremisesPublishingProfileId Unique identifier of the item
+     * @return OnPremisesPublishingProfileItemRequestBuilder
+    */
+    public function byOnPremisesPublishingProfileId(string $onPremisesPublishingProfileId): OnPremisesPublishingProfileItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['onPremisesPublishingProfile%2Did'] = $onPremisesPublishingProfileId;
+        return new OnPremisesPublishingProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new OnPremisesPublishingProfilesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

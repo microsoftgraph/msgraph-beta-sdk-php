@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Outlook\TaskGroups\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Outlook\TaskGroups\Item\OutlookTaskGroupItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\OutlookTaskGroup;
 use Microsoft\Graph\Beta\Generated\Models\OutlookTaskGroupCollectionResponse;
@@ -43,6 +44,17 @@ class TaskGroupsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the taskGroups property of the microsoft.graph.outlookUser entity.
+     * @param string $outlookTaskGroupId Unique identifier of the item
+     * @return OutlookTaskGroupItemRequestBuilder
+    */
+    public function byOutlookTaskGroupId(string $outlookTaskGroupId): OutlookTaskGroupItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['outlookTaskGroup%2Did'] = $outlookTaskGroupId;
+        return new OutlookTaskGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new TaskGroupsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

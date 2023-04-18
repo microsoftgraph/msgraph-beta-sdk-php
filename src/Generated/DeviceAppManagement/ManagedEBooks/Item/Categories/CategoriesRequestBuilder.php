@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedEBooks\Item\Categories\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedEBooks\Item\Categories\Item\ManagedEBookCategoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ManagedEBookCategoryCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -42,6 +43,17 @@ class CategoriesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the categories property of the microsoft.graph.managedEBook entity.
+     * @param string $managedEBookCategoryId Unique identifier of the item
+     * @return ManagedEBookCategoryItemRequestBuilder
+    */
+    public function byManagedEBookCategoryId(string $managedEBookCategoryId): ManagedEBookCategoryItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managedEBookCategory%2Did'] = $managedEBookCategoryId;
+        return new ManagedEBookCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CategoriesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

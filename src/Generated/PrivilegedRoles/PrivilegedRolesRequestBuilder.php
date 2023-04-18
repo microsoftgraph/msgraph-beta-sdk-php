@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegedRole;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegedRoleCollectionResponse;
 use Microsoft\Graph\Beta\Generated\PrivilegedRoles\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\PrivilegedRoles\Item\PrivilegedRoleItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class PrivilegedRolesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the collection of privilegedRole entities.
+     * @param string $privilegedRoleId Unique identifier of the item
+     * @return PrivilegedRoleItemRequestBuilder
+    */
+    public function byPrivilegedRoleId(string $privilegedRoleId): PrivilegedRoleItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['privilegedRole%2Did'] = $privilegedRoleId;
+        return new PrivilegedRoleItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PrivilegedRolesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

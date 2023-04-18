@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationRestrictedAppsViolations\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationRestrictedAppsViolations\Item\RestrictedAppsViolationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\RestrictedAppsViolation;
 use Microsoft\Graph\Beta\Generated\Models\RestrictedAppsViolationCollectionResponse;
@@ -43,6 +44,17 @@ class DeviceConfigurationRestrictedAppsViolationsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the deviceConfigurationRestrictedAppsViolations property of the microsoft.graph.deviceManagement entity.
+     * @param string $restrictedAppsViolationId Unique identifier of the item
+     * @return RestrictedAppsViolationItemRequestBuilder
+    */
+    public function byRestrictedAppsViolationId(string $restrictedAppsViolationId): RestrictedAppsViolationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['restrictedAppsViolation%2Did'] = $restrictedAppsViolationId;
+        return new RestrictedAppsViolationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DeviceConfigurationRestrictedAppsViolationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

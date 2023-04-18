@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MobileThreatDefenseConnectors\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MobileThreatDefenseConnectors\Item\MobileThreatDefenseConnectorItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MobileThreatDefenseConnector;
 use Microsoft\Graph\Beta\Generated\Models\MobileThreatDefenseConnectorCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class MobileThreatDefenseConnectorsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the mobileThreatDefenseConnectors property of the microsoft.graph.deviceManagement entity.
+     * @param string $mobileThreatDefenseConnectorId Unique identifier of the item
+     * @return MobileThreatDefenseConnectorItemRequestBuilder
+    */
+    public function byMobileThreatDefenseConnectorId(string $mobileThreatDefenseConnectorId): MobileThreatDefenseConnectorItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['mobileThreatDefenseConnector%2Did'] = $mobileThreatDefenseConnectorId;
+        return new MobileThreatDefenseConnectorItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new MobileThreatDefenseConnectorsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

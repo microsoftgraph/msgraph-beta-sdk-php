@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\MobilityManagementPolicies\Item\IncludedGroups\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\MobilityManagementPolicies\Item\IncludedGroups\Item\GroupItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\MobilityManagementPolicies\Item\IncludedGroups\Ref\RefRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\GroupCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -50,6 +51,17 @@ class IncludedGroupsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Gets an item from the Microsoft/Graph/Beta/Generated.mobilityManagementPolicies.item.includedGroups.item collection
+     * @param string $groupId Unique identifier of the item
+     * @return GroupItemRequestBuilder
+    */
+    public function byGroupId(string $groupId): GroupItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['group%2Did'] = $groupId;
+        return new GroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new IncludedGroupsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

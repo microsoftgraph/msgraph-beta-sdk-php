@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalytic
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsCategories\Item\MetricValues\Item\UserExperienceAnalyticsMetricItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsCategories\Item\MetricValues\MetricValuesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsCategory;
@@ -92,17 +91,6 @@ class UserExperienceAnalyticsCategoryItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the metricValues property of the microsoft.graph.userExperienceAnalyticsCategory entity.
-     * @param string $id Unique identifier of the item
-     * @return UserExperienceAnalyticsMetricItemRequestBuilder
-    */
-    public function metricValuesById(string $id): UserExperienceAnalyticsMetricItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['userExperienceAnalyticsMetric%2Did'] = $id;
-        return new UserExperienceAnalyticsMetricItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsRemoteConnection\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsRemoteConnection\Item\UserExperienceAnalyticsRemoteConnectionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsRemoteConnection\SummarizeDeviceRemoteConnectionWithSummarizeBy\SummarizeDeviceRemoteConnectionWithSummarizeByRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsRemoteConnection;
@@ -44,6 +45,17 @@ class UserExperienceAnalyticsRemoteConnectionRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userExperienceAnalyticsRemoteConnection property of the microsoft.graph.deviceManagement entity.
+     * @param string $userExperienceAnalyticsRemoteConnectionId Unique identifier of the item
+     * @return UserExperienceAnalyticsRemoteConnectionItemRequestBuilder
+    */
+    public function byUserExperienceAnalyticsRemoteConnectionId(string $userExperienceAnalyticsRemoteConnectionId): UserExperienceAnalyticsRemoteConnectionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userExperienceAnalyticsRemoteConnection%2Did'] = $userExperienceAnalyticsRemoteConnectionId;
+        return new UserExperienceAnalyticsRemoteConnectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserExperienceAnalyticsRemoteConnectionRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

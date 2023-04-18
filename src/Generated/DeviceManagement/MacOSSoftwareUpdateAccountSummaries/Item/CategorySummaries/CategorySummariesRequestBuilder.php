@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MacOSSoftwareUpdateAccountSummaries\Item\CategorySummaries\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MacOSSoftwareUpdateAccountSummaries\Item\CategorySummaries\Item\MacOSSoftwareUpdateCategorySummaryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MacOSSoftwareUpdateCategorySummary;
 use Microsoft\Graph\Beta\Generated\Models\MacOSSoftwareUpdateCategorySummaryCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class CategorySummariesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the categorySummaries property of the microsoft.graph.macOSSoftwareUpdateAccountSummary entity.
+     * @param string $macOSSoftwareUpdateCategorySummaryId Unique identifier of the item
+     * @return MacOSSoftwareUpdateCategorySummaryItemRequestBuilder
+    */
+    public function byMacOSSoftwareUpdateCategorySummaryId(string $macOSSoftwareUpdateCategorySummaryId): MacOSSoftwareUpdateCategorySummaryItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['macOSSoftwareUpdateCategorySummary%2Did'] = $macOSSoftwareUpdateCategorySummaryId;
+        return new MacOSSoftwareUpdateCategorySummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CategorySummariesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

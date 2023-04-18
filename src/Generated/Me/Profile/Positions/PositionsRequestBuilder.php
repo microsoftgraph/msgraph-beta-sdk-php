@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Profile\Positions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Profile\Positions\Item\WorkPositionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WorkPosition;
 use Microsoft\Graph\Beta\Generated\Models\WorkPositionCollectionResponse;
@@ -43,6 +44,17 @@ class PositionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the positions property of the microsoft.graph.profile entity.
+     * @param string $workPositionId Unique identifier of the item
+     * @return WorkPositionItemRequestBuilder
+    */
+    public function byWorkPositionId(string $workPositionId): WorkPositionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['workPosition%2Did'] = $workPositionId;
+        return new WorkPositionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PositionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

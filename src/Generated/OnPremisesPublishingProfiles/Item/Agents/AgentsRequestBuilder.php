@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\OnPremisesAgent;
 use Microsoft\Graph\Beta\Generated\Models\OnPremisesAgentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Agents\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Agents\Item\OnPremisesAgentItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class AgentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the agents property of the microsoft.graph.onPremisesPublishingProfile entity.
+     * @param string $onPremisesAgentId Unique identifier of the item
+     * @return OnPremisesAgentItemRequestBuilder
+    */
+    public function byOnPremisesAgentId(string $onPremisesAgentId): OnPremisesAgentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['onPremisesAgent%2Did'] = $onPremisesAgentId;
+        return new OnPremisesAgentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AgentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

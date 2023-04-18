@@ -6,21 +6,14 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\CustodiansRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\CustodianItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\EdiscoveryClose\EdiscoveryCloseRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\EdiscoveryReopen\EdiscoveryReopenRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\LegalHoldItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\LegalHoldsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\NoncustodialDataSourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\NoncustodialDataSourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Operations\Item\CaseOperationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Operations\OperationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\Item\ReviewSetItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\ReviewSetsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Settings\SettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\SourceCollectionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\SourceCollectionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\Item\TagItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\TagsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\EscapedCase;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -137,17 +130,6 @@ class CaseItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the custodians property of the microsoft.graph.ediscovery.case entity.
-     * @param string $id Unique identifier of the item
-     * @return CustodianItemRequestBuilder
-    */
-    public function custodiansById(string $id): CustodianItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['custodian%2Did'] = $id;
-        return new CustodianItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Delete navigation property cases for compliance
      * @param CaseItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -184,39 +166,6 @@ class CaseItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the legalHolds property of the microsoft.graph.ediscovery.case entity.
-     * @param string $id Unique identifier of the item
-     * @return LegalHoldItemRequestBuilder
-    */
-    public function legalHoldsById(string $id): LegalHoldItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['legalHold%2Did'] = $id;
-        return new LegalHoldItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the noncustodialDataSources property of the microsoft.graph.ediscovery.case entity.
-     * @param string $id Unique identifier of the item
-     * @return NoncustodialDataSourceItemRequestBuilder
-    */
-    public function noncustodialDataSourcesById(string $id): NoncustodialDataSourceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['noncustodialDataSource%2Did'] = $id;
-        return new NoncustodialDataSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the operations property of the microsoft.graph.ediscovery.case entity.
-     * @param string $id Unique identifier of the item
-     * @return CaseOperationItemRequestBuilder
-    */
-    public function operationsById(string $id): CaseOperationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['caseOperation%2Did'] = $id;
-        return new CaseOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Update the navigation property cases in compliance
      * @param EscapedCase $body The request body
      * @param CaseItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -233,39 +182,6 @@ class CaseItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the reviewSets property of the microsoft.graph.ediscovery.case entity.
-     * @param string $id Unique identifier of the item
-     * @return ReviewSetItemRequestBuilder
-    */
-    public function reviewSetsById(string $id): ReviewSetItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['reviewSet%2Did'] = $id;
-        return new ReviewSetItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the sourceCollections property of the microsoft.graph.ediscovery.case entity.
-     * @param string $id Unique identifier of the item
-     * @return SourceCollectionItemRequestBuilder
-    */
-    public function sourceCollectionsById(string $id): SourceCollectionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['sourceCollection%2Did'] = $id;
-        return new SourceCollectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the tags property of the microsoft.graph.ediscovery.case entity.
-     * @param string $id Unique identifier of the item
-     * @return TagItemRequestBuilder
-    */
-    public function tagsById(string $id): TagItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['tag%2Did'] = $id;
-        return new TagItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

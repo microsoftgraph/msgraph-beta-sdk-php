@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagementAction;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagementActionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementActions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementActions\Item\ManagementActionItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class ManagementActionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the managementActions property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $managementActionId Unique identifier of the item
+     * @return ManagementActionItemRequestBuilder
+    */
+    public function byManagementActionId(string $managementActionId): ManagementActionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managementAction%2Did'] = $managementActionId;
+        return new ManagementActionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ManagementActionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

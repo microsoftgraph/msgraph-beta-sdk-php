@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ServiceNowConnections\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ServiceNowConnections\Item\ServiceNowConnectionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\ServiceNowConnection;
 use Microsoft\Graph\Beta\Generated\Models\ServiceNowConnectionCollectionResponse;
@@ -43,6 +44,17 @@ class ServiceNowConnectionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the serviceNowConnections property of the microsoft.graph.deviceManagement entity.
+     * @param string $serviceNowConnectionId Unique identifier of the item
+     * @return ServiceNowConnectionItemRequestBuilder
+    */
+    public function byServiceNowConnectionId(string $serviceNowConnectionId): ServiceNowConnectionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['serviceNowConnection%2Did'] = $serviceNowConnectionId;
+        return new ServiceNowConnectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ServiceNowConnectionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

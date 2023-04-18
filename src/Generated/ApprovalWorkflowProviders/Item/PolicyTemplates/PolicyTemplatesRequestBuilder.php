@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\Item\PolicyTemplates\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\Item\PolicyTemplates\Item\GovernancePolicyTemplateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\GovernancePolicyTemplate;
 use Microsoft\Graph\Beta\Generated\Models\GovernancePolicyTemplateCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class PolicyTemplatesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the policyTemplates property of the microsoft.graph.approvalWorkflowProvider entity.
+     * @param string $governancePolicyTemplateId Unique identifier of the item
+     * @return GovernancePolicyTemplateItemRequestBuilder
+    */
+    public function byGovernancePolicyTemplateId(string $governancePolicyTemplateId): GovernancePolicyTemplateItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['governancePolicyTemplate%2Did'] = $governancePolicyTemplateId;
+        return new GovernancePolicyTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PolicyTemplatesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

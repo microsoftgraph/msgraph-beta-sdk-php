@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\Me\AppConsentRequestsForApproval\Item\U
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Me\AppConsentRequestsForApproval\Item\UserConsentRequests\Item\Approval\Steps\Item\ApprovalStepItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\AppConsentRequestsForApproval\Item\UserConsentRequests\Item\Approval\Steps\StepsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Approval;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -111,17 +110,6 @@ class ApprovalRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the steps property of the microsoft.graph.approval entity.
-     * @param string $id Unique identifier of the item
-     * @return ApprovalStepItemRequestBuilder
-    */
-    public function stepsById(string $id): ApprovalStepItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['approvalStep%2Did'] = $id;
-        return new ApprovalStepItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\FilterOperators\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\FilterOperators\Item\FilterOperatorSchemaItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\FilterOperatorSchema;
 use Microsoft\Graph\Beta\Generated\Models\FilterOperatorSchemaCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class FilterOperatorsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the collection of filterOperatorSchema entities.
+     * @param string $filterOperatorSchemaId Unique identifier of the item
+     * @return FilterOperatorSchemaItemRequestBuilder
+    */
+    public function byFilterOperatorSchemaId(string $filterOperatorSchemaId): FilterOperatorSchemaItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['filterOperatorSchema%2Did'] = $filterOperatorSchemaId;
+        return new FilterOperatorSchemaItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new FilterOperatorsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

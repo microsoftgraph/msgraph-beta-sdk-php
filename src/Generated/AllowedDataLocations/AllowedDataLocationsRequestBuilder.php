@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\AllowedDataLocations\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AllowedDataLocations\Item\AllowedDataLocationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AllowedDataLocation;
 use Microsoft\Graph\Beta\Generated\Models\AllowedDataLocationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AllowedDataLocationsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the collection of allowedDataLocation entities.
+     * @param string $allowedDataLocationId Unique identifier of the item
+     * @return AllowedDataLocationItemRequestBuilder
+    */
+    public function byAllowedDataLocationId(string $allowedDataLocationId): AllowedDataLocationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['allowedDataLocation%2Did'] = $allowedDataLocationId;
+        return new AllowedDataLocationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AllowedDataLocationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,13 +6,9 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\GovernanceResources\Item\Parent\ParentRequestBuilder;
-use Microsoft\Graph\Beta\Generated\GovernanceResources\Item\RoleAssignmentRequests\Item\GovernanceRoleAssignmentRequestItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\GovernanceResources\Item\RoleAssignmentRequests\RoleAssignmentRequestsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\GovernanceResources\Item\RoleAssignments\Item\GovernanceRoleAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\GovernanceResources\Item\RoleAssignments\RoleAssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\GovernanceResources\Item\RoleDefinitions\Item\GovernanceRoleDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\GovernanceResources\Item\RoleDefinitions\RoleDefinitionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\GovernanceResources\Item\RoleSettings\Item\GovernanceRoleSettingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\GovernanceResources\Item\RoleSettings\RoleSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\GovernanceResource;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -146,50 +142,6 @@ class GovernanceResourceItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the roleAssignmentRequests property of the microsoft.graph.governanceResource entity.
-     * @param string $id Unique identifier of the item
-     * @return GovernanceRoleAssignmentRequestItemRequestBuilder
-    */
-    public function roleAssignmentRequestsById(string $id): GovernanceRoleAssignmentRequestItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['governanceRoleAssignmentRequest%2Did'] = $id;
-        return new GovernanceRoleAssignmentRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the roleAssignments property of the microsoft.graph.governanceResource entity.
-     * @param string $id Unique identifier of the item
-     * @return GovernanceRoleAssignmentItemRequestBuilder
-    */
-    public function roleAssignmentsById(string $id): GovernanceRoleAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['governanceRoleAssignment%2Did'] = $id;
-        return new GovernanceRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the roleDefinitions property of the microsoft.graph.governanceResource entity.
-     * @param string $id Unique identifier of the item
-     * @return GovernanceRoleDefinitionItemRequestBuilder
-    */
-    public function roleDefinitionsById(string $id): GovernanceRoleDefinitionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['governanceRoleDefinition%2Did'] = $id;
-        return new GovernanceRoleDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the roleSettings property of the microsoft.graph.governanceResource entity.
-     * @param string $id Unique identifier of the item
-     * @return GovernanceRoleSettingItemRequestBuilder
-    */
-    public function roleSettingsById(string $id): GovernanceRoleSettingItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['governanceRoleSetting%2Did'] = $id;
-        return new GovernanceRoleSettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

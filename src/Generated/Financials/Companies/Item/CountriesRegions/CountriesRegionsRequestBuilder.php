@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\CountriesRegions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\CountriesRegions\Item\CountryRegionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CountryRegion;
 use Microsoft\Graph\Beta\Generated\Models\CountryRegionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class CountriesRegionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the countriesRegions property of the microsoft.graph.company entity.
+     * @param string $countryRegionId Unique identifier of the item
+     * @return CountryRegionItemRequestBuilder
+    */
+    public function byCountryRegionId(string $countryRegionId): CountryRegionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['countryRegion%2Did'] = $countryRegionId;
+        return new CountryRegionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CountriesRegionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -9,7 +9,6 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\OfficeClientConfiguration;
 use Microsoft\Graph\Beta\Generated\OfficeConfiguration\ClientConfigurations\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OfficeConfiguration\ClientConfigurations\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\OfficeConfiguration\ClientConfigurations\Item\Assignments\Item\OfficeClientConfigurationAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OfficeConfiguration\ClientConfigurations\Item\PolicyPayload\PolicyPayloadRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OfficeConfiguration\ClientConfigurations\Item\UserPreferencePayload\UserPreferencePayloadRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -67,17 +66,6 @@ class OfficeClientConfigurationItemRequestBuilder
         return new UserPreferencePayloadRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * Provides operations to manage the assignments property of the microsoft.graph.officeClientConfiguration entity.
-     * @param string $id Unique identifier of the item
-     * @return OfficeClientConfigurationAssignmentItemRequestBuilder
-    */
-    public function assignmentsById(string $id): OfficeClientConfigurationAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['officeClientConfigurationAssignment%2Did'] = $id;
-        return new OfficeClientConfigurationAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new OfficeClientConfigurationItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -8,7 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\CustomerPaymentJournals\Item\CustomerPayments\Item\Customer\Currency\CurrencyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\CustomerPaymentJournals\Item\CustomerPayments\Item\Customer\PaymentMethod\PaymentMethodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\CustomerPaymentJournals\Item\CustomerPayments\Item\Customer\PaymentTerm\PaymentTermRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\CustomerPaymentJournals\Item\CustomerPayments\Item\Customer\Picture\Item\PictureItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\CustomerPaymentJournals\Item\CustomerPayments\Item\Customer\Picture\PictureRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\CustomerPaymentJournals\Item\CustomerPayments\Item\Customer\ShipmentMethod\ShipmentMethodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Customer;
@@ -143,17 +142,6 @@ class CustomerRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the picture property of the microsoft.graph.customer entity.
-     * @param string $id Unique identifier of the item
-     * @return PictureItemRequestBuilder
-    */
-    public function pictureById(string $id): PictureItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['picture%2Did'] = $id;
-        return new PictureItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

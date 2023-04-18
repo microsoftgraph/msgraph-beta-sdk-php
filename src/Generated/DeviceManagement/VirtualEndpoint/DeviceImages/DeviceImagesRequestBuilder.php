@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\DeviceImages\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\DeviceImages\GetSourceImages\GetSourceImagesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\DeviceImages\Item\CloudPcDeviceImageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcDeviceImage;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcDeviceImageCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -51,6 +52,17 @@ class DeviceImagesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the deviceImages property of the microsoft.graph.virtualEndpoint entity.
+     * @param string $cloudPcDeviceImageId Unique identifier of the item
+     * @return CloudPcDeviceImageItemRequestBuilder
+    */
+    public function byCloudPcDeviceImageId(string $cloudPcDeviceImageId): CloudPcDeviceImageItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['cloudPcDeviceImage%2Did'] = $cloudPcDeviceImageId;
+        return new CloudPcDeviceImageItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DeviceImagesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

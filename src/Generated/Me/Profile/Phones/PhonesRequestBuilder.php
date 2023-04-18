@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Profile\Phones\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Profile\Phones\Item\ItemPhoneItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ItemPhone;
 use Microsoft\Graph\Beta\Generated\Models\ItemPhoneCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class PhonesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the phones property of the microsoft.graph.profile entity.
+     * @param string $itemPhoneId Unique identifier of the item
+     * @return ItemPhoneItemRequestBuilder
+    */
+    public function byItemPhoneId(string $itemPhoneId): ItemPhoneItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['itemPhone%2Did'] = $itemPhoneId;
+        return new ItemPhoneItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PhonesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -7,13 +7,9 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceShellScripts\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceShellScripts\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceShellScripts\Item\Assignments\Item\DeviceManagementScriptAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceShellScripts\Item\DeviceRunStates\DeviceRunStatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceShellScripts\Item\DeviceRunStates\Item\DeviceManagementScriptDeviceStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceShellScripts\Item\GroupAssignments\GroupAssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceShellScripts\Item\GroupAssignments\Item\DeviceManagementScriptGroupAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceShellScripts\Item\RunSummary\RunSummaryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceShellScripts\Item\UserRunStates\Item\DeviceManagementScriptUserStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceShellScripts\Item\UserRunStates\UserRunStatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceShellScript;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -87,17 +83,6 @@ class DeviceShellScriptItemRequestBuilder
     }
     
     /**
-     * Provides operations to manage the assignments property of the microsoft.graph.deviceShellScript entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceManagementScriptAssignmentItemRequestBuilder
-    */
-    public function assignmentsById(string $id): DeviceManagementScriptAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceManagementScriptAssignment%2Did'] = $id;
-        return new DeviceManagementScriptAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new DeviceShellScriptItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -131,17 +116,6 @@ class DeviceShellScriptItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the deviceRunStates property of the microsoft.graph.deviceShellScript entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceManagementScriptDeviceStateItemRequestBuilder
-    */
-    public function deviceRunStatesById(string $id): DeviceManagementScriptDeviceStateItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceManagementScriptDeviceState%2Did'] = $id;
-        return new DeviceManagementScriptDeviceStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * The list of device shell scripts associated with the tenant.
      * @param DeviceShellScriptItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -157,17 +131,6 @@ class DeviceShellScriptItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the groupAssignments property of the microsoft.graph.deviceShellScript entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceManagementScriptGroupAssignmentItemRequestBuilder
-    */
-    public function groupAssignmentsById(string $id): DeviceManagementScriptGroupAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceManagementScriptGroupAssignment%2Did'] = $id;
-        return new DeviceManagementScriptGroupAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -257,17 +220,6 @@ class DeviceShellScriptItemRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the userRunStates property of the microsoft.graph.deviceShellScript entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceManagementScriptUserStateItemRequestBuilder
-    */
-    public function userRunStatesById(string $id): DeviceManagementScriptUserStateItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceManagementScriptUserState%2Did'] = $id;
-        return new DeviceManagementScriptUserStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\Versions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\Versions\Item\WorkflowVersionVersionNumberItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\WorkflowVersionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -42,6 +43,17 @@ class VersionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the versions property of the microsoft.graph.identityGovernance.workflow entity.
+     * @param string $workflowVersionVersionNumber Unique identifier of the item
+     * @return WorkflowVersionVersionNumberItemRequestBuilder
+    */
+    public function byWorkflowVersionVersionNumber(string $workflowVersionVersionNumber): WorkflowVersionVersionNumberItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['workflowVersion%2DversionNumber'] = $workflowVersionVersionNumber;
+        return new WorkflowVersionVersionNumberItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new VersionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

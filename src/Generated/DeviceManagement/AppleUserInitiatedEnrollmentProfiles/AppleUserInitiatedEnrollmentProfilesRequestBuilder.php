@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AppleUserInitiatedEnrollmentProfiles\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\AppleUserInitiatedEnrollmentProfiles\Item\AppleUserInitiatedEnrollmentProfileItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AppleUserInitiatedEnrollmentProfile;
 use Microsoft\Graph\Beta\Generated\Models\AppleUserInitiatedEnrollmentProfileCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AppleUserInitiatedEnrollmentProfilesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the appleUserInitiatedEnrollmentProfiles property of the microsoft.graph.deviceManagement entity.
+     * @param string $appleUserInitiatedEnrollmentProfileId Unique identifier of the item
+     * @return AppleUserInitiatedEnrollmentProfileItemRequestBuilder
+    */
+    public function byAppleUserInitiatedEnrollmentProfileId(string $appleUserInitiatedEnrollmentProfileId): AppleUserInitiatedEnrollmentProfileItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['appleUserInitiatedEnrollmentProfile%2Did'] = $appleUserInitiatedEnrollmentProfileId;
+        return new AppleUserInitiatedEnrollmentProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AppleUserInitiatedEnrollmentProfilesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

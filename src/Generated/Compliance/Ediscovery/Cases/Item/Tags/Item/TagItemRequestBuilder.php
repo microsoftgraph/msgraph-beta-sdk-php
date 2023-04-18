@@ -51,17 +51,6 @@ class TagItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Provides operations to manage the childTags property of the microsoft.graph.ediscovery.tag entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\Item\ChildTags\Item\TagItemRequestBuilder
-    */
-    public function childTagsById(string $id): \Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\Item\ChildTags\Item\TagItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['tag%2Did1'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\Item\ChildTags\Item\TagItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new TagItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.

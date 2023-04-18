@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageResourceEnvironments\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageResourceEnvironments\Item\AccessPackageResourceEnvironmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessPackageResourceEnvironment;
 use Microsoft\Graph\Beta\Generated\Models\AccessPackageResourceEnvironmentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AccessPackageResourceEnvironmentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the accessPackageResourceEnvironments property of the microsoft.graph.entitlementManagement entity.
+     * @param string $accessPackageResourceEnvironmentId Unique identifier of the item
+     * @return AccessPackageResourceEnvironmentItemRequestBuilder
+    */
+    public function byAccessPackageResourceEnvironmentId(string $accessPackageResourceEnvironmentId): AccessPackageResourceEnvironmentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['accessPackageResourceEnvironment%2Did'] = $accessPackageResourceEnvironmentId;
+        return new AccessPackageResourceEnvironmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AccessPackageResourceEnvironmentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

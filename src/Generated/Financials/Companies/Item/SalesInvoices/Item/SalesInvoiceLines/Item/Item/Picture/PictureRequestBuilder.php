@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\SalesInvoiceLines\Item\Item\Picture\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\SalesInvoiceLines\Item\Item\Picture\Item\PictureItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Picture;
 use Microsoft\Graph\Beta\Generated\Models\PictureCollectionResponse;
@@ -43,6 +44,17 @@ class PictureRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the picture property of the microsoft.graph.item entity.
+     * @param string $pictureId Unique identifier of the item
+     * @return PictureItemRequestBuilder
+    */
+    public function byPictureId(string $pictureId): PictureItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['picture%2Did'] = $pictureId;
+        return new PictureItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PictureRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteActionAudits\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteActionAudits\Item\RemoteActionAuditItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\RemoteActionAudit;
 use Microsoft\Graph\Beta\Generated\Models\RemoteActionAuditCollectionResponse;
@@ -43,6 +44,17 @@ class RemoteActionAuditsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the remoteActionAudits property of the microsoft.graph.deviceManagement entity.
+     * @param string $remoteActionAuditId Unique identifier of the item
+     * @return RemoteActionAuditItemRequestBuilder
+    */
+    public function byRemoteActionAuditId(string $remoteActionAuditId): RemoteActionAuditItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['remoteActionAudit%2Did'] = $remoteActionAuditId;
+        return new RemoteActionAuditItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new RemoteActionAuditsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

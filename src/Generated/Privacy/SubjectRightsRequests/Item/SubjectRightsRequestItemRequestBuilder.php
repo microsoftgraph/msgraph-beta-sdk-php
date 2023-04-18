@@ -11,7 +11,6 @@ use Microsoft\Graph\Beta\Generated\Privacy\SubjectRightsRequests\Item\Approvers\
 use Microsoft\Graph\Beta\Generated\Privacy\SubjectRightsRequests\Item\Collaborators\CollaboratorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Privacy\SubjectRightsRequests\Item\GetFinalAttachment\GetFinalAttachmentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Privacy\SubjectRightsRequests\Item\GetFinalReport\GetFinalReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Privacy\SubjectRightsRequests\Item\Notes\Item\AuthoredNoteItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Privacy\SubjectRightsRequests\Item\Notes\NotesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Privacy\SubjectRightsRequests\Item\Team\TeamRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -84,28 +83,6 @@ class SubjectRightsRequestItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Provides operations to manage the approvers property of the microsoft.graph.subjectRightsRequest entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Privacy\SubjectRightsRequests\Item\Approvers\Item\UserItemRequestBuilder
-    */
-    public function approversById(string $id): \Microsoft\Graph\Beta\Generated\Privacy\SubjectRightsRequests\Item\Approvers\Item\UserItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['user%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Privacy\SubjectRightsRequests\Item\Approvers\Item\UserItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the collaborators property of the microsoft.graph.subjectRightsRequest entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Privacy\SubjectRightsRequests\Item\Collaborators\Item\UserItemRequestBuilder
-    */
-    public function collaboratorsById(string $id): \Microsoft\Graph\Beta\Generated\Privacy\SubjectRightsRequests\Item\Collaborators\Item\UserItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['user%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Privacy\SubjectRightsRequests\Item\Collaborators\Item\UserItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new SubjectRightsRequestItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -154,17 +131,6 @@ class SubjectRightsRequestItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the notes property of the microsoft.graph.subjectRightsRequest entity.
-     * @param string $id Unique identifier of the item
-     * @return AuthoredNoteItemRequestBuilder
-    */
-    public function notesById(string $id): AuthoredNoteItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['authoredNote%2Did'] = $id;
-        return new AuthoredNoteItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

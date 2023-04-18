@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\MessageRecipients\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\MessageRecipients\Item\MessageRecipientItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MessageRecipient;
 use Microsoft\Graph\Beta\Generated\Models\MessageRecipientCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class MessageRecipientsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the collection of messageRecipient entities.
+     * @param string $messageRecipientId Unique identifier of the item
+     * @return MessageRecipientItemRequestBuilder
+    */
+    public function byMessageRecipientId(string $messageRecipientId): MessageRecipientItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['messageRecipient%2Did'] = $messageRecipientId;
+        return new MessageRecipientItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new MessageRecipientsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -76,9 +76,10 @@ class DataLabelsRequestBuilder
     }
 
     /**
-     * Represents the datalabels on the chart. Read-only.
+     * Retrieve the properties and relationships of chartdatalabels object.
      * @param DataLabelsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/chartdatalabels-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?DataLabelsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -94,10 +95,11 @@ class DataLabelsRequestBuilder
     }
 
     /**
-     * Update the navigation property dataLabels in drives
+     * Update the properties of chartdatalabels object.
      * @param WorkbookChartDataLabels $body The request body
      * @param DataLabelsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/chartdatalabels-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(WorkbookChartDataLabels $body, ?DataLabelsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -134,7 +136,7 @@ class DataLabelsRequestBuilder
     }
 
     /**
-     * Represents the datalabels on the chart. Read-only.
+     * Retrieve the properties and relationships of chartdatalabels object.
      * @param DataLabelsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -159,7 +161,7 @@ class DataLabelsRequestBuilder
     }
 
     /**
-     * Update the navigation property dataLabels in drives
+     * Update the properties of chartdatalabels object.
      * @param WorkbookChartDataLabels $body The request body
      * @param DataLabelsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

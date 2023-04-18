@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\MacOSSoftwareUpdateAcc
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\MacOSSoftwareUpdateAccountSummaries\Item\CategorySummaries\Item\UpdateStateSummaries\Item\MacOSSoftwareUpdateStateSummaryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MacOSSoftwareUpdateAccountSummaries\Item\CategorySummaries\Item\UpdateStateSummaries\UpdateStateSummariesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MacOSSoftwareUpdateCategorySummary;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -181,17 +180,6 @@ class MacOSSoftwareUpdateCategorySummaryItemRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the updateStateSummaries property of the microsoft.graph.macOSSoftwareUpdateCategorySummary entity.
-     * @param string $id Unique identifier of the item
-     * @return MacOSSoftwareUpdateStateSummaryItemRequestBuilder
-    */
-    public function updateStateSummariesById(string $id): MacOSSoftwareUpdateStateSummaryItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['macOSSoftwareUpdateStateSummary%2Did'] = $id;
-        return new MacOSSoftwareUpdateStateSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

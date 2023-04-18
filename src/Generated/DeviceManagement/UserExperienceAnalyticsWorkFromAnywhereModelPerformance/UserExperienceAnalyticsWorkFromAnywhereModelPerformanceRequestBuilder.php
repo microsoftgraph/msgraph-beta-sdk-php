@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsWorkFromAnywhereModelPerformance\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsWorkFromAnywhereModelPerformance\Item\UserExperienceAnalyticsWorkFromAnywhereModelPerformanceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsWorkFromAnywhereModelPerformance;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse;
@@ -43,6 +44,17 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userExperienceAnalyticsWorkFromAnywhereModelPerformance property of the microsoft.graph.deviceManagement entity.
+     * @param string $userExperienceAnalyticsWorkFromAnywhereModelPerformanceId Unique identifier of the item
+     * @return UserExperienceAnalyticsWorkFromAnywhereModelPerformanceItemRequestBuilder
+    */
+    public function byUserExperienceAnalyticsWorkFromAnywhereModelPerformanceId(string $userExperienceAnalyticsWorkFromAnywhereModelPerformanceId): UserExperienceAnalyticsWorkFromAnywhereModelPerformanceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userExperienceAnalyticsWorkFromAnywhereModelPerformance%2Did'] = $userExperienceAnalyticsWorkFromAnywhereModelPerformanceId;
+        return new UserExperienceAnalyticsWorkFromAnywhereModelPerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

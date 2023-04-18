@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsNotAutopilotReadyDevice\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsNotAutopilotReadyDevice\Item\UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsNotAutopilotReadyDevice;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsNotAutopilotReadyDeviceCollectionResponse;
@@ -43,6 +44,17 @@ class UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userExperienceAnalyticsNotAutopilotReadyDevice property of the microsoft.graph.deviceManagement entity.
+     * @param string $userExperienceAnalyticsNotAutopilotReadyDeviceId Unique identifier of the item
+     * @return UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilder
+    */
+    public function byUserExperienceAnalyticsNotAutopilotReadyDeviceId(string $userExperienceAnalyticsNotAutopilotReadyDeviceId): UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userExperienceAnalyticsNotAutopilotReadyDevice%2Did'] = $userExperienceAnalyticsNotAutopilotReadyDeviceId;
+        return new UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

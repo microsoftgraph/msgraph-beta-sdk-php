@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagementTemplateStepV
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagementTemplateStepVersionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateStepVersions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateStepVersions\Item\ManagementTemplateStepVersionItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class ManagementTemplateStepVersionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the managementTemplateStepVersions property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $managementTemplateStepVersionId Unique identifier of the item
+     * @return ManagementTemplateStepVersionItemRequestBuilder
+    */
+    public function byManagementTemplateStepVersionId(string $managementTemplateStepVersionId): ManagementTemplateStepVersionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managementTemplateStepVersion%2Did'] = $managementTemplateStepVersionId;
+        return new ManagementTemplateStepVersionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ManagementTemplateStepVersionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

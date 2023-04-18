@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyMigrationReports\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyMigrationReports\CreateMigrationReport\CreateMigrationReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyMigrationReports\Item\GroupPolicyMigrationReportItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyMigrationReport;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyMigrationReportCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -51,6 +52,17 @@ class GroupPolicyMigrationReportsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the groupPolicyMigrationReports property of the microsoft.graph.deviceManagement entity.
+     * @param string $groupPolicyMigrationReportId Unique identifier of the item
+     * @return GroupPolicyMigrationReportItemRequestBuilder
+    */
+    public function byGroupPolicyMigrationReportId(string $groupPolicyMigrationReportId): GroupPolicyMigrationReportItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['groupPolicyMigrationReport%2Did'] = $groupPolicyMigrationReportId;
+        return new GroupPolicyMigrationReportItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new GroupPolicyMigrationReportsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

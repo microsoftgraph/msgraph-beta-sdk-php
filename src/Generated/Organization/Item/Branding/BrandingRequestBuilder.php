@@ -12,7 +12,6 @@ use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\BannerLogo\BannerL
 use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\CustomCSS\CustomCSSRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Favicon\FaviconRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\HeaderLogo\HeaderLogoRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localizations\Item\OrganizationalBrandingLocalizationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localizations\LocalizationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\SquareLogo\SquareLogoRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\SquareLogoDark\SquareLogoDarkRequestBuilder;
@@ -150,17 +149,6 @@ class BrandingRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.
-     * @param string $id Unique identifier of the item
-     * @return OrganizationalBrandingLocalizationItemRequestBuilder
-    */
-    public function localizationsById(string $id): OrganizationalBrandingLocalizationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['organizationalBrandingLocalization%2Did'] = $id;
-        return new OrganizationalBrandingLocalizationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

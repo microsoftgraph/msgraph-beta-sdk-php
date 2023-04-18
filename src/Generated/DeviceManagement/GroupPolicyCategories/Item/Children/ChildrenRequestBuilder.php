@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\Item\Children\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\Item\Children\Item\GroupPolicyCategoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyCategoryCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -42,6 +43,17 @@ class ChildrenRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the children property of the microsoft.graph.groupPolicyCategory entity.
+     * @param string $groupPolicyCategoryId1 Unique identifier of the item
+     * @return GroupPolicyCategoryItemRequestBuilder
+    */
+    public function byGroupPolicyCategoryId1(string $groupPolicyCategoryId1): GroupPolicyCategoryItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['groupPolicyCategory%2Did1'] = $groupPolicyCategoryId1;
+        return new GroupPolicyCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ChildrenRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

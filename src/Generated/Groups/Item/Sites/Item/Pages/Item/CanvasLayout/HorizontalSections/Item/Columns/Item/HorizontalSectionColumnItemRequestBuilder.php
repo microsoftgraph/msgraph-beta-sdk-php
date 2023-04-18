@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\Canva
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\CanvasLayout\HorizontalSections\Item\Columns\Item\Webparts\Item\WebPartItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\CanvasLayout\HorizontalSections\Item\Columns\Item\Webparts\WebpartsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\HorizontalSectionColumn;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -181,17 +180,6 @@ class HorizontalSectionColumnItemRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the webparts property of the microsoft.graph.horizontalSectionColumn entity.
-     * @param string $id Unique identifier of the item
-     * @return WebPartItemRequestBuilder
-    */
-    public function webpartsById(string $id): WebPartItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['webPart%2Did'] = $id;
-        return new WebPartItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

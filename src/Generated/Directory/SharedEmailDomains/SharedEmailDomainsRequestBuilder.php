@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Directory\SharedEmailDomains\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\SharedEmailDomains\Item\SharedEmailDomainItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SharedEmailDomain;
 use Microsoft\Graph\Beta\Generated\Models\SharedEmailDomainCollectionResponse;
@@ -43,6 +44,17 @@ class SharedEmailDomainsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the sharedEmailDomains property of the microsoft.graph.directory entity.
+     * @param string $sharedEmailDomainId Unique identifier of the item
+     * @return SharedEmailDomainItemRequestBuilder
+    */
+    public function bySharedEmailDomainId(string $sharedEmailDomainId): SharedEmailDomainItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['sharedEmailDomain%2Did'] = $sharedEmailDomainId;
+        return new SharedEmailDomainItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SharedEmailDomainsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

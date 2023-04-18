@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\AggregatedPolicyComplia
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\AggregatedPolicyComplianceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\AggregatedPolicyCompliances\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\AggregatedPolicyCompliances\Item\AggregatedPolicyComplianceItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class AggregatedPolicyCompliancesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the aggregatedPolicyCompliances property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $aggregatedPolicyComplianceId Unique identifier of the item
+     * @return AggregatedPolicyComplianceItemRequestBuilder
+    */
+    public function byAggregatedPolicyComplianceId(string $aggregatedPolicyComplianceId): AggregatedPolicyComplianceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['aggregatedPolicyCompliance%2Did'] = $aggregatedPolicyComplianceId;
+        return new AggregatedPolicyComplianceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AggregatedPolicyCompliancesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

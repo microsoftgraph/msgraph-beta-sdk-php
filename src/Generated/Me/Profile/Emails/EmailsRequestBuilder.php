@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Profile\Emails\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Profile\Emails\Item\ItemEmailItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ItemEmail;
 use Microsoft\Graph\Beta\Generated\Models\ItemEmailCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class EmailsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the emails property of the microsoft.graph.profile entity.
+     * @param string $itemEmailId Unique identifier of the item
+     * @return ItemEmailItemRequestBuilder
+    */
+    public function byItemEmailId(string $itemEmailId): ItemEmailItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['itemEmail%2Did'] = $itemEmailId;
+        return new ItemEmailItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new EmailsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

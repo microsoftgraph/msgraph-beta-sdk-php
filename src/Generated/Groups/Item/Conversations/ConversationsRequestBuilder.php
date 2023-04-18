@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Conversations\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Conversations\Item\ConversationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Conversation;
 use Microsoft\Graph\Beta\Generated\Models\ConversationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -44,6 +45,17 @@ class ConversationsRequestBuilder
     private string $urlTemplate;
     
     /**
+     * Provides operations to manage the conversations property of the microsoft.graph.group entity.
+     * @param string $conversationId Unique identifier of the item
+     * @return ConversationItemRequestBuilder
+    */
+    public function byConversationId(string $conversationId): ConversationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['conversation%2Did'] = $conversationId;
+        return new ConversationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
      * Instantiates a new ConversationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -78,11 +90,11 @@ class ConversationsRequestBuilder
     }
 
     /**
-     * Create an open extension (openTypeExtension object) and add custom properties in a new or existing instance of a resource. You can create an open extension in a resource instance and store custom data to it all in the same operation, except for specific resources. See known limitations of open extensions for more information. The table in the Permissions section lists the resources that support open extensions.
+     * Create a new conversation by including a thread and a post. Use reply thread or reply post to further post to that conversation.
      * @param Conversation $body The request body
      * @param ConversationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/opentypeextension-post-opentypeextension?view=graph-rest-1.0 Find more info here
+     * @link https://docs.microsoft.com/graph/api/group-post-conversations?view=graph-rest-1.0 Find more info here
     */
     public function post(Conversation $body, ?ConversationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -123,7 +135,7 @@ class ConversationsRequestBuilder
     }
 
     /**
-     * Create an open extension (openTypeExtension object) and add custom properties in a new or existing instance of a resource. You can create an open extension in a resource instance and store custom data to it all in the same operation, except for specific resources. See known limitations of open extensions for more information. The table in the Permissions section lists the resources that support open extensions.
+     * Create a new conversation by including a thread and a post. Use reply thread or reply post to further post to that conversation.
      * @param Conversation $body The request body
      * @param ConversationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

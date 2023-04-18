@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaDeployments\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaDeployments\Item\ZebraFotaDeploymentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\ZebraFotaDeployment;
 use Microsoft\Graph\Beta\Generated\Models\ZebraFotaDeploymentCollectionResponse;
@@ -43,6 +44,17 @@ class ZebraFotaDeploymentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the zebraFotaDeployments property of the microsoft.graph.deviceManagement entity.
+     * @param string $zebraFotaDeploymentId Unique identifier of the item
+     * @return ZebraFotaDeploymentItemRequestBuilder
+    */
+    public function byZebraFotaDeploymentId(string $zebraFotaDeploymentId): ZebraFotaDeploymentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['zebraFotaDeployment%2Did'] = $zebraFotaDeploymentId;
+        return new ZebraFotaDeploymentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ZebraFotaDeploymentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

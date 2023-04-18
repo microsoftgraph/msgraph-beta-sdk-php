@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\DefinitionValues\Item\Definition\DefinitionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\DefinitionValues\Item\PresentationValues\Item\GroupPolicyPresentationValueItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\DefinitionValues\Item\PresentationValues\PresentationValuesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyDefinitionValue;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -119,17 +118,6 @@ class GroupPolicyDefinitionValueItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the presentationValues property of the microsoft.graph.groupPolicyDefinitionValue entity.
-     * @param string $id Unique identifier of the item
-     * @return GroupPolicyPresentationValueItemRequestBuilder
-    */
-    public function presentationValuesById(string $id): GroupPolicyPresentationValueItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['groupPolicyPresentationValue%2Did'] = $id;
-        return new GroupPolicyPresentationValueItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Employees\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Employees\Item\EmployeeItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Employee;
 use Microsoft\Graph\Beta\Generated\Models\EmployeeCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class EmployeesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the employees property of the microsoft.graph.company entity.
+     * @param string $employeeId Unique identifier of the item
+     * @return EmployeeItemRequestBuilder
+    */
+    public function byEmployeeId(string $employeeId): EmployeeItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['employee%2Did'] = $employeeId;
+        return new EmployeeItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new EmployeesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

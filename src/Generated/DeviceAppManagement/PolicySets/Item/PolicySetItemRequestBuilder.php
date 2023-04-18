@@ -6,8 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\PolicySets\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\PolicySets\Item\Assignments\Item\PolicySetAssignmentItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\PolicySets\Item\Items\Item\PolicySetItemItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\PolicySets\Item\Items\ItemsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\PolicySets\Item\Update\UpdateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -61,17 +59,6 @@ class PolicySetItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Provides operations to manage the assignments property of the microsoft.graph.policySet entity.
-     * @param string $id Unique identifier of the item
-     * @return PolicySetAssignmentItemRequestBuilder
-    */
-    public function assignmentsById(string $id): PolicySetAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['policySetAssignment%2Did'] = $id;
-        return new PolicySetAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new PolicySetItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -120,17 +107,6 @@ class PolicySetItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the items property of the microsoft.graph.policySet entity.
-     * @param string $id Unique identifier of the item
-     * @return PolicySetItemItemRequestBuilder
-    */
-    public function itemsById(string $id): PolicySetItemItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['policySetItem%2Did'] = $id;
-        return new PolicySetItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

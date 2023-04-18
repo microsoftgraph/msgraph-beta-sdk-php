@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Services\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Services\Item\BookingServiceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\BookingService;
 use Microsoft\Graph\Beta\Generated\Models\BookingServiceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class ServicesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the services property of the microsoft.graph.bookingBusiness entity.
+     * @param string $bookingServiceId Unique identifier of the item
+     * @return BookingServiceItemRequestBuilder
+    */
+    public function byBookingServiceId(string $bookingServiceId): BookingServiceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['bookingService%2Did'] = $bookingServiceId;
+        return new BookingServiceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ServicesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

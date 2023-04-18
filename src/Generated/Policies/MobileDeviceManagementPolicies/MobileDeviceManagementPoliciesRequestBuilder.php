@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\MobilityManagementPolicy;
 use Microsoft\Graph\Beta\Generated\Models\MobilityManagementPolicyCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Policies\MobileDeviceManagementPolicies\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Policies\MobileDeviceManagementPolicies\Item\MobilityManagementPolicyItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class MobileDeviceManagementPoliciesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the mobileDeviceManagementPolicies property of the microsoft.graph.policyRoot entity.
+     * @param string $mobilityManagementPolicyId Unique identifier of the item
+     * @return MobilityManagementPolicyItemRequestBuilder
+    */
+    public function byMobilityManagementPolicyId(string $mobilityManagementPolicyId): MobilityManagementPolicyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['mobilityManagementPolicy%2Did'] = $mobilityManagementPolicyId;
+        return new MobilityManagementPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new MobileDeviceManagementPoliciesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

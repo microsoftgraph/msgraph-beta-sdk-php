@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Templates\Item\Schema\Directories\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Templates\Item\Schema\Directories\Item\DirectoryDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DirectoryDefinition;
 use Microsoft\Graph\Beta\Generated\Models\DirectoryDefinitionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class DirectoriesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the directories property of the microsoft.graph.synchronizationSchema entity.
+     * @param string $directoryDefinitionId Unique identifier of the item
+     * @return DirectoryDefinitionItemRequestBuilder
+    */
+    public function byDirectoryDefinitionId(string $directoryDefinitionId): DirectoryDefinitionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['directoryDefinition%2Did'] = $directoryDefinitionId;
+        return new DirectoryDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DirectoriesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

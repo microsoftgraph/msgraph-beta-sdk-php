@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\CloudPcDevice;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\CloudPcDeviceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\CloudPcDevices\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\CloudPcDevices\Item\CloudPcDeviceItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class CloudPcDevicesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the cloudPcDevices property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $cloudPcDeviceId Unique identifier of the item
+     * @return CloudPcDeviceItemRequestBuilder
+    */
+    public function byCloudPcDeviceId(string $cloudPcDeviceId): CloudPcDeviceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['cloudPcDevice%2Did'] = $cloudPcDeviceId;
+        return new CloudPcDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CloudPcDevicesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

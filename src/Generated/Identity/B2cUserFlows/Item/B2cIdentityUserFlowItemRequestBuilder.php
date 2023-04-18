@@ -6,12 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\IdentityProviders\IdentityProvidersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\IdentityProviders\Item\IdentityProviderItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\Languages\Item\UserFlowLanguageConfigurationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\Languages\LanguagesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\UserAttributeAssignments\Item\IdentityUserFlowAttributeAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\UserAttributeAssignments\UserAttributeAssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\UserFlowIdentityProviders\Item\IdentityProviderBaseItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\UserFlowIdentityProviders\UserFlowIdentityProvidersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\B2cIdentityUserFlow;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -122,28 +118,6 @@ class B2cIdentityUserFlowItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.identity.b2cUserFlows.item.identityProviders.item collection
-     * @param string $id Unique identifier of the item
-     * @return IdentityProviderItemRequestBuilder
-    */
-    public function identityProvidersById(string $id): IdentityProviderItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['identityProvider%2Did'] = $id;
-        return new IdentityProviderItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the languages property of the microsoft.graph.b2cIdentityUserFlow entity.
-     * @param string $id Unique identifier of the item
-     * @return UserFlowLanguageConfigurationItemRequestBuilder
-    */
-    public function languagesById(string $id): UserFlowLanguageConfigurationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['userFlowLanguageConfiguration%2Did'] = $id;
-        return new UserFlowLanguageConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Update the navigation property b2cUserFlows in identity
      * @param B2cIdentityUserFlow $body The request body
      * @param B2cIdentityUserFlowItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -230,28 +204,6 @@ class B2cIdentityUserFlowItemRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the userAttributeAssignments property of the microsoft.graph.b2cIdentityUserFlow entity.
-     * @param string $id Unique identifier of the item
-     * @return IdentityUserFlowAttributeAssignmentItemRequestBuilder
-    */
-    public function userAttributeAssignmentsById(string $id): IdentityUserFlowAttributeAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['identityUserFlowAttributeAssignment%2Did'] = $id;
-        return new IdentityUserFlowAttributeAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the userFlowIdentityProviders property of the microsoft.graph.b2cIdentityUserFlow entity.
-     * @param string $id Unique identifier of the item
-     * @return IdentityProviderBaseItemRequestBuilder
-    */
-    public function userFlowIdentityProvidersById(string $id): IdentityProviderBaseItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['identityProviderBase%2Did'] = $id;
-        return new IdentityProviderBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

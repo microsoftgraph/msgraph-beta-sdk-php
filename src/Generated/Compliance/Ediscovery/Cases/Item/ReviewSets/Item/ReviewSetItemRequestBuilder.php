@@ -7,7 +7,6 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\Item\EdiscoveryAddToReviewSet\EdiscoveryAddToReviewSetRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\Item\EdiscoveryExport\EdiscoveryExportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\Item\Queries\Item\ReviewSetQueryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\Item\Queries\QueriesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\ReviewSet;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -127,17 +126,6 @@ class ReviewSetItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the queries property of the microsoft.graph.ediscovery.reviewSet entity.
-     * @param string $id Unique identifier of the item
-     * @return ReviewSetQueryItemRequestBuilder
-    */
-    public function queriesById(string $id): ReviewSetQueryItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['reviewSetQuery%2Did'] = $id;
-        return new ReviewSetQueryItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

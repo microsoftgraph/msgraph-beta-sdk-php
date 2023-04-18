@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Education\SynchronizationProfiles\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Education\SynchronizationProfiles\Item\EducationSynchronizationProfileItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EducationSynchronizationProfile;
 use Microsoft\Graph\Beta\Generated\Models\EducationSynchronizationProfileCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class SynchronizationProfilesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the synchronizationProfiles property of the microsoft.graph.educationRoot entity.
+     * @param string $educationSynchronizationProfileId Unique identifier of the item
+     * @return EducationSynchronizationProfileItemRequestBuilder
+    */
+    public function byEducationSynchronizationProfileId(string $educationSynchronizationProfileId): EducationSynchronizationProfileItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['educationSynchronizationProfile%2Did'] = $educationSynchronizationProfileId;
+        return new EducationSynchronizationProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SynchronizationProfilesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

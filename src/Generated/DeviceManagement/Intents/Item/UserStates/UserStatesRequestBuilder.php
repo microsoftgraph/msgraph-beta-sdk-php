@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\UserStates\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\UserStates\Item\DeviceManagementIntentUserStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementIntentUserState;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementIntentUserStateCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class UserStatesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userStates property of the microsoft.graph.deviceManagementIntent entity.
+     * @param string $deviceManagementIntentUserStateId Unique identifier of the item
+     * @return DeviceManagementIntentUserStateItemRequestBuilder
+    */
+    public function byDeviceManagementIntentUserStateId(string $deviceManagementIntentUserStateId): DeviceManagementIntentUserStateItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceManagementIntentUserState%2Did'] = $deviceManagementIntentUserStateId;
+        return new DeviceManagementIntentUserStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserStatesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

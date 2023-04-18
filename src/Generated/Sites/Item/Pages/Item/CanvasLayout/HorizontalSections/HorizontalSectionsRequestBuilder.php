@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\HorizontalSection;
 use Microsoft\Graph\Beta\Generated\Models\HorizontalSectionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\CanvasLayout\HorizontalSections\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\CanvasLayout\HorizontalSections\Item\HorizontalSectionItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class HorizontalSectionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the horizontalSections property of the microsoft.graph.canvasLayout entity.
+     * @param string $horizontalSectionId Unique identifier of the item
+     * @return HorizontalSectionItemRequestBuilder
+    */
+    public function byHorizontalSectionId(string $horizontalSectionId): HorizontalSectionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['horizontalSection%2Did'] = $horizontalSectionId;
+        return new HorizontalSectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new HorizontalSectionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

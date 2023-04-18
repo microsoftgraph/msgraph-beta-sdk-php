@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelConfigurations\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelConfigurations\Item\MicrosoftTunnelConfigurationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MicrosoftTunnelConfiguration;
 use Microsoft\Graph\Beta\Generated\Models\MicrosoftTunnelConfigurationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class MicrosoftTunnelConfigurationsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the microsoftTunnelConfigurations property of the microsoft.graph.deviceManagement entity.
+     * @param string $microsoftTunnelConfigurationId Unique identifier of the item
+     * @return MicrosoftTunnelConfigurationItemRequestBuilder
+    */
+    public function byMicrosoftTunnelConfigurationId(string $microsoftTunnelConfigurationId): MicrosoftTunnelConfigurationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['microsoftTunnelConfiguration%2Did'] = $microsoftTunnelConfigurationId;
+        return new MicrosoftTunnelConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new MicrosoftTunnelConfigurationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

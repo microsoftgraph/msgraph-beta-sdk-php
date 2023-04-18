@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ImportedDeviceIdentities\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ImportedDeviceIdentities\ImportDeviceIdentityList\ImportDeviceIdentityListRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ImportedDeviceIdentities\Item\ImportedDeviceIdentityItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ImportedDeviceIdentities\SearchExistingIdentities\SearchExistingIdentitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ImportedDeviceIdentity;
 use Microsoft\Graph\Beta\Generated\Models\ImportedDeviceIdentityCollectionResponse;
@@ -59,6 +60,17 @@ class ImportedDeviceIdentitiesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the importedDeviceIdentities property of the microsoft.graph.deviceManagement entity.
+     * @param string $importedDeviceIdentityId Unique identifier of the item
+     * @return ImportedDeviceIdentityItemRequestBuilder
+    */
+    public function byImportedDeviceIdentityId(string $importedDeviceIdentityId): ImportedDeviceIdentityItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['importedDeviceIdentity%2Did'] = $importedDeviceIdentityId;
+        return new ImportedDeviceIdentityItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ImportedDeviceIdentitiesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

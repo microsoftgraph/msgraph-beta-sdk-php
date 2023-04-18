@@ -13,6 +13,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\Policy\Label
 use Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\Policy\Labels\EvaluateClassificationResults\EvaluateClassificationResultsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\Policy\Labels\EvaluateRemoval\EvaluateRemovalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\Policy\Labels\ExtractLabel\ExtractLabelRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\Policy\Labels\Item\InformationProtectionLabelItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -75,6 +76,17 @@ class LabelsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the labels property of the microsoft.graph.informationProtectionPolicy entity.
+     * @param string $informationProtectionLabelId Unique identifier of the item
+     * @return InformationProtectionLabelItemRequestBuilder
+    */
+    public function byInformationProtectionLabelId(string $informationProtectionLabelId): InformationProtectionLabelItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['informationProtectionLabel%2Did'] = $informationProtectionLabelId;
+        return new InformationProtectionLabelItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new LabelsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

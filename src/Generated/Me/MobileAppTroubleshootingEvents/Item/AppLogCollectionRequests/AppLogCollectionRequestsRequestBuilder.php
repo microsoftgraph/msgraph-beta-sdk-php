@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\MobileAppTroubleshootingEvents\Item\AppLogCollectionRequests\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MobileAppTroubleshootingEvents\Item\AppLogCollectionRequests\Item\AppLogCollectionRequestItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AppLogCollectionRequest;
 use Microsoft\Graph\Beta\Generated\Models\AppLogCollectionRequestCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class AppLogCollectionRequestsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the appLogCollectionRequests property of the microsoft.graph.mobileAppTroubleshootingEvent entity.
+     * @param string $appLogCollectionRequestId Unique identifier of the item
+     * @return AppLogCollectionRequestItemRequestBuilder
+    */
+    public function byAppLogCollectionRequestId(string $appLogCollectionRequestId): AppLogCollectionRequestItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['appLogCollectionRequest%2Did'] = $appLogCollectionRequestId;
+        return new AppLogCollectionRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AppLogCollectionRequestsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\CalendarView\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\CalendarView\Item\BookingAppointmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\BookingAppointment;
 use Microsoft\Graph\Beta\Generated\Models\BookingAppointmentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class CalendarViewRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the calendarView property of the microsoft.graph.bookingBusiness entity.
+     * @param string $bookingAppointmentId Unique identifier of the item
+     * @return BookingAppointmentItemRequestBuilder
+    */
+    public function byBookingAppointmentId(string $bookingAppointmentId): BookingAppointmentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['bookingAppointment%2Did'] = $bookingAppointmentId;
+        return new BookingAppointmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CalendarViewRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

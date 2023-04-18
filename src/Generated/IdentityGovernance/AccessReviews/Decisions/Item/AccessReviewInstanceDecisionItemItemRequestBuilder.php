@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Decisions\Item\Insights\InsightsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Decisions\Item\Insights\Item\GovernanceInsightItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Decisions\Item\Instance\InstanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessReviewInstanceDecisionItem;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -100,17 +99,6 @@ class AccessReviewInstanceDecisionItemItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the insights property of the microsoft.graph.accessReviewInstanceDecisionItem entity.
-     * @param string $id Unique identifier of the item
-     * @return GovernanceInsightItemRequestBuilder
-    */
-    public function insightsById(string $id): GovernanceInsightItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['governanceInsight%2Did'] = $id;
-        return new GovernanceInsightItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

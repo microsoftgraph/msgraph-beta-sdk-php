@@ -7,11 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Item\Assignments\Item\DeviceManagementConfigurationPolicyAssignmentItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Item\ScheduledActionsForRule\Item\DeviceManagementComplianceScheduledActionForRuleItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Item\ScheduledActionsForRule\ScheduledActionsForRuleRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Item\SetScheduledActions\SetScheduledActionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Item\Settings\Item\DeviceManagementConfigurationSettingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Item\Settings\SettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementCompliancePolicy;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -77,17 +74,6 @@ class DeviceManagementCompliancePolicyItemRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the assignments property of the microsoft.graph.deviceManagementCompliancePolicy entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceManagementConfigurationPolicyAssignmentItemRequestBuilder
-    */
-    public function assignmentsById(string $id): DeviceManagementConfigurationPolicyAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceManagementConfigurationPolicyAssignment%2Did'] = $id;
-        return new DeviceManagementConfigurationPolicyAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new DeviceManagementCompliancePolicyItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
@@ -156,28 +142,6 @@ class DeviceManagementCompliancePolicyItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceManagementCompliancePolicy entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceManagementComplianceScheduledActionForRuleItemRequestBuilder
-    */
-    public function scheduledActionsForRuleById(string $id): DeviceManagementComplianceScheduledActionForRuleItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceManagementComplianceScheduledActionForRule%2Did'] = $id;
-        return new DeviceManagementComplianceScheduledActionForRuleItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the settings property of the microsoft.graph.deviceManagementCompliancePolicy entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceManagementConfigurationSettingItemRequestBuilder
-    */
-    public function settingsById(string $id): DeviceManagementConfigurationSettingItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceManagementConfigurationSetting%2Did'] = $id;
-        return new DeviceManagementConfigurationSettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

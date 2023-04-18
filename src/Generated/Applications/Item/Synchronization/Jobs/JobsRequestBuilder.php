@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\SynchronizationJobItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\ValidateCredentials\ValidateCredentialsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SynchronizationJob;
@@ -51,6 +52,17 @@ class JobsRequestBuilder
         return new ValidateCredentialsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
+     * @param string $synchronizationJobId Unique identifier of the item
+     * @return SynchronizationJobItemRequestBuilder
+    */
+    public function bySynchronizationJobId(string $synchronizationJobId): SynchronizationJobItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['synchronizationJob%2Did'] = $synchronizationJobId;
+        return new SynchronizationJobItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new JobsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

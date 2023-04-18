@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceStartupHistory\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceStartupHistory\Item\UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDeviceStartupHistory;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDeviceStartupHistoryCollectionResponse;
@@ -43,6 +44,17 @@ class UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userExperienceAnalyticsDeviceStartupHistory property of the microsoft.graph.deviceManagement entity.
+     * @param string $userExperienceAnalyticsDeviceStartupHistoryId Unique identifier of the item
+     * @return UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder
+    */
+    public function byUserExperienceAnalyticsDeviceStartupHistoryId(string $userExperienceAnalyticsDeviceStartupHistoryId): UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userExperienceAnalyticsDeviceStartupHistory%2Did'] = $userExperienceAnalyticsDeviceStartupHistoryId;
+        return new UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

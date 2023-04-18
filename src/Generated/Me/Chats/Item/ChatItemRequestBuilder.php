@@ -7,22 +7,15 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Chats\Item\HideForUser\HideForUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Chats\Item\InstalledApps\InstalledAppsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Chats\Item\InstalledApps\Item\TeamsAppInstallationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Chats\Item\LastMessagePreview\LastMessagePreviewRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Chats\Item\MarkChatReadForUser\MarkChatReadForUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Chats\Item\MarkChatUnreadForUser\MarkChatUnreadForUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Chats\Item\Members\Item\ConversationMemberItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Chats\Item\Members\MembersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Chats\Item\Messages\Item\ChatMessageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Chats\Item\Messages\MessagesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Chats\Item\Operations\Item\TeamsAsyncOperationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Chats\Item\Operations\OperationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Chats\Item\PermissionGrants\Item\ResourceSpecificPermissionGrantItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Chats\Item\PermissionGrants\PermissionGrantsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Chats\Item\PinnedMessages\Item\PinnedChatMessageInfoItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Chats\Item\PinnedMessages\PinnedMessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Chats\Item\SendActivityNotification\SendActivityNotificationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Chats\Item\Tabs\Item\TeamsTabItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Chats\Item\Tabs\TabsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Chats\Item\UnhideForUser\UnhideForUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Chat;
@@ -197,50 +190,6 @@ class ChatItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the installedApps property of the microsoft.graph.chat entity.
-     * @param string $id Unique identifier of the item
-     * @return TeamsAppInstallationItemRequestBuilder
-    */
-    public function installedAppsById(string $id): TeamsAppInstallationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['teamsAppInstallation%2Did'] = $id;
-        return new TeamsAppInstallationItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the members property of the microsoft.graph.chat entity.
-     * @param string $id Unique identifier of the item
-     * @return ConversationMemberItemRequestBuilder
-    */
-    public function membersById(string $id): ConversationMemberItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['conversationMember%2Did'] = $id;
-        return new ConversationMemberItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the messages property of the microsoft.graph.chat entity.
-     * @param string $id Unique identifier of the item
-     * @return ChatMessageItemRequestBuilder
-    */
-    public function messagesById(string $id): ChatMessageItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['chatMessage%2Did'] = $id;
-        return new ChatMessageItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the operations property of the microsoft.graph.chat entity.
-     * @param string $id Unique identifier of the item
-     * @return TeamsAsyncOperationItemRequestBuilder
-    */
-    public function operationsById(string $id): TeamsAsyncOperationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['teamsAsyncOperation%2Did'] = $id;
-        return new TeamsAsyncOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Update the navigation property chats in me
      * @param Chat $body The request body
      * @param ChatItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -257,39 +206,6 @@ class ChatItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the permissionGrants property of the microsoft.graph.chat entity.
-     * @param string $id Unique identifier of the item
-     * @return ResourceSpecificPermissionGrantItemRequestBuilder
-    */
-    public function permissionGrantsById(string $id): ResourceSpecificPermissionGrantItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['resourceSpecificPermissionGrant%2Did'] = $id;
-        return new ResourceSpecificPermissionGrantItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.
-     * @param string $id Unique identifier of the item
-     * @return PinnedChatMessageInfoItemRequestBuilder
-    */
-    public function pinnedMessagesById(string $id): PinnedChatMessageInfoItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['pinnedChatMessageInfo%2Did'] = $id;
-        return new PinnedChatMessageInfoItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the tabs property of the microsoft.graph.chat entity.
-     * @param string $id Unique identifier of the item
-     * @return TeamsTabItemRequestBuilder
-    */
-    public function tabsById(string $id): TeamsTabItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['teamsTab%2Did'] = $id;
-        return new TeamsTabItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigManagerCollections\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigManagerCollections\GetPolicySummaryWithPolicyId\GetPolicySummaryWithPolicyIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigManagerCollections\Item\ConfigManagerCollectionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ConfigManagerCollection;
 use Microsoft\Graph\Beta\Generated\Models\ConfigManagerCollectionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -44,6 +45,17 @@ class ConfigManagerCollectionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the configManagerCollections property of the microsoft.graph.deviceManagement entity.
+     * @param string $configManagerCollectionId Unique identifier of the item
+     * @return ConfigManagerCollectionItemRequestBuilder
+    */
+    public function byConfigManagerCollectionId(string $configManagerCollectionId): ConfigManagerCollectionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['configManagerCollection%2Did'] = $configManagerCollectionId;
+        return new ConfigManagerCollectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ConfigManagerCollectionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

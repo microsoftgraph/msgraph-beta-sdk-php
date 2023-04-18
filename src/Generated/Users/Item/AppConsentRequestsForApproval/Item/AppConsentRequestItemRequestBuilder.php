@@ -7,7 +7,6 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\AppConsentRequest;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApproval\Item\UserConsentRequests\Item\UserConsentRequestItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApproval\Item\UserConsentRequests\UserConsentRequestsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -181,17 +180,6 @@ class AppConsentRequestItemRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the userConsentRequests property of the microsoft.graph.appConsentRequest entity.
-     * @param string $id Unique identifier of the item
-     * @return UserConsentRequestItemRequestBuilder
-    */
-    public function userConsentRequestsById(string $id): UserConsentRequestItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['userConsentRequest%2Did'] = $id;
-        return new UserConsentRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

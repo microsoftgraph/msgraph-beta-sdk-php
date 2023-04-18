@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\DirectorySetting;
 use Microsoft\Graph\Beta\Generated\Models\DirectorySettingCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Settings\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Settings\Item\DirectorySettingItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class SettingsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the collection of directorySetting entities.
+     * @param string $directorySettingId Unique identifier of the item
+     * @return DirectorySettingItemRequestBuilder
+    */
+    public function byDirectorySettingId(string $directorySettingId): DirectorySettingItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['directorySetting%2Did'] = $directorySettingId;
+        return new DirectorySettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SettingsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -15,6 +15,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\BulkSetCloudPcRevie
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\DownloadAppDiagnostics\DownloadAppDiagnosticsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\ExecuteAction\ExecuteActionRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\ManagedDeviceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\MoveDevicesToOU\MoveDevicesToOURequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -99,6 +100,17 @@ class ManagedDevicesRequestBuilder
     */
     public function appDiagnosticsWithUpn(string $upn): AppDiagnosticsWithUpnRequestBuilder {
         return new AppDiagnosticsWithUpnRequestBuilder($this->pathParameters, $this->requestAdapter, $upn);
+    }
+
+    /**
+     * Provides operations to manage the managedDevices property of the microsoft.graph.user entity.
+     * @param string $managedDeviceId Unique identifier of the item
+     * @return ManagedDeviceItemRequestBuilder
+    */
+    public function byManagedDeviceId(string $managedDeviceId): ManagedDeviceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managedDevice%2Did'] = $managedDeviceId;
+        return new ManagedDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

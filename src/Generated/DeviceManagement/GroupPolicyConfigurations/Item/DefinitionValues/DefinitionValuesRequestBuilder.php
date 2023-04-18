@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\DefinitionValues\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\DefinitionValues\Item\GroupPolicyDefinitionValueItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyDefinitionValue;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyDefinitionValueCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class DefinitionValuesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the definitionValues property of the microsoft.graph.groupPolicyConfiguration entity.
+     * @param string $groupPolicyDefinitionValueId Unique identifier of the item
+     * @return GroupPolicyDefinitionValueItemRequestBuilder
+    */
+    public function byGroupPolicyDefinitionValueId(string $groupPolicyDefinitionValueId): GroupPolicyDefinitionValueItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['groupPolicyDefinitionValue%2Did'] = $groupPolicyDefinitionValueId;
+        return new GroupPolicyDefinitionValueItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DefinitionValuesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

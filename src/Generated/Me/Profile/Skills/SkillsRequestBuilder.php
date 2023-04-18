@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Profile\Skills\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Profile\Skills\Item\SkillProficiencyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SkillProficiency;
 use Microsoft\Graph\Beta\Generated\Models\SkillProficiencyCollectionResponse;
@@ -43,6 +44,17 @@ class SkillsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the skills property of the microsoft.graph.profile entity.
+     * @param string $skillProficiencyId Unique identifier of the item
+     * @return SkillProficiencyItemRequestBuilder
+    */
+    public function bySkillProficiencyId(string $skillProficiencyId): SkillProficiencyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['skillProficiency%2Did'] = $skillProficiencyId;
+        return new SkillProficiencyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SkillsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

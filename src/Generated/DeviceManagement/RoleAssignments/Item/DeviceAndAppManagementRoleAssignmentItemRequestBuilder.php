@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\RoleAssignments\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleAssignments\Item\RoleScopeTags\Item\RoleScopeTagItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleAssignments\Item\RoleScopeTags\RoleScopeTagsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceAndAppManagementRoleAssignment;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -111,17 +110,6 @@ class DeviceAndAppManagementRoleAssignmentItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the roleScopeTags property of the microsoft.graph.deviceAndAppManagementRoleAssignment entity.
-     * @param string $id Unique identifier of the item
-     * @return RoleScopeTagItemRequestBuilder
-    */
-    public function roleScopeTagsById(string $id): RoleScopeTagItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['roleScopeTag%2Did'] = $id;
-        return new RoleScopeTagItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

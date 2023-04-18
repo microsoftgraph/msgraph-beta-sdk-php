@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\IosUpdateStatuses\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\IosUpdateStatuses\Item\IosUpdateDeviceStatusItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IosUpdateDeviceStatus;
 use Microsoft\Graph\Beta\Generated\Models\IosUpdateDeviceStatusCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class IosUpdateStatusesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the iosUpdateStatuses property of the microsoft.graph.deviceManagement entity.
+     * @param string $iosUpdateDeviceStatusId Unique identifier of the item
+     * @return IosUpdateDeviceStatusItemRequestBuilder
+    */
+    public function byIosUpdateDeviceStatusId(string $iosUpdateDeviceStatusId): IosUpdateDeviceStatusItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['iosUpdateDeviceStatus%2Did'] = $iosUpdateDeviceStatusId;
+        return new IosUpdateDeviceStatusItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new IosUpdateStatusesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

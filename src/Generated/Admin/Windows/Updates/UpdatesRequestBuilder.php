@@ -7,14 +7,9 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Catalog\CatalogRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudiences\DeploymentAudiencesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudiences\Item\DeploymentAudienceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\DeploymentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\DeploymentItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\ResourceConnections\Item\ResourceConnectionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\ResourceConnections\ResourceConnectionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets\Item\UpdatableAssetItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets\UpdatableAssetsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatePolicies\Item\UpdatePolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatePolicies\UpdatePoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AdminWindowsUpdates;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -121,28 +116,6 @@ class UpdatesRequestBuilder
     }
 
     /**
-     * Provides operations to manage the deploymentAudiences property of the microsoft.graph.adminWindowsUpdates entity.
-     * @param string $id Unique identifier of the item
-     * @return DeploymentAudienceItemRequestBuilder
-    */
-    public function deploymentAudiencesById(string $id): DeploymentAudienceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deploymentAudience%2Did'] = $id;
-        return new DeploymentAudienceItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the deployments property of the microsoft.graph.adminWindowsUpdates entity.
-     * @param string $id Unique identifier of the item
-     * @return DeploymentItemRequestBuilder
-    */
-    public function deploymentsById(string $id): DeploymentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deployment%2Did'] = $id;
-        return new DeploymentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Entity that acts as a container for all Windows Update for Business deployment service functionalities. Read-only.
      * @param UpdatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -177,17 +150,6 @@ class UpdatesRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the resourceConnections property of the microsoft.graph.adminWindowsUpdates entity.
-     * @param string $id Unique identifier of the item
-     * @return ResourceConnectionItemRequestBuilder
-    */
-    public function resourceConnectionsById(string $id): ResourceConnectionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['resourceConnection%2Did'] = $id;
-        return new ResourceConnectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -258,28 +220,6 @@ class UpdatesRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the updatableAssets property of the microsoft.graph.adminWindowsUpdates entity.
-     * @param string $id Unique identifier of the item
-     * @return UpdatableAssetItemRequestBuilder
-    */
-    public function updatableAssetsById(string $id): UpdatableAssetItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['updatableAsset%2Did'] = $id;
-        return new UpdatableAssetItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the updatePolicies property of the microsoft.graph.adminWindowsUpdates entity.
-     * @param string $id Unique identifier of the item
-     * @return UpdatePolicyItemRequestBuilder
-    */
-    public function updatePoliciesById(string $id): UpdatePolicyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['updatePolicy%2Did'] = $id;
-        return new UpdatePolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

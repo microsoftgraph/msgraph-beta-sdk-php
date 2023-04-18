@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagedDeviceCompliance
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagedDeviceComplianceTrendCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedDeviceComplianceTrends\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedDeviceComplianceTrends\Item\ManagedDeviceComplianceTrendItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class ManagedDeviceComplianceTrendsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the managedDeviceComplianceTrends property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $managedDeviceComplianceTrendId Unique identifier of the item
+     * @return ManagedDeviceComplianceTrendItemRequestBuilder
+    */
+    public function byManagedDeviceComplianceTrendId(string $managedDeviceComplianceTrendId): ManagedDeviceComplianceTrendItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managedDeviceComplianceTrend%2Did'] = $managedDeviceComplianceTrendId;
+        return new ManagedDeviceComplianceTrendItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ManagedDeviceComplianceTrendsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

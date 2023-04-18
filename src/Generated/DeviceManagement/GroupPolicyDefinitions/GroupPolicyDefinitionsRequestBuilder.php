@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyDefinitions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyDefinitions\Item\GroupPolicyDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyDefinition;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyDefinitionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class GroupPolicyDefinitionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the groupPolicyDefinitions property of the microsoft.graph.deviceManagement entity.
+     * @param string $groupPolicyDefinitionId Unique identifier of the item
+     * @return GroupPolicyDefinitionItemRequestBuilder
+    */
+    public function byGroupPolicyDefinitionId(string $groupPolicyDefinitionId): GroupPolicyDefinitionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['groupPolicyDefinition%2Did'] = $groupPolicyDefinitionId;
+        return new GroupPolicyDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new GroupPolicyDefinitionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

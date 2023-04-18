@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsQualityUpdateProfiles\Item\Assignments\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsQualityUpdateProfiles\Item\Assignments\Item\WindowsQualityUpdateProfileAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsQualityUpdateProfileAssignment;
 use Microsoft\Graph\Beta\Generated\Models\WindowsQualityUpdateProfileAssignmentCollectionResponse;
@@ -43,6 +44,17 @@ class AssignmentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.windowsQualityUpdateProfile entity.
+     * @param string $windowsQualityUpdateProfileAssignmentId Unique identifier of the item
+     * @return WindowsQualityUpdateProfileAssignmentItemRequestBuilder
+    */
+    public function byWindowsQualityUpdateProfileAssignmentId(string $windowsQualityUpdateProfileAssignmentId): WindowsQualityUpdateProfileAssignmentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['windowsQualityUpdateProfileAssignment%2Did'] = $windowsQualityUpdateProfileAssignmentId;
+        return new WindowsQualityUpdateProfileAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AssignmentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

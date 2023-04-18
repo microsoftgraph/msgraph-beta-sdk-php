@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScripts\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScripts\HasPayloadLinks\HasPayloadLinksRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScripts\Item\DeviceManagementScriptItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementScript;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementScriptCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -51,6 +52,17 @@ class DeviceManagementScriptsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the deviceManagementScripts property of the microsoft.graph.deviceManagement entity.
+     * @param string $deviceManagementScriptId Unique identifier of the item
+     * @return DeviceManagementScriptItemRequestBuilder
+    */
+    public function byDeviceManagementScriptId(string $deviceManagementScriptId): DeviceManagementScriptItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceManagementScript%2Did'] = $deviceManagementScriptId;
+        return new DeviceManagementScriptItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DeviceManagementScriptsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

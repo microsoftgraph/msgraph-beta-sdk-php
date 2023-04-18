@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Definitions\Item\Instances\Item\Stages\Item\Decisions\Item\Instance\ContactedReviewers\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Definitions\Item\Instances\Item\Stages\Item\Decisions\Item\Instance\ContactedReviewers\Item\AccessReviewReviewerItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessReviewReviewer;
 use Microsoft\Graph\Beta\Generated\Models\AccessReviewReviewerCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class ContactedReviewersRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the contactedReviewers property of the microsoft.graph.accessReviewInstance entity.
+     * @param string $accessReviewReviewerId Unique identifier of the item
+     * @return AccessReviewReviewerItemRequestBuilder
+    */
+    public function byAccessReviewReviewerId(string $accessReviewReviewerId): AccessReviewReviewerItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['accessReviewReviewer%2Did'] = $accessReviewReviewerId;
+        return new AccessReviewReviewerItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ContactedReviewersRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

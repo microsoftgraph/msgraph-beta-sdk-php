@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WebAccount;
 use Microsoft\Graph\Beta\Generated\Models\WebAccountCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\WebAccounts\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Profile\WebAccounts\Item\WebAccountItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class WebAccountsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the webAccounts property of the microsoft.graph.profile entity.
+     * @param string $webAccountId Unique identifier of the item
+     * @return WebAccountItemRequestBuilder
+    */
+    public function byWebAccountId(string $webAccountId): WebAccountItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['webAccount%2Did'] = $webAccountId;
+        return new WebAccountItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new WebAccountsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

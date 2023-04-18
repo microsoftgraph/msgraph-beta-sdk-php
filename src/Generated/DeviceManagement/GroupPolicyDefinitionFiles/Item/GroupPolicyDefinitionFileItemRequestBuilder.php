@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyDefinitionFiles\Item\Definitions\DefinitionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyDefinitionFiles\Item\Definitions\Item\GroupPolicyDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyDefinitionFile;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -56,17 +55,6 @@ class GroupPolicyDefinitionFileItemRequestBuilder
         } else {
             $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
         }
-    }
-
-    /**
-     * Provides operations to manage the definitions property of the microsoft.graph.groupPolicyDefinitionFile entity.
-     * @param string $id Unique identifier of the item
-     * @return GroupPolicyDefinitionItemRequestBuilder
-    */
-    public function definitionsById(string $id): GroupPolicyDefinitionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['groupPolicyDefinition%2Did'] = $id;
-        return new GroupPolicyDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Directory\FeatureRolloutPolicies\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\FeatureRolloutPolicies\Item\FeatureRolloutPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\FeatureRolloutPolicy;
 use Microsoft\Graph\Beta\Generated\Models\FeatureRolloutPolicyCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class FeatureRolloutPoliciesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.directory entity.
+     * @param string $featureRolloutPolicyId Unique identifier of the item
+     * @return FeatureRolloutPolicyItemRequestBuilder
+    */
+    public function byFeatureRolloutPolicyId(string $featureRolloutPolicyId): FeatureRolloutPolicyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['featureRolloutPolicy%2Did'] = $featureRolloutPolicyId;
+        return new FeatureRolloutPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new FeatureRolloutPoliciesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

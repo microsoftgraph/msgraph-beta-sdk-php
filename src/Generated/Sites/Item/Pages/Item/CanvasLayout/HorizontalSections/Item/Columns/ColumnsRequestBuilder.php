@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\HorizontalSectionColumn;
 use Microsoft\Graph\Beta\Generated\Models\HorizontalSectionColumnCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\CanvasLayout\HorizontalSections\Item\Columns\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\CanvasLayout\HorizontalSections\Item\Columns\Item\HorizontalSectionColumnItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class ColumnsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the columns property of the microsoft.graph.horizontalSection entity.
+     * @param string $horizontalSectionColumnId Unique identifier of the item
+     * @return HorizontalSectionColumnItemRequestBuilder
+    */
+    public function byHorizontalSectionColumnId(string $horizontalSectionColumnId): HorizontalSectionColumnItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['horizontalSectionColumn%2Did'] = $horizontalSectionColumnId;
+        return new HorizontalSectionColumnItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ColumnsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

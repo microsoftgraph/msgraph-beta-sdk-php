@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\Item\SalesQuoteItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SalesQuoteCollectionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -42,6 +43,17 @@ class SalesQuotesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the salesQuotes property of the microsoft.graph.company entity.
+     * @param string $salesQuoteId Unique identifier of the item
+     * @return SalesQuoteItemRequestBuilder
+    */
+    public function bySalesQuoteId(string $salesQuoteId): SalesQuoteItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['salesQuote%2Did'] = $salesQuoteId;
+        return new SalesQuoteItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SalesQuotesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

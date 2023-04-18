@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackageCatalogItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Search\SearchRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessPackageCatalog;
 use Microsoft\Graph\Beta\Generated\Models\AccessPackageCatalogCollectionResponse;
@@ -51,6 +52,17 @@ class AccessPackageCatalogsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the accessPackageCatalogs property of the microsoft.graph.entitlementManagement entity.
+     * @param string $accessPackageCatalogId Unique identifier of the item
+     * @return AccessPackageCatalogItemRequestBuilder
+    */
+    public function byAccessPackageCatalogId(string $accessPackageCatalogId): AccessPackageCatalogItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['accessPackageCatalog%2Did'] = $accessPackageCatalogId;
+        return new AccessPackageCatalogItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AccessPackageCatalogsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

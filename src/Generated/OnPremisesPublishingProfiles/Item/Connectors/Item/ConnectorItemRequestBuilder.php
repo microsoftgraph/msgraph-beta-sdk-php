@@ -7,7 +7,6 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\Connector;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Connectors\Item\MemberOf\Item\ConnectorGroupItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Connectors\Item\MemberOf\MemberOfRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -92,17 +91,6 @@ class ConnectorItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.onPremisesPublishingProfiles.item.connectors.item.memberOf.item collection
-     * @param string $id Unique identifier of the item
-     * @return ConnectorGroupItemRequestBuilder
-    */
-    public function memberOfById(string $id): ConnectorGroupItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['connectorGroup%2Did'] = $id;
-        return new ConnectorGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

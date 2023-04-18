@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\TaxAreas\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\TaxAreas\Item\TaxAreaItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TaxArea;
 use Microsoft\Graph\Beta\Generated\Models\TaxAreaCollectionResponse;
@@ -43,6 +44,17 @@ class TaxAreasRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the taxAreas property of the microsoft.graph.company entity.
+     * @param string $taxAreaId Unique identifier of the item
+     * @return TaxAreaItemRequestBuilder
+    */
+    public function byTaxAreaId(string $taxAreaId): TaxAreaItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['taxArea%2Did'] = $taxAreaId;
+        return new TaxAreaItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new TaxAreasRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

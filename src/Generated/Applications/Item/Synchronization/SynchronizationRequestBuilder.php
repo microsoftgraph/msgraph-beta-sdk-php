@@ -6,11 +6,9 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\AcquireAccessToken\AcquireAccessTokenRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\SynchronizationJobItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\JobsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Ping\PingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Secrets\SecretsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Templates\Item\SynchronizationTemplateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Templates\TemplatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Synchronization;
@@ -128,17 +126,6 @@ class SynchronizationRequestBuilder
     }
 
     /**
-     * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
-     * @param string $id Unique identifier of the item
-     * @return SynchronizationJobItemRequestBuilder
-    */
-    public function jobsById(string $id): SynchronizationJobItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['synchronizationJob%2Did'] = $id;
-        return new SynchronizationJobItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Update the navigation property synchronization in applications
      * @param Synchronization $body The request body
      * @param SynchronizationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -155,17 +142,6 @@ class SynchronizationRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the templates property of the microsoft.graph.synchronization entity.
-     * @param string $id Unique identifier of the item
-     * @return SynchronizationTemplateItemRequestBuilder
-    */
-    public function templatesById(string $id): SynchronizationTemplateItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['synchronizationTemplate%2Did'] = $id;
-        return new SynchronizationTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

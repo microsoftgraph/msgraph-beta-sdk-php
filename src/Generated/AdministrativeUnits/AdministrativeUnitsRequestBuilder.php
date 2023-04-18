@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Count\CountRequestBuilder
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Delta\DeltaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\GetByIds\GetByIdsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\AdministrativeUnitItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\ValidateProperties\ValidatePropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AdministrativeUnit;
 use Microsoft\Graph\Beta\Generated\Models\AdministrativeUnitCollectionResponse;
@@ -75,6 +76,17 @@ class AdministrativeUnitsRequestBuilder
         return new ValidatePropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * Provides operations to manage the collection of administrativeUnit entities.
+     * @param string $administrativeUnitId Unique identifier of the item
+     * @return AdministrativeUnitItemRequestBuilder
+    */
+    public function byAdministrativeUnitId(string $administrativeUnitId): AdministrativeUnitItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['administrativeUnit%2Did'] = $administrativeUnitId;
+        return new AdministrativeUnitItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AdministrativeUnitsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

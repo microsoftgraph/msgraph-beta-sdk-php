@@ -11,7 +11,6 @@ use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\ContactInsights\Co
 use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\ItemInsights\ItemInsightsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\MicrosoftApplicationDataAccess\MicrosoftApplicationDataAccessRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\PeopleInsights\PeopleInsightsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\ProfileCardProperties\Item\ProfileCardPropertyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\ProfileCardProperties\ProfileCardPropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\Pronouns\PronounsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -152,17 +151,6 @@ class SettingsRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the profileCardProperties property of the microsoft.graph.organizationSettings entity.
-     * @param string $id Unique identifier of the item
-     * @return ProfileCardPropertyItemRequestBuilder
-    */
-    public function profileCardPropertiesById(string $id): ProfileCardPropertyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['profileCardProperty%2Did'] = $id;
-        return new ProfileCardPropertyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

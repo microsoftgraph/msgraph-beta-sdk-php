@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\CustomTaskExtensions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\CustomTaskExtensions\Item\CustomTaskExtensionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\CustomTaskExtension;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\CustomTaskExtensionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class CustomTaskExtensionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the customTaskExtensions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
+     * @param string $customTaskExtensionId Unique identifier of the item
+     * @return CustomTaskExtensionItemRequestBuilder
+    */
+    public function byCustomTaskExtensionId(string $customTaskExtensionId): CustomTaskExtensionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['customTaskExtension%2Did'] = $customTaskExtensionId;
+        return new CustomTaskExtensionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CustomTaskExtensionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

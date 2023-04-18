@@ -7,13 +7,9 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedEBooks\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedEBooks\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedEBooks\Item\Assignments\Item\ManagedEBookAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedEBooks\Item\Categories\CategoriesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedEBooks\Item\Categories\Item\ManagedEBookCategoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedEBooks\Item\DeviceStates\DeviceStatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedEBooks\Item\DeviceStates\Item\DeviceInstallStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedEBooks\Item\InstallSummary\InstallSummaryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedEBooks\Item\UserStateSummary\Item\UserInstallStateSummaryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedEBooks\Item\UserStateSummary\UserStateSummaryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ManagedEBook;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -87,28 +83,6 @@ class ManagedEBookItemRequestBuilder
     }
     
     /**
-     * Provides operations to manage the assignments property of the microsoft.graph.managedEBook entity.
-     * @param string $id Unique identifier of the item
-     * @return ManagedEBookAssignmentItemRequestBuilder
-    */
-    public function assignmentsById(string $id): ManagedEBookAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['managedEBookAssignment%2Did'] = $id;
-        return new ManagedEBookAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the categories property of the microsoft.graph.managedEBook entity.
-     * @param string $id Unique identifier of the item
-     * @return ManagedEBookCategoryItemRequestBuilder
-    */
-    public function categoriesById(string $id): ManagedEBookCategoryItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['managedEBookCategory%2Did'] = $id;
-        return new ManagedEBookCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new ManagedEBookItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -139,17 +113,6 @@ class ManagedEBookItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the deviceStates property of the microsoft.graph.managedEBook entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceInstallStateItemRequestBuilder
-    */
-    public function deviceStatesById(string $id): DeviceInstallStateItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceInstallState%2Did'] = $id;
-        return new DeviceInstallStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -257,17 +220,6 @@ class ManagedEBookItemRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the userStateSummary property of the microsoft.graph.managedEBook entity.
-     * @param string $id Unique identifier of the item
-     * @return UserInstallStateSummaryItemRequestBuilder
-    */
-    public function userStateSummaryById(string $id): UserInstallStateSummaryItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['userInstallStateSummary%2Did'] = $id;
-        return new UserInstallStateSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

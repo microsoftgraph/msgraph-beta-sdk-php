@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SecurityAction;
 use Microsoft\Graph\Beta\Generated\Models\SecurityActionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\SecurityActions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\SecurityActions\Item\SecurityActionItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class SecurityActionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the securityActions property of the microsoft.graph.security entity.
+     * @param string $securityActionId Unique identifier of the item
+     * @return SecurityActionItemRequestBuilder
+    */
+    public function bySecurityActionId(string $securityActionId): SecurityActionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['securityAction%2Did'] = $securityActionId;
+        return new SecurityActionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SecurityActionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

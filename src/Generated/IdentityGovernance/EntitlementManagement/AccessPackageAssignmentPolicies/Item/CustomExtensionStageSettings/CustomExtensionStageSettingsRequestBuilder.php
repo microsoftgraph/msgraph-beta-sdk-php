@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignmentPolicies\Item\CustomExtensionStageSettings\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignmentPolicies\Item\CustomExtensionStageSettings\Item\CustomExtensionStageSettingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CustomExtensionStageSetting;
 use Microsoft\Graph\Beta\Generated\Models\CustomExtensionStageSettingCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class CustomExtensionStageSettingsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the customExtensionStageSettings property of the microsoft.graph.accessPackageAssignmentPolicy entity.
+     * @param string $customExtensionStageSettingId Unique identifier of the item
+     * @return CustomExtensionStageSettingItemRequestBuilder
+    */
+    public function byCustomExtensionStageSettingId(string $customExtensionStageSettingId): CustomExtensionStageSettingItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['customExtensionStageSetting%2Did'] = $customExtensionStageSettingId;
+        return new CustomExtensionStageSettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CustomExtensionStageSettingsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

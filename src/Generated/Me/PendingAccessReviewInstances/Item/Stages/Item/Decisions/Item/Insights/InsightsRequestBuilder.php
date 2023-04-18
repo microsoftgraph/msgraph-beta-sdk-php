@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\PendingAccessReviewInstances\Item\Stages\Item\Decisions\Item\Insights\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\PendingAccessReviewInstances\Item\Stages\Item\Decisions\Item\Insights\Item\GovernanceInsightItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\GovernanceInsight;
 use Microsoft\Graph\Beta\Generated\Models\GovernanceInsightCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class InsightsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the insights property of the microsoft.graph.accessReviewInstanceDecisionItem entity.
+     * @param string $governanceInsightId Unique identifier of the item
+     * @return GovernanceInsightItemRequestBuilder
+    */
+    public function byGovernanceInsightId(string $governanceInsightId): GovernanceInsightItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['governanceInsight%2Did'] = $governanceInsightId;
+        return new GovernanceInsightItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new InsightsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

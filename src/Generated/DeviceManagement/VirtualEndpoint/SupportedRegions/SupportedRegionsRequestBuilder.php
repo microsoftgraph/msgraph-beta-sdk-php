@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\SupportedRegions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\SupportedRegions\Item\CloudPcSupportedRegionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcSupportedRegion;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcSupportedRegionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class SupportedRegionsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the supportedRegions property of the microsoft.graph.virtualEndpoint entity.
+     * @param string $cloudPcSupportedRegionId Unique identifier of the item
+     * @return CloudPcSupportedRegionItemRequestBuilder
+    */
+    public function byCloudPcSupportedRegionId(string $cloudPcSupportedRegionId): CloudPcSupportedRegionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['cloudPcSupportedRegion%2Did'] = $cloudPcSupportedRegionId;
+        return new CloudPcSupportedRegionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SupportedRegionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

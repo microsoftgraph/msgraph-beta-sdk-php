@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\ServicePrincipalCreationPolicy;
 use Microsoft\Graph\Beta\Generated\Models\ServicePrincipalCreationPolicyCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\Item\ServicePrincipalCreationPolicyItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class ServicePrincipalCreationPoliciesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the servicePrincipalCreationPolicies property of the microsoft.graph.policyRoot entity.
+     * @param string $servicePrincipalCreationPolicyId Unique identifier of the item
+     * @return ServicePrincipalCreationPolicyItemRequestBuilder
+    */
+    public function byServicePrincipalCreationPolicyId(string $servicePrincipalCreationPolicyId): ServicePrincipalCreationPolicyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['servicePrincipalCreationPolicy%2Did'] = $servicePrincipalCreationPolicyId;
+        return new ServicePrincipalCreationPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ServicePrincipalCreationPoliciesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

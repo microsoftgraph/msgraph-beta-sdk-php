@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Search\Acronym;
 use Microsoft\Graph\Beta\Generated\Models\Search\AcronymCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Search\Acronyms\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Search\Acronyms\Item\AcronymItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class AcronymsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the acronyms property of the microsoft.graph.searchEntity entity.
+     * @param string $acronymId Unique identifier of the item
+     * @return AcronymItemRequestBuilder
+    */
+    public function byAcronymId(string $acronymId): AcronymItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['acronym%2Did'] = $acronymId;
+        return new AcronymItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AcronymsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

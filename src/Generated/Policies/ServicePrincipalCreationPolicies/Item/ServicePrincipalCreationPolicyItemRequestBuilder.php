@@ -84,17 +84,6 @@ class ServicePrincipalCreationPolicyItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the excludes property of the microsoft.graph.servicePrincipalCreationPolicy entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\Item\Excludes\Item\ServicePrincipalCreationConditionSetItemRequestBuilder
-    */
-    public function excludesById(string $id): \Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\Item\Excludes\Item\ServicePrincipalCreationConditionSetItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['servicePrincipalCreationConditionSet%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\Item\Excludes\Item\ServicePrincipalCreationConditionSetItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Get servicePrincipalCreationPolicies from policies
      * @param ServicePrincipalCreationPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -110,17 +99,6 @@ class ServicePrincipalCreationPolicyItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the includes property of the microsoft.graph.servicePrincipalCreationPolicy entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\Item\Includes\Item\ServicePrincipalCreationConditionSetItemRequestBuilder
-    */
-    public function includesById(string $id): \Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\Item\Includes\Item\ServicePrincipalCreationConditionSetItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['servicePrincipalCreationConditionSet%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\Item\Includes\Item\ServicePrincipalCreationConditionSetItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

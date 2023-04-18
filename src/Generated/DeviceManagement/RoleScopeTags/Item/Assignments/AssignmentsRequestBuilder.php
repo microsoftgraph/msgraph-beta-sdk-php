@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleScopeTags\Item\Assignments\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleScopeTags\Item\Assignments\Item\RoleScopeTagAutoAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\RoleScopeTagAutoAssignment;
 use Microsoft\Graph\Beta\Generated\Models\RoleScopeTagAutoAssignmentCollectionResponse;
@@ -43,6 +44,17 @@ class AssignmentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.roleScopeTag entity.
+     * @param string $roleScopeTagAutoAssignmentId Unique identifier of the item
+     * @return RoleScopeTagAutoAssignmentItemRequestBuilder
+    */
+    public function byRoleScopeTagAutoAssignmentId(string $roleScopeTagAutoAssignmentId): RoleScopeTagAutoAssignmentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['roleScopeTagAutoAssignment%2Did'] = $roleScopeTagAutoAssignmentId;
+        return new RoleScopeTagAutoAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AssignmentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

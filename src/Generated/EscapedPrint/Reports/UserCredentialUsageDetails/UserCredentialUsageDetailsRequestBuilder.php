@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\UserCredentialUsageDetails\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\UserCredentialUsageDetails\Item\UserCredentialUsageDetailsItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserCredentialUsageDetails;
 use Microsoft\Graph\Beta\Generated\Models\UserCredentialUsageDetailsCollectionResponse;
@@ -43,6 +44,17 @@ class UserCredentialUsageDetailsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userCredentialUsageDetails property of the microsoft.graph.reportRoot entity.
+     * @param string $userCredentialUsageDetailsId Unique identifier of the item
+     * @return UserCredentialUsageDetailsItemRequestBuilder
+    */
+    public function byUserCredentialUsageDetailsId(string $userCredentialUsageDetailsId): UserCredentialUsageDetailsItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userCredentialUsageDetails%2Did'] = $userCredentialUsageDetailsId;
+        return new UserCredentialUsageDetailsItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserCredentialUsageDetailsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

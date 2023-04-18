@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\SiteSources\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\SiteSources\Item\SiteSourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\SiteSource;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\SiteSourceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class SiteSourcesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the siteSources property of the microsoft.graph.ediscovery.legalHold entity.
+     * @param string $siteSourceId Unique identifier of the item
+     * @return SiteSourceItemRequestBuilder
+    */
+    public function bySiteSourceId(string $siteSourceId): SiteSourceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['siteSource%2Did'] = $siteSourceId;
+        return new SiteSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SiteSourcesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

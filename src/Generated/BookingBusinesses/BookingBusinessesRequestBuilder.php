@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\BookingBusinesses\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\BookingBusinessItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\BookingBusiness;
 use Microsoft\Graph\Beta\Generated\Models\BookingBusinessCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class BookingBusinessesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the collection of bookingBusiness entities.
+     * @param string $bookingBusinessId Unique identifier of the item
+     * @return BookingBusinessItemRequestBuilder
+    */
+    public function byBookingBusinessId(string $bookingBusinessId): BookingBusinessItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['bookingBusiness%2Did'] = $bookingBusinessId;
+        return new BookingBusinessItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new BookingBusinessesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

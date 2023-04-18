@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\CachedReportConfigurations\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\CachedReportConfigurations\Item\DeviceManagementCachedReportConfigurationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementCachedReportConfiguration;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementCachedReportConfigurationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class CachedReportConfigurationsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the cachedReportConfigurations property of the microsoft.graph.deviceManagementReports entity.
+     * @param string $deviceManagementCachedReportConfigurationId Unique identifier of the item
+     * @return DeviceManagementCachedReportConfigurationItemRequestBuilder
+    */
+    public function byDeviceManagementCachedReportConfigurationId(string $deviceManagementCachedReportConfigurationId): DeviceManagementCachedReportConfigurationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceManagementCachedReportConfiguration%2Did'] = $deviceManagementCachedReportConfigurationId;
+        return new DeviceManagementCachedReportConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CachedReportConfigurationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

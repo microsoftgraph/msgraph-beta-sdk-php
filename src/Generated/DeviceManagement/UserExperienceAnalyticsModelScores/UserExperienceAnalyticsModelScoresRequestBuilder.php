@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsModelScores\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsModelScores\Item\UserExperienceAnalyticsModelScoresItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsModelScores;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsModelScoresCollectionResponse;
@@ -43,6 +44,17 @@ class UserExperienceAnalyticsModelScoresRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userExperienceAnalyticsModelScores property of the microsoft.graph.deviceManagement entity.
+     * @param string $userExperienceAnalyticsModelScoresId Unique identifier of the item
+     * @return UserExperienceAnalyticsModelScoresItemRequestBuilder
+    */
+    public function byUserExperienceAnalyticsModelScoresId(string $userExperienceAnalyticsModelScoresId): UserExperienceAnalyticsModelScoresItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userExperienceAnalyticsModelScores%2Did'] = $userExperienceAnalyticsModelScoresId;
+        return new UserExperienceAnalyticsModelScoresItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserExperienceAnalyticsModelScoresRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

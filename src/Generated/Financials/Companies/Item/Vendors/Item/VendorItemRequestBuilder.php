@@ -8,7 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Vendors\Item\Currency\CurrencyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Vendors\Item\PaymentMethod\PaymentMethodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Vendors\Item\PaymentTerm\PaymentTermRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Vendors\Item\Picture\Item\PictureItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Vendors\Item\Picture\PictureRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Vendor;
@@ -135,17 +134,6 @@ class VendorItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the picture property of the microsoft.graph.vendor entity.
-     * @param string $id Unique identifier of the item
-     * @return PictureItemRequestBuilder
-    */
-    public function pictureById(string $id): PictureItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['picture%2Did'] = $id;
-        return new PictureItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

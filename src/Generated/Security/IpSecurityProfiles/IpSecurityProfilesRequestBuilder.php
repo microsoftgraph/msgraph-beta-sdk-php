@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\IpSecurityProfile;
 use Microsoft\Graph\Beta\Generated\Models\IpSecurityProfileCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Security\IpSecurityProfiles\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\IpSecurityProfiles\Item\IpSecurityProfileItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class IpSecurityProfilesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the ipSecurityProfiles property of the microsoft.graph.security entity.
+     * @param string $ipSecurityProfileId Unique identifier of the item
+     * @return IpSecurityProfileItemRequestBuilder
+    */
+    public function byIpSecurityProfileId(string $ipSecurityProfileId): IpSecurityProfileItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['ipSecurityProfile%2Did'] = $ipSecurityProfileId;
+        return new IpSecurityProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new IpSecurityProfilesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationStrengths\Policies\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationStrengths\Policies\FindByMethodModeWithAuthenticationMethodModes\FindByMethodModeWithAuthenticationMethodModesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationStrengths\Policies\Item\AuthenticationStrengthPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AuthenticationStrengthPolicy;
 use Microsoft\Graph\Beta\Generated\Models\AuthenticationStrengthPolicyCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -44,6 +45,17 @@ class PoliciesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the policies property of the microsoft.graph.authenticationStrengthRoot entity.
+     * @param string $authenticationStrengthPolicyId Unique identifier of the item
+     * @return AuthenticationStrengthPolicyItemRequestBuilder
+    */
+    public function byAuthenticationStrengthPolicyId(string $authenticationStrengthPolicyId): AuthenticationStrengthPolicyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['authenticationStrengthPolicy%2Did'] = $authenticationStrengthPolicyId;
+        return new AuthenticationStrengthPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PoliciesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

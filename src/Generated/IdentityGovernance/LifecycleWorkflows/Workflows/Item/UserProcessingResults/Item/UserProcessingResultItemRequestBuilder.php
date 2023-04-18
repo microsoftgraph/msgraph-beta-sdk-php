@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\UserProcessingResults\Item\Subject\SubjectRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\UserProcessingResults\Item\TaskProcessingResults\Item\TaskProcessingResultItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\UserProcessingResults\Item\TaskProcessingResults\TaskProcessingResultsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\UserProcessingResult;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -82,17 +81,6 @@ class UserProcessingResultItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the taskProcessingResults property of the microsoft.graph.identityGovernance.userProcessingResult entity.
-     * @param string $id Unique identifier of the item
-     * @return TaskProcessingResultItemRequestBuilder
-    */
-    public function taskProcessingResultsById(string $id): TaskProcessingResultItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['taskProcessingResult%2Did'] = $id;
-        return new TaskProcessingResultItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

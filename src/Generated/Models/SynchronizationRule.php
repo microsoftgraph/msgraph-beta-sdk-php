@@ -51,6 +51,14 @@ class SynchronizationRule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the containerFilter property value. The containerFilter property
+     * @return ContainerFilter|null
+    */
+    public function getContainerFilter(): ?ContainerFilter {
+        return $this->getBackingStore()->get('containerFilter');
+    }
+
+    /**
      * Gets the editable property value. true if the synchronization rule can be customized; false if this rule is read-only and should not be changed.
      * @return bool|null
     */
@@ -65,7 +73,9 @@ class SynchronizationRule implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'containerFilter' => fn(ParseNode $n) => $o->setContainerFilter($n->getObjectValue([ContainerFilter::class, 'createFromDiscriminatorValue'])),
             'editable' => fn(ParseNode $n) => $o->setEditable($n->getBooleanValue()),
+            'groupFilter' => fn(ParseNode $n) => $o->setGroupFilter($n->getObjectValue([GroupFilter::class, 'createFromDiscriminatorValue'])),
             'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
             'metadata' => fn(ParseNode $n) => $o->setMetadata($n->getCollectionOfObjectValues([StringKeyStringValuePair::class, 'createFromDiscriminatorValue'])),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
@@ -75,6 +85,14 @@ class SynchronizationRule implements AdditionalDataHolder, BackedModel, Parsable
             'sourceDirectoryName' => fn(ParseNode $n) => $o->setSourceDirectoryName($n->getStringValue()),
             'targetDirectoryName' => fn(ParseNode $n) => $o->setTargetDirectoryName($n->getStringValue()),
         ];
+    }
+
+    /**
+     * Gets the groupFilter property value. The groupFilter property
+     * @return GroupFilter|null
+    */
+    public function getGroupFilter(): ?GroupFilter {
+        return $this->getBackingStore()->get('groupFilter');
     }
 
     /**
@@ -146,7 +164,9 @@ class SynchronizationRule implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeObjectValue('containerFilter', $this->getContainerFilter());
         $writer->writeBooleanValue('editable', $this->getEditable());
+        $writer->writeObjectValue('groupFilter', $this->getGroupFilter());
         $writer->writeStringValue('id', $this->getId());
         $writer->writeCollectionOfObjectValues('metadata', $this->getMetadata());
         $writer->writeStringValue('name', $this->getName());
@@ -175,11 +195,27 @@ class SynchronizationRule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Sets the containerFilter property value. The containerFilter property
+     * @param ContainerFilter|null $value Value to set for the containerFilter property.
+    */
+    public function setContainerFilter(?ContainerFilter $value): void {
+        $this->getBackingStore()->set('containerFilter', $value);
+    }
+
+    /**
      * Sets the editable property value. true if the synchronization rule can be customized; false if this rule is read-only and should not be changed.
      * @param bool|null $value Value to set for the editable property.
     */
     public function setEditable(?bool $value): void {
         $this->getBackingStore()->set('editable', $value);
+    }
+
+    /**
+     * Sets the groupFilter property value. The groupFilter property
+     * @param GroupFilter|null $value Value to set for the groupFilter property.
+    */
+    public function setGroupFilter(?GroupFilter $value): void {
+        $this->getBackingStore()->set('groupFilter', $value);
     }
 
     /**

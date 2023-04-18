@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\Models\GovernanceRoleAssignmentCollectionResp
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleAssignments\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleAssignments\Export\ExportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleAssignments\Item\GovernanceRoleAssignmentItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -51,6 +52,17 @@ class RoleAssignmentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the roleAssignments property of the microsoft.graph.privilegedAccess entity.
+     * @param string $governanceRoleAssignmentId Unique identifier of the item
+     * @return GovernanceRoleAssignmentItemRequestBuilder
+    */
+    public function byGovernanceRoleAssignmentId(string $governanceRoleAssignmentId): GovernanceRoleAssignmentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['governanceRoleAssignment%2Did'] = $governanceRoleAssignmentId;
+        return new GovernanceRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new RoleAssignmentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

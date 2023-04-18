@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Item\ExactMatchDataStoreItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ExactMatchDataStore;
 use Microsoft\Graph\Beta\Generated\Models\ExactMatchDataStoreCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class ExactMatchDataStoresRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the exactMatchDataStores property of the microsoft.graph.dataClassificationService entity.
+     * @param string $exactMatchDataStoreId Unique identifier of the item
+     * @return ExactMatchDataStoreItemRequestBuilder
+    */
+    public function byExactMatchDataStoreId(string $exactMatchDataStoreId): ExactMatchDataStoreItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['exactMatchDataStore%2Did'] = $exactMatchDataStoreId;
+        return new ExactMatchDataStoreItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ExactMatchDataStoresRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

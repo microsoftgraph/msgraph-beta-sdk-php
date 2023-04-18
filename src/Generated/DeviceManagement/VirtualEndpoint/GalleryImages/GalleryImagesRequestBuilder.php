@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\GalleryImages\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\GalleryImages\Item\CloudPcGalleryImageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcGalleryImage;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcGalleryImageCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class GalleryImagesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the galleryImages property of the microsoft.graph.virtualEndpoint entity.
+     * @param string $cloudPcGalleryImageId Unique identifier of the item
+     * @return CloudPcGalleryImageItemRequestBuilder
+    */
+    public function byCloudPcGalleryImageId(string $cloudPcGalleryImageId): CloudPcGalleryImageItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['cloudPcGalleryImage%2Did'] = $cloudPcGalleryImageId;
+        return new CloudPcGalleryImageItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new GalleryImagesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

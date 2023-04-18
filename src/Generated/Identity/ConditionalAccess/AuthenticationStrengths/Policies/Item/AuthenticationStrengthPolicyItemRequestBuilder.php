@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationStrengths\Policies\Item\CombinationConfigurations\CombinationConfigurationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationStrengths\Policies\Item\CombinationConfigurations\Item\AuthenticationCombinationConfigurationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationStrengths\Policies\Item\UpdateAllowedCombinations\UpdateAllowedCombinationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationStrengths\Policies\Item\Usage\UsageRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AuthenticationStrengthPolicy;
@@ -59,17 +58,6 @@ class AuthenticationStrengthPolicyItemRequestBuilder
         return new UsageRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * Provides operations to manage the combinationConfigurations property of the microsoft.graph.authenticationStrengthPolicy entity.
-     * @param string $id Unique identifier of the item
-     * @return AuthenticationCombinationConfigurationItemRequestBuilder
-    */
-    public function combinationConfigurationsById(string $id): AuthenticationCombinationConfigurationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['authenticationCombinationConfiguration%2Did'] = $id;
-        return new AuthenticationCombinationConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new AuthenticationStrengthPolicyItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

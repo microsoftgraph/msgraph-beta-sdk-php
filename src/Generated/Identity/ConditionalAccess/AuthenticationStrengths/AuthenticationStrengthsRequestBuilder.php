@@ -6,8 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationStrengths\AuthenticationMethodModes\AuthenticationMethodModesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationStrengths\AuthenticationMethodModes\Item\AuthenticationMethodModeDetailItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationStrengths\Policies\Item\AuthenticationStrengthPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationStrengths\Policies\PoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AuthenticationStrengthRoot;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -52,17 +50,6 @@ class AuthenticationStrengthsRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to manage the authenticationMethodModes property of the microsoft.graph.authenticationStrengthRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return AuthenticationMethodModeDetailItemRequestBuilder
-    */
-    public function authenticationMethodModesById(string $id): AuthenticationMethodModeDetailItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['authenticationMethodModeDetail%2Did'] = $id;
-        return new AuthenticationMethodModeDetailItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new AuthenticationStrengthsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
@@ -131,17 +118,6 @@ class AuthenticationStrengthsRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the policies property of the microsoft.graph.authenticationStrengthRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return AuthenticationStrengthPolicyItemRequestBuilder
-    */
-    public function policiesById(string $id): AuthenticationStrengthPolicyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['authenticationStrengthPolicy%2Did'] = $id;
-        return new AuthenticationStrengthPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

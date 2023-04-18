@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ItemAddress;
 use Microsoft\Graph\Beta\Generated\Models\ItemAddressCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Addresses\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Addresses\Item\ItemAddressItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class AddressesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the addresses property of the microsoft.graph.profile entity.
+     * @param string $itemAddressId Unique identifier of the item
+     * @return ItemAddressItemRequestBuilder
+    */
+    public function byItemAddressId(string $itemAddressId): ItemAddressItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['itemAddress%2Did'] = $itemAddressId;
+        return new ItemAddressItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AddressesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

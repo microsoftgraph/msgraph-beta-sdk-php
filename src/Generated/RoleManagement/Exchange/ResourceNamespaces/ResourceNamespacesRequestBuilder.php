@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UnifiedRbacResourceNamespace;
 use Microsoft\Graph\Beta\Generated\Models\UnifiedRbacResourceNamespaceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\ResourceNamespaces\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\ResourceNamespaces\Item\UnifiedRbacResourceNamespaceItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -44,6 +45,17 @@ class ResourceNamespacesRequestBuilder
     private string $urlTemplate;
     
     /**
+     * Provides operations to manage the resourceNamespaces property of the microsoft.graph.unifiedRbacApplication entity.
+     * @param string $unifiedRbacResourceNamespaceId Unique identifier of the item
+     * @return UnifiedRbacResourceNamespaceItemRequestBuilder
+    */
+    public function byUnifiedRbacResourceNamespaceId(string $unifiedRbacResourceNamespaceId): UnifiedRbacResourceNamespaceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['unifiedRbacResourceNamespace%2Did'] = $unifiedRbacResourceNamespaceId;
+        return new UnifiedRbacResourceNamespaceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
      * Instantiates a new ResourceNamespacesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -59,7 +71,7 @@ class ResourceNamespacesRequestBuilder
     }
 
     /**
-     * Get resourceNamespaces from roleManagement
+     * Resource that represents a collection of related actions.
      * @param ResourceNamespacesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -96,7 +108,7 @@ class ResourceNamespacesRequestBuilder
     }
 
     /**
-     * Get resourceNamespaces from roleManagement
+     * Resource that represents a collection of related actions.
      * @param ResourceNamespacesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

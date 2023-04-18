@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PersonWebsite;
 use Microsoft\Graph\Beta\Generated\Models\PersonWebsiteCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Websites\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Websites\Item\PersonWebsiteItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class WebsitesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the websites property of the microsoft.graph.profile entity.
+     * @param string $personWebsiteId Unique identifier of the item
+     * @return PersonWebsiteItemRequestBuilder
+    */
+    public function byPersonWebsiteId(string $personWebsiteId): PersonWebsiteItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['personWebsite%2Did'] = $personWebsiteId;
+        return new PersonWebsiteItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new WebsitesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

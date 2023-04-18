@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsDriverUpdateProfiles\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsDriverUpdateProfiles\Item\WindowsDriverUpdateProfileItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsDriverUpdateProfile;
 use Microsoft\Graph\Beta\Generated\Models\WindowsDriverUpdateProfileCollectionResponse;
@@ -43,6 +44,17 @@ class WindowsDriverUpdateProfilesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the windowsDriverUpdateProfiles property of the microsoft.graph.deviceManagement entity.
+     * @param string $windowsDriverUpdateProfileId Unique identifier of the item
+     * @return WindowsDriverUpdateProfileItemRequestBuilder
+    */
+    public function byWindowsDriverUpdateProfileId(string $windowsDriverUpdateProfileId): WindowsDriverUpdateProfileItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['windowsDriverUpdateProfile%2Did'] = $windowsDriverUpdateProfileId;
+        return new WindowsDriverUpdateProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new WindowsDriverUpdateProfilesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

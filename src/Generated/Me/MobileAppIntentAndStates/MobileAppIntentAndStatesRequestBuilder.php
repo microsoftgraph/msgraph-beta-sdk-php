@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\MobileAppIntentAndStates\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MobileAppIntentAndStates\Item\MobileAppIntentAndStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MobileAppIntentAndState;
 use Microsoft\Graph\Beta\Generated\Models\MobileAppIntentAndStateCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class MobileAppIntentAndStatesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the mobileAppIntentAndStates property of the microsoft.graph.user entity.
+     * @param string $mobileAppIntentAndStateId Unique identifier of the item
+     * @return MobileAppIntentAndStateItemRequestBuilder
+    */
+    public function byMobileAppIntentAndStateId(string $mobileAppIntentAndStateId): MobileAppIntentAndStateItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['mobileAppIntentAndState%2Did'] = $mobileAppIntentAndStateId;
+        return new MobileAppIntentAndStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new MobileAppIntentAndStatesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

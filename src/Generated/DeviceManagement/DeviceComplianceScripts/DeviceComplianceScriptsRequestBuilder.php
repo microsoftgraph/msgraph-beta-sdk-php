@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceComplianceScripts\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceComplianceScripts\Item\DeviceComplianceScriptItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceComplianceScript;
 use Microsoft\Graph\Beta\Generated\Models\DeviceComplianceScriptCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class DeviceComplianceScriptsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the deviceComplianceScripts property of the microsoft.graph.deviceManagement entity.
+     * @param string $deviceComplianceScriptId Unique identifier of the item
+     * @return DeviceComplianceScriptItemRequestBuilder
+    */
+    public function byDeviceComplianceScriptId(string $deviceComplianceScriptId): DeviceComplianceScriptItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceComplianceScript%2Did'] = $deviceComplianceScriptId;
+        return new DeviceComplianceScriptItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DeviceComplianceScriptsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

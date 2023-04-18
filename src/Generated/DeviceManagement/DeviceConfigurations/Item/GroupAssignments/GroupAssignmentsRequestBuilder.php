@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\GroupAssignments\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\GroupAssignments\Item\DeviceConfigurationGroupAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceConfigurationGroupAssignment;
 use Microsoft\Graph\Beta\Generated\Models\DeviceConfigurationGroupAssignmentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class GroupAssignmentsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the groupAssignments property of the microsoft.graph.deviceConfiguration entity.
+     * @param string $deviceConfigurationGroupAssignmentId Unique identifier of the item
+     * @return DeviceConfigurationGroupAssignmentItemRequestBuilder
+    */
+    public function byDeviceConfigurationGroupAssignmentId(string $deviceConfigurationGroupAssignmentId): DeviceConfigurationGroupAssignmentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceConfigurationGroupAssignment%2Did'] = $deviceConfigurationGroupAssignmentId;
+        return new DeviceConfigurationGroupAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new GroupAssignmentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

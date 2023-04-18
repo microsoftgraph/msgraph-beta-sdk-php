@@ -9,7 +9,6 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagementTemplateStepV
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateStepVersions\Item\AcceptedFor\AcceptedForRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateStepVersions\Item\Deployments\DeploymentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateStepVersions\Item\Deployments\Item\ManagementTemplateStepDeploymentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateStepVersions\Item\TemplateStep\TemplateStepRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -90,17 +89,6 @@ class ManagementTemplateStepVersionItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the deployments property of the microsoft.graph.managedTenants.managementTemplateStepVersion entity.
-     * @param string $id Unique identifier of the item
-     * @return ManagementTemplateStepDeploymentItemRequestBuilder
-    */
-    public function deploymentsById(string $id): ManagementTemplateStepDeploymentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['managementTemplateStepDeployment%2Did'] = $id;
-        return new ManagementTemplateStepDeploymentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

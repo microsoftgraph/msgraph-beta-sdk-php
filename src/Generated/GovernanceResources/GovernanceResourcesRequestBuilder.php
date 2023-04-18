@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\GovernanceResources\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\GovernanceResources\Item\GovernanceResourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\GovernanceResources\Register\RegisterRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\GovernanceResource;
 use Microsoft\Graph\Beta\Generated\Models\GovernanceResourceCollectionResponse;
@@ -51,6 +52,17 @@ class GovernanceResourcesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the collection of governanceResource entities.
+     * @param string $governanceResourceId Unique identifier of the item
+     * @return GovernanceResourceItemRequestBuilder
+    */
+    public function byGovernanceResourceId(string $governanceResourceId): GovernanceResourceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['governanceResource%2Did'] = $governanceResourceId;
+        return new GovernanceResourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new GovernanceResourcesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

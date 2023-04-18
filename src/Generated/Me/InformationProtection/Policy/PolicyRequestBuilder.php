@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\Me\InformationProtection\Policy;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Me\InformationProtection\Policy\Labels\Item\InformationProtectionLabelItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\InformationProtection\Policy\Labels\LabelsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\InformationProtectionPolicy;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -92,17 +91,6 @@ class PolicyRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the labels property of the microsoft.graph.informationProtectionPolicy entity.
-     * @param string $id Unique identifier of the item
-     * @return InformationProtectionLabelItemRequestBuilder
-    */
-    public function labelsById(string $id): InformationProtectionLabelItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['informationProtectionLabel%2Did'] = $id;
-        return new InformationProtectionLabelItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

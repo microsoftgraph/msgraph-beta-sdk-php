@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\AuditEvent;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\AuditEventCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\AuditEvents\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\AuditEvents\Item\AuditEventItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class AuditEventsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the auditEvents property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $auditEventId Unique identifier of the item
+     * @return AuditEventItemRequestBuilder
+    */
+    public function byAuditEventId(string $auditEventId): AuditEventItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['auditEvent%2Did'] = $auditEventId;
+        return new AuditEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new AuditEventsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

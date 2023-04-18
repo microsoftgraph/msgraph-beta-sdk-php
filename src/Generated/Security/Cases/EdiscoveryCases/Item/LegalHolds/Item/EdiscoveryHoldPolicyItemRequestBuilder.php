@@ -7,9 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\EdiscoveryHoldPolicy;
-use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\LegalHolds\Item\SiteSources\Item\SiteSourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\LegalHolds\Item\SiteSources\SiteSourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\LegalHolds\Item\UserSources\Item\UserSourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\LegalHolds\Item\UserSources\UserSourcesRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -123,17 +121,6 @@ class EdiscoveryHoldPolicyItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the siteSources property of the microsoft.graph.security.ediscoveryHoldPolicy entity.
-     * @param string $id Unique identifier of the item
-     * @return SiteSourceItemRequestBuilder
-    */
-    public function siteSourcesById(string $id): SiteSourceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['siteSource%2Did'] = $id;
-        return new SiteSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Delete navigation property legalHolds for security
      * @param EdiscoveryHoldPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -201,17 +188,6 @@ class EdiscoveryHoldPolicyItemRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the userSources property of the microsoft.graph.security.ediscoveryHoldPolicy entity.
-     * @param string $id Unique identifier of the item
-     * @return UserSourceItemRequestBuilder
-    */
-    public function userSourcesById(string $id): UserSourceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['userSource%2Did'] = $id;
-        return new UserSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

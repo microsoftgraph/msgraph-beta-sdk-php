@@ -8,25 +8,18 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Analytics\AnalyticsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Columns\ColumnsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentTypes\ContentTypesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentTypes\Item\ContentTypeItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Drive\DriveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Drives\DrivesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Drives\Item\DriveItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ExternalColumns\ExternalColumnsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetApplicableContentTypesForListWithListId\GetApplicableContentTypesForListWithListIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPath\GetByPathWithPathRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\InformationProtectionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Items\Item\BaseItemItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Items\ItemsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\ListItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\ListsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Onenote\OnenoteRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Operations\Item\RichLongRunningOperationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Operations\OperationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\SitePageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\PagesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Permissions\Item\PermissionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Permissions\PermissionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Sites\SitesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\TermStore\TermStoreRequestBuilder;
@@ -165,17 +158,6 @@ class SiteItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Provides operations to manage the columns property of the microsoft.graph.site entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Columns\Item\ColumnDefinitionItemRequestBuilder
-    */
-    public function columnsById(string $id): \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Columns\Item\ColumnDefinitionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['columnDefinition%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Columns\Item\ColumnDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new SiteItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -188,39 +170,6 @@ class SiteItemRequestBuilder
         } else {
             $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
         }
-    }
-
-    /**
-     * Provides operations to manage the contentTypes property of the microsoft.graph.site entity.
-     * @param string $id Unique identifier of the item
-     * @return ContentTypeItemRequestBuilder
-    */
-    public function contentTypesById(string $id): ContentTypeItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['contentType%2Did'] = $id;
-        return new ContentTypeItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the drives property of the microsoft.graph.site entity.
-     * @param string $id Unique identifier of the item
-     * @return DriveItemRequestBuilder
-    */
-    public function drivesById(string $id): DriveItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['drive%2Did'] = $id;
-        return new DriveItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the externalColumns property of the microsoft.graph.site entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ExternalColumns\Item\ColumnDefinitionItemRequestBuilder
-    */
-    public function externalColumnsById(string $id): \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ExternalColumns\Item\ColumnDefinitionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['columnDefinition%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ExternalColumns\Item\ColumnDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -271,50 +220,6 @@ class SiteItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the items property of the microsoft.graph.site entity.
-     * @param string $id Unique identifier of the item
-     * @return BaseItemItemRequestBuilder
-    */
-    public function itemsById(string $id): BaseItemItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['baseItem%2Did'] = $id;
-        return new BaseItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the lists property of the microsoft.graph.site entity.
-     * @param string $id Unique identifier of the item
-     * @return ListItemRequestBuilder
-    */
-    public function listsById(string $id): ListItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['list%2Did'] = $id;
-        return new ListItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the operations property of the microsoft.graph.site entity.
-     * @param string $id Unique identifier of the item
-     * @return RichLongRunningOperationItemRequestBuilder
-    */
-    public function operationsById(string $id): RichLongRunningOperationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['richLongRunningOperation%2Did'] = $id;
-        return new RichLongRunningOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the pages property of the microsoft.graph.site entity.
-     * @param string $id Unique identifier of the item
-     * @return SitePageItemRequestBuilder
-    */
-    public function pagesById(string $id): SitePageItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['sitePage%2Did'] = $id;
-        return new SitePageItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Update the navigation property sites in groups
      * @param Site $body The request body
      * @param SiteItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -331,28 +236,6 @@ class SiteItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the permissions property of the microsoft.graph.site entity.
-     * @param string $id Unique identifier of the item
-     * @return PermissionItemRequestBuilder
-    */
-    public function permissionsById(string $id): PermissionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['permission%2Did'] = $id;
-        return new PermissionItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the sites property of the microsoft.graph.site entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Sites\Item\SiteItemRequestBuilder
-    */
-    public function sitesById(string $id): \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Sites\Item\SiteItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['site%2Did1'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Sites\Item\SiteItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

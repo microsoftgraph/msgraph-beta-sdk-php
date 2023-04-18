@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\DeviceManagementReusablePolicySettingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementReusablePolicySetting;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementReusablePolicySettingCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class ReusablePolicySettingsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the reusablePolicySettings property of the microsoft.graph.deviceManagement entity.
+     * @param string $deviceManagementReusablePolicySettingId Unique identifier of the item
+     * @return DeviceManagementReusablePolicySettingItemRequestBuilder
+    */
+    public function byDeviceManagementReusablePolicySettingId(string $deviceManagementReusablePolicySettingId): DeviceManagementReusablePolicySettingItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceManagementReusablePolicySetting%2Did'] = $deviceManagementReusablePolicySettingId;
+        return new DeviceManagementReusablePolicySettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ReusablePolicySettingsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\ApplicationSignInDetailedSummary\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\ApplicationSignInDetailedSummary\Item\ApplicationSignInDetailedSummaryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ApplicationSignInDetailedSummary;
 use Microsoft\Graph\Beta\Generated\Models\ApplicationSignInDetailedSummaryCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class ApplicationSignInDetailedSummaryRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the applicationSignInDetailedSummary property of the microsoft.graph.reportRoot entity.
+     * @param string $applicationSignInDetailedSummaryId Unique identifier of the item
+     * @return ApplicationSignInDetailedSummaryItemRequestBuilder
+    */
+    public function byApplicationSignInDetailedSummaryId(string $applicationSignInDetailedSummaryId): ApplicationSignInDetailedSummaryItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['applicationSignInDetailedSummary%2Did'] = $applicationSignInDetailedSummaryId;
+        return new ApplicationSignInDetailedSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ApplicationSignInDetailedSummaryRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

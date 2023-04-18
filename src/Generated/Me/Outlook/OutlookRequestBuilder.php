@@ -5,16 +5,12 @@ namespace Microsoft\Graph\Beta\Generated\Me\Outlook;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Me\Outlook\MasterCategories\Item\OutlookCategoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Outlook\MasterCategories\MasterCategoriesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Outlook\SupportedLanguages\SupportedLanguagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Outlook\SupportedTimeZones\SupportedTimeZonesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Outlook\SupportedTimeZonesWithTimeZoneStandard\SupportedTimeZonesWithTimeZoneStandardRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Outlook\TaskFolders\Item\OutlookTaskFolderItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Outlook\TaskFolders\TaskFoldersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Outlook\TaskGroups\Item\OutlookTaskGroupItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Outlook\TaskGroups\TaskGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Outlook\Tasks\Item\OutlookTaskItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Outlook\Tasks\TasksRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\OutlookUser;
@@ -121,56 +117,12 @@ class OutlookRequestBuilder
     }
 
     /**
-     * Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.
-     * @param string $id Unique identifier of the item
-     * @return OutlookCategoryItemRequestBuilder
-    */
-    public function masterCategoriesById(string $id): OutlookCategoryItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['outlookCategory%2Did'] = $id;
-        return new OutlookCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Provides operations to call the supportedTimeZones method.
      * @param string $timeZoneStandard Usage: TimeZoneStandard='{TimeZoneStandard}'
      * @return SupportedTimeZonesWithTimeZoneStandardRequestBuilder
     */
     public function supportedTimeZonesWithTimeZoneStandard(string $timeZoneStandard): SupportedTimeZonesWithTimeZoneStandardRequestBuilder {
         return new SupportedTimeZonesWithTimeZoneStandardRequestBuilder($this->pathParameters, $this->requestAdapter, $timeZoneStandard);
-    }
-
-    /**
-     * Provides operations to manage the taskFolders property of the microsoft.graph.outlookUser entity.
-     * @param string $id Unique identifier of the item
-     * @return OutlookTaskFolderItemRequestBuilder
-    */
-    public function taskFoldersById(string $id): OutlookTaskFolderItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['outlookTaskFolder%2Did'] = $id;
-        return new OutlookTaskFolderItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the taskGroups property of the microsoft.graph.outlookUser entity.
-     * @param string $id Unique identifier of the item
-     * @return OutlookTaskGroupItemRequestBuilder
-    */
-    public function taskGroupsById(string $id): OutlookTaskGroupItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['outlookTaskGroup%2Did'] = $id;
-        return new OutlookTaskGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the tasks property of the microsoft.graph.outlookUser entity.
-     * @param string $id Unique identifier of the item
-     * @return OutlookTaskItemRequestBuilder
-    */
-    public function tasksById(string $id): OutlookTaskItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['outlookTask%2Did'] = $id;
-        return new OutlookTaskItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

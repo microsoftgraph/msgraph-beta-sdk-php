@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ActivityStatistics;
 use Microsoft\Graph\Beta\Generated\Models\ActivityStatisticsCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\Analytics\ActivityStatistics\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Analytics\ActivityStatistics\Item\ActivityStatisticsItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class ActivityStatisticsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the activityStatistics property of the microsoft.graph.userAnalytics entity.
+     * @param string $activityStatisticsId Unique identifier of the item
+     * @return ActivityStatisticsItemRequestBuilder
+    */
+    public function byActivityStatisticsId(string $activityStatisticsId): ActivityStatisticsItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['activityStatistics%2Did'] = $activityStatisticsId;
+        return new ActivityStatisticsItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ActivityStatisticsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

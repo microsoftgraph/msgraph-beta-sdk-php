@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\EmailThreatSubmission;
 use Microsoft\Graph\Beta\Generated\Models\Security\EmailThreatSubmissionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\ThreatSubmission\EmailThreats\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\ThreatSubmission\EmailThreats\Item\EmailThreatSubmissionItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class EmailThreatsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the emailThreats property of the microsoft.graph.security.threatSubmissionRoot entity.
+     * @param string $emailThreatSubmissionId Unique identifier of the item
+     * @return EmailThreatSubmissionItemRequestBuilder
+    */
+    public function byEmailThreatSubmissionId(string $emailThreatSubmissionId): EmailThreatSubmissionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['emailThreatSubmission%2Did'] = $emailThreatSubmissionId;
+        return new EmailThreatSubmissionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new EmailThreatsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\UserFlowIdentityProviders\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\UserFlowIdentityProviders\Item\IdentityProviderBaseItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityProviderBaseCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -42,6 +43,17 @@ class UserFlowIdentityProvidersRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userFlowIdentityProviders property of the microsoft.graph.b2cIdentityUserFlow entity.
+     * @param string $identityProviderBaseId Unique identifier of the item
+     * @return IdentityProviderBaseItemRequestBuilder
+    */
+    public function byIdentityProviderBaseId(string $identityProviderBaseId): IdentityProviderBaseItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['identityProviderBase%2Did'] = $identityProviderBaseId;
+        return new IdentityProviderBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserFlowIdentityProvidersRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

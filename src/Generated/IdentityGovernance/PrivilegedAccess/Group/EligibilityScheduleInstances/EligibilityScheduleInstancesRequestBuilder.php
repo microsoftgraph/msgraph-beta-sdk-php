@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Group\EligibilityScheduleInstances\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Group\EligibilityScheduleInstances\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Group\EligibilityScheduleInstances\Item\PrivilegedAccessGroupEligibilityScheduleInstanceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegedAccessGroupEligibilityScheduleInstance;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegedAccessGroupEligibilityScheduleInstanceCollectionResponse;
@@ -44,6 +45,17 @@ class EligibilityScheduleInstancesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the eligibilityScheduleInstances property of the microsoft.graph.privilegedAccessGroup entity.
+     * @param string $privilegedAccessGroupEligibilityScheduleInstanceId Unique identifier of the item
+     * @return PrivilegedAccessGroupEligibilityScheduleInstanceItemRequestBuilder
+    */
+    public function byPrivilegedAccessGroupEligibilityScheduleInstanceId(string $privilegedAccessGroupEligibilityScheduleInstanceId): PrivilegedAccessGroupEligibilityScheduleInstanceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['privilegedAccessGroupEligibilityScheduleInstance%2Did'] = $privilegedAccessGroupEligibilityScheduleInstanceId;
+        return new PrivilegedAccessGroupEligibilityScheduleInstanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new EligibilityScheduleInstancesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

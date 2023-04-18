@@ -8,30 +8,23 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Applications\Item\AddKey\AddKeyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\AddPassword\AddPasswordRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\AppManagementPolicies\AppManagementPoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\AppManagementPolicies\Item\AppManagementPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\CheckMemberGroups\CheckMemberGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\ConnectorGroup\ConnectorGroupRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\CreatedOnBehalfOf\CreatedOnBehalfOfRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\ExtensionProperties\ExtensionPropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\ExtensionProperties\Item\ExtensionPropertyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\FederatedIdentityCredentials\FederatedIdentityCredentialsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\FederatedIdentityCredentials\Item\FederatedIdentityCredentialItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\HomeRealmDiscoveryPolicies\HomeRealmDiscoveryPoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\HomeRealmDiscoveryPolicies\Item\HomeRealmDiscoveryPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Logo\LogoRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\Owners\Item\DirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Owners\OwnersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\RemoveKey\RemoveKeyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\RemovePassword\RemovePasswordRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Restore\RestoreRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\SetVerifiedPublisher\SetVerifiedPublisherRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\SynchronizationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\TokenIssuancePolicies\Item\TokenIssuancePolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\TokenIssuancePolicies\TokenIssuancePoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\TokenLifetimePolicies\Item\TokenLifetimePolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\TokenLifetimePolicies\TokenLifetimePoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\UnsetVerifiedPublisher\UnsetVerifiedPublisherRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Application;
@@ -218,17 +211,6 @@ class ApplicationItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.applications.item.appManagementPolicies.item collection
-     * @param string $id Unique identifier of the item
-     * @return AppManagementPolicyItemRequestBuilder
-    */
-    public function appManagementPoliciesById(string $id): AppManagementPolicyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['appManagementPolicy%2Did'] = $id;
-        return new AppManagementPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new ApplicationItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -263,28 +245,6 @@ class ApplicationItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the extensionProperties property of the microsoft.graph.application entity.
-     * @param string $id Unique identifier of the item
-     * @return ExtensionPropertyItemRequestBuilder
-    */
-    public function extensionPropertiesById(string $id): ExtensionPropertyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['extensionProperty%2Did'] = $id;
-        return new ExtensionPropertyItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.application entity.
-     * @param string $id Unique identifier of the item
-     * @return FederatedIdentityCredentialItemRequestBuilder
-    */
-    public function federatedIdentityCredentialsById(string $id): FederatedIdentityCredentialItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['federatedIdentityCredential%2Did'] = $id;
-        return new FederatedIdentityCredentialItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Get the properties and relationships of an application object.
      * @param ApplicationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -301,28 +261,6 @@ class ApplicationItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.application entity.
-     * @param string $id Unique identifier of the item
-     * @return HomeRealmDiscoveryPolicyItemRequestBuilder
-    */
-    public function homeRealmDiscoveryPoliciesById(string $id): HomeRealmDiscoveryPolicyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['homeRealmDiscoveryPolicy%2Did'] = $id;
-        return new HomeRealmDiscoveryPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.applications.item.owners.item collection
-     * @param string $id Unique identifier of the item
-     * @return DirectoryObjectItemRequestBuilder
-    */
-    public function ownersById(string $id): DirectoryObjectItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
-        return new DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -389,28 +327,6 @@ class ApplicationItemRequestBuilder
             }
         }
         return $requestInfo;
-    }
-
-    /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.applications.item.tokenIssuancePolicies.item collection
-     * @param string $id Unique identifier of the item
-     * @return TokenIssuancePolicyItemRequestBuilder
-    */
-    public function tokenIssuancePoliciesById(string $id): TokenIssuancePolicyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['tokenIssuancePolicy%2Did'] = $id;
-        return new TokenIssuancePolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.applications.item.tokenLifetimePolicies.item collection
-     * @param string $id Unique identifier of the item
-     * @return TokenLifetimePolicyItemRequestBuilder
-    */
-    public function tokenLifetimePoliciesById(string $id): TokenLifetimePolicyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['tokenLifetimePolicy%2Did'] = $id;
-        return new TokenLifetimePolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

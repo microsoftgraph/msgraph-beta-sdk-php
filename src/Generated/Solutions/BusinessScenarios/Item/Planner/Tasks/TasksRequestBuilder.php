@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\BusinessScenarioTask;
 use Microsoft\Graph\Beta\Generated\Models\BusinessScenarioTaskCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planner\Tasks\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planner\Tasks\Item\BusinessScenarioTaskItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class TasksRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the tasks property of the microsoft.graph.businessScenarioPlanner entity.
+     * @param string $businessScenarioTaskId Unique identifier of the item
+     * @return BusinessScenarioTaskItemRequestBuilder
+    */
+    public function byBusinessScenarioTaskId(string $businessScenarioTaskId): BusinessScenarioTaskItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['businessScenarioTask%2Did'] = $businessScenarioTaskId;
+        return new BusinessScenarioTaskItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new TasksRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

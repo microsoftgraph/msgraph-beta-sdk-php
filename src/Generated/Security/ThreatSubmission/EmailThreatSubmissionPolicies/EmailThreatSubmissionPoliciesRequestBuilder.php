@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\EmailThreatSubmissionPolicy;
 use Microsoft\Graph\Beta\Generated\Models\Security\EmailThreatSubmissionPolicyCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\EmailThreatSubmissionPolicies\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\EmailThreatSubmissionPolicies\Item\EmailThreatSubmissionPolicyItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class EmailThreatSubmissionPoliciesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the emailThreatSubmissionPolicies property of the microsoft.graph.security.threatSubmissionRoot entity.
+     * @param string $emailThreatSubmissionPolicyId Unique identifier of the item
+     * @return EmailThreatSubmissionPolicyItemRequestBuilder
+    */
+    public function byEmailThreatSubmissionPolicyId(string $emailThreatSubmissionPolicyId): EmailThreatSubmissionPolicyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['emailThreatSubmissionPolicy%2Did'] = $emailThreatSubmissionPolicyId;
+        return new EmailThreatSubmissionPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new EmailThreatSubmissionPoliciesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Group\EligibilitySchedules\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Group\EligibilitySchedules\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Group\EligibilitySchedules\Item\PrivilegedAccessGroupEligibilityScheduleItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegedAccessGroupEligibilitySchedule;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegedAccessGroupEligibilityScheduleCollectionResponse;
@@ -44,6 +45,17 @@ class EligibilitySchedulesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the eligibilitySchedules property of the microsoft.graph.privilegedAccessGroup entity.
+     * @param string $privilegedAccessGroupEligibilityScheduleId Unique identifier of the item
+     * @return PrivilegedAccessGroupEligibilityScheduleItemRequestBuilder
+    */
+    public function byPrivilegedAccessGroupEligibilityScheduleId(string $privilegedAccessGroupEligibilityScheduleId): PrivilegedAccessGroupEligibilityScheduleItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['privilegedAccessGroupEligibilitySchedule%2Did'] = $privilegedAccessGroupEligibilityScheduleId;
+        return new PrivilegedAccessGroupEligibilityScheduleItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new EligibilitySchedulesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

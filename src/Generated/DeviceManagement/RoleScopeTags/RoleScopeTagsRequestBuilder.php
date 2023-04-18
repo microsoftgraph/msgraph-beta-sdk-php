@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleScopeTags\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleScopeTags\GetRoleScopeTagsById\GetRoleScopeTagsByIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleScopeTags\HasCustomRoleScopeTag\HasCustomRoleScopeTagRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleScopeTags\Item\RoleScopeTagItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\RoleScopeTag;
 use Microsoft\Graph\Beta\Generated\Models\RoleScopeTagCollectionResponse;
@@ -59,6 +60,17 @@ class RoleScopeTagsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the roleScopeTags property of the microsoft.graph.deviceManagement entity.
+     * @param string $roleScopeTagId Unique identifier of the item
+     * @return RoleScopeTagItemRequestBuilder
+    */
+    public function byRoleScopeTagId(string $roleScopeTagId): RoleScopeTagItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['roleScopeTag%2Did'] = $roleScopeTagId;
+        return new RoleScopeTagItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new RoleScopeTagsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

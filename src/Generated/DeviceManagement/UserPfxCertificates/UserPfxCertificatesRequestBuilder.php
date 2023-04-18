@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserPfxCertificates\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserPfxCertificates\Item\UserPFXCertificateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserPFXCertificate;
 use Microsoft\Graph\Beta\Generated\Models\UserPFXCertificateCollectionResponse;
@@ -43,6 +44,17 @@ class UserPfxCertificatesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the userPfxCertificates property of the microsoft.graph.deviceManagement entity.
+     * @param string $userPFXCertificateId Unique identifier of the item
+     * @return UserPFXCertificateItemRequestBuilder
+    */
+    public function byUserPFXCertificateId(string $userPFXCertificateId): UserPFXCertificateItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userPFXCertificate%2Did'] = $userPFXCertificateId;
+        return new UserPFXCertificateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UserPfxCertificatesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

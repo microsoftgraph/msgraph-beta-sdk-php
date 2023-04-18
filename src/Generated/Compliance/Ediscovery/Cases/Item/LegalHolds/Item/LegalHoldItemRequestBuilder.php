@@ -5,11 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalH
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\SiteSources\Item\SiteSourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\SiteSources\SiteSourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\UnifiedGroupSources\Item\UnifiedGroupSourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\UnifiedGroupSources\UnifiedGroupSourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\UserSources\Item\UserSourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\UserSources\UserSourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\LegalHold;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -132,17 +129,6 @@ class LegalHoldItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the siteSources property of the microsoft.graph.ediscovery.legalHold entity.
-     * @param string $id Unique identifier of the item
-     * @return SiteSourceItemRequestBuilder
-    */
-    public function siteSourcesById(string $id): SiteSourceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['siteSource%2Did'] = $id;
-        return new SiteSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Delete navigation property legalHolds for compliance
      * @param LegalHoldItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -210,28 +196,6 @@ class LegalHoldItemRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the unifiedGroupSources property of the microsoft.graph.ediscovery.legalHold entity.
-     * @param string $id Unique identifier of the item
-     * @return UnifiedGroupSourceItemRequestBuilder
-    */
-    public function unifiedGroupSourcesById(string $id): UnifiedGroupSourceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['unifiedGroupSource%2Did'] = $id;
-        return new UnifiedGroupSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the userSources property of the microsoft.graph.ediscovery.legalHold entity.
-     * @param string $id Unique identifier of the item
-     * @return UserSourceItemRequestBuilder
-    */
-    public function userSourcesById(string $id): UserSourceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['userSource%2Did'] = $id;
-        return new UserSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

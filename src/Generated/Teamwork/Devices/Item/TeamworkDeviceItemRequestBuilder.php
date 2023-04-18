@@ -10,7 +10,6 @@ use Microsoft\Graph\Beta\Generated\Models\TeamworkDevice;
 use Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\Activity\ActivityRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\Configuration\ConfigurationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\Health\HealthRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\Operations\Item\TeamworkDeviceOperationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\Operations\OperationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\Restart\RestartRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\RunDiagnostics\RunDiagnosticsRequestBuilder;
@@ -140,17 +139,6 @@ class TeamworkDeviceItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the operations property of the microsoft.graph.teamworkDevice entity.
-     * @param string $id Unique identifier of the item
-     * @return TeamworkDeviceOperationItemRequestBuilder
-    */
-    public function operationsById(string $id): TeamworkDeviceOperationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['teamworkDeviceOperation%2Did'] = $id;
-        return new TeamworkDeviceOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

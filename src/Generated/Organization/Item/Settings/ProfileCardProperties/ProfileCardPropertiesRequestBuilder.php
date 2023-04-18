@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\ProfileCardProperty;
 use Microsoft\Graph\Beta\Generated\Models\ProfileCardPropertyCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\ProfileCardProperties\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\ProfileCardProperties\Item\ProfileCardPropertyItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class ProfileCardPropertiesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the profileCardProperties property of the microsoft.graph.organizationSettings entity.
+     * @param string $profileCardPropertyId Unique identifier of the item
+     * @return ProfileCardPropertyItemRequestBuilder
+    */
+    public function byProfileCardPropertyId(string $profileCardPropertyId): ProfileCardPropertyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['profileCardProperty%2Did'] = $profileCardPropertyId;
+        return new ProfileCardPropertyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ProfileCardPropertiesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

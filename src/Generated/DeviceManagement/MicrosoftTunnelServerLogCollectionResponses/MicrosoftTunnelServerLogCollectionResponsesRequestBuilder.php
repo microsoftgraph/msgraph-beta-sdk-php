@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelServerLogCollectionResponses\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelServerLogCollectionResponses\Item\MicrosoftTunnelServerLogCollectionResponseItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MicrosoftTunnelServerLogCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\MicrosoftTunnelServerLogCollectionResponseCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class MicrosoftTunnelServerLogCollectionResponsesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the microsoftTunnelServerLogCollectionResponses property of the microsoft.graph.deviceManagement entity.
+     * @param string $microsoftTunnelServerLogCollectionResponseId Unique identifier of the item
+     * @return MicrosoftTunnelServerLogCollectionResponseItemRequestBuilder
+    */
+    public function byMicrosoftTunnelServerLogCollectionResponseId(string $microsoftTunnelServerLogCollectionResponseId): MicrosoftTunnelServerLogCollectionResponseItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['microsoftTunnelServerLogCollectionResponse%2Did'] = $microsoftTunnelServerLogCollectionResponseId;
+        return new MicrosoftTunnelServerLogCollectionResponseItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new MicrosoftTunnelServerLogCollectionResponsesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

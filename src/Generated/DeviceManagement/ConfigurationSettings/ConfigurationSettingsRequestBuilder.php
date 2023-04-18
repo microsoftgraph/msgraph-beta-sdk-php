@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationSettings\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationSettings\Item\DeviceManagementConfigurationSettingDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementConfigurationSettingDefinition;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementConfigurationSettingDefinitionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class ConfigurationSettingsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the configurationSettings property of the microsoft.graph.deviceManagement entity.
+     * @param string $deviceManagementConfigurationSettingDefinitionId Unique identifier of the item
+     * @return DeviceManagementConfigurationSettingDefinitionItemRequestBuilder
+    */
+    public function byDeviceManagementConfigurationSettingDefinitionId(string $deviceManagementConfigurationSettingDefinitionId): DeviceManagementConfigurationSettingDefinitionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceManagementConfigurationSettingDefinition%2Did'] = $deviceManagementConfigurationSettingDefinitionId;
+        return new DeviceManagementConfigurationSettingDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ConfigurationSettingsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

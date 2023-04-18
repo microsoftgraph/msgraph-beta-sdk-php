@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices\Item\PurchaseInvoiceLines\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices\Item\PurchaseInvoiceLines\Item\PurchaseInvoiceLineItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PurchaseInvoiceLineCollectionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -42,6 +43,17 @@ class PurchaseInvoiceLinesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the purchaseInvoiceLines property of the microsoft.graph.purchaseInvoice entity.
+     * @param string $purchaseInvoiceLineId Unique identifier of the item
+     * @return PurchaseInvoiceLineItemRequestBuilder
+    */
+    public function byPurchaseInvoiceLineId(string $purchaseInvoiceLineId): PurchaseInvoiceLineItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['purchaseInvoiceLine%2Did'] = $purchaseInvoiceLineId;
+        return new PurchaseInvoiceLineItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PurchaseInvoiceLinesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

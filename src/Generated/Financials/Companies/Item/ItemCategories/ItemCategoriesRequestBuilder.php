@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\ItemCategories\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\ItemCategories\Item\ItemCategoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ItemCategory;
 use Microsoft\Graph\Beta\Generated\Models\ItemCategoryCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class ItemCategoriesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the itemCategories property of the microsoft.graph.company entity.
+     * @param string $itemCategoryId Unique identifier of the item
+     * @return ItemCategoryItemRequestBuilder
+    */
+    public function byItemCategoryId(string $itemCategoryId): ItemCategoryItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['itemCategory%2Did'] = $itemCategoryId;
+        return new ItemCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ItemCategoriesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

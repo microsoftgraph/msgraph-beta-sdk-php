@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyUsers\ConfirmCompromised\ConfirmCompromisedRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyUsers\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyUsers\Dismiss\DismissRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyUsers\Item\RiskyUserItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\RiskyUser;
 use Microsoft\Graph\Beta\Generated\Models\RiskyUserCollectionResponse;
@@ -60,6 +61,17 @@ class RiskyUsersRequestBuilder
     private string $urlTemplate;
     
     /**
+     * Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity.
+     * @param string $riskyUserId Unique identifier of the item
+     * @return RiskyUserItemRequestBuilder
+    */
+    public function byRiskyUserId(string $riskyUserId): RiskyUserItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['riskyUser%2Did'] = $riskyUserId;
+        return new RiskyUserItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
      * Instantiates a new RiskyUsersRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -75,10 +87,10 @@ class RiskyUsersRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a **riskyUser** object.
+     * Retrieve the properties and relationships of a collection of **riskyUser** objects.
      * @param RiskyUsersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/riskyusers-get?view=graph-rest-1.0 Find more info here
+     * @link https://docs.microsoft.com/graph/api/riskyusers-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?RiskyUsersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -113,7 +125,7 @@ class RiskyUsersRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a **riskyUser** object.
+     * Retrieve the properties and relationships of a collection of **riskyUser** objects.
      * @param RiskyUsersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

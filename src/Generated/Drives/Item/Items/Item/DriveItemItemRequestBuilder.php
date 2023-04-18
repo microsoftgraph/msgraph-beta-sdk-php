@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Activities\ActivitiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Activities\Item\ItemActivityOLDItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Analytics\AnalyticsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\AssignSensitivityLabel\AssignSensitivityLabelRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Checkin\CheckinRequestBuilder;
@@ -23,18 +22,15 @@ use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Follow\FollowRequestBu
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Invite\InviteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\ListItem\ListItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Permissions\Item\PermissionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Permissions\PermissionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Preview\PreviewRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Restore\RestoreRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\RetentionLabel\RetentionLabelRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\SearchWithQ\SearchWithQRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Subscriptions\Item\SubscriptionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Subscriptions\SubscriptionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Thumbnails\Item\ThumbnailSetItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Thumbnails\ThumbnailsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Unfollow\UnfollowRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\ValidatePermission\ValidatePermissionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Versions\Item\DriveItemVersionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Versions\VersionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\WorkbookRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DriveItem;
@@ -188,6 +184,13 @@ class DriveItemItemRequestBuilder
     }
     
     /**
+     * Provides operations to manage the retentionLabel property of the microsoft.graph.driveItem entity.
+    */
+    public function retentionLabel(): RetentionLabelRequestBuilder {
+        return new RetentionLabelRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the subscriptions property of the microsoft.graph.driveItem entity.
     */
     public function subscriptions(): SubscriptionsRequestBuilder {
@@ -234,28 +237,6 @@ class DriveItemItemRequestBuilder
         return new WorkbookRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * Provides operations to manage the activities property of the microsoft.graph.driveItem entity.
-     * @param string $id Unique identifier of the item
-     * @return ItemActivityOLDItemRequestBuilder
-    */
-    public function activitiesById(string $id): ItemActivityOLDItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['itemActivityOLD%2Did'] = $id;
-        return new ItemActivityOLDItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the children property of the microsoft.graph.driveItem entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Children\Item\DriveItemItemRequestBuilder
-    */
-    public function childrenById(string $id): \Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Children\Item\DriveItemItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['driveItem%2Did1'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Children\Item\DriveItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
     /**
      * Instantiates a new DriveItemItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
@@ -347,45 +328,12 @@ class DriveItemItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the permissions property of the microsoft.graph.driveItem entity.
-     * @param string $id Unique identifier of the item
-     * @return PermissionItemRequestBuilder
-    */
-    public function permissionsById(string $id): PermissionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['permission%2Did'] = $id;
-        return new PermissionItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Provides operations to call the search method.
      * @param string $q Usage: q='{q}'
      * @return SearchWithQRequestBuilder
     */
     public function searchWithQ(string $q): SearchWithQRequestBuilder {
         return new SearchWithQRequestBuilder($this->pathParameters, $this->requestAdapter, $q);
-    }
-
-    /**
-     * Provides operations to manage the subscriptions property of the microsoft.graph.driveItem entity.
-     * @param string $id Unique identifier of the item
-     * @return SubscriptionItemRequestBuilder
-    */
-    public function subscriptionsById(string $id): SubscriptionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['subscription%2Did'] = $id;
-        return new SubscriptionItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the thumbnails property of the microsoft.graph.driveItem entity.
-     * @param string $id Unique identifier of the item
-     * @return ThumbnailSetItemRequestBuilder
-    */
-    public function thumbnailsById(string $id): ThumbnailSetItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['thumbnailSet%2Did'] = $id;
-        return new ThumbnailSetItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -456,17 +404,6 @@ class DriveItemItemRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the versions property of the microsoft.graph.driveItem entity.
-     * @param string $id Unique identifier of the item
-     * @return DriveItemVersionItemRequestBuilder
-    */
-    public function versionsById(string $id): DriveItemVersionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['driveItemVersion%2Did'] = $id;
-        return new DriveItemVersionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

@@ -11,7 +11,6 @@ use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollec
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\EdiscoveryEstimateStatistics\EdiscoveryEstimateStatisticsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\EdiscoveryPurgeData\EdiscoveryPurgeDataRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\LastEstimateStatisticsOperation\LastEstimateStatisticsOperationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\NoncustodialSources\Item\NoncustodialDataSourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\NoncustodialSources\NoncustodialSourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\SourceCollection;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -92,17 +91,6 @@ class SourceCollectionItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Provides operations to manage the additionalSources property of the microsoft.graph.ediscovery.sourceCollection entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\AdditionalSources\Item\DataSourceItemRequestBuilder
-    */
-    public function additionalSourcesById(string $id): \Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\AdditionalSources\Item\DataSourceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['dataSource%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\AdditionalSources\Item\DataSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new SourceCollectionItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -115,17 +103,6 @@ class SourceCollectionItemRequestBuilder
         } else {
             $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
         }
-    }
-
-    /**
-     * Provides operations to manage the custodianSources property of the microsoft.graph.ediscovery.sourceCollection entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\CustodianSources\Item\DataSourceItemRequestBuilder
-    */
-    public function custodianSourcesById(string $id): \Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\CustodianSources\Item\DataSourceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['dataSource%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\CustodianSources\Item\DataSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -162,17 +139,6 @@ class SourceCollectionItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the noncustodialSources property of the microsoft.graph.ediscovery.sourceCollection entity.
-     * @param string $id Unique identifier of the item
-     * @return NoncustodialDataSourceItemRequestBuilder
-    */
-    public function noncustodialSourcesById(string $id): NoncustodialDataSourceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['noncustodialDataSource%2Did'] = $id;
-        return new NoncustodialDataSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

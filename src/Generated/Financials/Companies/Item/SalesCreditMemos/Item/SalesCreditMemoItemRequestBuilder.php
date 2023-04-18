@@ -8,7 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesCreditMemos\Item\Currency\CurrencyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesCreditMemos\Item\Customer\CustomerRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesCreditMemos\Item\PaymentTerm\PaymentTermRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesCreditMemos\Item\SalesCreditMemoLines\Item\SalesCreditMemoLineItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesCreditMemos\Item\SalesCreditMemoLines\SalesCreditMemoLinesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SalesCreditMemo;
@@ -117,17 +116,6 @@ class SalesCreditMemoItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the salesCreditMemoLines property of the microsoft.graph.salesCreditMemo entity.
-     * @param string $id Unique identifier of the item
-     * @return SalesCreditMemoLineItemRequestBuilder
-    */
-    public function salesCreditMemoLinesById(string $id): SalesCreditMemoLineItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['salesCreditMemoLine%2Did'] = $id;
-        return new SalesCreditMemoLineItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

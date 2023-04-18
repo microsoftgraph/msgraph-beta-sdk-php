@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Customers\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Customers\Item\BookingCustomerItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\BookingCustomer;
 use Microsoft\Graph\Beta\Generated\Models\BookingCustomerCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class CustomersRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the customers property of the microsoft.graph.bookingBusiness entity.
+     * @param string $bookingCustomerId Unique identifier of the item
+     * @return BookingCustomerItemRequestBuilder
+    */
+    public function byBookingCustomerId(string $bookingCustomerId): BookingCustomerItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['bookingCustomer%2Did'] = $bookingCustomerId;
+        return new BookingCustomerItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CustomersRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -6,12 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\RoleManagementAlerts\AlertConfigurations\AlertConfigurationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\RoleManagementAlerts\AlertConfigurations\Item\UnifiedRoleManagementAlertConfigurationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\RoleManagementAlerts\AlertDefinitions\AlertDefinitionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\RoleManagementAlerts\AlertDefinitions\Item\UnifiedRoleManagementAlertDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\RoleManagementAlerts\Alerts\AlertsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\RoleManagementAlerts\Alerts\Item\UnifiedRoleManagementAlertItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\RoleManagementAlerts\Operations\Item\LongRunningOperationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\RoleManagementAlerts\Operations\OperationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\RoleManagementAlert;
@@ -71,39 +67,6 @@ class RoleManagementAlertsRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Provides operations to manage the alertConfigurations property of the microsoft.graph.roleManagementAlert entity.
-     * @param string $id Unique identifier of the item
-     * @return UnifiedRoleManagementAlertConfigurationItemRequestBuilder
-    */
-    public function alertConfigurationsById(string $id): UnifiedRoleManagementAlertConfigurationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['unifiedRoleManagementAlertConfiguration%2Did'] = $id;
-        return new UnifiedRoleManagementAlertConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the alertDefinitions property of the microsoft.graph.roleManagementAlert entity.
-     * @param string $id Unique identifier of the item
-     * @return UnifiedRoleManagementAlertDefinitionItemRequestBuilder
-    */
-    public function alertDefinitionsById(string $id): UnifiedRoleManagementAlertDefinitionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['unifiedRoleManagementAlertDefinition%2Did'] = $id;
-        return new UnifiedRoleManagementAlertDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the alerts property of the microsoft.graph.roleManagementAlert entity.
-     * @param string $id Unique identifier of the item
-     * @return UnifiedRoleManagementAlertItemRequestBuilder
-    */
-    public function alertsById(string $id): UnifiedRoleManagementAlertItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['unifiedRoleManagementAlert%2Did'] = $id;
-        return new UnifiedRoleManagementAlertItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new RoleManagementAlertsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -152,17 +115,6 @@ class RoleManagementAlertsRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the operations property of the microsoft.graph.roleManagementAlert entity.
-     * @param string $id Unique identifier of the item
-     * @return LongRunningOperationItemRequestBuilder
-    */
-    public function operationsById(string $id): LongRunningOperationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['longRunningOperation%2Did'] = $id;
-        return new LongRunningOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\Transcripts\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\Transcripts\Item\CallTranscriptItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CallTranscript;
 use Microsoft\Graph\Beta\Generated\Models\CallTranscriptCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class TranscriptsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the transcripts property of the microsoft.graph.onlineMeeting entity.
+     * @param string $callTranscriptId Unique identifier of the item
+     * @return CallTranscriptItemRequestBuilder
+    */
+    public function byCallTranscriptId(string $callTranscriptId): CallTranscriptItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['callTranscript%2Did'] = $callTranscriptId;
+        return new CallTranscriptItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new TranscriptsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

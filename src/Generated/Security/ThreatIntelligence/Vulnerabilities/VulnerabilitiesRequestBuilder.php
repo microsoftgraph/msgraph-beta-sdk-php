@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\Vulnerability;
 use Microsoft\Graph\Beta\Generated\Models\Security\VulnerabilityCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Vulnerabilities\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Vulnerabilities\Item\VulnerabilityItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class VulnerabilitiesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the vulnerabilities property of the microsoft.graph.security.threatIntelligence entity.
+     * @param string $vulnerabilityId Unique identifier of the item
+     * @return VulnerabilityItemRequestBuilder
+    */
+    public function byVulnerabilityId(string $vulnerabilityId): VulnerabilityItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['vulnerability%2Did'] = $vulnerabilityId;
+        return new VulnerabilityItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new VulnerabilitiesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

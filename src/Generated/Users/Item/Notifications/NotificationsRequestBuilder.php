@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\Notification;
 use Microsoft\Graph\Beta\Generated\Models\NotificationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\Notifications\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Notifications\Item\NotificationItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class NotificationsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the notifications property of the microsoft.graph.user entity.
+     * @param string $notificationId Unique identifier of the item
+     * @return NotificationItemRequestBuilder
+    */
+    public function byNotificationId(string $notificationId): NotificationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['notification%2Did'] = $notificationId;
+        return new NotificationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new NotificationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

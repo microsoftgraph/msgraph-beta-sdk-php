@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\CompanyInformation\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\CompanyInformation\Item\CompanyInformationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CompanyInformationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -42,6 +43,17 @@ class CompanyInformationRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the companyInformation property of the microsoft.graph.company entity.
+     * @param string $companyInformationId Unique identifier of the item
+     * @return CompanyInformationItemRequestBuilder
+    */
+    public function byCompanyInformationId(string $companyInformationId): CompanyInformationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['companyInformation%2Did'] = $companyInformationId;
+        return new CompanyInformationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CompanyInformationRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

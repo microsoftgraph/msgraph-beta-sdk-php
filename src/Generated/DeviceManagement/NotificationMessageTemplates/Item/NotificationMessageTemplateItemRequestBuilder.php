@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\NotificationMessageTem
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\NotificationMessageTemplates\Item\LocalizedNotificationMessages\Item\LocalizedNotificationMessageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\NotificationMessageTemplates\Item\LocalizedNotificationMessages\LocalizedNotificationMessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\NotificationMessageTemplates\Item\SendTestMessage\SendTestMessageRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\NotificationMessageTemplate;
@@ -100,17 +99,6 @@ class NotificationMessageTemplateItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the localizedNotificationMessages property of the microsoft.graph.notificationMessageTemplate entity.
-     * @param string $id Unique identifier of the item
-     * @return LocalizedNotificationMessageItemRequestBuilder
-    */
-    public function localizedNotificationMessagesById(string $id): LocalizedNotificationMessageItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['localizedNotificationMessage%2Did'] = $id;
-        return new LocalizedNotificationMessageItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

@@ -6,12 +6,10 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Planner\All\AllRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Planner\All\Item\PlannerDeltaItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Planner\FavoritePlans\FavoritePlansRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Planner\Plans\PlansRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Planner\RecentPlans\RecentPlansRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Planner\RosterPlans\RosterPlansRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Planner\Tasks\Item\PlannerTaskItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Planner\Tasks\TasksRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PlannerUser;
@@ -85,17 +83,6 @@ class PlannerRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Provides operations to manage the all property of the microsoft.graph.plannerUser entity.
-     * @param string $id Unique identifier of the item
-     * @return PlannerDeltaItemRequestBuilder
-    */
-    public function allById(string $id): PlannerDeltaItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['plannerDelta%2Did'] = $id;
-        return new PlannerDeltaItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new PlannerRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -126,17 +113,6 @@ class PlannerRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the favoritePlans property of the microsoft.graph.plannerUser entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Me\Planner\FavoritePlans\Item\PlannerPlanItemRequestBuilder
-    */
-    public function favoritePlansById(string $id): \Microsoft\Graph\Beta\Generated\Me\Planner\FavoritePlans\Item\PlannerPlanItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['plannerPlan%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Me\Planner\FavoritePlans\Item\PlannerPlanItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -176,50 +152,6 @@ class PlannerRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the plans property of the microsoft.graph.plannerUser entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Me\Planner\Plans\Item\PlannerPlanItemRequestBuilder
-    */
-    public function plansById(string $id): \Microsoft\Graph\Beta\Generated\Me\Planner\Plans\Item\PlannerPlanItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['plannerPlan%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Me\Planner\Plans\Item\PlannerPlanItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the recentPlans property of the microsoft.graph.plannerUser entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Me\Planner\RecentPlans\Item\PlannerPlanItemRequestBuilder
-    */
-    public function recentPlansById(string $id): \Microsoft\Graph\Beta\Generated\Me\Planner\RecentPlans\Item\PlannerPlanItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['plannerPlan%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Me\Planner\RecentPlans\Item\PlannerPlanItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the rosterPlans property of the microsoft.graph.plannerUser entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Me\Planner\RosterPlans\Item\PlannerPlanItemRequestBuilder
-    */
-    public function rosterPlansById(string $id): \Microsoft\Graph\Beta\Generated\Me\Planner\RosterPlans\Item\PlannerPlanItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['plannerPlan%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Me\Planner\RosterPlans\Item\PlannerPlanItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the tasks property of the microsoft.graph.plannerUser entity.
-     * @param string $id Unique identifier of the item
-     * @return PlannerTaskItemRequestBuilder
-    */
-    public function tasksById(string $id): PlannerTaskItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['plannerTask%2Did'] = $id;
-        return new PlannerTaskItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

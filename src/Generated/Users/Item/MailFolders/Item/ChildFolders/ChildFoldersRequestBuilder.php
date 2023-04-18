@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\Models\MailFolderCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Delta\DeltaRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item\MailFolderItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -51,6 +52,17 @@ class ChildFoldersRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the childFolders property of the microsoft.graph.mailFolder entity.
+     * @param string $mailFolderId1 Unique identifier of the item
+     * @return MailFolderItemRequestBuilder
+    */
+    public function byMailFolderId1(string $mailFolderId1): MailFolderItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['mailFolder%2Did1'] = $mailFolderId1;
+        return new MailFolderItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ChildFoldersRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

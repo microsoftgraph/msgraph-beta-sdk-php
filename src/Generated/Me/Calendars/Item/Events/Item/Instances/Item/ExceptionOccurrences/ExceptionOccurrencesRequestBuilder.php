@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Calendars\Item\Events\Item\Instances\Item\ExceptionOccurrences\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Calendars\Item\Events\Item\Instances\Item\ExceptionOccurrences\Delta\DeltaRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Calendars\Item\Events\Item\Instances\Item\ExceptionOccurrences\Item\EventItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EventCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -50,6 +51,17 @@ class ExceptionOccurrencesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the exceptionOccurrences property of the microsoft.graph.event entity.
+     * @param string $eventId2 Unique identifier of the item
+     * @return EventItemRequestBuilder
+    */
+    public function byEventId2(string $eventId2): EventItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['event%2Did2'] = $eventId2;
+        return new EventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ExceptionOccurrencesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

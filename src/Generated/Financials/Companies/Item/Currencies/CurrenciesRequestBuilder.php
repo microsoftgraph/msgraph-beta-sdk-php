@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Currencies\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Currencies\Item\CurrencyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Currency;
 use Microsoft\Graph\Beta\Generated\Models\CurrencyCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class CurrenciesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the currencies property of the microsoft.graph.company entity.
+     * @param string $currencyId Unique identifier of the item
+     * @return CurrencyItemRequestBuilder
+    */
+    public function byCurrencyId(string $currencyId): CurrencyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['currency%2Did'] = $currencyId;
+        return new CurrencyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CurrenciesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

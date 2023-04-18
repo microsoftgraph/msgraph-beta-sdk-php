@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\EducationalActivity;
 use Microsoft\Graph\Beta\Generated\Models\EducationalActivityCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\EducationalActivities\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Profile\EducationalActivities\Item\EducationalActivityItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -43,6 +44,17 @@ class EducationalActivitiesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the educationalActivities property of the microsoft.graph.profile entity.
+     * @param string $educationalActivityId Unique identifier of the item
+     * @return EducationalActivityItemRequestBuilder
+    */
+    public function byEducationalActivityId(string $educationalActivityId): EducationalActivityItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['educationalActivity%2Did'] = $educationalActivityId;
+        return new EducationalActivityItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new EducationalActivitiesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

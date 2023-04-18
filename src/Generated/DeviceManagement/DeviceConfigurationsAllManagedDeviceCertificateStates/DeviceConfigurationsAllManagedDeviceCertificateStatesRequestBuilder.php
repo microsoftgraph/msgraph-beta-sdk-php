@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationsAllManagedDeviceCertificateStates\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationsAllManagedDeviceCertificateStates\Item\ManagedAllDeviceCertificateStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ManagedAllDeviceCertificateState;
 use Microsoft\Graph\Beta\Generated\Models\ManagedAllDeviceCertificateStateCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -43,6 +44,17 @@ class DeviceConfigurationsAllManagedDeviceCertificateStatesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the deviceConfigurationsAllManagedDeviceCertificateStates property of the microsoft.graph.deviceManagement entity.
+     * @param string $managedAllDeviceCertificateStateId Unique identifier of the item
+     * @return ManagedAllDeviceCertificateStateItemRequestBuilder
+    */
+    public function byManagedAllDeviceCertificateStateId(string $managedAllDeviceCertificateStateId): ManagedAllDeviceCertificateStateItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managedAllDeviceCertificateState%2Did'] = $managedAllDeviceCertificateStateId;
+        return new ManagedAllDeviceCertificateStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new DeviceConfigurationsAllManagedDeviceCertificateStatesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

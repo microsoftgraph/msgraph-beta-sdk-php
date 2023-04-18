@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\TransitiveRoleA
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get transitiveRoleAssignments from roleManagement
+ * Resource to grant access to users or groups that are transitive.
 */
 class UnifiedRoleAssignmentItemRequestBuilderGetQueryParameters 
 {

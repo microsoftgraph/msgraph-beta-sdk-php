@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Profile\Certifications\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Profile\Certifications\Item\PersonCertificationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PersonCertification;
 use Microsoft\Graph\Beta\Generated\Models\PersonCertificationCollectionResponse;
@@ -43,6 +44,17 @@ class CertificationsRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the certifications property of the microsoft.graph.profile entity.
+     * @param string $personCertificationId Unique identifier of the item
+     * @return PersonCertificationItemRequestBuilder
+    */
+    public function byPersonCertificationId(string $personCertificationId): PersonCertificationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['personCertification%2Did'] = $personCertificationId;
+        return new PersonCertificationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CertificationsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
