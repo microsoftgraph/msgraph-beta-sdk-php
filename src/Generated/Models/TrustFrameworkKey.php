@@ -18,11 +18,6 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * @var string|null $escapedUse The use (public key use) parameter identifies the intended use of the public key.  The use parameter is employed to indicate whether a public key is used for encrypting data or verifying the signature on data. Possible values are: sig (signature), enc (encryption)
-    */
-    public ?string $escapedUse = null;
-    
-    /**
      * Instantiates a new trustFrameworkKey and sets the default values.
     */
     public function __construct() {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Source
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the list of dataSource objects associated with a source collection.
+ * Custodian sources that are included in the sourceCollection.
 */
 class CustodianSourcesRequestBuilderGetQueryParameters 
 {

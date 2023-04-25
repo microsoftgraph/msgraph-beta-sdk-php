@@ -52,7 +52,7 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the blockDateTime property value. The blockDateTime property
+     * Gets the blockDateTime property value. The date and time when the user was blocked/unblocked from making PSTN calls. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getBlockDateTime(): ?DateTime {
@@ -60,7 +60,7 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the blockReason property value. The blockReason property
+     * Gets the blockReason property value. The reason why the user is blocked/unblocked from making calls.
      * @return string|null
     */
     public function getBlockReason(): ?string {
@@ -95,7 +95,7 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the remediationId property value. The remediationId property
+     * Gets the remediationId property value. Unique identifier (GUID) for the blocking/unblocking action.
      * @return string|null
     */
     public function getRemediationId(): ?string {
@@ -103,7 +103,7 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the userBlockMode property value. The userBlockMode property
+     * Gets the userBlockMode property value. Indicates whether the user is blocked or unblocked from making PSTN calls in Microsoft Teams. The possible values are: blocked, unblocked, unknownFutureValue.
      * @return PstnUserBlockMode|null
     */
     public function getUserBlockMode(): ?PstnUserBlockMode {
@@ -111,7 +111,7 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the userDisplayName property value. The userDisplayName property
+     * Gets the userDisplayName property value. Display name of the user.
      * @return string|null
     */
     public function getUserDisplayName(): ?string {
@@ -119,7 +119,7 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the userId property value. The userId property
+     * Gets the userId property value. The unique identifier (GUID) of the user in Azure Active Directory.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -127,7 +127,7 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the userPrincipalName property value. The userPrincipalName property
+     * Gets the userPrincipalName property value. The user principal name (sign-in name) in Azure Active Directory. This is usually the same as the user's SIP address, and can be same as the user's e-mail address.
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
@@ -135,7 +135,7 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the userTelephoneNumber property value. The userTelephoneNumber property
+     * Gets the userTelephoneNumber property value. User's blocked number. For details, see E.164.
      * @return string|null
     */
     public function getUserTelephoneNumber(): ?string {
@@ -176,7 +176,7 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the blockDateTime property value. The blockDateTime property
+     * Sets the blockDateTime property value. The date and time when the user was blocked/unblocked from making PSTN calls. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the blockDateTime property.
     */
     public function setBlockDateTime(?DateTime $value): void {
@@ -184,7 +184,7 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the blockReason property value. The blockReason property
+     * Sets the blockReason property value. The reason why the user is blocked/unblocked from making calls.
      * @param string|null $value Value to set for the blockReason property.
     */
     public function setBlockReason(?string $value): void {
@@ -200,7 +200,7 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the remediationId property value. The remediationId property
+     * Sets the remediationId property value. Unique identifier (GUID) for the blocking/unblocking action.
      * @param string|null $value Value to set for the remediationId property.
     */
     public function setRemediationId(?string $value): void {
@@ -208,7 +208,7 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the userBlockMode property value. The userBlockMode property
+     * Sets the userBlockMode property value. Indicates whether the user is blocked or unblocked from making PSTN calls in Microsoft Teams. The possible values are: blocked, unblocked, unknownFutureValue.
      * @param PstnUserBlockMode|null $value Value to set for the userBlockMode property.
     */
     public function setUserBlockMode(?PstnUserBlockMode $value): void {
@@ -216,7 +216,7 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the userDisplayName property value. The userDisplayName property
+     * Sets the userDisplayName property value. Display name of the user.
      * @param string|null $value Value to set for the userDisplayName property.
     */
     public function setUserDisplayName(?string $value): void {
@@ -224,7 +224,7 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the userId property value. The userId property
+     * Sets the userId property value. The unique identifier (GUID) of the user in Azure Active Directory.
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
@@ -232,7 +232,7 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the userPrincipalName property value. The userPrincipalName property
+     * Sets the userPrincipalName property value. The user principal name (sign-in name) in Azure Active Directory. This is usually the same as the user's SIP address, and can be same as the user's e-mail address.
      * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
@@ -240,7 +240,7 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the userTelephoneNumber property value. The userTelephoneNumber property
+     * Sets the userTelephoneNumber property value. User's blocked number. For details, see E.164.
      * @param string|null $value Value to set for the userTelephoneNumber property.
     */
     public function setUserTelephoneNumber(?string $value): void {

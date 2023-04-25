@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Planner\Tasks\Item\AssignedToTaskBoardF
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of **plannerAssignedToTaskBoardTaskFormat** object.
+ * Read-only. Nullable. Used to render the task correctly in the task board view when grouped by assignedTo.
 */
 class AssignedToTaskBoardFormatRequestBuilderGetQueryParameters 
 {

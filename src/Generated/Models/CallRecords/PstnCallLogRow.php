@@ -60,7 +60,7 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the calleeNumber property value. Number dialed in E.164 format.
+     * Gets the calleeNumber property value. Number of the user or bot who received the call (E.164).
      * @return string|null
     */
     public function getCalleeNumber(): ?string {
@@ -68,7 +68,7 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the callerNumber property value. Number that received the call for inbound calls or the number dialed for outbound calls. E.164 format.
+     * Gets the callerNumber property value. Number of the user or bot who made the call (E.164).
      * @return string|null
     */
     public function getCallerNumber(): ?string {
@@ -84,7 +84,7 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the callType property value. Whether the call was a PSTN outbound or inbound call and the type of call such as a call placed by a user or an audio conference.
+     * Gets the callType property value. Indicates whether the call was a PSTN outbound or inbound call and the type of call such as a call placed by a user or an audio conference.
      * @return string|null
     */
     public function getCallType(): ?string {
@@ -116,7 +116,7 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the currency property value. Type of currency used to calculate the cost of the call. For details, see ISO 4217.
+     * Gets the currency property value. Type of currency used to calculate the cost of the call (ISO 4217).
      * @return string|null
     */
     public function getCurrency(): ?string {
@@ -124,7 +124,7 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the destinationContext property value. Whether the call was domestic (within a country or region) or international (outside a country or region) based on the user's location.
+     * Gets the destinationContext property value. Indicates whether the call was Domestic (within a country or region) or International (outside a country or region) based on the user's location.
      * @return string|null
     */
     public function getDestinationContext(): ?string {
@@ -191,7 +191,7 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the id property value. Unique call identifier. GUID.
+     * Gets the id property value. Unique call identifier (GUID).
      * @return string|null
     */
     public function getId(): ?string {
@@ -231,7 +231,7 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the otherPartyCountryCode property value. The otherPartyCountryCode property
+     * Gets the otherPartyCountryCode property value. Country code of the caller in case of an incoming call, or callee in case of an outgoing call. For details, see ISO 3166-1 alpha-2.
      * @return string|null
     */
     public function getOtherPartyCountryCode(): ?string {
@@ -271,7 +271,7 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userId property value. Calling user's ID in Graph. GUID. This and other user info will be null/empty for bot call types (ucap_in, ucap_out).
+     * Gets the userId property value. The unique identifier (GUID) of the user in Azure Active Directory. This and other user info will be null/empty for bot call types (ucap_in, ucap_out).
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -344,7 +344,7 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the calleeNumber property value. Number dialed in E.164 format.
+     * Sets the calleeNumber property value. Number of the user or bot who received the call (E.164).
      * @param string|null $value Value to set for the calleeNumber property.
     */
     public function setCalleeNumber(?string $value): void {
@@ -352,7 +352,7 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the callerNumber property value. Number that received the call for inbound calls or the number dialed for outbound calls. E.164 format.
+     * Sets the callerNumber property value. Number of the user or bot who made the call (E.164).
      * @param string|null $value Value to set for the callerNumber property.
     */
     public function setCallerNumber(?string $value): void {
@@ -368,7 +368,7 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the callType property value. Whether the call was a PSTN outbound or inbound call and the type of call such as a call placed by a user or an audio conference.
+     * Sets the callType property value. Indicates whether the call was a PSTN outbound or inbound call and the type of call such as a call placed by a user or an audio conference.
      * @param string|null $value Value to set for the callType property.
     */
     public function setCallType(?string $value): void {
@@ -400,7 +400,7 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the currency property value. Type of currency used to calculate the cost of the call. For details, see ISO 4217.
+     * Sets the currency property value. Type of currency used to calculate the cost of the call (ISO 4217).
      * @param string|null $value Value to set for the currency property.
     */
     public function setCurrency(?string $value): void {
@@ -408,7 +408,7 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the destinationContext property value. Whether the call was domestic (within a country or region) or international (outside a country or region) based on the user's location.
+     * Sets the destinationContext property value. Indicates whether the call was Domestic (within a country or region) or International (outside a country or region) based on the user's location.
      * @param string|null $value Value to set for the destinationContext property.
     */
     public function setDestinationContext(?string $value): void {
@@ -440,7 +440,7 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the id property value. Unique call identifier. GUID.
+     * Sets the id property value. Unique call identifier (GUID).
      * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
@@ -480,7 +480,7 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the otherPartyCountryCode property value. The otherPartyCountryCode property
+     * Sets the otherPartyCountryCode property value. Country code of the caller in case of an incoming call, or callee in case of an outgoing call. For details, see ISO 3166-1 alpha-2.
      * @param string|null $value Value to set for the otherPartyCountryCode property.
     */
     public function setOtherPartyCountryCode(?string $value): void {
@@ -520,7 +520,7 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the userId property value. Calling user's ID in Graph. GUID. This and other user info will be null/empty for bot call types (ucap_in, ucap_out).
+     * Sets the userId property value. The unique identifier (GUID) of the user in Azure Active Directory. This and other user info will be null/empty for bot call types (ucap_in, ucap_out).
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {

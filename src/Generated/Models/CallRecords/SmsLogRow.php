@@ -52,7 +52,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the callCharge property value. The callCharge property
+     * Gets the callCharge property value. Amount of money or cost of the SMS that is charged.
      * @return string|null
     */
     public function getCallCharge(): ?string {
@@ -60,7 +60,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the currency property value. The currency property
+     * Gets the currency property value. Currency used to calculate the cost of the call. For details, see ISO 4217.
      * @return string|null
     */
     public function getCurrency(): ?string {
@@ -68,7 +68,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the destinationContext property value. The destinationContext property
+     * Gets the destinationContext property value. Indicates whether the SMS was Domestic (within a country or region) or International (outside a country or region) based on the user's location.
      * @return string|null
     */
     public function getDestinationContext(): ?string {
@@ -76,7 +76,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the destinationName property value. The destinationName property
+     * Gets the destinationName property value. Country or region of a phone number that received the SMS.
      * @return string|null
     */
     public function getDestinationName(): ?string {
@@ -84,7 +84,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the destinationNumber property value. The destinationNumber property
+     * Gets the destinationNumber property value. Partially obfuscated phone number that received the SMS. For details, see E.164.
      * @return string|null
     */
     public function getDestinationNumber(): ?string {
@@ -121,7 +121,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the id property value. The id property
+     * Gets the id property value. Unique identifier (GUID) for the SMS.
      * @return string|null
     */
     public function getId(): ?string {
@@ -129,7 +129,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the licenseCapability property value. The licenseCapability property
+     * Gets the licenseCapability property value. The license used for the SMS.
      * @return string|null
     */
     public function getLicenseCapability(): ?string {
@@ -145,7 +145,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the otherPartyCountryCode property value. The otherPartyCountryCode property
+     * Gets the otherPartyCountryCode property value. For an outbound SMS, the country code of the receiver; otherwise (inbound SMS) the country code of the sender. For details, see ISO 3166-1 alpha-2.
      * @return string|null
     */
     public function getOtherPartyCountryCode(): ?string {
@@ -153,7 +153,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the sentDateTime property value. The sentDateTime property
+     * Gets the sentDateTime property value. The date and time when the SMS was sent.
      * @return DateTime|null
     */
     public function getSentDateTime(): ?DateTime {
@@ -161,7 +161,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the smsId property value. The smsId property
+     * Gets the smsId property value. SMS identifier. Not guaranteed to be unique.
      * @return string|null
     */
     public function getSmsId(): ?string {
@@ -169,7 +169,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the smsType property value. The smsType property
+     * Gets the smsType property value. Type of SMS such as outbound or inbound.
      * @return string|null
     */
     public function getSmsType(): ?string {
@@ -177,7 +177,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the smsUnits property value. The smsUnits property
+     * Gets the smsUnits property value. Number of SMS units sent/received.
      * @return int|null
     */
     public function getSmsUnits(): ?int {
@@ -185,7 +185,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the sourceNumber property value. The sourceNumber property
+     * Gets the sourceNumber property value. Partially obfuscated phone number that sent the SMS. For details, see E.164.
      * @return string|null
     */
     public function getSourceNumber(): ?string {
@@ -193,7 +193,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the tenantCountryCode property value. The tenantCountryCode property
+     * Gets the tenantCountryCode property value. Country code of the tenant. For details, see ISO 3166-1 alpha-2.
      * @return string|null
     */
     public function getTenantCountryCode(): ?string {
@@ -201,7 +201,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userCountryCode property value. The userCountryCode property
+     * Gets the userCountryCode property value. Country code of the user. For details, see ISO 3166-1 alpha-2.
      * @return string|null
     */
     public function getUserCountryCode(): ?string {
@@ -209,7 +209,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userDisplayName property value. The userDisplayName property
+     * Gets the userDisplayName property value. Display name of the user.
      * @return string|null
     */
     public function getUserDisplayName(): ?string {
@@ -217,7 +217,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userId property value. The userId property
+     * Gets the userId property value. The unique identifier (GUID) of the user in Azure Active Directory.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -225,7 +225,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userPrincipalName property value. The userPrincipalName property
+     * Gets the userPrincipalName property value. The user principal name (sign-in name) in Azure Active Directory. This is usually the same as the user's SIP address, and can be same as the user's e-mail address.
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
@@ -276,7 +276,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the callCharge property value. The callCharge property
+     * Sets the callCharge property value. Amount of money or cost of the SMS that is charged.
      * @param string|null $value Value to set for the callCharge property.
     */
     public function setCallCharge(?string $value): void {
@@ -284,7 +284,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the currency property value. The currency property
+     * Sets the currency property value. Currency used to calculate the cost of the call. For details, see ISO 4217.
      * @param string|null $value Value to set for the currency property.
     */
     public function setCurrency(?string $value): void {
@@ -292,7 +292,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the destinationContext property value. The destinationContext property
+     * Sets the destinationContext property value. Indicates whether the SMS was Domestic (within a country or region) or International (outside a country or region) based on the user's location.
      * @param string|null $value Value to set for the destinationContext property.
     */
     public function setDestinationContext(?string $value): void {
@@ -300,7 +300,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the destinationName property value. The destinationName property
+     * Sets the destinationName property value. Country or region of a phone number that received the SMS.
      * @param string|null $value Value to set for the destinationName property.
     */
     public function setDestinationName(?string $value): void {
@@ -308,7 +308,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the destinationNumber property value. The destinationNumber property
+     * Sets the destinationNumber property value. Partially obfuscated phone number that received the SMS. For details, see E.164.
      * @param string|null $value Value to set for the destinationNumber property.
     */
     public function setDestinationNumber(?string $value): void {
@@ -316,7 +316,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the id property value. The id property
+     * Sets the id property value. Unique identifier (GUID) for the SMS.
      * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
@@ -324,7 +324,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the licenseCapability property value. The licenseCapability property
+     * Sets the licenseCapability property value. The license used for the SMS.
      * @param string|null $value Value to set for the licenseCapability property.
     */
     public function setLicenseCapability(?string $value): void {
@@ -340,7 +340,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the otherPartyCountryCode property value. The otherPartyCountryCode property
+     * Sets the otherPartyCountryCode property value. For an outbound SMS, the country code of the receiver; otherwise (inbound SMS) the country code of the sender. For details, see ISO 3166-1 alpha-2.
      * @param string|null $value Value to set for the otherPartyCountryCode property.
     */
     public function setOtherPartyCountryCode(?string $value): void {
@@ -348,7 +348,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the sentDateTime property value. The sentDateTime property
+     * Sets the sentDateTime property value. The date and time when the SMS was sent.
      * @param DateTime|null $value Value to set for the sentDateTime property.
     */
     public function setSentDateTime(?DateTime $value): void {
@@ -356,7 +356,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the smsId property value. The smsId property
+     * Sets the smsId property value. SMS identifier. Not guaranteed to be unique.
      * @param string|null $value Value to set for the smsId property.
     */
     public function setSmsId(?string $value): void {
@@ -364,7 +364,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the smsType property value. The smsType property
+     * Sets the smsType property value. Type of SMS such as outbound or inbound.
      * @param string|null $value Value to set for the smsType property.
     */
     public function setSmsType(?string $value): void {
@@ -372,7 +372,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the smsUnits property value. The smsUnits property
+     * Sets the smsUnits property value. Number of SMS units sent/received.
      * @param int|null $value Value to set for the smsUnits property.
     */
     public function setSmsUnits(?int $value): void {
@@ -380,7 +380,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the sourceNumber property value. The sourceNumber property
+     * Sets the sourceNumber property value. Partially obfuscated phone number that sent the SMS. For details, see E.164.
      * @param string|null $value Value to set for the sourceNumber property.
     */
     public function setSourceNumber(?string $value): void {
@@ -388,7 +388,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the tenantCountryCode property value. The tenantCountryCode property
+     * Sets the tenantCountryCode property value. Country code of the tenant. For details, see ISO 3166-1 alpha-2.
      * @param string|null $value Value to set for the tenantCountryCode property.
     */
     public function setTenantCountryCode(?string $value): void {
@@ -396,7 +396,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the userCountryCode property value. The userCountryCode property
+     * Sets the userCountryCode property value. Country code of the user. For details, see ISO 3166-1 alpha-2.
      * @param string|null $value Value to set for the userCountryCode property.
     */
     public function setUserCountryCode(?string $value): void {
@@ -404,7 +404,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the userDisplayName property value. The userDisplayName property
+     * Sets the userDisplayName property value. Display name of the user.
      * @param string|null $value Value to set for the userDisplayName property.
     */
     public function setUserDisplayName(?string $value): void {
@@ -412,7 +412,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the userId property value. The userId property
+     * Sets the userId property value. The unique identifier (GUID) of the user in Azure Active Directory.
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
@@ -420,7 +420,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the userPrincipalName property value. The userPrincipalName property
+     * Sets the userPrincipalName property value. The user principal name (sign-in name) in Azure Active Directory. This is usually the same as the user's SIP address, and can be same as the user's e-mail address.
      * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {

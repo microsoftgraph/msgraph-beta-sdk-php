@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\RoleDefinitions
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get roleDefinitions from roleManagement
+ * The roles allowed by RBAC providers and the permissions assigned to the roles.
 */
 class RoleDefinitionsRequestBuilderGetQueryParameters 
 {

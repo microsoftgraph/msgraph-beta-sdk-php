@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyServicePrincipa
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of riskyServicePrincipal objects.
+ * Azure AD service principals that are at risk.
 */
 class RiskyServicePrincipalsRequestBuilderGetQueryParameters 
 {

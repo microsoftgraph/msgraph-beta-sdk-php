@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Me\Settings\ShiftPreferences;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of a shiftPreferences object by ID.
+ * The shift preferences for the user.
 */
 class ShiftPreferencesRequestBuilderGetQueryParameters 
 {

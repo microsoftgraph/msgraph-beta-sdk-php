@@ -37,7 +37,7 @@ class OfficeConfigurationGroupAssignmentTarget extends OfficeConfigurationAssign
     }
 
     /**
-     * Gets the groupId property value. The Id of the AAD group we are targeting the device configuration to.
+     * Gets the groupId property value. The groupId property
      * @return string|null
     */
     public function getGroupId(): ?string {
@@ -54,7 +54,7 @@ class OfficeConfigurationGroupAssignmentTarget extends OfficeConfigurationAssign
     }
 
     /**
-     * Sets the groupId property value. The Id of the AAD group we are targeting the device configuration to.
+     * Sets the groupId property value. The groupId property
      * @param string|null $value Value to set for the groupId property.
     */
     public function setGroupId(?string $value): void {

@@ -51,7 +51,7 @@ class OfficeUserCheckinSummary implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the failedUserCount property value. Total failed user check ins for the last 3 months.
+     * Gets the failedUserCount property value. The failedUserCount property
      * @return int|null
     */
     public function getFailedUserCount(): ?int {
@@ -80,7 +80,7 @@ class OfficeUserCheckinSummary implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the succeededUserCount property value. Total successful user check ins for the last 3 months.
+     * Gets the succeededUserCount property value. The succeededUserCount property
      * @return int|null
     */
     public function getSucceededUserCount(): ?int {
@@ -115,7 +115,7 @@ class OfficeUserCheckinSummary implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the failedUserCount property value. Total failed user check ins for the last 3 months.
+     * Sets the failedUserCount property value. The failedUserCount property
      * @param int|null $value Value to set for the failedUserCount property.
     */
     public function setFailedUserCount(?int $value): void {
@@ -131,7 +131,7 @@ class OfficeUserCheckinSummary implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the succeededUserCount property value. Total successful user check ins for the last 3 months.
+     * Sets the succeededUserCount property value. The succeededUserCount property
      * @param int|null $value Value to set for the succeededUserCount property.
     */
     public function setSucceededUserCount(?int $value): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Policies\B2cAuthenticationMethodsPolicy
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties of a b2cAuthenticationMethodsPolicy object.
+ * The Azure AD B2C policies that define how end users register via local accounts.
 */
 class B2cAuthenticationMethodsPolicyRequestBuilderGetQueryParameters 
 {

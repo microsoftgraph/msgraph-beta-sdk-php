@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Me\Authentication\PhoneMethods;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of phone authentication method objects. This will return up to three objects, as a user can have up to three phones usable for authentication. This method is available only for standard Azure AD and B2B users, but not B2C users.
+ * Represents the phone registered to a user for authentication.
 */
 class PhoneMethodsRequestBuilderGetQueryParameters 
 {

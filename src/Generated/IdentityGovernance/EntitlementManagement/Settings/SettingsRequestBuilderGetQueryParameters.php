@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties of an entitlementManagementSettings object.
+ * Represents the settings that control the behavior of Azure AD entitlement management.
 */
 class SettingsRequestBuilderGetQueryParameters 
 {

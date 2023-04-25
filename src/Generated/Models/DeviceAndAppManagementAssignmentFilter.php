@@ -36,7 +36,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. Creation time of the Assignment Filter.
+     * Gets the createdDateTime property value. The creation time of the assignment filter. The value cannot be modified and is automatically populated during new assignment filter process. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -44,7 +44,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. Description of the Assignment Filter.
+     * Gets the description property value. Optional description of the Assignment Filter.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -52,7 +52,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. DisplayName of the Assignment Filter.
+     * Gets the displayName property value. The name of the Assignment Filter.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -78,7 +78,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. Last modified time of the Assignment Filter.
+     * Gets the lastModifiedDateTime property value. Last modified time of the Assignment Filter. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -86,7 +86,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     }
 
     /**
-     * Gets the payloads property value. Associated assignments for a specific filter
+     * Gets the payloads property value. Indicates associated assignments for a specific filter.
      * @return array<PayloadByFilter>|null
     */
     public function getPayloads(): ?array {
@@ -102,7 +102,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     }
 
     /**
-     * Gets the roleScopeTags property value. RoleScopeTags of the Assignment Filter.
+     * Gets the roleScopeTags property value. Indicates role scope tags assigned for the assignment filter.
      * @return array<string>|null
     */
     public function getRoleScopeTags(): ?array {
@@ -110,7 +110,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     }
 
     /**
-     * Gets the rule property value. Rule definition of the Assignment Filter.
+     * Gets the rule property value. Rule definition of the assignment filter.
      * @return string|null
     */
     public function getRule(): ?string {
@@ -134,7 +134,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. Creation time of the Assignment Filter.
+     * Sets the createdDateTime property value. The creation time of the assignment filter. The value cannot be modified and is automatically populated during new assignment filter process. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -142,7 +142,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. Description of the Assignment Filter.
+     * Sets the description property value. Optional description of the Assignment Filter.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -150,7 +150,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. DisplayName of the Assignment Filter.
+     * Sets the displayName property value. The name of the Assignment Filter.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -158,7 +158,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. Last modified time of the Assignment Filter.
+     * Sets the lastModifiedDateTime property value. Last modified time of the Assignment Filter. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
@@ -166,7 +166,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     }
 
     /**
-     * Sets the payloads property value. Associated assignments for a specific filter
+     * Sets the payloads property value. Indicates associated assignments for a specific filter.
      * @param array<PayloadByFilter>|null $value Value to set for the payloads property.
     */
     public function setPayloads(?array $value): void {
@@ -182,7 +182,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     }
 
     /**
-     * Sets the roleScopeTags property value. RoleScopeTags of the Assignment Filter.
+     * Sets the roleScopeTags property value. Indicates role scope tags assigned for the assignment filter.
      * @param array<string>|null $value Value to set for the roleScopeTags property.
     */
     public function setRoleScopeTags(?array $value): void {
@@ -190,7 +190,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     }
 
     /**
-     * Sets the rule property value. Rule definition of the Assignment Filter.
+     * Sets the rule property value. Rule definition of the assignment filter.
      * @param string|null $value Value to set for the rule property.
     */
     public function setRule(?string $value): void {

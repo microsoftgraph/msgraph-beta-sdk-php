@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\CredentialUserRegistrationDetai
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of credentialUserRegistrationDetails objects for a given tenant.
+ * Details of the usage of self-service password reset and multi-factor authentication (MFA) for all registered users.
 */
 class CredentialUserRegistrationDetailsRequestBuilderGetQueryParameters 
 {

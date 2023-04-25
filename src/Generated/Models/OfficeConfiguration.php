@@ -51,7 +51,7 @@ class OfficeConfiguration implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the clientConfigurations property value. List of office Client configuration.
+     * Gets the clientConfigurations property value. The clientConfigurations property
      * @return array<OfficeClientConfiguration>|null
     */
     public function getClientConfigurations(): ?array {
@@ -81,7 +81,7 @@ class OfficeConfiguration implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the tenantCheckinStatuses property value. List of office Client check-in status.
+     * Gets the tenantCheckinStatuses property value. The tenantCheckinStatuses property
      * @return array<OfficeClientCheckinStatus>|null
     */
     public function getTenantCheckinStatuses(): ?array {
@@ -89,7 +89,7 @@ class OfficeConfiguration implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the tenantUserCheckinSummary property value. Entity that describes tenant check-in statues
+     * Gets the tenantUserCheckinSummary property value. The tenantUserCheckinSummary property
      * @return OfficeUserCheckinSummary|null
     */
     public function getTenantUserCheckinSummary(): ?OfficeUserCheckinSummary {
@@ -125,7 +125,7 @@ class OfficeConfiguration implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the clientConfigurations property value. List of office Client configuration.
+     * Sets the clientConfigurations property value. The clientConfigurations property
      * @param array<OfficeClientConfiguration>|null $value Value to set for the clientConfigurations property.
     */
     public function setClientConfigurations(?array $value): void {
@@ -141,7 +141,7 @@ class OfficeConfiguration implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the tenantCheckinStatuses property value. List of office Client check-in status.
+     * Sets the tenantCheckinStatuses property value. The tenantCheckinStatuses property
      * @param array<OfficeClientCheckinStatus>|null $value Value to set for the tenantCheckinStatuses property.
     */
     public function setTenantCheckinStatuses(?array $value): void {
@@ -149,7 +149,7 @@ class OfficeConfiguration implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the tenantUserCheckinSummary property value. Entity that describes tenant check-in statues
+     * Sets the tenantUserCheckinSummary property value. The tenantUserCheckinSummary property
      * @param OfficeUserCheckinSummary|null $value Value to set for the tenantUserCheckinSummary property.
     */
     public function setTenantUserCheckinSummary(?OfficeUserCheckinSummary $value): void {

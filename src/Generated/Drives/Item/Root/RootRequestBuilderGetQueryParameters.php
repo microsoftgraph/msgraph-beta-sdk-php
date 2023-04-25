@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Root;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the metadata for a driveItem in a drive by file system path or ID.
+ * The root folder of the drive. Read-only.
 */
 class RootRequestBuilderGetQueryParameters 
 {

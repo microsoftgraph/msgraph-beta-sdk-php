@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Me\OnlineMeetings\Item\Registration\Cus
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the custom registration questions associated with a meetingRegistration object on behalf of the organizer.
+ * Custom registration questions.
 */
 class CustomQuestionsRequestBuilderGetQueryParameters 
 {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Me\Profile\Anniversaries;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of personAnniversary objects for the given user from their profile.
+ * Represents the details of meaningful dates associated with a person.
 */
 class AnniversariesRequestBuilderGetQueryParameters 
 {

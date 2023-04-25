@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\AppCatalogs\TeamsApps\Item\AppDefinitio
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a Teams app icon associated with a specific definition of an app.
+ * The color version of the Teams app's icon.
 */
 class ColorIconRequestBuilderGetQueryParameters 
 {

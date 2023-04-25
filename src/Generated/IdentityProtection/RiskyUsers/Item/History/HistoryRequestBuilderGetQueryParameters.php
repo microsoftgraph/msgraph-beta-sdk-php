@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyUsers\Item\Hist
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the risk history of a riskyUser resource.
+ * Get history from identityProtection
 */
 class HistoryRequestBuilderGetQueryParameters 
 {

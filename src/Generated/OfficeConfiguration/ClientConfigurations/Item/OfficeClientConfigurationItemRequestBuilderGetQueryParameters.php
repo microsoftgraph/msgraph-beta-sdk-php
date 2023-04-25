@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\OfficeConfiguration\ClientConfiguration
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List of office Client configuration.
+ * Get clientConfigurations from officeConfiguration
 */
 class OfficeClientConfigurationItemRequestBuilderGetQueryParameters 
 {

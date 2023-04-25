@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the list of timeOffReasons in a schedule.
+ * The set of reasons for a time off in the schedule.
 */
 class TimeOffReasonsRequestBuilderGetQueryParameters 
 {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\Pages;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the collection of [sitePage][] objects from the site pages [list][] in a site [site][]. All pages in the site are returned (with pagination). Sort alphabetically by `name` in ascending order.
+ * The collection of pages in the SitePages list in this site.
 */
 class PagesRequestBuilderGetQueryParameters 
 {

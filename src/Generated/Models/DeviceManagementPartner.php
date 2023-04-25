@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity which represents a connection to device management partner.
+*/
 class DeviceManagementPartner extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementPartner and sets the default values.
+     * Instantiates a new deviceManagementPartner and sets the default values.
     */
     public function __construct() {
         parent::__construct();

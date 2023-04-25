@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics device scores entity consolidates the various endpoint analytics scores.
+*/
 class UserExperienceAnalyticsDeviceScores extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsDeviceScores and sets the default values.
+     * Instantiates a new userExperienceAnalyticsDeviceScores and sets the default values.
     */
     public function __construct() {
         parent::__construct();

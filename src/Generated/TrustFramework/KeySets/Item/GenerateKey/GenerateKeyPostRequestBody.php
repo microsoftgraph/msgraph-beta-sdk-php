@@ -18,11 +18,6 @@ class GenerateKeyPostRequestBody implements AdditionalDataHolder, BackedModel, P
     private BackingStore $backingStore;
     
     /**
-     * @var string|null $escapedUse The use property
-    */
-    public ?string $escapedUse = null;
-    
-    /**
      * Instantiates a new generateKeyPostRequestBody and sets the default values.
     */
     public function __construct() {

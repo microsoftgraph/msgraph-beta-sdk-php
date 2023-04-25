@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Cred
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the credentialUserRegistrationsSummary objects and their properties.
+ * Summary information for user registration for multi-factor authentication and self service password reset across managed tenants.
 */
 class CredentialUserRegistrationsSummariesRequestBuilderGetQueryParameters 
 {

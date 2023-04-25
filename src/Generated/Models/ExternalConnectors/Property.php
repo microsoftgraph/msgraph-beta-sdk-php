@@ -74,6 +74,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
             'labels' => fn(ParseNode $n) => $o->setLabels($n->getCollectionOfEnumValues(Label::class)),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'rankingHint' => fn(ParseNode $n) => $o->setRankingHint($n->getObjectValue([RankingHint::class, 'createFromDiscriminatorValue'])),
             'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(PropertyType::class)),
         ];
     }
@@ -143,6 +144,14 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the rankingHint property value. Specifies the property ranking hint. Developers can specify which properties are most important, allowing Microsoft Search to determine the search relevance of the content.
+     * @return RankingHint|null
+    */
+    public function getRankingHint(): ?RankingHint {
+        return $this->getBackingStore()->get('rankingHint');
+    }
+
+    /**
      * Gets the type property value. The type property
      * @return PropertyType|null
     */
@@ -164,6 +173,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeCollectionOfEnumValues('labels', $this->getLabels());
         $writer->writeStringValue('name', $this->getName());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('rankingHint', $this->getRankingHint());
         $writer->writeEnumValue('type', $this->getType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -254,6 +264,14 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the rankingHint property value. Specifies the property ranking hint. Developers can specify which properties are most important, allowing Microsoft Search to determine the search relevance of the content.
+     * @param RankingHint|null $value Value to set for the rankingHint property.
+    */
+    public function setRankingHint(?RankingHint $value): void {
+        $this->getBackingStore()->set('rankingHint', $value);
     }
 
     /**

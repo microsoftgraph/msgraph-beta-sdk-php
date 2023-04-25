@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Me\Planner;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of a plannerUser object. The returned properties include the user's favorite plans and recently viewed plans. 
+ * Selective Planner services available to the user. Read-only. Nullable.
 */
 class PlannerRequestBuilderGetQueryParameters 
 {

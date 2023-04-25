@@ -275,6 +275,7 @@ class Group extends DirectoryObject implements Parsable
             'resourceProvisioningOptions' => fn(ParseNode $n) => $o->setResourceProvisioningOptions($n->getCollectionOfPrimitiveValues()),
             'securityEnabled' => fn(ParseNode $n) => $o->setSecurityEnabled($n->getBooleanValue()),
             'securityIdentifier' => fn(ParseNode $n) => $o->setSecurityIdentifier($n->getStringValue()),
+            'serviceProvisioningErrors' => fn(ParseNode $n) => $o->setServiceProvisioningErrors($n->getCollectionOfObjectValues([ServiceProvisioningError::class, 'createFromDiscriminatorValue'])),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getCollectionOfObjectValues([DirectorySetting::class, 'createFromDiscriminatorValue'])),
             'sites' => fn(ParseNode $n) => $o->setSites($n->getCollectionOfObjectValues([Site::class, 'createFromDiscriminatorValue'])),
             'team' => fn(ParseNode $n) => $o->setTeam($n->getObjectValue([Team::class, 'createFromDiscriminatorValue'])),
@@ -643,6 +644,14 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the serviceProvisioningErrors property value. The serviceProvisioningErrors property
+     * @return array<ServiceProvisioningError>|null
+    */
+    public function getServiceProvisioningErrors(): ?array {
+        return $this->getBackingStore()->get('serviceProvisioningErrors');
+    }
+
+    /**
      * Gets the settings property value. Settings that can govern this group's behavior, like whether members can invite guest users to the group. Nullable.
      * @return array<DirectorySetting>|null
     */
@@ -810,6 +819,7 @@ class Group extends DirectoryObject implements Parsable
         $writer->writeCollectionOfPrimitiveValues('resourceProvisioningOptions', $this->getResourceProvisioningOptions());
         $writer->writeBooleanValue('securityEnabled', $this->getSecurityEnabled());
         $writer->writeStringValue('securityIdentifier', $this->getSecurityIdentifier());
+        $writer->writeCollectionOfObjectValues('serviceProvisioningErrors', $this->getServiceProvisioningErrors());
         $writer->writeCollectionOfObjectValues('settings', $this->getSettings());
         $writer->writeCollectionOfObjectValues('sites', $this->getSites());
         $writer->writeObjectValue('team', $this->getTeam());
@@ -1350,6 +1360,14 @@ class Group extends DirectoryObject implements Parsable
     */
     public function setSecurityIdentifier(?string $value): void {
         $this->getBackingStore()->set('securityIdentifier', $value);
+    }
+
+    /**
+     * Sets the serviceProvisioningErrors property value. The serviceProvisioningErrors property
+     * @param array<ServiceProvisioningError>|null $value Value to set for the serviceProvisioningErrors property.
+    */
+    public function setServiceProvisioningErrors(?array $value): void {
+        $this->getBackingStore()->set('serviceProvisioningErrors', $value);
     }
 
     /**

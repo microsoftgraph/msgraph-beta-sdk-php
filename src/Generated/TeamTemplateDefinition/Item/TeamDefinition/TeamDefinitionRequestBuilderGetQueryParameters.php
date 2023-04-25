@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinit
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the properties of the team associated with a teamTemplateDefinition object.
+ * Get teamDefinition from teamTemplateDefinition
 */
 class TeamDefinitionRequestBuilderGetQueryParameters 
 {

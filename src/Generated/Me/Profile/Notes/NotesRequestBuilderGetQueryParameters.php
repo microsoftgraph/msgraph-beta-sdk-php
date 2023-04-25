@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Me\Profile\Notes;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of personAnnotation objects from a user's profile.
+ * Represents notes that a user has added to their profile.
 */
 class NotesRequestBuilderGetQueryParameters 
 {

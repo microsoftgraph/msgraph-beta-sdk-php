@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Me\Outlook\TaskFolders\Item\Tasks\Item\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of attachment objects attached to an Outlook task.
+ * The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the task.  Read-only. Nullable.
 */
 class AttachmentsRequestBuilderGetQueryParameters 
 {

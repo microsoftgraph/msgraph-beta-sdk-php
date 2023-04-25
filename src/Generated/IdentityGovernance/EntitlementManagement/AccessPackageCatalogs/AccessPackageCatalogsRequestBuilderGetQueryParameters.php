@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of accessPackageCatalog objects.
+ * A container of access packages.
 */
 class AccessPackageCatalogsRequestBuilderGetQueryParameters 
 {

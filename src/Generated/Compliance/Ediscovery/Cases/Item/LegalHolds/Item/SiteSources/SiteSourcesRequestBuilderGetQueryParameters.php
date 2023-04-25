@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalH
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the list of siteSource objecs associated with a legal hold.
+ * Data source entity for SharePoint sites associated with the legal hold.
 */
 class SiteSourcesRequestBuilderGetQueryParameters 
 {

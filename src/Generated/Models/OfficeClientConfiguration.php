@@ -10,7 +10,7 @@ use Psr\Http\Message\StreamInterface;
 class OfficeClientConfiguration extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new OfficeClientConfiguration and sets the default values.
+     * Instantiates a new officeClientConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -34,7 +34,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the assignments property value. The list of group assignments for the policy.
+     * Gets the assignments property value. The assignments property
      * @return array<OfficeClientConfigurationAssignment>|null
     */
     public function getAssignments(): ?array {
@@ -42,7 +42,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the checkinStatuses property value. List of office Client check-in status.
+     * Gets the checkinStatuses property value. The checkinStatuses property
      * @return array<OfficeClientCheckinStatus>|null
     */
     public function getCheckinStatuses(): ?array {
@@ -50,7 +50,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. Not yet documented
+     * Gets the description property value. The description property
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -58,7 +58,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. Admin provided description of the office client configuration policy.
+     * Gets the displayName property value. The displayName property
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -84,7 +84,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the policyPayload property value. Policy settings JSON string in binary format, these values cannot be changed by the user.
+     * Gets the policyPayload property value. The policyPayload property
      * @return StreamInterface|null
     */
     public function getPolicyPayload(): ?StreamInterface {
@@ -92,7 +92,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the priority property value. Priority value should be unique value for each policy under a tenant and will be used for conflict resolution, lower values mean priority is high.
+     * Gets the priority property value. The priority property
      * @return int|null
     */
     public function getPriority(): ?int {
@@ -100,7 +100,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the userCheckinSummary property value. User check-in summary for the policy.
+     * Gets the userCheckinSummary property value. The userCheckinSummary property
      * @return OfficeUserCheckinSummary|null
     */
     public function getUserCheckinSummary(): ?OfficeUserCheckinSummary {
@@ -108,7 +108,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the userPreferencePayload property value. Preference settings JSON string in binary format, these values can be overridden by the user.
+     * Gets the userPreferencePayload property value. The userPreferencePayload property
      * @return StreamInterface|null
     */
     public function getUserPreferencePayload(): ?StreamInterface {
@@ -132,7 +132,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the assignments property value. The list of group assignments for the policy.
+     * Sets the assignments property value. The assignments property
      * @param array<OfficeClientConfigurationAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
@@ -140,7 +140,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the checkinStatuses property value. List of office Client check-in status.
+     * Sets the checkinStatuses property value. The checkinStatuses property
      * @param array<OfficeClientCheckinStatus>|null $value Value to set for the checkinStatuses property.
     */
     public function setCheckinStatuses(?array $value): void {
@@ -148,7 +148,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. Not yet documented
+     * Sets the description property value. The description property
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -156,7 +156,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. Admin provided description of the office client configuration policy.
+     * Sets the displayName property value. The displayName property
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -164,7 +164,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the policyPayload property value. Policy settings JSON string in binary format, these values cannot be changed by the user.
+     * Sets the policyPayload property value. The policyPayload property
      * @param StreamInterface|null $value Value to set for the policyPayload property.
     */
     public function setPolicyPayload(?StreamInterface $value): void {
@@ -172,7 +172,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the priority property value. Priority value should be unique value for each policy under a tenant and will be used for conflict resolution, lower values mean priority is high.
+     * Sets the priority property value. The priority property
      * @param int|null $value Value to set for the priority property.
     */
     public function setPriority(?int $value): void {
@@ -180,7 +180,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the userCheckinSummary property value. User check-in summary for the policy.
+     * Sets the userCheckinSummary property value. The userCheckinSummary property
      * @param OfficeUserCheckinSummary|null $value Value to set for the userCheckinSummary property.
     */
     public function setUserCheckinSummary(?OfficeUserCheckinSummary $value): void {
@@ -188,7 +188,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the userPreferencePayload property value. Preference settings JSON string in binary format, these values can be overridden by the user.
+     * Sets the userPreferencePayload property value. The userPreferencePayload property
      * @param StreamInterface|null $value Value to set for the userPreferencePayload property.
     */
     public function setUserPreferencePayload(?StreamInterface $value): void {

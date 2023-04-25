@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Device
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List the properties and relationships of the cloudPcDeviceImage objects (OS images) uploaded to Cloud PC.
+ * The image resource on Cloud PC.
 */
 class DeviceImagesRequestBuilderGetQueryParameters 
 {

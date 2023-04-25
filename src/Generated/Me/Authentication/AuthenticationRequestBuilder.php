@@ -6,40 +6,27 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Authentication\EmailMethods\EmailMethodsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Authentication\EmailMethods\Item\EmailAuthenticationMethodItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Authentication\Fido2Methods\Fido2MethodsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Authentication\Fido2Methods\Item\Fido2AuthenticationMethodItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Authentication\Methods\Item\AuthenticationMethodItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Authentication\Methods\MethodsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Authentication\MicrosoftAuthenticatorMethods\Item\MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Authentication\MicrosoftAuthenticatorMethods\MicrosoftAuthenticatorMethodsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Authentication\Operations\Item\LongRunningOperationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Authentication\Operations\OperationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Item\PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Authentication\PasswordlessMicrosoftAuthenticatorMethods\PasswordlessMicrosoftAuthenticatorMethodsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Authentication\PasswordMethods\Item\PasswordAuthenticationMethodItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Authentication\PasswordMethods\PasswordMethodsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Authentication\PhoneMethods\Item\PhoneAuthenticationMethodItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Authentication\PhoneMethods\PhoneMethodsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Authentication\SoftwareOathMethods\Item\SoftwareOathAuthenticationMethodItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Authentication\SoftwareOathMethods\SoftwareOathMethodsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Authentication\TemporaryAccessPassMethods\Item\TemporaryAccessPassAuthenticationMethodItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Authentication\TemporaryAccessPassMethods\TemporaryAccessPassMethodsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\WindowsHelloForBusinessMethodsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Authentication;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the authentication property of the microsoft.graph.user entity.
 */
-class AuthenticationRequestBuilder 
+class AuthenticationRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to manage the emailMethods property of the microsoft.graph.authentication entity.
@@ -91,21 +78,11 @@ class AuthenticationRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
      * Provides operations to manage the phoneMethods property of the microsoft.graph.authentication entity.
     */
     public function phoneMethods(): PhoneMethodsRequestBuilder {
         return new PhoneMethodsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
     
     /**
      * Provides operations to manage the softwareOathMethods property of the microsoft.graph.authentication entity.
@@ -122,11 +99,6 @@ class AuthenticationRequestBuilder
     }
     
     /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
      * Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity.
     */
     public function windowsHelloForBusinessMethods(): WindowsHelloForBusinessMethodsRequestBuilder {
@@ -139,8 +111,7 @@ class AuthenticationRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/me/authentication{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/me/authentication{?%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -167,28 +138,6 @@ class AuthenticationRequestBuilder
     }
 
     /**
-     * Provides operations to manage the emailMethods property of the microsoft.graph.authentication entity.
-     * @param string $id Unique identifier of the item
-     * @return EmailAuthenticationMethodItemRequestBuilder
-    */
-    public function emailMethodsById(string $id): EmailAuthenticationMethodItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['emailAuthenticationMethod%2Did'] = $id;
-        return new EmailAuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the fido2Methods property of the microsoft.graph.authentication entity.
-     * @param string $id Unique identifier of the item
-     * @return Fido2AuthenticationMethodItemRequestBuilder
-    */
-    public function fido2MethodsById(string $id): Fido2AuthenticationMethodItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['fido2AuthenticationMethod%2Did'] = $id;
-        return new Fido2AuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Get authentication from me
      * @param AuthenticationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -204,61 +153,6 @@ class AuthenticationRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the methods property of the microsoft.graph.authentication entity.
-     * @param string $id Unique identifier of the item
-     * @return AuthenticationMethodItemRequestBuilder
-    */
-    public function methodsById(string $id): AuthenticationMethodItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['authenticationMethod%2Did'] = $id;
-        return new AuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the microsoftAuthenticatorMethods property of the microsoft.graph.authentication entity.
-     * @param string $id Unique identifier of the item
-     * @return MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder
-    */
-    public function microsoftAuthenticatorMethodsById(string $id): MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['microsoftAuthenticatorAuthenticationMethod%2Did'] = $id;
-        return new MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the operations property of the microsoft.graph.authentication entity.
-     * @param string $id Unique identifier of the item
-     * @return LongRunningOperationItemRequestBuilder
-    */
-    public function operationsById(string $id): LongRunningOperationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['longRunningOperation%2Did'] = $id;
-        return new LongRunningOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the passwordlessMicrosoftAuthenticatorMethods property of the microsoft.graph.authentication entity.
-     * @param string $id Unique identifier of the item
-     * @return PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder
-    */
-    public function passwordlessMicrosoftAuthenticatorMethodsById(string $id): PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['passwordlessMicrosoftAuthenticatorAuthenticationMethod%2Did'] = $id;
-        return new PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the passwordMethods property of the microsoft.graph.authentication entity.
-     * @param string $id Unique identifier of the item
-     * @return PasswordAuthenticationMethodItemRequestBuilder
-    */
-    public function passwordMethodsById(string $id): PasswordAuthenticationMethodItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['passwordAuthenticationMethod%2Did'] = $id;
-        return new PasswordAuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -281,39 +175,6 @@ class AuthenticationRequestBuilder
     }
 
     /**
-     * Provides operations to manage the phoneMethods property of the microsoft.graph.authentication entity.
-     * @param string $id Unique identifier of the item
-     * @return PhoneAuthenticationMethodItemRequestBuilder
-    */
-    public function phoneMethodsById(string $id): PhoneAuthenticationMethodItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['phoneAuthenticationMethod%2Did'] = $id;
-        return new PhoneAuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the softwareOathMethods property of the microsoft.graph.authentication entity.
-     * @param string $id Unique identifier of the item
-     * @return SoftwareOathAuthenticationMethodItemRequestBuilder
-    */
-    public function softwareOathMethodsById(string $id): SoftwareOathAuthenticationMethodItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['softwareOathAuthenticationMethod%2Did'] = $id;
-        return new SoftwareOathAuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the temporaryAccessPassMethods property of the microsoft.graph.authentication entity.
-     * @param string $id Unique identifier of the item
-     * @return TemporaryAccessPassAuthenticationMethodItemRequestBuilder
-    */
-    public function temporaryAccessPassMethodsById(string $id): TemporaryAccessPassAuthenticationMethodItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['temporaryAccessPassAuthenticationMethod%2Did'] = $id;
-        return new TemporaryAccessPassAuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Delete navigation property authentication for me
      * @param AuthenticationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -324,12 +185,8 @@ class AuthenticationRequestBuilder
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -346,15 +203,11 @@ class AuthenticationRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -372,26 +225,11 @@ class AuthenticationRequestBuilder
         $requestInfo->httpMethod = HttpMethod::PATCH;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity.
-     * @param string $id Unique identifier of the item
-     * @return WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder
-    */
-    public function windowsHelloForBusinessMethodsById(string $id): WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['windowsHelloForBusinessAuthenticationMethod%2Did'] = $id;
-        return new WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

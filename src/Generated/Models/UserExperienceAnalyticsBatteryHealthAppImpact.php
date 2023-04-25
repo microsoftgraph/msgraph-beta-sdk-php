@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics battery health app impact entity contains battery usage related information at an app level for the tenant.
+*/
 class UserExperienceAnalyticsBatteryHealthAppImpact extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsBatteryHealthAppImpact and sets the default values.
+     * Instantiates a new userExperienceAnalyticsBatteryHealthAppImpact and sets the default values.
     */
     public function __construct() {
         parent::__construct();

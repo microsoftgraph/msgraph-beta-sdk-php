@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Me\InformationProtection\Policy\Labels;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a collection of information protection labels available to the user or to the organization.
+ * Get labels from me
 */
 class LabelsRequestBuilderGetQueryParameters 
 {

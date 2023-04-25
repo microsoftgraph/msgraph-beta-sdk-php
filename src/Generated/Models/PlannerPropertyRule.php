@@ -35,8 +35,6 @@ class PlannerPropertyRule implements AdditionalDataHolder, BackedModel, Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
-                case '#microsoft.graph.plannerBucketPropertyRule': return new PlannerBucketPropertyRule();
-                case '#microsoft.graph.plannerPlanPropertyRule': return new PlannerPlanPropertyRule();
                 case '#microsoft.graph.plannerTaskPropertyRule': return new PlannerTaskPropertyRule();
             }
         }

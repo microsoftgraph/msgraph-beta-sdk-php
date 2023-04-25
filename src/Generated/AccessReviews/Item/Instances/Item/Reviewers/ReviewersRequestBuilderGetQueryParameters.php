@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\Revie
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * In the Azure AD access reviews feature, retrieve the reviewers of an accessReview object.
+ * The collection of reviewers for an access review, if access review reviewerType is of type delegated.
 */
 class ReviewersRequestBuilderGetQueryParameters 
 {

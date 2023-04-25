@@ -388,7 +388,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the tags property value. Custom strings that can be used to categorize and identify the application. Not nullable. Strings added here will also appear in the tags property of any associated service principals.Supports $filter (eq, not, ge, le, startsWith).
+     * Gets the tags property value. Custom strings that can be used to categorize and identify the application. Not nullable. Strings added here will also appear in the tags property of any associated service principals.Supports $filter (eq, not, ge, le, startsWith) and $search.
      * @return array<string>|null
     */
     public function getTags(): ?array {
@@ -810,7 +810,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the tags property value. Custom strings that can be used to categorize and identify the application. Not nullable. Strings added here will also appear in the tags property of any associated service principals.Supports $filter (eq, not, ge, le, startsWith).
+     * Sets the tags property value. Custom strings that can be used to categorize and identify the application. Not nullable. Strings added here will also appear in the tags property of any associated service principals.Supports $filter (eq, not, ge, le, startsWith) and $search.
      * @param array<string>|null $value Value to set for the tags property.
     */
     public function setTags(?array $value): void {

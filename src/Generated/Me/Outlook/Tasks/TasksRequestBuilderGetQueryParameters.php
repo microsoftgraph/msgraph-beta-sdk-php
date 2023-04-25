@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Me\Outlook\Tasks;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get all the Outlook tasks in the user's mailbox. By default, this operation (and the POST, PATCH, and complete task operations) returns date-related properties in UTC.You can use the `Prefer: outlook.timezone` header to have all the date-related properties in the response represented in a time zonedifferent than UTC. See an example for getting a single task. You can apply the header similarly to get multiple tasks.
+ * Get tasks from me
 */
 class TasksRequestBuilderGetQueryParameters 
 {

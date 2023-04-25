@@ -44,7 +44,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the appliedPolicies property value. List of policies delivered to the device as last checkin.
+     * Gets the appliedPolicies property value. The appliedPolicies property
      * @return array<string>|null
     */
     public function getAppliedPolicies(): ?array {
@@ -60,7 +60,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the checkinDateTime property value. Last device check-in time in UTC.
+     * Gets the checkinDateTime property value. The checkinDateTime property
      * @return DateTime|null
     */
     public function getCheckinDateTime(): ?DateTime {
@@ -68,7 +68,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the deviceName property value. Device name trying to check-in.
+     * Gets the deviceName property value. The deviceName property
      * @return string|null
     */
     public function getDeviceName(): ?string {
@@ -76,7 +76,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the devicePlatform property value. Device platform trying to check-in.
+     * Gets the devicePlatform property value. The devicePlatform property
      * @return string|null
     */
     public function getDevicePlatform(): ?string {
@@ -84,7 +84,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the devicePlatformVersion property value. Device platform version trying to check-in.
+     * Gets the devicePlatformVersion property value. The devicePlatformVersion property
      * @return string|null
     */
     public function getDevicePlatformVersion(): ?string {
@@ -92,7 +92,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the errorMessage property value. Error message if any associated for the last checkin.
+     * Gets the errorMessage property value. The errorMessage property
      * @return string|null
     */
     public function getErrorMessage(): ?string {
@@ -128,7 +128,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the userId property value. User identifier using the device.
+     * Gets the userId property value. The userId property
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -136,7 +136,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the userPrincipalName property value. User principal name using the device.
+     * Gets the userPrincipalName property value. The userPrincipalName property
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
@@ -144,7 +144,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the wasSuccessful property value. If the last checkin was successful.
+     * Gets the wasSuccessful property value. The wasSuccessful property
      * @return bool|null
     */
     public function getWasSuccessful(): ?bool {
@@ -178,7 +178,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the appliedPolicies property value. List of policies delivered to the device as last checkin.
+     * Sets the appliedPolicies property value. The appliedPolicies property
      * @param array<string>|null $value Value to set for the appliedPolicies property.
     */
     public function setAppliedPolicies(?array $value): void {
@@ -194,7 +194,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the checkinDateTime property value. Last device check-in time in UTC.
+     * Sets the checkinDateTime property value. The checkinDateTime property
      * @param DateTime|null $value Value to set for the checkinDateTime property.
     */
     public function setCheckinDateTime(?DateTime $value): void {
@@ -202,7 +202,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the deviceName property value. Device name trying to check-in.
+     * Sets the deviceName property value. The deviceName property
      * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
@@ -210,7 +210,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the devicePlatform property value. Device platform trying to check-in.
+     * Sets the devicePlatform property value. The devicePlatform property
      * @param string|null $value Value to set for the devicePlatform property.
     */
     public function setDevicePlatform(?string $value): void {
@@ -218,7 +218,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the devicePlatformVersion property value. Device platform version trying to check-in.
+     * Sets the devicePlatformVersion property value. The devicePlatformVersion property
      * @param string|null $value Value to set for the devicePlatformVersion property.
     */
     public function setDevicePlatformVersion(?string $value): void {
@@ -226,7 +226,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the errorMessage property value. Error message if any associated for the last checkin.
+     * Sets the errorMessage property value. The errorMessage property
      * @param string|null $value Value to set for the errorMessage property.
     */
     public function setErrorMessage(?string $value): void {
@@ -242,7 +242,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the userId property value. User identifier using the device.
+     * Sets the userId property value. The userId property
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
@@ -250,7 +250,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the userPrincipalName property value. User principal name using the device.
+     * Sets the userPrincipalName property value. The userPrincipalName property
      * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
@@ -258,7 +258,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the wasSuccessful property value. If the last checkin was successful.
+     * Sets the wasSuccessful property value. The wasSuccessful property
      * @param bool|null $value Value to set for the wasSuccessful property.
     */
     public function setWasSuccessful(?bool $value): void {

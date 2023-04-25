@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of passiveDnsRecord resources associated to a host.
+ * Passive DNS retrieval about this host.
 */
 class PassiveDnsRequestBuilderGetQueryParameters 
 {

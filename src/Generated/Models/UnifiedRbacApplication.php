@@ -39,7 +39,7 @@ class UnifiedRbacApplication extends Entity implements Parsable
     }
 
     /**
-     * Gets the resourceNamespaces property value. The resourceNamespaces property
+     * Gets the resourceNamespaces property value. Resource that represents a collection of related actions.
      * @return array<UnifiedRbacResourceNamespace>|null
     */
     public function getResourceNamespaces(): ?array {
@@ -47,7 +47,7 @@ class UnifiedRbacApplication extends Entity implements Parsable
     }
 
     /**
-     * Gets the roleAssignments property value. The roleAssignments property
+     * Gets the roleAssignments property value. Resource to grant access to users or groups.
      * @return array<UnifiedRoleAssignment>|null
     */
     public function getRoleAssignments(): ?array {
@@ -55,7 +55,7 @@ class UnifiedRbacApplication extends Entity implements Parsable
     }
 
     /**
-     * Gets the roleDefinitions property value. The roleDefinitions property
+     * Gets the roleDefinitions property value. The roles allowed by RBAC providers and the permissions assigned to the roles.
      * @return array<UnifiedRoleDefinition>|null
     */
     public function getRoleDefinitions(): ?array {
@@ -63,7 +63,7 @@ class UnifiedRbacApplication extends Entity implements Parsable
     }
 
     /**
-     * Gets the transitiveRoleAssignments property value. The transitiveRoleAssignments property
+     * Gets the transitiveRoleAssignments property value. Resource to grant access to users or groups that are transitive.
      * @return array<UnifiedRoleAssignment>|null
     */
     public function getTransitiveRoleAssignments(): ?array {
@@ -83,7 +83,7 @@ class UnifiedRbacApplication extends Entity implements Parsable
     }
 
     /**
-     * Sets the resourceNamespaces property value. The resourceNamespaces property
+     * Sets the resourceNamespaces property value. Resource that represents a collection of related actions.
      * @param array<UnifiedRbacResourceNamespace>|null $value Value to set for the resourceNamespaces property.
     */
     public function setResourceNamespaces(?array $value): void {
@@ -91,7 +91,7 @@ class UnifiedRbacApplication extends Entity implements Parsable
     }
 
     /**
-     * Sets the roleAssignments property value. The roleAssignments property
+     * Sets the roleAssignments property value. Resource to grant access to users or groups.
      * @param array<UnifiedRoleAssignment>|null $value Value to set for the roleAssignments property.
     */
     public function setRoleAssignments(?array $value): void {
@@ -99,7 +99,7 @@ class UnifiedRbacApplication extends Entity implements Parsable
     }
 
     /**
-     * Sets the roleDefinitions property value. The roleDefinitions property
+     * Sets the roleDefinitions property value. The roles allowed by RBAC providers and the permissions assigned to the roles.
      * @param array<UnifiedRoleDefinition>|null $value Value to set for the roleDefinitions property.
     */
     public function setRoleDefinitions(?array $value): void {
@@ -107,7 +107,7 @@ class UnifiedRbacApplication extends Entity implements Parsable
     }
 
     /**
-     * Sets the transitiveRoleAssignments property value. The transitiveRoleAssignments property
+     * Sets the transitiveRoleAssignments property value. Resource to grant access to users or groups that are transitive.
      * @param array<UnifiedRoleAssignment>|null $value Value to set for the transitiveRoleAssignments property.
     */
     public function setTransitiveRoleAssignments(?array $value): void {

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Dimension extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new Dimension and sets the default values.
+     * Instantiates a new dimension and sets the default values.
     */
     public function __construct() {
         parent::__construct();

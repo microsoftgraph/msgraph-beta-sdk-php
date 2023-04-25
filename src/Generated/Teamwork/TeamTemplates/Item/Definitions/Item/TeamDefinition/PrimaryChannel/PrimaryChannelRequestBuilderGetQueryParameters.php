@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the default channel, **General**, of a team.
+ * The general channel for the team.
 */
 class PrimaryChannelRequestBuilderGetQueryParameters 
 {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinit
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of timeCard entries in a schedule.
+ * Get timeCards from teamTemplateDefinition
 */
 class TimeCardsRequestBuilderGetQueryParameters 
 {
