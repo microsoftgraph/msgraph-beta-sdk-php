@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Me\CloudPCs;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List the cloudPC devices that are attributed to the signed-in user. 
+ * Get cloudPCs from me
 */
 class CloudPCsRequestBuilderGetQueryParameters 
 {

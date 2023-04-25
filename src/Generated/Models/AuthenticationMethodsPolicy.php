@@ -64,6 +64,7 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
             'policyVersion' => fn(ParseNode $n) => $o->setPolicyVersion($n->getStringValue()),
             'reconfirmationInDays' => fn(ParseNode $n) => $o->setReconfirmationInDays($n->getIntegerValue()),
             'registrationEnforcement' => fn(ParseNode $n) => $o->setRegistrationEnforcement($n->getObjectValue([RegistrationEnforcement::class, 'createFromDiscriminatorValue'])),
+            'systemCredentialPreferences' => fn(ParseNode $n) => $o->setSystemCredentialPreferences($n->getObjectValue([SystemCredentialPreferences::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -108,6 +109,14 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
     }
 
     /**
+     * Gets the systemCredentialPreferences property value. Prompt users with their most-preferred credential for multifactor authentication.
+     * @return SystemCredentialPreferences|null
+    */
+    public function getSystemCredentialPreferences(): ?SystemCredentialPreferences {
+        return $this->getBackingStore()->get('systemCredentialPreferences');
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -121,6 +130,7 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
         $writer->writeStringValue('policyVersion', $this->getPolicyVersion());
         $writer->writeIntegerValue('reconfirmationInDays', $this->getReconfirmationInDays());
         $writer->writeObjectValue('registrationEnforcement', $this->getRegistrationEnforcement());
+        $writer->writeObjectValue('systemCredentialPreferences', $this->getSystemCredentialPreferences());
     }
 
     /**
@@ -185,6 +195,14 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
     */
     public function setRegistrationEnforcement(?RegistrationEnforcement $value): void {
         $this->getBackingStore()->set('registrationEnforcement', $value);
+    }
+
+    /**
+     * Sets the systemCredentialPreferences property value. Prompt users with their most-preferred credential for multifactor authentication.
+     * @param SystemCredentialPreferences|null $value Value to set for the systemCredentialPreferences property.
+    */
+    public function setSystemCredentialPreferences(?SystemCredentialPreferences $value): void {
+        $this->getBackingStore()->set('systemCredentialPreferences', $value);
     }
 
 }

@@ -8,19 +8,18 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\Runs\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\Runs\IdentityGovernanceSummaryWithStartDateTimeWithEndDateTime\IdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\Runs\Item\RunItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\RunCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the runs property of the microsoft.graph.identityGovernance.workflow entity.
 */
-class RunsRequestBuilder 
+class RunsRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to count the resources in the collection.
@@ -30,28 +29,23 @@ class RunsRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
+     * Provides operations to manage the runs property of the microsoft.graph.identityGovernance.workflow entity.
+     * @param string $runId Unique identifier of the item
+     * @return RunItemRequestBuilder
     */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
+    public function byRunId(string $runId): RunItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['run%2Did'] = $runId;
+        return new RunItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new RunsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems/workflows/{workflow%2Did}/runs{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems/workflows/{workflow%2Did}/runs{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -60,10 +54,9 @@ class RunsRequestBuilder
     }
 
     /**
-     * Get a list of the run objects and their properties for a lifecycle workflow.
+     * Workflow runs.
      * @param RunsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/identitygovernance-workflow-list-runs?view=graph-rest-1.0 Find more info here
     */
     public function get(?RunsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -89,7 +82,7 @@ class RunsRequestBuilder
     }
 
     /**
-     * Get a list of the run objects and their properties for a lifecycle workflow.
+     * Workflow runs.
      * @param RunsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -100,15 +93,11 @@ class RunsRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }

@@ -7,41 +7,23 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\Tenant;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to call the offboardTenant method.
 */
-class ManagedTenantsOffboardTenantRequestBuilder 
+class ManagedTenantsOffboardTenantRequestBuilder extends BaseRequestBuilder 
 {
-    /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
     /**
      * Instantiates a new ManagedTenantsOffboardTenantRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/tenants/{tenant%2Did}/managedTenants.offboardTenant';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/tenantRelationships/managedTenants/tenants/{tenant%2Did}/managedTenants.offboardTenant");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -50,10 +32,9 @@ class ManagedTenantsOffboardTenantRequestBuilder
     }
 
     /**
-     * Carries out the appropriate procedures to remove a managed tenant from the multi-tenant management platform. No relationships, such as commerce and delegate administrative privileges, will be impacted. The only change made by invoking this action is the tenant will be deprovisioned from the multi-tenant management platform.
+     * Invoke action offboardTenant
      * @param ManagedTenantsOffboardTenantRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/managedtenants-tenant-offboardtenant?view=graph-rest-1.0 Find more info here
     */
     public function post(?ManagedTenantsOffboardTenantRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -69,7 +50,7 @@ class ManagedTenantsOffboardTenantRequestBuilder
     }
 
     /**
-     * Carries out the appropriate procedures to remove a managed tenant from the multi-tenant management platform. No relationships, such as commerce and delegate administrative privileges, will be impacted. The only change made by invoking this action is the tenant will be deprovisioned from the multi-tenant management platform.
+     * Invoke action offboardTenant
      * @param ManagedTenantsOffboardTenantRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -80,12 +61,8 @@ class ManagedTenantsOffboardTenantRequestBuilder
         $requestInfo->httpMethod = HttpMethod::POST;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }

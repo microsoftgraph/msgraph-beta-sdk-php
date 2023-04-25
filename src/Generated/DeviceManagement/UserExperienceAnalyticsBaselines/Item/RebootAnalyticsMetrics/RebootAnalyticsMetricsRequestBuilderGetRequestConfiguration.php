@@ -2,23 +2,14 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBaselines\Item\RebootAnalyticsMetrics;
 
+use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;
 
 /**
  * Configuration for the request such as headers, query parameters, and middleware options.
 */
-class RebootAnalyticsMetricsRequestBuilderGetRequestConfiguration 
+class RebootAnalyticsMetricsRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration 
 {
-    /**
-     * @var array<string, array<string>|string>|null $headers Request headers
-    */
-    public ?array $headers = null;
-    
-    /**
-     * @var array<RequestOption>|null $options Request options
-    */
-    public ?array $options = null;
-    
     /**
      * @var RebootAnalyticsMetricsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
     */
@@ -31,8 +22,7 @@ class RebootAnalyticsMetricsRequestBuilderGetRequestConfiguration
      * @param RebootAnalyticsMetricsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
     */
     public function __construct(?array $headers = null, ?array $options = null, ?RebootAnalyticsMetricsRequestBuilderGetQueryParameters $queryParameters = null) {
-        $this->headers = $headers;
-        $this->options = $options;
+        parent::__construct($headers ?? [], $options ?? []);
         $this->queryParameters = $queryParameters;
     }
 

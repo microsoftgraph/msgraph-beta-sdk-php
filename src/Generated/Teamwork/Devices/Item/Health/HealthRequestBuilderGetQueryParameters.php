@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\Health;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the health details of a Microsoft Teams-enabled device. Device health is calculated based on the device configuration and other device parameters.
+ * The health properties of the device.
 */
 class HealthRequestBuilderGetQueryParameters 
 {

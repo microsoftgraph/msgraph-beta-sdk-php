@@ -7,35 +7,17 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\VerticalSection;
-use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\CanvasLayout\VerticalSection\Webparts\Item\WebPartItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\CanvasLayout\VerticalSection\Webparts\WebpartsRequestBuilder;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the verticalSection property of the microsoft.graph.canvasLayout entity.
 */
-class VerticalSectionRequestBuilder 
+class VerticalSectionRequestBuilder extends BaseRequestBuilder 
 {
-    /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
     /**
      * Provides operations to manage the webparts property of the microsoft.graph.verticalSection entity.
     */
@@ -49,8 +31,7 @@ class VerticalSectionRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/sites/{site%2Did}/pages/{sitePage%2Did}/canvasLayout/verticalSection{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/sites/{site%2Did}/pages/{sitePage%2Did}/canvasLayout/verticalSection{?%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -77,10 +58,9 @@ class VerticalSectionRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a verticalSection object.
+     * Vertical section on the SharePoint page.
      * @param VerticalSectionRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/verticalsection-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?VerticalSectionRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -125,18 +105,14 @@ class VerticalSectionRequestBuilder
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
 
     /**
-     * Read the properties and relationships of a verticalSection object.
+     * Vertical section on the SharePoint page.
      * @param VerticalSectionRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -147,15 +123,11 @@ class VerticalSectionRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -173,26 +145,11 @@ class VerticalSectionRequestBuilder
         $requestInfo->httpMethod = HttpMethod::PATCH;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the webparts property of the microsoft.graph.verticalSection entity.
-     * @param string $id Unique identifier of the item
-     * @return WebPartItemRequestBuilder
-    */
-    public function webpartsById(string $id): WebPartItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['webPart%2Did'] = $id;
-        return new WebPartItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

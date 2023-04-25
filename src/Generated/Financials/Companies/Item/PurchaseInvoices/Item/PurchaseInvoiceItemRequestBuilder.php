@@ -7,22 +7,19 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices\Item\Currency\CurrencyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices\Item\Post\PostRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices\Item\PurchaseInvoiceLines\Item\PurchaseInvoiceLineItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices\Item\PurchaseInvoiceLines\PurchaseInvoiceLinesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices\Item\Vendor\VendorRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PurchaseInvoice;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the purchaseInvoices property of the microsoft.graph.company entity.
 */
-class PurchaseInvoiceItemRequestBuilder 
+class PurchaseInvoiceItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to manage the currency property of the microsoft.graph.purchaseInvoice entity.
@@ -30,11 +27,6 @@ class PurchaseInvoiceItemRequestBuilder
     public function currency(): CurrencyRequestBuilder {
         return new CurrencyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
-    
-    /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
     
     /**
      * Provides operations to call the post method.
@@ -51,16 +43,6 @@ class PurchaseInvoiceItemRequestBuilder
     }
     
     /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
      * Provides operations to manage the vendor property of the microsoft.graph.purchaseInvoice entity.
     */
     public function vendor(): VendorRequestBuilder {
@@ -73,8 +55,7 @@ class PurchaseInvoiceItemRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/financials/companies/{company%2Did}/purchaseInvoices/{purchaseInvoice%2Did}{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/financials/companies/{company%2Did}/purchaseInvoices/{purchaseInvoice%2Did}{?%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -120,17 +101,6 @@ class PurchaseInvoiceItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the purchaseInvoiceLines property of the microsoft.graph.purchaseInvoice entity.
-     * @param string $id Unique identifier of the item
-     * @return PurchaseInvoiceLineItemRequestBuilder
-    */
-    public function purchaseInvoiceLinesById(string $id): PurchaseInvoiceLineItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['purchaseInvoiceLine%2Did'] = $id;
-        return new PurchaseInvoiceLineItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Get purchaseInvoices from financials
      * @param PurchaseInvoiceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -142,15 +112,11 @@ class PurchaseInvoiceItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -168,12 +134,8 @@ class PurchaseInvoiceItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::PATCH;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

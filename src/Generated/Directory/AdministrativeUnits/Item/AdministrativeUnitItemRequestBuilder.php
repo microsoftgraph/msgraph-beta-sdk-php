@@ -8,27 +8,22 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\CheckMemberGroups\CheckMemberGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\Extensions\ExtensionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\Extensions\Item\ExtensionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\Members\Item\DirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\Members\MembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\Restore\RestoreRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\ScopedRoleMembers\Item\ScopedRoleMembershipItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\ScopedRoleMembers\ScopedRoleMembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AdministrativeUnit;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.
 */
-class AdministrativeUnitItemRequestBuilder 
+class AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to call the checkMemberGroups method.
@@ -73,16 +68,6 @@ class AdministrativeUnitItemRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
      * Provides operations to call the restore method.
     */
     public function restore(): RestoreRequestBuilder {
@@ -97,18 +82,12 @@ class AdministrativeUnitItemRequestBuilder
     }
     
     /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
      * Instantiates a new AdministrativeUnitItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/directory/administrativeUnits/{administrativeUnit%2Did}{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/directory/administrativeUnits/{administrativeUnit%2Did}{?%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -135,17 +114,6 @@ class AdministrativeUnitItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the extensions property of the microsoft.graph.administrativeUnit entity.
-     * @param string $id Unique identifier of the item
-     * @return ExtensionItemRequestBuilder
-    */
-    public function extensionsById(string $id): ExtensionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['extension%2Did'] = $id;
-        return new ExtensionItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Conceptual container for user and group directory objects.
      * @param AdministrativeUnitItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -161,17 +129,6 @@ class AdministrativeUnitItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.directory.administrativeUnits.item.members.item collection
-     * @param string $id Unique identifier of the item
-     * @return DirectoryObjectItemRequestBuilder
-    */
-    public function membersById(string $id): DirectoryObjectItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
-        return new DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -194,17 +151,6 @@ class AdministrativeUnitItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the scopedRoleMembers property of the microsoft.graph.administrativeUnit entity.
-     * @param string $id Unique identifier of the item
-     * @return ScopedRoleMembershipItemRequestBuilder
-    */
-    public function scopedRoleMembersById(string $id): ScopedRoleMembershipItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['scopedRoleMembership%2Did'] = $id;
-        return new ScopedRoleMembershipItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Delete navigation property administrativeUnits for directory
      * @param AdministrativeUnitItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -215,12 +161,8 @@ class AdministrativeUnitItemRequestBuilder
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -237,15 +179,11 @@ class AdministrativeUnitItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -263,12 +201,8 @@ class AdministrativeUnitItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::PATCH;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

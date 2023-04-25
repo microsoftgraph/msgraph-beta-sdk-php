@@ -11,26 +11,21 @@ use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\ApplyDecisions\ApplyDecisionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\BatchRecordDecisions\BatchRecordDecisionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\ContactedReviewers\ContactedReviewersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\ContactedReviewers\Item\AccessReviewReviewerItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Decisions\DecisionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Decisions\Item\AccessReviewInstanceDecisionItemItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Definition\DefinitionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\ResetDecisions\ResetDecisionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\SendReminder\SendReminderRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Stages\Item\AccessReviewStageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Stages\StagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Stop\StopRequestBuilder;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the pendingAccessReviewInstances property of the microsoft.graph.user entity.
 */
-class AccessReviewInstanceItemRequestBuilder 
+class AccessReviewInstanceItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to call the acceptRecommendations method.
@@ -75,16 +70,6 @@ class AccessReviewInstanceItemRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
      * Provides operations to call the resetDecisions method.
     */
     public function resetDecisions(): ResetDecisionsRequestBuilder {
@@ -113,45 +98,17 @@ class AccessReviewInstanceItemRequestBuilder
     }
     
     /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
      * Instantiates a new AccessReviewInstanceItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/users/{user%2Did}/pendingAccessReviewInstances/{accessReviewInstance%2Did}{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/users/{user%2Did}/pendingAccessReviewInstances/{accessReviewInstance%2Did}{?%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
             $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
         }
-    }
-
-    /**
-     * Provides operations to manage the contactedReviewers property of the microsoft.graph.accessReviewInstance entity.
-     * @param string $id Unique identifier of the item
-     * @return AccessReviewReviewerItemRequestBuilder
-    */
-    public function contactedReviewersById(string $id): AccessReviewReviewerItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['accessReviewReviewer%2Did'] = $id;
-        return new AccessReviewReviewerItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the decisions property of the microsoft.graph.accessReviewInstance entity.
-     * @param string $id Unique identifier of the item
-     * @return AccessReviewInstanceDecisionItemItemRequestBuilder
-    */
-    public function decisionsById(string $id): AccessReviewInstanceDecisionItemItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['accessReviewInstanceDecisionItem%2Did'] = $id;
-        return new AccessReviewInstanceDecisionItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -210,17 +167,6 @@ class AccessReviewInstanceItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity.
-     * @param string $id Unique identifier of the item
-     * @return AccessReviewStageItemRequestBuilder
-    */
-    public function stagesById(string $id): AccessReviewStageItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['accessReviewStage%2Did'] = $id;
-        return new AccessReviewStageItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Delete navigation property pendingAccessReviewInstances for users
      * @param AccessReviewInstanceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -231,12 +177,8 @@ class AccessReviewInstanceItemRequestBuilder
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -253,15 +195,11 @@ class AccessReviewInstanceItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -279,12 +217,8 @@ class AccessReviewInstanceItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::PATCH;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

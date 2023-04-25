@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\Ro
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * In Azure AD entitlement management, lists the approvalStep objects associated with an approval object.  This call can be made by an approver, providing the identifier of the access package assignment request.
+ * Get steps from roleManagement
 */
 class StepsRequestBuilderGetQueryParameters 
 {

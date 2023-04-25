@@ -9,18 +9,17 @@ use Microsoft\Graph\Beta\Generated\Models\GovernanceResource;
 use Microsoft\Graph\Beta\Generated\Models\GovernanceResourceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\Resources\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\Resources\Item\GovernanceResourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\Resources\Register\RegisterRequestBuilder;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the resources property of the microsoft.graph.privilegedAccess entity.
 */
-class ResourcesRequestBuilder 
+class ResourcesRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to count the resources in the collection.
@@ -30,11 +29,6 @@ class ResourcesRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
      * Provides operations to call the register method.
     */
     public function register(): RegisterRequestBuilder {
@@ -42,23 +36,23 @@ class ResourcesRequestBuilder
     }
     
     /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+     * Provides operations to manage the resources property of the microsoft.graph.privilegedAccess entity.
+     * @param string $governanceResourceId Unique identifier of the item
+     * @return GovernanceResourceItemRequestBuilder
     */
-    private RequestAdapter $requestAdapter;
-    
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
+    public function byGovernanceResourceId(string $governanceResourceId): GovernanceResourceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['governanceResource%2Did'] = $governanceResourceId;
+        return new GovernanceResourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ResourcesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/privilegedAccess/{privilegedAccess%2Did}/resources{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/privilegedAccess/{privilegedAccess%2Did}/resources{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -67,10 +61,9 @@ class ResourcesRequestBuilder
     }
 
     /**
-     * Retrieve a collection of governanceResource that the requestor has access to.
+     * A collection of resources for the provider.
      * @param ResourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/governanceresource-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?ResourcesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -105,7 +98,7 @@ class ResourcesRequestBuilder
     }
 
     /**
-     * Retrieve a collection of governanceResource that the requestor has access to.
+     * A collection of resources for the provider.
      * @param ResourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -116,15 +109,11 @@ class ResourcesRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -142,12 +131,8 @@ class ResourcesRequestBuilder
         $requestInfo->httpMethod = HttpMethod::POST;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

@@ -25,6 +25,14 @@ class PrivilegedAccessGroup extends Entity implements Parsable
     }
 
     /**
+     * Gets the assignmentApprovals property value. The assignmentApprovals property
+     * @return array<Approval>|null
+    */
+    public function getAssignmentApprovals(): ?array {
+        return $this->getBackingStore()->get('assignmentApprovals');
+    }
+
+    /**
      * Gets the assignmentScheduleInstances property value. The assignmentScheduleInstances property
      * @return array<PrivilegedAccessGroupAssignmentScheduleInstance>|null
     */
@@ -79,6 +87,7 @@ class PrivilegedAccessGroup extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'assignmentApprovals' => fn(ParseNode $n) => $o->setAssignmentApprovals($n->getCollectionOfObjectValues([Approval::class, 'createFromDiscriminatorValue'])),
             'assignmentScheduleInstances' => fn(ParseNode $n) => $o->setAssignmentScheduleInstances($n->getCollectionOfObjectValues([PrivilegedAccessGroupAssignmentScheduleInstance::class, 'createFromDiscriminatorValue'])),
             'assignmentScheduleRequests' => fn(ParseNode $n) => $o->setAssignmentScheduleRequests($n->getCollectionOfObjectValues([PrivilegedAccessGroupAssignmentScheduleRequest::class, 'createFromDiscriminatorValue'])),
             'assignmentSchedules' => fn(ParseNode $n) => $o->setAssignmentSchedules($n->getCollectionOfObjectValues([PrivilegedAccessGroupAssignmentSchedule::class, 'createFromDiscriminatorValue'])),
@@ -94,12 +103,21 @@ class PrivilegedAccessGroup extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('assignmentApprovals', $this->getAssignmentApprovals());
         $writer->writeCollectionOfObjectValues('assignmentScheduleInstances', $this->getAssignmentScheduleInstances());
         $writer->writeCollectionOfObjectValues('assignmentScheduleRequests', $this->getAssignmentScheduleRequests());
         $writer->writeCollectionOfObjectValues('assignmentSchedules', $this->getAssignmentSchedules());
         $writer->writeCollectionOfObjectValues('eligibilityScheduleInstances', $this->getEligibilityScheduleInstances());
         $writer->writeCollectionOfObjectValues('eligibilityScheduleRequests', $this->getEligibilityScheduleRequests());
         $writer->writeCollectionOfObjectValues('eligibilitySchedules', $this->getEligibilitySchedules());
+    }
+
+    /**
+     * Sets the assignmentApprovals property value. The assignmentApprovals property
+     * @param array<Approval>|null $value Value to set for the assignmentApprovals property.
+    */
+    public function setAssignmentApprovals(?array $value): void {
+        $this->getBackingStore()->set('assignmentApprovals', $value);
     }
 
     /**

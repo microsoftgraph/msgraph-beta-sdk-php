@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Security\InformationProtecti
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of sensitivityLabel objects associated with a user or organization.
+ * Read the Microsoft Purview Information Protection labels for the user or organization.
 */
 class SensitivityLabelsRequestBuilderGetQueryParameters 
 {

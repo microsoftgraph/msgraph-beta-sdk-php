@@ -7,38 +7,21 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegedAccess;
-use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\Resources\Item\GovernanceResourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\Resources\ResourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleAssignmentRequests\Item\GovernanceRoleAssignmentRequestItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleAssignmentRequests\RoleAssignmentRequestsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleAssignments\Item\GovernanceRoleAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleAssignments\RoleAssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleDefinitions\Item\GovernanceRoleDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleDefinitions\RoleDefinitionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleSettings\Item\GovernanceRoleSettingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleSettings\RoleSettingsRequestBuilder;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the collection of privilegedAccess entities.
 */
-class PrivilegedAccessItemRequestBuilder 
+class PrivilegedAccessItemRequestBuilder extends BaseRequestBuilder 
 {
-    /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
     /**
      * Provides operations to manage the resources property of the microsoft.graph.privilegedAccess entity.
     */
@@ -75,18 +58,12 @@ class PrivilegedAccessItemRequestBuilder
     }
     
     /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
      * Instantiates a new PrivilegedAccessItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/privilegedAccess/{privilegedAccess%2Did}{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/privilegedAccess/{privilegedAccess%2Did}{?%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -150,61 +127,6 @@ class PrivilegedAccessItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the resources property of the microsoft.graph.privilegedAccess entity.
-     * @param string $id Unique identifier of the item
-     * @return GovernanceResourceItemRequestBuilder
-    */
-    public function resourcesById(string $id): GovernanceResourceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['governanceResource%2Did'] = $id;
-        return new GovernanceResourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the roleAssignmentRequests property of the microsoft.graph.privilegedAccess entity.
-     * @param string $id Unique identifier of the item
-     * @return GovernanceRoleAssignmentRequestItemRequestBuilder
-    */
-    public function roleAssignmentRequestsById(string $id): GovernanceRoleAssignmentRequestItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['governanceRoleAssignmentRequest%2Did'] = $id;
-        return new GovernanceRoleAssignmentRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the roleAssignments property of the microsoft.graph.privilegedAccess entity.
-     * @param string $id Unique identifier of the item
-     * @return GovernanceRoleAssignmentItemRequestBuilder
-    */
-    public function roleAssignmentsById(string $id): GovernanceRoleAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['governanceRoleAssignment%2Did'] = $id;
-        return new GovernanceRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the roleDefinitions property of the microsoft.graph.privilegedAccess entity.
-     * @param string $id Unique identifier of the item
-     * @return GovernanceRoleDefinitionItemRequestBuilder
-    */
-    public function roleDefinitionsById(string $id): GovernanceRoleDefinitionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['governanceRoleDefinition%2Did'] = $id;
-        return new GovernanceRoleDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the roleSettings property of the microsoft.graph.privilegedAccess entity.
-     * @param string $id Unique identifier of the item
-     * @return GovernanceRoleSettingItemRequestBuilder
-    */
-    public function roleSettingsById(string $id): GovernanceRoleSettingItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['governanceRoleSetting%2Did'] = $id;
-        return new GovernanceRoleSettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Delete entity from privilegedAccess
      * @param PrivilegedAccessItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -215,12 +137,8 @@ class PrivilegedAccessItemRequestBuilder
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -237,15 +155,11 @@ class PrivilegedAccessItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -263,12 +177,8 @@ class PrivilegedAccessItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::PATCH;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

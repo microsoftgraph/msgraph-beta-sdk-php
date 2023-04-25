@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Source
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of noncustodialDataSource associated with a sourceCollection.
+ * noncustodialDataSource sources that are included in the sourceCollection
 */
 class NoncustodialSourcesRequestBuilderGetQueryParameters 
 {

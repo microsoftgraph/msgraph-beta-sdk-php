@@ -33,7 +33,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the authenticationStrength property value. The authenticationStrength property
+     * Gets the authenticationStrength property value. Defines the authentication strength policies, valid authentication method combinations, and authentication method mode details that can be required by a conditional access policy.
      * @return AuthenticationStrengthRoot|null
     */
     public function getAuthenticationStrength(): ?AuthenticationStrengthRoot {
@@ -41,7 +41,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the authenticationStrengths property value. Defines the authentication strength policies, valid authentication method combinations, and authentication method mode details that can be required by a conditional access policy .
+     * Gets the authenticationStrengths property value. The authenticationStrengths property
      * @return AuthenticationStrengthRoot|null
     */
     public function getAuthenticationStrengths(): ?AuthenticationStrengthRoot {
@@ -111,7 +111,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the authenticationStrength property value. The authenticationStrength property
+     * Sets the authenticationStrength property value. Defines the authentication strength policies, valid authentication method combinations, and authentication method mode details that can be required by a conditional access policy.
      * @param AuthenticationStrengthRoot|null $value Value to set for the authenticationStrength property.
     */
     public function setAuthenticationStrength(?AuthenticationStrengthRoot $value): void {
@@ -119,7 +119,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the authenticationStrengths property value. Defines the authentication strength policies, valid authentication method combinations, and authentication method mode details that can be required by a conditional access policy .
+     * Sets the authenticationStrengths property value. The authenticationStrengths property
      * @param AuthenticationStrengthRoot|null $value Value to set for the authenticationStrengths property.
     */
     public function setAuthenticationStrengths(?AuthenticationStrengthRoot $value): void {

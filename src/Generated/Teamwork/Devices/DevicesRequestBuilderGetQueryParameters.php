@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\Devices;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of all Microsoft Teams-enabled devices provisioned for a tenant.
+ * The Teams devices provisioned for the tenant.
 */
 class DevicesRequestBuilderGetQueryParameters 
 {

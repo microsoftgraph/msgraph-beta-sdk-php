@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinit
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of all offerShiftRequest objects in a team.
+ * Get offerShiftRequests from teamTemplateDefinition
 */
 class OfferShiftRequestsRequestBuilderGetQueryParameters 
 {

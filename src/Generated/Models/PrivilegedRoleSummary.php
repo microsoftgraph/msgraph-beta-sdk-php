@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrivilegedRoleSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new PrivilegedRoleSummary and sets the default values.
+     * Instantiates a new privilegedRoleSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();

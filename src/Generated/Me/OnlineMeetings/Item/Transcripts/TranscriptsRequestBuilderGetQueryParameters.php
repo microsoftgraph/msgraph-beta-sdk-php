@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Me\OnlineMeetings\Item\Transcripts;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the list of callTranscript objects associated with an onlineMeeting.
+ * The transcripts of an online meeting. Read-only.
 */
 class TranscriptsRequestBuilderGetQueryParameters 
 {

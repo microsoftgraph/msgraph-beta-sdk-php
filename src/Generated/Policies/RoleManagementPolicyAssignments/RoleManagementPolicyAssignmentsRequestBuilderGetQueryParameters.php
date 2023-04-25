@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicyAssignment
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the details of all role management policy assignments including the policies and rules associated with the Azure AD roles.
+ * Represents the role management policy assignments.
 */
 class RoleManagementPolicyAssignmentsRequestBuilderGetQueryParameters 
 {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\GetCredentialUserRegistrationCo
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Report the current state of how many users in your organization are registered for self-service password reset and multi-factor authentication (MFA) capabilities.
+ * Invoke function getCredentialUserRegistrationCount
 */
 class GetCredentialUserRegistrationCountRequestBuilderGetQueryParameters 
 {

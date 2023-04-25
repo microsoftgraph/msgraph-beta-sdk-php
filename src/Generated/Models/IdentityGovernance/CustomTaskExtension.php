@@ -30,7 +30,7 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
     }
 
     /**
-     * Gets the callbackConfiguration property value. The callback configuration for a custom extension.
+     * Gets the callbackConfiguration property value. The callback configuration for a custom task extension.
      * @return CustomExtensionCallbackConfiguration|null
     */
     public function getCallbackConfiguration(): ?CustomExtensionCallbackConfiguration {
@@ -98,7 +98,7 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
     }
 
     /**
-     * Sets the callbackConfiguration property value. The callback configuration for a custom extension.
+     * Sets the callbackConfiguration property value. The callback configuration for a custom task extension.
      * @param CustomExtensionCallbackConfiguration|null $value Value to set for the callbackConfiguration property.
     */
     public function setCallbackConfiguration(?CustomExtensionCallbackConfiguration $value): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\Connections\Item\Schema;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties of a schema for an externalConnection.
+ * Get schema from external
 */
 class SchemaRequestBuilderGetQueryParameters 
 {

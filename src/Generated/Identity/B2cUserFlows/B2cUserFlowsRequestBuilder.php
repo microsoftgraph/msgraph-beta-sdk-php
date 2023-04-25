@@ -6,20 +6,19 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\B2cIdentityUserFlowItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\B2cIdentityUserFlow;
 use Microsoft\Graph\Beta\Generated\Models\B2cIdentityUserFlowCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the b2cUserFlows property of the microsoft.graph.identityContainer entity.
 */
-class B2cUserFlowsRequestBuilder 
+class B2cUserFlowsRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to count the resources in the collection.
@@ -29,28 +28,23 @@ class B2cUserFlowsRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
+     * Provides operations to manage the b2cUserFlows property of the microsoft.graph.identityContainer entity.
+     * @param string $b2cIdentityUserFlowId Unique identifier of the item
+     * @return B2cIdentityUserFlowItemRequestBuilder
     */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
+    public function byB2cIdentityUserFlowId(string $b2cIdentityUserFlowId): B2cIdentityUserFlowItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['b2cIdentityUserFlow%2Did'] = $b2cIdentityUserFlowId;
+        return new B2cIdentityUserFlowItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new B2cUserFlowsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/identity/b2cUserFlows{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/identity/b2cUserFlows{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -59,10 +53,9 @@ class B2cUserFlowsRequestBuilder
     }
 
     /**
-     * Retrieve a list of b2cIdentityUserFlow objects.
+     * Represents entry point for B2C identity userflows.
      * @param B2cUserFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/identitycontainer-list-b2cuserflows?view=graph-rest-1.0 Find more info here
     */
     public function get(?B2cUserFlowsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -78,11 +71,10 @@ class B2cUserFlowsRequestBuilder
     }
 
     /**
-     * Create a new b2cIdentityUserFlow object.
+     * Create new navigation property to b2cUserFlows for identity
      * @param B2cIdentityUserFlow $body The request body
      * @param B2cUserFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/identitycontainer-post-b2cuserflows?view=graph-rest-1.0 Find more info here
     */
     public function post(B2cIdentityUserFlow $body, ?B2cUserFlowsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -98,7 +90,7 @@ class B2cUserFlowsRequestBuilder
     }
 
     /**
-     * Retrieve a list of b2cIdentityUserFlow objects.
+     * Represents entry point for B2C identity userflows.
      * @param B2cUserFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -109,21 +101,17 @@ class B2cUserFlowsRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
 
     /**
-     * Create a new b2cIdentityUserFlow object.
+     * Create new navigation property to b2cUserFlows for identity
      * @param B2cIdentityUserFlow $body The request body
      * @param B2cUserFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -135,12 +123,8 @@ class B2cUserFlowsRequestBuilder
         $requestInfo->httpMethod = HttpMethod::POST;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

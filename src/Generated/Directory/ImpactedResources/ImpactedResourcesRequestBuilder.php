@@ -6,20 +6,19 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Directory\ImpactedResources\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\ImpactedResources\Item\ImpactedResourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ImpactedResource;
 use Microsoft\Graph\Beta\Generated\Models\ImpactedResourceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the impactedResources property of the microsoft.graph.directory entity.
 */
-class ImpactedResourcesRequestBuilder 
+class ImpactedResourcesRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to count the resources in the collection.
@@ -29,28 +28,23 @@ class ImpactedResourcesRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
+     * Provides operations to manage the impactedResources property of the microsoft.graph.directory entity.
+     * @param string $impactedResourceId Unique identifier of the item
+     * @return ImpactedResourceItemRequestBuilder
     */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
+    public function byImpactedResourceId(string $impactedResourceId): ImpactedResourceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['impactedResource%2Did'] = $impactedResourceId;
+        return new ImpactedResourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ImpactedResourcesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/directory/impactedResources{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/directory/impactedResources{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -107,15 +101,11 @@ class ImpactedResourcesRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -133,12 +123,8 @@ class ImpactedResourcesRequestBuilder
         $requestInfo->httpMethod = HttpMethod::POST;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

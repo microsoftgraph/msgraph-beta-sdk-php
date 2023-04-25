@@ -6,20 +6,19 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Directory\InboundSharedUserProfiles\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\InboundSharedUserProfiles\Item\InboundSharedUserProfileUserItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\InboundSharedUserProfile;
 use Microsoft\Graph\Beta\Generated\Models\InboundSharedUserProfileCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the inboundSharedUserProfiles property of the microsoft.graph.directory entity.
 */
-class InboundSharedUserProfilesRequestBuilder 
+class InboundSharedUserProfilesRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to count the resources in the collection.
@@ -29,28 +28,23 @@ class InboundSharedUserProfilesRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
+     * Provides operations to manage the inboundSharedUserProfiles property of the microsoft.graph.directory entity.
+     * @param string $inboundSharedUserProfileUserId Unique identifier of the item
+     * @return InboundSharedUserProfileUserItemRequestBuilder
     */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
+    public function byInboundSharedUserProfileUserId(string $inboundSharedUserProfileUserId): InboundSharedUserProfileUserItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['inboundSharedUserProfile%2DuserId'] = $inboundSharedUserProfileUserId;
+        return new InboundSharedUserProfileUserItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new InboundSharedUserProfilesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/directory/inboundSharedUserProfiles{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/directory/inboundSharedUserProfiles{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -59,10 +53,9 @@ class InboundSharedUserProfilesRequestBuilder
     }
 
     /**
-     * Retrieve the properties of all inboundSharedUserProfiles.
+     * A collection of external Azure AD users whose profile data has been shared with the Azure AD tenant. Nullable.
      * @param InboundSharedUserProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/directory-list-inboundshareduserprofiles?view=graph-rest-1.0 Find more info here
     */
     public function get(?InboundSharedUserProfilesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -97,7 +90,7 @@ class InboundSharedUserProfilesRequestBuilder
     }
 
     /**
-     * Retrieve the properties of all inboundSharedUserProfiles.
+     * A collection of external Azure AD users whose profile data has been shared with the Azure AD tenant. Nullable.
      * @param InboundSharedUserProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -108,15 +101,11 @@ class InboundSharedUserProfilesRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -134,12 +123,8 @@ class InboundSharedUserProfilesRequestBuilder
         $requestInfo->httpMethod = HttpMethod::POST;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

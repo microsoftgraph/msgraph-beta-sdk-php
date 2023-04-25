@@ -51,7 +51,7 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the currency property value. The currency property
+     * Gets the currency property value. Currency used to calculate the cost of the call. For details, see ISO 4217.
      * @return string|null
     */
     public function getCurrency(): ?string {
@@ -59,7 +59,7 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the destinationContext property value. The destinationContext property
+     * Gets the destinationContext property value. Indicates whether the call was Domestic (within a country or region) or International (outside a country or region) based on the user's location.
      * @return string|null
     */
     public function getDestinationContext(): ?string {
@@ -95,7 +95,7 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the totalCallCharge property value. The totalCallCharge property
+     * Gets the totalCallCharge property value. Total costs of all the calls within the selected time range, including call charges and connection fees.
      * @return string|null
     */
     public function getTotalCallCharge(): ?string {
@@ -103,7 +103,7 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the totalCalls property value. The totalCalls property
+     * Gets the totalCalls property value. Total number of dial-out calls within the selected time range.
      * @return int|null
     */
     public function getTotalCalls(): ?int {
@@ -111,7 +111,7 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the totalCallSeconds property value. The totalCallSeconds property
+     * Gets the totalCallSeconds property value. Total duration of all the calls within the selected time range, in seconds.
      * @return int|null
     */
     public function getTotalCallSeconds(): ?int {
@@ -119,7 +119,7 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the usageLocation property value. The usageLocation property
+     * Gets the usageLocation property value. Country code of the user. For details, see ISO 3166-1 alpha-2.
      * @return string|null
     */
     public function getUsageLocation(): ?string {
@@ -127,7 +127,7 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the userDisplayName property value. The userDisplayName property
+     * Gets the userDisplayName property value. Display name of the user.
      * @return string|null
     */
     public function getUserDisplayName(): ?string {
@@ -135,7 +135,7 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the userId property value. The userId property
+     * Gets the userId property value. The unique identifier (GUID) of the user in Azure Active Directory.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -143,7 +143,7 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the userPrincipalName property value. The userPrincipalName property
+     * Gets the userPrincipalName property value. The user principal name (sign-in name) in Azure Active Directory. This is usually the same as the user's SIP address, and can be same as the user's e-mail address.
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
@@ -185,7 +185,7 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the currency property value. The currency property
+     * Sets the currency property value. Currency used to calculate the cost of the call. For details, see ISO 4217.
      * @param string|null $value Value to set for the currency property.
     */
     public function setCurrency(?string $value): void {
@@ -193,7 +193,7 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the destinationContext property value. The destinationContext property
+     * Sets the destinationContext property value. Indicates whether the call was Domestic (within a country or region) or International (outside a country or region) based on the user's location.
      * @param string|null $value Value to set for the destinationContext property.
     */
     public function setDestinationContext(?string $value): void {
@@ -209,7 +209,7 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the totalCallCharge property value. The totalCallCharge property
+     * Sets the totalCallCharge property value. Total costs of all the calls within the selected time range, including call charges and connection fees.
      * @param string|null $value Value to set for the totalCallCharge property.
     */
     public function setTotalCallCharge(?string $value): void {
@@ -217,7 +217,7 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the totalCalls property value. The totalCalls property
+     * Sets the totalCalls property value. Total number of dial-out calls within the selected time range.
      * @param int|null $value Value to set for the totalCalls property.
     */
     public function setTotalCalls(?int $value): void {
@@ -225,7 +225,7 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the totalCallSeconds property value. The totalCallSeconds property
+     * Sets the totalCallSeconds property value. Total duration of all the calls within the selected time range, in seconds.
      * @param int|null $value Value to set for the totalCallSeconds property.
     */
     public function setTotalCallSeconds(?int $value): void {
@@ -233,7 +233,7 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the usageLocation property value. The usageLocation property
+     * Sets the usageLocation property value. Country code of the user. For details, see ISO 3166-1 alpha-2.
      * @param string|null $value Value to set for the usageLocation property.
     */
     public function setUsageLocation(?string $value): void {
@@ -241,7 +241,7 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the userDisplayName property value. The userDisplayName property
+     * Sets the userDisplayName property value. Display name of the user.
      * @param string|null $value Value to set for the userDisplayName property.
     */
     public function setUserDisplayName(?string $value): void {
@@ -249,7 +249,7 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the userId property value. The userId property
+     * Sets the userId property value. The unique identifier (GUID) of the user in Azure Active Directory.
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
@@ -257,7 +257,7 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the userPrincipalName property value. The userPrincipalName property
+     * Sets the userPrincipalName property value. The user principal name (sign-in name) in Azure Active Directory. This is usually the same as the user's SIP address, and can be same as the user's e-mail address.
      * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {

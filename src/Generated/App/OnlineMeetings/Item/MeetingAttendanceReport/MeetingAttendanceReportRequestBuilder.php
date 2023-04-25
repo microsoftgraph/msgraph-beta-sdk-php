@@ -6,20 +6,17 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\MeetingAttendanceReport\AttendanceRecords\AttendanceRecordsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\MeetingAttendanceReport\AttendanceRecords\Item\AttendanceRecordItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MeetingAttendanceReport;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the meetingAttendanceReport property of the microsoft.graph.onlineMeeting entity.
 */
-class MeetingAttendanceReportRequestBuilder 
+class MeetingAttendanceReportRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to manage the attendanceRecords property of the microsoft.graph.meetingAttendanceReport entity.
@@ -29,39 +26,12 @@ class MeetingAttendanceReportRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
-     * Provides operations to manage the attendanceRecords property of the microsoft.graph.meetingAttendanceReport entity.
-     * @param string $id Unique identifier of the item
-     * @return AttendanceRecordItemRequestBuilder
-    */
-    public function attendanceRecordsById(string $id): AttendanceRecordItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['attendanceRecord%2Did'] = $id;
-        return new AttendanceRecordItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new MeetingAttendanceReportRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/app/onlineMeetings/{onlineMeeting%2Did}/meetingAttendanceReport{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/app/onlineMeetings/{onlineMeeting%2Did}/meetingAttendanceReport{?%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -88,10 +58,9 @@ class MeetingAttendanceReportRequestBuilder
     }
 
     /**
-     * Get the meetingAttendanceReport for an onlineMeeting. Each time an online meeting ends, an attendance report will be generated for that session.
+     * Get meetingAttendanceReport from app
      * @param MeetingAttendanceReportRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/meetingattendancereport-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?MeetingAttendanceReportRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -136,18 +105,14 @@ class MeetingAttendanceReportRequestBuilder
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
 
     /**
-     * Get the meetingAttendanceReport for an onlineMeeting. Each time an online meeting ends, an attendance report will be generated for that session.
+     * Get meetingAttendanceReport from app
      * @param MeetingAttendanceReportRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -158,15 +123,11 @@ class MeetingAttendanceReportRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -184,12 +145,8 @@ class MeetingAttendanceReportRequestBuilder
         $requestInfo->httpMethod = HttpMethod::PATCH;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

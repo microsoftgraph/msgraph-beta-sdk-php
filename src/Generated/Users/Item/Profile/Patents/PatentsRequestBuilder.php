@@ -9,17 +9,16 @@ use Microsoft\Graph\Beta\Generated\Models\ItemPatent;
 use Microsoft\Graph\Beta\Generated\Models\ItemPatentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Patents\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Patents\Item\ItemPatentItemRequestBuilder;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the patents property of the microsoft.graph.profile entity.
 */
-class PatentsRequestBuilder 
+class PatentsRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to count the resources in the collection.
@@ -29,28 +28,23 @@ class PatentsRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
+     * Provides operations to manage the patents property of the microsoft.graph.profile entity.
+     * @param string $itemPatentId Unique identifier of the item
+     * @return ItemPatentItemRequestBuilder
     */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
+    public function byItemPatentId(string $itemPatentId): ItemPatentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['itemPatent%2Did'] = $itemPatentId;
+        return new ItemPatentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new PatentsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/users/{user%2Did}/profile/patents{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/users/{user%2Did}/profile/patents{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -59,10 +53,9 @@ class PatentsRequestBuilder
     }
 
     /**
-     * Retrieve a list of itemPatent objects from a user's profile.
+     * Represents patents that a user has added to their profile.
      * @param PatentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/profile-list-patents?view=graph-rest-1.0 Find more info here
     */
     public function get(?PatentsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -78,11 +71,10 @@ class PatentsRequestBuilder
     }
 
     /**
-     * Create a new itemPatent object within a user's profile.
+     * Create new navigation property to patents for users
      * @param ItemPatent $body The request body
      * @param PatentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/profile-post-patents?view=graph-rest-1.0 Find more info here
     */
     public function post(ItemPatent $body, ?PatentsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -98,7 +90,7 @@ class PatentsRequestBuilder
     }
 
     /**
-     * Retrieve a list of itemPatent objects from a user's profile.
+     * Represents patents that a user has added to their profile.
      * @param PatentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -109,21 +101,17 @@ class PatentsRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
 
     /**
-     * Create a new itemPatent object within a user's profile.
+     * Create new navigation property to patents for users
      * @param ItemPatent $body The request body
      * @param PatentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -135,12 +123,8 @@ class PatentsRequestBuilder
         $requestInfo->httpMethod = HttpMethod::POST;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

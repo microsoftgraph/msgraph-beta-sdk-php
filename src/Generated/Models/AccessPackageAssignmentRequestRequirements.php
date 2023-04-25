@@ -76,6 +76,7 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
             'policyId' => fn(ParseNode $n) => $o->setPolicyId($n->getStringValue()),
             'questions' => fn(ParseNode $n) => $o->setQuestions($n->getCollectionOfObjectValues([AccessPackageQuestion::class, 'createFromDiscriminatorValue'])),
             'schedule' => fn(ParseNode $n) => $o->setSchedule($n->getObjectValue([RequestSchedule::class, 'createFromDiscriminatorValue'])),
+            'verifiableCredentialRequirementStatus' => fn(ParseNode $n) => $o->setVerifiableCredentialRequirementStatus($n->getObjectValue([VerifiableCredentialRequirementStatus::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
@@ -160,6 +161,14 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
     }
 
     /**
+     * Gets the verifiableCredentialRequirementStatus property value. The status of the process to process the verifiable credential, if any.
+     * @return VerifiableCredentialRequirementStatus|null
+    */
+    public function getVerifiableCredentialRequirementStatus(): ?VerifiableCredentialRequirementStatus {
+        return $this->getBackingStore()->get('verifiableCredentialRequirementStatus');
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -175,6 +184,7 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
         $writer->writeStringValue('policyId', $this->getPolicyId());
         $writer->writeCollectionOfObjectValues('questions', $this->getQuestions());
         $writer->writeObjectValue('schedule', $this->getSchedule());
+        $writer->writeObjectValue('verifiableCredentialRequirementStatus', $this->getVerifiableCredentialRequirementStatus());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -280,6 +290,14 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
     */
     public function setSchedule(?RequestSchedule $value): void {
         $this->getBackingStore()->set('schedule', $value);
+    }
+
+    /**
+     * Sets the verifiableCredentialRequirementStatus property value. The status of the process to process the verifiable credential, if any.
+     * @param VerifiableCredentialRequirementStatus|null $value Value to set for the verifiableCredentialRequirementStatus property.
+    */
+    public function setVerifiableCredentialRequirementStatus(?VerifiableCredentialRequirementStatus $value): void {
+        $this->getBackingStore()->set('verifiableCredentialRequirementStatus', $value);
     }
 
 }

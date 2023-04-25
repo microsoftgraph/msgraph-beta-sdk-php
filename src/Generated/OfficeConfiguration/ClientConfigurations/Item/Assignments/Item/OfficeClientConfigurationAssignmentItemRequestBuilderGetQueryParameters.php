@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\OfficeConfiguration\ClientConfiguration
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The list of group assignments for the policy.
+ * Get assignments from officeConfiguration
 */
 class OfficeClientConfigurationAssignmentItemRequestBuilderGetQueryParameters 
 {

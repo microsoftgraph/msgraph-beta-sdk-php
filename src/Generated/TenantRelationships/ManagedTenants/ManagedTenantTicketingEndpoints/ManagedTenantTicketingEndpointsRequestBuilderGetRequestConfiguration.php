@@ -2,23 +2,14 @@
 
 namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantTicketingEndpoints;
 
+use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;
 
 /**
  * Configuration for the request such as headers, query parameters, and middleware options.
 */
-class ManagedTenantTicketingEndpointsRequestBuilderGetRequestConfiguration 
+class ManagedTenantTicketingEndpointsRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration 
 {
-    /**
-     * @var array<string, array<string>|string>|null $headers Request headers
-    */
-    public ?array $headers = null;
-    
-    /**
-     * @var array<RequestOption>|null $options Request options
-    */
-    public ?array $options = null;
-    
     /**
      * @var ManagedTenantTicketingEndpointsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
     */
@@ -31,8 +22,7 @@ class ManagedTenantTicketingEndpointsRequestBuilderGetRequestConfiguration
      * @param ManagedTenantTicketingEndpointsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
     */
     public function __construct(?array $headers = null, ?array $options = null, ?ManagedTenantTicketingEndpointsRequestBuilderGetQueryParameters $queryParameters = null) {
-        $this->headers = $headers;
-        $this->options = $options;
+        parent::__construct($headers ?? [], $options ?? []);
         $this->queryParameters = $queryParameters;
     }
 

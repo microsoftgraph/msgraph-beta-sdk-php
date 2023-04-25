@@ -50,11 +50,20 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'container' => fn(ParseNode $n) => $o->setContainer($n->getObjectValue([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'containerId' => fn(ParseNode $n) => $o->setContainerId($n->getStringValue()),
+            'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([User::class, 'createFromDiscriminatorValue'])),
             'member' => fn(ParseNode $n) => $o->setMember($n->getObjectValue([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'memberId' => fn(ParseNode $n) => $o->setMemberId($n->getStringValue()),
             'outlierContainerType' => fn(ParseNode $n) => $o->setOutlierContainerType($n->getEnumValue(OutlierContainerType::class)),
             'outlierMemberType' => fn(ParseNode $n) => $o->setOutlierMemberType($n->getEnumValue(OutlierMemberType::class)),
         ]);
+    }
+
+    /**
+     * Gets the lastModifiedBy property value. The lastModifiedBy property
+     * @return User|null
+    */
+    public function getLastModifiedBy(): ?User {
+        return $this->getBackingStore()->get('lastModifiedBy');
     }
 
     /**
@@ -97,6 +106,7 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
         parent::serialize($writer);
         $writer->writeObjectValue('container', $this->getContainer());
         $writer->writeStringValue('containerId', $this->getContainerId());
+        $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeObjectValue('member', $this->getMember());
         $writer->writeStringValue('memberId', $this->getMemberId());
         $writer->writeEnumValue('outlierContainerType', $this->getOutlierContainerType());
@@ -117,6 +127,14 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
     */
     public function setContainerId(?string $value): void {
         $this->getBackingStore()->set('containerId', $value);
+    }
+
+    /**
+     * Sets the lastModifiedBy property value. The lastModifiedBy property
+     * @param User|null $value Value to set for the lastModifiedBy property.
+    */
+    public function setLastModifiedBy(?User $value): void {
+        $this->getBackingStore()->set('lastModifiedBy', $value);
     }
 
     /**

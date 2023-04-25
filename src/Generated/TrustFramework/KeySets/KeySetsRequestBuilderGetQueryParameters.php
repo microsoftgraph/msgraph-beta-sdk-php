@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TrustFramework\KeySets;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of trustFrameworkKeySets.
+ * Get keySets from trustFramework
 */
 class KeySetsRequestBuilderGetQueryParameters 
 {

@@ -111,6 +111,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
             'requestStatus' => fn(ParseNode $n) => $o->setRequestStatus($n->getStringValue()),
             'requestType' => fn(ParseNode $n) => $o->setRequestType($n->getStringValue()),
             'schedule' => fn(ParseNode $n) => $o->setSchedule($n->getObjectValue([RequestSchedule::class, 'createFromDiscriminatorValue'])),
+            'verifiedCredentialsData' => fn(ParseNode $n) => $o->setVerifiedCredentialsData($n->getCollectionOfObjectValues([VerifiedCredentialData::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -171,6 +172,14 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
     }
 
     /**
+     * Gets the verifiedCredentialsData property value. The details of the verifiable credential that was presented by the requestor, such as the issuer and claims. Read-only.
+     * @return array<VerifiedCredentialData>|null
+    */
+    public function getVerifiedCredentialsData(): ?array {
+        return $this->getBackingStore()->get('verifiedCredentialsData');
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -191,6 +200,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
         $writer->writeStringValue('requestStatus', $this->getRequestStatus());
         $writer->writeStringValue('requestType', $this->getRequestType());
         $writer->writeObjectValue('schedule', $this->getSchedule());
+        $writer->writeCollectionOfObjectValues('verifiedCredentialsData', $this->getVerifiedCredentialsData());
     }
 
     /**
@@ -311,6 +321,14 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
     */
     public function setSchedule(?RequestSchedule $value): void {
         $this->getBackingStore()->set('schedule', $value);
+    }
+
+    /**
+     * Sets the verifiedCredentialsData property value. The details of the verifiable credential that was presented by the requestor, such as the issuer and claims. Read-only.
+     * @param array<VerifiedCredentialData>|null $value Value to set for the verifiedCredentialsData property.
+    */
+    public function setVerifiedCredentialsData(?array $value): void {
+        $this->getBackingStore()->set('verifiedCredentialsData', $value);
     }
 
 }

@@ -8,21 +8,18 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesOrders\Item\Currency\CurrencyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesOrders\Item\Customer\CustomerRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesOrders\Item\PaymentTerm\PaymentTermRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesOrders\Item\SalesOrderLines\Item\SalesOrderLineItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesOrders\Item\SalesOrderLines\SalesOrderLinesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SalesOrder;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the salesOrders property of the microsoft.graph.company entity.
 */
-class SalesOrderItemRequestBuilder 
+class SalesOrderItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to manage the currency property of the microsoft.graph.salesOrder entity.
@@ -39,21 +36,11 @@ class SalesOrderItemRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
      * Provides operations to manage the paymentTerm property of the microsoft.graph.salesOrder entity.
     */
     public function paymentTerm(): PaymentTermRequestBuilder {
         return new PaymentTermRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
     
     /**
      * Provides operations to manage the salesOrderLines property of the microsoft.graph.salesOrder entity.
@@ -63,18 +50,12 @@ class SalesOrderItemRequestBuilder
     }
     
     /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
      * Instantiates a new SalesOrderItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/financials/companies/{company%2Did}/salesOrders/{salesOrder%2Did}{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/financials/companies/{company%2Did}/salesOrders/{salesOrder%2Did}{?%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -120,17 +101,6 @@ class SalesOrderItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the salesOrderLines property of the microsoft.graph.salesOrder entity.
-     * @param string $id Unique identifier of the item
-     * @return SalesOrderLineItemRequestBuilder
-    */
-    public function salesOrderLinesById(string $id): SalesOrderLineItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['salesOrderLine%2Did'] = $id;
-        return new SalesOrderLineItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Get salesOrders from financials
      * @param SalesOrderItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -142,15 +112,11 @@ class SalesOrderItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -168,12 +134,8 @@ class SalesOrderItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::PATCH;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

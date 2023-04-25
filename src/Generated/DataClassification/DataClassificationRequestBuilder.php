@@ -12,27 +12,21 @@ use Microsoft\Graph\Beta\Generated\DataClassification\ClassifyTextJobs\ClassifyT
 use Microsoft\Graph\Beta\Generated\DataClassification\EvaluateDlpPoliciesJobs\EvaluateDlpPoliciesJobsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\EvaluateLabelJobs\EvaluateLabelJobsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\ExactMatchDataStoresRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Item\ExactMatchDataStoreItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchUploadAgents\ExactMatchUploadAgentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchUploadAgents\Item\ExactMatchUploadAgentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\Jobs\JobsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DataClassification\SensitiveTypes\Item\SensitiveTypeItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\SensitiveTypes\SensitiveTypesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DataClassification\SensitivityLabels\Item\SensitivityLabelItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\SensitivityLabels\SensitivityLabelsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DataClassificationService;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the dataClassificationService singleton.
 */
-class DataClassificationRequestBuilder 
+class DataClassificationRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to call the classifyExactMatches method.
@@ -98,16 +92,6 @@ class DataClassificationRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
      * Provides operations to manage the sensitiveTypes property of the microsoft.graph.dataClassificationService entity.
     */
     public function sensitiveTypes(): SensitiveTypesRequestBuilder {
@@ -122,89 +106,17 @@ class DataClassificationRequestBuilder
     }
     
     /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
-     * Provides operations to manage the classifyFileJobs property of the microsoft.graph.dataClassificationService entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DataClassification\ClassifyFileJobs\Item\JobResponseBaseItemRequestBuilder
-    */
-    public function classifyFileJobsById(string $id): \Microsoft\Graph\Beta\Generated\DataClassification\ClassifyFileJobs\Item\JobResponseBaseItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['jobResponseBase%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DataClassification\ClassifyFileJobs\Item\JobResponseBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the classifyTextJobs property of the microsoft.graph.dataClassificationService entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DataClassification\ClassifyTextJobs\Item\JobResponseBaseItemRequestBuilder
-    */
-    public function classifyTextJobsById(string $id): \Microsoft\Graph\Beta\Generated\DataClassification\ClassifyTextJobs\Item\JobResponseBaseItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['jobResponseBase%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DataClassification\ClassifyTextJobs\Item\JobResponseBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new DataClassificationRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/dataClassification{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/dataClassification{?%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
             $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
         }
-    }
-
-    /**
-     * Provides operations to manage the evaluateDlpPoliciesJobs property of the microsoft.graph.dataClassificationService entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DataClassification\EvaluateDlpPoliciesJobs\Item\JobResponseBaseItemRequestBuilder
-    */
-    public function evaluateDlpPoliciesJobsById(string $id): \Microsoft\Graph\Beta\Generated\DataClassification\EvaluateDlpPoliciesJobs\Item\JobResponseBaseItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['jobResponseBase%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DataClassification\EvaluateDlpPoliciesJobs\Item\JobResponseBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the evaluateLabelJobs property of the microsoft.graph.dataClassificationService entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DataClassification\EvaluateLabelJobs\Item\JobResponseBaseItemRequestBuilder
-    */
-    public function evaluateLabelJobsById(string $id): \Microsoft\Graph\Beta\Generated\DataClassification\EvaluateLabelJobs\Item\JobResponseBaseItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['jobResponseBase%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DataClassification\EvaluateLabelJobs\Item\JobResponseBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the exactMatchDataStores property of the microsoft.graph.dataClassificationService entity.
-     * @param string $id Unique identifier of the item
-     * @return ExactMatchDataStoreItemRequestBuilder
-    */
-    public function exactMatchDataStoresById(string $id): ExactMatchDataStoreItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['exactMatchDataStore%2Did'] = $id;
-        return new ExactMatchDataStoreItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the exactMatchUploadAgents property of the microsoft.graph.dataClassificationService entity.
-     * @param string $id Unique identifier of the item
-     * @return ExactMatchUploadAgentItemRequestBuilder
-    */
-    public function exactMatchUploadAgentsById(string $id): ExactMatchUploadAgentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['exactMatchUploadAgent%2Did'] = $id;
-        return new ExactMatchUploadAgentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -223,17 +135,6 @@ class DataClassificationRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the jobs property of the microsoft.graph.dataClassificationService entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DataClassification\Jobs\Item\JobResponseBaseItemRequestBuilder
-    */
-    public function jobsById(string $id): \Microsoft\Graph\Beta\Generated\DataClassification\Jobs\Item\JobResponseBaseItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['jobResponseBase%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DataClassification\Jobs\Item\JobResponseBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -256,28 +157,6 @@ class DataClassificationRequestBuilder
     }
 
     /**
-     * Provides operations to manage the sensitiveTypes property of the microsoft.graph.dataClassificationService entity.
-     * @param string $id Unique identifier of the item
-     * @return SensitiveTypeItemRequestBuilder
-    */
-    public function sensitiveTypesById(string $id): SensitiveTypeItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['sensitiveType%2Did'] = $id;
-        return new SensitiveTypeItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the sensitivityLabels property of the microsoft.graph.dataClassificationService entity.
-     * @param string $id Unique identifier of the item
-     * @return SensitivityLabelItemRequestBuilder
-    */
-    public function sensitivityLabelsById(string $id): SensitivityLabelItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['sensitivityLabel%2Did'] = $id;
-        return new SensitivityLabelItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Get dataClassification
      * @param DataClassificationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -289,15 +168,11 @@ class DataClassificationRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -315,12 +190,8 @@ class DataClassificationRequestBuilder
         $requestInfo->httpMethod = HttpMethod::PATCH;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

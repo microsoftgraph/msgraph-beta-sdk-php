@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Source
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the last estimateStatisticsOperation object associated with a source collection. 
+ * The last estimate operation associated with the sourceCollection.
 */
 class LastEstimateStatisticsOperationRequestBuilderGetQueryParameters 
 {

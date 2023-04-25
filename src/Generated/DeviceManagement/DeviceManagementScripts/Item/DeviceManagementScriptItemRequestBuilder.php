@@ -7,27 +7,21 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScripts\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScripts\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScripts\Item\Assignments\Item\DeviceManagementScriptAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScripts\Item\DeviceRunStates\DeviceRunStatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScripts\Item\DeviceRunStates\Item\DeviceManagementScriptDeviceStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScripts\Item\GroupAssignments\GroupAssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScripts\Item\GroupAssignments\Item\DeviceManagementScriptGroupAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScripts\Item\RunSummary\RunSummaryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScripts\Item\UserRunStates\Item\DeviceManagementScriptUserStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScripts\Item\UserRunStates\UserRunStatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementScript;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the deviceManagementScripts property of the microsoft.graph.deviceManagement entity.
 */
-class DeviceManagementScriptItemRequestBuilder 
+class DeviceManagementScriptItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to call the assign method.
@@ -58,26 +52,11 @@ class DeviceManagementScriptItemRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
      * Provides operations to manage the runSummary property of the microsoft.graph.deviceManagementScript entity.
     */
     public function runSummary(): RunSummaryRequestBuilder {
         return new RunSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
-    
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
     
     /**
      * Provides operations to manage the userRunStates property of the microsoft.graph.deviceManagementScript entity.
@@ -87,24 +66,12 @@ class DeviceManagementScriptItemRequestBuilder
     }
     
     /**
-     * Provides operations to manage the assignments property of the microsoft.graph.deviceManagementScript entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceManagementScriptAssignmentItemRequestBuilder
-    */
-    public function assignmentsById(string $id): DeviceManagementScriptAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceManagementScriptAssignment%2Did'] = $id;
-        return new DeviceManagementScriptAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new DeviceManagementScriptItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/deviceManagement/deviceManagementScripts/{deviceManagementScript%2Did}{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/deviceManagement/deviceManagementScripts/{deviceManagementScript%2Did}{?%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -131,17 +98,6 @@ class DeviceManagementScriptItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the deviceRunStates property of the microsoft.graph.deviceManagementScript entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceManagementScriptDeviceStateItemRequestBuilder
-    */
-    public function deviceRunStatesById(string $id): DeviceManagementScriptDeviceStateItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceManagementScriptDeviceState%2Did'] = $id;
-        return new DeviceManagementScriptDeviceStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * The list of device management scripts associated with the tenant.
      * @param DeviceManagementScriptItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -157,17 +113,6 @@ class DeviceManagementScriptItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the groupAssignments property of the microsoft.graph.deviceManagementScript entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceManagementScriptGroupAssignmentItemRequestBuilder
-    */
-    public function groupAssignmentsById(string $id): DeviceManagementScriptGroupAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceManagementScriptGroupAssignment%2Did'] = $id;
-        return new DeviceManagementScriptGroupAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -200,12 +145,8 @@ class DeviceManagementScriptItemRequestBuilder
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -222,15 +163,11 @@ class DeviceManagementScriptItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -248,26 +185,11 @@ class DeviceManagementScriptItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::PATCH;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the userRunStates property of the microsoft.graph.deviceManagementScript entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceManagementScriptUserStateItemRequestBuilder
-    */
-    public function userRunStatesById(string $id): DeviceManagementScriptUserStateItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceManagementScriptUserState%2Did'] = $id;
-        return new DeviceManagementScriptUserStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

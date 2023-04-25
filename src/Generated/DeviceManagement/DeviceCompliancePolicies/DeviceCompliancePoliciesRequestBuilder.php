@@ -9,23 +9,22 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\Cou
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\GetDevicesScheduledToRetire\GetDevicesScheduledToRetireRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\GetNoncompliantDevicesToRetire\GetNoncompliantDevicesToRetireRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\HasPayloadLinks\HasPayloadLinksRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\Item\DeviceCompliancePolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\RefreshDeviceComplianceReportSummarization\RefreshDeviceComplianceReportSummarizationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\SetScheduledRetireState\SetScheduledRetireStateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\ValidateComplianceScript\ValidateComplianceScriptRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceCompliancePolicy;
 use Microsoft\Graph\Beta\Generated\Models\DeviceCompliancePolicyCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the deviceCompliancePolicies property of the microsoft.graph.deviceManagement entity.
 */
-class DeviceCompliancePoliciesRequestBuilder 
+class DeviceCompliancePoliciesRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to count the resources in the collection.
@@ -56,21 +55,11 @@ class DeviceCompliancePoliciesRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
      * Provides operations to call the refreshDeviceComplianceReportSummarization method.
     */
     public function refreshDeviceComplianceReportSummarization(): RefreshDeviceComplianceReportSummarizationRequestBuilder {
         return new RefreshDeviceComplianceReportSummarizationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
     
     /**
      * Provides operations to call the setScheduledRetireState method.
@@ -80,11 +69,6 @@ class DeviceCompliancePoliciesRequestBuilder
     }
     
     /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
      * Provides operations to call the validateComplianceScript method.
     */
     public function validateComplianceScript(): ValidateComplianceScriptRequestBuilder {
@@ -92,13 +76,23 @@ class DeviceCompliancePoliciesRequestBuilder
     }
     
     /**
+     * Provides operations to manage the deviceCompliancePolicies property of the microsoft.graph.deviceManagement entity.
+     * @param string $deviceCompliancePolicyId Unique identifier of the item
+     * @return DeviceCompliancePolicyItemRequestBuilder
+    */
+    public function byDeviceCompliancePolicyId(string $deviceCompliancePolicyId): DeviceCompliancePolicyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceCompliancePolicy%2Did'] = $deviceCompliancePolicyId;
+        return new DeviceCompliancePolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
      * Instantiates a new DeviceCompliancePoliciesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/deviceManagement/deviceCompliancePolicies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/deviceManagement/deviceCompliancePolicies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -155,15 +149,11 @@ class DeviceCompliancePoliciesRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -181,12 +171,8 @@ class DeviceCompliancePoliciesRequestBuilder
         $requestInfo->httpMethod = HttpMethod::POST;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

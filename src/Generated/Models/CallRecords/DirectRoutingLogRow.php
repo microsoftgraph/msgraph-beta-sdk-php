@@ -52,7 +52,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the calleeNumber property value. Number of the user or bot who received the call. E.164 format, but may include additional data.
+     * Gets the calleeNumber property value. Number of the user or bot who received the call (E.164 format, but may include additional data).
      * @return string|null
     */
     public function getCalleeNumber(): ?string {
@@ -68,7 +68,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the callerNumber property value. Number of the user or bot who made the call. E.164 format, but may include additional data.
+     * Gets the callerNumber property value. Number of the user or bot who made the call (E.164 format, but may include additional data).
      * @return string|null
     */
     public function getCallerNumber(): ?string {
@@ -84,7 +84,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the correlationId property value. Identifier for the call that you can use when calling Microsoft Support. GUID.
+     * Gets the correlationId property value. Identifier (GUID) for the call that you can use when calling Microsoft Support.
      * @return string|null
     */
     public function getCorrelationId(): ?string {
@@ -150,7 +150,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the finalSipCode property value. The code with which the call ended, RFC 3261.
+     * Gets the finalSipCode property value. The code with which the call ended (RFC 3261).
      * @return int|null
     */
     public function getFinalSipCode(): ?int {
@@ -166,7 +166,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the id property value. Unique call identifier. GUID.
+     * Gets the id property value. Unique call identifier (GUID).
      * @return string|null
     */
     public function getId(): ?string {
@@ -190,7 +190,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the mediaPathLocation property value. The datacenter used for media path in non-bypass call.
+     * Gets the mediaPathLocation property value. The data center used for media path in non-bypass call.
      * @return string|null
     */
     public function getMediaPathLocation(): ?string {
@@ -206,7 +206,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the otherPartyCountryCode property value. The otherPartyCountryCode property
+     * Gets the otherPartyCountryCode property value. Country code of the caller in case of an incoming call, or callee in case of an outgoing call. For details, see ISO 3166-1 alpha-2.
      * @return string|null
     */
     public function getOtherPartyCountryCode(): ?string {
@@ -214,7 +214,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the signalingLocation property value. The datacenter used for signaling for both bypass and non-bypass calls.
+     * Gets the signalingLocation property value. The data center used for signaling for both bypass and non-bypass calls.
      * @return string|null
     */
     public function getSignalingLocation(): ?string {
@@ -246,7 +246,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userCountryCode property value. The userCountryCode property
+     * Gets the userCountryCode property value. Country code of the user. For details, see ISO 3166-1 alpha-2.
      * @return string|null
     */
     public function getUserCountryCode(): ?string {
@@ -262,7 +262,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userId property value. Calling user's ID in Graph. This and other user info will be null/empty for bot call types. GUID.
+     * Gets the userId property value. The unique identifier (GUID) of the user in Azure Active Directory. This and other user info will be null/empty for bot call types.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -270,7 +270,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userPrincipalName property value. UserPrincipalName (sign-in name) in Azure Active Directory. This is usually the same as user's SIP Address, and can be same as user's e-mail address.
+     * Gets the userPrincipalName property value. The user principal name (sign-in name) in Azure Active Directory. This is usually the same as the user's SIP address, and can be same as the user's e-mail address.
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
@@ -326,7 +326,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the calleeNumber property value. Number of the user or bot who received the call. E.164 format, but may include additional data.
+     * Sets the calleeNumber property value. Number of the user or bot who received the call (E.164 format, but may include additional data).
      * @param string|null $value Value to set for the calleeNumber property.
     */
     public function setCalleeNumber(?string $value): void {
@@ -342,7 +342,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the callerNumber property value. Number of the user or bot who made the call. E.164 format, but may include additional data.
+     * Sets the callerNumber property value. Number of the user or bot who made the call (E.164 format, but may include additional data).
      * @param string|null $value Value to set for the callerNumber property.
     */
     public function setCallerNumber(?string $value): void {
@@ -358,7 +358,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the correlationId property value. Identifier for the call that you can use when calling Microsoft Support. GUID.
+     * Sets the correlationId property value. Identifier (GUID) for the call that you can use when calling Microsoft Support.
      * @param string|null $value Value to set for the correlationId property.
     */
     public function setCorrelationId(?string $value): void {
@@ -390,7 +390,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the finalSipCode property value. The code with which the call ended, RFC 3261.
+     * Sets the finalSipCode property value. The code with which the call ended (RFC 3261).
      * @param int|null $value Value to set for the finalSipCode property.
     */
     public function setFinalSipCode(?int $value): void {
@@ -406,7 +406,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the id property value. Unique call identifier. GUID.
+     * Sets the id property value. Unique call identifier (GUID).
      * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
@@ -430,7 +430,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the mediaPathLocation property value. The datacenter used for media path in non-bypass call.
+     * Sets the mediaPathLocation property value. The data center used for media path in non-bypass call.
      * @param string|null $value Value to set for the mediaPathLocation property.
     */
     public function setMediaPathLocation(?string $value): void {
@@ -446,7 +446,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the otherPartyCountryCode property value. The otherPartyCountryCode property
+     * Sets the otherPartyCountryCode property value. Country code of the caller in case of an incoming call, or callee in case of an outgoing call. For details, see ISO 3166-1 alpha-2.
      * @param string|null $value Value to set for the otherPartyCountryCode property.
     */
     public function setOtherPartyCountryCode(?string $value): void {
@@ -454,7 +454,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the signalingLocation property value. The datacenter used for signaling for both bypass and non-bypass calls.
+     * Sets the signalingLocation property value. The data center used for signaling for both bypass and non-bypass calls.
      * @param string|null $value Value to set for the signalingLocation property.
     */
     public function setSignalingLocation(?string $value): void {
@@ -486,7 +486,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the userCountryCode property value. The userCountryCode property
+     * Sets the userCountryCode property value. Country code of the user. For details, see ISO 3166-1 alpha-2.
      * @param string|null $value Value to set for the userCountryCode property.
     */
     public function setUserCountryCode(?string $value): void {
@@ -502,7 +502,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the userId property value. Calling user's ID in Graph. This and other user info will be null/empty for bot call types. GUID.
+     * Sets the userId property value. The unique identifier (GUID) of the user in Azure Active Directory. This and other user info will be null/empty for bot call types.
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
@@ -510,7 +510,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the userPrincipalName property value. UserPrincipalName (sign-in name) in Azure Active Directory. This is usually the same as user's SIP Address, and can be same as user's e-mail address.
+     * Sets the userPrincipalName property value. The user principal name (sign-in name) in Azure Active Directory. This is usually the same as the user's SIP address, and can be same as the user's e-mail address.
      * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {

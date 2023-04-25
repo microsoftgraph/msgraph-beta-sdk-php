@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\IndustryData\Operations;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of long-running file validation operations and their statuses.
+ * Set of ephemeral operations that the system runs currently. Read-only.
 */
 class OperationsRequestBuilderGetQueryParameters 
 {

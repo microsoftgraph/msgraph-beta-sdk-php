@@ -2,23 +2,14 @@
 
 namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\WebAccounts;
 
+use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;
 
 /**
  * Configuration for the request such as headers, query parameters, and middleware options.
 */
-class WebAccountsRequestBuilderGetRequestConfiguration 
+class WebAccountsRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration 
 {
-    /**
-     * @var array<string, array<string>|string>|null $headers Request headers
-    */
-    public ?array $headers = null;
-    
-    /**
-     * @var array<RequestOption>|null $options Request options
-    */
-    public ?array $options = null;
-    
     /**
      * @var WebAccountsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
     */
@@ -31,8 +22,7 @@ class WebAccountsRequestBuilderGetRequestConfiguration
      * @param WebAccountsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
     */
     public function __construct(?array $headers = null, ?array $options = null, ?WebAccountsRequestBuilderGetQueryParameters $queryParameters = null) {
-        $this->headers = $headers;
-        $this->options = $options;
+        parent::__construct($headers ?? [], $options ?? []);
         $this->queryParameters = $queryParameters;
     }
 

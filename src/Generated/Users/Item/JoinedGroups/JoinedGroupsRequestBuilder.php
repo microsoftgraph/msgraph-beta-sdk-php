@@ -12,17 +12,15 @@ use Microsoft\Graph\Beta\Generated\Users\Item\JoinedGroups\EvaluateDynamicMember
 use Microsoft\Graph\Beta\Generated\Users\Item\JoinedGroups\GetByIds\GetByIdsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\JoinedGroups\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\JoinedGroups\ValidateProperties\ValidatePropertiesRequestBuilder;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the joinedGroups property of the microsoft.graph.user entity.
 */
-class JoinedGroupsRequestBuilder 
+class JoinedGroupsRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to call the delta method.
@@ -53,21 +51,6 @@ class JoinedGroupsRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
      * Provides operations to call the validateProperties method.
     */
     public function validateProperties(): ValidatePropertiesRequestBuilder {
@@ -80,8 +63,7 @@ class JoinedGroupsRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/users/{user%2Did}/joinedGroups{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/users/{user%2Did}/joinedGroups{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -119,15 +101,11 @@ class JoinedGroupsRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }

@@ -18,11 +18,6 @@ class UploadSecretPostRequestBody implements AdditionalDataHolder, BackedModel, 
     private BackingStore $backingStore;
     
     /**
-     * @var string|null $escapedUse The use property
-    */
-    public ?string $escapedUse = null;
-    
-    /**
      * Instantiates a new uploadSecretPostRequestBody and sets the default values.
     */
     public function __construct() {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\ResourceConnectio
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the resourceConnection objects and their properties.
+ * Service connections to external resources such as analytics workspaces.
 */
 class ResourceConnectionsRequestBuilderGetQueryParameters 
 {

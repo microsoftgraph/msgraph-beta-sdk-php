@@ -7,33 +7,16 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SuggestedEnrollmentLimit;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to call the getSuggestedEnrollmentLimit method.
 */
-class GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder 
+class GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder extends BaseRequestBuilder 
 {
-    /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
     /**
      * Instantiates a new GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
@@ -41,8 +24,7 @@ class GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder
      * @param string|null $enrollmentType Usage: enrollmentType='{enrollmentType}'
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $enrollmentType = null) {
-        $this->urlTemplate = '{+baseurl}/deviceManagement/getSuggestedEnrollmentLimit(enrollmentType=\'{enrollmentType}\')';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/deviceManagement/getSuggestedEnrollmentLimit(enrollmentType='{enrollmentType}')");
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['enrollmentType'] = $enrollmentType;
@@ -82,12 +64,8 @@ class GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }

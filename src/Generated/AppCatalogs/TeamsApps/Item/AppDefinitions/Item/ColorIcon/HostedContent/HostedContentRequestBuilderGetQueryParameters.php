@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\AppCatalogs\TeamsApps\Item\AppDefinitio
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the hosted content in an app's icon.
+ * The contents of the app icon if the icon is hosted within the Teams infrastructure.
 */
 class HostedContentRequestBuilderGetQueryParameters 
 {

@@ -6,20 +6,19 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Profile\Languages\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Profile\Languages\Item\LanguageProficiencyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\LanguageProficiency;
 use Microsoft\Graph\Beta\Generated\Models\LanguageProficiencyCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the languages property of the microsoft.graph.profile entity.
 */
-class LanguagesRequestBuilder 
+class LanguagesRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to count the resources in the collection.
@@ -29,28 +28,23 @@ class LanguagesRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
+     * Provides operations to manage the languages property of the microsoft.graph.profile entity.
+     * @param string $languageProficiencyId Unique identifier of the item
+     * @return LanguageProficiencyItemRequestBuilder
     */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
+    public function byLanguageProficiencyId(string $languageProficiencyId): LanguageProficiencyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['languageProficiency%2Did'] = $languageProficiencyId;
+        return new LanguageProficiencyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new LanguagesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/me/profile/languages{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/me/profile/languages{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -59,10 +53,9 @@ class LanguagesRequestBuilder
     }
 
     /**
-     * Retrieve a list of languageProficiency objects from a user's profile.
+     * Represents detailed information about languages that a user has added to their profile.
      * @param LanguagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/profile-list-languages?view=graph-rest-1.0 Find more info here
     */
     public function get(?LanguagesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -78,11 +71,10 @@ class LanguagesRequestBuilder
     }
 
     /**
-     * Use this API to create a new languageProficiency object in a user's profile.
+     * Create new navigation property to languages for me
      * @param LanguageProficiency $body The request body
      * @param LanguagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/profile-post-languages?view=graph-rest-1.0 Find more info here
     */
     public function post(LanguageProficiency $body, ?LanguagesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -98,7 +90,7 @@ class LanguagesRequestBuilder
     }
 
     /**
-     * Retrieve a list of languageProficiency objects from a user's profile.
+     * Represents detailed information about languages that a user has added to their profile.
      * @param LanguagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -109,21 +101,17 @@ class LanguagesRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
 
     /**
-     * Use this API to create a new languageProficiency object in a user's profile.
+     * Create new navigation property to languages for me
      * @param LanguageProficiency $body The request body
      * @param LanguagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -135,12 +123,8 @@ class LanguagesRequestBuilder
         $requestInfo->httpMethod = HttpMethod::POST;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

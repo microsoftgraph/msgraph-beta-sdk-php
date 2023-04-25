@@ -154,6 +154,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
             'questions' => fn(ParseNode $n) => $o->setQuestions($n->getCollectionOfObjectValues([AccessPackageQuestion::class, 'createFromDiscriminatorValue'])),
             'requestApprovalSettings' => fn(ParseNode $n) => $o->setRequestApprovalSettings($n->getObjectValue([ApprovalSettings::class, 'createFromDiscriminatorValue'])),
             'requestorSettings' => fn(ParseNode $n) => $o->setRequestorSettings($n->getObjectValue([RequestorSettings::class, 'createFromDiscriminatorValue'])),
+            'verifiableCredentialSettings' => fn(ParseNode $n) => $o->setVerifiableCredentialSettings($n->getObjectValue([VerifiableCredentialSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -198,6 +199,14 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
     }
 
     /**
+     * Gets the verifiableCredentialSettings property value. Settings for verifiable credentials set up through the Azure AD Verified ID service. These settings represent the verifiable credentials that a requestor of an access package in this policy can present to be assigned the access package.
+     * @return VerifiableCredentialSettings|null
+    */
+    public function getVerifiableCredentialSettings(): ?VerifiableCredentialSettings {
+        return $this->getBackingStore()->get('verifiableCredentialSettings');
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -221,6 +230,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('questions', $this->getQuestions());
         $writer->writeObjectValue('requestApprovalSettings', $this->getRequestApprovalSettings());
         $writer->writeObjectValue('requestorSettings', $this->getRequestorSettings());
+        $writer->writeObjectValue('verifiableCredentialSettings', $this->getVerifiableCredentialSettings());
     }
 
     /**
@@ -365,6 +375,14 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
     */
     public function setRequestorSettings(?RequestorSettings $value): void {
         $this->getBackingStore()->set('requestorSettings', $value);
+    }
+
+    /**
+     * Sets the verifiableCredentialSettings property value. Settings for verifiable credentials set up through the Azure AD Verified ID service. These settings represent the verifiable credentials that a requestor of an access package in this policy can present to be assigned the access package.
+     * @param VerifiableCredentialSettings|null $value Value to set for the verifiableCredentialSettings property.
+    */
+    public function setVerifiableCredentialSettings(?VerifiableCredentialSettings $value): void {
+        $this->getBackingStore()->set('verifiableCredentialSettings', $value);
     }
 
 }

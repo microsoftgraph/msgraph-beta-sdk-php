@@ -55,6 +55,7 @@ class Authentication extends Entity implements Parsable
             'passwordlessMicrosoftAuthenticatorMethods' => fn(ParseNode $n) => $o->setPasswordlessMicrosoftAuthenticatorMethods($n->getCollectionOfObjectValues([PasswordlessMicrosoftAuthenticatorAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'passwordMethods' => fn(ParseNode $n) => $o->setPasswordMethods($n->getCollectionOfObjectValues([PasswordAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'phoneMethods' => fn(ParseNode $n) => $o->setPhoneMethods($n->getCollectionOfObjectValues([PhoneAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
+            'signInPreferences' => fn(ParseNode $n) => $o->setSignInPreferences($n->getObjectValue([SignInPreferences::class, 'createFromDiscriminatorValue'])),
             'softwareOathMethods' => fn(ParseNode $n) => $o->setSoftwareOathMethods($n->getCollectionOfObjectValues([SoftwareOathAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'temporaryAccessPassMethods' => fn(ParseNode $n) => $o->setTemporaryAccessPassMethods($n->getCollectionOfObjectValues([TemporaryAccessPassAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'windowsHelloForBusinessMethods' => fn(ParseNode $n) => $o->setWindowsHelloForBusinessMethods($n->getCollectionOfObjectValues([WindowsHelloForBusinessAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
@@ -110,6 +111,14 @@ class Authentication extends Entity implements Parsable
     }
 
     /**
+     * Gets the signInPreferences property value. The settings and preferences for to the sign-in experience of a user.
+     * @return SignInPreferences|null
+    */
+    public function getSignInPreferences(): ?SignInPreferences {
+        return $this->getBackingStore()->get('signInPreferences');
+    }
+
+    /**
      * Gets the softwareOathMethods property value. The softwareOathMethods property
      * @return array<SoftwareOathAuthenticationMethod>|null
     */
@@ -147,6 +156,7 @@ class Authentication extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('passwordlessMicrosoftAuthenticatorMethods', $this->getPasswordlessMicrosoftAuthenticatorMethods());
         $writer->writeCollectionOfObjectValues('passwordMethods', $this->getPasswordMethods());
         $writer->writeCollectionOfObjectValues('phoneMethods', $this->getPhoneMethods());
+        $writer->writeObjectValue('signInPreferences', $this->getSignInPreferences());
         $writer->writeCollectionOfObjectValues('softwareOathMethods', $this->getSoftwareOathMethods());
         $writer->writeCollectionOfObjectValues('temporaryAccessPassMethods', $this->getTemporaryAccessPassMethods());
         $writer->writeCollectionOfObjectValues('windowsHelloForBusinessMethods', $this->getWindowsHelloForBusinessMethods());
@@ -214,6 +224,14 @@ class Authentication extends Entity implements Parsable
     */
     public function setPhoneMethods(?array $value): void {
         $this->getBackingStore()->set('phoneMethods', $value);
+    }
+
+    /**
+     * Sets the signInPreferences property value. The settings and preferences for to the sign-in experience of a user.
+     * @param SignInPreferences|null $value Value to set for the signInPreferences property.
+    */
+    public function setSignInPreferences(?SignInPreferences $value): void {
+        $this->getBackingStore()->set('signInPreferences', $value);
     }
 
     /**

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Cus
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the siteSource objects associated with an ediscoveryCustodian.
+ * Data source entity for SharePoint sites associated with the custodian.
 */
 class SiteSourcesRequestBuilderGetQueryParameters 
 {

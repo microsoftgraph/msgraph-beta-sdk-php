@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityProtection\RiskDetections;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties of a collection of **riskDetection** objects.
+ * Risk detection in Azure AD Identity Protection and the associated information about the detection.
 */
 class RiskDetectionsRequestBuilderGetQueryParameters 
 {

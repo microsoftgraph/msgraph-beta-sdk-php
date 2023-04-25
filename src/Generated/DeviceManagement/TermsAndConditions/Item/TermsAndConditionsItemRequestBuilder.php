@@ -6,24 +6,19 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\Item\AcceptanceStatuses\AcceptanceStatusesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\Item\AcceptanceStatuses\Item\TermsAndConditionsAcceptanceStatusItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\Item\Assignments\Item\TermsAndConditionsAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\Item\GroupAssignments\GroupAssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\Item\GroupAssignments\Item\TermsAndConditionsGroupAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TermsAndConditions;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the termsAndConditions property of the microsoft.graph.deviceManagement entity.
 */
-class TermsAndConditionsItemRequestBuilder 
+class TermsAndConditionsItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to manage the acceptanceStatuses property of the microsoft.graph.termsAndConditions entity.
@@ -47,50 +42,12 @@ class TermsAndConditionsItemRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
-     * Provides operations to manage the acceptanceStatuses property of the microsoft.graph.termsAndConditions entity.
-     * @param string $id Unique identifier of the item
-     * @return TermsAndConditionsAcceptanceStatusItemRequestBuilder
-    */
-    public function acceptanceStatusesById(string $id): TermsAndConditionsAcceptanceStatusItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['termsAndConditionsAcceptanceStatus%2Did'] = $id;
-        return new TermsAndConditionsAcceptanceStatusItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the assignments property of the microsoft.graph.termsAndConditions entity.
-     * @param string $id Unique identifier of the item
-     * @return TermsAndConditionsAssignmentItemRequestBuilder
-    */
-    public function assignmentsById(string $id): TermsAndConditionsAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['termsAndConditionsAssignment%2Did'] = $id;
-        return new TermsAndConditionsAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new TermsAndConditionsItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/deviceManagement/termsAndConditions/{termsAndConditions%2Did}{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/deviceManagement/termsAndConditions/{termsAndConditions%2Did}{?%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -135,17 +92,6 @@ class TermsAndConditionsItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the groupAssignments property of the microsoft.graph.termsAndConditions entity.
-     * @param string $id Unique identifier of the item
-     * @return TermsAndConditionsGroupAssignmentItemRequestBuilder
-    */
-    public function groupAssignmentsById(string $id): TermsAndConditionsGroupAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['termsAndConditionsGroupAssignment%2Did'] = $id;
-        return new TermsAndConditionsGroupAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Update the navigation property termsAndConditions in deviceManagement
      * @param TermsAndConditions $body The request body
      * @param TermsAndConditionsItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -175,12 +121,8 @@ class TermsAndConditionsItemRequestBuilder
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -197,15 +139,11 @@ class TermsAndConditionsItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -223,12 +161,8 @@ class TermsAndConditionsItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::PATCH;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

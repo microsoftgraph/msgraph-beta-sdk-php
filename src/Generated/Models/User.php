@@ -11,11 +11,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class User extends DirectoryObject implements Parsable 
 {
     /**
-     * @var UserPrint|null $escapedPrint The print property
-    */
-    public ?UserPrint $escapedPrint = null;
-    
-    /**
      * Instantiates a new user and sets the default values.
     */
     public function __construct() {
@@ -582,6 +577,7 @@ class User extends DirectoryObject implements Parsable
             'scopedRoleMemberOf' => fn(ParseNode $n) => $o->setScopedRoleMemberOf($n->getCollectionOfObjectValues([ScopedRoleMembership::class, 'createFromDiscriminatorValue'])),
             'security' => fn(ParseNode $n) => $o->setSecurity($n->getObjectValue([Security::class, 'createFromDiscriminatorValue'])),
             'securityIdentifier' => fn(ParseNode $n) => $o->setSecurityIdentifier($n->getStringValue()),
+            'serviceProvisioningErrors' => fn(ParseNode $n) => $o->setServiceProvisioningErrors($n->getCollectionOfObjectValues([ServiceProvisioningError::class, 'createFromDiscriminatorValue'])),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([UserSettings::class, 'createFromDiscriminatorValue'])),
             'showInAddressList' => fn(ParseNode $n) => $o->setShowInAddressList($n->getBooleanValue()),
             'signInActivity' => fn(ParseNode $n) => $o->setSignInActivity($n->getObjectValue([SignInActivity::class, 'createFromDiscriminatorValue'])),
@@ -1203,6 +1199,14 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the serviceProvisioningErrors property value. The serviceProvisioningErrors property
+     * @return array<ServiceProvisioningError>|null
+    */
+    public function getServiceProvisioningErrors(): ?array {
+        return $this->getBackingStore()->get('serviceProvisioningErrors');
+    }
+
+    /**
      * Gets the settings property value. The settings property
      * @return UserSettings|null
     */
@@ -1219,7 +1223,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the signInActivity property value. Get the last signed-in date and request ID of the sign-in for a given user. Read-only.Returned only on $select. Supports $filter (eq, ne, not, ge, le) but not with any other filterable properties. Note:  Details for this property require an Azure AD Premium P1/P2 license and the AuditLog.Read.All permission.When you specify $select=signInActivity or $filter=signInActivity while listing users, the maximum page size is 120 users. Requests with $top set higher than 120 will fail.This property is not returned for a user who has never signed in or last signed in before April 2020.
+     * Gets the signInActivity property value. Get the last signed-in date and request ID of the sign-in for a given user. Read-only.Returned only on $select. Supports $filter (eq, ne, not, ge, le) but not with any other filterable properties. Note:  Details for this property require an Azure AD Premium P1/P2 license and the AuditLog.Read.All permission.When you specify $select=signInActivity or $filter=signInActivity while listing users, the maximum page size is 120 users. Requests with $top set higher than 120 will return pages with up to 120 users.This property is not returned for a user who has never signed in or last signed in before April 2020.
      * @return SignInActivity|null
     */
     public function getSignInActivity(): ?SignInActivity {
@@ -1471,6 +1475,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('scopedRoleMemberOf', $this->getScopedRoleMemberOf());
         $writer->writeObjectValue('security', $this->getSecurity());
         $writer->writeStringValue('securityIdentifier', $this->getSecurityIdentifier());
+        $writer->writeCollectionOfObjectValues('serviceProvisioningErrors', $this->getServiceProvisioningErrors());
         $writer->writeObjectValue('settings', $this->getSettings());
         $writer->writeBooleanValue('showInAddressList', $this->getShowInAddressList());
         $writer->writeObjectValue('signInActivity', $this->getSignInActivity());
@@ -2507,6 +2512,14 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
+     * Sets the serviceProvisioningErrors property value. The serviceProvisioningErrors property
+     * @param array<ServiceProvisioningError>|null $value Value to set for the serviceProvisioningErrors property.
+    */
+    public function setServiceProvisioningErrors(?array $value): void {
+        $this->getBackingStore()->set('serviceProvisioningErrors', $value);
+    }
+
+    /**
      * Sets the settings property value. The settings property
      * @param UserSettings|null $value Value to set for the settings property.
     */
@@ -2523,7 +2536,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the signInActivity property value. Get the last signed-in date and request ID of the sign-in for a given user. Read-only.Returned only on $select. Supports $filter (eq, ne, not, ge, le) but not with any other filterable properties. Note:  Details for this property require an Azure AD Premium P1/P2 license and the AuditLog.Read.All permission.When you specify $select=signInActivity or $filter=signInActivity while listing users, the maximum page size is 120 users. Requests with $top set higher than 120 will fail.This property is not returned for a user who has never signed in or last signed in before April 2020.
+     * Sets the signInActivity property value. Get the last signed-in date and request ID of the sign-in for a given user. Read-only.Returned only on $select. Supports $filter (eq, ne, not, ge, le) but not with any other filterable properties. Note:  Details for this property require an Azure AD Premium P1/P2 license and the AuditLog.Read.All permission.When you specify $select=signInActivity or $filter=signInActivity while listing users, the maximum page size is 120 users. Requests with $top set higher than 120 will return pages with up to 120 users.This property is not returned for a user who has never signed in or last signed in before April 2020.
      * @param SignInActivity|null $value Value to set for the signInActivity property.
     */
     public function setSignInActivity(?SignInActivity $value): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\InboundSharedUserProfiles;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties of all inboundSharedUserProfiles.
+ * A collection of external Azure AD users whose profile data has been shared with the Azure AD tenant. Nullable.
 */
 class InboundSharedUserProfilesRequestBuilderGetQueryParameters 
 {

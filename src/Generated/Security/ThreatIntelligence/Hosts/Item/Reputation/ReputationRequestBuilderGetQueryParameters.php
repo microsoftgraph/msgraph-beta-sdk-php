@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the properties and relationships of a hostReputation object.
+ * Represents a calculated reputation of this host.
 */
 class ReputationRequestBuilderGetQueryParameters 
 {

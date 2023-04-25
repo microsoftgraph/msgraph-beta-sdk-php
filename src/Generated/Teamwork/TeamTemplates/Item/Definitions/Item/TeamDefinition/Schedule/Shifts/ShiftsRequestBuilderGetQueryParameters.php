@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the list of shift instances in a schedule.
+ * The shifts in the schedule.
 */
 class ShiftsRequestBuilderGetQueryParameters 
 {

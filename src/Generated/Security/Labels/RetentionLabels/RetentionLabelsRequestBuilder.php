@@ -9,17 +9,16 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\RetentionLabel;
 use Microsoft\Graph\Beta\Generated\Models\Security\RetentionLabelCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\Item\RetentionLabelItemRequestBuilder;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the retentionLabels property of the microsoft.graph.security.labelsRoot entity.
 */
-class RetentionLabelsRequestBuilder 
+class RetentionLabelsRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to count the resources in the collection.
@@ -29,28 +28,23 @@ class RetentionLabelsRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
+     * Provides operations to manage the retentionLabels property of the microsoft.graph.security.labelsRoot entity.
+     * @param string $retentionLabelId Unique identifier of the item
+     * @return RetentionLabelItemRequestBuilder
     */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
+    public function byRetentionLabelId(string $retentionLabelId): RetentionLabelItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['retentionLabel%2Did'] = $retentionLabelId;
+        return new RetentionLabelItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new RetentionLabelsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/security/labels/retentionLabels{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/security/labels/retentionLabels{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -59,10 +53,9 @@ class RetentionLabelsRequestBuilder
     }
 
     /**
-     * Get a list of the retentionLabel objects and their properties.
+     * Get retentionLabels from security
      * @param RetentionLabelsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/security-retentionlabel-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?RetentionLabelsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -78,11 +71,10 @@ class RetentionLabelsRequestBuilder
     }
 
     /**
-     * Create a new retentionLabel object. To create a disposition review stage, include the **actionAfterRetentionPeriod** property in the request body with one of the possible values specified.
+     * Create new navigation property to retentionLabels for security
      * @param RetentionLabel $body The request body
      * @param RetentionLabelsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/security-retentionlabel-post?view=graph-rest-1.0 Find more info here
     */
     public function post(RetentionLabel $body, ?RetentionLabelsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -98,7 +90,7 @@ class RetentionLabelsRequestBuilder
     }
 
     /**
-     * Get a list of the retentionLabel objects and their properties.
+     * Get retentionLabels from security
      * @param RetentionLabelsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -109,21 +101,17 @@ class RetentionLabelsRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
 
     /**
-     * Create a new retentionLabel object. To create a disposition review stage, include the **actionAfterRetentionPeriod** property in the request body with one of the possible values specified.
+     * Create new navigation property to retentionLabels for security
      * @param RetentionLabel $body The request body
      * @param RetentionLabelsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -135,12 +123,8 @@ class RetentionLabelsRequestBuilder
         $requestInfo->httpMethod = HttpMethod::POST;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

@@ -6,20 +6,19 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\External\IndustryData\InboundFlows\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\External\IndustryData\InboundFlows\Item\InboundFlowItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IndustryData\InboundFlow;
 use Microsoft\Graph\Beta\Generated\Models\IndustryData\InboundFlowCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the inboundFlows property of the microsoft.graph.industryData.industryDataRoot entity.
 */
-class InboundFlowsRequestBuilder 
+class InboundFlowsRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to count the resources in the collection.
@@ -29,28 +28,23 @@ class InboundFlowsRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
+     * Provides operations to manage the inboundFlows property of the microsoft.graph.industryData.industryDataRoot entity.
+     * @param string $inboundFlowId Unique identifier of the item
+     * @return InboundFlowItemRequestBuilder
     */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
+    public function byInboundFlowId(string $inboundFlowId): InboundFlowItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['inboundFlow%2Did'] = $inboundFlowId;
+        return new InboundFlowItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new InboundFlowsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/external/industryData/inboundFlows{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/external/industryData/inboundFlows{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -59,10 +53,9 @@ class InboundFlowsRequestBuilder
     }
 
     /**
-     * Get a list of the inboundFlow objects and their properties.
+     * Set of data import flow activities to bring data into the canonical store via a connector.
      * @param InboundFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/industrydata-inboundflow-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?InboundFlowsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -78,11 +71,10 @@ class InboundFlowsRequestBuilder
     }
 
     /**
-     * Create a new inboundFlow object. The following prerequisite resources are required when you create an **inboundFlow**:
+     * Create new navigation property to inboundFlows for external
      * @param InboundFlow $body The request body
      * @param InboundFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/industrydata-inboundflow-post?view=graph-rest-1.0 Find more info here
     */
     public function post(InboundFlow $body, ?InboundFlowsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -98,7 +90,7 @@ class InboundFlowsRequestBuilder
     }
 
     /**
-     * Get a list of the inboundFlow objects and their properties.
+     * Set of data import flow activities to bring data into the canonical store via a connector.
      * @param InboundFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -109,21 +101,17 @@ class InboundFlowsRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
 
     /**
-     * Create a new inboundFlow object. The following prerequisite resources are required when you create an **inboundFlow**:
+     * Create new navigation property to inboundFlows for external
      * @param InboundFlow $body The request body
      * @param InboundFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -135,12 +123,8 @@ class InboundFlowsRequestBuilder
         $requestInfo->httpMethod = HttpMethod::POST;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

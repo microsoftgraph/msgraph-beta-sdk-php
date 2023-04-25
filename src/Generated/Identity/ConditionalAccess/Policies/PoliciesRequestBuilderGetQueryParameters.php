@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Policies;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of conditionalAccessPolicy objects.
+ * Read-only. Nullable. Returns a collection of the specified Conditional Access policies.
 */
 class PoliciesRequestBuilderGetQueryParameters 
 {

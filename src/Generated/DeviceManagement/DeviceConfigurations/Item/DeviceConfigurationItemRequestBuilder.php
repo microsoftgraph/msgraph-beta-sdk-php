@@ -8,32 +8,25 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\AssignedAccessMultiModeProfiles\AssignedAccessMultiModeProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\Assignments\Item\DeviceConfigurationAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\DeviceSettingStateSummaries\DeviceSettingStateSummariesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\DeviceSettingStateSummaries\Item\SettingStateDeviceSummaryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\DeviceStatuses\DeviceStatusesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\DeviceStatuses\Item\DeviceConfigurationDeviceStatusItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\DeviceStatusOverview\DeviceStatusOverviewRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\GetOmaSettingPlainTextValueWithSecretReferenceValueId\GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\GroupAssignments\GroupAssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\GroupAssignments\Item\DeviceConfigurationGroupAssignmentItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\UserStatuses\Item\DeviceConfigurationUserStatusItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\UserStatuses\UserStatusesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\UserStatusOverview\UserStatusOverviewRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\WindowsPrivacyAccessControls\WindowsPrivacyAccessControlsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceConfiguration;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the deviceConfigurations property of the microsoft.graph.deviceManagement entity.
 */
-class DeviceConfigurationItemRequestBuilder 
+class DeviceConfigurationItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to call the assign method.
@@ -85,21 +78,6 @@ class DeviceConfigurationItemRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
      * Provides operations to manage the userStatuses property of the microsoft.graph.deviceConfiguration entity.
     */
     public function userStatuses(): UserStatusesRequestBuilder {
@@ -121,24 +99,12 @@ class DeviceConfigurationItemRequestBuilder
     }
     
     /**
-     * Provides operations to manage the assignments property of the microsoft.graph.deviceConfiguration entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceConfigurationAssignmentItemRequestBuilder
-    */
-    public function assignmentsById(string $id): DeviceConfigurationAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceConfigurationAssignment%2Did'] = $id;
-        return new DeviceConfigurationAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new DeviceConfigurationItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}{?%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -162,28 +128,6 @@ class DeviceConfigurationItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceConfiguration entity.
-     * @param string $id Unique identifier of the item
-     * @return SettingStateDeviceSummaryItemRequestBuilder
-    */
-    public function deviceSettingStateSummariesById(string $id): SettingStateDeviceSummaryItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['settingStateDeviceSummary%2Did'] = $id;
-        return new SettingStateDeviceSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the deviceStatuses property of the microsoft.graph.deviceConfiguration entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceConfigurationDeviceStatusItemRequestBuilder
-    */
-    public function deviceStatusesById(string $id): DeviceConfigurationDeviceStatusItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceConfigurationDeviceStatus%2Did'] = $id;
-        return new DeviceConfigurationDeviceStatusItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -211,17 +155,6 @@ class DeviceConfigurationItemRequestBuilder
     */
     public function getOmaSettingPlainTextValueWithSecretReferenceValueId(string $secretReferenceValueId): GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder {
         return new GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder($this->pathParameters, $this->requestAdapter, $secretReferenceValueId);
-    }
-
-    /**
-     * Provides operations to manage the groupAssignments property of the microsoft.graph.deviceConfiguration entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceConfigurationGroupAssignmentItemRequestBuilder
-    */
-    public function groupAssignmentsById(string $id): DeviceConfigurationGroupAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceConfigurationGroupAssignment%2Did'] = $id;
-        return new DeviceConfigurationGroupAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -254,12 +187,8 @@ class DeviceConfigurationItemRequestBuilder
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -276,15 +205,11 @@ class DeviceConfigurationItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -302,26 +227,11 @@ class DeviceConfigurationItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::PATCH;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the userStatuses property of the microsoft.graph.deviceConfiguration entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceConfigurationUserStatusItemRequestBuilder
-    */
-    public function userStatusesById(string $id): DeviceConfigurationUserStatusItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceConfigurationUserStatus%2Did'] = $id;
-        return new DeviceConfigurationUserStatusItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

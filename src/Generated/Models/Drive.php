@@ -9,12 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Drive extends BaseItem implements Parsable 
 {
     /**
-     * @var EscapedList|null $escapedList For drives in SharePoint, the underlying document library list. Read-only. Nullable.
-    */
-    public ?EscapedList $escapedList = null;
-    
-    /**
-     * Instantiates a new Drive and sets the default values.
+     * Instantiates a new drive and sets the default values.
     */
     public function __construct() {
         parent::__construct();

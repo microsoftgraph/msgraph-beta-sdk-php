@@ -9,17 +9,16 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\ProfileCardProperty;
 use Microsoft\Graph\Beta\Generated\Models\ProfileCardPropertyCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\ProfileCardProperties\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\ProfileCardProperties\Item\ProfileCardPropertyItemRequestBuilder;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the profileCardProperties property of the microsoft.graph.organizationSettings entity.
 */
-class ProfileCardPropertiesRequestBuilder 
+class ProfileCardPropertiesRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to count the resources in the collection.
@@ -29,28 +28,23 @@ class ProfileCardPropertiesRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
+     * Provides operations to manage the profileCardProperties property of the microsoft.graph.organizationSettings entity.
+     * @param string $profileCardPropertyId Unique identifier of the item
+     * @return ProfileCardPropertyItemRequestBuilder
     */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
+    public function byProfileCardPropertyId(string $profileCardPropertyId): ProfileCardPropertyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['profileCardProperty%2Did'] = $profileCardPropertyId;
+        return new ProfileCardPropertyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new ProfileCardPropertiesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/organization/{organization%2Did}/settings/profileCardProperties{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/organization/{organization%2Did}/settings/profileCardProperties{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -59,10 +53,9 @@ class ProfileCardPropertiesRequestBuilder
     }
 
     /**
-     * Get a collection of profileCardProperty resources of an organization. Each resource is identified by its **directoryPropertyName** property.
+     * Contains a collection of the properties an administrator has defined as visible on the Microsoft 365 profile card. Get organization settings returns the properties configured for profile cards for the organization.
      * @param ProfileCardPropertiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/organizationsettings-list-profilecardproperties?view=graph-rest-1.0 Find more info here
     */
     public function get(?ProfileCardPropertiesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -78,11 +71,10 @@ class ProfileCardPropertiesRequestBuilder
     }
 
     /**
-     * Create a new profileCardProperty for an organization. The new property is identified by its **directoryPropertyName** property. For more information on adding properties to the profile card for an organization, see customize the profile card.
+     * Create new navigation property to profileCardProperties for organization
      * @param ProfileCardProperty $body The request body
      * @param ProfileCardPropertiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/organizationsettings-post-profilecardproperties?view=graph-rest-1.0 Find more info here
     */
     public function post(ProfileCardProperty $body, ?ProfileCardPropertiesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -98,7 +90,7 @@ class ProfileCardPropertiesRequestBuilder
     }
 
     /**
-     * Get a collection of profileCardProperty resources of an organization. Each resource is identified by its **directoryPropertyName** property.
+     * Contains a collection of the properties an administrator has defined as visible on the Microsoft 365 profile card. Get organization settings returns the properties configured for profile cards for the organization.
      * @param ProfileCardPropertiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -109,21 +101,17 @@ class ProfileCardPropertiesRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
 
     /**
-     * Create a new profileCardProperty for an organization. The new property is identified by its **directoryPropertyName** property. For more information on adding properties to the profile card for an organization, see customize the profile card.
+     * Create new navigation property to profileCardProperties for organization
      * @param ProfileCardProperty $body The request body
      * @param ProfileCardPropertiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -135,12 +123,8 @@ class ProfileCardPropertiesRequestBuilder
         $requestInfo->httpMethod = HttpMethod::POST;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

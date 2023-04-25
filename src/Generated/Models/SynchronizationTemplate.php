@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SynchronizationTemplate extends Entity implements Parsable 
 {
     /**
-     * @var bool|null $escapedDefault true if this template is recommended to be the default for the application.
-    */
-    public ?bool $escapedDefault = null;
-    
-    /**
      * Instantiates a new synchronizationTemplate and sets the default values.
     */
     public function __construct() {

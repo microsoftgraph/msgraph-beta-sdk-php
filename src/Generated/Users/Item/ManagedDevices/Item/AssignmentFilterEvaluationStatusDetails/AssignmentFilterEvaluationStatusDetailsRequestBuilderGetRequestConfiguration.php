@@ -2,23 +2,14 @@
 
 namespace Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\AssignmentFilterEvaluationStatusDetails;
 
+use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;
 
 /**
  * Configuration for the request such as headers, query parameters, and middleware options.
 */
-class AssignmentFilterEvaluationStatusDetailsRequestBuilderGetRequestConfiguration 
+class AssignmentFilterEvaluationStatusDetailsRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration 
 {
-    /**
-     * @var array<string, array<string>|string>|null $headers Request headers
-    */
-    public ?array $headers = null;
-    
-    /**
-     * @var array<RequestOption>|null $options Request options
-    */
-    public ?array $options = null;
-    
     /**
      * @var AssignmentFilterEvaluationStatusDetailsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
     */
@@ -31,8 +22,7 @@ class AssignmentFilterEvaluationStatusDetailsRequestBuilderGetRequestConfigurati
      * @param AssignmentFilterEvaluationStatusDetailsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
     */
     public function __construct(?array $headers = null, ?array $options = null, ?AssignmentFilterEvaluationStatusDetailsRequestBuilderGetQueryParameters $queryParameters = null) {
-        $this->headers = $headers;
-        $this->options = $options;
+        parent::__construct($headers ?? [], $options ?? []);
         $this->queryParameters = $queryParameters;
     }
 

@@ -951,6 +951,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.itemPatent': return new ItemPatent();
                 case '#microsoft.graph.itemPhone': return new ItemPhone();
                 case '#microsoft.graph.itemPublication': return new ItemPublication();
+                case '#microsoft.graph.itemRetentionLabel': return new ItemRetentionLabel();
                 case '#microsoft.graph.jobResponseBase': return new JobResponseBase();
                 case '#microsoft.graph.journal': return new Journal();
                 case '#microsoft.graph.journalLine': return new JournalLine();

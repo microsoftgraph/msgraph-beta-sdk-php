@@ -28,7 +28,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     }
 
     /**
-     * Gets the categoryDescription property value. Description of the category header
+     * Gets the categoryDescription property value. Description of the category header in policy summary.
      * @return string|null
     */
     public function getCategoryDescription(): ?string {
@@ -44,7 +44,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. Description of the item
+     * Gets the description property value. Description of the category. For example: Display
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -52,7 +52,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. Display name of the item
+     * Gets the displayName property value. Name of the category. For example: Device Lock
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -81,7 +81,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     }
 
     /**
-     * Gets the helpText property value. Help text of the item
+     * Gets the helpText property value. Help text of the category. Give more details of the category.
      * @return string|null
     */
     public function getHelpText(): ?string {
@@ -97,7 +97,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     }
 
     /**
-     * Gets the parentCategoryId property value. Parent id of the category.
+     * Gets the parentCategoryId property value. Direct parent id of the category. If the category is the root, the parent id is same as its id.
      * @return string|null
     */
     public function getParentCategoryId(): ?string {
@@ -156,7 +156,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     }
 
     /**
-     * Sets the categoryDescription property value. Description of the category header
+     * Sets the categoryDescription property value. Description of the category header in policy summary.
      * @param string|null $value Value to set for the categoryDescription property.
     */
     public function setCategoryDescription(?string $value): void {
@@ -172,7 +172,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. Description of the item
+     * Sets the description property value. Description of the category. For example: Display
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -180,7 +180,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. Display name of the item
+     * Sets the displayName property value. Name of the category. For example: Device Lock
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -188,7 +188,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     }
 
     /**
-     * Sets the helpText property value. Help text of the item
+     * Sets the helpText property value. Help text of the category. Give more details of the category.
      * @param string|null $value Value to set for the helpText property.
     */
     public function setHelpText(?string $value): void {
@@ -204,7 +204,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     }
 
     /**
-     * Sets the parentCategoryId property value. Parent id of the category.
+     * Sets the parentCategoryId property value. Direct parent id of the category. If the category is the root, the parent id is same as its id.
      * @param string|null $value Value to set for the parentCategoryId property.
     */
     public function setParentCategoryId(?string $value): void {

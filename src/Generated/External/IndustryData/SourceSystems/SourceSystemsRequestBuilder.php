@@ -6,20 +6,19 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\External\IndustryData\SourceSystems\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\External\IndustryData\SourceSystems\Item\SourceSystemDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IndustryData\SourceSystemDefinition;
 use Microsoft\Graph\Beta\Generated\Models\IndustryData\SourceSystemDefinitionCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the sourceSystems property of the microsoft.graph.industryData.industryDataRoot entity.
 */
-class SourceSystemsRequestBuilder 
+class SourceSystemsRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to count the resources in the collection.
@@ -29,28 +28,23 @@ class SourceSystemsRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
+     * Provides operations to manage the sourceSystems property of the microsoft.graph.industryData.industryDataRoot entity.
+     * @param string $sourceSystemDefinitionId Unique identifier of the item
+     * @return SourceSystemDefinitionItemRequestBuilder
     */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
+    public function bySourceSystemDefinitionId(string $sourceSystemDefinitionId): SourceSystemDefinitionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['sourceSystemDefinition%2Did'] = $sourceSystemDefinitionId;
+        return new SourceSystemDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SourceSystemsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/external/industryData/sourceSystems{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/external/industryData/sourceSystems{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -59,10 +53,9 @@ class SourceSystemsRequestBuilder
     }
 
     /**
-     * Get a list of the sourceSystemDefinition objects and their properties.
+     * Set of source definitions that represents real-world external systems.
      * @param SourceSystemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/industrydata-sourcesystemdefinition-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?SourceSystemsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -78,11 +71,10 @@ class SourceSystemsRequestBuilder
     }
 
     /**
-     * Create a new sourceSystemDefinition object.
+     * Create new navigation property to sourceSystems for external
      * @param SourceSystemDefinition $body The request body
      * @param SourceSystemsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/industrydata-sourcesystemdefinition-post?view=graph-rest-1.0 Find more info here
     */
     public function post(SourceSystemDefinition $body, ?SourceSystemsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -98,7 +90,7 @@ class SourceSystemsRequestBuilder
     }
 
     /**
-     * Get a list of the sourceSystemDefinition objects and their properties.
+     * Set of source definitions that represents real-world external systems.
      * @param SourceSystemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -109,21 +101,17 @@ class SourceSystemsRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
 
     /**
-     * Create a new sourceSystemDefinition object.
+     * Create new navigation property to sourceSystems for external
      * @param SourceSystemDefinition $body The request body
      * @param SourceSystemsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -135,12 +123,8 @@ class SourceSystemsRequestBuilder
         $requestInfo->httpMethod = HttpMethod::POST;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

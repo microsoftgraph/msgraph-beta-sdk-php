@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Planner\FavoritePlans;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of plannerPlans that are marked as favorite by a user. You can mark a plan as favorite by updating the plannerUser resource.
+ * Read-only. Nullable. Returns the plannerPlans that the user marked as favorites.
 */
 class FavoritePlansRequestBuilderGetQueryParameters 
 {

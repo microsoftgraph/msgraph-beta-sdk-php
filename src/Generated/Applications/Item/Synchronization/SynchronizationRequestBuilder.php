@@ -6,25 +6,21 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\AcquireAccessToken\AcquireAccessTokenRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\SynchronizationJobItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\JobsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Ping\PingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Secrets\SecretsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Templates\Item\SynchronizationTemplateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Templates\TemplatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Synchronization;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the synchronization property of the microsoft.graph.application entity.
 */
-class SynchronizationRequestBuilder 
+class SynchronizationRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to call the acquireAccessToken method.
@@ -41,21 +37,11 @@ class SynchronizationRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
      * Provides operations to call the Ping method.
     */
     public function ping(): PingRequestBuilder {
         return new PingRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
     
     /**
      * The secrets property
@@ -72,18 +58,12 @@ class SynchronizationRequestBuilder
     }
     
     /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
      * Instantiates a new SynchronizationRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/applications/{application%2Did}/synchronization{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/applications/{application%2Did}/synchronization{?%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -128,17 +108,6 @@ class SynchronizationRequestBuilder
     }
 
     /**
-     * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
-     * @param string $id Unique identifier of the item
-     * @return SynchronizationJobItemRequestBuilder
-    */
-    public function jobsById(string $id): SynchronizationJobItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['synchronizationJob%2Did'] = $id;
-        return new SynchronizationJobItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Update the navigation property synchronization in applications
      * @param Synchronization $body The request body
      * @param SynchronizationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -158,17 +127,6 @@ class SynchronizationRequestBuilder
     }
 
     /**
-     * Provides operations to manage the templates property of the microsoft.graph.synchronization entity.
-     * @param string $id Unique identifier of the item
-     * @return SynchronizationTemplateItemRequestBuilder
-    */
-    public function templatesById(string $id): SynchronizationTemplateItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['synchronizationTemplate%2Did'] = $id;
-        return new SynchronizationTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Delete navigation property synchronization for applications
      * @param SynchronizationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -179,12 +137,8 @@ class SynchronizationRequestBuilder
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -201,15 +155,11 @@ class SynchronizationRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -227,12 +177,8 @@ class SynchronizationRequestBuilder
         $requestInfo->httpMethod = HttpMethod::PATCH;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

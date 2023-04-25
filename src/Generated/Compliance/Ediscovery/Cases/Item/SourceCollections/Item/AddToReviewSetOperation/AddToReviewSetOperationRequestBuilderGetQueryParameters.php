@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Source
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the last addToReviewSetOperation object associated with a source collection. 
+ * Adds the results of the sourceCollection to the specified reviewSet.
 */
 class AddToReviewSetOperationRequestBuilderGetQueryParameters 
 {

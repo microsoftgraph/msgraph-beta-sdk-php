@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Security\InformationProtecti
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of an informationProtectionPolicySetting object. The settings exposed by this API should be used in applications to populate the **moreInfoUrl** property for Microsoft Purview Information Protection help, and indicate whether labeling is mandatory for the user and whether justification must be provided on downgrade.
+ * Read the Microsoft Purview Information Protection policy settings for the user or organization.
 */
 class LabelPolicySettingsRequestBuilderGetQueryParameters 
 {

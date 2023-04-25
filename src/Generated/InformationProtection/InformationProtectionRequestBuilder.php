@@ -7,30 +7,25 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\InformationProtection\Bitlocker\BitlockerRequestBuilder;
 use Microsoft\Graph\Beta\Generated\InformationProtection\DataLossPreventionPolicies\DataLossPreventionPoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\InformationProtection\DataLossPreventionPolicies\Item\DataLossPreventionPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\InformationProtection\DecryptBuffer\DecryptBufferRequestBuilder;
 use Microsoft\Graph\Beta\Generated\InformationProtection\EncryptBuffer\EncryptBufferRequestBuilder;
 use Microsoft\Graph\Beta\Generated\InformationProtection\Policy\PolicyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\InformationProtection\SensitivityLabels\Item\SensitivityLabelItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\InformationProtection\SensitivityLabels\SensitivityLabelsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\InformationProtection\SensitivityPolicySettings\SensitivityPolicySettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\InformationProtection\SignDigest\SignDigestRequestBuilder;
-use Microsoft\Graph\Beta\Generated\InformationProtection\ThreatAssessmentRequests\Item\ThreatAssessmentRequestItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\InformationProtection\ThreatAssessmentRequests\ThreatAssessmentRequestsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\InformationProtection\VerifySignature\VerifySignatureRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\InformationProtection;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the informationProtection singleton.
 */
-class InformationProtectionRequestBuilder 
+class InformationProtectionRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to manage the bitlocker property of the microsoft.graph.informationProtection entity.
@@ -61,21 +56,11 @@ class InformationProtectionRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
      * Provides operations to manage the policy property of the microsoft.graph.informationProtection entity.
     */
     public function policy(): PolicyRequestBuilder {
         return new PolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
     
     /**
      * Provides operations to manage the sensitivityLabels property of the microsoft.graph.informationProtection entity.
@@ -106,11 +91,6 @@ class InformationProtectionRequestBuilder
     }
     
     /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
      * Provides operations to call the verifySignature method.
     */
     public function verifySignature(): VerifySignatureRequestBuilder {
@@ -123,24 +103,12 @@ class InformationProtectionRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/informationProtection{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/informationProtection{?%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
             $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
         }
-    }
-
-    /**
-     * Provides operations to manage the dataLossPreventionPolicies property of the microsoft.graph.informationProtection entity.
-     * @param string $id Unique identifier of the item
-     * @return DataLossPreventionPolicyItemRequestBuilder
-    */
-    public function dataLossPreventionPoliciesById(string $id): DataLossPreventionPolicyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['dataLossPreventionPolicy%2Did'] = $id;
-        return new DataLossPreventionPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -181,28 +149,6 @@ class InformationProtectionRequestBuilder
     }
 
     /**
-     * Provides operations to manage the sensitivityLabels property of the microsoft.graph.informationProtection entity.
-     * @param string $id Unique identifier of the item
-     * @return SensitivityLabelItemRequestBuilder
-    */
-    public function sensitivityLabelsById(string $id): SensitivityLabelItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['sensitivityLabel%2Did'] = $id;
-        return new SensitivityLabelItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity.
-     * @param string $id Unique identifier of the item
-     * @return ThreatAssessmentRequestItemRequestBuilder
-    */
-    public function threatAssessmentRequestsById(string $id): ThreatAssessmentRequestItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['threatAssessmentRequest%2Did'] = $id;
-        return new ThreatAssessmentRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Get informationProtection
      * @param InformationProtectionRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -214,15 +160,11 @@ class InformationProtectionRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -240,12 +182,8 @@ class InformationProtectionRequestBuilder
         $requestInfo->httpMethod = HttpMethod::PATCH;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

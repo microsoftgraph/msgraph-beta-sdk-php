@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Me\LicenseDetails;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of licenseDetails objects for enterprise users. This API returns details for licenses that are directly assigned and those transitively assigned through memberships in licensed groups.
+ * Get licenseDetails from me
 */
 class LicenseDetailsRequestBuilderGetQueryParameters 
 {

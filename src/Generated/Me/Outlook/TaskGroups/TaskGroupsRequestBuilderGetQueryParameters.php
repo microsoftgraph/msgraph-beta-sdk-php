@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Me\Outlook\TaskGroups;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get all the Outlook task groups in the user's mailbox. The response always includes the default task group `My Tasks`, and any other task groups that have been created in the mailbox.
+ * Get taskGroups from me
 */
 class TaskGroupsRequestBuilderGetQueryParameters 
 {

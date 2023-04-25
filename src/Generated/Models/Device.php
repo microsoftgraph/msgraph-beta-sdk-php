@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Device extends DirectoryObject implements Parsable 
 {
     /**
-     * Instantiates a new device and sets the default values.
+     * Instantiates a new Device and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -360,7 +360,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the registeredOwners property value. The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Currently, there can be only one owner. Read-only. Nullable. Supports $expand.
+     * Gets the registeredOwners property value. The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Read-only. Nullable. Supports $expand.
      * @return array<DirectoryObject>|null
     */
     public function getRegisteredOwners(): ?array {
@@ -755,7 +755,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the registeredOwners property value. The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Currently, there can be only one owner. Read-only. Nullable. Supports $expand.
+     * Sets the registeredOwners property value. The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Read-only. Nullable. Supports $expand.
      * @param array<DirectoryObject>|null $value Value to set for the registeredOwners property.
     */
     public function setRegisteredOwners(?array $value): void {

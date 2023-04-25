@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Me\Planner\RecentPlans;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of plannerPlans recently viewed by a user. You can update recently viewed plans by updating the plannerUser resource.
+ * Read-only. Nullable. Returns the plannerPlans that have been recently viewed by the user in apps that support recent plans.
 */
 class RecentPlansRequestBuilderGetQueryParameters 
 {

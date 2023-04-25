@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\Messages\Item\Attac
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of attachment objects attached to a message.
+ * The fileAttachment and itemAttachment attachments for the message.
 */
 class AttachmentsRequestBuilderGetQueryParameters 
 {

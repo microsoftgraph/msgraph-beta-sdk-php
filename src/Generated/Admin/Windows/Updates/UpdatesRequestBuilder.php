@@ -7,28 +7,21 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Catalog\CatalogRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudiences\DeploymentAudiencesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudiences\Item\DeploymentAudienceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\DeploymentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\DeploymentItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\ResourceConnections\Item\ResourceConnectionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\ResourceConnections\ResourceConnectionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets\Item\UpdatableAssetItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets\UpdatableAssetsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatePolicies\Item\UpdatePolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatePolicies\UpdatePoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AdminWindowsUpdates;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the updates property of the microsoft.graph.adminWindows entity.
 */
-class UpdatesRequestBuilder 
+class UpdatesRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to manage the catalog property of the microsoft.graph.adminWindowsUpdates entity.
@@ -52,16 +45,6 @@ class UpdatesRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
      * Provides operations to manage the resourceConnections property of the microsoft.graph.adminWindowsUpdates entity.
     */
     public function resourceConnections(): ResourceConnectionsRequestBuilder {
@@ -83,18 +66,12 @@ class UpdatesRequestBuilder
     }
     
     /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
      * Instantiates a new UpdatesRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/admin/windows/updates{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/admin/windows/updates{?%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -118,28 +95,6 @@ class UpdatesRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the deploymentAudiences property of the microsoft.graph.adminWindowsUpdates entity.
-     * @param string $id Unique identifier of the item
-     * @return DeploymentAudienceItemRequestBuilder
-    */
-    public function deploymentAudiencesById(string $id): DeploymentAudienceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deploymentAudience%2Did'] = $id;
-        return new DeploymentAudienceItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the deployments property of the microsoft.graph.adminWindowsUpdates entity.
-     * @param string $id Unique identifier of the item
-     * @return DeploymentItemRequestBuilder
-    */
-    public function deploymentsById(string $id): DeploymentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deployment%2Did'] = $id;
-        return new DeploymentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -180,17 +135,6 @@ class UpdatesRequestBuilder
     }
 
     /**
-     * Provides operations to manage the resourceConnections property of the microsoft.graph.adminWindowsUpdates entity.
-     * @param string $id Unique identifier of the item
-     * @return ResourceConnectionItemRequestBuilder
-    */
-    public function resourceConnectionsById(string $id): ResourceConnectionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['resourceConnection%2Did'] = $id;
-        return new ResourceConnectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Delete navigation property updates for admin
      * @param UpdatesRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -201,12 +145,8 @@ class UpdatesRequestBuilder
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -223,15 +163,11 @@ class UpdatesRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -249,37 +185,11 @@ class UpdatesRequestBuilder
         $requestInfo->httpMethod = HttpMethod::PATCH;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the updatableAssets property of the microsoft.graph.adminWindowsUpdates entity.
-     * @param string $id Unique identifier of the item
-     * @return UpdatableAssetItemRequestBuilder
-    */
-    public function updatableAssetsById(string $id): UpdatableAssetItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['updatableAsset%2Did'] = $id;
-        return new UpdatableAssetItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the updatePolicies property of the microsoft.graph.adminWindowsUpdates entity.
-     * @param string $id Unique identifier of the item
-     * @return UpdatePolicyItemRequestBuilder
-    */
-    public function updatePoliciesById(string $id): UpdatePolicyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['updatePolicy%2Did'] = $id;
-        return new UpdatePolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

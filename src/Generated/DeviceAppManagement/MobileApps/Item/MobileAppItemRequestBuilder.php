@@ -7,33 +7,26 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\Assignments\Item\MobileAppAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\Categories\CategoriesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\Categories\Item\MobileAppCategoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\DeviceStatuses\DeviceStatusesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\DeviceStatuses\Item\MobileAppInstallStatusItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GetRelatedAppStatesWithUserPrincipalNameWithDeviceId\GetRelatedAppStatesWithUserPrincipalNameWithDeviceIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphManagedMobileLobApp\GraphManagedMobileLobAppRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphMobileLobApp\GraphMobileLobAppRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\InstallSummary\InstallSummaryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\Relationships\Item\MobileAppRelationshipItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\Relationships\RelationshipsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\UpdateRelationships\UpdateRelationshipsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\UserStatuses\Item\UserAppInstallStatusItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\UserStatuses\UserStatusesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MobileApp;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity.
 */
-class MobileAppItemRequestBuilder 
+class MobileAppItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to call the assign method.
@@ -85,21 +78,11 @@ class MobileAppItemRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
      * Provides operations to manage the relationships property of the microsoft.graph.mobileApp entity.
     */
     public function relationships(): RelationshipsRequestBuilder {
         return new RelationshipsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
     
     /**
      * Provides operations to call the updateRelationships method.
@@ -109,11 +92,6 @@ class MobileAppItemRequestBuilder
     }
     
     /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
      * Provides operations to manage the userStatuses property of the microsoft.graph.mobileApp entity.
     */
     public function userStatuses(): UserStatusesRequestBuilder {
@@ -121,35 +99,12 @@ class MobileAppItemRequestBuilder
     }
     
     /**
-     * Provides operations to manage the assignments property of the microsoft.graph.mobileApp entity.
-     * @param string $id Unique identifier of the item
-     * @return MobileAppAssignmentItemRequestBuilder
-    */
-    public function assignmentsById(string $id): MobileAppAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['mobileAppAssignment%2Did'] = $id;
-        return new MobileAppAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the categories property of the microsoft.graph.mobileApp entity.
-     * @param string $id Unique identifier of the item
-     * @return MobileAppCategoryItemRequestBuilder
-    */
-    public function categoriesById(string $id): MobileAppCategoryItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['mobileAppCategory%2Did'] = $id;
-        return new MobileAppCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new MobileAppItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}{?%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -173,17 +128,6 @@ class MobileAppItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the deviceStatuses property of the microsoft.graph.mobileApp entity.
-     * @param string $id Unique identifier of the item
-     * @return MobileAppInstallStatusItemRequestBuilder
-    */
-    public function deviceStatusesById(string $id): MobileAppInstallStatusItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['mobileAppInstallStatus%2Did'] = $id;
-        return new MobileAppInstallStatusItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -234,17 +178,6 @@ class MobileAppItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the relationships property of the microsoft.graph.mobileApp entity.
-     * @param string $id Unique identifier of the item
-     * @return MobileAppRelationshipItemRequestBuilder
-    */
-    public function relationshipsById(string $id): MobileAppRelationshipItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['mobileAppRelationship%2Did'] = $id;
-        return new MobileAppRelationshipItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Delete navigation property mobileApps for deviceAppManagement
      * @param MobileAppItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -255,12 +188,8 @@ class MobileAppItemRequestBuilder
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -277,15 +206,11 @@ class MobileAppItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -303,26 +228,11 @@ class MobileAppItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::PATCH;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the userStatuses property of the microsoft.graph.mobileApp entity.
-     * @param string $id Unique identifier of the item
-     * @return UserAppInstallStatusItemRequestBuilder
-    */
-    public function userStatusesById(string $id): UserAppInstallStatusItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['userAppInstallStatus%2Did'] = $id;
-        return new UserAppInstallStatusItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

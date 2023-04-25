@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagedTenantEmailNotification extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ManagedTenantEmailNotification and sets the default values.
+     * Instantiates a new managedTenantEmailNotification and sets the default values.
     */
     public function __construct() {
         parent::__construct();

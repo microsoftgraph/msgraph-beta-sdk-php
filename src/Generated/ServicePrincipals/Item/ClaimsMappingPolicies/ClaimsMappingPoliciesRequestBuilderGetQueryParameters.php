@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\ClaimsMappingPol
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List the claimsMappingPolicy objects that are assigned to a servicePrincipal.
+ * The claimsMappingPolicies assigned to this service principal. Supports $expand.
 */
 class ClaimsMappingPoliciesRequestBuilderGetQueryParameters 
 {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the list of schedulingGroups in this schedule.
+ * The logical grouping of users in the schedule (usually by role).
 */
 class SchedulingGroupsRequestBuilderGetQueryParameters 
 {

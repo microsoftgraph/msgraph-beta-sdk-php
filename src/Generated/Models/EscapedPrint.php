@@ -70,7 +70,6 @@ class EscapedPrint implements AdditionalDataHolder, BackedModel, Parsable
             'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([PrintOperation::class, 'createFromDiscriminatorValue'])),
             'printers' => fn(ParseNode $n) => $o->setPrinters($n->getCollectionOfObjectValues([Printer::class, 'createFromDiscriminatorValue'])),
             'printerShares' => fn(ParseNode $n) => $o->setPrinterShares($n->getCollectionOfObjectValues([PrinterShare::class, 'createFromDiscriminatorValue'])),
-            'reports' => fn(ParseNode $n) => $o->setReports($n->getObjectValue([ReportRoot::class, 'createFromDiscriminatorValue'])),
             'services' => fn(ParseNode $n) => $o->setServices($n->getCollectionOfObjectValues([PrintService::class, 'createFromDiscriminatorValue'])),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([PrintSettings::class, 'createFromDiscriminatorValue'])),
             'shares' => fn(ParseNode $n) => $o->setShares($n->getCollectionOfObjectValues([PrinterShare::class, 'createFromDiscriminatorValue'])),
@@ -108,14 +107,6 @@ class EscapedPrint implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function getPrinterShares(): ?array {
         return $this->getBackingStore()->get('printerShares');
-    }
-
-    /**
-     * Gets the reports property value. The reports property
-     * @return ReportRoot|null
-    */
-    public function getReports(): ?ReportRoot {
-        return $this->getBackingStore()->get('reports');
     }
 
     /**
@@ -160,7 +151,6 @@ class EscapedPrint implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
         $writer->writeCollectionOfObjectValues('printers', $this->getPrinters());
         $writer->writeCollectionOfObjectValues('printerShares', $this->getPrinterShares());
-        $writer->writeObjectValue('reports', $this->getReports());
         $writer->writeCollectionOfObjectValues('services', $this->getServices());
         $writer->writeObjectValue('settings', $this->getSettings());
         $writer->writeCollectionOfObjectValues('shares', $this->getShares());
@@ -222,14 +212,6 @@ class EscapedPrint implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setPrinterShares(?array $value): void {
         $this->getBackingStore()->set('printerShares', $value);
-    }
-
-    /**
-     * Sets the reports property value. The reports property
-     * @param ReportRoot|null $value Value to set for the reports property.
-    */
-    public function setReports(?ReportRoot $value): void {
-        $this->getBackingStore()->set('reports', $value);
     }
 
     /**

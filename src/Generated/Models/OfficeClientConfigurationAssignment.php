@@ -36,7 +36,7 @@ class OfficeClientConfigurationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the target property value. The target assignment defined by the admin.
+     * Gets the target property value. The target property
      * @return OfficeConfigurationAssignmentTarget|null
     */
     public function getTarget(): ?OfficeConfigurationAssignmentTarget {
@@ -53,7 +53,7 @@ class OfficeClientConfigurationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the target property value. The target assignment defined by the admin.
+     * Sets the target property value. The target property
      * @param OfficeConfigurationAssignmentTarget|null $value Value to set for the target property.
     */
     public function setTarget(?OfficeConfigurationAssignmentTarget $value): void {

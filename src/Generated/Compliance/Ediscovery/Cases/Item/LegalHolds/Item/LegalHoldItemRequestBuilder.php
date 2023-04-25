@@ -5,36 +5,21 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalH
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\SiteSources\Item\SiteSourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\SiteSources\SiteSourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\UnifiedGroupSources\Item\UnifiedGroupSourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\UnifiedGroupSources\UnifiedGroupSourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\UserSources\Item\UserSourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\UserSources\UserSourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\LegalHold;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 /**
  * Provides operations to manage the legalHolds property of the microsoft.graph.ediscovery.case entity.
 */
-class LegalHoldItemRequestBuilder 
+class LegalHoldItemRequestBuilder extends BaseRequestBuilder 
 {
-    /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
     /**
      * Provides operations to manage the siteSources property of the microsoft.graph.ediscovery.legalHold entity.
     */
@@ -50,11 +35,6 @@ class LegalHoldItemRequestBuilder
     }
     
     /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
      * Provides operations to manage the userSources property of the microsoft.graph.ediscovery.legalHold entity.
     */
     public function userSources(): UserSourcesRequestBuilder {
@@ -67,8 +47,7 @@ class LegalHoldItemRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/compliance/ediscovery/cases/{case%2Did}/legalHolds/{legalHold%2Did}{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
+        parent::__construct($requestAdapter, [], "{+baseurl}/compliance/ediscovery/cases/{case%2Did}/legalHolds/{legalHold%2Did}{?%24select,%24expand}");
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -132,17 +111,6 @@ class LegalHoldItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the siteSources property of the microsoft.graph.ediscovery.legalHold entity.
-     * @param string $id Unique identifier of the item
-     * @return SiteSourceItemRequestBuilder
-    */
-    public function siteSourcesById(string $id): SiteSourceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['siteSource%2Did'] = $id;
-        return new SiteSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Delete navigation property legalHolds for compliance
      * @param LegalHoldItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -153,12 +121,8 @@ class LegalHoldItemRequestBuilder
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -175,15 +139,11 @@ class LegalHoldItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::GET;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -201,37 +161,11 @@ class LegalHoldItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::PATCH;
         $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->addHeaders($requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the unifiedGroupSources property of the microsoft.graph.ediscovery.legalHold entity.
-     * @param string $id Unique identifier of the item
-     * @return UnifiedGroupSourceItemRequestBuilder
-    */
-    public function unifiedGroupSourcesById(string $id): UnifiedGroupSourceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['unifiedGroupSource%2Did'] = $id;
-        return new UnifiedGroupSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the userSources property of the microsoft.graph.ediscovery.legalHold entity.
-     * @param string $id Unique identifier of the item
-     * @return UserSourceItemRequestBuilder
-    */
-    public function userSourcesById(string $id): UserSourceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['userSource%2Did'] = $id;
-        return new UserSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }
