@@ -26,7 +26,7 @@ class IdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder ex
      * @param DateTime|null $startDateTime Usage: startDateTime={startDateTime}
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?DateTime $endDateTime = null, ?DateTime $startDateTime = null) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems/workflows/{workflow%2Did}/taskReports/identityGovernance.summary(startDateTime={startDateTime},endDateTime={endDateTime})");
+        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems/workflows/{workflow%2Did}/taskReports/identityGovernance.summary(startDateTime={startDateTime},endDateTime={endDateTime})');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['endDateTime'] = $endDateTime;

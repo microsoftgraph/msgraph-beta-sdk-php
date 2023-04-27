@@ -23,7 +23,7 @@ class SummarizeDeviceResourcePerformanceWithSummarizeByRequestBuilder extends Ba
      * @param string|null $summarizeBy Usage: summarizeBy='{summarizeBy}'
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $summarizeBy = null) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/deviceManagement/userExperienceAnalyticsResourcePerformance/summarizeDeviceResourcePerformance(summarizeBy='{summarizeBy}'){?%24top,%24skip,%24search,%24filter,%24count,%24select,%24orderby}");
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/userExperienceAnalyticsResourcePerformance/summarizeDeviceResourcePerformance(summarizeBy=\'{summarizeBy}\'){?%24top,%24skip,%24search,%24filter,%24count,%24select,%24orderby}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['summarizeBy'] = $summarizeBy;

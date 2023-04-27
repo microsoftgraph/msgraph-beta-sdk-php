@@ -22,7 +22,7 @@ class PowerOnRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/me/cloudPCs/{cloudPC%2Did}/powerOn");
+        parent::__construct($requestAdapter, [], '{+baseurl}/me/cloudPCs/{cloudPC%2Did}/powerOn');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

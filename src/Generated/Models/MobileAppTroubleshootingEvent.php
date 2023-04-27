@@ -41,6 +41,14 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
     }
 
     /**
+     * Gets the deviceId property value. Device identifier created or collected by Intune.
+     * @return string|null
+    */
+    public function getDeviceId(): ?string {
+        return $this->getBackingStore()->get('deviceId');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
@@ -49,6 +57,7 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
         return array_merge(parent::getFieldDeserializers(), [
             'applicationId' => fn(ParseNode $n) => $o->setApplicationId($n->getStringValue()),
             'appLogCollectionRequests' => fn(ParseNode $n) => $o->setAppLogCollectionRequests($n->getCollectionOfObjectValues([AppLogCollectionRequest::class, 'createFromDiscriminatorValue'])),
+            'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
             'history' => fn(ParseNode $n) => $o->setHistory($n->getCollectionOfObjectValues([MobileAppTroubleshootingHistoryItem::class, 'createFromDiscriminatorValue'])),
             'managedDeviceIdentifier' => fn(ParseNode $n) => $o->setManagedDeviceIdentifier($n->getStringValue()),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
@@ -87,6 +96,7 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
         parent::serialize($writer);
         $writer->writeStringValue('applicationId', $this->getApplicationId());
         $writer->writeCollectionOfObjectValues('appLogCollectionRequests', $this->getAppLogCollectionRequests());
+        $writer->writeStringValue('deviceId', $this->getDeviceId());
         $writer->writeCollectionOfObjectValues('history', $this->getHistory());
         $writer->writeStringValue('managedDeviceIdentifier', $this->getManagedDeviceIdentifier());
         $writer->writeStringValue('userId', $this->getUserId());
@@ -106,6 +116,14 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
     */
     public function setAppLogCollectionRequests(?array $value): void {
         $this->getBackingStore()->set('appLogCollectionRequests', $value);
+    }
+
+    /**
+     * Sets the deviceId property value. Device identifier created or collected by Intune.
+     * @param string|null $value Value to set for the deviceId property.
+    */
+    public function setDeviceId(?string $value): void {
+        $this->getBackingStore()->set('deviceId', $value);
     }
 
     /**

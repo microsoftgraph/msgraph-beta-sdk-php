@@ -23,7 +23,7 @@ class GetMobileAppCountWithStatusRequestBuilder extends BaseRequestBuilder
      * @param string|null $status Usage: status='{status}'
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $status = null) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/deviceAppManagement/mobileApps/getMobileAppCount(status='{status}')");
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceAppManagement/mobileApps/getMobileAppCount(status=\'{status}\')');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['status'] = $status;

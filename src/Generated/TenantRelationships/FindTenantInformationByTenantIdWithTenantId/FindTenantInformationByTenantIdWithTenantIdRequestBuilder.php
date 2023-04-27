@@ -24,7 +24,7 @@ class FindTenantInformationByTenantIdWithTenantIdRequestBuilder extends BaseRequ
      * @param string|null $tenantId Usage: tenantId='{tenantId}'
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $tenantId = null) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/tenantRelationships/findTenantInformationByTenantId(tenantId='{tenantId}')");
+        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/findTenantInformationByTenantId(tenantId=\'{tenantId}\')');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['tenantId'] = $tenantId;

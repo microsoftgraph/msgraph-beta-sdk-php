@@ -36,6 +36,14 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     }
 
     /**
+     * Gets the assignmentFilterManagementType property value. Supported filter management types whether its devices or apps.
+     * @return AssignmentFilterManagementType|null
+    */
+    public function getAssignmentFilterManagementType(): ?AssignmentFilterManagementType {
+        return $this->getBackingStore()->get('assignmentFilterManagementType');
+    }
+
+    /**
      * Gets the createdDateTime property value. The creation time of the assignment filter. The value cannot be modified and is automatically populated during new assignment filter process. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
      * @return DateTime|null
     */
@@ -66,6 +74,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'assignmentFilterManagementType' => fn(ParseNode $n) => $o->setAssignmentFilterManagementType($n->getEnumValue(AssignmentFilterManagementType::class)),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
@@ -123,6 +132,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeEnumValue('assignmentFilterManagementType', $this->getAssignmentFilterManagementType());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
@@ -131,6 +141,14 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
         $writer->writeEnumValue('platform', $this->getPlatform());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTags', $this->getRoleScopeTags());
         $writer->writeStringValue('rule', $this->getRule());
+    }
+
+    /**
+     * Sets the assignmentFilterManagementType property value. Supported filter management types whether its devices or apps.
+     * @param AssignmentFilterManagementType|null $value Value to set for the assignmentFilterManagementType property.
+    */
+    public function setAssignmentFilterManagementType(?AssignmentFilterManagementType $value): void {
+        $this->getBackingStore()->set('assignmentFilterManagementType', $value);
     }
 
     /**

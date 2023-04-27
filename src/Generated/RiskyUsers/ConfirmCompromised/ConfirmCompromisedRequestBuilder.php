@@ -22,7 +22,7 @@ class ConfirmCompromisedRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/riskyUsers/confirmCompromised");
+        parent::__construct($requestAdapter, [], '{+baseurl}/riskyUsers/confirmCompromised');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

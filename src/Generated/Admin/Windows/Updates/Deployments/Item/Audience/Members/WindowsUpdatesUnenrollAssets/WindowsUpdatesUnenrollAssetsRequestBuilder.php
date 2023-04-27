@@ -22,7 +22,7 @@ class WindowsUpdatesUnenrollAssetsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/admin/windows/updates/deployments/{deployment%2Did}/audience/members/windowsUpdates.unenrollAssets");
+        parent::__construct($requestAdapter, [], '{+baseurl}/admin/windows/updates/deployments/{deployment%2Did}/audience/members/windowsUpdates.unenrollAssets');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

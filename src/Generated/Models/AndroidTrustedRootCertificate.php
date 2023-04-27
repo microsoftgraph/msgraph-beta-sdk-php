@@ -10,7 +10,7 @@ use Psr\Http\Message\StreamInterface;
 class AndroidTrustedRootCertificate extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new androidTrustedRootCertificate and sets the default values.
+     * Instantiates a new AndroidTrustedRootCertificate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

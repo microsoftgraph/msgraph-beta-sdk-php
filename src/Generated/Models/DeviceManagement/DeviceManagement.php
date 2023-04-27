@@ -63,6 +63,7 @@ use Microsoft\Graph\Beta\Generated\Models\DeviceManagementSettings;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementSubscriptions;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementSubscriptionState;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementTemplate;
+use Microsoft\Graph\Beta\Generated\Models\DeviceManagementTemplateInsightsDefinition;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementTroubleshootingEvent;
 use Microsoft\Graph\Beta\Generated\Models\DeviceProtectionOverview;
 use Microsoft\Graph\Beta\Generated\Models\DeviceShellScript;
@@ -94,9 +95,7 @@ use Microsoft\Graph\Beta\Generated\Models\MobileAppTroubleshootingEvent;
 use Microsoft\Graph\Beta\Generated\Models\MobileThreatDefenseConnector;
 use Microsoft\Graph\Beta\Generated\Models\NdesConnector;
 use Microsoft\Graph\Beta\Generated\Models\NotificationMessageTemplate;
-use Microsoft\Graph\Beta\Generated\Models\OemWarrantyInformationOnboarding;
 use Microsoft\Graph\Beta\Generated\Models\OnPremisesConditionalAccessSettings;
-use Microsoft\Graph\Beta\Generated\Models\PrivilegeManagementElevation;
 use Microsoft\Graph\Beta\Generated\Models\RemoteActionAudit;
 use Microsoft\Graph\Beta\Generated\Models\RemoteAssistancePartner;
 use Microsoft\Graph\Beta\Generated\Models\RemoteAssistanceSettings;
@@ -776,8 +775,6 @@ class DeviceManagement extends Entity implements Parsable
             'monitoring' => fn(ParseNode $n) => $o->setMonitoring($n->getObjectValue([Monitoring::class, 'createFromDiscriminatorValue'])),
             'ndesConnectors' => fn(ParseNode $n) => $o->setNdesConnectors($n->getCollectionOfObjectValues([NdesConnector::class, 'createFromDiscriminatorValue'])),
             'notificationMessageTemplates' => fn(ParseNode $n) => $o->setNotificationMessageTemplates($n->getCollectionOfObjectValues([NotificationMessageTemplate::class, 'createFromDiscriminatorValue'])),
-            'oemWarrantyInformationOnboarding' => fn(ParseNode $n) => $o->setOemWarrantyInformationOnboarding($n->getCollectionOfObjectValues([OemWarrantyInformationOnboarding::class, 'createFromDiscriminatorValue'])),
-            'privilegeManagementElevations' => fn(ParseNode $n) => $o->setPrivilegeManagementElevations($n->getCollectionOfObjectValues([PrivilegeManagementElevation::class, 'createFromDiscriminatorValue'])),
             'remoteActionAudits' => fn(ParseNode $n) => $o->setRemoteActionAudits($n->getCollectionOfObjectValues([RemoteActionAudit::class, 'createFromDiscriminatorValue'])),
             'remoteAssistancePartners' => fn(ParseNode $n) => $o->setRemoteAssistancePartners($n->getCollectionOfObjectValues([RemoteAssistancePartner::class, 'createFromDiscriminatorValue'])),
             'remoteAssistanceSettings' => fn(ParseNode $n) => $o->setRemoteAssistanceSettings($n->getObjectValue([RemoteAssistanceSettings::class, 'createFromDiscriminatorValue'])),
@@ -796,6 +793,7 @@ class DeviceManagement extends Entity implements Parsable
             'subscriptions' => fn(ParseNode $n) => $o->setSubscriptions($n->getEnumValue(DeviceManagementSubscriptions::class)),
             'subscriptionState' => fn(ParseNode $n) => $o->setSubscriptionState($n->getEnumValue(DeviceManagementSubscriptionState::class)),
             'telecomExpenseManagementPartners' => fn(ParseNode $n) => $o->setTelecomExpenseManagementPartners($n->getCollectionOfObjectValues([TelecomExpenseManagementPartner::class, 'createFromDiscriminatorValue'])),
+            'templateInsights' => fn(ParseNode $n) => $o->setTemplateInsights($n->getCollectionOfObjectValues([DeviceManagementTemplateInsightsDefinition::class, 'createFromDiscriminatorValue'])),
             'templates' => fn(ParseNode $n) => $o->setTemplates($n->getCollectionOfObjectValues([DeviceManagementTemplate::class, 'createFromDiscriminatorValue'])),
             'templateSettings' => fn(ParseNode $n) => $o->setTemplateSettings($n->getCollectionOfObjectValues([DeviceManagementConfigurationSettingTemplate::class, 'createFromDiscriminatorValue'])),
             'tenantAttachRBAC' => fn(ParseNode $n) => $o->setTenantAttachRBAC($n->getObjectValue([TenantAttachRBAC::class, 'createFromDiscriminatorValue'])),
@@ -1115,22 +1113,6 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the oemWarrantyInformationOnboarding property value. List of OEM Warranty Statuses
-     * @return array<OemWarrantyInformationOnboarding>|null
-    */
-    public function getOemWarrantyInformationOnboarding(): ?array {
-        return $this->getBackingStore()->get('oemWarrantyInformationOnboarding');
-    }
-
-    /**
-     * Gets the privilegeManagementElevations property value. The endpoint privilege management elevation event entity contains elevation details.
-     * @return array<PrivilegeManagementElevation>|null
-    */
-    public function getPrivilegeManagementElevations(): ?array {
-        return $this->getBackingStore()->get('privilegeManagementElevations');
-    }
-
-    /**
      * Gets the remoteActionAudits property value. The list of device remote action audits with the tenant.
      * @return array<RemoteActionAudit>|null
     */
@@ -1272,6 +1254,14 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function getTelecomExpenseManagementPartners(): ?array {
         return $this->getBackingStore()->get('telecomExpenseManagementPartners');
+    }
+
+    /**
+     * Gets the templateInsights property value. List of setting insights in a template
+     * @return array<DeviceManagementTemplateInsightsDefinition>|null
+    */
+    public function getTemplateInsights(): ?array {
+        return $this->getBackingStore()->get('templateInsights');
     }
 
     /**
@@ -1905,8 +1895,6 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeObjectValue('monitoring', $this->getMonitoring());
         $writer->writeCollectionOfObjectValues('ndesConnectors', $this->getNdesConnectors());
         $writer->writeCollectionOfObjectValues('notificationMessageTemplates', $this->getNotificationMessageTemplates());
-        $writer->writeCollectionOfObjectValues('oemWarrantyInformationOnboarding', $this->getOemWarrantyInformationOnboarding());
-        $writer->writeCollectionOfObjectValues('privilegeManagementElevations', $this->getPrivilegeManagementElevations());
         $writer->writeCollectionOfObjectValues('remoteActionAudits', $this->getRemoteActionAudits());
         $writer->writeCollectionOfObjectValues('remoteAssistancePartners', $this->getRemoteAssistancePartners());
         $writer->writeObjectValue('remoteAssistanceSettings', $this->getRemoteAssistanceSettings());
@@ -1925,6 +1913,7 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeEnumValue('subscriptions', $this->getSubscriptions());
         $writer->writeEnumValue('subscriptionState', $this->getSubscriptionState());
         $writer->writeCollectionOfObjectValues('telecomExpenseManagementPartners', $this->getTelecomExpenseManagementPartners());
+        $writer->writeCollectionOfObjectValues('templateInsights', $this->getTemplateInsights());
         $writer->writeCollectionOfObjectValues('templates', $this->getTemplates());
         $writer->writeCollectionOfObjectValues('templateSettings', $this->getTemplateSettings());
         $writer->writeObjectValue('tenantAttachRBAC', $this->getTenantAttachRBAC());
@@ -2730,22 +2719,6 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the oemWarrantyInformationOnboarding property value. List of OEM Warranty Statuses
-     * @param array<OemWarrantyInformationOnboarding>|null $value Value to set for the oemWarrantyInformationOnboarding property.
-    */
-    public function setOemWarrantyInformationOnboarding(?array $value): void {
-        $this->getBackingStore()->set('oemWarrantyInformationOnboarding', $value);
-    }
-
-    /**
-     * Sets the privilegeManagementElevations property value. The endpoint privilege management elevation event entity contains elevation details.
-     * @param array<PrivilegeManagementElevation>|null $value Value to set for the privilegeManagementElevations property.
-    */
-    public function setPrivilegeManagementElevations(?array $value): void {
-        $this->getBackingStore()->set('privilegeManagementElevations', $value);
-    }
-
-    /**
      * Sets the remoteActionAudits property value. The list of device remote action audits with the tenant.
      * @param array<RemoteActionAudit>|null $value Value to set for the remoteActionAudits property.
     */
@@ -2887,6 +2860,14 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function setTelecomExpenseManagementPartners(?array $value): void {
         $this->getBackingStore()->set('telecomExpenseManagementPartners', $value);
+    }
+
+    /**
+     * Sets the templateInsights property value. List of setting insights in a template
+     * @param array<DeviceManagementTemplateInsightsDefinition>|null $value Value to set for the templateInsights property.
+    */
+    public function setTemplateInsights(?array $value): void {
+        $this->getBackingStore()->set('templateInsights', $value);
     }
 
     /**

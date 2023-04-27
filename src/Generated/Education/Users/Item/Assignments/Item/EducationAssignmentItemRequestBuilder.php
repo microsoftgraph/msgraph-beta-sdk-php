@@ -5,7 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Education\Users\Item\Assignments\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\Education\Users\Item\Assignments\Item\Activate\ActivateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Users\Item\Assignments\Item\Categories\CategoriesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Education\Users\Item\Assignments\Item\Deactivate\DeactivateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Users\Item\Assignments\Item\Publish\PublishRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Users\Item\Assignments\Item\Resources\ResourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Users\Item\Assignments\Item\Rubric\RubricRequestBuilder;
@@ -25,10 +27,24 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 class EducationAssignmentItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
+     * Provides operations to call the activate method.
+    */
+    public function activate(): ActivateRequestBuilder {
+        return new ActivateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the categories property of the microsoft.graph.educationAssignment entity.
     */
     public function categories(): CategoriesRequestBuilder {
         return new CategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the deactivate method.
+    */
+    public function deactivate(): DeactivateRequestBuilder {
+        return new DeactivateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -79,7 +95,7 @@ class EducationAssignmentItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/education/users/{educationUser%2Did}/assignments/{educationAssignment%2Did}{?%24select,%24expand}");
+        parent::__construct($requestAdapter, [], '{+baseurl}/education/users/{educationUser%2Did}/assignments/{educationAssignment%2Did}{?%24select,%24expand}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

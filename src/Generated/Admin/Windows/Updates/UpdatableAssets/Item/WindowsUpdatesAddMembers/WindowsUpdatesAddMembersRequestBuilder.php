@@ -22,7 +22,7 @@ class WindowsUpdatesAddMembersRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/admin/windows/updates/updatableAssets/{updatableAsset%2Did}/windowsUpdates.addMembers");
+        parent::__construct($requestAdapter, [], '{+baseurl}/admin/windows/updates/updatableAssets/{updatableAsset%2Did}/windowsUpdates.addMembers');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

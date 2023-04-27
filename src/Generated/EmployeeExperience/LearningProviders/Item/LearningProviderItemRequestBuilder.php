@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningProviders\Item\LearningContents\LearningContentsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningProviders\Item\LearningCourseActivities\LearningCourseActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\LearningProvider;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -26,12 +27,19 @@ class LearningProviderItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the learningCourseActivities property of the microsoft.graph.learningProvider entity.
+    */
+    public function learningCourseActivities(): LearningCourseActivitiesRequestBuilder {
+        return new LearningCourseActivitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Instantiates a new LearningProviderItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}{?%24select,%24expand}");
+        parent::__construct($requestAdapter, [], '{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}{?%24select,%24expand}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

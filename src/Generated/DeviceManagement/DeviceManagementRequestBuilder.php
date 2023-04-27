@@ -98,8 +98,6 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\MobileThreatDefenseConnector
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\MonitoringRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\NdesConnectors\NdesConnectorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\NotificationMessageTemplates\NotificationMessageTemplatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\OemWarrantyInformationOnboarding\OemWarrantyInformationOnboardingRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\PrivilegeManagementElevations\PrivilegeManagementElevationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteActionAudits\RemoteActionAuditsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteAssistancePartners\RemoteAssistancePartnersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteAssistanceSettings\RemoteAssistanceSettingsRequestBuilder;
@@ -117,6 +115,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\ServiceNowConnections\Servic
 use Microsoft\Graph\Beta\Generated\DeviceManagement\SettingDefinitions\SettingDefinitionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\SoftwareUpdateStatusSummary\SoftwareUpdateStatusSummaryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TelecomExpenseManagementPartners\TelecomExpenseManagementPartnersRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\TemplateInsights\TemplateInsightsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\TemplatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TemplateSettings\TemplateSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TenantAttachRBAC\TenantAttachRBACRequestBuilder;
@@ -819,20 +818,6 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to manage the oemWarrantyInformationOnboarding property of the microsoft.graph.deviceManagement entity.
-    */
-    public function oemWarrantyInformationOnboarding(): OemWarrantyInformationOnboardingRequestBuilder {
-        return new OemWarrantyInformationOnboardingRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the privilegeManagementElevations property of the microsoft.graph.deviceManagement entity.
-    */
-    public function privilegeManagementElevations(): PrivilegeManagementElevationsRequestBuilder {
-        return new PrivilegeManagementElevationsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the remoteActionAudits property of the microsoft.graph.deviceManagement entity.
     */
     public function remoteActionAudits(): RemoteActionAuditsRequestBuilder {
@@ -942,6 +927,13 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     */
     public function telecomExpenseManagementPartners(): TelecomExpenseManagementPartnersRequestBuilder {
         return new TelecomExpenseManagementPartnersRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the templateInsights property of the microsoft.graph.deviceManagement entity.
+    */
+    public function templateInsights(): TemplateInsightsRequestBuilder {
+        return new TemplateInsightsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -1405,7 +1397,7 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/deviceManagement{?%24select,%24expand}");
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement{?%24select,%24expand}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

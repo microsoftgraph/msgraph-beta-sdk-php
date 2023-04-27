@@ -24,7 +24,7 @@ class FindTenantInformationByDomainNameWithDomainNameRequestBuilder extends Base
      * @param string|null $domainName Usage: domainName='{domainName}'
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $domainName = null) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/tenantRelationships/findTenantInformationByDomainName(domainName='{domainName}')");
+        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/findTenantInformationByDomainName(domainName=\'{domainName}\')');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['domainName'] = $domainName;

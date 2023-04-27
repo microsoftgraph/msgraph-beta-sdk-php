@@ -23,7 +23,7 @@ class GetGroupPolicySettingsDeviceSettingsReportRequestBuilder extends BaseReque
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/deviceManagement/reports/getGroupPolicySettingsDeviceSettingsReport");
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/reports/getGroupPolicySettingsDeviceSettingsReport');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

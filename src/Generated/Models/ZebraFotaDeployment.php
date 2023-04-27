@@ -79,7 +79,16 @@ class ZebraFotaDeployment extends Entity implements Parsable
             'deploymentStatus' => fn(ParseNode $n) => $o->setDeploymentStatus($n->getObjectValue([ZebraFotaDeploymentStatus::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
         ]);
+    }
+
+    /**
+     * Gets the roleScopeTagIds property value. List of Scope Tags for this Entity instance
+     * @return array<string>|null
+    */
+    public function getRoleScopeTagIds(): ?array {
+        return $this->getBackingStore()->get('roleScopeTagIds');
     }
 
     /**
@@ -93,6 +102,7 @@ class ZebraFotaDeployment extends Entity implements Parsable
         $writer->writeObjectValue('deploymentStatus', $this->getDeploymentStatus());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
     }
 
     /**
@@ -133,6 +143,14 @@ class ZebraFotaDeployment extends Entity implements Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the roleScopeTagIds property value. List of Scope Tags for this Entity instance
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
+    */
+    public function setRoleScopeTagIds(?array $value): void {
+        $this->getBackingStore()->set('roleScopeTagIds', $value);
     }
 
 }

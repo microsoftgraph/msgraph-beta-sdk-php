@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\EmployeeExperience;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningCourseActivities\LearningCourseActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningProviders\LearningProvidersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EmployeeExperience;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -19,6 +20,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 class EmployeeExperienceRequestBuilder extends BaseRequestBuilder 
 {
     /**
+     * Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperience entity.
+    */
+    public function learningCourseActivities(): LearningCourseActivitiesRequestBuilder {
+        return new LearningCourseActivitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
     */
     public function learningProviders(): LearningProvidersRequestBuilder {
@@ -31,7 +39,7 @@ class EmployeeExperienceRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/employeeExperience{?%24select,%24expand}");
+        parent::__construct($requestAdapter, [], '{+baseurl}/employeeExperience{?%24select,%24expand}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

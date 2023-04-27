@@ -7,13 +7,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * The depOnboardingSetting represents an instance of the Apple DEP service being onboarded to Intune. The onboarded service instance manages an Apple Token used to synchronize data between Apple and Intune.
-*/
 class DepOnboardingSetting extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new depOnboardingSetting and sets the default values.
+     * Instantiates a new DepOnboardingSetting and sets the default values.
     */
     public function __construct() {
         parent::__construct();

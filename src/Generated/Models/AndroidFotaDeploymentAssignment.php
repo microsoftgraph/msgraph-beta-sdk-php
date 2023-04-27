@@ -46,6 +46,14 @@ class AndroidFotaDeploymentAssignment implements AdditionalDataHolder, BackedMod
     }
 
     /**
+     * Gets the assignmentTarget property value. The Azure Active Directory (Azure AD) we are deploying firmware updates to (e.g.: d93c8f48-bd42-4514-ba40-bc6b84780930). NOTE: Use this property moving forward because the existing property, target, is deprecated.
+     * @return DeviceAndAppManagementAssignmentTarget|null
+    */
+    public function getAssignmentTarget(): ?DeviceAndAppManagementAssignmentTarget {
+        return $this->getBackingStore()->get('assignmentTarget');
+    }
+
+    /**
      * Gets the backingStore property value. Stores model information.
      * @return BackingStore
     */
@@ -68,6 +76,7 @@ class AndroidFotaDeploymentAssignment implements AdditionalDataHolder, BackedMod
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'assignmentTarget' => fn(ParseNode $n) => $o->setAssignmentTarget($n->getObjectValue([DeviceAndAppManagementAssignmentTarget::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -104,6 +113,7 @@ class AndroidFotaDeploymentAssignment implements AdditionalDataHolder, BackedMod
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeObjectValue('assignmentTarget', $this->getAssignmentTarget());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('id', $this->getId());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -117,6 +127,14 @@ class AndroidFotaDeploymentAssignment implements AdditionalDataHolder, BackedMod
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the assignmentTarget property value. The Azure Active Directory (Azure AD) we are deploying firmware updates to (e.g.: d93c8f48-bd42-4514-ba40-bc6b84780930). NOTE: Use this property moving forward because the existing property, target, is deprecated.
+     * @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the assignmentTarget property.
+    */
+    public function setAssignmentTarget(?DeviceAndAppManagementAssignmentTarget $value): void {
+        $this->getBackingStore()->set('assignmentTarget', $value);
     }
 
     /**
