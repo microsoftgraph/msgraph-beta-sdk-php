@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
 /**
- * Describes the installation status details of the child app in the context of UPN and device id.
+ * Describes the installation status details of the child app in the context of UPN and device id. This will be deprecated starting May, 2023 (Intune Release 2305). 
 */
 class MobileAppRelationshipState implements AdditionalDataHolder, BackedModel, Parsable 
 {

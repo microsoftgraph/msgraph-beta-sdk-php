@@ -26,7 +26,7 @@ class WithIdWithPolicyIdWithDeviceIdRequestBuilder extends BaseRequestBuilder
      * @param string|null $policyId Property in multi-part unique identifier of deviceHealthScriptPolicyState
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $deviceId = null, ?string $id = null, ?string $policyId = null) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/deviceHealthScriptStates/id='{id}',policyId='{policyId}',deviceId='{deviceId}'{?%24select,%24expand}");
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/deviceHealthScriptStates/id=\'{id}\',policyId=\'{policyId}\',deviceId=\'{deviceId}\'{?%24select,%24expand}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['deviceId'] = $deviceId;

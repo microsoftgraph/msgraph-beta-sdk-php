@@ -23,7 +23,7 @@ class ScopedForResourceWithResourceRequestBuilder extends BaseRequestBuilder
      * @param string|null $resource Usage: resource='{resource}'
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $resource = null) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/deviceManagement/scopedForResource(resource='{resource}')");
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/scopedForResource(resource=\'{resource}\')');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['resource'] = $resource;

@@ -23,7 +23,7 @@ class CompareWithTemplateIdRequestBuilder extends BaseRequestBuilder
      * @param string|null $templateId Usage: templateId='{templateId}'
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $templateId = null) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/deviceManagement/templates/{deviceManagementTemplate%2Did}/compare(templateId='{templateId}'){?%24top,%24skip,%24search,%24filter,%24count}");
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/templates/{deviceManagementTemplate%2Did}/compare(templateId=\'{templateId}\'){?%24top,%24skip,%24search,%24filter,%24count}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['templateId'] = $templateId;

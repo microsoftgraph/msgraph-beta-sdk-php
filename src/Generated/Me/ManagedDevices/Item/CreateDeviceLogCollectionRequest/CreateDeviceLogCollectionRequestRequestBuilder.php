@@ -23,7 +23,7 @@ class CreateDeviceLogCollectionRequestRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/me/managedDevices/{managedDevice%2Did}/createDeviceLogCollectionRequest");
+        parent::__construct($requestAdapter, [], '{+baseurl}/me/managedDevices/{managedDevice%2Did}/createDeviceLogCollectionRequest');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

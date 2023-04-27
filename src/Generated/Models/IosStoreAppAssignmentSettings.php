@@ -40,7 +40,7 @@ class IosStoreAppAssignmentSettings extends MobileAppAssignmentSettings implemen
     }
 
     /**
-     * Gets the isRemovable property value. Whether or not the app can be removed by the user.
+     * Gets the isRemovable property value. When TRUE, indicates that the app can be uninstalled by the user. When FALSE, indicates that the app cannot be uninstalled by the user. By default, this property is set to null which internally is treated as TRUE.
      * @return bool|null
     */
     public function getIsRemovable(): ?bool {
@@ -84,7 +84,7 @@ class IosStoreAppAssignmentSettings extends MobileAppAssignmentSettings implemen
     }
 
     /**
-     * Sets the isRemovable property value. Whether or not the app can be removed by the user.
+     * Sets the isRemovable property value. When TRUE, indicates that the app can be uninstalled by the user. When FALSE, indicates that the app cannot be uninstalled by the user. By default, this property is set to null which internally is treated as TRUE.
      * @param bool|null $value Value to set for the isRemovable property.
     */
     public function setIsRemovable(?bool $value): void {

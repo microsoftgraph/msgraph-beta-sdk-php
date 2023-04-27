@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MessageTrace extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new messageTrace and sets the default values.
+     * Instantiates a new MessageTrace and sets the default values.
     */
     public function __construct() {
         parent::__construct();

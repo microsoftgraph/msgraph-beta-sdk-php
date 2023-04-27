@@ -23,7 +23,7 @@ class GetStorageAccountsWithSubscriptionIdRequestBuilder extends BaseRequestBuil
      * @param string|null $subscriptionId Usage: subscriptionId='{subscriptionId}'
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $subscriptionId = null) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/deviceManagement/virtualEndpoint/snapshots/getStorageAccounts(subscriptionId='{subscriptionId}'){?%24top,%24skip,%24search,%24filter,%24count}");
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/virtualEndpoint/snapshots/getStorageAccounts(subscriptionId=\'{subscriptionId}\'){?%24top,%24skip,%24search,%24filter,%24count}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['subscriptionId'] = $subscriptionId;

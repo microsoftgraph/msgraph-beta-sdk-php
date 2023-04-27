@@ -25,7 +25,7 @@ class UsersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRolesRequestB
      * @param string|null $includedUserTypes Usage: includedUserTypes='{includedUserTypes}'
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $includedUserRoles = null, ?string $includedUserTypes = null) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/reports/authenticationMethods/usersRegisteredByFeature(includedUserTypes='{includedUserTypes}',includedUserRoles='{includedUserRoles}')");
+        parent::__construct($requestAdapter, [], '{+baseurl}/reports/authenticationMethods/usersRegisteredByFeature(includedUserTypes=\'{includedUserTypes}\',includedUserRoles=\'{includedUserRoles}\')');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['includedUserRoles'] = $includedUserRoles;

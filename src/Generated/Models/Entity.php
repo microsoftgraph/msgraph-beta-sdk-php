@@ -592,6 +592,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.deviceHealthScriptDeviceState': return new DeviceHealthScriptDeviceState();
                 case '#microsoft.graph.deviceHealthScriptRunSummary': return new DeviceHealthScriptRunSummary();
                 case '#microsoft.graph.deviceInstallState': return new DeviceInstallState();
+                case '#microsoft.graph.deviceLocalCredentialInfo': return new DeviceLocalCredentialInfo();
                 case '#microsoft.graph.deviceLogCollectionResponse': return new DeviceLogCollectionResponse();
                 case '#microsoft.graph.deviceManagement': return new DeviceManagement();
                 case '#microsoft.graph.deviceManagement.alertRecord': return new AlertRecord();
@@ -656,6 +657,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.deviceManagementSettingInstance': return new DeviceManagementSettingInstance();
                 case '#microsoft.graph.deviceManagementStringSettingInstance': return new DeviceManagementStringSettingInstance();
                 case '#microsoft.graph.deviceManagementTemplate': return new DeviceManagementTemplate();
+                case '#microsoft.graph.deviceManagementTemplateInsightsDefinition': return new DeviceManagementTemplateInsightsDefinition();
                 case '#microsoft.graph.deviceManagementTemplateSettingCategory': return new DeviceManagementTemplateSettingCategory();
                 case '#microsoft.graph.deviceManagementTroubleshootingEvent': return new DeviceManagementTroubleshootingEvent();
                 case '#microsoft.graph.deviceRegistrationPolicy': return new DeviceRegistrationPolicy();
@@ -745,6 +747,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.embeddedSIMActivationCodePoolAssignment': return new EmbeddedSIMActivationCodePoolAssignment();
                 case '#microsoft.graph.embeddedSIMDeviceState': return new EmbeddedSIMDeviceState();
                 case '#microsoft.graph.employee': return new Employee();
+                case '#microsoft.graph.employeeExperienceUser': return new EmployeeExperienceUser();
                 case '#microsoft.graph.endpoint': return new Endpoint();
                 case '#microsoft.graph.enrollmentConfigurationAssignment': return new EnrollmentConfigurationAssignment();
                 case '#microsoft.graph.enrollmentProfile': return new EnrollmentProfile();
@@ -956,8 +959,11 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.journal': return new Journal();
                 case '#microsoft.graph.journalLine': return new JournalLine();
                 case '#microsoft.graph.languageProficiency': return new LanguageProficiency();
+                case '#microsoft.graph.learningAssignment': return new LearningAssignment();
                 case '#microsoft.graph.learningContent': return new LearningContent();
+                case '#microsoft.graph.learningCourseActivity': return new LearningCourseActivity();
                 case '#microsoft.graph.learningProvider': return new LearningProvider();
+                case '#microsoft.graph.learningSelfInitiatedCourse': return new LearningSelfInitiatedCourse();
                 case '#microsoft.graph.licenseDetails': return new LicenseDetails();
                 case '#microsoft.graph.linkedResource': return new LinkedResource();
                 case '#microsoft.graph.list': return new EscapedList();
@@ -1136,8 +1142,6 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.office365GroupsActivityGroupCounts': return new Office365GroupsActivityGroupCounts();
                 case '#microsoft.graph.office365GroupsActivityStorage': return new Office365GroupsActivityStorage();
                 case '#microsoft.graph.office365ServicesUserCounts': return new Office365ServicesUserCounts();
-                case '#microsoft.graph.officeClientConfiguration': return new OfficeClientConfiguration();
-                case '#microsoft.graph.officeClientConfigurationAssignment': return new OfficeClientConfigurationAssignment();
                 case '#microsoft.graph.officeGraphInsights': return new OfficeGraphInsights();
                 case '#microsoft.graph.officeSuiteApp': return new OfficeSuiteApp();
                 case '#microsoft.graph.onenote': return new Onenote();
@@ -1262,7 +1266,6 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.privilegedRoleSettings': return new PrivilegedRoleSettings();
                 case '#microsoft.graph.privilegedRoleSummary': return new PrivilegedRoleSummary();
                 case '#microsoft.graph.privilegedSignupStatus': return new PrivilegedSignupStatus();
-                case '#microsoft.graph.privilegeManagementElevation': return new PrivilegeManagementElevation();
                 case '#microsoft.graph.profile': return new Profile();
                 case '#microsoft.graph.profileCardProperty': return new ProfileCardProperty();
                 case '#microsoft.graph.profilePhoto': return new ProfilePhoto();
@@ -1725,8 +1728,6 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.windowsManagementAppHealthSummary': return new WindowsManagementAppHealthSummary();
                 case '#microsoft.graph.windowsMicrosoftEdgeApp': return new WindowsMicrosoftEdgeApp();
                 case '#microsoft.graph.windowsMobileMSI': return new WindowsMobileMSI();
-                case '#microsoft.graph.windowsOfficeClientConfiguration': return new WindowsOfficeClientConfiguration();
-                case '#microsoft.graph.windowsOfficeClientSecurityConfiguration': return new WindowsOfficeClientSecurityConfiguration();
                 case '#microsoft.graph.windowsPhone81AppX': return new WindowsPhone81AppX();
                 case '#microsoft.graph.windowsPhone81AppXBundle': return new WindowsPhone81AppXBundle();
                 case '#microsoft.graph.windowsPhone81CertificateProfileBase': return new WindowsPhone81CertificateProfileBase();

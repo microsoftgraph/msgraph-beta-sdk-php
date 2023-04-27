@@ -23,7 +23,7 @@ class ReactivateRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/directory/impactedResources/{impactedResource%2Did}/reactivate");
+        parent::__construct($requestAdapter, [], '{+baseurl}/directory/impactedResources/{impactedResource%2Did}/reactivate');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

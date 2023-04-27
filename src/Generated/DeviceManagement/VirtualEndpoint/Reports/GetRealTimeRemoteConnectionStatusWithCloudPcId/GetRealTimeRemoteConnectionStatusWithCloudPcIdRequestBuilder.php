@@ -24,7 +24,7 @@ class GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBuilder extends BaseR
      * @param string|null $cloudPcId Usage: cloudPcId='{cloudPcId}'
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $cloudPcId = null) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/deviceManagement/virtualEndpoint/reports/getRealTimeRemoteConnectionStatus(cloudPcId='{cloudPcId}')");
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/virtualEndpoint/reports/getRealTimeRemoteConnectionStatus(cloudPcId=\'{cloudPcId}\')');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['cloudPcId'] = $cloudPcId;

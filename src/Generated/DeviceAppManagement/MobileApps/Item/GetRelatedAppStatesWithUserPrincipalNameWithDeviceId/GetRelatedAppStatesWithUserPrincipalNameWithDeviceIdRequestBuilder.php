@@ -24,7 +24,7 @@ class GetRelatedAppStatesWithUserPrincipalNameWithDeviceIdRequestBuilder extends
      * @param string|null $userPrincipalName Usage: userPrincipalName='{userPrincipalName}'
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $deviceId = null, ?string $userPrincipalName = null) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/getRelatedAppStates(userPrincipalName='{userPrincipalName}',deviceId='{deviceId}'){?%24top,%24skip,%24search,%24filter,%24count}");
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/getRelatedAppStates(userPrincipalName=\'{userPrincipalName}\',deviceId=\'{deviceId}\'){?%24top,%24skip,%24search,%24filter,%24count}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['deviceId'] = $deviceId;

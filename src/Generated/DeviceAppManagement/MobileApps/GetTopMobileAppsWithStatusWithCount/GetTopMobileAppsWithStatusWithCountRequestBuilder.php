@@ -24,7 +24,7 @@ class GetTopMobileAppsWithStatusWithCountRequestBuilder extends BaseRequestBuild
      * @param string|null $status Usage: status='{status}'
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?int $count = null, ?string $status = null) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/deviceAppManagement/mobileApps/getTopMobileApps(status='{status}',count={count}){?%24top,%24skip,%24search,%24filter,%24count,%24select,%24orderby}");
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceAppManagement/mobileApps/getTopMobileApps(status=\'{status}\',count={count}){?%24top,%24skip,%24search,%24filter,%24count,%24select,%24orderby}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['count'] = $count;

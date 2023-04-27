@@ -7,13 +7,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * The user experience analytics device startup history entity contains device boot performance history details.
-*/
 class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsDeviceStartupHistory and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsDeviceStartupHistory and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -23,7 +23,7 @@ class UpdateRequestRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/governanceRoleAssignmentRequests/{governanceRoleAssignmentRequest%2Did}/updateRequest");
+        parent::__construct($requestAdapter, [], '{+baseurl}/governanceRoleAssignmentRequests/{governanceRoleAssignmentRequest%2Did}/updateRequest');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

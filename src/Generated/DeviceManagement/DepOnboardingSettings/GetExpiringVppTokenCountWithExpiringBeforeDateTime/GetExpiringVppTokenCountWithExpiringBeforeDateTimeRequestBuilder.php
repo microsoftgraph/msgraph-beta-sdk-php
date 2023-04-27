@@ -23,7 +23,7 @@ class GetExpiringVppTokenCountWithExpiringBeforeDateTimeRequestBuilder extends B
      * @param string|null $expiringBeforeDateTime Usage: expiringBeforeDateTime='{expiringBeforeDateTime}'
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $expiringBeforeDateTime = null) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/deviceManagement/depOnboardingSettings/getExpiringVppTokenCount(expiringBeforeDateTime='{expiringBeforeDateTime}')");
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/depOnboardingSettings/getExpiringVppTokenCount(expiringBeforeDateTime=\'{expiringBeforeDateTime}\')');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['expiringBeforeDateTime'] = $expiringBeforeDateTime;

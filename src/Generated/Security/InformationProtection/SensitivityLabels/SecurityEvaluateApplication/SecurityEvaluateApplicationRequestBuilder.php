@@ -22,7 +22,7 @@ class SecurityEvaluateApplicationRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/security/informationProtection/sensitivityLabels/security.evaluateApplication");
+        parent::__construct($requestAdapter, [], '{+baseurl}/security/informationProtection/sensitivityLabels/security.evaluateApplication');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

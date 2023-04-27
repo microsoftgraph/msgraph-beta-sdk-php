@@ -24,7 +24,7 @@ class GetOffice365GroupsActivityDetailWithDateRequestBuilder extends BaseRequest
      * @param Date|null $date Usage: date={date}
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?Date $date = null) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/reports/getOffice365GroupsActivityDetail(date={date}){?%24top,%24skip,%24search,%24filter,%24count,%24select,%24orderby}");
+        parent::__construct($requestAdapter, [], '{+baseurl}/reports/getOffice365GroupsActivityDetail(date={date}){?%24top,%24skip,%24search,%24filter,%24count,%24select,%24orderby}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['date'] = $date;

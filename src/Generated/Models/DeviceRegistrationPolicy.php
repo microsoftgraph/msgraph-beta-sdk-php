@@ -67,9 +67,18 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
             'azureADRegistration' => fn(ParseNode $n) => $o->setAzureADRegistration($n->getObjectValue([AzureADRegistrationPolicy::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'localAdminPassword' => fn(ParseNode $n) => $o->setLocalAdminPassword($n->getObjectValue([LocalAdminPasswordSettings::class, 'createFromDiscriminatorValue'])),
             'multiFactorAuthConfiguration' => fn(ParseNode $n) => $o->setMultiFactorAuthConfiguration($n->getEnumValue(MultiFactorAuthConfiguration::class)),
             'userDeviceQuota' => fn(ParseNode $n) => $o->setUserDeviceQuota($n->getIntegerValue()),
         ]);
+    }
+
+    /**
+     * Gets the localAdminPassword property value. Specifies the setting for Local Admin Password Solution (LAPS) within your organization.
+     * @return LocalAdminPasswordSettings|null
+    */
+    public function getLocalAdminPassword(): ?LocalAdminPasswordSettings {
+        return $this->getBackingStore()->get('localAdminPassword');
     }
 
     /**
@@ -98,6 +107,7 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
         $writer->writeObjectValue('azureADRegistration', $this->getAzureADRegistration());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeObjectValue('localAdminPassword', $this->getLocalAdminPassword());
         $writer->writeEnumValue('multiFactorAuthConfiguration', $this->getMultiFactorAuthConfiguration());
         $writer->writeIntegerValue('userDeviceQuota', $this->getUserDeviceQuota());
     }
@@ -132,6 +142,14 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the localAdminPassword property value. Specifies the setting for Local Admin Password Solution (LAPS) within your organization.
+     * @param LocalAdminPasswordSettings|null $value Value to set for the localAdminPassword property.
+    */
+    public function setLocalAdminPassword(?LocalAdminPasswordSettings $value): void {
+        $this->getBackingStore()->set('localAdminPassword', $value);
     }
 
     /**

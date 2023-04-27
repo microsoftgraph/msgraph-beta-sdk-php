@@ -57,9 +57,18 @@ class EmployeeExperience implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'learningCourseActivities' => fn(ParseNode $n) => $o->setLearningCourseActivities($n->getCollectionOfObjectValues([LearningCourseActivity::class, 'createFromDiscriminatorValue'])),
             'learningProviders' => fn(ParseNode $n) => $o->setLearningProviders($n->getCollectionOfObjectValues([LearningProvider::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
+    }
+
+    /**
+     * Gets the learningCourseActivities property value. The learningCourseActivities property
+     * @return array<LearningCourseActivity>|null
+    */
+    public function getLearningCourseActivities(): ?array {
+        return $this->getBackingStore()->get('learningCourseActivities');
     }
 
     /**
@@ -83,6 +92,7 @@ class EmployeeExperience implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeCollectionOfObjectValues('learningCourseActivities', $this->getLearningCourseActivities());
         $writer->writeCollectionOfObjectValues('learningProviders', $this->getLearningProviders());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -102,6 +112,14 @@ class EmployeeExperience implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the learningCourseActivities property value. The learningCourseActivities property
+     * @param array<LearningCourseActivity>|null $value Value to set for the learningCourseActivities property.
+    */
+    public function setLearningCourseActivities(?array $value): void {
+        $this->getBackingStore()->set('learningCourseActivities', $value);
     }
 
     /**

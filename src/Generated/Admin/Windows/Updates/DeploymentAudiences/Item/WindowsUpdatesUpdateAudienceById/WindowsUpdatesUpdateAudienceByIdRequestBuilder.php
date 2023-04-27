@@ -22,7 +22,7 @@ class WindowsUpdatesUpdateAudienceByIdRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/admin/windows/updates/deploymentAudiences/{deploymentAudience%2Did}/windowsUpdates.updateAudienceById");
+        parent::__construct($requestAdapter, [], '{+baseurl}/admin/windows/updates/deploymentAudiences/{deploymentAudience%2Did}/windowsUpdates.updateAudienceById');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

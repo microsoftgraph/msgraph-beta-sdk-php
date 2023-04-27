@@ -34,6 +34,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\Devices\DevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\DirectReports\DirectReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drive\DriveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drives\DrivesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\EmployeeExperience\EmployeeExperienceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Events\EventsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ExportDeviceAndAppManagementData\ExportDeviceAndAppManagementDataRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ExportDeviceAndAppManagementDataWithSkipWithTop\ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder;
@@ -304,6 +305,13 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     */
     public function drives(): DrivesRequestBuilder {
         return new DrivesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the employeeExperience property of the microsoft.graph.user entity.
+    */
+    public function employeeExperience(): EmployeeExperienceRequestBuilder {
+        return new EmployeeExperienceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -802,7 +810,7 @@ class UserItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/users/{user%2Did}{?%24select,%24expand}");
+        parent::__construct($requestAdapter, [], '{+baseurl}/users/{user%2Did}{?%24select,%24expand}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

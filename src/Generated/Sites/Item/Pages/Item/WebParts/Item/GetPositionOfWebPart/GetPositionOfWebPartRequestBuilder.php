@@ -23,7 +23,7 @@ class GetPositionOfWebPartRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/sites/{site%2Did}/pages/{sitePage%2Did}/webParts/{webPart%2Did}/getPositionOfWebPart");
+        parent::__construct($requestAdapter, [], '{+baseurl}/sites/{site%2Did}/pages/{sitePage%2Did}/webParts/{webPart%2Did}/getPositionOfWebPart');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

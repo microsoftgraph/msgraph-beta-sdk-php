@@ -34,6 +34,7 @@ use Microsoft\Graph\Beta\Generated\Contracts\ContractsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\DataClassificationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataPolicyOperations\DataPolicyOperationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\DeviceAppManagementRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceLocalCredentials\DeviceLocalCredentialsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Devices\DevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\DirectoryRequestBuilder;
@@ -72,7 +73,6 @@ use Microsoft\Graph\Beta\Generated\MessageTraces\MessageTracesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\MobilityManagementPolicies\MobilityManagementPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Monitoring\MonitoringRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Oauth2PermissionGrants\Oauth2PermissionGrantsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\OfficeConfiguration\OfficeConfigurationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\OnPremisesPublishingProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\OrganizationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PayloadResponse\PayloadResponseRequestBuilder;
@@ -355,6 +355,13 @@ class BaseGraphClient extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the collection of deviceLocalCredentialInfo entities.
+    */
+    public function deviceLocalCredentials(): DeviceLocalCredentialsRequestBuilder {
+        return new DeviceLocalCredentialsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the deviceManagement singleton.
     */
     public function deviceManagement(): DeviceManagementRequestBuilder {
@@ -618,13 +625,6 @@ class BaseGraphClient extends BaseRequestBuilder
     */
     public function oauth2PermissionGrants(): Oauth2PermissionGrantsRequestBuilder {
         return new Oauth2PermissionGrantsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the officeConfiguration singleton.
-    */
-    public function officeConfiguration(): OfficeConfigurationRequestBuilder {
-        return new OfficeConfigurationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -927,7 +927,7 @@ class BaseGraphClient extends BaseRequestBuilder
      * @param BackingStoreFactory|null $backingStore The backing store to use for the models.
     */
     public function __construct(RequestAdapter $requestAdapter, ?BackingStoreFactory $backingStore = null) {
-        parent::__construct($requestAdapter, [], "{+baseurl}");
+        parent::__construct($requestAdapter, [], '{+baseurl}');
         ApiClientBuilder::registerDefaultSerializer(JsonSerializationWriterFactory::class);
         ApiClientBuilder::registerDefaultSerializer(TextSerializationWriterFactory::class);
         ApiClientBuilder::registerDefaultDeserializer(JsonParseNodeFactory::class);

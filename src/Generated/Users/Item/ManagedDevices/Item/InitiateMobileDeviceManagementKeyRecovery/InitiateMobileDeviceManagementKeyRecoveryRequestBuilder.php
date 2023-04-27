@@ -22,7 +22,7 @@ class InitiateMobileDeviceManagementKeyRecoveryRequestBuilder extends BaseReques
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/initiateMobileDeviceManagementKeyRecovery");
+        parent::__construct($requestAdapter, [], '{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/initiateMobileDeviceManagementKeyRecovery');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

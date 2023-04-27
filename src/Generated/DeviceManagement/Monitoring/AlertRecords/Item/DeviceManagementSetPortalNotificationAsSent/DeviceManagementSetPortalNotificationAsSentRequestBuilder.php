@@ -22,7 +22,7 @@ class DeviceManagementSetPortalNotificationAsSentRequestBuilder extends BaseRequ
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/deviceManagement/monitoring/alertRecords/{alertRecord%2Did}/deviceManagement.setPortalNotificationAsSent");
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/monitoring/alertRecords/{alertRecord%2Did}/deviceManagement.setPortalNotificationAsSent');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

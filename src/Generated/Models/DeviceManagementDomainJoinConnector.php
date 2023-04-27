@@ -7,13 +7,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * A Domain Join Connector is a connector that is responsible to allocate (and delete) machine account blobs
-*/
 class DeviceManagementDomainJoinConnector extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementDomainJoinConnector and sets the default values.
+     * Instantiates a new DeviceManagementDomainJoinConnector and sets the default values.
     */
     public function __construct() {
         parent::__construct();

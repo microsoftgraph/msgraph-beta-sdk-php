@@ -23,7 +23,7 @@ class SquareLogoDarkRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/organization/{organization%2Did}/branding/squareLogoDark");
+        parent::__construct($requestAdapter, [], '{+baseurl}/organization/{organization%2Did}/branding/squareLogoDark');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class LearningProvider extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new learningProvider and sets the default values.
+     * Instantiates a new LearningProvider and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -41,6 +41,7 @@ class LearningProvider extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'learningContents' => fn(ParseNode $n) => $o->setLearningContents($n->getCollectionOfObjectValues([LearningContent::class, 'createFromDiscriminatorValue'])),
+            'learningCourseActivities' => fn(ParseNode $n) => $o->setLearningCourseActivities($n->getCollectionOfObjectValues([LearningCourseActivity::class, 'createFromDiscriminatorValue'])),
             'loginWebUrl' => fn(ParseNode $n) => $o->setLoginWebUrl($n->getStringValue()),
             'longLogoWebUrlForDarkTheme' => fn(ParseNode $n) => $o->setLongLogoWebUrlForDarkTheme($n->getStringValue()),
             'longLogoWebUrlForLightTheme' => fn(ParseNode $n) => $o->setLongLogoWebUrlForLightTheme($n->getStringValue()),
@@ -55,6 +56,14 @@ class LearningProvider extends Entity implements Parsable
     */
     public function getLearningContents(): ?array {
         return $this->getBackingStore()->get('learningContents');
+    }
+
+    /**
+     * Gets the learningCourseActivities property value. The learningCourseActivities property
+     * @return array<LearningCourseActivity>|null
+    */
+    public function getLearningCourseActivities(): ?array {
+        return $this->getBackingStore()->get('learningCourseActivities');
     }
 
     /**
@@ -105,6 +114,7 @@ class LearningProvider extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeCollectionOfObjectValues('learningContents', $this->getLearningContents());
+        $writer->writeCollectionOfObjectValues('learningCourseActivities', $this->getLearningCourseActivities());
         $writer->writeStringValue('loginWebUrl', $this->getLoginWebUrl());
         $writer->writeStringValue('longLogoWebUrlForDarkTheme', $this->getLongLogoWebUrlForDarkTheme());
         $writer->writeStringValue('longLogoWebUrlForLightTheme', $this->getLongLogoWebUrlForLightTheme());
@@ -126,6 +136,14 @@ class LearningProvider extends Entity implements Parsable
     */
     public function setLearningContents(?array $value): void {
         $this->getBackingStore()->set('learningContents', $value);
+    }
+
+    /**
+     * Sets the learningCourseActivities property value. The learningCourseActivities property
+     * @param array<LearningCourseActivity>|null $value Value to set for the learningCourseActivities property.
+    */
+    public function setLearningCourseActivities(?array $value): void {
+        $this->getBackingStore()->set('learningCourseActivities', $value);
     }
 
     /**

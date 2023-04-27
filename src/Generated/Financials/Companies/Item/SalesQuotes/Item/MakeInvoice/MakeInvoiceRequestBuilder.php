@@ -22,7 +22,7 @@ class MakeInvoiceRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/financials/companies/{company%2Did}/salesQuotes/{salesQuote%2Did}/makeInvoice");
+        parent::__construct($requestAdapter, [], '{+baseurl}/financials/companies/{company%2Did}/salesQuotes/{salesQuote%2Did}/makeInvoice');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

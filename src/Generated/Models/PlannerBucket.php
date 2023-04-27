@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PlannerBucket extends PlannerDelta implements Parsable 
 {
     /**
-     * Instantiates a new plannerBucket and sets the default values.
+     * Instantiates a new PlannerBucket and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -35,6 +35,7 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.deviceManagementConfigurationApplicationSettingApplicability': return new DeviceManagementConfigurationApplicationSettingApplicability();
                 case '#microsoft.graph.deviceManagementConfigurationExchangeOnlineSettingApplicability': return new DeviceManagementConfigurationExchangeOnlineSettingApplicability();
                 case '#microsoft.graph.deviceManagementConfigurationWindowsSettingApplicability': return new DeviceManagementConfigurationWindowsSettingApplicability();
             }

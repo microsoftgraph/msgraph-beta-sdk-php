@@ -23,7 +23,7 @@ class AppDiagnosticsWithUpnRequestBuilder extends BaseRequestBuilder
      * @param string|null $upn Usage: upn='{upn}'
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $upn = null) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/deviceManagement/managedDevices/appDiagnostics(upn='{upn}'){?%24top,%24skip,%24search,%24filter,%24count}");
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/managedDevices/appDiagnostics(upn=\'{upn}\'){?%24top,%24skip,%24search,%24filter,%24count}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['upn'] = $upn;

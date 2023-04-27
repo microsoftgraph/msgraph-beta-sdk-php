@@ -23,7 +23,7 @@ class GetLicensesForAppWithBundleIdRequestBuilder extends BaseRequestBuilder
      * @param string|null $bundleId Usage: bundleId='{bundleId}'
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $bundleId = null) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/deviceAppManagement/vppTokens/getLicensesForApp(bundleId='{bundleId}'){?%24top,%24skip,%24search,%24filter,%24count}");
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceAppManagement/vppTokens/getLicensesForApp(bundleId=\'{bundleId}\'){?%24top,%24skip,%24search,%24filter,%24count}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['bundleId'] = $bundleId;

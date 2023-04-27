@@ -24,7 +24,7 @@ class GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder extends BaseRe
      * @param string|null $enrollmentType Usage: enrollmentType='{enrollmentType}'
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $enrollmentType = null) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/deviceManagement/getSuggestedEnrollmentLimit(enrollmentType='{enrollmentType}')");
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/getSuggestedEnrollmentLimit(enrollmentType=\'{enrollmentType}\')');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['enrollmentType'] = $enrollmentType;

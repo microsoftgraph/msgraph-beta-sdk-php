@@ -12,7 +12,6 @@ use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\AssignmentFilt
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\BypassActivationLock\BypassActivationLockRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\CleanWindowsDevice\CleanWindowsDeviceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\CreateDeviceLogCollectionRequest\CreateDeviceLogCollectionRequestRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\CreateRemoteHelpSession\CreateRemoteHelpSessionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\DeleteUserFromSharedAppleDevice\DeleteUserFromSharedAppleDeviceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\Deprovision\DeprovisionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\DetectedApps\DetectedAppsRequestBuilder;
@@ -23,7 +22,6 @@ use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\DeviceHealthSc
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\Disable\DisableRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\DisableLostMode\DisableLostModeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\EnableLostMode\EnableLostModeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\EndRemoteHelpSession\EndRemoteHelpSessionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\EnrollNowAction\EnrollNowActionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\GetCloudPcRemoteActionResults\GetCloudPcRemoteActionResultsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\GetCloudPcReviewStatus\GetCloudPcReviewStatusRequestBuilder;
@@ -45,12 +43,10 @@ use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RemoteLock\Rem
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RemoveDeviceFirmwareConfigurationInterfaceManagement\RemoveDeviceFirmwareConfigurationInterfaceManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\ReprovisionCloudPc\ReprovisionCloudPcRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RequestRemoteAssistance\RequestRemoteAssistanceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RequestRemoteHelpSessionAccess\RequestRemoteHelpSessionAccessRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\ResetPasscode\ResetPasscodeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\ResizeCloudPc\ResizeCloudPcRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RestoreCloudPc\RestoreCloudPcRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\Retire\RetireRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RetrieveRemoteHelpSessionWithSessionKey\RetrieveRemoteHelpSessionWithSessionKeyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RevokeAppleVppLicenses\RevokeAppleVppLicensesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RotateBitLockerKeys\RotateBitLockerKeysRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RotateFileVaultKey\RotateFileVaultKeyRequestBuilder;
@@ -111,13 +107,6 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
     */
     public function createDeviceLogCollectionRequest(): CreateDeviceLogCollectionRequestRequestBuilder {
         return new CreateDeviceLogCollectionRequestRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the createRemoteHelpSession method.
-    */
-    public function createRemoteHelpSession(): CreateRemoteHelpSessionRequestBuilder {
-        return new CreateRemoteHelpSessionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -188,13 +177,6 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
     */
     public function enableLostMode(): EnableLostModeRequestBuilder {
         return new EnableLostModeRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the endRemoteHelpSession method.
-    */
-    public function endRemoteHelpSession(): EndRemoteHelpSessionRequestBuilder {
-        return new EndRemoteHelpSessionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -342,13 +324,6 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
     */
     public function requestRemoteAssistance(): RequestRemoteAssistanceRequestBuilder {
         return new RequestRemoteAssistanceRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the requestRemoteHelpSessionAccess method.
-    */
-    public function requestRemoteHelpSessionAccess(): RequestRemoteHelpSessionAccessRequestBuilder {
-        return new RequestRemoteHelpSessionAccessRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -504,7 +479,7 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}{?%24select,%24expand}");
+        parent::__construct($requestAdapter, [], '{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}{?%24select,%24expand}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -565,15 +540,6 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to call the retrieveRemoteHelpSession method.
-     * @param string $sessionKey Usage: sessionKey='{sessionKey}'
-     * @return RetrieveRemoteHelpSessionWithSessionKeyRequestBuilder
-    */
-    public function retrieveRemoteHelpSessionWithSessionKey(string $sessionKey): RetrieveRemoteHelpSessionWithSessionKeyRequestBuilder {
-        return new RetrieveRemoteHelpSessionWithSessionKeyRequestBuilder($this->pathParameters, $this->requestAdapter, $sessionKey);
     }
 
     /**

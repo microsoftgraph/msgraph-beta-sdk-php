@@ -40,6 +40,7 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Ba
             switch ($mappingValue) {
                 case '#microsoft.graph.allDevicesAssignmentTarget': return new AllDevicesAssignmentTarget();
                 case '#microsoft.graph.allLicensedUsersAssignmentTarget': return new AllLicensedUsersAssignmentTarget();
+                case '#microsoft.graph.androidFotaDeploymentAssignmentTarget': return new AndroidFotaDeploymentAssignmentTarget();
                 case '#microsoft.graph.configurationManagerCollectionAssignmentTarget': return new ConfigurationManagerCollectionAssignmentTarget();
                 case '#microsoft.graph.exclusionGroupAssignmentTarget': return new ExclusionGroupAssignmentTarget();
                 case '#microsoft.graph.groupAssignmentTarget': return new GroupAssignmentTarget();

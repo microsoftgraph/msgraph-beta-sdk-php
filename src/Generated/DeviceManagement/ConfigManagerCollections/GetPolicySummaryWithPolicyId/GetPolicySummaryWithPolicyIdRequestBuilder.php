@@ -24,7 +24,7 @@ class GetPolicySummaryWithPolicyIdRequestBuilder extends BaseRequestBuilder
      * @param string|null $policyId Usage: policyId='{policyId}'
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $policyId = null) {
-        parent::__construct($requestAdapter, [], "{+baseurl}/deviceManagement/configManagerCollections/getPolicySummary(policyId='{policyId}')");
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/configManagerCollections/getPolicySummary(policyId=\'{policyId}\')');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['policyId'] = $policyId;
