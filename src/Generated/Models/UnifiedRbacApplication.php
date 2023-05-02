@@ -25,12 +25,21 @@ class UnifiedRbacApplication extends Entity implements Parsable
     }
 
     /**
+     * Gets the customAppScopes property value. The customAppScopes property
+     * @return array<CustomAppScope>|null
+    */
+    public function getCustomAppScopes(): ?array {
+        return $this->getBackingStore()->get('customAppScopes');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'customAppScopes' => fn(ParseNode $n) => $o->setCustomAppScopes($n->getCollectionOfObjectValues([CustomAppScope::class, 'createFromDiscriminatorValue'])),
             'resourceNamespaces' => fn(ParseNode $n) => $o->setResourceNamespaces($n->getCollectionOfObjectValues([UnifiedRbacResourceNamespace::class, 'createFromDiscriminatorValue'])),
             'roleAssignments' => fn(ParseNode $n) => $o->setRoleAssignments($n->getCollectionOfObjectValues([UnifiedRoleAssignment::class, 'createFromDiscriminatorValue'])),
             'roleDefinitions' => fn(ParseNode $n) => $o->setRoleDefinitions($n->getCollectionOfObjectValues([UnifiedRoleDefinition::class, 'createFromDiscriminatorValue'])),
@@ -76,10 +85,19 @@ class UnifiedRbacApplication extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('customAppScopes', $this->getCustomAppScopes());
         $writer->writeCollectionOfObjectValues('resourceNamespaces', $this->getResourceNamespaces());
         $writer->writeCollectionOfObjectValues('roleAssignments', $this->getRoleAssignments());
         $writer->writeCollectionOfObjectValues('roleDefinitions', $this->getRoleDefinitions());
         $writer->writeCollectionOfObjectValues('transitiveRoleAssignments', $this->getTransitiveRoleAssignments());
+    }
+
+    /**
+     * Sets the customAppScopes property value. The customAppScopes property
+     * @param array<CustomAppScope>|null $value Value to set for the customAppScopes property.
+    */
+    public function setCustomAppScopes(?array $value): void {
+        $this->getBackingStore()->set('customAppScopes', $value);
     }
 
     /**

@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Imported windows autopilot devices.
+*/
 class ImportedWindowsAutopilotDeviceIdentity extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ImportedWindowsAutopilotDeviceIdentity and sets the default values.
+     * Instantiates a new importedWindowsAutopilotDeviceIdentity and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Profile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new Profile and sets the default values.
+     * Instantiates a new profile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

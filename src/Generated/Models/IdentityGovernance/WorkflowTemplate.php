@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WorkflowTemplate extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new WorkflowTemplate and sets the default values.
+     * Instantiates a new workflowTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

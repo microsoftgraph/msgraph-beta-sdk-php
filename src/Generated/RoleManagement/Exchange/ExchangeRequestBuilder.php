@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UnifiedRbacApplication;
+use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\CustomAppScopes\CustomAppScopesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\ResourceNamespaces\ResourceNamespacesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\RoleAssignments\RoleAssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\RoleDefinitions\RoleDefinitionsRequestBuilder;
@@ -21,6 +22,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class ExchangeRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the customAppScopes property of the microsoft.graph.unifiedRbacApplication entity.
+    */
+    public function customAppScopes(): CustomAppScopesRequestBuilder {
+        return new CustomAppScopesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the resourceNamespaces property of the microsoft.graph.unifiedRbacApplication entity.
     */
