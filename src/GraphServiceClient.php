@@ -8,6 +8,7 @@
 
 namespace Microsoft\Graph\Beta;
 
+use Microsoft\Graph\Beta\Generated\Users\Item\UserItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
 /**
