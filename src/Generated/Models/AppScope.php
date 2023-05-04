@@ -21,6 +21,13 @@ class AppScope extends Entity implements Parsable
      * @return AppScope
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AppScope {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.customAppScope': return new CustomAppScope();
+            }
+        }
         return new AppScope();
     }
 

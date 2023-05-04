@@ -7,9 +7,6 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-/**
- * OS X Trusted Root Certificate configuration profile.
-*/
 class MacOSTrustedRootCertificate extends DeviceConfiguration implements Parsable 
 {
     /**

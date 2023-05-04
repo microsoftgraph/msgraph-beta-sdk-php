@@ -71,7 +71,7 @@ class RemovedState implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the reason property value. The reason property
+     * Gets the reason property value. The removal reason for the participant resource.
      * @return string|null
     */
     public function getReason(): ?string {
@@ -113,7 +113,7 @@ class RemovedState implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the reason property value. The reason property
+     * Sets the reason property value. The removal reason for the participant resource.
      * @param string|null $value Value to set for the reason property.
     */
     public function setReason(?string $value): void {
