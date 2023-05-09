@@ -74,7 +74,7 @@ class PrivilegedAccessGroupAssignmentScheduleItemRequestBuilder extends BaseRequ
     }
 
     /**
-     * Get assignmentSchedules from identityGovernance
+     * The assignment schedules to activate a just-in-time access.
      * @param PrivilegedAccessGroupAssignmentScheduleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -128,7 +128,7 @@ class PrivilegedAccessGroupAssignmentScheduleItemRequestBuilder extends BaseRequ
     }
 
     /**
-     * Get assignmentSchedules from identityGovernance
+     * The assignment schedules to activate a just-in-time access.
      * @param PrivilegedAccessGroupAssignmentScheduleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

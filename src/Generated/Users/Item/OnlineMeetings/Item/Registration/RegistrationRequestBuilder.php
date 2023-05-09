@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\MeetingRegistration;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\Registration\CustomQuestions\CustomQuestionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\Registration\Registrants\RegistrantsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -23,6 +24,13 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     */
     public function customQuestions(): CustomQuestionsRequestBuilder {
         return new CustomQuestionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the registrants property of the microsoft.graph.meetingRegistrationBase entity.
+    */
+    public function registrants(): RegistrantsRequestBuilder {
+        return new RegistrantsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

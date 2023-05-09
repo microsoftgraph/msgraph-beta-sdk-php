@@ -5,6 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Insights;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\Me\Insights\Shared\SharedRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Insights\Trending\TrendingRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Insights\Used\UsedRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ItemInsights;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -17,6 +20,27 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class InsightsRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity.
+    */
+    public function shared(): SharedRequestBuilder {
+        return new SharedRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the trending property of the microsoft.graph.officeGraphInsights entity.
+    */
+    public function trending(): TrendingRequestBuilder {
+        return new TrendingRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the used property of the microsoft.graph.officeGraphInsights entity.
+    */
+    public function used(): UsedRequestBuilder {
+        return new UsedRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new InsightsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

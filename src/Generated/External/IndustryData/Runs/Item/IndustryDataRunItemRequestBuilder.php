@@ -6,7 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\External\IndustryData\Runs\Item\Activities\ActivitiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\Runs\Item\IndustryDataGetStatistics\IndustryDataGetStatisticsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\External\IndustryData\Runs\Item\MicrosoftGraphIndustryDataGetStatistics\MicrosoftGraphIndustryDataGetStatisticsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IndustryData\IndustryDataRun;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -29,8 +29,8 @@ class IndustryDataRunItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the getStatistics method.
     */
-    public function industryDataGetStatistics(): IndustryDataGetStatisticsRequestBuilder {
-        return new IndustryDataGetStatisticsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphIndustryDataGetStatistics(): MicrosoftGraphIndustryDataGetStatisticsRequestBuilder {
+        return new MicrosoftGraphIndustryDataGetStatisticsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

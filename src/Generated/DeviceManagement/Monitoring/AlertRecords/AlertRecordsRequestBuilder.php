@@ -6,8 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\AlertRecords\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\AlertRecords\DeviceManagementGetPortalNotifications\DeviceManagementGetPortalNotificationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\AlertRecords\Item\AlertRecordItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\AlertRecords\MicrosoftGraphDeviceManagementGetPortalNotifications\MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagement\AlertRecord;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagement\AlertRecordCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -31,8 +31,8 @@ class AlertRecordsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the getPortalNotifications method.
     */
-    public function deviceManagementGetPortalNotifications(): DeviceManagementGetPortalNotificationsRequestBuilder {
-        return new DeviceManagementGetPortalNotificationsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphDeviceManagementGetPortalNotifications(): MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilder {
+        return new MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

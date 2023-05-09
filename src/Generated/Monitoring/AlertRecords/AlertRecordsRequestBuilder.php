@@ -9,8 +9,8 @@ use Microsoft\Graph\Beta\Generated\Models\DeviceManagement\AlertRecord;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagement\AlertRecordCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Monitoring\AlertRecords\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Monitoring\AlertRecords\DeviceManagementGetPortalNotifications\DeviceManagementGetPortalNotificationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Monitoring\AlertRecords\Item\AlertRecordItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Monitoring\AlertRecords\MicrosoftGraphDeviceManagementGetPortalNotifications\MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -31,8 +31,8 @@ class AlertRecordsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the getPortalNotifications method.
     */
-    public function deviceManagementGetPortalNotifications(): DeviceManagementGetPortalNotificationsRequestBuilder {
-        return new DeviceManagementGetPortalNotificationsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphDeviceManagementGetPortalNotifications(): MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilder {
+        return new MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

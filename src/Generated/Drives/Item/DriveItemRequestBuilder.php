@@ -7,9 +7,11 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Activities\ActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Bundles\BundlesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\CreatedByUser\CreatedByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\ListRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Following\FollowingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\ItemsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\LastModifiedByUser\LastModifiedByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Recent\RecentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Root\RootRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\SearchWithQ\SearchWithQRequestBuilder;
@@ -42,6 +44,13 @@ class DriveItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
+    */
+    public function createdByUser(): CreatedByUserRequestBuilder {
+        return new CreatedByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the list property of the microsoft.graph.drive entity.
     */
     public function escapedList(): ListRequestBuilder {
@@ -60,6 +69,13 @@ class DriveItemRequestBuilder extends BaseRequestBuilder
     */
     public function items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.
+    */
+    public function lastModifiedByUser(): LastModifiedByUserRequestBuilder {
+        return new LastModifiedByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

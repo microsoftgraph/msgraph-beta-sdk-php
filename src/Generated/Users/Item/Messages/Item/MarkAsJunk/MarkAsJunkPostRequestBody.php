@@ -62,7 +62,7 @@ class MarkAsJunkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the moveToJunk property value. The moveToJunk property
+     * Gets the moveToJunk property value. The MoveToJunk property
      * @return bool|null
     */
     public function getMoveToJunk(): ?bool {
@@ -95,8 +95,8 @@ class MarkAsJunkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the moveToJunk property value. The moveToJunk property
-     * @param bool|null $value Value to set for the moveToJunk property.
+     * Sets the moveToJunk property value. The MoveToJunk property
+     * @param bool|null $value Value to set for the MoveToJunk property.
     */
     public function setMoveToJunk(?bool $value): void {
         $this->getBackingStore()->set('moveToJunk', $value);

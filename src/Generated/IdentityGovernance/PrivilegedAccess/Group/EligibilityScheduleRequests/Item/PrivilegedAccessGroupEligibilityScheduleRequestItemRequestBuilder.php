@@ -82,7 +82,7 @@ class PrivilegedAccessGroupEligibilityScheduleRequestItemRequestBuilder extends 
     }
 
     /**
-     * Get eligibilityScheduleRequests from identityGovernance
+     * The schedule requests for operations to create, update, delete, extend, and renew an eligibility.
      * @param PrivilegedAccessGroupEligibilityScheduleRequestItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -136,7 +136,7 @@ class PrivilegedAccessGroupEligibilityScheduleRequestItemRequestBuilder extends 
     }
 
     /**
-     * Get eligibilityScheduleRequests from identityGovernance
+     * The schedule requests for operations to create, update, delete, extend, and renew an eligibility.
      * @param PrivilegedAccessGroupEligibilityScheduleRequestItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

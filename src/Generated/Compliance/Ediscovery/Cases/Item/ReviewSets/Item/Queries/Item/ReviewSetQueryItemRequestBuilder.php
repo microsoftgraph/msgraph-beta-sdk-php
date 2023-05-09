@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Review
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\Item\Queries\Item\EdiscoveryApplyTags\EdiscoveryApplyTagsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\Item\Queries\Item\MicrosoftGraphEdiscoveryApplyTags\MicrosoftGraphEdiscoveryApplyTagsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\ReviewSetQuery;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -21,8 +21,8 @@ class ReviewSetQueryItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the applyTags method.
     */
-    public function ediscoveryApplyTags(): EdiscoveryApplyTagsRequestBuilder {
-        return new EdiscoveryApplyTagsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphEdiscoveryApplyTags(): MicrosoftGraphEdiscoveryApplyTagsRequestBuilder {
+        return new MicrosoftGraphEdiscoveryApplyTagsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

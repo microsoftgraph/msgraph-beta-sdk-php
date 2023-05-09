@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Activate\ActivateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Categories\CategoriesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Deactivate\DeactivateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\GradingCategory\GradingCategoryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Publish\PublishRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Resources\ResourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Rubric\RubricRequestBuilder;
@@ -45,6 +46,13 @@ class EducationAssignmentItemRequestBuilder extends BaseRequestBuilder
     */
     public function deactivate(): DeactivateRequestBuilder {
         return new DeactivateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the gradingCategory property of the microsoft.graph.educationAssignment entity.
+    */
+    public function gradingCategory(): GradingCategoryRequestBuilder {
+        return new GradingCategoryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -5,6 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\D
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\Versions\Item\CreatedBy\CreatedByRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\Versions\Item\LastModifiedBy\LastModifiedByRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\Versions\Item\Tasks\TasksRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\WorkflowVersion;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -17,6 +20,27 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class WorkflowVersionVersionNumberItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the createdBy property of the microsoft.graph.identityGovernance.workflowBase entity.
+    */
+    public function createdBy(): CreatedByRequestBuilder {
+        return new CreatedByRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the lastModifiedBy property of the microsoft.graph.identityGovernance.workflowBase entity.
+    */
+    public function lastModifiedBy(): LastModifiedByRequestBuilder {
+        return new LastModifiedByRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the tasks property of the microsoft.graph.identityGovernance.workflowBase entity.
+    */
+    public function tasks(): TasksRequestBuilder {
+        return new TasksRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new WorkflowVersionVersionNumberItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

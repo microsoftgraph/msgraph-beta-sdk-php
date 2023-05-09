@@ -16,11 +16,9 @@ use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Message
 use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\MarkAsNotJunk\MarkAsNotJunkRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\Mentions\MentionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\Move\MoveRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\MultiValueExtendedProperties\MultiValueExtendedPropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\Reply\ReplyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\ReplyAll\ReplyAllRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\Send\SendRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\SingleValueExtendedProperties\SingleValueExtendedPropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\Unsubscribe\UnsubscribeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\Value\ContentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Message;
@@ -120,13 +118,6 @@ class MessageItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.message entity.
-    */
-    public function multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
-        return new MultiValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to call the reply method.
     */
     public function reply(): ReplyRequestBuilder {
@@ -145,13 +136,6 @@ class MessageItemRequestBuilder extends BaseRequestBuilder
     */
     public function send(): SendRequestBuilder {
         return new SendRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.message entity.
-    */
-    public function singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
-        return new SingleValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

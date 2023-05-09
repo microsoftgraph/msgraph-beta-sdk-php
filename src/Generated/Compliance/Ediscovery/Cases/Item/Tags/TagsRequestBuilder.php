@@ -6,8 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\EdiscoveryAsHierarchy\EdiscoveryAsHierarchyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\Item\TagItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\MicrosoftGraphEdiscoveryAsHierarchy\MicrosoftGraphEdiscoveryAsHierarchyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\TagCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -31,8 +31,8 @@ class TagsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the asHierarchy method.
     */
-    public function ediscoveryAsHierarchy(): EdiscoveryAsHierarchyRequestBuilder {
-        return new EdiscoveryAsHierarchyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphEdiscoveryAsHierarchy(): MicrosoftGraphEdiscoveryAsHierarchyRequestBuilder {
+        return new MicrosoftGraphEdiscoveryAsHierarchyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

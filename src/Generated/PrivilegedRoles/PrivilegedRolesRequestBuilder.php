@@ -53,10 +53,9 @@ class PrivilegedRolesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of privilegedRole objects. To filter the results from the query, use the standard OData ``$filter`` expressions in the URIs.
+     * Get entities from privilegedRoles
      * @param PrivilegedRolesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/privilegedrole-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?PrivilegedRolesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -91,7 +90,7 @@ class PrivilegedRolesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of privilegedRole objects. To filter the results from the query, use the standard OData ``$filter`` expressions in the URIs.
+     * Get entities from privilegedRoles
      * @param PrivilegedRolesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

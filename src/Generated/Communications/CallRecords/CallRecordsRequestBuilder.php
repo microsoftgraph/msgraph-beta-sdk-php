@@ -6,13 +6,13 @@ use DateTime;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Communications\CallRecords\CallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTime\CallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Communications\CallRecords\CallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTime\CallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Communications\CallRecords\CallRecordsGetPstnCallsWithFromDateTimeWithToDateTime\CallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Communications\CallRecords\CallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTime\CallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Communications\CallRecords\CallRecordsGetSmsLogWithFromDateTimeWithToDateTime\CallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\CallRecords\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\CallRecords\Item\CallRecordItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\CallRecords\MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTime\MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\CallRecords\MicrosoftGraphCallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTime\MicrosoftGraphCallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\CallRecords\MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTime\MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\CallRecords\MicrosoftGraphCallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTime\MicrosoftGraphCallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\CallRecords\MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTime\MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CallRecords\CallRecord;
 use Microsoft\Graph\Beta\Generated\Models\CallRecords\CallRecordCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -45,56 +45,6 @@ class CallRecordsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Provides operations to call the getDirectRoutingCalls method.
-     * @param DateTime $fromDateTime Usage: fromDateTime={fromDateTime}
-     * @param DateTime $toDateTime Usage: toDateTime={toDateTime}
-     * @return CallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder
-    */
-    public function callRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTime(DateTime $fromDateTime, DateTime $toDateTime): CallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder {
-        return new CallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $fromDateTime, $toDateTime);
-    }
-
-    /**
-     * Provides operations to call the getPstnBlockedUsersLog method.
-     * @param DateTime $fromDateTime Usage: fromDateTime={fromDateTime}
-     * @param DateTime $toDateTime Usage: toDateTime={toDateTime}
-     * @return CallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeRequestBuilder
-    */
-    public function callRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTime(DateTime $fromDateTime, DateTime $toDateTime): CallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeRequestBuilder {
-        return new CallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $fromDateTime, $toDateTime);
-    }
-
-    /**
-     * Provides operations to call the getPstnCalls method.
-     * @param DateTime $fromDateTime Usage: fromDateTime={fromDateTime}
-     * @param DateTime $toDateTime Usage: toDateTime={toDateTime}
-     * @return CallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder
-    */
-    public function callRecordsGetPstnCallsWithFromDateTimeWithToDateTime(DateTime $fromDateTime, DateTime $toDateTime): CallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder {
-        return new CallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $fromDateTime, $toDateTime);
-    }
-
-    /**
-     * Provides operations to call the getPstnOnlineMeetingDialoutReport method.
-     * @param DateTime $fromDateTime Usage: fromDateTime={fromDateTime}
-     * @param DateTime $toDateTime Usage: toDateTime={toDateTime}
-     * @return CallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeRequestBuilder
-    */
-    public function callRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTime(DateTime $fromDateTime, DateTime $toDateTime): CallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeRequestBuilder {
-        return new CallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $fromDateTime, $toDateTime);
-    }
-
-    /**
-     * Provides operations to call the getSmsLog method.
-     * @param DateTime $fromDateTime Usage: fromDateTime={fromDateTime}
-     * @param DateTime $toDateTime Usage: toDateTime={toDateTime}
-     * @return CallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilder
-    */
-    public function callRecordsGetSmsLogWithFromDateTimeWithToDateTime(DateTime $fromDateTime, DateTime $toDateTime): CallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilder {
-        return new CallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $fromDateTime, $toDateTime);
-    }
-
-    /**
      * Instantiates a new CallRecordsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -124,6 +74,56 @@ class CallRecordsRequestBuilder extends BaseRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
+    }
+
+    /**
+     * Provides operations to call the getDirectRoutingCalls method.
+     * @param DateTime $fromDateTime Usage: fromDateTime={fromDateTime}
+     * @param DateTime $toDateTime Usage: toDateTime={toDateTime}
+     * @return MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder
+    */
+    public function microsoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTime(DateTime $fromDateTime, DateTime $toDateTime): MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder {
+        return new MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $fromDateTime, $toDateTime);
+    }
+
+    /**
+     * Provides operations to call the getPstnBlockedUsersLog method.
+     * @param DateTime $fromDateTime Usage: fromDateTime={fromDateTime}
+     * @param DateTime $toDateTime Usage: toDateTime={toDateTime}
+     * @return MicrosoftGraphCallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeRequestBuilder
+    */
+    public function microsoftGraphCallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTime(DateTime $fromDateTime, DateTime $toDateTime): MicrosoftGraphCallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeRequestBuilder {
+        return new MicrosoftGraphCallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $fromDateTime, $toDateTime);
+    }
+
+    /**
+     * Provides operations to call the getPstnCalls method.
+     * @param DateTime $fromDateTime Usage: fromDateTime={fromDateTime}
+     * @param DateTime $toDateTime Usage: toDateTime={toDateTime}
+     * @return MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder
+    */
+    public function microsoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTime(DateTime $fromDateTime, DateTime $toDateTime): MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder {
+        return new MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $fromDateTime, $toDateTime);
+    }
+
+    /**
+     * Provides operations to call the getPstnOnlineMeetingDialoutReport method.
+     * @param DateTime $fromDateTime Usage: fromDateTime={fromDateTime}
+     * @param DateTime $toDateTime Usage: toDateTime={toDateTime}
+     * @return MicrosoftGraphCallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeRequestBuilder
+    */
+    public function microsoftGraphCallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTime(DateTime $fromDateTime, DateTime $toDateTime): MicrosoftGraphCallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeRequestBuilder {
+        return new MicrosoftGraphCallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $fromDateTime, $toDateTime);
+    }
+
+    /**
+     * Provides operations to call the getSmsLog method.
+     * @param DateTime $fromDateTime Usage: fromDateTime={fromDateTime}
+     * @param DateTime $toDateTime Usage: toDateTime={toDateTime}
+     * @return MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilder
+    */
+    public function microsoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTime(DateTime $fromDateTime, DateTime $toDateTime): MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilder {
+        return new MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $fromDateTime, $toDateTime);
     }
 
     /**

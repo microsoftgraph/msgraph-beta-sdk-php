@@ -13,6 +13,7 @@ use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Checkout\CheckoutReque
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Children\ChildrenRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Content\ContentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Copy\CopyRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\CreatedByUser\CreatedByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\CreateLink\CreateLinkRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\CreateUploadSession\CreateUploadSessionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Delta\DeltaRequestBuilder;
@@ -21,6 +22,7 @@ use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\ExtractSensitivityLabe
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Follow\FollowRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Invite\InviteRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\LastModifiedByUser\LastModifiedByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\ListItem\ListItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Permissions\PermissionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Preview\PreviewRequestBuilder;
@@ -102,6 +104,13 @@ class DriveItemItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
+    */
+    public function createdByUser(): CreatedByUserRequestBuilder {
+        return new CreatedByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the createLink method.
     */
     public function createLink(): CreateLinkRequestBuilder {
@@ -141,6 +150,13 @@ class DriveItemItemRequestBuilder extends BaseRequestBuilder
     */
     public function invite(): InviteRequestBuilder {
         return new InviteRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.
+    */
+    public function lastModifiedByUser(): LastModifiedByUserRequestBuilder {
+        return new LastModifiedByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

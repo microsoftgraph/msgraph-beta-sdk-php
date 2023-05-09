@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\IndustryData\DataConnectors\It
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\DataConnectors\Item\IndustryDataValidate\IndustryDataValidateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\External\IndustryData\DataConnectors\Item\MicrosoftGraphIndustryDataValidate\MicrosoftGraphIndustryDataValidateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\External\IndustryData\DataConnectors\Item\SourceSystem\SourceSystemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IndustryData\IndustryDataConnector;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -22,8 +22,8 @@ class IndustryDataConnectorItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the validate method.
     */
-    public function industryDataValidate(): IndustryDataValidateRequestBuilder {
-        return new IndustryDataValidateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphIndustryDataValidate(): MicrosoftGraphIndustryDataValidateRequestBuilder {
+        return new MicrosoftGraphIndustryDataValidateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -7,10 +7,10 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Security\InformationProtection\SensitivityLabels\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Security\InformationProtection\SensitivityLabels\Item\SensitivityLabelItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Security\InformationProtection\SensitivityLabels\SecurityEvaluateApplication\SecurityEvaluateApplicationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Security\InformationProtection\SensitivityLabels\SecurityEvaluateClassificationResults\SecurityEvaluateClassificationResultsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Security\InformationProtection\SensitivityLabels\SecurityEvaluateRemoval\SecurityEvaluateRemovalRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Security\InformationProtection\SensitivityLabels\SecurityExtractContentLabel\SecurityExtractContentLabelRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityEvaluateApplication\MicrosoftGraphSecurityEvaluateApplicationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityEvaluateClassificationResults\MicrosoftGraphSecurityEvaluateClassificationResultsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityEvaluateRemoval\MicrosoftGraphSecurityEvaluateRemovalRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityExtractContentLabel\MicrosoftGraphSecurityExtractContentLabelRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\SensitivityLabel;
 use Microsoft\Graph\Beta\Generated\Models\Security\SensitivityLabelCollectionResponse;
@@ -34,29 +34,29 @@ class SensitivityLabelsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the evaluateApplication method.
     */
-    public function securityEvaluateApplication(): SecurityEvaluateApplicationRequestBuilder {
-        return new SecurityEvaluateApplicationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphSecurityEvaluateApplication(): MicrosoftGraphSecurityEvaluateApplicationRequestBuilder {
+        return new MicrosoftGraphSecurityEvaluateApplicationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the evaluateClassificationResults method.
     */
-    public function securityEvaluateClassificationResults(): SecurityEvaluateClassificationResultsRequestBuilder {
-        return new SecurityEvaluateClassificationResultsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphSecurityEvaluateClassificationResults(): MicrosoftGraphSecurityEvaluateClassificationResultsRequestBuilder {
+        return new MicrosoftGraphSecurityEvaluateClassificationResultsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the evaluateRemoval method.
     */
-    public function securityEvaluateRemoval(): SecurityEvaluateRemovalRequestBuilder {
-        return new SecurityEvaluateRemovalRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphSecurityEvaluateRemoval(): MicrosoftGraphSecurityEvaluateRemovalRequestBuilder {
+        return new MicrosoftGraphSecurityEvaluateRemovalRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the extractContentLabel method.
     */
-    public function securityExtractContentLabel(): SecurityExtractContentLabelRequestBuilder {
-        return new SecurityExtractContentLabelRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphSecurityExtractContentLabel(): MicrosoftGraphSecurityExtractContentLabelRequestBuilder {
+        return new MicrosoftGraphSecurityExtractContentLabelRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -66,10 +66,9 @@ class PrivilegedApprovalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of privilegedapproval object.
+     * Get entity from privilegedApproval by key
      * @param PrivilegedApprovalItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/privilegedapproval-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PrivilegedApprovalItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -85,11 +84,10 @@ class PrivilegedApprovalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of privilegedapproval object.
+     * Update entity in privilegedApproval
      * @param PrivilegedApproval $body The request body
      * @param PrivilegedApprovalItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/privilegedapproval-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(PrivilegedApproval $body, ?PrivilegedApprovalItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -122,7 +120,7 @@ class PrivilegedApprovalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of privilegedapproval object.
+     * Get entity from privilegedApproval by key
      * @param PrivilegedApprovalItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -143,7 +141,7 @@ class PrivilegedApprovalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of privilegedapproval object.
+     * Update entity in privilegedApproval
      * @param PrivilegedApproval $body The request body
      * @param PrivilegedApprovalItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

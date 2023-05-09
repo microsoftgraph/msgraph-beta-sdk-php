@@ -58,7 +58,7 @@ class SharepointRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A container for administrative resources to manage tenant-level settings for SharePoint and OneDrive.
+     * Get sharepoint from admin
      * @param SharepointRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -112,7 +112,7 @@ class SharepointRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A container for administrative resources to manage tenant-level settings for SharePoint and OneDrive.
+     * Get sharepoint from admin
      * @param SharepointRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

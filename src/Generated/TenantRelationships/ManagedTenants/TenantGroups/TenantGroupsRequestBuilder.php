@@ -10,7 +10,7 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\TenantGroupCollectionRe
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantGroups\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantGroups\Item\TenantGroupItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantGroups\ManagedTenantsTenantSearch\ManagedTenantsTenantSearchRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantGroups\MicrosoftGraphManagedTenantsTenantSearch\MicrosoftGraphManagedTenantsTenantSearchRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -31,8 +31,8 @@ class TenantGroupsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the tenantSearch method.
     */
-    public function managedTenantsTenantSearch(): ManagedTenantsTenantSearchRequestBuilder {
-        return new ManagedTenantsTenantSearchRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphManagedTenantsTenantSearch(): MicrosoftGraphManagedTenantsTenantSearchRequestBuilder {
+        return new MicrosoftGraphManagedTenantsTenantSearchRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

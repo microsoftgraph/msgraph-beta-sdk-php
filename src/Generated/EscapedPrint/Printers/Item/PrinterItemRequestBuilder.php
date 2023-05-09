@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\Item\Connectors\ConnectorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\Item\GetCapabilities\GetCapabilitiesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\Item\Jobs\JobsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\Item\ResetDefaults\ResetDefaultsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\Item\RestoreFactoryDefaults\RestoreFactoryDefaultsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\Item\Share\ShareRequestBuilder;
@@ -36,6 +37,13 @@ class PrinterItemRequestBuilder extends BaseRequestBuilder
     */
     public function getCapabilities(): GetCapabilitiesRequestBuilder {
         return new GetCapabilitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the jobs property of the microsoft.graph.printerBase entity.
+    */
+    public function jobs(): JobsRequestBuilder {
+        return new JobsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

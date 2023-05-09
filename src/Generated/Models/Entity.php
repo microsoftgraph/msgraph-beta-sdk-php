@@ -728,6 +728,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.educationClass': return new EducationClass();
                 case '#microsoft.graph.educationFeedbackOutcome': return new EducationFeedbackOutcome();
                 case '#microsoft.graph.educationFeedbackResourceOutcome': return new EducationFeedbackResourceOutcome();
+                case '#microsoft.graph.educationGradingCategory': return new EducationGradingCategory();
                 case '#microsoft.graph.educationOrganization': return new EducationOrganization();
                 case '#microsoft.graph.educationOutcome': return new EducationOutcome();
                 case '#microsoft.graph.educationPointsOutcome': return new EducationPointsOutcome();

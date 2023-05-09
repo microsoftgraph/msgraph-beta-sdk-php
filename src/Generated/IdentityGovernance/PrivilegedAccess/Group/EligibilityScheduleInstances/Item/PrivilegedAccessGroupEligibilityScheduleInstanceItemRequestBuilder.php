@@ -66,7 +66,7 @@ class PrivilegedAccessGroupEligibilityScheduleInstanceItemRequestBuilder extends
     }
 
     /**
-     * Get eligibilityScheduleInstances from identityGovernance
+     * The instances of eligibility schedules to activate a just-in-time access.
      * @param PrivilegedAccessGroupEligibilityScheduleInstanceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -120,7 +120,7 @@ class PrivilegedAccessGroupEligibilityScheduleInstanceItemRequestBuilder extends
     }
 
     /**
-     * Get eligibilityScheduleInstances from identityGovernance
+     * The instances of eligibility schedules to activate a just-in-time access.
      * @param PrivilegedAccessGroupEligibilityScheduleInstanceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

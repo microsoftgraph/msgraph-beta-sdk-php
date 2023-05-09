@@ -8,9 +8,9 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\AdditionalSources\AdditionalSourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\AddToReviewSetOperation\AddToReviewSetOperationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\CustodianSources\CustodianSourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\EdiscoveryEstimateStatistics\EdiscoveryEstimateStatisticsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\EdiscoveryPurgeData\EdiscoveryPurgeDataRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\LastEstimateStatisticsOperation\LastEstimateStatisticsOperationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\MicrosoftGraphEdiscoveryEstimateStatistics\MicrosoftGraphEdiscoveryEstimateStatisticsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\MicrosoftGraphEdiscoveryPurgeData\MicrosoftGraphEdiscoveryPurgeDataRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\NoncustodialSources\NoncustodialSourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\SourceCollection;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -46,24 +46,24 @@ class SourceCollectionItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the lastEstimateStatisticsOperation property of the microsoft.graph.ediscovery.sourceCollection entity.
+    */
+    public function lastEstimateStatisticsOperation(): LastEstimateStatisticsOperationRequestBuilder {
+        return new LastEstimateStatisticsOperationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the estimateStatistics method.
     */
-    public function ediscoveryEstimateStatistics(): EdiscoveryEstimateStatisticsRequestBuilder {
-        return new EdiscoveryEstimateStatisticsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphEdiscoveryEstimateStatistics(): MicrosoftGraphEdiscoveryEstimateStatisticsRequestBuilder {
+        return new MicrosoftGraphEdiscoveryEstimateStatisticsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the purgeData method.
     */
-    public function ediscoveryPurgeData(): EdiscoveryPurgeDataRequestBuilder {
-        return new EdiscoveryPurgeDataRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the lastEstimateStatisticsOperation property of the microsoft.graph.ediscovery.sourceCollection entity.
-    */
-    public function lastEstimateStatisticsOperation(): LastEstimateStatisticsOperationRequestBuilder {
-        return new LastEstimateStatisticsOperationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphEdiscoveryPurgeData(): MicrosoftGraphEdiscoveryPurgeDataRequestBuilder {
+        return new MicrosoftGraphEdiscoveryPurgeDataRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

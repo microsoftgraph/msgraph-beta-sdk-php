@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Settin
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Settings\EdiscoveryResetToDefault\EdiscoveryResetToDefaultRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Settings\MicrosoftGraphEdiscoveryResetToDefault\MicrosoftGraphEdiscoveryResetToDefaultRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseSettings;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -21,8 +21,8 @@ class SettingsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the resetToDefault method.
     */
-    public function ediscoveryResetToDefault(): EdiscoveryResetToDefaultRequestBuilder {
-        return new EdiscoveryResetToDefaultRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphEdiscoveryResetToDefault(): MicrosoftGraphEdiscoveryResetToDefaultRequestBuilder {
+        return new MicrosoftGraphEdiscoveryResetToDefaultRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

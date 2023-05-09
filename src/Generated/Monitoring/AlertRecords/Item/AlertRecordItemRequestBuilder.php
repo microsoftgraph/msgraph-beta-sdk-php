@@ -7,7 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagement\AlertRecord;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Monitoring\AlertRecords\Item\DeviceManagementSetPortalNotificationAsSent\DeviceManagementSetPortalNotificationAsSentRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Monitoring\AlertRecords\Item\MicrosoftGraphDeviceManagementSetPortalNotificationAsSent\MicrosoftGraphDeviceManagementSetPortalNotificationAsSentRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -21,8 +21,8 @@ class AlertRecordItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the setPortalNotificationAsSent method.
     */
-    public function deviceManagementSetPortalNotificationAsSent(): DeviceManagementSetPortalNotificationAsSentRequestBuilder {
-        return new DeviceManagementSetPortalNotificationAsSentRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphDeviceManagementSetPortalNotificationAsSent(): MicrosoftGraphDeviceManagementSetPortalNotificationAsSentRequestBuilder {
+        return new MicrosoftGraphDeviceManagementSetPortalNotificationAsSentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

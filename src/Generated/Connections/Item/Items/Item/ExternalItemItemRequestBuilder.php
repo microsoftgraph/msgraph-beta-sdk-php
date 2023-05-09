@@ -6,7 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Connections\Item\Items\Item\Activities\ActivitiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Connections\Item\Items\Item\ExternalConnectorsAddActivities\ExternalConnectorsAddActivitiesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Connections\Item\Items\Item\MicrosoftGraphExternalConnectorsAddActivities\MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ExternalConnectors\ExternalItem;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -29,8 +29,8 @@ class ExternalItemItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the addActivities method.
     */
-    public function externalConnectorsAddActivities(): ExternalConnectorsAddActivitiesRequestBuilder {
-        return new ExternalConnectorsAddActivitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphExternalConnectorsAddActivities(): MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder {
+        return new MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

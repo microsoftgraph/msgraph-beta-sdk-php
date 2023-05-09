@@ -25,7 +25,7 @@ class CloudPcProvisioningPolicyAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the assignedUsers property value. The assignedUsers property
+     * Gets the assignedUsers property value. The assignment targeted users for the provisioning policy. This list of users is computed based on assignments, licenses, group memberships, and policies. This property is read-only. Supports$expand.
      * @return array<User>|null
     */
     public function getAssignedUsers(): ?array {
@@ -63,7 +63,7 @@ class CloudPcProvisioningPolicyAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the assignedUsers property value. The assignedUsers property
+     * Sets the assignedUsers property value. The assignment targeted users for the provisioning policy. This list of users is computed based on assignments, licenses, group memberships, and policies. This property is read-only. Supports$expand.
      * @param array<User>|null $value Value to set for the assignedUsers property.
     */
     public function setAssignedUsers(?array $value): void {

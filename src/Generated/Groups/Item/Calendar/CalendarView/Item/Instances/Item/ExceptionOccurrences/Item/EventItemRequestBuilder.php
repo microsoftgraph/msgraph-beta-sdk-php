@@ -13,8 +13,6 @@ use Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\CalendarView\Item\Instan
 use Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\CalendarView\Item\Instances\Item\ExceptionOccurrences\Item\DismissReminder\DismissReminderRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\CalendarView\Item\Instances\Item\ExceptionOccurrences\Item\Extensions\ExtensionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\CalendarView\Item\Instances\Item\ExceptionOccurrences\Item\Forward\ForwardRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\CalendarView\Item\Instances\Item\ExceptionOccurrences\Item\MultiValueExtendedProperties\MultiValueExtendedPropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\CalendarView\Item\Instances\Item\ExceptionOccurrences\Item\SingleValueExtendedProperties\SingleValueExtendedPropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\CalendarView\Item\Instances\Item\ExceptionOccurrences\Item\SnoozeReminder\SnoozeReminderRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\CalendarView\Item\Instances\Item\ExceptionOccurrences\Item\TentativelyAccept\TentativelyAcceptRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Event;
@@ -83,20 +81,6 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     */
     public function forward(): ForwardRequestBuilder {
         return new ForwardRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.event entity.
-    */
-    public function multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
-        return new MultiValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.event entity.
-    */
-    public function singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
-        return new SingleValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -6,10 +6,11 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\DataSource\DataSourceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\EdiscoveryApplyHold\EdiscoveryApplyHoldRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\EdiscoveryRelease\EdiscoveryReleaseRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\EdiscoveryRemoveHold\EdiscoveryRemoveHoldRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\EdiscoveryUpdateIndex\EdiscoveryUpdateIndexRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\LastIndexOperation\LastIndexOperationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\MicrosoftGraphEdiscoveryApplyHold\MicrosoftGraphEdiscoveryApplyHoldRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\MicrosoftGraphEdiscoveryRelease\MicrosoftGraphEdiscoveryReleaseRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\MicrosoftGraphEdiscoveryRemoveHold\MicrosoftGraphEdiscoveryRemoveHoldRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\MicrosoftGraphEdiscoveryUpdateIndex\MicrosoftGraphEdiscoveryUpdateIndexRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\NoncustodialDataSource;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -30,31 +31,38 @@ class NoncustodialDataSourceItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the lastIndexOperation property of the microsoft.graph.ediscovery.dataSourceContainer entity.
+    */
+    public function lastIndexOperation(): LastIndexOperationRequestBuilder {
+        return new LastIndexOperationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the applyHold method.
     */
-    public function ediscoveryApplyHold(): EdiscoveryApplyHoldRequestBuilder {
-        return new EdiscoveryApplyHoldRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphEdiscoveryApplyHold(): MicrosoftGraphEdiscoveryApplyHoldRequestBuilder {
+        return new MicrosoftGraphEdiscoveryApplyHoldRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the release method.
     */
-    public function ediscoveryRelease(): EdiscoveryReleaseRequestBuilder {
-        return new EdiscoveryReleaseRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphEdiscoveryRelease(): MicrosoftGraphEdiscoveryReleaseRequestBuilder {
+        return new MicrosoftGraphEdiscoveryReleaseRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the removeHold method.
     */
-    public function ediscoveryRemoveHold(): EdiscoveryRemoveHoldRequestBuilder {
-        return new EdiscoveryRemoveHoldRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphEdiscoveryRemoveHold(): MicrosoftGraphEdiscoveryRemoveHoldRequestBuilder {
+        return new MicrosoftGraphEdiscoveryRemoveHoldRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the updateIndex method.
     */
-    public function ediscoveryUpdateIndex(): EdiscoveryUpdateIndexRequestBuilder {
-        return new EdiscoveryUpdateIndexRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphEdiscoveryUpdateIndex(): MicrosoftGraphEdiscoveryUpdateIndexRequestBuilder {
+        return new MicrosoftGraphEdiscoveryUpdateIndexRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

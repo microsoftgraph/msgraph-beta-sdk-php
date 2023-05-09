@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UnifiedRbacResourceAction;
+use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\ResourceNamespaces\Item\ResourceActions\Item\AuthenticationContext\AuthenticationContextRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\ResourceNamespaces\Item\ResourceActions\Item\ResourceScope\ResourceScopeRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -18,6 +19,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class UnifiedRbacResourceActionItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the authenticationContext property of the microsoft.graph.unifiedRbacResourceAction entity.
+    */
+    public function authenticationContext(): AuthenticationContextRequestBuilder {
+        return new AuthenticationContextRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the resourceScope property of the microsoft.graph.unifiedRbacResourceAction entity.
     */

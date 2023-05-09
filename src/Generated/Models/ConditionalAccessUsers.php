@@ -59,7 +59,7 @@ class ConditionalAccessUsers implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the excludeGuestsOrExternalUsers property value. Internal guests or external users excluded in the policy scope. Optionally populated.
+     * Gets the excludeGuestsOrExternalUsers property value. Internal guests or external users excluded from the policy scope. Optionally populated.
      * @return ConditionalAccessGuestsOrExternalUsers|null
     */
     public function getExcludeGuestsOrExternalUsers(): ?ConditionalAccessGuestsOrExternalUsers {
@@ -183,7 +183,7 @@ class ConditionalAccessUsers implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the excludeGuestsOrExternalUsers property value. Internal guests or external users excluded in the policy scope. Optionally populated.
+     * Sets the excludeGuestsOrExternalUsers property value. Internal guests or external users excluded from the policy scope. Optionally populated.
      * @param ConditionalAccessGuestsOrExternalUsers|null $value Value to set for the excludeGuestsOrExternalUsers property.
     */
     public function setExcludeGuestsOrExternalUsers(?ConditionalAccessGuestsOrExternalUsers $value): void {

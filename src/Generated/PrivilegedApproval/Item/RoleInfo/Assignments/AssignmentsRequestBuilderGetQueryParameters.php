@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedApproval\Item\RoleInfo\Assign
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The assignments for this role. Read-only. Nullable.
+ * Get assignments from privilegedApproval
 */
 class AssignmentsRequestBuilderGetQueryParameters 
 {

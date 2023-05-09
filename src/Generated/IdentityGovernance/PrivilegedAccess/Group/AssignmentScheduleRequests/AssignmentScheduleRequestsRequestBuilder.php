@@ -63,7 +63,7 @@ class AssignmentScheduleRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get assignmentScheduleRequests from identityGovernance
+     * The schedule requests for operations to create, update, delete, extend, and renew an assignment.
      * @param AssignmentScheduleRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -100,7 +100,7 @@ class AssignmentScheduleRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get assignmentScheduleRequests from identityGovernance
+     * The schedule requests for operations to create, update, delete, extend, and renew an assignment.
      * @param AssignmentScheduleRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

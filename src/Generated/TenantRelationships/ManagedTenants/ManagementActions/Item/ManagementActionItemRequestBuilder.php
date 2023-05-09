@@ -7,7 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagementAction;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementActions\Item\ManagedTenantsApply\ManagedTenantsApplyRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementActions\Item\MicrosoftGraphManagedTenantsApply\MicrosoftGraphManagedTenantsApplyRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -21,8 +21,8 @@ class ManagementActionItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the apply method.
     */
-    public function managedTenantsApply(): ManagedTenantsApplyRequestBuilder {
-        return new ManagedTenantsApplyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphManagedTenantsApply(): MicrosoftGraphManagedTenantsApplyRequestBuilder {
+        return new MicrosoftGraphManagedTenantsApplyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

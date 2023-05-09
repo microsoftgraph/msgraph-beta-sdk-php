@@ -7,11 +7,13 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\Activities\ActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\Analytics\AnalyticsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\CreatedByUser\CreatedByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\CreateLink\CreateLinkRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\DocumentSetVersions\DocumentSetVersionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\DriveItem\DriveItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\Fields\FieldsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\LastModifiedByUser\LastModifiedByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\Versions\VersionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ListItem;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -40,6 +42,13 @@ class ListItemItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
+    */
+    public function createdByUser(): CreatedByUserRequestBuilder {
+        return new CreatedByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the createLink method.
     */
     public function createLink(): CreateLinkRequestBuilder {
@@ -65,6 +74,13 @@ class ListItemItemRequestBuilder extends BaseRequestBuilder
     */
     public function fields(): FieldsRequestBuilder {
         return new FieldsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.
+    */
+    public function lastModifiedByUser(): LastModifiedByUserRequestBuilder {
+        return new LastModifiedByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

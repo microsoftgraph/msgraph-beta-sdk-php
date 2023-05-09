@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\W
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\Runs\Item\UserProcessingResults\Item\TaskProcessingResults\Item\IdentityGovernanceResume\IdentityGovernanceResumeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\Runs\Item\UserProcessingResults\Item\TaskProcessingResults\Item\MicrosoftGraphIdentityGovernanceResume\MicrosoftGraphIdentityGovernanceResumeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\Runs\Item\UserProcessingResults\Item\TaskProcessingResults\Item\Subject\SubjectRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\Runs\Item\UserProcessingResults\Item\TaskProcessingResults\Item\Task\TaskRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\TaskProcessingResult;
@@ -23,8 +23,8 @@ class TaskProcessingResultItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the resume method.
     */
-    public function identityGovernanceResume(): IdentityGovernanceResumeRequestBuilder {
-        return new IdentityGovernanceResumeRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphIdentityGovernanceResume(): MicrosoftGraphIdentityGovernanceResumeRequestBuilder {
+        return new MicrosoftGraphIdentityGovernanceResumeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

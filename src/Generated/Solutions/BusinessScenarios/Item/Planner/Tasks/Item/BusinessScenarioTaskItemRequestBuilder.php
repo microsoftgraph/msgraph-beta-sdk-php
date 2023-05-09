@@ -7,6 +7,10 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\BusinessScenarioTask;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planner\Tasks\Item\AssignedToTaskBoardFormat\AssignedToTaskBoardFormatRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planner\Tasks\Item\BucketTaskBoardFormat\BucketTaskBoardFormatRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planner\Tasks\Item\Details\DetailsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planner\Tasks\Item\ProgressTaskBoardFormat\ProgressTaskBoardFormatRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -17,6 +21,34 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class BusinessScenarioTaskItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the assignedToTaskBoardFormat property of the microsoft.graph.plannerTask entity.
+    */
+    public function assignedToTaskBoardFormat(): AssignedToTaskBoardFormatRequestBuilder {
+        return new AssignedToTaskBoardFormatRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the bucketTaskBoardFormat property of the microsoft.graph.plannerTask entity.
+    */
+    public function bucketTaskBoardFormat(): BucketTaskBoardFormatRequestBuilder {
+        return new BucketTaskBoardFormatRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the details property of the microsoft.graph.plannerTask entity.
+    */
+    public function details(): DetailsRequestBuilder {
+        return new DetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the progressTaskBoardFormat property of the microsoft.graph.plannerTask entity.
+    */
+    public function progressTaskBoardFormat(): ProgressTaskBoardFormatRequestBuilder {
+        return new ProgressTaskBoardFormatRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new BusinessScenarioTaskItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

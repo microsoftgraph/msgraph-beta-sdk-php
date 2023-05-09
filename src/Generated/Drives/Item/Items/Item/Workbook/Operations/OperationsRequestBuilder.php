@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Operati
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Operations\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Operations\Item\WorkbookOperationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WorkbookOperation;
@@ -20,13 +19,6 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class OperationsRequestBuilder extends BaseRequestBuilder 
 {
-    /**
-     * Provides operations to count the resources in the collection.
-    */
-    public function count(): CountRequestBuilder {
-        return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
     /**
      * Provides operations to manage the operations property of the microsoft.graph.workbook entity.
      * @param string $workbookOperationId Unique identifier of the item

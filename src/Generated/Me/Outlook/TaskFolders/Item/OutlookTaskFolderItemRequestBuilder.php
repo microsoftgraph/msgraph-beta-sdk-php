@@ -5,8 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\Me\Outlook\TaskFolders\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Me\Outlook\TaskFolders\Item\MultiValueExtendedProperties\MultiValueExtendedPropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Outlook\TaskFolders\Item\SingleValueExtendedProperties\SingleValueExtendedPropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Outlook\TaskFolders\Item\Tasks\TasksRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\OutlookTaskFolder;
@@ -20,20 +18,6 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class OutlookTaskFolderItemRequestBuilder extends BaseRequestBuilder 
 {
-    /**
-     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.outlookTaskFolder entity.
-    */
-    public function multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
-        return new MultiValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.outlookTaskFolder entity.
-    */
-    public function singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
-        return new SingleValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
     /**
      * Provides operations to manage the tasks property of the microsoft.graph.outlookTaskFolder entity.
     */

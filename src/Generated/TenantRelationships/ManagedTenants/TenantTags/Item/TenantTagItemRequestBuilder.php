@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\TenantTag;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantTags\Item\ManagedTenantsAssignTag\ManagedTenantsAssignTagRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantTags\Item\ManagedTenantsUnassignTag\ManagedTenantsUnassignTagRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantTags\Item\MicrosoftGraphManagedTenantsAssignTag\MicrosoftGraphManagedTenantsAssignTagRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantTags\Item\MicrosoftGraphManagedTenantsUnassignTag\MicrosoftGraphManagedTenantsUnassignTagRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -22,15 +22,15 @@ class TenantTagItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the assignTag method.
     */
-    public function managedTenantsAssignTag(): ManagedTenantsAssignTagRequestBuilder {
-        return new ManagedTenantsAssignTagRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphManagedTenantsAssignTag(): MicrosoftGraphManagedTenantsAssignTagRequestBuilder {
+        return new MicrosoftGraphManagedTenantsAssignTagRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the unassignTag method.
     */
-    public function managedTenantsUnassignTag(): ManagedTenantsUnassignTagRequestBuilder {
-        return new ManagedTenantsUnassignTagRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphManagedTenantsUnassignTag(): MicrosoftGraphManagedTenantsUnassignTagRequestBuilder {
+        return new MicrosoftGraphManagedTenantsUnassignTagRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

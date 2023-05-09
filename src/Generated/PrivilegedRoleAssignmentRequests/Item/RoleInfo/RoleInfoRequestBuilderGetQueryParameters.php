@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignmentRequests\Item\R
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The roleInfo object of the role assignment request.
+ * Get roleInfo from privilegedRoleAssignmentRequests
 */
 class RoleInfoRequestBuilderGetQueryParameters 
 {

@@ -75,6 +75,14 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the enterpriseApps property value. The enterpriseApps property
+     * @return array<RbacApplication>|null
+    */
+    public function getEnterpriseApps(): ?array {
+        return $this->getBackingStore()->get('enterpriseApps');
+    }
+
+    /**
      * Gets the entitlementManagement property value. The RbacApplication for Entitlement Management
      * @return RbacApplication|null
     */
@@ -100,6 +108,7 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
             'cloudPC' => fn(ParseNode $n) => $o->setCloudPC($n->getObjectValue([RbacApplicationMultiple::class, 'createFromDiscriminatorValue'])),
             'deviceManagement' => fn(ParseNode $n) => $o->setDeviceManagement($n->getObjectValue([RbacApplicationMultiple::class, 'createFromDiscriminatorValue'])),
             'directory' => fn(ParseNode $n) => $o->setDirectory($n->getObjectValue([RbacApplication::class, 'createFromDiscriminatorValue'])),
+            'enterpriseApps' => fn(ParseNode $n) => $o->setEnterpriseApps($n->getCollectionOfObjectValues([RbacApplication::class, 'createFromDiscriminatorValue'])),
             'entitlementManagement' => fn(ParseNode $n) => $o->setEntitlementManagement($n->getObjectValue([RbacApplication::class, 'createFromDiscriminatorValue'])),
             'exchange' => fn(ParseNode $n) => $o->setExchange($n->getObjectValue([UnifiedRbacApplication::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -122,6 +131,7 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeObjectValue('cloudPC', $this->getCloudPC());
         $writer->writeObjectValue('deviceManagement', $this->getDeviceManagement());
         $writer->writeObjectValue('directory', $this->getDirectory());
+        $writer->writeCollectionOfObjectValues('enterpriseApps', $this->getEnterpriseApps());
         $writer->writeObjectValue('entitlementManagement', $this->getEntitlementManagement());
         $writer->writeObjectValue('exchange', $this->getExchange());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -166,6 +176,14 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setDirectory(?RbacApplication $value): void {
         $this->getBackingStore()->set('directory', $value);
+    }
+
+    /**
+     * Sets the enterpriseApps property value. The enterpriseApps property
+     * @param array<RbacApplication>|null $value Value to set for the enterpriseApps property.
+    */
+    public function setEnterpriseApps(?array $value): void {
+        $this->getBackingStore()->set('enterpriseApps', $value);
     }
 
     /**

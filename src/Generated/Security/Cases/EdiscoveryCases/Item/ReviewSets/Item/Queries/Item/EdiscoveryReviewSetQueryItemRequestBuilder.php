@@ -7,9 +7,9 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\EdiscoveryReviewSetQuery;
-use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\Queries\Item\SecurityApplyTags\SecurityApplyTagsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\Queries\Item\SecurityExport\SecurityExportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\Queries\Item\SecurityRun\SecurityRunRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\Queries\Item\MicrosoftGraphSecurityApplyTags\MicrosoftGraphSecurityApplyTagsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\Queries\Item\MicrosoftGraphSecurityExport\MicrosoftGraphSecurityExportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\Queries\Item\MicrosoftGraphSecurityRun\MicrosoftGraphSecurityRunRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -23,22 +23,22 @@ class EdiscoveryReviewSetQueryItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the applyTags method.
     */
-    public function securityApplyTags(): SecurityApplyTagsRequestBuilder {
-        return new SecurityApplyTagsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphSecurityApplyTags(): MicrosoftGraphSecurityApplyTagsRequestBuilder {
+        return new MicrosoftGraphSecurityApplyTagsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the export method.
     */
-    public function securityExport(): SecurityExportRequestBuilder {
-        return new SecurityExportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphSecurityExport(): MicrosoftGraphSecurityExportRequestBuilder {
+        return new MicrosoftGraphSecurityExportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the run method.
     */
-    public function securityRun(): SecurityRunRequestBuilder {
-        return new SecurityRunRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphSecurityRun(): MicrosoftGraphSecurityRunRequestBuilder {
+        return new MicrosoftGraphSecurityRunRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

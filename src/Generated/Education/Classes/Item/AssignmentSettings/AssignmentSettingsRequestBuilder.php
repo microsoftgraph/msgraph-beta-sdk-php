@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Classes\Item\AssignmentSettin
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\Education\Classes\Item\AssignmentSettings\GradingCategories\GradingCategoriesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EducationAssignmentSettings;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -17,6 +18,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class AssignmentSettingsRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the gradingCategories property of the microsoft.graph.educationAssignmentSettings entity.
+    */
+    public function gradingCategories(): GradingCategoriesRequestBuilder {
+        return new GradingCategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new AssignmentSettingsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

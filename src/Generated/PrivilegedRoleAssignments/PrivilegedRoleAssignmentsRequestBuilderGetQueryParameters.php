@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignments;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of privilegedRoleAssignment objects, which correspond to all role assignments for the organization.
+ * Get entities from privilegedRoleAssignments
 */
 class PrivilegedRoleAssignmentsRequestBuilderGetQueryParameters 
 {

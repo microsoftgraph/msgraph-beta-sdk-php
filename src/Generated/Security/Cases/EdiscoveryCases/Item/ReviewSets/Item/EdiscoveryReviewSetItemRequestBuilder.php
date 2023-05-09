@@ -8,9 +8,9 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\EdiscoveryReviewSet;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\Files\FilesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\MicrosoftGraphSecurityAddToReviewSet\MicrosoftGraphSecurityAddToReviewSetRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\MicrosoftGraphSecurityExport\MicrosoftGraphSecurityExportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\Queries\QueriesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\SecurityAddToReviewSet\SecurityAddToReviewSetRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\SecurityExport\SecurityExportRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -29,24 +29,24 @@ class EdiscoveryReviewSetItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to manage the queries property of the microsoft.graph.security.ediscoveryReviewSet entity.
-    */
-    public function queries(): QueriesRequestBuilder {
-        return new QueriesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to call the addToReviewSet method.
     */
-    public function securityAddToReviewSet(): SecurityAddToReviewSetRequestBuilder {
-        return new SecurityAddToReviewSetRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphSecurityAddToReviewSet(): MicrosoftGraphSecurityAddToReviewSetRequestBuilder {
+        return new MicrosoftGraphSecurityAddToReviewSetRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the export method.
     */
-    public function securityExport(): SecurityExportRequestBuilder {
-        return new SecurityExportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphSecurityExport(): MicrosoftGraphSecurityExportRequestBuilder {
+        return new MicrosoftGraphSecurityExportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the queries property of the microsoft.graph.security.ediscoveryReviewSet entity.
+    */
+    public function queries(): QueriesRequestBuilder {
+        return new QueriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -63,7 +63,7 @@ class AssignmentScheduleInstancesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get assignmentScheduleInstances from identityGovernance
+     * The instances of assignment schedules to activate a just-in-time access.
      * @param AssignmentScheduleInstancesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -100,7 +100,7 @@ class AssignmentScheduleInstancesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get assignmentScheduleInstances from identityGovernance
+     * The instances of assignment schedules to activate a just-in-time access.
      * @param AssignmentScheduleInstancesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
