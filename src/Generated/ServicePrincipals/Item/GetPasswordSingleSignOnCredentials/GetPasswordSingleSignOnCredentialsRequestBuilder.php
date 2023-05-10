@@ -32,10 +32,11 @@ class GetPasswordSingleSignOnCredentialsRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Invoke action getPasswordSingleSignOnCredentials
+     * Get a list of single sign-on credentials using a password for a user or group.
      * @param GetPasswordSingleSignOnCredentialsPostRequestBody $body The request body
      * @param GetPasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/serviceprincipal-getpasswordsinglesignoncredentials?view=graph-rest-1.0 Find more info here
     */
     public function post(GetPasswordSingleSignOnCredentialsPostRequestBody $body, ?GetPasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -51,7 +52,7 @@ class GetPasswordSingleSignOnCredentialsRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Invoke action getPasswordSingleSignOnCredentials
+     * Get a list of single sign-on credentials using a password for a user or group.
      * @param GetPasswordSingleSignOnCredentialsPostRequestBody $body The request body
      * @param GetPasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

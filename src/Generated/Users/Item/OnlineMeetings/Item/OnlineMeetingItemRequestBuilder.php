@@ -104,9 +104,10 @@ class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property onlineMeetings for users
+     * Delete an onlineMeeting object.
      * @param OnlineMeetingItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/onlinemeeting-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?OnlineMeetingItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -140,10 +141,11 @@ class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property onlineMeetings in users
+     * Update the properties of the specified onlineMeeting object. Please see Request body section for the list of properties that support updating.
      * @param OnlineMeeting $body The request body
      * @param OnlineMeetingItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/onlinemeeting-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(OnlineMeeting $body, ?OnlineMeetingItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -159,7 +161,7 @@ class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property onlineMeetings for users
+     * Delete an onlineMeeting object.
      * @param OnlineMeetingItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -197,7 +199,7 @@ class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property onlineMeetings in users
+     * Update the properties of the specified onlineMeeting object. Please see Request body section for the list of properties that support updating.
      * @param OnlineMeeting $body The request body
      * @param OnlineMeetingItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

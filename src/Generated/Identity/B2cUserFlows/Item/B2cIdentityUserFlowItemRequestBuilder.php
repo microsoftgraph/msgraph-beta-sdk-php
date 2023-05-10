@@ -64,9 +64,10 @@ class B2cIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property b2cUserFlows for identity
+     * Delete a b2cIdentityUserFlow object.
      * @param B2cIdentityUserFlowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/b2cidentityuserflow-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?B2cIdentityUserFlowItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -82,9 +83,10 @@ class B2cIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents entry point for B2C identity userflows.
+     * Retrieve the properties and relationships of a b2cUserFlow object.
      * @param B2cIdentityUserFlowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/b2cidentityuserflow-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?B2cIdentityUserFlowItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -100,10 +102,11 @@ class B2cIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property b2cUserFlows in identity
+     * Update the properties of a b2cIdentityUserFlow object.
      * @param B2cIdentityUserFlow $body The request body
      * @param B2cIdentityUserFlowItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/b2cidentityuserflow-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(B2cIdentityUserFlow $body, ?B2cIdentityUserFlowItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -119,7 +122,7 @@ class B2cIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property b2cUserFlows for identity
+     * Delete a b2cIdentityUserFlow object.
      * @param B2cIdentityUserFlowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -136,7 +139,7 @@ class B2cIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents entry point for B2C identity userflows.
+     * Retrieve the properties and relationships of a b2cUserFlow object.
      * @param B2cIdentityUserFlowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -157,7 +160,7 @@ class B2cIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property b2cUserFlows in identity
+     * Update the properties of a b2cIdentityUserFlow object.
      * @param B2cIdentityUserFlow $body The request body
      * @param B2cIdentityUserFlowItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

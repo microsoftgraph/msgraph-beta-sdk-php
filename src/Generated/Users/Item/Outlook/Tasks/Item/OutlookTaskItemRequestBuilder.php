@@ -9,8 +9,6 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\OutlookTask;
 use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\Tasks\Item\Attachments\AttachmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\Tasks\Item\Complete\CompleteRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\Tasks\Item\MultiValueExtendedProperties\MultiValueExtendedPropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\Tasks\Item\SingleValueExtendedProperties\SingleValueExtendedPropertiesRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -36,20 +34,6 @@ class OutlookTaskItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.outlookTask entity.
-    */
-    public function multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
-        return new MultiValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.outlookTask entity.
-    */
-    public function singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
-        return new SingleValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Instantiates a new OutlookTaskItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -64,9 +48,10 @@ class OutlookTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property tasks for users
+     * Delete the specified Outlook task in the user's mailbox.
      * @param OutlookTaskItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/outlooktask-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?OutlookTaskItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -82,9 +67,10 @@ class OutlookTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get tasks from users
+     * Get the properties and relationships of an Outlook task in the user's mailbox. By default, this operation (and the POST, PATCH, and complete task operations) returns date-related properties in UTC. You can use the `Prefer: outlook.timezone` header to have all the date-related properties in the response represented in a time zone different than UTC.
      * @param OutlookTaskItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/outlooktask-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?OutlookTaskItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -100,10 +86,11 @@ class OutlookTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property tasks in users
+     * Change writable properties of an Outlook task. The **completedDateTime** property can be set by the **complete** action, or explicitly by a PATCH operation. If you use PATCH to set **completedDateTime**, make sure you set **status** to `completed` as well. By default, this operation (and the POST, GET, and complete task operations) returns date-related properties in UTC. You can use the `Prefer: outlook.timezone` header to have all the date-related properties in the response represented in a time zone different than UTC.
      * @param OutlookTask $body The request body
      * @param OutlookTaskItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/outlooktask-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(OutlookTask $body, ?OutlookTaskItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -119,7 +106,7 @@ class OutlookTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property tasks for users
+     * Delete the specified Outlook task in the user's mailbox.
      * @param OutlookTaskItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -136,7 +123,7 @@ class OutlookTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get tasks from users
+     * Get the properties and relationships of an Outlook task in the user's mailbox. By default, this operation (and the POST, PATCH, and complete task operations) returns date-related properties in UTC. You can use the `Prefer: outlook.timezone` header to have all the date-related properties in the response represented in a time zone different than UTC.
      * @param OutlookTaskItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -157,7 +144,7 @@ class OutlookTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property tasks in users
+     * Change writable properties of an Outlook task. The **completedDateTime** property can be set by the **complete** action, or explicitly by a PATCH operation. If you use PATCH to set **completedDateTime**, make sure you set **status** to `completed` as well. By default, this operation (and the POST, GET, and complete task operations) returns date-related properties in UTC. You can use the `Prefer: outlook.timezone` header to have all the date-related properties in the response represented in a time zone different than UTC.
      * @param OutlookTask $body The request body
      * @param OutlookTaskItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

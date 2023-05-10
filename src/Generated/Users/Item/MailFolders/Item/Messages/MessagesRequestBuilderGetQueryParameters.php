@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\Messages;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The collection of messages in the mailFolder.
+ * List all the messages in the specified user's mailbox, or those messages in a specified folder in the mailbox.
 */
 class MessagesRequestBuilderGetQueryParameters 
 {

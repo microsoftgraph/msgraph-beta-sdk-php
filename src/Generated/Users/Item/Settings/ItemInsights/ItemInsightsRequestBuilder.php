@@ -50,9 +50,10 @@ class ItemInsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The user's settings for the visibility of meeting hour insights, and insights derived between a user and other items in Microsoft 365, such as documents or sites. Get userInsightsSettings through this navigation property.
+     * Get the user-customizable privacy settings for itemInsights and meeting hours insights.
      * @param ItemInsightsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/userinsightssettings-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ItemInsightsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +69,11 @@ class ItemInsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property itemInsights in users
+     * Update the privacy settings for itemInsights and meeting hours insights of a user.
      * @param UserInsightsSettings $body The request body
      * @param ItemInsightsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/userinsightssettings-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(UserInsightsSettings $body, ?ItemInsightsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -104,7 +106,7 @@ class ItemInsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The user's settings for the visibility of meeting hour insights, and insights derived between a user and other items in Microsoft 365, such as documents or sites. Get userInsightsSettings through this navigation property.
+     * Get the user-customizable privacy settings for itemInsights and meeting hours insights.
      * @param ItemInsightsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +127,7 @@ class ItemInsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property itemInsights in users
+     * Update the privacy settings for itemInsights and meeting hours insights of a user.
      * @param UserInsightsSettings $body The request body
      * @param ItemInsightsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

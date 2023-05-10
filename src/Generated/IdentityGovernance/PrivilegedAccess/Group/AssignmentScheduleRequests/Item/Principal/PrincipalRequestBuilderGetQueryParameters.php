@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Gro
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get principal from identityGovernance
+ * References the principal that's in the scope of this membership or ownership assignment request through the group that's governed by PIM. Supports $expand.
 */
 class PrincipalRequestBuilderGetQueryParameters 
 {

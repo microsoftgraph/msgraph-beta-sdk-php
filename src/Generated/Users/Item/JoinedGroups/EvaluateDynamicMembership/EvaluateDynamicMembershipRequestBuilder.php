@@ -36,6 +36,7 @@ class EvaluateDynamicMembershipRequestBuilder extends BaseRequestBuilder
      * @param EvaluateDynamicMembershipPostRequestBody $body The request body
      * @param EvaluateDynamicMembershipRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/group-evaluatedynamicmembership?view=graph-rest-1.0 Find more info here
     */
     public function post(EvaluateDynamicMembershipPostRequestBody $body, ?EvaluateDynamicMembershipRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

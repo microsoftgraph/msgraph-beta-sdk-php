@@ -53,9 +53,10 @@ class DefaultPagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of pages with the default content to display in a user flow for a specified language. This collection does not allow any kind of modification.
+     * Get the userFlowLanguagePage resources from the defaultPages navigation property. These contain the values shown to the user in a default user journey of a user flow.
      * @param DefaultPagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/userflowlanguageconfiguration-list-defaultpages?view=graph-rest-1.0 Find more info here
     */
     public function get(?DefaultPagesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class DefaultPagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of pages with the default content to display in a user flow for a specified language. This collection does not allow any kind of modification.
+     * Get the userFlowLanguagePage resources from the defaultPages navigation property. These contain the values shown to the user in a default user journey of a user flow.
      * @param DefaultPagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -26,7 +26,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the assignmentState property value. The state of the assignment. The value can be Eligible for eligible assignment Active - if it is directly assigned Active by administrators, or activated on an eligible assignment by the users.
+     * Gets the assignmentState property value. The assignmentState property
      * @return string|null
     */
     public function getAssignmentState(): ?string {
@@ -34,7 +34,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the duration property value. The duration of a role assignment.
+     * Gets the duration property value. The duration property
      * @return string|null
     */
     public function getDuration(): ?string {
@@ -64,7 +64,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the reason property value. The reason for the role assignment.
+     * Gets the reason property value. The reason property
      * @return string|null
     */
     public function getReason(): ?string {
@@ -72,7 +72,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the requestedDateTime property value. Read-only. The request create time. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Gets the requestedDateTime property value. The requestedDateTime property
      * @return DateTime|null
     */
     public function getRequestedDateTime(): ?DateTime {
@@ -80,7 +80,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the roleId property value. The id of the role.
+     * Gets the roleId property value. The roleId property
      * @return string|null
     */
     public function getRoleId(): ?string {
@@ -88,7 +88,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the roleInfo property value. The roleInfo object of the role assignment request.
+     * Gets the roleInfo property value. The roleInfo property
      * @return PrivilegedRole|null
     */
     public function getRoleInfo(): ?PrivilegedRole {
@@ -96,7 +96,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the schedule property value. The schedule object of the role assignment request.
+     * Gets the schedule property value. The schedule property
      * @return GovernanceSchedule|null
     */
     public function getSchedule(): ?GovernanceSchedule {
@@ -104,7 +104,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Read-only.The status of the role assignment request. The value can be NotStarted,Completed,RequestedApproval,Scheduled,Approved,ApprovalDenied,ApprovalAborted,Cancelling,Cancelled,Revoked,RequestExpired.
+     * Gets the status property value. The status property
      * @return string|null
     */
     public function getStatus(): ?string {
@@ -112,7 +112,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the ticketNumber property value. The ticketNumber for the role assignment.
+     * Gets the ticketNumber property value. The ticketNumber property
      * @return string|null
     */
     public function getTicketNumber(): ?string {
@@ -120,7 +120,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the ticketSystem property value. The ticketSystem for the role assignment.
+     * Gets the ticketSystem property value. The ticketSystem property
      * @return string|null
     */
     public function getTicketSystem(): ?string {
@@ -128,7 +128,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the type property value. Representing the type of the operation on the role assignment. The value can be AdminAdd: Administrators add users to roles;UserAdd: Users add role assignments.
+     * Gets the type property value. The type property
      * @return string|null
     */
     public function getType(): ?string {
@@ -136,7 +136,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the userId property value. The id of the user.
+     * Gets the userId property value. The userId property
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -164,7 +164,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the assignmentState property value. The state of the assignment. The value can be Eligible for eligible assignment Active - if it is directly assigned Active by administrators, or activated on an eligible assignment by the users.
+     * Sets the assignmentState property value. The assignmentState property
      * @param string|null $value Value to set for the assignmentState property.
     */
     public function setAssignmentState(?string $value): void {
@@ -172,7 +172,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the duration property value. The duration of a role assignment.
+     * Sets the duration property value. The duration property
      * @param string|null $value Value to set for the duration property.
     */
     public function setDuration(?string $value): void {
@@ -180,7 +180,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the reason property value. The reason for the role assignment.
+     * Sets the reason property value. The reason property
      * @param string|null $value Value to set for the reason property.
     */
     public function setReason(?string $value): void {
@@ -188,7 +188,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the requestedDateTime property value. Read-only. The request create time. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Sets the requestedDateTime property value. The requestedDateTime property
      * @param DateTime|null $value Value to set for the requestedDateTime property.
     */
     public function setRequestedDateTime(?DateTime $value): void {
@@ -196,7 +196,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the roleId property value. The id of the role.
+     * Sets the roleId property value. The roleId property
      * @param string|null $value Value to set for the roleId property.
     */
     public function setRoleId(?string $value): void {
@@ -204,7 +204,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the roleInfo property value. The roleInfo object of the role assignment request.
+     * Sets the roleInfo property value. The roleInfo property
      * @param PrivilegedRole|null $value Value to set for the roleInfo property.
     */
     public function setRoleInfo(?PrivilegedRole $value): void {
@@ -212,7 +212,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the schedule property value. The schedule object of the role assignment request.
+     * Sets the schedule property value. The schedule property
      * @param GovernanceSchedule|null $value Value to set for the schedule property.
     */
     public function setSchedule(?GovernanceSchedule $value): void {
@@ -220,7 +220,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Read-only.The status of the role assignment request. The value can be NotStarted,Completed,RequestedApproval,Scheduled,Approved,ApprovalDenied,ApprovalAborted,Cancelling,Cancelled,Revoked,RequestExpired.
+     * Sets the status property value. The status property
      * @param string|null $value Value to set for the status property.
     */
     public function setStatus(?string $value): void {
@@ -228,7 +228,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the ticketNumber property value. The ticketNumber for the role assignment.
+     * Sets the ticketNumber property value. The ticketNumber property
      * @param string|null $value Value to set for the ticketNumber property.
     */
     public function setTicketNumber(?string $value): void {
@@ -236,7 +236,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the ticketSystem property value. The ticketSystem for the role assignment.
+     * Sets the ticketSystem property value. The ticketSystem property
      * @param string|null $value Value to set for the ticketSystem property.
     */
     public function setTicketSystem(?string $value): void {
@@ -244,7 +244,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the type property value. Representing the type of the operation on the role assignment. The value can be AdminAdd: Administrators add users to roles;UserAdd: Users add role assignments.
+     * Sets the type property value. The type property
      * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {
@@ -252,7 +252,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the userId property value. The id of the user.
+     * Sets the userId property value. The userId property
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {

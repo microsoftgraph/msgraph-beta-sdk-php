@@ -53,9 +53,10 @@ class DataConnectorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set of connectors for importing data from source systems.
+     * Get a list of the azureDataLakeConnector objects and their properties.
      * @param DataConnectorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/industrydata-azuredatalakeconnector-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?DataConnectorsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class DataConnectorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to dataConnectors for external
+     * Create a new industryDataConnector object.
      * @param IndustryDataConnector $body The request body
      * @param DataConnectorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/industrydata-industrydataconnector-post?view=graph-rest-1.0 Find more info here
     */
     public function post(IndustryDataConnector $body, ?DataConnectorsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class DataConnectorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set of connectors for importing data from source systems.
+     * Get a list of the azureDataLakeConnector objects and their properties.
      * @param DataConnectorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class DataConnectorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to dataConnectors for external
+     * Create a new industryDataConnector object.
      * @param IndustryDataConnector $body The request body
      * @param DataConnectorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

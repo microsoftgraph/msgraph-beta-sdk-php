@@ -32,7 +32,7 @@ class RequestRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read-only. The role assignment request for this approval object
+     * Get request from privilegedApproval
      * @param RequestRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -50,7 +50,7 @@ class RequestRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read-only. The role assignment request for this approval object
+     * Get request from privilegedApproval
      * @param RequestRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

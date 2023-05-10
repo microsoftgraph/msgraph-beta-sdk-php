@@ -17,8 +17,6 @@ use Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\ExceptionOccurrences\E
 use Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\Extensions\ExtensionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\Forward\ForwardRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\Instances\InstancesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\MultiValueExtendedProperties\MultiValueExtendedPropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\SingleValueExtendedProperties\SingleValueExtendedPropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\SnoozeReminder\SnoozeReminderRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\TentativelyAccept\TentativelyAcceptRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -102,20 +100,6 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.event entity.
-    */
-    public function multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
-        return new MultiValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.event entity.
-    */
-    public function singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
-        return new SingleValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to call the snoozeReminder method.
     */
     public function snoozeReminder(): SnoozeReminderRequestBuilder {
@@ -144,9 +128,10 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property events for users
+     * Removes the specified event from the containing calendar.  If the event is a meeting, deleting the event on the organizer's calendar sends a cancellation message to the meeting attendees.
      * @param EventItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/event-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?EventItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -162,9 +147,10 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The user's events. Default is to show events under the Default Calendar. Read-only. Nullable.
+     * Get the properties and relationships of the specified event object. An app can get an event in another user's calendar if: Because the **event** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in an **event** instance.
      * @param EventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/event-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?EventItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -180,10 +166,11 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property events in users
+     * Update the properties of the event object.
      * @param Event $body The request body
      * @param EventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/event-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(Event $body, ?EventItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -199,7 +186,7 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property events for users
+     * Removes the specified event from the containing calendar.  If the event is a meeting, deleting the event on the organizer's calendar sends a cancellation message to the meeting attendees.
      * @param EventItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -216,7 +203,7 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The user's events. Default is to show events under the Default Calendar. Read-only. Nullable.
+     * Get the properties and relationships of the specified event object. An app can get an event in another user's calendar if: Because the **event** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in an **event** instance.
      * @param EventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -237,7 +224,7 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property events in users
+     * Update the properties of the event object.
      * @param Event $body The request body
      * @param EventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

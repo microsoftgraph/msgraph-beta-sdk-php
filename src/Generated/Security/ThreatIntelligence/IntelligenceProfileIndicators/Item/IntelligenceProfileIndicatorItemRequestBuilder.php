@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\IntelligenceProfileIndicator;
+use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\IntelligenceProfileIndicators\Item\Artifact\ArtifactRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -17,6 +18,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class IntelligenceProfileIndicatorItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the artifact property of the microsoft.graph.security.indicator entity.
+    */
+    public function artifact(): ArtifactRequestBuilder {
+        return new ArtifactRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new IntelligenceProfileIndicatorItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

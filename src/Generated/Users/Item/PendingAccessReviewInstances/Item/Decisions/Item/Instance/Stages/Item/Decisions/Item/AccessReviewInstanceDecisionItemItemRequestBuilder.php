@@ -58,9 +58,10 @@ class AccessReviewInstanceDecisionItemItemRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Each user reviewed in an accessReviewStage has a decision item representing if they were approved, denied, or not yet reviewed.
+     * Read the properties and relationships of an accessReviewInstanceDecisionItem object.
      * @param AccessReviewInstanceDecisionItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/accessreviewinstancedecisionitem-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?AccessReviewInstanceDecisionItemItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,10 +77,11 @@ class AccessReviewInstanceDecisionItemItemRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Update the navigation property decisions in users
+     * Update access decisions, known as accessReviewInstanceDecisionItems, for which the user is the reviewer.
      * @param AccessReviewInstanceDecisionItem $body The request body
      * @param AccessReviewInstanceDecisionItemItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/accessreviewinstancedecisionitem-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(AccessReviewInstanceDecisionItem $body, ?AccessReviewInstanceDecisionItemItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -112,7 +114,7 @@ class AccessReviewInstanceDecisionItemItemRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Each user reviewed in an accessReviewStage has a decision item representing if they were approved, denied, or not yet reviewed.
+     * Read the properties and relationships of an accessReviewInstanceDecisionItem object.
      * @param AccessReviewInstanceDecisionItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -133,7 +135,7 @@ class AccessReviewInstanceDecisionItemItemRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Update the navigation property decisions in users
+     * Update access decisions, known as accessReviewInstanceDecisionItems, for which the user is the reviewer.
      * @param AccessReviewInstanceDecisionItem $body The request body
      * @param AccessReviewInstanceDecisionItemItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

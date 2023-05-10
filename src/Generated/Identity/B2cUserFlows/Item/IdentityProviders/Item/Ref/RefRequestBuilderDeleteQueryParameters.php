@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\IdentityProv
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Delete ref of navigation property identityProviders for identity
+ * Delete an identity provider from a b2cIdentityUserFlow object. For more information about identity providers available for user flows, see the identityProviders API reference.
 */
 class RefRequestBuilderDeleteQueryParameters 
 {

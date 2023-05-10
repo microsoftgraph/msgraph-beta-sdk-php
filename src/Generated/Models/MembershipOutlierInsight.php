@@ -59,7 +59,7 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
     }
 
     /**
-     * Gets the lastModifiedBy property value. The lastModifiedBy property
+     * Gets the lastModifiedBy property value. Navigation link to a member object who modified the record. For example, to a user.
      * @return User|null
     */
     public function getLastModifiedBy(): ?User {
@@ -130,7 +130,7 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
     }
 
     /**
-     * Sets the lastModifiedBy property value. The lastModifiedBy property
+     * Sets the lastModifiedBy property value. Navigation link to a member object who modified the record. For example, to a user.
      * @param User|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?User $value): void {

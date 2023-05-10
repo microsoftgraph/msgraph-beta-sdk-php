@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Organization\Item\Settings\MicrosoftApp
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get microsoftApplicationDataAccess from organization
+ * Get the _settings_ in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization.
 */
 class MicrosoftApplicationDataAccessRequestBuilderGetQueryParameters 
 {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Templates\It
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read-only. Nullable. Returns a collection of the specified Conditional Access templates.
+ * Read the properties and relationships of a conditionalAccessTemplate object.
 */
 class ConditionalAccessTemplateItemRequestBuilderGetQueryParameters 
 {

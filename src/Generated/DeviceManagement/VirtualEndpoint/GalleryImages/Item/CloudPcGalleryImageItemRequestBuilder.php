@@ -50,9 +50,10 @@ class CloudPcGalleryImageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The gallery image resource on Cloud PC.
+     * Read the properties and relationships of a specific cloudPcGalleryImage object.
      * @param CloudPcGalleryImageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/cloudpcgalleryimage-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?CloudPcGalleryImageItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -104,7 +105,7 @@ class CloudPcGalleryImageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The gallery image resource on Cloud PC.
+     * Read the properties and relationships of a specific cloudPcGalleryImage object.
      * @param CloudPcGalleryImageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

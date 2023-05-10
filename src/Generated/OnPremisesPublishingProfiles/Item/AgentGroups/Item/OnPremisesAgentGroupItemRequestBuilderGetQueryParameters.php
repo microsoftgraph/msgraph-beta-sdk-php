@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Agent
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List of existing onPremisesAgentGroup objects. Read-only. Nullable.
+ * Retrieve the properties and relationships of an onPremisesAgentGroup object.
 */
 class OnPremisesAgentGroupItemRequestBuilderGetQueryParameters 
 {

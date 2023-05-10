@@ -71,10 +71,11 @@ class ExportJobsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to exportJobs for deviceManagement
+     * Create a new cloudPcExportJob resource to initiate downloading the entire or specified portion of a report. Use the GET cloudPcExportJob operation to verify the **exportJobStatus** property of the **cloudPcExportJob** resource. When the property becomes `completed`, the report has finished downloading in the location specified by the **exportUrl** property. 
      * @param CloudPcExportJob $body The request body
      * @param ExportJobsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/cloudpcreports-post-exportjobs?view=graph-rest-1.0 Find more info here
     */
     public function post(CloudPcExportJob $body, ?ExportJobsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -111,7 +112,7 @@ class ExportJobsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to exportJobs for deviceManagement
+     * Create a new cloudPcExportJob resource to initiate downloading the entire or specified portion of a report. Use the GET cloudPcExportJob operation to verify the **exportJobStatus** property of the **cloudPcExportJob** resource. When the property becomes `completed`, the report has finished downloading in the location specified by the **exportUrl** property. 
      * @param CloudPcExportJob $body The request body
      * @param ExportJobsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

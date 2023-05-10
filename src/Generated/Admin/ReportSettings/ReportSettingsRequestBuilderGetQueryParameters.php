@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\ReportSettings;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * A container for administrative resources to manage reports.
+ * Get the tenant-level settings for Microsoft 365 reports.
 */
 class ReportSettingsRequestBuilderGetQueryParameters 
 {

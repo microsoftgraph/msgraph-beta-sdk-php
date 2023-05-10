@@ -53,7 +53,7 @@ class RostersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read-only. Nullable. Returns a collection of the specified rosters
+     * Read the properties and relationships of a plannerRoster object.
      * @param RostersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -71,10 +71,11 @@ class RostersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to rosters for planner
+     * Create a new plannerRoster object.
      * @param PlannerRoster $body The request body
      * @param RostersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/planner-post-rosters?view=graph-rest-1.0 Find more info here
     */
     public function post(PlannerRoster $body, ?RostersRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +91,7 @@ class RostersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read-only. Nullable. Returns a collection of the specified rosters
+     * Read the properties and relationships of a plannerRoster object.
      * @param RostersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +112,7 @@ class RostersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to rosters for planner
+     * Create a new plannerRoster object.
      * @param PlannerRoster $body The request body
      * @param RostersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

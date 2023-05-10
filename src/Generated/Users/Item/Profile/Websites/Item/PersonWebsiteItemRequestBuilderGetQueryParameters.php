@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Websites\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents detailed information about websites associated with a user in various services.
+ * Retrieve the properties and relationships of a personWebsite object from a user's profile.
 */
 class PersonWebsiteItemRequestBuilderGetQueryParameters 
 {

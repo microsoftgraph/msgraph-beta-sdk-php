@@ -66,7 +66,6 @@ use Microsoft\Graph\Beta\Generated\IdentityProtection\IdentityProtectionRequestB
 use Microsoft\Graph\Beta\Generated\IdentityProviders\IdentityProvidersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\InformationProtection\InformationProtectionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Invitations\InvitationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\MeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\MessageEvents\MessageEventsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\MessageRecipients\MessageRecipientsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\MessageTraces\MessageTracesRequestBuilder;
@@ -576,13 +575,6 @@ class BaseGraphClient extends BaseRequestBuilder
     */
     public function invitations(): InvitationsRequestBuilder {
         return new InvitationsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the user singleton.
-    */
-    public function me(): MeRequestBuilder {
-        return new MeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

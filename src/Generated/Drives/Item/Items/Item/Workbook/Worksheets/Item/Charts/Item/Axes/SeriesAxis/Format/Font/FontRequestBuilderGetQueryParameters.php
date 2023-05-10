@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Workshe
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only.
+ * Retrieve the properties and relationships of chartfont object.
 */
 class FontRequestBuilderGetQueryParameters 
 {

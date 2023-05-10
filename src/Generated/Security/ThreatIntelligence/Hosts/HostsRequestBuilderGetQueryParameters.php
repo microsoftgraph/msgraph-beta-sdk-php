@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Refers to microsoft.graph.security.host objects that Microsoft Threat Intelligence has observed.Note: List retrieval is not yet supported.
+ * Read the properties and relationships of a host object. The host resource is the abstract base type that returns an implementation. A host can be of one of the following types:
 */
 class HostsRequestBuilderGetQueryParameters 
 {

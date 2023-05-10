@@ -26,7 +26,7 @@ class Contract extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the contractType property value. The contractType property
+     * Gets the contractType property value. Type of contract. Possible values are:  SyndicationPartner, BreadthPartner, ResellerPartner. See more in the table below.
      * @return string|null
     */
     public function getContractType(): ?string {
@@ -34,7 +34,7 @@ class Contract extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the customerId property value. The customerId property
+     * Gets the customerId property value. The unique identifier for the customer tenant referenced by this partnership. Corresponds to the id property of the customer tenant's organization resource.
      * @return string|null
     */
     public function getCustomerId(): ?string {
@@ -42,7 +42,7 @@ class Contract extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the defaultDomainName property value. The defaultDomainName property
+     * Gets the defaultDomainName property value. A copy of the customer tenant's default domain name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's default domain name changes.
      * @return string|null
     */
     public function getDefaultDomainName(): ?string {
@@ -50,7 +50,7 @@ class Contract extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. A copy of the customer tenant's display name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's display name changes.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -84,7 +84,7 @@ class Contract extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the contractType property value. The contractType property
+     * Sets the contractType property value. Type of contract. Possible values are:  SyndicationPartner, BreadthPartner, ResellerPartner. See more in the table below.
      * @param string|null $value Value to set for the contractType property.
     */
     public function setContractType(?string $value): void {
@@ -92,7 +92,7 @@ class Contract extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the customerId property value. The customerId property
+     * Sets the customerId property value. The unique identifier for the customer tenant referenced by this partnership. Corresponds to the id property of the customer tenant's organization resource.
      * @param string|null $value Value to set for the customerId property.
     */
     public function setCustomerId(?string $value): void {
@@ -100,7 +100,7 @@ class Contract extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the defaultDomainName property value. The defaultDomainName property
+     * Sets the defaultDomainName property value. A copy of the customer tenant's default domain name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's default domain name changes.
      * @param string|null $value Value to set for the defaultDomainName property.
     */
     public function setDefaultDomainName(?string $value): void {
@@ -108,7 +108,7 @@ class Contract extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. A copy of the customer tenant's display name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's display name changes.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {

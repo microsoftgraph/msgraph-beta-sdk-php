@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Provis
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get assignedUsers from deviceManagement
+ * The assignment targeted users for the provisioning policy. This list of users is computed based on assignments, licenses, group memberships, and policies. This property is read-only. Supports$expand.
 */
 class UserItemRequestBuilderGetQueryParameters 
 {

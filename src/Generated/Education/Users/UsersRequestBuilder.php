@@ -61,9 +61,10 @@ class UsersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get users from education
+     * Retrieve a list of user objects. These user objects will include education-specific properties.
      * @param UsersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/educationroot-list-users?view=graph-rest-1.0 Find more info here
     */
     public function get(?UsersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -79,10 +80,11 @@ class UsersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to users for education
+     * Create a new user.
      * @param EducationUser $body The request body
      * @param UsersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/educationroot-post-users?view=graph-rest-1.0 Find more info here
     */
     public function post(EducationUser $body, ?UsersRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -98,7 +100,7 @@ class UsersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get users from education
+     * Retrieve a list of user objects. These user objects will include education-specific properties.
      * @param UsersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +121,7 @@ class UsersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to users for education
+     * Create a new user.
      * @param EducationUser $body The request body
      * @param UsersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

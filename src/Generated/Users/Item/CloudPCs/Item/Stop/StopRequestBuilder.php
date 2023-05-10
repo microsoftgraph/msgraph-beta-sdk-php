@@ -31,9 +31,10 @@ class StopRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action stop
+     * Stop a specific Cloud PC for a user. Currently, only Windows 365 Frontline Cloud PCs are supported.
      * @param StopRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/cloudpc-stop?view=graph-rest-1.0 Find more info here
     */
     public function post(?StopRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -49,7 +50,7 @@ class StopRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action stop
+     * Stop a specific Cloud PC for a user. Currently, only Windows 365 Frontline Cloud PCs are supported.
      * @param StopRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

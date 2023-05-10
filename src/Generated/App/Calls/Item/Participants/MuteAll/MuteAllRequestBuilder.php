@@ -32,10 +32,11 @@ class MuteAllRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action muteAll
+     * Mute all participants in the call.
      * @param MuteAllPostRequestBody $body The request body
      * @param MuteAllRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/participant-muteall?view=graph-rest-1.0 Find more info here
     */
     public function post(MuteAllPostRequestBody $body, ?MuteAllRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -51,7 +52,7 @@ class MuteAllRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action muteAll
+     * Mute all participants in the call.
      * @param MuteAllPostRequestBody $body The request body
      * @param MuteAllRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -72,9 +72,10 @@ class TrustFrameworkKeySetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property keySets for trustFramework
+     * Delete a trustFrameworkKeySet.
      * @param TrustFrameworkKeySetItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/trustframeworkkeyset-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?TrustFrameworkKeySetItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -90,9 +91,10 @@ class TrustFrameworkKeySetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get keySets from trustFramework
+     * Retrieve the properties and associations for a Trustframeworkkeyset.
      * @param TrustFrameworkKeySetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/trustframeworkkeyset-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?TrustFrameworkKeySetItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -108,10 +110,11 @@ class TrustFrameworkKeySetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property keySets in trustFramework
+     * Update the properties of a trustFrameworkKeyset. This operation will replace the content of an existing keyset. Specifying the ID in the request payload is optional.
      * @param TrustFrameworkKeySet $body The request body
      * @param TrustFrameworkKeySetItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/trustframeworkkeyset-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(TrustFrameworkKeySet $body, ?TrustFrameworkKeySetItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -127,7 +130,7 @@ class TrustFrameworkKeySetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property keySets for trustFramework
+     * Delete a trustFrameworkKeySet.
      * @param TrustFrameworkKeySetItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -144,7 +147,7 @@ class TrustFrameworkKeySetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get keySets from trustFramework
+     * Retrieve the properties and associations for a Trustframeworkkeyset.
      * @param TrustFrameworkKeySetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -165,7 +168,7 @@ class TrustFrameworkKeySetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property keySets in trustFramework
+     * Update the properties of a trustFrameworkKeyset. This operation will replace the content of an existing keyset. Specifying the ID in the request payload is optional.
      * @param TrustFrameworkKeySet $body The request body
      * @param TrustFrameworkKeySetItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

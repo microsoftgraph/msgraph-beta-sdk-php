@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignmentRequests\Item\R
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The settings for this role. Read-only. Nullable.
+ * Get settings from privilegedRoleAssignmentRequests
 */
 class SettingsRequestBuilderGetQueryParameters 
 {

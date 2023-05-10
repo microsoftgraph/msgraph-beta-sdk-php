@@ -31,10 +31,11 @@ class ResizeCloudPcRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action resizeCloudPc
+     * Upgrade or downgrade an existing Cloud PC to another configuration with a new virtual CPU (vCPU) and storage size.
      * @param ResizeCloudPcPostRequestBody $body The request body
      * @param ResizeCloudPcRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/manageddevice-resizecloudpc?view=graph-rest-1.0 Find more info here
     */
     public function post(ResizeCloudPcPostRequestBody $body, ?ResizeCloudPcRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -50,7 +51,7 @@ class ResizeCloudPcRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action resizeCloudPc
+     * Upgrade or downgrade an existing Cloud PC to another configuration with a new virtual CPU (vCPU) and storage size.
      * @param ResizeCloudPcPostRequestBody $body The request body
      * @param ResizeCloudPcRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

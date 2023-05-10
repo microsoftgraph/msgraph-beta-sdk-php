@@ -168,6 +168,7 @@ class EducationAssignment extends Entity implements Parsable
             'dueDateTime' => fn(ParseNode $n) => $o->setDueDateTime($n->getDateTimeValue()),
             'feedbackResourcesFolderUrl' => fn(ParseNode $n) => $o->setFeedbackResourcesFolderUrl($n->getStringValue()),
             'grading' => fn(ParseNode $n) => $o->setGrading($n->getObjectValue([EducationAssignmentGradeType::class, 'createFromDiscriminatorValue'])),
+            'gradingCategory' => fn(ParseNode $n) => $o->setGradingCategory($n->getObjectValue([EducationGradingCategory::class, 'createFromDiscriminatorValue'])),
             'instructions' => fn(ParseNode $n) => $o->setInstructions($n->getObjectValue([EducationItemBody::class, 'createFromDiscriminatorValue'])),
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
@@ -187,6 +188,14 @@ class EducationAssignment extends Entity implements Parsable
     */
     public function getGrading(): ?EducationAssignmentGradeType {
         return $this->getBackingStore()->get('grading');
+    }
+
+    /**
+     * Gets the gradingCategory property value. The gradingCategory property
+     * @return EducationGradingCategory|null
+    */
+    public function getGradingCategory(): ?EducationGradingCategory {
+        return $this->getBackingStore()->get('gradingCategory');
     }
 
     /**
@@ -246,7 +255,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Status of the Assignment.  You can not PATCH this value.  Possible values are: draft, scheduled, published, assigned.
+     * Gets the status property value. Status of the Assignment.  You can not PATCH this value.  Possible values are: draft, scheduled, published, assigned, unknownFutureValue and inactive. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: inactive.
      * @return EducationAssignmentStatus|null
     */
     public function getStatus(): ?EducationAssignmentStatus {
@@ -286,6 +295,7 @@ class EducationAssignment extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('dueDateTime', $this->getDueDateTime());
         $writer->writeObjectValue('grading', $this->getGrading());
+        $writer->writeObjectValue('gradingCategory', $this->getGradingCategory());
         $writer->writeObjectValue('instructions', $this->getInstructions());
         $writer->writeStringValue('notificationChannelUrl', $this->getNotificationChannelUrl());
         $writer->writeCollectionOfObjectValues('resources', $this->getResources());
@@ -422,6 +432,14 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
+     * Sets the gradingCategory property value. The gradingCategory property
+     * @param EducationGradingCategory|null $value Value to set for the gradingCategory property.
+    */
+    public function setGradingCategory(?EducationGradingCategory $value): void {
+        $this->getBackingStore()->set('gradingCategory', $value);
+    }
+
+    /**
      * Sets the instructions property value. Instructions for the assignment.  This along with the display name tell the student what to do.
      * @param EducationItemBody|null $value Value to set for the instructions property.
     */
@@ -478,7 +496,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Status of the Assignment.  You can not PATCH this value.  Possible values are: draft, scheduled, published, assigned.
+     * Sets the status property value. Status of the Assignment.  You can not PATCH this value.  Possible values are: draft, scheduled, published, assigned, unknownFutureValue and inactive. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: inactive.
      * @param EducationAssignmentStatus|null $value Value to set for the status property.
     */
     public function setStatus(?EducationAssignmentStatus $value): void {

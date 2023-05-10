@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Policies\DefaultAppManagementPolicy;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The tenant-wide policy that enforces app management restrictions for all applications and service principals.
+ * Read the properties of a tenantAppManagementPolicy object.
 */
 class DefaultAppManagementPolicyRequestBuilderGetQueryParameters 
 {

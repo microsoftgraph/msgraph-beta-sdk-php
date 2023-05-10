@@ -52,9 +52,10 @@ class WorkflowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deleted workflows that end up in the deletedItemsContainer.
+     * Get a list of the deleted workflow objects and their properties.
      * @param WorkflowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/identitygovernance-lifecycleworkflowscontainer-list-deleteditems?view=graph-rest-1.0 Find more info here
     */
     public function get(?WorkflowsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -70,7 +71,7 @@ class WorkflowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deleted workflows that end up in the deletedItemsContainer.
+     * Get a list of the deleted workflow objects and their properties.
      * @param WorkflowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

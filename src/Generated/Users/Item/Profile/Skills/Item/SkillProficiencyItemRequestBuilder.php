@@ -32,9 +32,10 @@ class SkillProficiencyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property skills for users
+     * Delete a skillProficiency object from a user's profile.
      * @param SkillProficiencyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/skillproficiency-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?SkillProficiencyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -50,9 +51,10 @@ class SkillProficiencyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents detailed information about skills associated with a user in various services.
+     * Retrieve the properties and relationships of a skillproficiency object in a user's profile.
      * @param SkillProficiencyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/skillproficiency-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?SkillProficiencyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +70,11 @@ class SkillProficiencyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property skills in users
+     * Update the properties of a skillProficiency object in a user's profile.
      * @param SkillProficiency $body The request body
      * @param SkillProficiencyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/skillproficiency-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(SkillProficiency $body, ?SkillProficiencyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -87,7 +90,7 @@ class SkillProficiencyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property skills for users
+     * Delete a skillProficiency object from a user's profile.
      * @param SkillProficiencyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +107,7 @@ class SkillProficiencyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents detailed information about skills associated with a user in various services.
+     * Retrieve the properties and relationships of a skillproficiency object in a user's profile.
      * @param SkillProficiencyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +128,7 @@ class SkillProficiencyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property skills in users
+     * Update the properties of a skillProficiency object in a user's profile.
      * @param SkillProficiency $body The request body
      * @param SkillProficiencyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

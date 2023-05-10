@@ -58,9 +58,10 @@ class ConnectorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List of existing connector objects for applications published through Application Proxy. Read-only. Nullable.
+     * Retrieve the properties and relationships of a connector object.
      * @param ConnectorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/connector-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ConnectorItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -112,7 +113,7 @@ class ConnectorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List of existing connector objects for applications published through Application Proxy. Read-only. Nullable.
+     * Retrieve the properties and relationships of a connector object.
      * @param ConnectorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

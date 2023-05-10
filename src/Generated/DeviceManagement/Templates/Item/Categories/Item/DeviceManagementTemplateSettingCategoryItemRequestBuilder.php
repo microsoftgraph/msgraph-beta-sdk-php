@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\Categories\Item\RecommendedSettings\RecommendedSettingsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\Categories\Item\SettingDefinitions\SettingDefinitionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementTemplateSettingCategory;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -23,6 +24,13 @@ class DeviceManagementTemplateSettingCategoryItemRequestBuilder extends BaseRequ
     */
     public function recommendedSettings(): RecommendedSettingsRequestBuilder {
         return new RecommendedSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the settingDefinitions property of the microsoft.graph.deviceManagementSettingCategory entity.
+    */
+    public function settingDefinitions(): SettingDefinitionsRequestBuilder {
+        return new SettingDefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

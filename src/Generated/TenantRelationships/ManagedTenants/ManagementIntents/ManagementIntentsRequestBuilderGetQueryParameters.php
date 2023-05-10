@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Mana
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The collection of baseline management intents across managed tenants.
+ * Get a list of the managementIntent objects and their properties.
 */
 class ManagementIntentsRequestBuilderGetQueryParameters 
 {

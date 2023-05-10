@@ -53,9 +53,10 @@ class LanguagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents detailed information about languages that a user has added to their profile.
+     * Retrieve a list of languageProficiency objects from a user's profile.
      * @param LanguagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/profile-list-languages?view=graph-rest-1.0 Find more info here
     */
     public function get(?LanguagesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class LanguagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to languages for users
+     * Use this API to create a new languageProficiency object in a user's profile.
      * @param LanguageProficiency $body The request body
      * @param LanguagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/profile-post-languages?view=graph-rest-1.0 Find more info here
     */
     public function post(LanguageProficiency $body, ?LanguagesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class LanguagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents detailed information about languages that a user has added to their profile.
+     * Retrieve a list of languageProficiency objects from a user's profile.
      * @param LanguagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class LanguagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to languages for users
+     * Use this API to create a new languageProficiency object in a user's profile.
      * @param LanguageProficiency $body The request body
      * @param LanguagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

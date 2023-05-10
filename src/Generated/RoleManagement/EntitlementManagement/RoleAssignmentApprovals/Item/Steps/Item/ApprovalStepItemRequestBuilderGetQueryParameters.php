@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\Ro
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get steps from roleManagement
+ * Retrieve the properties of an approvalStep object.
 */
 class ApprovalStepItemRequestBuilderGetQueryParameters 
 {

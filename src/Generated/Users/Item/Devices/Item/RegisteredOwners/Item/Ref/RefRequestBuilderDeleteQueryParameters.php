@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredOwner
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Delete ref of navigation property registeredOwners for users
+ * Remove a user as a registered owner of the device.
 */
 class RefRequestBuilderDeleteQueryParameters 
 {

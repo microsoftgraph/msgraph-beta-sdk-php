@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\Operations;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The async operations on the device.
+ * Get a list of the operations that are running on a Microsoft Teams-enabled device.
 */
 class OperationsRequestBuilderGetQueryParameters 
 {

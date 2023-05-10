@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\StaffMembers;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * All the staff members that provide services in this business. Read-only. Nullable.
+ * Get a list of bookingStaffMember objects in the specified bookingBusiness.
 */
 class StaffMembersRequestBuilderGetQueryParameters 
 {

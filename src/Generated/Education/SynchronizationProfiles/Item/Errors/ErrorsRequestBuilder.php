@@ -53,9 +53,10 @@ class ErrorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * All errors associated with this synchronization profile.
+     * Get the errors generated during validation and/or during a sync of a specific school data synchronization profile in the tenant.
      * @param ErrorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/educationsynchronizationerrors-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ErrorsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class ErrorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * All errors associated with this synchronization profile.
+     * Get the errors generated during validation and/or during a sync of a specific school data synchronization profile in the tenant.
      * @param ErrorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

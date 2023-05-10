@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\MyDec
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The collection of decisions for the caller, if the caller is a reviewer.
+ * In the Azure AD access reviews feature, retrieve the decisions of an accessReview object for the calling user as reviewer.
 */
 class MyDecisionsRequestBuilderGetQueryParameters 
 {

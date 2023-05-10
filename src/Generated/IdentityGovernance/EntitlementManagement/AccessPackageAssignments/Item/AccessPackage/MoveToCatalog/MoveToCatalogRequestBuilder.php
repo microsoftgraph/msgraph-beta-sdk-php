@@ -31,10 +31,11 @@ class MoveToCatalogRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action moveToCatalog
+     * In Azure AD entitlement management, this action moves the accessPackage to a specified target accessPackageCatalog. The resources in the access package must be present in the target catalog.
      * @param MoveToCatalogPostRequestBody $body The request body
      * @param MoveToCatalogRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/accesspackage-movetocatalog?view=graph-rest-1.0 Find more info here
     */
     public function post(MoveToCatalogPostRequestBody $body, ?MoveToCatalogRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -50,7 +51,7 @@ class MoveToCatalogRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action moveToCatalog
+     * In Azure AD entitlement management, this action moves the accessPackage to a specified target accessPackageCatalog. The resources in the access package must be present in the target catalog.
      * @param MoveToCatalogPostRequestBody $body The request body
      * @param MoveToCatalogRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

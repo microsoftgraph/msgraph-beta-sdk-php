@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\Tenant;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Tenants\Item\ManagedTenantsOffboardTenant\ManagedTenantsOffboardTenantRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Tenants\Item\ManagedTenantsResetTenantOnboardingStatus\ManagedTenantsResetTenantOnboardingStatusRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Tenants\Item\MicrosoftGraphManagedTenantsOffboardTenant\MicrosoftGraphManagedTenantsOffboardTenantRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Tenants\Item\MicrosoftGraphManagedTenantsResetTenantOnboardingStatus\MicrosoftGraphManagedTenantsResetTenantOnboardingStatusRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -22,15 +22,15 @@ class TenantItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the offboardTenant method.
     */
-    public function managedTenantsOffboardTenant(): ManagedTenantsOffboardTenantRequestBuilder {
-        return new ManagedTenantsOffboardTenantRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphManagedTenantsOffboardTenant(): MicrosoftGraphManagedTenantsOffboardTenantRequestBuilder {
+        return new MicrosoftGraphManagedTenantsOffboardTenantRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the resetTenantOnboardingStatus method.
     */
-    public function managedTenantsResetTenantOnboardingStatus(): ManagedTenantsResetTenantOnboardingStatusRequestBuilder {
-        return new ManagedTenantsResetTenantOnboardingStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphManagedTenantsResetTenantOnboardingStatus(): MicrosoftGraphManagedTenantsResetTenantOnboardingStatusRequestBuilder {
+        return new MicrosoftGraphManagedTenantsResetTenantOnboardingStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -66,9 +66,10 @@ class TenantItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of tenants associated with the managing entity.
+     * Read the properties and relationships of a tenant object.
      * @param TenantItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/managedtenants-tenant-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?TenantItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -120,7 +121,7 @@ class TenantItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of tenants associated with the managing entity.
+     * Read the properties and relationships of a tenant object.
      * @param TenantItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -62,7 +62,7 @@ class MarkAsNotJunkPostRequestBody implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Gets the moveToInbox property value. The moveToInbox property
+     * Gets the moveToInbox property value. The MoveToInbox property
      * @return bool|null
     */
     public function getMoveToInbox(): ?bool {
@@ -95,8 +95,8 @@ class MarkAsNotJunkPostRequestBody implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Sets the moveToInbox property value. The moveToInbox property
-     * @param bool|null $value Value to set for the moveToInbox property.
+     * Sets the moveToInbox property value. The MoveToInbox property
+     * @param bool|null $value Value to set for the MoveToInbox property.
     */
     public function setMoveToInbox(?bool $value): void {
         $this->getBackingStore()->set('moveToInbox', $value);

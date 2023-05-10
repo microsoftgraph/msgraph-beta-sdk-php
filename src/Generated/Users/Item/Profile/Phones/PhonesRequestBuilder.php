@@ -53,9 +53,10 @@ class PhonesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents detailed information about phone numbers associated with a user in various services.
+     * Retrieve a list of itemPhone objects from a user's profile.
      * @param PhonesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/profile-list-phones?view=graph-rest-1.0 Find more info here
     */
     public function get(?PhonesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class PhonesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to phones for users
+     * Use this API to create a new itemPhone object in a user's profile.
      * @param ItemPhone $body The request body
      * @param PhonesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/profile-post-phones?view=graph-rest-1.0 Find more info here
     */
     public function post(ItemPhone $body, ?PhonesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class PhonesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents detailed information about phone numbers associated with a user in various services.
+     * Retrieve a list of itemPhone objects from a user's profile.
      * @param PhonesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class PhonesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to phones for users
+     * Use this API to create a new itemPhone object in a user's profile.
      * @param ItemPhone $body The request body
      * @param PhonesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

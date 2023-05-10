@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Connections\Item\Items;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get items from connections
+ * Get the properties and relationships of an externalitem object. This API is provided for diagnostic purposes only. It is not intended to be used for any other purpose. Repeated requests to this API might result in `429` HTTP errors.
 */
 class ItemsRequestBuilderGetQueryParameters 
 {

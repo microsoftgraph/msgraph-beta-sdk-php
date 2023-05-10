@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Users\Item\Assignments\Item\S
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable.
+ * Retrieve a particular submission. Only teachers, students, and applications with application permissions can perform this operation. A **submission** object represents a student's work for an assignment. Resources associated with the **submission** represent this work. Only the **assignedTo** student can see and modify the **submission**. A teacher or application with application permissions has full access to all **submissions**. The grade and feedback from a teacher are part of the educationOutcome associated with this object. Only teachers or applications with application permissions can add or change grades and feedback. Students will not see the grade or feedback until the **assignment** has been released. Provide the header `Prefer: include-unknown-enum-members` to properly list **submissions** with the `reassigned` status. For details, see the examples section.
 */
 class EducationSubmissionItemRequestBuilderGetQueryParameters 
 {

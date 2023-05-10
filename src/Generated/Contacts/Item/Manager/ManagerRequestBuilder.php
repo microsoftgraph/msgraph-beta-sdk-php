@@ -32,9 +32,10 @@ class ManagerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The user or contact that is this contact's manager. Read-only. Supports $expand and $filter (eq) by id.
+     * Get the contact's manager
      * @param ManagerRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/orgcontact-get-manager?view=graph-rest-1.0 Find more info here
     */
     public function get(?ManagerRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class ManagerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The user or contact that is this contact's manager. Read-only. Supports $expand and $filter (eq) by id.
+     * Get the contact's manager
      * @param ManagerRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

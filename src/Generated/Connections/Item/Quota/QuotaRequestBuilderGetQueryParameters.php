@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Connections\Item\Quota;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get quota from connections
+ * Retrieve the properties and relationships of a connectionQuota object.
 */
 class QuotaRequestBuilderGetQueryParameters 
 {

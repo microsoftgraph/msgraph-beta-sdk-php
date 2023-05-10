@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\Registration\CustomQuestions\CustomQuestionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\Registration\Registrants\RegistrantsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MeetingRegistration;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -26,6 +27,13 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the registrants property of the microsoft.graph.meetingRegistrationBase entity.
+    */
+    public function registrants(): RegistrantsRequestBuilder {
+        return new RegistrantsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Instantiates a new RegistrationRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -40,9 +48,10 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property registration for app
+     * Disable and delete the externalMeetingRegistration of an onlineMeeting.
      * @param RegistrationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/externalmeetingregistration-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?RegistrationRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -58,9 +67,10 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The registration that has been enabled for an online meeting. One online meeting can only have one registration enabled.
+     * Get the externalMeetingRegistration details associated with an onlineMeeting.
      * @param RegistrationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/externalmeetingregistration-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?RegistrationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,10 +86,11 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property registration in app
+     * Update the details of a meetingRegistration object assciated with an onlineMeeting on behalf of the organizer.
      * @param MeetingRegistration $body The request body
      * @param RegistrationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/meetingregistration-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(MeetingRegistration $body, ?RegistrationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -95,7 +106,7 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property registration for app
+     * Disable and delete the externalMeetingRegistration of an onlineMeeting.
      * @param RegistrationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -112,7 +123,7 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The registration that has been enabled for an online meeting. One online meeting can only have one registration enabled.
+     * Get the externalMeetingRegistration details associated with an onlineMeeting.
      * @param RegistrationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -133,7 +144,7 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property registration in app
+     * Update the details of a meetingRegistration object assciated with an onlineMeeting on behalf of the organizer.
      * @param MeetingRegistration $body The request body
      * @param RegistrationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

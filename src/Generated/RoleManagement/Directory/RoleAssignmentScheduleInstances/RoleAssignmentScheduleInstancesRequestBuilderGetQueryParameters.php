@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleAssignment
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get roleAssignmentScheduleInstances from roleManagement
+ * Get the instances of active role assignments in your tenant. The active assignments include those made through assignments and activation requests, and directly through the role assignments API.
 */
 class RoleAssignmentScheduleInstancesRequestBuilderGetQueryParameters 
 {

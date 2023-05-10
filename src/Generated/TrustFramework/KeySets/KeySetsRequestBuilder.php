@@ -53,9 +53,10 @@ class KeySetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get keySets from trustFramework
+     * Retrieve a list of trustFrameworkKeySets.
      * @param KeySetsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/trustframework-list-keysets?view=graph-rest-1.0 Find more info here
     */
     public function get(?KeySetsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class KeySetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to keySets for trustFramework
+     * Create a new trustFrameworkKeySet. The ID of the **trustFrameworkKeySet** is expected in the create request; however, it can be modified by the service. The modified ID will be available in the response and in the location header.
      * @param TrustFrameworkKeySet $body The request body
      * @param KeySetsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/trustframework-post-keysets?view=graph-rest-1.0 Find more info here
     */
     public function post(TrustFrameworkKeySet $body, ?KeySetsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class KeySetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get keySets from trustFramework
+     * Retrieve a list of trustFrameworkKeySets.
      * @param KeySetsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class KeySetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to keySets for trustFramework
+     * Create a new trustFrameworkKeySet. The ID of the **trustFrameworkKeySet** is expected in the create request; however, it can be modified by the service. The modified ID will be available in the response and in the location header.
      * @param TrustFrameworkKeySet $body The request body
      * @param KeySetsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -32,10 +32,11 @@ class UploadPkcs12RequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action uploadPkcs12
+     * Upload a PKCS12 format key (PFX) to a trustFrameworkKeyset. The input is a base-64 encoded value of the Pfx certificate contents. This method returns trustFrameworkKey.
      * @param UploadPkcs12PostRequestBody $body The request body
      * @param UploadPkcs12RequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadpkcs12?view=graph-rest-1.0 Find more info here
     */
     public function post(UploadPkcs12PostRequestBody $body, ?UploadPkcs12RequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -51,7 +52,7 @@ class UploadPkcs12RequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action uploadPkcs12
+     * Upload a PKCS12 format key (PFX) to a trustFrameworkKeyset. The input is a base-64 encoded value of the Pfx certificate contents. This method returns trustFrameworkKey.
      * @param UploadPkcs12PostRequestBody $body The request body
      * @param UploadPkcs12RequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

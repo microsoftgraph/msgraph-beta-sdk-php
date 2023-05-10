@@ -50,9 +50,10 @@ class CloudPcExternalPartnerSettingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The external partner settings on a Cloud PC.
+     * Read the properties and relationships of a cloudPcExternalPartnerSetting object.
      * @param CloudPcExternalPartnerSettingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/cloudpcexternalpartnersetting-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?CloudPcExternalPartnerSettingItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +69,11 @@ class CloudPcExternalPartnerSettingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property externalPartnerSettings in deviceManagement
+     * Update the properties of a cloudPcExternalPartnerSetting object.
      * @param CloudPcExternalPartnerSetting $body The request body
      * @param CloudPcExternalPartnerSettingItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/cloudpcexternalpartnersetting-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(CloudPcExternalPartnerSetting $body, ?CloudPcExternalPartnerSettingItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -104,7 +106,7 @@ class CloudPcExternalPartnerSettingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The external partner settings on a Cloud PC.
+     * Read the properties and relationships of a cloudPcExternalPartnerSetting object.
      * @param CloudPcExternalPartnerSettingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +127,7 @@ class CloudPcExternalPartnerSettingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property externalPartnerSettings in deviceManagement
+     * Update the properties of a cloudPcExternalPartnerSetting object.
      * @param CloudPcExternalPartnerSetting $body The request body
      * @param CloudPcExternalPartnerSettingItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

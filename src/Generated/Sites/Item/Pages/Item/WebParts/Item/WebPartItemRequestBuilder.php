@@ -58,9 +58,10 @@ class WebPartItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of webparts on the SharePoint page
+     * Read the properties and relationships of a webPart object.
      * @param WebPartItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/webpart-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?WebPartItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -112,7 +113,7 @@ class WebPartItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of webparts on the SharePoint page
+     * Read the properties and relationships of a webPart object.
      * @param WebPartItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

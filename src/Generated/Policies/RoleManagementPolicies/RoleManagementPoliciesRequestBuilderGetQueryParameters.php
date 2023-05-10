@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicies;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents the role management policies.
+ * Get role management policies and their details. This API only applies to Azure AD roles. To retrieve policies that apply to Azure RBAC, use the Azure REST PIM API for role management policies.
 */
 class RoleManagementPoliciesRequestBuilderGetQueryParameters 
 {

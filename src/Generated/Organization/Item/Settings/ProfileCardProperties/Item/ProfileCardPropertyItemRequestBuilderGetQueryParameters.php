@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Organization\Item\Settings\ProfileCardP
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Contains a collection of the properties an administrator has defined as visible on the Microsoft 365 profile card. Get organization settings returns the properties configured for profile cards for the organization.
+ * Retrieve the properties and relationships of a profileCardProperty entity, which contains the profile card customizations that exist in your Microsoft 365 organization for a given field. The profileCardProperty is identified by its **directoryPropertyName** property.
 */
 class ProfileCardPropertyItemRequestBuilderGetQueryParameters 
 {

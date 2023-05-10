@@ -48,9 +48,10 @@ class OnPremisesAgentGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property agentGroups for onPremisesPublishingProfiles
+     * Delete an onPremisesAgentGroup object.
      * @param OnPremisesAgentGroupItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/onpremisesagentgroup-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?OnPremisesAgentGroupItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -66,9 +67,10 @@ class OnPremisesAgentGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List of existing onPremisesAgentGroup objects. Read-only. Nullable.
+     * Retrieve the properties and relationships of an onPremisesAgentGroup object.
      * @param OnPremisesAgentGroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/onpremisesagentgroup-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?OnPremisesAgentGroupItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -84,10 +86,11 @@ class OnPremisesAgentGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property agentGroups in onPremisesPublishingProfiles
+     * Update the properties of an onPremisesAgentGroup object.
      * @param OnPremisesAgentGroup $body The request body
      * @param OnPremisesAgentGroupItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/onpremisesagentgroup-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(OnPremisesAgentGroup $body, ?OnPremisesAgentGroupItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -103,7 +106,7 @@ class OnPremisesAgentGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property agentGroups for onPremisesPublishingProfiles
+     * Delete an onPremisesAgentGroup object.
      * @param OnPremisesAgentGroupItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -120,7 +123,7 @@ class OnPremisesAgentGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List of existing onPremisesAgentGroup objects. Read-only. Nullable.
+     * Retrieve the properties and relationships of an onPremisesAgentGroup object.
      * @param OnPremisesAgentGroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -141,7 +144,7 @@ class OnPremisesAgentGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property agentGroups in onPremisesPublishingProfiles
+     * Update the properties of an onPremisesAgentGroup object.
      * @param OnPremisesAgentGroup $body The request body
      * @param OnPremisesAgentGroupItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

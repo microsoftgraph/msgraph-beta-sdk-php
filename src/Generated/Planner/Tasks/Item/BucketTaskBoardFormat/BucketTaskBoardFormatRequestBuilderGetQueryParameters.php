@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Planner\Tasks\Item\BucketTaskBoardForma
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read-only. Nullable. Used to render the task correctly in the task board view when grouped by bucket.
+ * Retrieve the properties and relationships of **plannerBucketTaskBoardTaskFormat** object.
 */
 class BucketTaskBoardFormatRequestBuilderGetQueryParameters 
 {

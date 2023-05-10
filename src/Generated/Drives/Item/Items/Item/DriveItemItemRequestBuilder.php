@@ -13,6 +13,7 @@ use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Checkout\CheckoutReque
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Children\ChildrenRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Content\ContentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Copy\CopyRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\CreatedByUser\CreatedByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\CreateLink\CreateLinkRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\CreateUploadSession\CreateUploadSessionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Delta\DeltaRequestBuilder;
@@ -21,6 +22,7 @@ use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\ExtractSensitivityLabe
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Follow\FollowRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Invite\InviteRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\LastModifiedByUser\LastModifiedByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\ListItem\ListItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Permissions\PermissionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Preview\PreviewRequestBuilder;
@@ -102,6 +104,13 @@ class DriveItemItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
+    */
+    public function createdByUser(): CreatedByUserRequestBuilder {
+        return new CreatedByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the createLink method.
     */
     public function createLink(): CreateLinkRequestBuilder {
@@ -141,6 +150,13 @@ class DriveItemItemRequestBuilder extends BaseRequestBuilder
     */
     public function invite(): InviteRequestBuilder {
         return new InviteRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.
+    */
+    public function lastModifiedByUser(): LastModifiedByUserRequestBuilder {
+        return new LastModifiedByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -235,9 +251,10 @@ class DriveItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property items for drives
+     * Delete a DriveItem by using its ID or path.Note that deleting items using this method will move the items to the recycle bin instead of permanently deleting the item.
      * @param DriveItemItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/driveitem-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?DriveItemItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -291,10 +308,11 @@ class DriveItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property items in drives
+     * To move a DriveItem to a new parent item, your app requests to update the **parentReference** of the DriveItem to move. This is a special case of the Update method.Your app can combine moving an item to a new container and updating other properties of the item into a single request. Items cannot be moved between Drives using this request.
      * @param DriveItem $body The request body
      * @param DriveItemItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/driveitem-move?view=graph-rest-1.0 Find more info here
     */
     public function patch(DriveItem $body, ?DriveItemItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -319,7 +337,7 @@ class DriveItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property items for drives
+     * Delete a DriveItem by using its ID or path.Note that deleting items using this method will move the items to the recycle bin instead of permanently deleting the item.
      * @param DriveItemItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -357,7 +375,7 @@ class DriveItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property items in drives
+     * To move a DriveItem to a new parent item, your app requests to update the **parentReference** of the DriveItem to move. This is a special case of the Update method.Your app can combine moving an item to a new container and updating other properties of the item into a single request. Items cannot be moved between Drives using this request.
      * @param DriveItem $body The request body
      * @param DriveItemItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

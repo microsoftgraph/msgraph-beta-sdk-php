@@ -35,6 +35,7 @@ class AlternativeRecordingRequestBuilder extends BaseRequestBuilder
      * The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
      * @param AlternativeRecordingRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/onlinemeeting-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?AlternativeRecordingRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

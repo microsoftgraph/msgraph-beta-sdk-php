@@ -26,7 +26,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the additionalInformation property value. Detailed human readable information for the event.
+     * Gets the additionalInformation property value. The additionalInformation property
      * @return string|null
     */
     public function getAdditionalInformation(): ?string {
@@ -34,7 +34,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the creationDateTime property value. Indicates the time when the event is created.
+     * Gets the creationDateTime property value. The creationDateTime property
      * @return DateTime|null
     */
     public function getCreationDateTime(): ?DateTime {
@@ -42,7 +42,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the expirationDateTime property value. This is only used when the requestType is Activate, and it indicates the expiration time for the role activation.
+     * Gets the expirationDateTime property value. The expirationDateTime property
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
@@ -74,7 +74,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the referenceKey property value. Incident/Request ticket number during role activation. The value is presented only if the ticket number is provided during role activation.
+     * Gets the referenceKey property value. The referenceKey property
      * @return string|null
     */
     public function getReferenceKey(): ?string {
@@ -82,7 +82,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the referenceSystem property value. Incident/Request ticketing system provided during tole activation. The value is presented only if the ticket system is provided during role activation.
+     * Gets the referenceSystem property value. The referenceSystem property
      * @return string|null
     */
     public function getReferenceSystem(): ?string {
@@ -90,7 +90,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the requestorId property value. The user id of the requestor who initiates the operation.
+     * Gets the requestorId property value. The requestorId property
      * @return string|null
     */
     public function getRequestorId(): ?string {
@@ -98,7 +98,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the requestorName property value. The user name of the requestor who initiates the operation.
+     * Gets the requestorName property value. The requestorName property
      * @return string|null
     */
     public function getRequestorName(): ?string {
@@ -106,7 +106,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the requestType property value. The request operation type. The requestType value can be: Assign (role assignment), Activate (role activation), Unassign (remove role assignment), Deactivate (role deactivation), ScanAlertsNow (scan security alerts), DismissAlert (dismiss security alert), FixAlertItem (fix a security alert issue),  AccessReview_Review (review an Access Review), AccessReview_Create (create an Access Review) , AccessReview_Update (update an Access Review), AccessReview_Delete (delete an Access Review).
+     * Gets the requestType property value. The requestType property
      * @return string|null
     */
     public function getRequestType(): ?string {
@@ -114,7 +114,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the roleId property value. The id of the role that is associated with the operation.
+     * Gets the roleId property value. The roleId property
      * @return string|null
     */
     public function getRoleId(): ?string {
@@ -122,7 +122,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the roleName property value. The name of the role.
+     * Gets the roleName property value. The roleName property
      * @return string|null
     */
     public function getRoleName(): ?string {
@@ -130,7 +130,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the tenantId property value. The tenant (organization) id.
+     * Gets the tenantId property value. The tenantId property
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -138,7 +138,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the userId property value. The id of the user that is associated with the operation.
+     * Gets the userId property value. The userId property
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -146,7 +146,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the userMail property value. The user's email.
+     * Gets the userMail property value. The userMail property
      * @return string|null
     */
     public function getUserMail(): ?string {
@@ -154,7 +154,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the userName property value. The user's display name.
+     * Gets the userName property value. The userName property
      * @return string|null
     */
     public function getUserName(): ?string {
@@ -184,7 +184,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the additionalInformation property value. Detailed human readable information for the event.
+     * Sets the additionalInformation property value. The additionalInformation property
      * @param string|null $value Value to set for the additionalInformation property.
     */
     public function setAdditionalInformation(?string $value): void {
@@ -192,7 +192,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the creationDateTime property value. Indicates the time when the event is created.
+     * Sets the creationDateTime property value. The creationDateTime property
      * @param DateTime|null $value Value to set for the creationDateTime property.
     */
     public function setCreationDateTime(?DateTime $value): void {
@@ -200,7 +200,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the expirationDateTime property value. This is only used when the requestType is Activate, and it indicates the expiration time for the role activation.
+     * Sets the expirationDateTime property value. The expirationDateTime property
      * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
@@ -208,7 +208,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the referenceKey property value. Incident/Request ticket number during role activation. The value is presented only if the ticket number is provided during role activation.
+     * Sets the referenceKey property value. The referenceKey property
      * @param string|null $value Value to set for the referenceKey property.
     */
     public function setReferenceKey(?string $value): void {
@@ -216,7 +216,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the referenceSystem property value. Incident/Request ticketing system provided during tole activation. The value is presented only if the ticket system is provided during role activation.
+     * Sets the referenceSystem property value. The referenceSystem property
      * @param string|null $value Value to set for the referenceSystem property.
     */
     public function setReferenceSystem(?string $value): void {
@@ -224,7 +224,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the requestorId property value. The user id of the requestor who initiates the operation.
+     * Sets the requestorId property value. The requestorId property
      * @param string|null $value Value to set for the requestorId property.
     */
     public function setRequestorId(?string $value): void {
@@ -232,7 +232,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the requestorName property value. The user name of the requestor who initiates the operation.
+     * Sets the requestorName property value. The requestorName property
      * @param string|null $value Value to set for the requestorName property.
     */
     public function setRequestorName(?string $value): void {
@@ -240,7 +240,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the requestType property value. The request operation type. The requestType value can be: Assign (role assignment), Activate (role activation), Unassign (remove role assignment), Deactivate (role deactivation), ScanAlertsNow (scan security alerts), DismissAlert (dismiss security alert), FixAlertItem (fix a security alert issue),  AccessReview_Review (review an Access Review), AccessReview_Create (create an Access Review) , AccessReview_Update (update an Access Review), AccessReview_Delete (delete an Access Review).
+     * Sets the requestType property value. The requestType property
      * @param string|null $value Value to set for the requestType property.
     */
     public function setRequestType(?string $value): void {
@@ -248,7 +248,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the roleId property value. The id of the role that is associated with the operation.
+     * Sets the roleId property value. The roleId property
      * @param string|null $value Value to set for the roleId property.
     */
     public function setRoleId(?string $value): void {
@@ -256,7 +256,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the roleName property value. The name of the role.
+     * Sets the roleName property value. The roleName property
      * @param string|null $value Value to set for the roleName property.
     */
     public function setRoleName(?string $value): void {
@@ -264,7 +264,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the tenantId property value. The tenant (organization) id.
+     * Sets the tenantId property value. The tenantId property
      * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
@@ -272,7 +272,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the userId property value. The id of the user that is associated with the operation.
+     * Sets the userId property value. The userId property
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
@@ -280,7 +280,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the userMail property value. The user's email.
+     * Sets the userMail property value. The userMail property
      * @param string|null $value Value to set for the userMail property.
     */
     public function setUserMail(?string $value): void {
@@ -288,7 +288,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the userName property value. The user's display name.
+     * Sets the userName property value. The userName property
      * @param string|null $value Value to set for the userName property.
     */
     public function setUserName(?string $value): void {

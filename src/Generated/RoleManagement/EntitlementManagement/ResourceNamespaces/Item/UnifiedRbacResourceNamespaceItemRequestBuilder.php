@@ -66,9 +66,10 @@ class UnifiedRbacResourceNamespaceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get resourceNamespaces from roleManagement
+     * Read the properties and relationships of an unifiedRbacResourceNamespace object.
      * @param UnifiedRbacResourceNamespaceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/unifiedrbacresourcenamespace-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?UnifiedRbacResourceNamespaceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -120,7 +121,7 @@ class UnifiedRbacResourceNamespaceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get resourceNamespaces from roleManagement
+     * Read the properties and relationships of an unifiedRbacResourceNamespace object.
      * @param UnifiedRbacResourceNamespaceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

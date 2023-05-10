@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planne
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Planner content related to the scenario.
+ * Read the properties and relationships of a businessScenarioPlanner object.
 */
 class PlannerRequestBuilderGetQueryParameters 
 {

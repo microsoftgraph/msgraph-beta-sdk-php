@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The shifts in the schedule.
+ * Retrieve the properties and relationships of a shift object by ID.
 */
 class ShiftItemRequestBuilderGetQueryParameters 
 {

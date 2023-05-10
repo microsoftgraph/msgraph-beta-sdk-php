@@ -5,12 +5,15 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\D
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\CreatedBy\CreatedByRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\ExecutionScope\ExecutionScopeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\IdentityGovernanceActivate\IdentityGovernanceActivateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\IdentityGovernanceCreateNewVersion\IdentityGovernanceCreateNewVersionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\IdentityGovernanceRestore\IdentityGovernanceRestoreRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\LastModifiedBy\LastModifiedByRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\MicrosoftGraphIdentityGovernanceActivate\MicrosoftGraphIdentityGovernanceActivateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\MicrosoftGraphIdentityGovernanceCreateNewVersion\MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\MicrosoftGraphIdentityGovernanceRestore\MicrosoftGraphIdentityGovernanceRestoreRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\Runs\RunsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\TaskReports\TaskReportsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\Tasks\TasksRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\UserProcessingResults\UserProcessingResultsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\Versions\VersionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\Workflow;
@@ -26,6 +29,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 class WorkflowItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
+     * Provides operations to manage the createdBy property of the microsoft.graph.identityGovernance.workflowBase entity.
+    */
+    public function createdBy(): CreatedByRequestBuilder {
+        return new CreatedByRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the executionScope property of the microsoft.graph.identityGovernance.workflow entity.
     */
     public function executionScope(): ExecutionScopeRequestBuilder {
@@ -33,24 +43,31 @@ class WorkflowItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the lastModifiedBy property of the microsoft.graph.identityGovernance.workflowBase entity.
+    */
+    public function lastModifiedBy(): LastModifiedByRequestBuilder {
+        return new LastModifiedByRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the activate method.
     */
-    public function identityGovernanceActivate(): IdentityGovernanceActivateRequestBuilder {
-        return new IdentityGovernanceActivateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphIdentityGovernanceActivate(): MicrosoftGraphIdentityGovernanceActivateRequestBuilder {
+        return new MicrosoftGraphIdentityGovernanceActivateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the createNewVersion method.
     */
-    public function identityGovernanceCreateNewVersion(): IdentityGovernanceCreateNewVersionRequestBuilder {
-        return new IdentityGovernanceCreateNewVersionRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphIdentityGovernanceCreateNewVersion(): MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilder {
+        return new MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the restore method.
     */
-    public function identityGovernanceRestore(): IdentityGovernanceRestoreRequestBuilder {
-        return new IdentityGovernanceRestoreRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphIdentityGovernanceRestore(): MicrosoftGraphIdentityGovernanceRestoreRequestBuilder {
+        return new MicrosoftGraphIdentityGovernanceRestoreRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -65,6 +82,13 @@ class WorkflowItemRequestBuilder extends BaseRequestBuilder
     */
     public function taskReports(): TaskReportsRequestBuilder {
         return new TaskReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the tasks property of the microsoft.graph.identityGovernance.workflowBase entity.
+    */
+    public function tasks(): TasksRequestBuilder {
+        return new TasksRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -96,9 +120,10 @@ class WorkflowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property workflows for identityGovernance
+     * Delete a workflow object.
      * @param WorkflowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/identitygovernance-deletedItemcontainer-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?WorkflowItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -114,9 +139,10 @@ class WorkflowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deleted workflows that end up in the deletedItemsContainer.
+     * Retrieve a deleted workflow object.
      * @param WorkflowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/identitygovernance-deleteditemcontainer-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?WorkflowItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -132,7 +158,7 @@ class WorkflowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property workflows for identityGovernance
+     * Delete a workflow object.
      * @param WorkflowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -149,7 +175,7 @@ class WorkflowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deleted workflows that end up in the deletedItemsContainer.
+     * Retrieve a deleted workflow object.
      * @param WorkflowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -53,9 +53,10 @@ class EntriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Lists the content that you can approve for deployment. Read-only.
+     * Get a list of catalogEntry resources from the catalog. Currently, this operation returns entries of the featureUpdateCatalogEntry or qualityUpdateCatalog types, inherited from **catalogEntry**. 
      * @param EntriesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/windowsupdates-catalog-list-entries?view=graph-rest-1.0 Find more info here
     */
     public function get(?EntriesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class EntriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Lists the content that you can approve for deployment. Read-only.
+     * Get a list of catalogEntry resources from the catalog. Currently, this operation returns entries of the featureUpdateCatalogEntry or qualityUpdateCatalog types, inherited from **catalogEntry**. 
      * @param EntriesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

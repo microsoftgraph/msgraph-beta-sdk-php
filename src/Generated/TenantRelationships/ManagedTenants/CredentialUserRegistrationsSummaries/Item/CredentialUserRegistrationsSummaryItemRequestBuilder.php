@@ -50,9 +50,10 @@ class CredentialUserRegistrationsSummaryItemRequestBuilder extends BaseRequestBu
     }
 
     /**
-     * Summary information for user registration for multi-factor authentication and self service password reset across managed tenants.
+     * Read the properties and relationships of a credentialUserRegistrationsSummary object.
      * @param CredentialUserRegistrationsSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/managedtenants-credentialuserregistrationssummary-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?CredentialUserRegistrationsSummaryItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -104,7 +105,7 @@ class CredentialUserRegistrationsSummaryItemRequestBuilder extends BaseRequestBu
     }
 
     /**
-     * Summary information for user registration for multi-factor authentication and self service password reset across managed tenants.
+     * Read the properties and relationships of a credentialUserRegistrationsSummary object.
      * @param CredentialUserRegistrationsSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

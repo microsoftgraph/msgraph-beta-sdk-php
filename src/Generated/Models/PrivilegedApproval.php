@@ -35,7 +35,7 @@ class PrivilegedApproval extends Entity implements Parsable
     }
 
     /**
-     * Gets the approvalState property value. Possible values are: pending, approved, denied, aborted, canceled.
+     * Gets the approvalState property value. The approvalState property
      * @return ApprovalState|null
     */
     public function getApprovalState(): ?ApprovalState {
@@ -59,7 +59,7 @@ class PrivilegedApproval extends Entity implements Parsable
     }
 
     /**
-     * Gets the endDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the endDateTime property value. The endDateTime property
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
@@ -88,7 +88,7 @@ class PrivilegedApproval extends Entity implements Parsable
     }
 
     /**
-     * Gets the request property value. Read-only. The role assignment request for this approval object
+     * Gets the request property value. The request property
      * @return PrivilegedRoleAssignmentRequest|null
     */
     public function getRequest(): ?PrivilegedRoleAssignmentRequest {
@@ -120,7 +120,7 @@ class PrivilegedApproval extends Entity implements Parsable
     }
 
     /**
-     * Gets the startDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the startDateTime property value. The startDateTime property
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
@@ -163,7 +163,7 @@ class PrivilegedApproval extends Entity implements Parsable
     }
 
     /**
-     * Sets the approvalState property value. Possible values are: pending, approved, denied, aborted, canceled.
+     * Sets the approvalState property value. The approvalState property
      * @param ApprovalState|null $value Value to set for the approvalState property.
     */
     public function setApprovalState(?ApprovalState $value): void {
@@ -187,7 +187,7 @@ class PrivilegedApproval extends Entity implements Parsable
     }
 
     /**
-     * Sets the endDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the endDateTime property value. The endDateTime property
      * @param DateTime|null $value Value to set for the endDateTime property.
     */
     public function setEndDateTime(?DateTime $value): void {
@@ -195,7 +195,7 @@ class PrivilegedApproval extends Entity implements Parsable
     }
 
     /**
-     * Sets the request property value. Read-only. The role assignment request for this approval object
+     * Sets the request property value. The request property
      * @param PrivilegedRoleAssignmentRequest|null $value Value to set for the request property.
     */
     public function setRequest(?PrivilegedRoleAssignmentRequest $value): void {
@@ -227,7 +227,7 @@ class PrivilegedApproval extends Entity implements Parsable
     }
 
     /**
-     * Sets the startDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the startDateTime property value. The startDateTime property
      * @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value): void {

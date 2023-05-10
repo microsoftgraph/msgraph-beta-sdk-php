@@ -32,9 +32,10 @@ class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property identitySynchronization for policies
+     * Delete the user synchronization policy for a partner-specific configuration.
      * @param IdentitySynchronizationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/crosstenantidentitysyncpolicypartner-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?IdentitySynchronizationRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -50,9 +51,10 @@ class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Defines the cross-tenant policy for synchronization of users from a partner tenant. Use this user synchronization policy to streamline collaboration between users in a multi-tenant organization by automating creating, updating, and deleting users from one tenant to another.
+     * Read the user synchronization policy of a partner-specific configuration.
      * @param IdentitySynchronizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/crosstenantidentitysyncpolicypartner-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?IdentitySynchronizationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +70,11 @@ class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property identitySynchronization in policies
+     * Update the user synchronization policy of a partner-specific configuration.
      * @param CrossTenantIdentitySyncPolicyPartner $body The request body
      * @param IdentitySynchronizationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/crosstenantidentitysyncpolicypartner-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(CrossTenantIdentitySyncPolicyPartner $body, ?IdentitySynchronizationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -87,7 +90,7 @@ class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property identitySynchronization for policies
+     * Delete the user synchronization policy for a partner-specific configuration.
      * @param IdentitySynchronizationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +107,7 @@ class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Defines the cross-tenant policy for synchronization of users from a partner tenant. Use this user synchronization policy to streamline collaboration between users in a multi-tenant organization by automating creating, updating, and deleting users from one tenant to another.
+     * Read the user synchronization policy of a partner-specific configuration.
      * @param IdentitySynchronizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +128,7 @@ class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property identitySynchronization in policies
+     * Update the user synchronization policy of a partner-specific configuration.
      * @param CrossTenantIdentitySyncPolicyPartner $body The request body
      * @param IdentitySynchronizationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

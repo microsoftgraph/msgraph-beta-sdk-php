@@ -58,9 +58,10 @@ class PublishedResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List of existing publishedResource objects. Read-only. Nullable.
+     * Retrieve the properties and relationships of publishedResource object.
      * @param PublishedResourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/publishedresource-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PublishedResourceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,10 +77,11 @@ class PublishedResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property publishedResources in onPremisesPublishingProfiles
+     * Update the properties of publishedresource  publishedResource object.
      * @param PublishedResource $body The request body
      * @param PublishedResourceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/publishedresource-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(PublishedResource $body, ?PublishedResourceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -112,7 +114,7 @@ class PublishedResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List of existing publishedResource objects. Read-only. Nullable.
+     * Retrieve the properties and relationships of publishedResource object.
      * @param PublishedResourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -133,7 +135,7 @@ class PublishedResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property publishedResources in onPremisesPublishingProfiles
+     * Update the properties of publishedresource  publishedResource object.
      * @param PublishedResource $body The request body
      * @param PublishedResourceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

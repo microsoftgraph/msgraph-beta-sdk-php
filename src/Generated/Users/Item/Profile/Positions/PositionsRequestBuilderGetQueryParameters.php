@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Positions;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents detailed information about work positions associated with a user's profile.
+ * Retrieve a list of workPosition objects from a user's profile.
 */
 class PositionsRequestBuilderGetQueryParameters 
 {

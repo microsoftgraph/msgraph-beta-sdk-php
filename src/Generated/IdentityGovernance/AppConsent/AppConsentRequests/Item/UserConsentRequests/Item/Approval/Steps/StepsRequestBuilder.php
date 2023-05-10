@@ -53,9 +53,10 @@ class StepsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get steps from identityGovernance
+     * In Azure AD entitlement management, lists the approvalStep objects associated with an approval object.  This call can be made by an approver, providing the identifier of the access package assignment request.
      * @param StepsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/approval-list-steps?view=graph-rest-1.0 Find more info here
     */
     public function get(?StepsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class StepsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get steps from identityGovernance
+     * In Azure AD entitlement management, lists the approvalStep objects associated with an approval object.  This call can be made by an approver, providing the identifier of the access package assignment request.
      * @param StepsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

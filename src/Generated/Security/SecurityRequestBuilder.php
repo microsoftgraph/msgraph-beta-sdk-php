@@ -19,11 +19,11 @@ use Microsoft\Graph\Beta\Generated\Security\Incidents\IncidentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\InformationProtection\InformationProtectionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\IpSecurityProfiles\IpSecurityProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Labels\LabelsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\MicrosoftGraphSecurityRunHuntingQuery\MicrosoftGraphSecurityRunHuntingQueryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ProviderTenantSettings\ProviderTenantSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\SecureScoreControlProfiles\SecureScoreControlProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\SecureScores\SecureScoresRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\SecurityActions\SecurityActionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\SecurityRunHuntingQuery\SecurityRunHuntingQueryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\SubjectRightsRequests\SubjectRightsRequestsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\ThreatIntelligenceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\ThreatSubmissionRequestBuilder;
@@ -126,6 +126,13 @@ class SecurityRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the runHuntingQuery method.
+    */
+    public function microsoftGraphSecurityRunHuntingQuery(): MicrosoftGraphSecurityRunHuntingQueryRequestBuilder {
+        return new MicrosoftGraphSecurityRunHuntingQueryRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the providerTenantSettings property of the microsoft.graph.security entity.
     */
     public function providerTenantSettings(): ProviderTenantSettingsRequestBuilder {
@@ -151,13 +158,6 @@ class SecurityRequestBuilder extends BaseRequestBuilder
     */
     public function securityActions(): SecurityActionsRequestBuilder {
         return new SecurityActionsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the runHuntingQuery method.
-    */
-    public function securityRunHuntingQuery(): SecurityRunHuntingQueryRequestBuilder {
-        return new SecurityRunHuntingQueryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

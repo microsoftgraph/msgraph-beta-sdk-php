@@ -7,6 +7,10 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\BusinessScenarioTask;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planner\Tasks\Item\AssignedToTaskBoardFormat\AssignedToTaskBoardFormatRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planner\Tasks\Item\BucketTaskBoardFormat\BucketTaskBoardFormatRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planner\Tasks\Item\Details\DetailsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planner\Tasks\Item\ProgressTaskBoardFormat\ProgressTaskBoardFormatRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -17,6 +21,34 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class BusinessScenarioTaskItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the assignedToTaskBoardFormat property of the microsoft.graph.plannerTask entity.
+    */
+    public function assignedToTaskBoardFormat(): AssignedToTaskBoardFormatRequestBuilder {
+        return new AssignedToTaskBoardFormatRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the bucketTaskBoardFormat property of the microsoft.graph.plannerTask entity.
+    */
+    public function bucketTaskBoardFormat(): BucketTaskBoardFormatRequestBuilder {
+        return new BucketTaskBoardFormatRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the details property of the microsoft.graph.plannerTask entity.
+    */
+    public function details(): DetailsRequestBuilder {
+        return new DetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the progressTaskBoardFormat property of the microsoft.graph.plannerTask entity.
+    */
+    public function progressTaskBoardFormat(): ProgressTaskBoardFormatRequestBuilder {
+        return new ProgressTaskBoardFormatRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new BusinessScenarioTaskItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
@@ -32,9 +64,10 @@ class BusinessScenarioTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property tasks for solutions
+     * Delete a businessScenarioTask object.
      * @param BusinessScenarioTaskItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/businessscenarioplanner-delete-tasks?view=graph-rest-1.0 Find more info here
     */
     public function delete(?BusinessScenarioTaskItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -50,9 +83,10 @@ class BusinessScenarioTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The Planner tasks for the scenario.
+     * Read the properties and relationships of a businessScenarioTask object.
      * @param BusinessScenarioTaskItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/businessscenariotask-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?BusinessScenarioTaskItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +102,11 @@ class BusinessScenarioTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property tasks in solutions
+     * Update the properties of a businessScenarioTask object.
      * @param BusinessScenarioTask $body The request body
      * @param BusinessScenarioTaskItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/businessscenariotask-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(BusinessScenarioTask $body, ?BusinessScenarioTaskItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -87,7 +122,7 @@ class BusinessScenarioTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property tasks for solutions
+     * Delete a businessScenarioTask object.
      * @param BusinessScenarioTaskItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +139,7 @@ class BusinessScenarioTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The Planner tasks for the scenario.
+     * Read the properties and relationships of a businessScenarioTask object.
      * @param BusinessScenarioTaskItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +160,7 @@ class BusinessScenarioTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property tasks in solutions
+     * Update the properties of a businessScenarioTask object.
      * @param BusinessScenarioTask $body The request body
      * @param BusinessScenarioTaskItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PhoneMethods\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents the phone registered to a user for authentication.
+ * Retrieve a single phoneAuthenticationMethod object. This method is available only for standard Azure AD and B2B users, but not B2C users.
 */
 class PhoneAuthenticationMethodItemRequestBuilderGetQueryParameters 
 {

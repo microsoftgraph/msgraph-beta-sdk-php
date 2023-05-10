@@ -50,9 +50,10 @@ class AuthenticationContextClassReferenceItemRequestBuilder extends BaseRequestB
     }
 
     /**
-     * Read-only. Nullable. Returns a collection of the specified authentication context class references.
+     * Retrieve the properties and relationships of a authenticationContextClassReference object.
      * @param AuthenticationContextClassReferenceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/authenticationcontextclassreference-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?AuthenticationContextClassReferenceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +69,11 @@ class AuthenticationContextClassReferenceItemRequestBuilder extends BaseRequestB
     }
 
     /**
-     * Update the navigation property authenticationContextClassReferences in identity
+     * Update the properties of an authenticationContextClassReference object.
      * @param AuthenticationContextClassReference $body The request body
      * @param AuthenticationContextClassReferenceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/authenticationcontextclassreference-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(AuthenticationContextClassReference $body, ?AuthenticationContextClassReferenceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -104,7 +106,7 @@ class AuthenticationContextClassReferenceItemRequestBuilder extends BaseRequestB
     }
 
     /**
-     * Read-only. Nullable. Returns a collection of the specified authentication context class references.
+     * Retrieve the properties and relationships of a authenticationContextClassReference object.
      * @param AuthenticationContextClassReferenceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +127,7 @@ class AuthenticationContextClassReferenceItemRequestBuilder extends BaseRequestB
     }
 
     /**
-     * Update the navigation property authenticationContextClassReferences in identity
+     * Update the properties of an authenticationContextClassReference object.
      * @param AuthenticationContextClassReference $body The request body
      * @param AuthenticationContextClassReferenceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

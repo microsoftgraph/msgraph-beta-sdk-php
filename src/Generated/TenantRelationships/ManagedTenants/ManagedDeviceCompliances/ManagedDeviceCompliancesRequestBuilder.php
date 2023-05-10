@@ -53,9 +53,10 @@ class ManagedDeviceCompliancesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of compliance for managed devices across managed tenants.
+     * Get a list of the managedDeviceCompliance objects and their properties.
      * @param ManagedDeviceCompliancesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/managedtenants-managedtenant-list-manageddevicecompliances?view=graph-rest-1.0 Find more info here
     */
     public function get(?ManagedDeviceCompliancesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class ManagedDeviceCompliancesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of compliance for managed devices across managed tenants.
+     * Get a list of the managedDeviceCompliance objects and their properties.
      * @param ManagedDeviceCompliancesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

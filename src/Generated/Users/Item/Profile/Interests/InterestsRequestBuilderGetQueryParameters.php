@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Interests;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Provides detailed information about interests the user has associated with themselves in various services.
+ * Retrieve a list of personInterest objects from a user's profile.
 */
 class InterestsRequestBuilderGetQueryParameters 
 {

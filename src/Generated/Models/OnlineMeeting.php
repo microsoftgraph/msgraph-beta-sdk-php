@@ -67,11 +67,27 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
+     * Gets the allowRecording property value. The allowRecording property
+     * @return bool|null
+    */
+    public function getAllowRecording(): ?bool {
+        return $this->getBackingStore()->get('allowRecording');
+    }
+
+    /**
      * Gets the allowTeamworkReactions property value. Indicates if Teams reactions are enabled for the meeting.
      * @return bool|null
     */
     public function getAllowTeamworkReactions(): ?bool {
         return $this->getBackingStore()->get('allowTeamworkReactions');
+    }
+
+    /**
+     * Gets the allowTranscription property value. The allowTranscription property
+     * @return bool|null
+    */
+    public function getAllowTranscription(): ?bool {
+        return $this->getBackingStore()->get('allowTranscription');
     }
 
     /**
@@ -174,7 +190,9 @@ class OnlineMeeting extends Entity implements Parsable
             'allowedPresenters' => fn(ParseNode $n) => $o->setAllowedPresenters($n->getEnumValue(OnlineMeetingPresenters::class)),
             'allowMeetingChat' => fn(ParseNode $n) => $o->setAllowMeetingChat($n->getEnumValue(MeetingChatMode::class)),
             'allowParticipantsToChangeName' => fn(ParseNode $n) => $o->setAllowParticipantsToChangeName($n->getBooleanValue()),
+            'allowRecording' => fn(ParseNode $n) => $o->setAllowRecording($n->getBooleanValue()),
             'allowTeamworkReactions' => fn(ParseNode $n) => $o->setAllowTeamworkReactions($n->getBooleanValue()),
+            'allowTranscription' => fn(ParseNode $n) => $o->setAllowTranscription($n->getBooleanValue()),
             'alternativeRecording' => fn(ParseNode $n) => $o->setAlternativeRecording($n->getBinaryContent()),
             'anonymizeIdentityForRoles' => fn(ParseNode $n) => $o->setAnonymizeIdentityForRoles($n->getCollectionOfEnumValues(OnlineMeetingRole::class)),
             'attendanceReports' => fn(ParseNode $n) => $o->setAttendanceReports($n->getCollectionOfObjectValues([MeetingAttendanceReport::class, 'createFromDiscriminatorValue'])),
@@ -371,7 +389,9 @@ class OnlineMeeting extends Entity implements Parsable
         $writer->writeEnumValue('allowedPresenters', $this->getAllowedPresenters());
         $writer->writeEnumValue('allowMeetingChat', $this->getAllowMeetingChat());
         $writer->writeBooleanValue('allowParticipantsToChangeName', $this->getAllowParticipantsToChangeName());
+        $writer->writeBooleanValue('allowRecording', $this->getAllowRecording());
         $writer->writeBooleanValue('allowTeamworkReactions', $this->getAllowTeamworkReactions());
+        $writer->writeBooleanValue('allowTranscription', $this->getAllowTranscription());
         $writer->writeBinaryContent('alternativeRecording', $this->getAlternativeRecording());
         $writer->writeCollectionOfEnumValues('anonymizeIdentityForRoles', $this->getAnonymizeIdentityForRoles());
         $writer->writeCollectionOfObjectValues('attendanceReports', $this->getAttendanceReports());
@@ -445,11 +465,27 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
+     * Sets the allowRecording property value. The allowRecording property
+     * @param bool|null $value Value to set for the allowRecording property.
+    */
+    public function setAllowRecording(?bool $value): void {
+        $this->getBackingStore()->set('allowRecording', $value);
+    }
+
+    /**
      * Sets the allowTeamworkReactions property value. Indicates if Teams reactions are enabled for the meeting.
      * @param bool|null $value Value to set for the allowTeamworkReactions property.
     */
     public function setAllowTeamworkReactions(?bool $value): void {
         $this->getBackingStore()->set('allowTeamworkReactions', $value);
+    }
+
+    /**
+     * Sets the allowTranscription property value. The allowTranscription property
+     * @param bool|null $value Value to set for the allowTranscription property.
+    */
+    public function setAllowTranscription(?bool $value): void {
+        $this->getBackingStore()->set('allowTranscription', $value);
     }
 
     /**

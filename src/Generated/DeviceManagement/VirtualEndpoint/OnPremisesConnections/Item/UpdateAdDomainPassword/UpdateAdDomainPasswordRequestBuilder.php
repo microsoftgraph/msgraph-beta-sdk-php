@@ -31,10 +31,11 @@ class UpdateAdDomainPasswordRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action updateAdDomainPassword
+     * Update the Active Directory domain password for a cloudPcOnPremisesConnection object. This API is supported when the type of the **cloudPcOnPremisesConnection** object is `hybridAzureADJoin`.
      * @param UpdateAdDomainPasswordPostRequestBody $body The request body
      * @param UpdateAdDomainPasswordRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/cloudpconpremisesconnection-updateaddomainpassword?view=graph-rest-1.0 Find more info here
     */
     public function post(UpdateAdDomainPasswordPostRequestBody $body, ?UpdateAdDomainPasswordRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -50,7 +51,7 @@ class UpdateAdDomainPasswordRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action updateAdDomainPassword
+     * Update the Active Directory domain password for a cloudPcOnPremisesConnection object. This API is supported when the type of the **cloudPcOnPremisesConnection** object is `hybridAzureADJoin`.
      * @param UpdateAdDomainPasswordPostRequestBody $body The request body
      * @param UpdateAdDomainPasswordRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

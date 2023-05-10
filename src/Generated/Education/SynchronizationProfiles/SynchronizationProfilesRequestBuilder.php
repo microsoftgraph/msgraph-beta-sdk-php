@@ -53,9 +53,10 @@ class SynchronizationProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get synchronizationProfiles from education
+     * Retrieve the collection of school data synchronization profiles in the tenant.
      * @param SynchronizationProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/educationsynchronizationprofile-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?SynchronizationProfilesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class SynchronizationProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get synchronizationProfiles from education
+     * Retrieve the collection of school data synchronization profiles in the tenant.
      * @param SynchronizationProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

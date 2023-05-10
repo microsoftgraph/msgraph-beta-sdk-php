@@ -53,9 +53,10 @@ class ServicePlansRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Cloud PC service plans.
+     * List the currently available service plans that an organization can purchase for their Cloud PCs. For examples of currently available service plans, see Windows 365 compare plans and pricing. Currently, Microsoft Graph API is available for Windows 365 Enterprise.
      * @param ServicePlansRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/virtualendpoint-list-serviceplans?view=graph-rest-1.0 Find more info here
     */
     public function get(?ServicePlansRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class ServicePlansRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Cloud PC service plans.
+     * List the currently available service plans that an organization can purchase for their Cloud PCs. For examples of currently available service plans, see Windows 365 compare plans and pricing. Currently, Microsoft Graph API is available for Windows 365 Enterprise.
      * @param ServicePlansRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

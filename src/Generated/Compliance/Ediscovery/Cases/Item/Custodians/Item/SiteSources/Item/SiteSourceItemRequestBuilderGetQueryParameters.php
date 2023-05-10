@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custod
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Data source entity for SharePoint sites associated with the custodian.
+ * Read the properties and relationships of a siteSource object.
 */
 class SiteSourceItemRequestBuilderGetQueryParameters 
 {

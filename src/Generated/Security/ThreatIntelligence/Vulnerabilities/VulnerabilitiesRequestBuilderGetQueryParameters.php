@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Vulnerabili
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve details about microsoft.graph.security.vulnerabilities.Note: List retrieval is not yet supported.
+ * Read the properties and relationships of a vulnerability object.
 */
 class VulnerabilitiesRequestBuilderGetQueryParameters 
 {

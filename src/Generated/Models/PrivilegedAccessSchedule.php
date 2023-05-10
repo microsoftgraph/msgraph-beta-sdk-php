@@ -34,7 +34,7 @@ class PrivilegedAccessSchedule extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. When the schedule was created. Optional.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -42,7 +42,7 @@ class PrivilegedAccessSchedule extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdUsing property value. The createdUsing property
+     * Gets the createdUsing property value. The identifier of the access assignment or eligibility request that created this schedule. Optional.
      * @return string|null
     */
     public function getCreatedUsing(): ?string {
@@ -65,7 +65,7 @@ class PrivilegedAccessSchedule extends Entity implements Parsable
     }
 
     /**
-     * Gets the modifiedDateTime property value. The modifiedDateTime property
+     * Gets the modifiedDateTime property value. When the schedule was last modified. Optional.
      * @return DateTime|null
     */
     public function getModifiedDateTime(): ?DateTime {
@@ -73,7 +73,7 @@ class PrivilegedAccessSchedule extends Entity implements Parsable
     }
 
     /**
-     * Gets the scheduleInfo property value. The scheduleInfo property
+     * Gets the scheduleInfo property value. Represents the period of the access assignment or eligibility. The scheduleInfo can represent a single occurrence or multiple recurring instances. Required.
      * @return RequestSchedule|null
     */
     public function getScheduleInfo(): ?RequestSchedule {
@@ -81,7 +81,7 @@ class PrivilegedAccessSchedule extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. The status of the access assignment or eligibility request. The possible values are: Canceled, Denied, Failed, Granted, PendingAdminDecision, PendingApproval, PendingProvisioning, PendingScheduleCreation, Provisioned, Revoked, and ScheduleCreated. Not nullable. Optional.
      * @return string|null
     */
     public function getStatus(): ?string {
@@ -102,7 +102,7 @@ class PrivilegedAccessSchedule extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. When the schedule was created. Optional.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -110,7 +110,7 @@ class PrivilegedAccessSchedule extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdUsing property value. The createdUsing property
+     * Sets the createdUsing property value. The identifier of the access assignment or eligibility request that created this schedule. Optional.
      * @param string|null $value Value to set for the createdUsing property.
     */
     public function setCreatedUsing(?string $value): void {
@@ -118,7 +118,7 @@ class PrivilegedAccessSchedule extends Entity implements Parsable
     }
 
     /**
-     * Sets the modifiedDateTime property value. The modifiedDateTime property
+     * Sets the modifiedDateTime property value. When the schedule was last modified. Optional.
      * @param DateTime|null $value Value to set for the modifiedDateTime property.
     */
     public function setModifiedDateTime(?DateTime $value): void {
@@ -126,7 +126,7 @@ class PrivilegedAccessSchedule extends Entity implements Parsable
     }
 
     /**
-     * Sets the scheduleInfo property value. The scheduleInfo property
+     * Sets the scheduleInfo property value. Represents the period of the access assignment or eligibility. The scheduleInfo can represent a single occurrence or multiple recurring instances. Required.
      * @param RequestSchedule|null $value Value to set for the scheduleInfo property.
     */
     public function setScheduleInfo(?RequestSchedule $value): void {
@@ -134,7 +134,7 @@ class PrivilegedAccessSchedule extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. The status of the access assignment or eligibility request. The possible values are: Canceled, Denied, Failed, Granted, PendingAdminDecision, PendingApproval, PendingProvisioning, PendingScheduleCreation, Provisioned, Revoked, and ScheduleCreated. Not nullable. Optional.
      * @param string|null $value Value to set for the status property.
     */
     public function setStatus(?string $value): void {

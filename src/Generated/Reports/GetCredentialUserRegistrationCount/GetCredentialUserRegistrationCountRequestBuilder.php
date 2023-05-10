@@ -31,9 +31,10 @@ class GetCredentialUserRegistrationCountRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Invoke function getCredentialUserRegistrationCount
+     * Report the current state of how many users in your organization are registered for self-service password reset and multi-factor authentication (MFA) capabilities.
      * @param GetCredentialUserRegistrationCountRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/reportroot-getcredentialuserregistrationcount?view=graph-rest-1.0 Find more info here
     */
     public function get(?GetCredentialUserRegistrationCountRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -49,7 +50,7 @@ class GetCredentialUserRegistrationCountRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Invoke function getCredentialUserRegistrationCount
+     * Report the current state of how many users in your organization are registered for self-service password reset and multi-factor authentication (MFA) capabilities.
      * @param GetCredentialUserRegistrationCountRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

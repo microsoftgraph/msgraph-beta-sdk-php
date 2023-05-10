@@ -32,10 +32,11 @@ class RevokeGrantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action revokeGrants
+     * Revoke access to a [listItem][] or [driveItem][] granted via a sharing link by removing the specified [recipient][] from the link.
      * @param RevokeGrantsPostRequestBody $body The request body
      * @param RevokeGrantsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/permission-revokegrants?view=graph-rest-1.0 Find more info here
     */
     public function post(RevokeGrantsPostRequestBody $body, ?RevokeGrantsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -51,7 +52,7 @@ class RevokeGrantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action revokeGrants
+     * Revoke access to a [listItem][] or [driveItem][] granted via a sharing link by removing the specified [recipient][] from the link.
      * @param RevokeGrantsPostRequestBody $body The request body
      * @param RevokeGrantsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

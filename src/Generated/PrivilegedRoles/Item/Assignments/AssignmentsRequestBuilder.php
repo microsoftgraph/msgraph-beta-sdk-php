@@ -52,7 +52,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The assignments for this role. Read-only. Nullable.
+     * Get assignments from privilegedRoles
      * @param AssignmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -70,7 +70,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The assignments for this role. Read-only. Nullable.
+     * Get assignments from privilegedRoles
      * @param AssignmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

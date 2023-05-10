@@ -64,9 +64,10 @@ class UnifiedRoleAssignmentMultipleItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property roleAssignments for roleManagement
+     * Delete a unifiedRoleAssignmentMultiple object of an RBAC provider.  This is applicable for a RBAC application that supports multiple principals and scopes. The following RBAC providers are currently supported:- Cloud PC - device management (Intune)
      * @param UnifiedRoleAssignmentMultipleItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/unifiedroleassignmentmultiple-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?UnifiedRoleAssignmentMultipleItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -82,9 +83,10 @@ class UnifiedRoleAssignmentMultipleItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get roleAssignments from roleManagement
+     * Get the properties and relationships of a unifiedRoleAssignmentMultiple object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune) For other Microsoft 365 applications (like Azure AD), use unifiedRoleAssignment.
      * @param UnifiedRoleAssignmentMultipleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/unifiedroleassignmentmultiple-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?UnifiedRoleAssignmentMultipleItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -100,10 +102,11 @@ class UnifiedRoleAssignmentMultipleItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property roleAssignments in roleManagement
+     * Update an existing unifiedRoleAssignmentMultiple object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune) In contrast, unifiedRoleAssignment does not support update.
      * @param UnifiedRoleAssignmentMultiple $body The request body
      * @param UnifiedRoleAssignmentMultipleItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/unifiedroleassignmentmultiple-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(UnifiedRoleAssignmentMultiple $body, ?UnifiedRoleAssignmentMultipleItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -119,7 +122,7 @@ class UnifiedRoleAssignmentMultipleItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property roleAssignments for roleManagement
+     * Delete a unifiedRoleAssignmentMultiple object of an RBAC provider.  This is applicable for a RBAC application that supports multiple principals and scopes. The following RBAC providers are currently supported:- Cloud PC - device management (Intune)
      * @param UnifiedRoleAssignmentMultipleItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -136,7 +139,7 @@ class UnifiedRoleAssignmentMultipleItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get roleAssignments from roleManagement
+     * Get the properties and relationships of a unifiedRoleAssignmentMultiple object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune) For other Microsoft 365 applications (like Azure AD), use unifiedRoleAssignment.
      * @param UnifiedRoleAssignmentMultipleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -157,7 +160,7 @@ class UnifiedRoleAssignmentMultipleItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property roleAssignments in roleManagement
+     * Update an existing unifiedRoleAssignmentMultiple object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune) In contrast, unifiedRoleAssignment does not support update.
      * @param UnifiedRoleAssignmentMultiple $body The request body
      * @param UnifiedRoleAssignmentMultipleItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

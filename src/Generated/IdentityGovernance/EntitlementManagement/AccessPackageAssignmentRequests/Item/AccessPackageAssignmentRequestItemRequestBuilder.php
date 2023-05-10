@@ -80,9 +80,10 @@ class AccessPackageAssignmentRequestItemRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Delete navigation property accessPackageAssignmentRequests for identityGovernance
+     * Delete an accessPackageAssignmentRequest object. This request can be made to remove a denied or completed request.  You cannot delete an access package assignment request if it has any **accessPackageAssignment** objects.
      * @param AccessPackageAssignmentRequestItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/accesspackageassignmentrequest-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?AccessPackageAssignmentRequestItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -98,9 +99,10 @@ class AccessPackageAssignmentRequestItemRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Represents access package assignment requests created by or on behalf of a user.
+     * In Azure AD entitlement management, retrieve the properties and relationships of an  accessPackageAssignmentRequest object.
      * @param AccessPackageAssignmentRequestItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/accesspackageassignmentrequest-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?AccessPackageAssignmentRequestItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -135,7 +137,7 @@ class AccessPackageAssignmentRequestItemRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Delete navigation property accessPackageAssignmentRequests for identityGovernance
+     * Delete an accessPackageAssignmentRequest object. This request can be made to remove a denied or completed request.  You cannot delete an access package assignment request if it has any **accessPackageAssignment** objects.
      * @param AccessPackageAssignmentRequestItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -152,7 +154,7 @@ class AccessPackageAssignmentRequestItemRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Represents access package assignment requests created by or on behalf of a user.
+     * In Azure AD entitlement management, retrieve the properties and relationships of an  accessPackageAssignmentRequest object.
      * @param AccessPackageAssignmentRequestItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

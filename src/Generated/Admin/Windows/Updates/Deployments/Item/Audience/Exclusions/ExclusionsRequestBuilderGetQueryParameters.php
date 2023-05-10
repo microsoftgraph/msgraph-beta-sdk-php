@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Specifies the assets to exclude from the audience.
+ * List the updatableAsset resources that are excluded from a deploymentAudience.
 */
 class ExclusionsRequestBuilderGetQueryParameters 
 {

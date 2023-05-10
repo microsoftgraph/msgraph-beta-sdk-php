@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Review
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\Item\EdiscoveryAddToReviewSet\EdiscoveryAddToReviewSetRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\Item\EdiscoveryExport\EdiscoveryExportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\Item\MicrosoftGraphEdiscoveryAddToReviewSet\MicrosoftGraphEdiscoveryAddToReviewSetRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\Item\MicrosoftGraphEdiscoveryExport\MicrosoftGraphEdiscoveryExportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\Item\Queries\QueriesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\ReviewSet;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -23,15 +23,15 @@ class ReviewSetItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the addToReviewSet method.
     */
-    public function ediscoveryAddToReviewSet(): EdiscoveryAddToReviewSetRequestBuilder {
-        return new EdiscoveryAddToReviewSetRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphEdiscoveryAddToReviewSet(): MicrosoftGraphEdiscoveryAddToReviewSetRequestBuilder {
+        return new MicrosoftGraphEdiscoveryAddToReviewSetRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the export method.
     */
-    public function ediscoveryExport(): EdiscoveryExportRequestBuilder {
-        return new EdiscoveryExportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphEdiscoveryExport(): MicrosoftGraphEdiscoveryExportRequestBuilder {
+        return new MicrosoftGraphEdiscoveryExportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -74,9 +74,10 @@ class ReviewSetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns a list of reviewSet objects in the case. Read-only. Nullable.
+     * Retrieve the properties and relationships of a reviewSet object.
      * @param ReviewSetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/ediscovery-reviewset-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ReviewSetItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -128,7 +129,7 @@ class ReviewSetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns a list of reviewSet objects in the case. Read-only. Nullable.
+     * Retrieve the properties and relationships of a reviewSet object.
      * @param ReviewSetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

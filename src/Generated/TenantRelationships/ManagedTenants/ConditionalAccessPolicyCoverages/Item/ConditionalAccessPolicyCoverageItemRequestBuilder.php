@@ -50,9 +50,10 @@ class ConditionalAccessPolicyCoverageItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Aggregate view of conditional access policy coverage across managed tenants.
+     * Read the properties and relationships of a conditionalAccessPolicyCoverage object.
      * @param ConditionalAccessPolicyCoverageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/managedtenants-conditionalaccesspolicycoverage-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ConditionalAccessPolicyCoverageItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -104,7 +105,7 @@ class ConditionalAccessPolicyCoverageItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Aggregate view of conditional access policy coverage across managed tenants.
+     * Read the properties and relationships of a conditionalAccessPolicyCoverage object.
      * @param ConditionalAccessPolicyCoverageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

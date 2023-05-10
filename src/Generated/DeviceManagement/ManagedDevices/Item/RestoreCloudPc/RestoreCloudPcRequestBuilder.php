@@ -31,10 +31,11 @@ class RestoreCloudPcRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action restoreCloudPc
+     * Restore a Cloud PC device to a previous state with an Intune managed device ID.
      * @param RestoreCloudPcPostRequestBody $body The request body
      * @param RestoreCloudPcRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/manageddevice-restorecloudpc?view=graph-rest-1.0 Find more info here
     */
     public function post(RestoreCloudPcPostRequestBody $body, ?RestoreCloudPcRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -50,7 +51,7 @@ class RestoreCloudPcRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action restoreCloudPc
+     * Restore a Cloud PC device to a previous state with an Intune managed device ID.
      * @param RestoreCloudPcPostRequestBody $body The request body
      * @param RestoreCloudPcRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

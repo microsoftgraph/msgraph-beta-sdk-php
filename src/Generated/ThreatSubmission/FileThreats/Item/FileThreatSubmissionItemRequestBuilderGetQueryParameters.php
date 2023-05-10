@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\ThreatSubmission\FileThreats\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get fileThreats from threatSubmission
+ * Read the properties and relationships of a fileThreatSubmission object.
 */
 class FileThreatSubmissionItemRequestBuilderGetQueryParameters 
 {

@@ -7,8 +7,8 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\TaskReports\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\TaskReports\IdentityGovernanceSummaryWithStartDateTimeWithEndDateTime\IdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\TaskReports\Item\TaskReportItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\TaskReports\MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTime\MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\TaskReportCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -54,9 +54,10 @@ class TaskReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents the aggregation of task execution data for tasks within a workflow object.
+     * Get a list of the taskReport objects and their properties.
      * @param TaskReportsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/identitygovernance-workflow-list-taskreports?view=graph-rest-1.0 Find more info here
     */
     public function get(?TaskReportsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -75,14 +76,14 @@ class TaskReportsRequestBuilder extends BaseRequestBuilder
      * Provides operations to call the summary method.
      * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
      * @param DateTime $startDateTime Usage: startDateTime={startDateTime}
-     * @return IdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder
+     * @return MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder
     */
-    public function identityGovernanceSummaryWithStartDateTimeWithEndDateTime(DateTime $endDateTime, DateTime $startDateTime): IdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder {
-        return new IdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
+    public function microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTime(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder {
+        return new MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
     }
 
     /**
-     * Represents the aggregation of task execution data for tasks within a workflow object.
+     * Get a list of the taskReport objects and their properties.
      * @param TaskReportsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

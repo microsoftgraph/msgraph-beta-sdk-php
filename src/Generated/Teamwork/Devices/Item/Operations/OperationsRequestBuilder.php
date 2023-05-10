@@ -53,9 +53,10 @@ class OperationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The async operations on the device.
+     * Get a list of the operations that are running on a Microsoft Teams-enabled device.
      * @param OperationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/teamworkdeviceoperation-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?OperationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class OperationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The async operations on the device.
+     * Get a list of the operations that are running on a Microsoft Teams-enabled device.
      * @param OperationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

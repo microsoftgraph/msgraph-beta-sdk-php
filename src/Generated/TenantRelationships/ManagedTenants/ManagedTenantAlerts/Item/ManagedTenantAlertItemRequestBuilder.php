@@ -11,7 +11,7 @@ use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTen
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantAlerts\Item\AlertRule\AlertRuleRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantAlerts\Item\ApiNotifications\ApiNotificationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantAlerts\Item\EmailNotifications\EmailNotificationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantAlerts\Item\ManagedTenantsAddUserInputLog\ManagedTenantsAddUserInputLogRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantAlerts\Item\MicrosoftGraphManagedTenantsAddUserInputLog\MicrosoftGraphManagedTenantsAddUserInputLogRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -53,8 +53,8 @@ class ManagedTenantAlertItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the addUserInputLog method.
     */
-    public function managedTenantsAddUserInputLog(): ManagedTenantsAddUserInputLogRequestBuilder {
-        return new ManagedTenantsAddUserInputLogRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphManagedTenantsAddUserInputLog(): MicrosoftGraphManagedTenantsAddUserInputLogRequestBuilder {
+        return new MicrosoftGraphManagedTenantsAddUserInputLogRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

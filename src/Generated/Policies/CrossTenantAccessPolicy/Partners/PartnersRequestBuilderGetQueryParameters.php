@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Policies\CrossTenantAccessPolicy\Partne
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Defines partner-specific configurations for external Azure Active Directory organizations.
+ * Get a list of all partner configurations within a cross-tenant access policy. You can also use the `$expand` parameter to list the user synchronization policy for all partner configurations.
 */
 class PartnersRequestBuilderGetQueryParameters 
 {
