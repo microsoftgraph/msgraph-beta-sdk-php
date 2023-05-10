@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * MacOS software update account summary report for a device and user
+*/
 class MacOSSoftwareUpdateAccountSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new MacOSSoftwareUpdateAccountSummary and sets the default values.
+     * Instantiates a new macOSSoftwareUpdateAccountSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -40,9 +40,10 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder e
     }
 
     /**
-     * Delete navigation property passwordlessMicrosoftAuthenticatorMethods for users
+     * Deletes a user's Microsoft Authenticator Passwordless Phone Sign-in method object.
      * @param PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/passwordlessmicrosoftauthenticatorauthenticationmethod-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -58,9 +59,10 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder e
     }
 
     /**
-     * Represents the Microsoft Authenticator Passwordless Phone Sign-in methods registered to a user for authentication.
+     * Retrieve a user's single Microsoft Authenticator Passwordless Phone Sign-in method object.
      * @param PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/passwordlessmicrosoftauthenticatorauthenticationmethod-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +78,7 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder e
     }
 
     /**
-     * Delete navigation property passwordlessMicrosoftAuthenticatorMethods for users
+     * Deletes a user's Microsoft Authenticator Passwordless Phone Sign-in method object.
      * @param PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -93,7 +95,7 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder e
     }
 
     /**
-     * Represents the Microsoft Authenticator Passwordless Phone Sign-in methods registered to a user for authentication.
+     * Retrieve a user's single Microsoft Authenticator Passwordless Phone Sign-in method object.
      * @param PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

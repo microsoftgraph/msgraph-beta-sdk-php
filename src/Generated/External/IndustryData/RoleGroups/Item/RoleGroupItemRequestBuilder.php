@@ -50,9 +50,10 @@ class RoleGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set of groups of individual roles that makes role-based admin simpler.
+     * Read the properties and relationships of a roleGroup object.
      * @param RoleGroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/industrydata-rolegroup-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?RoleGroupItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -104,7 +105,7 @@ class RoleGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set of groups of individual roles that makes role-based admin simpler.
+     * Read the properties and relationships of a roleGroup object.
      * @param RoleGroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

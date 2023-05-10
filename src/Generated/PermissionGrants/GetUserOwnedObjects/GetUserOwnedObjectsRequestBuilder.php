@@ -32,10 +32,11 @@ class GetUserOwnedObjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action getUserOwnedObjects
+     * Retrieve a list of recently deleted application and group objects owned by the specified user. This API returns up to 1,000 deleted objects owned by the user, sorted by ID, and doesn't support pagination.
      * @param GetUserOwnedObjectsPostRequestBody $body The request body
      * @param GetUserOwnedObjectsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/directory-deleteditems-getuserownedobjects?view=graph-rest-1.0 Find more info here
     */
     public function post(GetUserOwnedObjectsPostRequestBody $body, ?GetUserOwnedObjectsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -51,7 +52,7 @@ class GetUserOwnedObjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action getUserOwnedObjects
+     * Retrieve a list of recently deleted application and group objects owned by the specified user. This API returns up to 1,000 deleted objects owned by the user, sorted by ID, and doesn't support pagination.
      * @param GetUserOwnedObjectsPostRequestBody $body The request body
      * @param GetUserOwnedObjectsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

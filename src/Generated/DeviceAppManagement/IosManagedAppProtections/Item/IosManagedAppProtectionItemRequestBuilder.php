@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosManagedAppProtections\Item\Apps\AppsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosManagedAppProtections\Item\Assignments\AssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosManagedAppProtections\Item\DeploymentSummary\DeploymentSummaryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IosManagedAppProtection;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -24,6 +25,13 @@ class IosManagedAppProtectionItemRequestBuilder extends BaseRequestBuilder
     */
     public function apps(): AppsRequestBuilder {
         return new AppsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.targetedManagedAppProtection entity.
+    */
+    public function assignments(): AssignmentsRequestBuilder {
+        return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

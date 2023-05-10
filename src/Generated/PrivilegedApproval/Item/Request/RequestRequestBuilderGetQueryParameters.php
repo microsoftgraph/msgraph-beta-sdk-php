@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedApproval\Item\Request;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read-only. The role assignment request for this approval object
+ * Get request from privilegedApproval
 */
 class RequestRequestBuilderGetQueryParameters 
 {

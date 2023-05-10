@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\CanvasLayout\Hori
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The set of vertical columns in this section.
+ * Get a list of the horizontalSectionColumn objects and their properties. Sort by `id` in ascending order.
 */
 class ColumnsRequestBuilderGetQueryParameters 
 {

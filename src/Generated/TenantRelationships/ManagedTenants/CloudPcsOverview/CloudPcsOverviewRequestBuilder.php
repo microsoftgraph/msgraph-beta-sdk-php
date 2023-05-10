@@ -53,9 +53,10 @@ class CloudPcsOverviewRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Overview of cloud PC information across managed tenants.
+     * Get a list of the cloudPcOverview objects and their properties.
      * @param CloudPcsOverviewRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/managedtenants-managedtenant-list-cloudpcsoverview?view=graph-rest-1.0 Find more info here
     */
     public function get(?CloudPcsOverviewRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class CloudPcsOverviewRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Overview of cloud PC information across managed tenants.
+     * Get a list of the cloudPcOverview objects and their properties.
      * @param CloudPcsOverviewRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

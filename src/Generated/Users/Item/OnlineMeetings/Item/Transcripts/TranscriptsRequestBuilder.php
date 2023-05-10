@@ -53,9 +53,10 @@ class TranscriptsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The transcripts of an online meeting. Read-only.
+     * Retrieve the list of callTranscript objects associated with an onlineMeeting.
      * @param TranscriptsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/onlinemeeting-list-transcripts?view=graph-rest-1.0 Find more info here
     */
     public function get(?TranscriptsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class TranscriptsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The transcripts of an online meeting. Read-only.
+     * Retrieve the list of callTranscript objects associated with an onlineMeeting.
      * @param TranscriptsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\TenantTag;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantTags\Item\ManagedTenantsAssignTag\ManagedTenantsAssignTagRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantTags\Item\ManagedTenantsUnassignTag\ManagedTenantsUnassignTagRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantTags\Item\MicrosoftGraphManagedTenantsAssignTag\MicrosoftGraphManagedTenantsAssignTagRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantTags\Item\MicrosoftGraphManagedTenantsUnassignTag\MicrosoftGraphManagedTenantsUnassignTagRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -22,15 +22,15 @@ class TenantTagItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the assignTag method.
     */
-    public function managedTenantsAssignTag(): ManagedTenantsAssignTagRequestBuilder {
-        return new ManagedTenantsAssignTagRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphManagedTenantsAssignTag(): MicrosoftGraphManagedTenantsAssignTagRequestBuilder {
+        return new MicrosoftGraphManagedTenantsAssignTagRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the unassignTag method.
     */
-    public function managedTenantsUnassignTag(): ManagedTenantsUnassignTagRequestBuilder {
-        return new ManagedTenantsUnassignTagRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphManagedTenantsUnassignTag(): MicrosoftGraphManagedTenantsUnassignTagRequestBuilder {
+        return new MicrosoftGraphManagedTenantsUnassignTagRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -48,9 +48,10 @@ class TenantTagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property tenantTags for tenantRelationships
+     * Delete a tenantTag object.
      * @param TenantTagItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/managedtenants-tenanttag-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?TenantTagItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -66,9 +67,10 @@ class TenantTagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of tenant tags across managed tenants.
+     * Read the properties and relationships of a tenantTag object.
      * @param TenantTagItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/managedtenants-tenanttag-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?TenantTagItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -84,10 +86,11 @@ class TenantTagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property tenantTags in tenantRelationships
+     * Update the properties of a tenantTag object.
      * @param TenantTag $body The request body
      * @param TenantTagItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/managedtenants-tenanttag-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(TenantTag $body, ?TenantTagItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -103,7 +106,7 @@ class TenantTagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property tenantTags for tenantRelationships
+     * Delete a tenantTag object.
      * @param TenantTagItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -120,7 +123,7 @@ class TenantTagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of tenant tags across managed tenants.
+     * Read the properties and relationships of a tenantTag object.
      * @param TenantTagItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -141,7 +144,7 @@ class TenantTagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property tenantTags in tenantRelationships
+     * Update the properties of a tenantTag object.
      * @param TenantTag $body The request body
      * @param TenantTagItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

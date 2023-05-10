@@ -50,9 +50,10 @@ class CustomCalloutExtensionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The attributes of a logic app, which can be called at various stages of an access package request and assignment cycle.
+     * Read the properties and relationships of an accessPackageAssignmentRequestWorkflowExtension object.
      * @param CustomCalloutExtensionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/accesspackageassignmentrequestworkflowextension-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?CustomCalloutExtensionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +69,11 @@ class CustomCalloutExtensionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property accessPackageCustomWorkflowExtensions in identityGovernance
+     * Update the properties of an accessPackageAssignmentRequestWorkflowExtension object.
      * @param CustomCalloutExtension $body The request body
      * @param CustomCalloutExtensionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/accesspackageassignmentrequestworkflowextension-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(CustomCalloutExtension $body, ?CustomCalloutExtensionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -104,7 +106,7 @@ class CustomCalloutExtensionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The attributes of a logic app, which can be called at various stages of an access package request and assignment cycle.
+     * Read the properties and relationships of an accessPackageAssignmentRequestWorkflowExtension object.
      * @param CustomCalloutExtensionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +127,7 @@ class CustomCalloutExtensionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property accessPackageCustomWorkflowExtensions in identityGovernance
+     * Update the properties of an accessPackageAssignmentRequestWorkflowExtension object.
      * @param CustomCalloutExtension $body The request body
      * @param CustomCalloutExtensionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

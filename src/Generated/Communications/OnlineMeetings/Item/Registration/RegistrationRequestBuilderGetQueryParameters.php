@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\Regi
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The registration that has been enabled for an online meeting. One online meeting can only have one registration enabled.
+ * Get the externalMeetingRegistration details associated with an onlineMeeting.
 */
 class RegistrationRequestBuilderGetQueryParameters 
 {

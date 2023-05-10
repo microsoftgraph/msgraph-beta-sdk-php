@@ -99,7 +99,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the sharepoint property value. A container for administrative resources to manage tenant-level settings for SharePoint and OneDrive.
+     * Gets the sharepoint property value. The sharepoint property
      * @return Sharepoint|null
     */
     public function getSharepoint(): ?Sharepoint {
@@ -177,7 +177,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the sharepoint property value. A container for administrative resources to manage tenant-level settings for SharePoint and OneDrive.
+     * Sets the sharepoint property value. The sharepoint property
      * @param Sharepoint|null $value Value to set for the sharepoint property.
     */
     public function setSharepoint(?Sharepoint $value): void {

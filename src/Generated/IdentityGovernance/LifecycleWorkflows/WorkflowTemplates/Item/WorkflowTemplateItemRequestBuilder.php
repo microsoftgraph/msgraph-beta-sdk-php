@@ -40,9 +40,10 @@ class WorkflowTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The workflow templates in the lifecycle workflow instance.
+     * Read the properties and relationships of a workflowTemplate object.
      * @param WorkflowTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/identitygovernance-workflowtemplate-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?WorkflowTemplateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -58,7 +59,7 @@ class WorkflowTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The workflow templates in the lifecycle workflow instance.
+     * Read the properties and relationships of a workflowTemplate object.
      * @param WorkflowTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

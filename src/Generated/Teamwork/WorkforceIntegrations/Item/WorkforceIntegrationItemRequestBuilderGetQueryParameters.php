@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\WorkforceIntegrations\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * A workforce integration with shifts.
+ * Retrieve the properties and relationships of a workforceintegration object.
 */
 class WorkforceIntegrationItemRequestBuilderGetQueryParameters 
 {

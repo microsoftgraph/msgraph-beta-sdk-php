@@ -31,10 +31,11 @@ class DeletePasswordSingleSignOnCredentialsRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Invoke action deletePasswordSingleSignOnCredentials
+     * Delete single sign-on credentials using a password for a user or group.
      * @param DeletePasswordSingleSignOnCredentialsPostRequestBody $body The request body
      * @param DeletePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/serviceprincipal-deletepasswordsinglesignoncredentials?view=graph-rest-1.0 Find more info here
     */
     public function post(DeletePasswordSingleSignOnCredentialsPostRequestBody $body, ?DeletePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -50,7 +51,7 @@ class DeletePasswordSingleSignOnCredentialsRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Invoke action deletePasswordSingleSignOnCredentials
+     * Delete single sign-on credentials using a password for a user or group.
      * @param DeletePasswordSingleSignOnCredentialsPostRequestBody $body The request body
      * @param DeletePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

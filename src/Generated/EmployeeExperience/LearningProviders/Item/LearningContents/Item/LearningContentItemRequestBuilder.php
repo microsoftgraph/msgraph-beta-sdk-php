@@ -32,9 +32,10 @@ class LearningContentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property learningContents for employeeExperience
+     * Delete the specified learningContent resource that represents the metadata of the specified provider's ingested content.
      * @param LearningContentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/learningprovider-delete-learningcontents?view=graph-rest-1.0 Find more info here
     */
     public function delete(?LearningContentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -50,9 +51,10 @@ class LearningContentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Learning catalog items for the provider.
+     * Get the specified learningContent resource which represents the metadata of the specified provider's ingested content.
      * @param LearningContentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/learningcontent-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?LearningContentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +70,11 @@ class LearningContentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property learningContents in employeeExperience
+     * Update the specified learningContent resource. Used by a learning provider to ingest or update the metadata for their content in Viva Learning. If the specified learning content doesn't yet exist for the specified provider, this operation creates the metadata for the new content. Otherwise, this operation replaces the metadata of the existing content.
      * @param LearningContent $body The request body
      * @param LearningContentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/learningcontent-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(LearningContent $body, ?LearningContentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -87,7 +90,7 @@ class LearningContentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property learningContents for employeeExperience
+     * Delete the specified learningContent resource that represents the metadata of the specified provider's ingested content.
      * @param LearningContentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +107,7 @@ class LearningContentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Learning catalog items for the provider.
+     * Get the specified learningContent resource which represents the metadata of the specified provider's ingested content.
      * @param LearningContentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +128,7 @@ class LearningContentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property learningContents in employeeExperience
+     * Update the specified learningContent resource. Used by a learning provider to ingest or update the metadata for their content in Viva Learning. If the specified learning content doesn't yet exist for the specified provider, this operation creates the metadata for the new content. Otherwise, this operation replaces the metadata of the existing content.
      * @param LearningContent $body The request body
      * @param LearningContentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

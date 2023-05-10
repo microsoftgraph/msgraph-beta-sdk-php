@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinit
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get timeCards from teamTemplateDefinition
+ * Get the properties and relationships of a timeCard object by ID.
 */
 class TimeCardItemRequestBuilderGetQueryParameters 
 {

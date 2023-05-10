@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Applications\Item\TokenIssuancePolicies
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Delete ref of navigation property tokenIssuancePolicies for applications
+ * Remove a tokenIssuancePolicy from an application.
 */
 class RefRequestBuilderDeleteQueryParameters 
 {

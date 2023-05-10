@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Workshe
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents chart line formatting. Read-only.
+ * Retrieve the properties and relationships of chartlineformat object.
 */
 class LineRequestBuilderGetQueryParameters 
 {

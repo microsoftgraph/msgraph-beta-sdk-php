@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudiences\Item\Exclusions\ExclusionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudiences\Item\Members\MembersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudiences\Item\WindowsUpdatesUpdateAudience\WindowsUpdatesUpdateAudienceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudiences\Item\WindowsUpdatesUpdateAudienceById\WindowsUpdatesUpdateAudienceByIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudiences\Item\MicrosoftGraphWindowsUpdatesUpdateAudience\MicrosoftGraphWindowsUpdatesUpdateAudienceRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudiences\Item\MicrosoftGraphWindowsUpdatesUpdateAudienceById\MicrosoftGraphWindowsUpdatesUpdateAudienceByIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\DeploymentAudience;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -38,15 +38,15 @@ class DeploymentAudienceItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the updateAudience method.
     */
-    public function windowsUpdatesUpdateAudience(): WindowsUpdatesUpdateAudienceRequestBuilder {
-        return new WindowsUpdatesUpdateAudienceRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphWindowsUpdatesUpdateAudience(): MicrosoftGraphWindowsUpdatesUpdateAudienceRequestBuilder {
+        return new MicrosoftGraphWindowsUpdatesUpdateAudienceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the updateAudienceById method.
     */
-    public function windowsUpdatesUpdateAudienceById(): WindowsUpdatesUpdateAudienceByIdRequestBuilder {
-        return new WindowsUpdatesUpdateAudienceByIdRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphWindowsUpdatesUpdateAudienceById(): MicrosoftGraphWindowsUpdatesUpdateAudienceByIdRequestBuilder {
+        return new MicrosoftGraphWindowsUpdatesUpdateAudienceByIdRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -64,9 +64,10 @@ class DeploymentAudienceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property deploymentAudiences for admin
+     * Delete a deploymentAudience object.
      * @param DeploymentAudienceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/windowsupdates-deploymentaudience-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?DeploymentAudienceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -82,9 +83,10 @@ class DeploymentAudienceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The set of updatableAsset resources to which a deployment can apply.
+     * Read the properties and relationships of a deploymentAudience object.
      * @param DeploymentAudienceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/windowsupdates-deploymentaudience-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?DeploymentAudienceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -119,7 +121,7 @@ class DeploymentAudienceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property deploymentAudiences for admin
+     * Delete a deploymentAudience object.
      * @param DeploymentAudienceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -136,7 +138,7 @@ class DeploymentAudienceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The set of updatableAsset resources to which a deployment can apply.
+     * Read the properties and relationships of a deploymentAudience object.
      * @param DeploymentAudienceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -60,9 +60,10 @@ class IncludedGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Azure AD groups under the scope of the mobility management application if appliesTo is selected
+     * Get the list of groups that are included in a mobile app management policy.
      * @param IncludedGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/mobileappmanagementpolicies-list-includedgroups?view=graph-rest-1.0 Find more info here
     */
     public function get(?IncludedGroupsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -78,7 +79,7 @@ class IncludedGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Azure AD groups under the scope of the mobility management application if appliesTo is selected
+     * Get the list of groups that are included in a mobile app management policy.
      * @param IncludedGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

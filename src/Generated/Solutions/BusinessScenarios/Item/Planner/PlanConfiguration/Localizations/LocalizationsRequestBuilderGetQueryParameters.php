@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planne
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Localized names for the plan configuration.
+ * Get a list of the plannerPlanConfigurationLocalization objects and their properties.
 */
 class LocalizationsRequestBuilderGetQueryParameters 
 {

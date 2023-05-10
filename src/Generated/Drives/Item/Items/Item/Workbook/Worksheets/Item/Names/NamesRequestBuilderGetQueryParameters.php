@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Workshe
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Returns collection of names that are associated with the worksheet. Read-only.
+ * Retrieve a list of named item associated with the worksheet. 
 */
 class NamesRequestBuilderGetQueryParameters 
 {

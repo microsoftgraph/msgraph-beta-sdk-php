@@ -53,9 +53,10 @@ class AccountRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get account from users
+     * Retrieves properties related to the user's accounts from the profile.
      * @param AccountRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/profile-list-accounts?view=graph-rest-1.0 Find more info here
     */
     public function get(?AccountRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class AccountRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to account for users
+     * Create a new userAccountInformation object in a user's profile.
      * @param UserAccountInformation $body The request body
      * @param AccountRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/profile-post-accounts?view=graph-rest-1.0 Find more info here
     */
     public function post(UserAccountInformation $body, ?AccountRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class AccountRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get account from users
+     * Retrieves properties related to the user's accounts from the profile.
      * @param AccountRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class AccountRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to account for users
+     * Create a new userAccountInformation object in a user's profile.
      * @param UserAccountInformation $body The request body
      * @param AccountRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

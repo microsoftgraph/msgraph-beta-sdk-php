@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Organization\Item\Settings\ContactInsig
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Contains the properties that are configured by an administrator as a tenant-level privacy control whether to identify duplicate contacts among a user's contacts list and suggest the user to merge those contacts to have a cleaner contacts list. List contactInsights returns the settings to display or return contact insights in an organization.
+ * Get the properties of an insightsSettings object for displaying or returning contact insights in an organization.
 */
 class ContactInsightsRequestBuilderGetQueryParameters 
 {

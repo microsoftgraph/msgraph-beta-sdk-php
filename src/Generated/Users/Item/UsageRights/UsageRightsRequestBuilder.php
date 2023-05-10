@@ -53,9 +53,10 @@ class UsageRightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents the usage rights a user has been granted.
+     * Retrieve a list of usageRight objects for a given user.
      * @param UsageRightsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/user-list-usagerights?view=graph-rest-1.0 Find more info here
     */
     public function get(?UsageRightsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class UsageRightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents the usage rights a user has been granted.
+     * Retrieve a list of usageRight objects for a given user.
      * @param UsageRightsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

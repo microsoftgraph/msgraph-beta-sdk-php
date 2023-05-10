@@ -50,9 +50,10 @@ class LearningCourseActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get learningCourseActivities from employeeExperience
+     * Get the specified learningCourseActivity object using either an ID or an **externalCourseActivityId** of the learning provider, or a **courseActivityId** of a user.
      * @param LearningCourseActivityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/learningcourseactivity-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?LearningCourseActivityItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +69,11 @@ class LearningCourseActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property learningCourseActivities in employeeExperience
+     * Update the properties of a learningCourseActivity object. 
      * @param LearningCourseActivity $body The request body
      * @param LearningCourseActivityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/learningcourseactivity-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(LearningCourseActivity $body, ?LearningCourseActivityItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -104,7 +106,7 @@ class LearningCourseActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get learningCourseActivities from employeeExperience
+     * Get the specified learningCourseActivity object using either an ID or an **externalCourseActivityId** of the learning provider, or a **courseActivityId** of a user.
      * @param LearningCourseActivityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +127,7 @@ class LearningCourseActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property learningCourseActivities in employeeExperience
+     * Update the properties of a learningCourseActivity object. 
      * @param LearningCourseActivity $body The request body
      * @param LearningCourseActivityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

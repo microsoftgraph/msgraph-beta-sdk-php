@@ -61,9 +61,10 @@ class TimeCardsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get timeCards from teams
+     * Retrieve a list of timeCard entries in a schedule.
      * @param TimeCardsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/timecard-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?TimeCardsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -79,10 +80,11 @@ class TimeCardsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to timeCards for teams
+     * Create a timeCard instance in a schedule.
      * @param TimeCard $body The request body
      * @param TimeCardsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/timecard-post?view=graph-rest-1.0 Find more info here
     */
     public function post(TimeCard $body, ?TimeCardsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -98,7 +100,7 @@ class TimeCardsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get timeCards from teams
+     * Retrieve a list of timeCard entries in a schedule.
      * @param TimeCardsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +121,7 @@ class TimeCardsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to timeCards for teams
+     * Create a timeCard instance in a schedule.
      * @param TimeCard $body The request body
      * @param TimeCardsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

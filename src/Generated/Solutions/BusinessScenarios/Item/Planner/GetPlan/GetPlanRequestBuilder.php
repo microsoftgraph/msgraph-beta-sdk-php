@@ -32,10 +32,11 @@ class GetPlanRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action getPlan
+     * Get information about the plannerPlan mapped to a given target. If a **plannerPlan** doesn't exist for the specified target at the time of the request, a new plan will be created for the businessScenario.
      * @param GetPlanPostRequestBody $body The request body
      * @param GetPlanRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/businessscenarioplanner-getplan?view=graph-rest-1.0 Find more info here
     */
     public function post(GetPlanPostRequestBody $body, ?GetPlanRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -51,7 +52,7 @@ class GetPlanRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action getPlan
+     * Get information about the plannerPlan mapped to a given target. If a **plannerPlan** doesn't exist for the specified target at the time of the request, a new plan will be created for the businessScenario.
      * @param GetPlanPostRequestBody $body The request body
      * @param GetPlanRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -88,9 +88,10 @@ class EducationSynchronizationProfileItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Delete navigation property synchronizationProfiles for education
+     * Delete a school data synchronization profile in the tenant based on the identifier.
      * @param EducationSynchronizationProfileItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/educationsynchronizationprofile-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?EducationSynchronizationProfileItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -106,9 +107,10 @@ class EducationSynchronizationProfileItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Get synchronizationProfiles from education
+     * Retrieve a school data synchronization profile in the tenant based on the identifier.
      * @param EducationSynchronizationProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/educationsynchronizationprofile-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?EducationSynchronizationProfileItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -143,7 +145,7 @@ class EducationSynchronizationProfileItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Delete navigation property synchronizationProfiles for education
+     * Delete a school data synchronization profile in the tenant based on the identifier.
      * @param EducationSynchronizationProfileItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -160,7 +162,7 @@ class EducationSynchronizationProfileItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Get synchronizationProfiles from education
+     * Retrieve a school data synchronization profile in the tenant based on the identifier.
      * @param EducationSynchronizationProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

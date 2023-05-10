@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Returns a list of tag objects associated to this case.
+ * Retrieve a list of tag objects from an eDiscovery case.
 */
 class TagsRequestBuilderGetQueryParameters 
 {

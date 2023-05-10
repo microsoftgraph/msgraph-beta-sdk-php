@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Classes\Item\AssignmentSettin
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\Education\Classes\Item\AssignmentSettings\GradingCategories\GradingCategoriesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EducationAssignmentSettings;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -17,6 +18,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class AssignmentSettingsRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the gradingCategories property of the microsoft.graph.educationAssignmentSettings entity.
+    */
+    public function gradingCategories(): GradingCategoriesRequestBuilder {
+        return new GradingCategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new AssignmentSettingsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
@@ -50,9 +58,10 @@ class AssignmentSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Specifies class-level assignments settings.
+     * Read the properties and relationships of an educationAssignmentSettings object. Only teachers can perform this operation.
      * @param AssignmentSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/educationassignmentsettings-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?AssignmentSettingsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +77,11 @@ class AssignmentSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property assignmentSettings in education
+     * Update the properties of an educationAssignmentSettings object. Only Teachers can update these settings.
      * @param EducationAssignmentSettings $body The request body
      * @param AssignmentSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/educationassignmentsettings-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(EducationAssignmentSettings $body, ?AssignmentSettingsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -104,7 +114,7 @@ class AssignmentSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Specifies class-level assignments settings.
+     * Read the properties and relationships of an educationAssignmentSettings object. Only teachers can perform this operation.
      * @param AssignmentSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +135,7 @@ class AssignmentSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property assignmentSettings in education
+     * Update the properties of an educationAssignmentSettings object. Only Teachers can update these settings.
      * @param EducationAssignmentSettings $body The request body
      * @param AssignmentSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

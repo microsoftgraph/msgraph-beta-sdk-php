@@ -32,9 +32,10 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property customQuestions for users
+     * Delete a custom registration question from a meetingRegistration object on behalf of the organizer.
      * @param MeetingRegistrationQuestionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/meetingregistrationquestion-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?MeetingRegistrationQuestionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -50,9 +51,10 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Custom registration questions.
+     * Get a custom registration question associated with a meetingRegistration object on behalf of the organizer.
      * @param MeetingRegistrationQuestionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/meetingregistrationquestion-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?MeetingRegistrationQuestionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +70,11 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property customQuestions in users
+     * Update a custom registration question associated with a meetingRegistration object on behalf of the organizer.
      * @param MeetingRegistrationQuestion $body The request body
      * @param MeetingRegistrationQuestionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/meetingregistrationquestion-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(MeetingRegistrationQuestion $body, ?MeetingRegistrationQuestionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -87,7 +90,7 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property customQuestions for users
+     * Delete a custom registration question from a meetingRegistration object on behalf of the organizer.
      * @param MeetingRegistrationQuestionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +107,7 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Custom registration questions.
+     * Get a custom registration question associated with a meetingRegistration object on behalf of the organizer.
      * @param MeetingRegistrationQuestionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +128,7 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property customQuestions in users
+     * Update a custom registration question associated with a meetingRegistration object on behalf of the organizer.
      * @param MeetingRegistrationQuestion $body The request body
      * @param MeetingRegistrationQuestionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

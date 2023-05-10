@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
+ * Retrieve a list of objects owned by the servicePrincipal.  This could include applications or groups.
 */
 class OwnedObjectsRequestBuilderGetQueryParameters 
 {

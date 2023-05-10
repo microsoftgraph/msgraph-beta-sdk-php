@@ -53,9 +53,10 @@ class WorkflowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The workflows in the lifecycle workflows instance.
+     * Get the workflow resources from the workflows navigation property.
      * @param WorkflowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/identitygovernance-lifecycleworkflowscontainer-list-workflows?view=graph-rest-1.0 Find more info here
     */
     public function get(?WorkflowsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class WorkflowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to workflows for identityGovernance
+     * Create a new workflow object. You can create up to 50 workflows in a tenant.
      * @param Workflow $body The request body
      * @param WorkflowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/identitygovernance-lifecycleworkflowscontainer-post-workflows?view=graph-rest-1.0 Find more info here
     */
     public function post(Workflow $body, ?WorkflowsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class WorkflowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The workflows in the lifecycle workflows instance.
+     * Get the workflow resources from the workflows navigation property.
      * @param WorkflowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class WorkflowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to workflows for identityGovernance
+     * Create a new workflow object. You can create up to 50 workflows in a tenant.
      * @param Workflow $body The request body
      * @param WorkflowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

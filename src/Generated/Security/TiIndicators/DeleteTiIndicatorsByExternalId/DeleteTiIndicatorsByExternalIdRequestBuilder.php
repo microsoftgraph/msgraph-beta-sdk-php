@@ -31,10 +31,11 @@ class DeleteTiIndicatorsByExternalIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action deleteTiIndicatorsByExternalId
+     * Delete multiple threat intelligence (TI) indicators in one request instead of multiple requests, when the request contains external IDs instead of IDs.
      * @param DeleteTiIndicatorsByExternalIdPostRequestBody $body The request body
      * @param DeleteTiIndicatorsByExternalIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/tiindicator-deletetiindicatorsbyexternalid?view=graph-rest-1.0 Find more info here
     */
     public function post(DeleteTiIndicatorsByExternalIdPostRequestBody $body, ?DeleteTiIndicatorsByExternalIdRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -50,7 +51,7 @@ class DeleteTiIndicatorsByExternalIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action deleteTiIndicatorsByExternalId
+     * Delete multiple threat intelligence (TI) indicators in one request instead of multiple requests, when the request contains external IDs instead of IDs.
      * @param DeleteTiIndicatorsByExternalIdPostRequestBody $body The request body
      * @param DeleteTiIndicatorsByExternalIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

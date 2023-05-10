@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Mana
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The collection of compliance for managed devices across managed tenants.
+ * Get a list of the managedDeviceCompliance objects and their properties.
 */
 class ManagedDeviceCompliancesRequestBuilderGetQueryParameters 
 {

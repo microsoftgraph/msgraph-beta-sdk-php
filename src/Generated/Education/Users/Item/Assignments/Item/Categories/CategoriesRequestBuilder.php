@@ -69,9 +69,10 @@ class CategoriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * When set, enables users to easily find assignments of a given type.  Read-only. Nullable.
+     * List all the categories associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
      * @param CategoriesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/educationassignment-list-categories?view=graph-rest-1.0 Find more info here
     */
     public function get(?CategoriesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -106,7 +107,7 @@ class CategoriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * When set, enables users to easily find assignments of a given type.  Read-only. Nullable.
+     * List all the categories associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
      * @param CategoriesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

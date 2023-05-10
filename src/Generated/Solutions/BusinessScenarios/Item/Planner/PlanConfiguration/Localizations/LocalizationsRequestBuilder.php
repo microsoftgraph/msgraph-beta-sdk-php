@@ -53,9 +53,10 @@ class LocalizationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Localized names for the plan configuration.
+     * Get a list of the plannerPlanConfigurationLocalization objects and their properties.
      * @param LocalizationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/plannerplanconfiguration-list-localizations?view=graph-rest-1.0 Find more info here
     */
     public function get(?LocalizationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class LocalizationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to localizations for solutions
+     * Create a new plannerPlanConfigurationLocalization object.
      * @param PlannerPlanConfigurationLocalization $body The request body
      * @param LocalizationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/plannerplanconfiguration-post-localizations?view=graph-rest-1.0 Find more info here
     */
     public function post(PlannerPlanConfigurationLocalization $body, ?LocalizationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class LocalizationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Localized names for the plan configuration.
+     * Get a list of the plannerPlanConfigurationLocalization objects and their properties.
      * @param LocalizationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class LocalizationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to localizations for solutions
+     * Create a new plannerPlanConfigurationLocalization object.
      * @param PlannerPlanConfigurationLocalization $body The request body
      * @param LocalizationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

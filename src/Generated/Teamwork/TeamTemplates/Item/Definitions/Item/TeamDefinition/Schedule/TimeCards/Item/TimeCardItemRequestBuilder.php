@@ -64,9 +64,10 @@ class TimeCardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property timeCards for teamwork
+     * Delete a timeCard instance in a schedule.
      * @param TimeCardItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/timecard-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?TimeCardItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -82,9 +83,10 @@ class TimeCardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get timeCards from teamwork
+     * Get the properties and relationships of a timeCard object by ID.
      * @param TimeCardItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/timecard-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?TimeCardItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -100,10 +102,11 @@ class TimeCardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property timeCards in teamwork
+     * Replace an existing timeCard with updated values.
      * @param TimeCard $body The request body
      * @param TimeCardItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/timecard-replace?view=graph-rest-1.0 Find more info here
     */
     public function patch(TimeCard $body, ?TimeCardItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -119,7 +122,7 @@ class TimeCardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property timeCards for teamwork
+     * Delete a timeCard instance in a schedule.
      * @param TimeCardItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -136,7 +139,7 @@ class TimeCardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get timeCards from teamwork
+     * Get the properties and relationships of a timeCard object by ID.
      * @param TimeCardItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -157,7 +160,7 @@ class TimeCardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property timeCards in teamwork
+     * Replace an existing timeCard with updated values.
      * @param TimeCard $body The request body
      * @param TimeCardItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

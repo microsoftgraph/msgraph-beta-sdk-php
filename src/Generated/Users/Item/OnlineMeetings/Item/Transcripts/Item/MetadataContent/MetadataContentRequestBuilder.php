@@ -35,6 +35,7 @@ class MetadataContentRequestBuilder extends BaseRequestBuilder
      * A field that represents the time-aligned metadata of the utterances in the transcript. Read-only.
      * @param MetadataContentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/onlinemeeting-list-transcripts?view=graph-rest-1.0 Find more info here
     */
     public function get(?MetadataContentRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

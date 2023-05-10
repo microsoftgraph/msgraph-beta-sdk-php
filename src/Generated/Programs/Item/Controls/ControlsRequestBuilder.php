@@ -53,9 +53,10 @@ class ControlsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Controls associated with the program.
+     * In the Azure AD access reviews feature, list all the programControl objects, linked to a particular program.
      * @param ControlsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/program-listcontrols?view=graph-rest-1.0 Find more info here
     */
     public function get(?ControlsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class ControlsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Controls associated with the program.
+     * In the Azure AD access reviews feature, list all the programControl objects, linked to a particular program.
      * @param ControlsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

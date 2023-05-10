@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\TimeCards;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get timeCards from groups
+ * Retrieve a list of timeCard entries in a schedule.
 */
 class TimeCardsRequestBuilderGetQueryParameters 
 {

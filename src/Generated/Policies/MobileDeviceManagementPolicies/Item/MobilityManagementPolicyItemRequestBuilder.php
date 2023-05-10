@@ -40,9 +40,10 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property mobileDeviceManagementPolicies for policies
+     * Delete a mobilityManagementPolicy object.
      * @param MobilityManagementPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/mobiledevicemanagementpolicies-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?MobilityManagementPolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -58,9 +59,10 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get mobileDeviceManagementPolicies from policies
+     * Read the properties and relationships of a mobilityManagementPolicy object.
      * @param MobilityManagementPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/mobiledevicemanagementpolicies-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?MobilityManagementPolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,10 +78,11 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property mobileDeviceManagementPolicies in policies
+     * Update the properties of a mobilityManagementPolicy object.
      * @param MobilityManagementPolicy $body The request body
      * @param MobilityManagementPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/mobiledevicemanagementpolicies-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(MobilityManagementPolicy $body, ?MobilityManagementPolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -95,7 +98,7 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property mobileDeviceManagementPolicies for policies
+     * Delete a mobilityManagementPolicy object.
      * @param MobilityManagementPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -112,7 +115,7 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get mobileDeviceManagementPolicies from policies
+     * Read the properties and relationships of a mobilityManagementPolicy object.
      * @param MobilityManagementPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -133,7 +136,7 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property mobileDeviceManagementPolicies in policies
+     * Update the properties of a mobilityManagementPolicy object.
      * @param MobilityManagementPolicy $body The request body
      * @param MobilityManagementPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -52,9 +52,10 @@ class TaskProcessingResultsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The related taskProcessingResults.
+     * Get the taskProcessingResult resources for a run.
      * @param TaskProcessingResultsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/identitygovernance-run-list-taskprocessingresults?view=graph-rest-1.0 Find more info here
     */
     public function get(?TaskProcessingResultsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -70,7 +71,7 @@ class TaskProcessingResultsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The related taskProcessingResults.
+     * Get the taskProcessingResult resources for a run.
      * @param TaskProcessingResultsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

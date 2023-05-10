@@ -32,9 +32,10 @@ class PhoneAuthenticationMethodItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property phoneMethods for users
+     * Delete a user's phone authentication method.  Remember that a user cannot have an `alternateMobile` number without a `mobile` number. If you want to remove a `mobile` number from a user that also has an `alternateMobile` number, first update the `mobile` number to the new number, then delete the `alternateMobile` number. If the phone number is the user's default Azure multi-factor authentication (MFA) authentication method, it cannot be deleted. Have the user change their default authentication method, and then delete the number.
      * @param PhoneAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?PhoneAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -50,9 +51,10 @@ class PhoneAuthenticationMethodItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents the phone registered to a user for authentication.
+     * Retrieve a single phoneAuthenticationMethod object. This method is available only for standard Azure AD and B2B users, but not B2C users.
      * @param PhoneAuthenticationMethodItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/phoneauthenticationmethod-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PhoneAuthenticationMethodItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +70,11 @@ class PhoneAuthenticationMethodItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property phoneMethods in users
+     * Update the phone number associated with a phone authentication method. You can't change a phone's type. To change a phone's type, add a new number of the desired type and then delete the object with the original type. If a user is enabled by policy to use SMS to sign in and the `mobile` number is changed, the system will attempt to register the number for use in that system.
      * @param PhoneAuthenticationMethod $body The request body
      * @param PhoneAuthenticationMethodItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/phoneauthenticationmethod-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(PhoneAuthenticationMethod $body, ?PhoneAuthenticationMethodItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -87,7 +90,7 @@ class PhoneAuthenticationMethodItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property phoneMethods for users
+     * Delete a user's phone authentication method.  Remember that a user cannot have an `alternateMobile` number without a `mobile` number. If you want to remove a `mobile` number from a user that also has an `alternateMobile` number, first update the `mobile` number to the new number, then delete the `alternateMobile` number. If the phone number is the user's default Azure multi-factor authentication (MFA) authentication method, it cannot be deleted. Have the user change their default authentication method, and then delete the number.
      * @param PhoneAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +107,7 @@ class PhoneAuthenticationMethodItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents the phone registered to a user for authentication.
+     * Retrieve a single phoneAuthenticationMethod object. This method is available only for standard Azure AD and B2B users, but not B2C users.
      * @param PhoneAuthenticationMethodItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +128,7 @@ class PhoneAuthenticationMethodItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property phoneMethods in users
+     * Update the phone number associated with a phone authentication method. You can't change a phone's type. To change a phone's type, add a new number of the desired type and then delete the object with the original type. If a user is enabled by policy to use SMS to sign in and the `mobile` number is changed, the system will attempt to register the number for use in that system.
      * @param PhoneAuthenticationMethod $body The request body
      * @param PhoneAuthenticationMethodItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -32,10 +32,11 @@ class BulkSetCloudPcReviewStatusRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action bulkSetCloudPcReviewStatus
+     * Set the review status of multiple Cloud PC devices with a single request that includes the IDs of Intune managed devices.
      * @param BulkSetCloudPcReviewStatusPostRequestBody $body The request body
      * @param BulkSetCloudPcReviewStatusRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/manageddevice-bulksetcloudpcreviewstatus?view=graph-rest-1.0 Find more info here
     */
     public function post(BulkSetCloudPcReviewStatusPostRequestBody $body, ?BulkSetCloudPcReviewStatusRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -51,7 +52,7 @@ class BulkSetCloudPcReviewStatusRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action bulkSetCloudPcReviewStatus
+     * Set the review status of multiple Cloud PC devices with a single request that includes the IDs of Intune managed devices.
      * @param BulkSetCloudPcReviewStatusPostRequestBody $body The request body
      * @param BulkSetCloudPcReviewStatusRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

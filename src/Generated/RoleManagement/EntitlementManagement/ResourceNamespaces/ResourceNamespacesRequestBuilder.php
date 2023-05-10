@@ -53,9 +53,10 @@ class ResourceNamespacesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get resourceNamespaces from roleManagement
+     * Get a list of the unifiedRbacResourceNamespace objects and their properties.
      * @param ResourceNamespacesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/rbacapplicationmultiple-list-resourcenamespaces?view=graph-rest-1.0 Find more info here
     */
     public function get(?ResourceNamespacesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class ResourceNamespacesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get resourceNamespaces from roleManagement
+     * Get a list of the unifiedRbacResourceNamespace objects and their properties.
      * @param ResourceNamespacesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\Models\RoleManagement;
 use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\CloudPCRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\DeviceManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\DirectoryRequestBuilder;
+use Microsoft\Graph\Beta\Generated\RoleManagement\EnterpriseApps\EnterpriseAppsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\EntitlementManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\ExchangeRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -41,6 +42,13 @@ class RoleManagementRequestBuilder extends BaseRequestBuilder
     */
     public function directory(): DirectoryRequestBuilder {
         return new DirectoryRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the enterpriseApps property of the microsoft.graph.roleManagement entity.
+    */
+    public function enterpriseApps(): EnterpriseAppsRequestBuilder {
+        return new EnterpriseAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

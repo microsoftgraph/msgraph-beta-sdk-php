@@ -210,9 +210,10 @@ class TeamDefinitionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get teamDefinition from teamTemplateDefinition
+     * Get the properties of the team associated with a teamTemplateDefinition object.
      * @param TeamDefinitionRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/teamtemplatedefinition-get-teamdefinition?view=graph-rest-1.0 Find more info here
     */
     public function get(?TeamDefinitionRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -264,7 +265,7 @@ class TeamDefinitionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get teamDefinition from teamTemplateDefinition
+     * Get the properties of the team associated with a teamTemplateDefinition object.
      * @param TeamDefinitionRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

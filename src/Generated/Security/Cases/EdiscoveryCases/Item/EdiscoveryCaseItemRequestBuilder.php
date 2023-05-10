@@ -9,12 +9,12 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\EdiscoveryCase;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Custodians\CustodiansRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\LegalHolds\LegalHoldsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\MicrosoftGraphSecurityClose\MicrosoftGraphSecurityCloseRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\MicrosoftGraphSecurityReopen\MicrosoftGraphSecurityReopenRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\NoncustodialDataSources\NoncustodialDataSourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Operations\OperationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\ReviewSetsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Searches\SearchesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\SecurityClose\SecurityCloseRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\SecurityReopen\SecurityReopenRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Settings\SettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Tags\TagsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -39,6 +39,20 @@ class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder
     */
     public function legalHolds(): LegalHoldsRequestBuilder {
         return new LegalHoldsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the close method.
+    */
+    public function microsoftGraphSecurityClose(): MicrosoftGraphSecurityCloseRequestBuilder {
+        return new MicrosoftGraphSecurityCloseRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the reopen method.
+    */
+    public function microsoftGraphSecurityReopen(): MicrosoftGraphSecurityReopenRequestBuilder {
+        return new MicrosoftGraphSecurityReopenRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -70,20 +84,6 @@ class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to call the close method.
-    */
-    public function securityClose(): SecurityCloseRequestBuilder {
-        return new SecurityCloseRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the reopen method.
-    */
-    public function securityReopen(): SecurityReopenRequestBuilder {
-        return new SecurityReopenRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the settings property of the microsoft.graph.security.ediscoveryCase entity.
     */
     public function settings(): SettingsRequestBuilder {
@@ -112,9 +112,10 @@ class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property ediscoveryCases for security
+     * Delete an ediscoveryCase object.
      * @param EdiscoveryCaseItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/security-casesroot-delete-ediscoverycases?view=graph-rest-1.0 Find more info here
     */
     public function delete(?EdiscoveryCaseItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -130,9 +131,10 @@ class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get ediscoveryCases from security
+     * Read the properties and relationships of an ediscoveryCase object.
      * @param EdiscoveryCaseItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/security-ediscoverycase-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?EdiscoveryCaseItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -148,10 +150,11 @@ class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property ediscoveryCases in security
+     * Update the properties of an ediscoveryCase object.
      * @param EdiscoveryCase $body The request body
      * @param EdiscoveryCaseItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/security-ediscoverycase-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(EdiscoveryCase $body, ?EdiscoveryCaseItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -167,7 +170,7 @@ class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property ediscoveryCases for security
+     * Delete an ediscoveryCase object.
      * @param EdiscoveryCaseItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -184,7 +187,7 @@ class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get ediscoveryCases from security
+     * Read the properties and relationships of an ediscoveryCase object.
      * @param EdiscoveryCaseItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -205,7 +208,7 @@ class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property ediscoveryCases in security
+     * Update the properties of an ediscoveryCase object.
      * @param EdiscoveryCase $body The request body
      * @param EdiscoveryCaseItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

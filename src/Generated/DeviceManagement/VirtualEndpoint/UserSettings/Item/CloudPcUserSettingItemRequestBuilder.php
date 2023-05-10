@@ -48,9 +48,10 @@ class CloudPcUserSettingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property userSettings for deviceManagement
+     * Delete a cloudPcUserSetting object.
      * @param CloudPcUserSettingItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/cloudpcusersetting-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?CloudPcUserSettingItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -66,9 +67,10 @@ class CloudPcUserSettingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Cloud PC user settings.
+     * Read the properties and relationships of a cloudPcUserSetting object.
      * @param CloudPcUserSettingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/cloudpcusersetting-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?CloudPcUserSettingItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -84,10 +86,11 @@ class CloudPcUserSettingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property userSettings in deviceManagement
+     * Update the properties of a cloudPcUserSetting object.
      * @param CloudPcUserSetting $body The request body
      * @param CloudPcUserSettingItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/cloudpcusersetting-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(CloudPcUserSetting $body, ?CloudPcUserSettingItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -103,7 +106,7 @@ class CloudPcUserSettingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property userSettings for deviceManagement
+     * Delete a cloudPcUserSetting object.
      * @param CloudPcUserSettingItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -120,7 +123,7 @@ class CloudPcUserSettingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Cloud PC user settings.
+     * Read the properties and relationships of a cloudPcUserSetting object.
      * @param CloudPcUserSettingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -141,7 +144,7 @@ class CloudPcUserSettingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property userSettings in deviceManagement
+     * Update the properties of a cloudPcUserSetting object.
      * @param CloudPcUserSetting $body The request body
      * @param CloudPcUserSettingItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -50,9 +50,10 @@ class TenantCustomizedInformationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of tenant level customized information across managed tenants.
+     * Read the properties and relationships of a tenantCustomizedInformation object.
      * @param TenantCustomizedInformationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/managedtenants-tenantcustomizedinformation-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?TenantCustomizedInformationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +69,11 @@ class TenantCustomizedInformationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property tenantsCustomizedInformation in tenantRelationships
+     * Update the properties of a tenantCustomizedInformation object.
      * @param TenantCustomizedInformation $body The request body
      * @param TenantCustomizedInformationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/managedtenants-tenantcustomizedinformation-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(TenantCustomizedInformation $body, ?TenantCustomizedInformationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -104,7 +106,7 @@ class TenantCustomizedInformationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of tenant level customized information across managed tenants.
+     * Read the properties and relationships of a tenantCustomizedInformation object.
      * @param TenantCustomizedInformationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +127,7 @@ class TenantCustomizedInformationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property tenantsCustomizedInformation in tenantRelationships
+     * Update the properties of a tenantCustomizedInformation object.
      * @param TenantCustomizedInformation $body The request body
      * @param TenantCustomizedInformationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

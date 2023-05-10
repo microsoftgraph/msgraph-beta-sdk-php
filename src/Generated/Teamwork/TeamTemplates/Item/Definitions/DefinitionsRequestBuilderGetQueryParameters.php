@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get definitions from teamwork
+ * Read the properties and relationships of a teamTemplateDefinition object.
 */
 class DefinitionsRequestBuilderGetQueryParameters 
 {

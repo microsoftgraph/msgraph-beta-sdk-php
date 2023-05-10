@@ -25,7 +25,7 @@ class PrivilegedRole extends Entity implements Parsable
     }
 
     /**
-     * Gets the assignments property value. The assignments for this role. Read-only. Nullable.
+     * Gets the assignments property value. The assignments property
      * @return array<PrivilegedRoleAssignment>|null
     */
     public function getAssignments(): ?array {
@@ -47,7 +47,7 @@ class PrivilegedRole extends Entity implements Parsable
     }
 
     /**
-     * Gets the name property value. Role name.
+     * Gets the name property value. The name property
      * @return string|null
     */
     public function getName(): ?string {
@@ -55,7 +55,7 @@ class PrivilegedRole extends Entity implements Parsable
     }
 
     /**
-     * Gets the settings property value. The settings for this role. Read-only. Nullable.
+     * Gets the settings property value. The settings property
      * @return PrivilegedRoleSettings|null
     */
     public function getSettings(): ?PrivilegedRoleSettings {
@@ -63,7 +63,7 @@ class PrivilegedRole extends Entity implements Parsable
     }
 
     /**
-     * Gets the summary property value. The summary information for this role. Read-only. Nullable.
+     * Gets the summary property value. The summary property
      * @return PrivilegedRoleSummary|null
     */
     public function getSummary(): ?PrivilegedRoleSummary {
@@ -83,7 +83,7 @@ class PrivilegedRole extends Entity implements Parsable
     }
 
     /**
-     * Sets the assignments property value. The assignments for this role. Read-only. Nullable.
+     * Sets the assignments property value. The assignments property
      * @param array<PrivilegedRoleAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
@@ -91,7 +91,7 @@ class PrivilegedRole extends Entity implements Parsable
     }
 
     /**
-     * Sets the name property value. Role name.
+     * Sets the name property value. The name property
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
@@ -99,7 +99,7 @@ class PrivilegedRole extends Entity implements Parsable
     }
 
     /**
-     * Sets the settings property value. The settings for this role. Read-only. Nullable.
+     * Sets the settings property value. The settings property
      * @param PrivilegedRoleSettings|null $value Value to set for the settings property.
     */
     public function setSettings(?PrivilegedRoleSettings $value): void {
@@ -107,7 +107,7 @@ class PrivilegedRole extends Entity implements Parsable
     }
 
     /**
-     * Sets the summary property value. The summary information for this role. Read-only. Nullable.
+     * Sets the summary property value. The summary property
      * @param PrivilegedRoleSummary|null $value Value to set for the summary property.
     */
     public function setSummary(?PrivilegedRoleSummary $value): void {

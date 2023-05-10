@@ -8,9 +8,9 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\AdditionalSources\AdditionalSourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\AddToReviewSetOperation\AddToReviewSetOperationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\CustodianSources\CustodianSourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\EdiscoveryEstimateStatistics\EdiscoveryEstimateStatisticsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\EdiscoveryPurgeData\EdiscoveryPurgeDataRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\LastEstimateStatisticsOperation\LastEstimateStatisticsOperationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\MicrosoftGraphEdiscoveryEstimateStatistics\MicrosoftGraphEdiscoveryEstimateStatisticsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\MicrosoftGraphEdiscoveryPurgeData\MicrosoftGraphEdiscoveryPurgeDataRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\NoncustodialSources\NoncustodialSourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\SourceCollection;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -46,24 +46,24 @@ class SourceCollectionItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the lastEstimateStatisticsOperation property of the microsoft.graph.ediscovery.sourceCollection entity.
+    */
+    public function lastEstimateStatisticsOperation(): LastEstimateStatisticsOperationRequestBuilder {
+        return new LastEstimateStatisticsOperationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the estimateStatistics method.
     */
-    public function ediscoveryEstimateStatistics(): EdiscoveryEstimateStatisticsRequestBuilder {
-        return new EdiscoveryEstimateStatisticsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphEdiscoveryEstimateStatistics(): MicrosoftGraphEdiscoveryEstimateStatisticsRequestBuilder {
+        return new MicrosoftGraphEdiscoveryEstimateStatisticsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the purgeData method.
     */
-    public function ediscoveryPurgeData(): EdiscoveryPurgeDataRequestBuilder {
-        return new EdiscoveryPurgeDataRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the lastEstimateStatisticsOperation property of the microsoft.graph.ediscovery.sourceCollection entity.
-    */
-    public function lastEstimateStatisticsOperation(): LastEstimateStatisticsOperationRequestBuilder {
-        return new LastEstimateStatisticsOperationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphEdiscoveryPurgeData(): MicrosoftGraphEdiscoveryPurgeDataRequestBuilder {
+        return new MicrosoftGraphEdiscoveryPurgeDataRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -88,9 +88,10 @@ class SourceCollectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property sourceCollections for compliance
+     * Delete a sourceCollection object.
      * @param SourceCollectionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/ediscovery-sourcecollection-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?SourceCollectionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -124,10 +125,11 @@ class SourceCollectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property sourceCollections in compliance
+     * Update the properties of a sourceCollection object.
      * @param SourceCollection $body The request body
      * @param SourceCollectionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/ediscovery-sourcecollection-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(SourceCollection $body, ?SourceCollectionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -143,7 +145,7 @@ class SourceCollectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property sourceCollections for compliance
+     * Delete a sourceCollection object.
      * @param SourceCollectionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -181,7 +183,7 @@ class SourceCollectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property sourceCollections in compliance
+     * Update the properties of a sourceCollection object.
      * @param SourceCollection $body The request body
      * @param SourceCollectionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

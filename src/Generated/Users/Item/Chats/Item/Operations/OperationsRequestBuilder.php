@@ -53,9 +53,10 @@ class OperationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A collection of all the Teams async operations that ran or are running on the chat. Nullable.
+     * List all Teams async operations that ran or are running on the specified chat.
      * @param OperationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/chat-list-operations?view=graph-rest-1.0 Find more info here
     */
     public function get(?OperationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class OperationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A collection of all the Teams async operations that ran or are running on the chat. Nullable.
+     * List all Teams async operations that ran or are running on the specified chat.
      * @param OperationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

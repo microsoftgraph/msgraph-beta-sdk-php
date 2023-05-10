@@ -32,10 +32,11 @@ class CreatePasswordSingleSignOnCredentialsRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Invoke action createPasswordSingleSignOnCredentials
+     * Create single sign-on credentials using a password for a user or group.
      * @param CreatePasswordSingleSignOnCredentialsPostRequestBody $body The request body
      * @param CreatePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/serviceprincipal-createpasswordsinglesignoncredentials?view=graph-rest-1.0 Find more info here
     */
     public function post(CreatePasswordSingleSignOnCredentialsPostRequestBody $body, ?CreatePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -51,7 +52,7 @@ class CreatePasswordSingleSignOnCredentialsRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Invoke action createPasswordSingleSignOnCredentials
+     * Create single sign-on credentials using a password for a user or group.
      * @param CreatePasswordSingleSignOnCredentialsPostRequestBody $body The request body
      * @param CreatePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -32,9 +32,10 @@ class LanguageProficiencyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property languages for users
+     * Delete a languageProficiency object from a user's profile.
      * @param LanguageProficiencyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/languageproficiency-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?LanguageProficiencyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -50,9 +51,10 @@ class LanguageProficiencyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents detailed information about languages that a user has added to their profile.
+     * Retrieve the properties and relationships of a languageProficiency object within a user's profile.
      * @param LanguageProficiencyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/languageproficiency-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?LanguageProficiencyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +70,11 @@ class LanguageProficiencyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property languages in users
+     * Update the properties of a languageProficiency object in a user's profile.
      * @param LanguageProficiency $body The request body
      * @param LanguageProficiencyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/languageproficiency-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(LanguageProficiency $body, ?LanguageProficiencyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -87,7 +90,7 @@ class LanguageProficiencyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property languages for users
+     * Delete a languageProficiency object from a user's profile.
      * @param LanguageProficiencyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +107,7 @@ class LanguageProficiencyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents detailed information about languages that a user has added to their profile.
+     * Retrieve the properties and relationships of a languageProficiency object within a user's profile.
      * @param LanguageProficiencyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +128,7 @@ class LanguageProficiencyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property languages in users
+     * Update the properties of a languageProficiency object in a user's profile.
      * @param LanguageProficiency $body The request body
      * @param LanguageProficiencyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

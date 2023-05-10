@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Gro
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get eligibilitySchedules from identityGovernance
+ * Get a list of the privilegedAccessGroupEligibilitySchedule objects and their properties.
 */
 class EligibilitySchedulesRequestBuilderGetQueryParameters 
 {

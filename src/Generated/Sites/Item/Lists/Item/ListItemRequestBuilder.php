@@ -10,8 +10,10 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Activities\ActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Columns\ColumnsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\ContentTypes\ContentTypesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\CreatedByUser\CreatedByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Drive\DriveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\ItemsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\LastModifiedByUser\LastModifiedByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Operations\OperationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Subscriptions\SubscriptionsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -46,6 +48,13 @@ class ListItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
+    */
+    public function createdByUser(): CreatedByUserRequestBuilder {
+        return new CreatedByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the drive property of the microsoft.graph.list entity.
     */
     public function drive(): DriveRequestBuilder {
@@ -57,6 +66,13 @@ class ListItemRequestBuilder extends BaseRequestBuilder
     */
     public function items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.
+    */
+    public function lastModifiedByUser(): LastModifiedByUserRequestBuilder {
+        return new LastModifiedByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -106,9 +122,10 @@ class ListItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of lists under this site.
+     * Get the list of richLongRunningOperations associated with a list.
      * @param ListItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/list-list-operations?view=graph-rest-1.0 Find more info here
     */
     public function get(?ListItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -160,7 +177,7 @@ class ListItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of lists under this site.
+     * Get the list of richLongRunningOperations associated with a list.
      * @param ListItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

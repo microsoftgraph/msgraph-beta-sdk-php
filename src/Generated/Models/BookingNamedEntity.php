@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Booking entities that provide a display name.
+*/
 class BookingNamedEntity extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new BookingNamedEntity and sets the default values.
+     * Instantiates a new bookingNamedEntity and sets the default values.
     */
     public function __construct() {
         parent::__construct();

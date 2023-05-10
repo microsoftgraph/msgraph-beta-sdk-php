@@ -98,9 +98,10 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Selective Planner services available to the user. Read-only. Nullable.
+     * Retrieve the properties and relationships of a plannerUser object. The returned properties include the user's favorite plans and recently viewed plans. 
      * @param PlannerRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/planneruser-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PlannerRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -120,6 +121,7 @@ class PlannerRequestBuilder extends BaseRequestBuilder
      * @param PlannerUser $body The request body
      * @param PlannerRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/planneruser-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(PlannerUser $body, ?PlannerRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -152,7 +154,7 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Selective Planner services available to the user. Read-only. Nullable.
+     * Retrieve the properties and relationships of a plannerUser object. The returned properties include the user's favorite plans and recently viewed plans. 
      * @param PlannerRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

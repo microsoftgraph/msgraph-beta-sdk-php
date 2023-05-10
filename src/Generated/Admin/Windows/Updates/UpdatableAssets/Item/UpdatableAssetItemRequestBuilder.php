@@ -5,10 +5,10 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets\I
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets\Item\WindowsUpdatesAddMembers\WindowsUpdatesAddMembersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets\Item\WindowsUpdatesAddMembersById\WindowsUpdatesAddMembersByIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets\Item\WindowsUpdatesRemoveMembers\WindowsUpdatesRemoveMembersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets\Item\WindowsUpdatesRemoveMembersById\WindowsUpdatesRemoveMembersByIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets\Item\MicrosoftGraphWindowsUpdatesAddMembers\MicrosoftGraphWindowsUpdatesAddMembersRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets\Item\MicrosoftGraphWindowsUpdatesAddMembersById\MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets\Item\MicrosoftGraphWindowsUpdatesRemoveMembers\MicrosoftGraphWindowsUpdatesRemoveMembersRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets\Item\MicrosoftGraphWindowsUpdatesRemoveMembersById\MicrosoftGraphWindowsUpdatesRemoveMembersByIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdatableAsset;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -24,29 +24,29 @@ class UpdatableAssetItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the addMembers method.
     */
-    public function windowsUpdatesAddMembers(): WindowsUpdatesAddMembersRequestBuilder {
-        return new WindowsUpdatesAddMembersRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphWindowsUpdatesAddMembers(): MicrosoftGraphWindowsUpdatesAddMembersRequestBuilder {
+        return new MicrosoftGraphWindowsUpdatesAddMembersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the addMembersById method.
     */
-    public function windowsUpdatesAddMembersById(): WindowsUpdatesAddMembersByIdRequestBuilder {
-        return new WindowsUpdatesAddMembersByIdRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphWindowsUpdatesAddMembersById(): MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilder {
+        return new MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the removeMembers method.
     */
-    public function windowsUpdatesRemoveMembers(): WindowsUpdatesRemoveMembersRequestBuilder {
-        return new WindowsUpdatesRemoveMembersRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphWindowsUpdatesRemoveMembers(): MicrosoftGraphWindowsUpdatesRemoveMembersRequestBuilder {
+        return new MicrosoftGraphWindowsUpdatesRemoveMembersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the removeMembersById method.
     */
-    public function windowsUpdatesRemoveMembersById(): WindowsUpdatesRemoveMembersByIdRequestBuilder {
-        return new WindowsUpdatesRemoveMembersByIdRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphWindowsUpdatesRemoveMembersById(): MicrosoftGraphWindowsUpdatesRemoveMembersByIdRequestBuilder {
+        return new MicrosoftGraphWindowsUpdatesRemoveMembersByIdRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -64,9 +64,10 @@ class UpdatableAssetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property updatableAssets for admin
+     * Delete an azureADDevice object. When an Azure AD device is deleted, it is unregistered from the deployment service and automatically unenrolled from management by the service for all update categories, as well as removed from every deploymentAudience and updatableAssetGroup.
      * @param UpdatableAssetItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/windowsupdates-azureaddevice-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?UpdatableAssetItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -82,9 +83,10 @@ class UpdatableAssetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Assets registered with the deployment service that can receive updates.
+     * Read the properties and relationships of an updatableAssetGroup object.
      * @param UpdatableAssetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/windowsupdates-updatableassetgroup-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?UpdatableAssetItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -119,7 +121,7 @@ class UpdatableAssetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property updatableAssets for admin
+     * Delete an azureADDevice object. When an Azure AD device is deleted, it is unregistered from the deployment service and automatically unenrolled from management by the service for all update categories, as well as removed from every deploymentAudience and updatableAssetGroup.
      * @param UpdatableAssetItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -136,7 +138,7 @@ class UpdatableAssetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Assets registered with the deployment service that can receive updates.
+     * Read the properties and relationships of an updatableAssetGroup object.
      * @param UpdatableAssetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -52,9 +52,10 @@ class PassiveDnsReverseRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Reverse passive DNS retrieval about this host.
+     * Get a list of passiveDnsRecord resources.
      * @param PassiveDnsReverseRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/security-host-list-passivednsreverse?view=graph-rest-1.0 Find more info here
     */
     public function get(?PassiveDnsReverseRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -70,7 +71,7 @@ class PassiveDnsReverseRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Reverse passive DNS retrieval about this host.
+     * Get a list of passiveDnsRecord resources.
      * @param PassiveDnsReverseRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

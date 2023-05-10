@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Catalog\Entries;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Lists the content that you can approve for deployment. Read-only.
+ * Get a list of catalogEntry resources from the catalog. Currently, this operation returns entries of the featureUpdateCatalogEntry or qualityUpdateCatalog types, inherited from **catalogEntry**. 
 */
 class EntriesRequestBuilderGetQueryParameters 
 {

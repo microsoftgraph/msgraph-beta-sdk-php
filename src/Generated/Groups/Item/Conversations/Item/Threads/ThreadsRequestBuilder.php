@@ -53,9 +53,10 @@ class ThreadsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable.
+     * Get all the threads in a group conversation.Note: You can also get all the threads of a group. 
      * @param ThreadsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/conversation-list-threads?view=graph-rest-1.0 Find more info here
     */
     public function get(?ThreadsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class ThreadsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable.
+     * Get all the threads in a group conversation.Note: You can also get all the threads of a group. 
      * @param ThreadsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

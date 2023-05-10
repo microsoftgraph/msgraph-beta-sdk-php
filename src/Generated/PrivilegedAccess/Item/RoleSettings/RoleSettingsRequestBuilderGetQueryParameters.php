@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleSettings;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * A collection of role settings for the provider.
+ * Retrieve the properties and relationships of a governanceRoleSetting.
 */
 class RoleSettingsRequestBuilderGetQueryParameters 
 {

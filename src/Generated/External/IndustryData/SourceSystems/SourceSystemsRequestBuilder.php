@@ -53,9 +53,10 @@ class SourceSystemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set of source definitions that represents real-world external systems.
+     * Get a list of the sourceSystemDefinition objects and their properties.
      * @param SourceSystemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/industrydata-sourcesystemdefinition-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?SourceSystemsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class SourceSystemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to sourceSystems for external
+     * Create a new sourceSystemDefinition object.
      * @param SourceSystemDefinition $body The request body
      * @param SourceSystemsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/industrydata-sourcesystemdefinition-post?view=graph-rest-1.0 Find more info here
     */
     public function post(SourceSystemDefinition $body, ?SourceSystemsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class SourceSystemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set of source definitions that represents real-world external systems.
+     * Get a list of the sourceSystemDefinition objects and their properties.
      * @param SourceSystemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class SourceSystemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to sourceSystems for external
+     * Create a new sourceSystemDefinition object.
      * @param SourceSystemDefinition $body The request body
      * @param SourceSystemsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

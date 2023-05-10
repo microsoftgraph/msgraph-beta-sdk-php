@@ -53,9 +53,10 @@ class AccessPackageResourceRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents a request to add or remove a resource to or from a catalog respectively.
+     * Retrieve a list of accessPackageResourceRequest objects.
      * @param AccessPackageResourceRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/entitlementmanagement-list-accesspackageresourcerequests?view=graph-rest-1.0 Find more info here
     */
     public function get(?AccessPackageResourceRequestsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class AccessPackageResourceRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to accessPackageResourceRequests for identityGovernance
+     * Create a new accessPackageResourceRequest object to request the addition of a resource to an access package catalog, update of a resource, or the removal of a resource from a catalog.  A resource must be included in an access package catalog before a role of that resource can be added to an access package.
      * @param AccessPackageResourceRequest $body The request body
      * @param AccessPackageResourceRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/entitlementmanagement-post-accesspackageresourcerequests?view=graph-rest-1.0 Find more info here
     */
     public function post(AccessPackageResourceRequest $body, ?AccessPackageResourceRequestsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class AccessPackageResourceRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents a request to add or remove a resource to or from a catalog respectively.
+     * Retrieve a list of accessPackageResourceRequest objects.
      * @param AccessPackageResourceRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class AccessPackageResourceRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to accessPackageResourceRequests for identityGovernance
+     * Create a new accessPackageResourceRequest object to request the addition of a resource to an access package catalog, update of a resource, or the removal of a resource from a catalog.  A resource must be included in an access package catalog before a role of that resource can be added to an access package.
      * @param AccessPackageResourceRequest $body The request body
      * @param AccessPackageResourceRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

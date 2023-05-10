@@ -32,9 +32,10 @@ class PlannerPlanConfigurationLocalizationItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Delete navigation property localizations for solutions
+     * Delete a plannerPlanConfigurationLocalization object.
      * @param PlannerPlanConfigurationLocalizationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/plannerplanconfiguration-delete-localizations?view=graph-rest-1.0 Find more info here
     */
     public function delete(?PlannerPlanConfigurationLocalizationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -50,9 +51,10 @@ class PlannerPlanConfigurationLocalizationItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Localized names for the plan configuration.
+     * Read the properties and relationships of a plannerPlanConfigurationLocalization object.
      * @param PlannerPlanConfigurationLocalizationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/plannerplanconfigurationlocalization-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PlannerPlanConfigurationLocalizationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +70,11 @@ class PlannerPlanConfigurationLocalizationItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Update the navigation property localizations in solutions
+     * Update the properties of a plannerPlanConfigurationLocalization object.
      * @param PlannerPlanConfigurationLocalization $body The request body
      * @param PlannerPlanConfigurationLocalizationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/plannerplanconfigurationlocalization-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(PlannerPlanConfigurationLocalization $body, ?PlannerPlanConfigurationLocalizationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -87,7 +90,7 @@ class PlannerPlanConfigurationLocalizationItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Delete navigation property localizations for solutions
+     * Delete a plannerPlanConfigurationLocalization object.
      * @param PlannerPlanConfigurationLocalizationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +107,7 @@ class PlannerPlanConfigurationLocalizationItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Localized names for the plan configuration.
+     * Read the properties and relationships of a plannerPlanConfigurationLocalization object.
      * @param PlannerPlanConfigurationLocalizationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +128,7 @@ class PlannerPlanConfigurationLocalizationItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Update the navigation property localizations in solutions
+     * Update the properties of a plannerPlanConfigurationLocalization object.
      * @param PlannerPlanConfigurationLocalization $body The request body
      * @param PlannerPlanConfigurationLocalizationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\EducationalActivitie
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents data that a user has supplied related to undergraduate, graduate, postgraduate or other educational activities.
+ * Retrieve a list of educationalActivity objects from a user's profile.
 */
 class EducationalActivitiesRequestBuilderGetQueryParameters 
 {

@@ -26,7 +26,7 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the expirationDateTime property value. The UTC DateTime when the temporary privileged role assignment will be expired. For permanent role assignment, the value is null.
+     * Gets the expirationDateTime property value. The expirationDateTime property
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
@@ -50,7 +50,7 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the isElevated property value. true if the role assignment is activated. false if the role assignment is deactivated.
+     * Gets the isElevated property value. The isElevated property
      * @return bool|null
     */
     public function getIsElevated(): ?bool {
@@ -58,7 +58,7 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the resultMessage property value. Result message set by the service.
+     * Gets the resultMessage property value. The resultMessage property
      * @return string|null
     */
     public function getResultMessage(): ?string {
@@ -66,7 +66,7 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the roleId property value. Role identifier. In GUID string format.
+     * Gets the roleId property value. The roleId property
      * @return string|null
     */
     public function getRoleId(): ?string {
@@ -74,7 +74,7 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the roleInfo property value. Read-only. Nullable. The associated role information.
+     * Gets the roleInfo property value. The roleInfo property
      * @return PrivilegedRole|null
     */
     public function getRoleInfo(): ?PrivilegedRole {
@@ -82,7 +82,7 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the userId property value. User identifier. In GUID string format.
+     * Gets the userId property value. The userId property
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -104,7 +104,7 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the expirationDateTime property value. The UTC DateTime when the temporary privileged role assignment will be expired. For permanent role assignment, the value is null.
+     * Sets the expirationDateTime property value. The expirationDateTime property
      * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
@@ -112,7 +112,7 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the isElevated property value. true if the role assignment is activated. false if the role assignment is deactivated.
+     * Sets the isElevated property value. The isElevated property
      * @param bool|null $value Value to set for the isElevated property.
     */
     public function setIsElevated(?bool $value): void {
@@ -120,7 +120,7 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the resultMessage property value. Result message set by the service.
+     * Sets the resultMessage property value. The resultMessage property
      * @param string|null $value Value to set for the resultMessage property.
     */
     public function setResultMessage(?string $value): void {
@@ -128,7 +128,7 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the roleId property value. Role identifier. In GUID string format.
+     * Sets the roleId property value. The roleId property
      * @param string|null $value Value to set for the roleId property.
     */
     public function setRoleId(?string $value): void {
@@ -136,7 +136,7 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the roleInfo property value. Read-only. Nullable. The associated role information.
+     * Sets the roleInfo property value. The roleInfo property
      * @param PrivilegedRole|null $value Value to set for the roleInfo property.
     */
     public function setRoleInfo(?PrivilegedRole $value): void {
@@ -144,7 +144,7 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the userId property value. User identifier. In GUID string format.
+     * Sets the userId property value. The userId property
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {

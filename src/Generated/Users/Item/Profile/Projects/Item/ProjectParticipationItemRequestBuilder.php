@@ -32,9 +32,10 @@ class ProjectParticipationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property projects for users
+     * Delete a projectParticipation object from a user's profile.
      * @param ProjectParticipationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/projectparticipation-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?ProjectParticipationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -50,9 +51,10 @@ class ProjectParticipationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents detailed information about projects associated with a user.
+     * Retrieve the properties and relationships of a projectParticipation object in a user's profile.
      * @param ProjectParticipationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/projectparticipation-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ProjectParticipationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +70,11 @@ class ProjectParticipationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property projects in users
+     * Update the properties of a projectParticipation object in a user's profile.
      * @param ProjectParticipation $body The request body
      * @param ProjectParticipationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/projectparticipation-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(ProjectParticipation $body, ?ProjectParticipationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -87,7 +90,7 @@ class ProjectParticipationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property projects for users
+     * Delete a projectParticipation object from a user's profile.
      * @param ProjectParticipationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +107,7 @@ class ProjectParticipationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents detailed information about projects associated with a user.
+     * Retrieve the properties and relationships of a projectParticipation object in a user's profile.
      * @param ProjectParticipationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +128,7 @@ class ProjectParticipationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property projects in users
+     * Update the properties of a projectParticipation object in a user's profile.
      * @param ProjectParticipation $body The request body
      * @param ProjectParticipationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

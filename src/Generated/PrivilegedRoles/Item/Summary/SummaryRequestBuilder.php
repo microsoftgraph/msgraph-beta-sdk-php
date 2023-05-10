@@ -50,7 +50,7 @@ class SummaryRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The summary information for this role. Read-only. Nullable.
+     * Get summary from privilegedRoles
      * @param SummaryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -104,7 +104,7 @@ class SummaryRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The summary information for this role. Read-only. Nullable.
+     * Get summary from privilegedRoles
      * @param SummaryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

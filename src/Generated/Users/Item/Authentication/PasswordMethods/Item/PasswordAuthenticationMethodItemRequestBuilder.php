@@ -32,9 +32,10 @@ class PasswordAuthenticationMethodItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents the details of the password authentication method registered to a user for authentication.
+     * Retrieve the properties and relationships of a password authentication method object. 
      * @param PasswordAuthenticationMethodItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/passwordauthenticationmethod-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PasswordAuthenticationMethodItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class PasswordAuthenticationMethodItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents the details of the password authentication method registered to a user for authentication.
+     * Retrieve the properties and relationships of a password authentication method object. 
      * @param PasswordAuthenticationMethodItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -32,10 +32,11 @@ class GetRemoteConnectionHistoricalReportsRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Invoke action getRemoteConnectionHistoricalReports
+     * Get the remote connection history records of a Cloud PC during a given period.
      * @param GetRemoteConnectionHistoricalReportsPostRequestBody $body The request body
      * @param GetRemoteConnectionHistoricalReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/cloudpcreports-getremoteconnectionhistoricalreports?view=graph-rest-1.0 Find more info here
     */
     public function post(GetRemoteConnectionHistoricalReportsPostRequestBody $body, ?GetRemoteConnectionHistoricalReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -51,7 +52,7 @@ class GetRemoteConnectionHistoricalReportsRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Invoke action getRemoteConnectionHistoricalReports
+     * Get the remote connection history records of a Cloud PC during a given period.
      * @param GetRemoteConnectionHistoricalReportsPostRequestBody $body The request body
      * @param GetRemoteConnectionHistoricalReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

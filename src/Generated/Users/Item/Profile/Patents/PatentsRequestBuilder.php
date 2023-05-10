@@ -53,9 +53,10 @@ class PatentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents patents that a user has added to their profile.
+     * Retrieve a list of itemPatent objects from a user's profile.
      * @param PatentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/profile-list-patents?view=graph-rest-1.0 Find more info here
     */
     public function get(?PatentsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class PatentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to patents for users
+     * Create a new itemPatent object within a user's profile.
      * @param ItemPatent $body The request body
      * @param PatentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/profile-post-patents?view=graph-rest-1.0 Find more info here
     */
     public function post(ItemPatent $body, ?PatentsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class PatentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents patents that a user has added to their profile.
+     * Retrieve a list of itemPatent objects from a user's profile.
      * @param PatentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class PatentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to patents for users
+     * Create a new itemPatent object within a user's profile.
      * @param ItemPatent $body The request body
      * @param PatentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

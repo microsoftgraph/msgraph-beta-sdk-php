@@ -32,9 +32,10 @@ class PersonAnnualEventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property anniversaries for users
+     * Delete a personAnniversary object from the user's profile.
      * @param PersonAnnualEventItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/personanniversary-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?PersonAnnualEventItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -50,9 +51,10 @@ class PersonAnnualEventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents the details of meaningful dates associated with a person.
+     * Retrieve the properties and relationships of a personAnniversary object in a user's profile.
      * @param PersonAnnualEventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/personanniversary-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PersonAnnualEventItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +70,11 @@ class PersonAnnualEventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property anniversaries in users
+     * Update the properties of a personAnniversary object in a user's profile.
      * @param PersonAnnualEvent $body The request body
      * @param PersonAnnualEventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/personanniversary-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(PersonAnnualEvent $body, ?PersonAnnualEventItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -87,7 +90,7 @@ class PersonAnnualEventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property anniversaries for users
+     * Delete a personAnniversary object from the user's profile.
      * @param PersonAnnualEventItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +107,7 @@ class PersonAnnualEventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents the details of meaningful dates associated with a person.
+     * Retrieve the properties and relationships of a personAnniversary object in a user's profile.
      * @param PersonAnnualEventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +128,7 @@ class PersonAnnualEventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property anniversaries in users
+     * Update the properties of a personAnniversary object in a user's profile.
      * @param PersonAnnualEvent $body The request body
      * @param PersonAnnualEventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

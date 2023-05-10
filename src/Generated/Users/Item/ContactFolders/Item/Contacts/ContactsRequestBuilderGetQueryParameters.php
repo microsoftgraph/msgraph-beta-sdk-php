@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\ContactFolders\Item\Contacts
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The contacts in the folder. Navigation property. Read-only. Nullable.
+ * Get all the contacts in the signed-in user's mailbox (.../me/contacts), or from the specified contact folder.
 */
 class ContactsRequestBuilderGetQueryParameters 
 {

@@ -53,9 +53,10 @@ class EmailThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get emailThreats from security
+     * Get a list of the emailThreatSubmission objects and their properties.
      * @param EmailThreatsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/security-emailthreatsubmission-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?EmailThreatsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class EmailThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to emailThreats for security
+     * Create a new emailThreatSubmission object.
      * @param EmailThreatSubmission $body The request body
      * @param EmailThreatsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/security-emailthreatsubmission-post-emailthreats?view=graph-rest-1.0 Find more info here
     */
     public function post(EmailThreatSubmission $body, ?EmailThreatsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class EmailThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get emailThreats from security
+     * Get a list of the emailThreatSubmission objects and their properties.
      * @param EmailThreatsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class EmailThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to emailThreats for security
+     * Create a new emailThreatSubmission object.
      * @param EmailThreatSubmission $body The request body
      * @param EmailThreatsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

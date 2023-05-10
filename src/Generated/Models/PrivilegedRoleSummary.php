@@ -25,7 +25,7 @@ class PrivilegedRoleSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the elevatedCount property value. The number of users that have the role assigned and the role is activated.
+     * Gets the elevatedCount property value. The elevatedCount property
      * @return int|null
     */
     public function getElevatedCount(): ?int {
@@ -48,7 +48,7 @@ class PrivilegedRoleSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the managedCount property value. The number of users that have the role assigned but the role is deactivated.
+     * Gets the managedCount property value. The managedCount property
      * @return int|null
     */
     public function getManagedCount(): ?int {
@@ -56,7 +56,7 @@ class PrivilegedRoleSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the mfaEnabled property value. true if the role activation requires MFA. false if the role activation doesn't require MFA.
+     * Gets the mfaEnabled property value. The mfaEnabled property
      * @return bool|null
     */
     public function getMfaEnabled(): ?bool {
@@ -64,7 +64,7 @@ class PrivilegedRoleSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Possible values are: ok, bad. The value depends on the ratio of (managedCount / usersCount). If the ratio is less than a predefined threshold, ok is returned. Otherwise, bad is returned.
+     * Gets the status property value. The status property
      * @return RoleSummaryStatus|null
     */
     public function getStatus(): ?RoleSummaryStatus {
@@ -72,7 +72,7 @@ class PrivilegedRoleSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the usersCount property value. The number of users that are assigned with the role.
+     * Gets the usersCount property value. The usersCount property
      * @return int|null
     */
     public function getUsersCount(): ?int {
@@ -93,7 +93,7 @@ class PrivilegedRoleSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the elevatedCount property value. The number of users that have the role assigned and the role is activated.
+     * Sets the elevatedCount property value. The elevatedCount property
      * @param int|null $value Value to set for the elevatedCount property.
     */
     public function setElevatedCount(?int $value): void {
@@ -101,7 +101,7 @@ class PrivilegedRoleSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the managedCount property value. The number of users that have the role assigned but the role is deactivated.
+     * Sets the managedCount property value. The managedCount property
      * @param int|null $value Value to set for the managedCount property.
     */
     public function setManagedCount(?int $value): void {
@@ -109,7 +109,7 @@ class PrivilegedRoleSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the mfaEnabled property value. true if the role activation requires MFA. false if the role activation doesn't require MFA.
+     * Sets the mfaEnabled property value. The mfaEnabled property
      * @param bool|null $value Value to set for the mfaEnabled property.
     */
     public function setMfaEnabled(?bool $value): void {
@@ -117,7 +117,7 @@ class PrivilegedRoleSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Possible values are: ok, bad. The value depends on the ratio of (managedCount / usersCount). If the ratio is less than a predefined threshold, ok is returned. Otherwise, bad is returned.
+     * Sets the status property value. The status property
      * @param RoleSummaryStatus|null $value Value to set for the status property.
     */
     public function setStatus(?RoleSummaryStatus $value): void {
@@ -125,7 +125,7 @@ class PrivilegedRoleSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the usersCount property value. The number of users that are assigned with the role.
+     * Sets the usersCount property value. The usersCount property
      * @param int|null $value Value to set for the usersCount property.
     */
     public function setUsersCount(?int $value): void {

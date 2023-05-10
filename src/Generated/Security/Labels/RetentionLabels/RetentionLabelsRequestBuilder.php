@@ -53,9 +53,10 @@ class RetentionLabelsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get retentionLabels from security
+     * Get a list of the retentionLabel objects and their properties.
      * @param RetentionLabelsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/security-retentionlabel-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?RetentionLabelsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class RetentionLabelsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to retentionLabels for security
+     * Create a new retentionLabel object. To create a disposition review stage, include the **actionAfterRetentionPeriod** property in the request body with one of the possible values specified.
      * @param RetentionLabel $body The request body
      * @param RetentionLabelsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/security-retentionlabel-post?view=graph-rest-1.0 Find more info here
     */
     public function post(RetentionLabel $body, ?RetentionLabelsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class RetentionLabelsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get retentionLabels from security
+     * Get a list of the retentionLabel objects and their properties.
      * @param RetentionLabelsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class RetentionLabelsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to retentionLabels for security
+     * Create a new retentionLabel object. To create a disposition review stage, include the **actionAfterRetentionPeriod** property in the request body with one of the possible values specified.
      * @param RetentionLabel $body The request body
      * @param RetentionLabelsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

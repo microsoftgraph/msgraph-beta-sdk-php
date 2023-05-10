@@ -32,10 +32,11 @@ class ClockInRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action clockIn
+     * Clock in to start a timeCard.
      * @param ClockInPostRequestBody $body The request body
      * @param ClockInRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/timecard-clockin?view=graph-rest-1.0 Find more info here
     */
     public function post(ClockInPostRequestBody $body, ?ClockInRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -51,7 +52,7 @@ class ClockInRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action clockIn
+     * Clock in to start a timeCard.
      * @param ClockInPostRequestBody $body The request body
      * @param ClockInRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

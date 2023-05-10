@@ -53,9 +53,10 @@ class NamesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents the names a user has added to their profile.
+     * Retrieve a list of personName objects from a user's profile.
      * @param NamesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/profile-list-names?view=graph-rest-1.0 Find more info here
     */
     public function get(?NamesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class NamesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to names for users
+     * Use this API to create a new personName object in a user's profile.
      * @param PersonName $body The request body
      * @param NamesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/profile-post-names?view=graph-rest-1.0 Find more info here
     */
     public function post(PersonName $body, ?NamesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class NamesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents the names a user has added to their profile.
+     * Retrieve a list of personName objects from a user's profile.
      * @param NamesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class NamesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to names for users
+     * Use this API to create a new personName object in a user's profile.
      * @param PersonName $body The request body
      * @param NamesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

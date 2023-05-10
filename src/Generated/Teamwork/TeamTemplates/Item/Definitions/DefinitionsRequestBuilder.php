@@ -53,7 +53,7 @@ class DefinitionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get definitions from teamwork
+     * Read the properties and relationships of a teamTemplateDefinition object.
      * @param DefinitionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -90,7 +90,7 @@ class DefinitionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get definitions from teamwork
+     * Read the properties and relationships of a teamTemplateDefinition object.
      * @param DefinitionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

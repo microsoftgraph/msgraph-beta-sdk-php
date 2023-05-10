@@ -7,7 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagementAction;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementActions\Item\ManagedTenantsApply\ManagedTenantsApplyRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementActions\Item\MicrosoftGraphManagedTenantsApply\MicrosoftGraphManagedTenantsApplyRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -21,8 +21,8 @@ class ManagementActionItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the apply method.
     */
-    public function managedTenantsApply(): ManagedTenantsApplyRequestBuilder {
-        return new ManagedTenantsApplyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphManagedTenantsApply(): MicrosoftGraphManagedTenantsApplyRequestBuilder {
+        return new MicrosoftGraphManagedTenantsApplyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -58,9 +58,10 @@ class ManagementActionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of baseline management actions across managed tenants.
+     * Read the properties and relationships of a managementAction object.
      * @param ManagementActionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/managedtenants-managementaction-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ManagementActionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -112,7 +113,7 @@ class ManagementActionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of baseline management actions across managed tenants.
+     * Read the properties and relationships of a managementAction object.
      * @param ManagementActionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

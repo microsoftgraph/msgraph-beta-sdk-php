@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\RoleAssignments\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleAssignments\Item\RoleDefinition\RoleDefinitionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleAssignments\Item\RoleScopeTags\RoleScopeTagsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceAndAppManagementRoleAssignment;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -18,6 +19,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class DeviceAndAppManagementRoleAssignmentItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the roleDefinition property of the microsoft.graph.roleAssignment entity.
+    */
+    public function roleDefinition(): RoleDefinitionRequestBuilder {
+        return new RoleDefinitionRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the roleScopeTags property of the microsoft.graph.deviceAndAppManagementRoleAssignment entity.
     */

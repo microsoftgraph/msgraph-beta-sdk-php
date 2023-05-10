@@ -53,9 +53,10 @@ class QnasRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Administrative answer in Microsoft Search results which provide answers for specific search keywords in an organization.
+     * Get a list of the qna objects and their properties.
      * @param QnasRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/search-searchentity-list-qnas?view=graph-rest-1.0 Find more info here
     */
     public function get(?QnasRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class QnasRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to qnas for search
+     * Create a new qna object.
      * @param Qna $body The request body
      * @param QnasRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/search-searchentity-post-qnas?view=graph-rest-1.0 Find more info here
     */
     public function post(Qna $body, ?QnasRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class QnasRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Administrative answer in Microsoft Search results which provide answers for specific search keywords in an organization.
+     * Get a list of the qna objects and their properties.
      * @param QnasRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class QnasRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to qnas for search
+     * Create a new qna object.
      * @param Qna $body The request body
      * @param QnasRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

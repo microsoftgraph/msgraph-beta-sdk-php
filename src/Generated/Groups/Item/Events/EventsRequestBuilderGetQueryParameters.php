@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Events;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The group's events.
+ * Retrieve a list of event objects.
 */
 class EventsRequestBuilderGetQueryParameters 
 {

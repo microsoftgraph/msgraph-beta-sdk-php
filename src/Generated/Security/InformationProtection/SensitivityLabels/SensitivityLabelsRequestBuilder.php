@@ -10,10 +10,10 @@ use Microsoft\Graph\Beta\Generated\Models\Security\SensitivityLabel;
 use Microsoft\Graph\Beta\Generated\Models\Security\SensitivityLabelCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\InformationProtection\SensitivityLabels\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\InformationProtection\SensitivityLabels\Item\SensitivityLabelItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\InformationProtection\SensitivityLabels\SecurityEvaluateApplication\SecurityEvaluateApplicationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\InformationProtection\SensitivityLabels\SecurityEvaluateClassificationResults\SecurityEvaluateClassificationResultsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\InformationProtection\SensitivityLabels\SecurityEvaluateRemoval\SecurityEvaluateRemovalRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\InformationProtection\SensitivityLabels\SecurityExtractContentLabel\SecurityExtractContentLabelRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityEvaluateApplication\MicrosoftGraphSecurityEvaluateApplicationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityEvaluateClassificationResults\MicrosoftGraphSecurityEvaluateClassificationResultsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityEvaluateRemoval\MicrosoftGraphSecurityEvaluateRemovalRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityExtractContentLabel\MicrosoftGraphSecurityExtractContentLabelRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -34,29 +34,29 @@ class SensitivityLabelsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the evaluateApplication method.
     */
-    public function securityEvaluateApplication(): SecurityEvaluateApplicationRequestBuilder {
-        return new SecurityEvaluateApplicationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphSecurityEvaluateApplication(): MicrosoftGraphSecurityEvaluateApplicationRequestBuilder {
+        return new MicrosoftGraphSecurityEvaluateApplicationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the evaluateClassificationResults method.
     */
-    public function securityEvaluateClassificationResults(): SecurityEvaluateClassificationResultsRequestBuilder {
-        return new SecurityEvaluateClassificationResultsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphSecurityEvaluateClassificationResults(): MicrosoftGraphSecurityEvaluateClassificationResultsRequestBuilder {
+        return new MicrosoftGraphSecurityEvaluateClassificationResultsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the evaluateRemoval method.
     */
-    public function securityEvaluateRemoval(): SecurityEvaluateRemovalRequestBuilder {
-        return new SecurityEvaluateRemovalRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphSecurityEvaluateRemoval(): MicrosoftGraphSecurityEvaluateRemovalRequestBuilder {
+        return new MicrosoftGraphSecurityEvaluateRemovalRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the extractContentLabel method.
     */
-    public function securityExtractContentLabel(): SecurityExtractContentLabelRequestBuilder {
-        return new SecurityExtractContentLabelRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphSecurityExtractContentLabel(): MicrosoftGraphSecurityExtractContentLabelRequestBuilder {
+        return new MicrosoftGraphSecurityExtractContentLabelRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -85,9 +85,10 @@ class SensitivityLabelsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the Microsoft Purview Information Protection labels for the user or organization.
+     * Get a list of sensitivityLabel objects associated with a user or organization.
      * @param SensitivityLabelsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/security-informationprotection-list-sensitivitylabels?view=graph-rest-1.0 Find more info here
     */
     public function get(?SensitivityLabelsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -122,7 +123,7 @@ class SensitivityLabelsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the Microsoft Purview Information Protection labels for the user or organization.
+     * Get a list of sensitivityLabel objects associated with a user or organization.
      * @param SensitivityLabelsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

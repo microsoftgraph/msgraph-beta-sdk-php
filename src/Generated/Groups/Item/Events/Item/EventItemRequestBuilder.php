@@ -15,8 +15,6 @@ use Microsoft\Graph\Beta\Generated\Groups\Item\Events\Item\ExceptionOccurrences\
 use Microsoft\Graph\Beta\Generated\Groups\Item\Events\Item\Extensions\ExtensionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Events\Item\Forward\ForwardRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Events\Item\Instances\InstancesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Events\Item\MultiValueExtendedProperties\MultiValueExtendedPropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Events\Item\SingleValueExtendedProperties\SingleValueExtendedPropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Events\Item\SnoozeReminder\SnoozeReminderRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Events\Item\TentativelyAccept\TentativelyAcceptRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Event;
@@ -102,20 +100,6 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.event entity.
-    */
-    public function multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
-        return new MultiValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.event entity.
-    */
-    public function singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
-        return new SingleValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to call the snoozeReminder method.
     */
     public function snoozeReminder(): SnoozeReminderRequestBuilder {
@@ -144,9 +128,10 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property events for groups
+     * Delete an event object.
      * @param EventItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/group-delete-event?view=graph-rest-1.0 Find more info here
     */
     public function delete(?EventItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -162,9 +147,10 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The group's events.
+     * Get an event object.
      * @param EventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/group-get-event?view=graph-rest-1.0 Find more info here
     */
     public function get(?EventItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -180,10 +166,11 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property events in groups
+     * Update an event object.
      * @param Event $body The request body
      * @param EventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/group-update-event?view=graph-rest-1.0 Find more info here
     */
     public function patch(Event $body, ?EventItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -199,7 +186,7 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property events for groups
+     * Delete an event object.
      * @param EventItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -216,7 +203,7 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The group's events.
+     * Get an event object.
      * @param EventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -237,7 +224,7 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property events in groups
+     * Update an event object.
      * @param Event $body The request body
      * @param EventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

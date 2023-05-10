@@ -6,9 +6,9 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\EdiscoveryApplyHold\EdiscoveryApplyHoldRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\EdiscoveryRemoveHold\EdiscoveryRemoveHoldRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\NoncustodialDataSourceItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\MicrosoftGraphEdiscoveryApplyHold\MicrosoftGraphEdiscoveryApplyHoldRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\MicrosoftGraphEdiscoveryRemoveHold\MicrosoftGraphEdiscoveryRemoveHoldRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\NoncustodialDataSource;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\NoncustodialDataSourceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -32,15 +32,15 @@ class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the applyHold method.
     */
-    public function ediscoveryApplyHold(): EdiscoveryApplyHoldRequestBuilder {
-        return new EdiscoveryApplyHoldRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphEdiscoveryApplyHold(): MicrosoftGraphEdiscoveryApplyHoldRequestBuilder {
+        return new MicrosoftGraphEdiscoveryApplyHoldRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the removeHold method.
     */
-    public function ediscoveryRemoveHold(): EdiscoveryRemoveHoldRequestBuilder {
-        return new EdiscoveryRemoveHoldRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphEdiscoveryRemoveHold(): MicrosoftGraphEdiscoveryRemoveHoldRequestBuilder {
+        return new MicrosoftGraphEdiscoveryRemoveHoldRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -69,9 +69,10 @@ class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns a list of case noncustodialDataSource objects for this case.  Nullable.
+     * Get a list of the noncustodialDataSource objects and their properties.
      * @param NoncustodialDataSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/ediscovery-noncustodialdatasource-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?NoncustodialDataSourcesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -87,10 +88,11 @@ class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to noncustodialDataSources for compliance
+     * Create a new noncustodialDataSource object.
      * @param NoncustodialDataSource $body The request body
      * @param NoncustodialDataSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/ediscovery-noncustodialdatasource-post?view=graph-rest-1.0 Find more info here
     */
     public function post(NoncustodialDataSource $body, ?NoncustodialDataSourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -106,7 +108,7 @@ class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns a list of case noncustodialDataSource objects for this case.  Nullable.
+     * Get a list of the noncustodialDataSource objects and their properties.
      * @param NoncustodialDataSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -127,7 +129,7 @@ class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to noncustodialDataSources for compliance
+     * Create a new noncustodialDataSource object.
      * @param NoncustodialDataSource $body The request body
      * @param NoncustodialDataSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -61,10 +61,9 @@ class PrivilegedApprovalRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of privilegedapproval objects. To filter the results from the query, use the standard OData ``$filter`` expressions in the URIs.
+     * Get entities from privilegedApproval
      * @param PrivilegedApprovalRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/privilegedapproval-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?PrivilegedApprovalRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -80,11 +79,10 @@ class PrivilegedApprovalRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new privilegedApproval.
+     * Add new entity to privilegedApproval
      * @param PrivilegedApproval $body The request body
      * @param PrivilegedApprovalRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/privilegedapproval-post-privilegedapproval?view=graph-rest-1.0 Find more info here
     */
     public function post(PrivilegedApproval $body, ?PrivilegedApprovalRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -100,7 +98,7 @@ class PrivilegedApprovalRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of privilegedapproval objects. To filter the results from the query, use the standard OData ``$filter`` expressions in the URIs.
+     * Get entities from privilegedApproval
      * @param PrivilegedApprovalRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,7 +119,7 @@ class PrivilegedApprovalRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new privilegedApproval.
+     * Add new entity to privilegedApproval
      * @param PrivilegedApproval $body The request body
      * @param PrivilegedApprovalRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -53,9 +53,10 @@ class ProjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents detailed information about projects associated with a user.
+     * Retrieve a list of projectParticipation objects from a user's profile.
      * @param ProjectsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/profile-list-projects?view=graph-rest-1.0 Find more info here
     */
     public function get(?ProjectsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class ProjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to projects for users
+     * Use this API to create a new projectParticipation object in a user's profile.
      * @param ProjectParticipation $body The request body
      * @param ProjectsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/profile-post-projects?view=graph-rest-1.0 Find more info here
     */
     public function post(ProjectParticipation $body, ?ProjectsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class ProjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents detailed information about projects associated with a user.
+     * Retrieve a list of projectParticipation objects from a user's profile.
      * @param ProjectsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class ProjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to projects for users
+     * Use this API to create a new projectParticipation object in a user's profile.
      * @param ProjectParticipation $body The request body
      * @param ProjectsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

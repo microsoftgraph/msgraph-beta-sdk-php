@@ -31,9 +31,10 @@ class ReuploadRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action reupload
+     * Reupload a cloudPcDeviceImage object that failed to upload.
      * @param ReuploadRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/cloudpcdeviceimage-reupload?view=graph-rest-1.0 Find more info here
     */
     public function post(?ReuploadRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -49,7 +50,7 @@ class ReuploadRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action reupload
+     * Reupload a cloudPcDeviceImage object that failed to upload.
      * @param ReuploadRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

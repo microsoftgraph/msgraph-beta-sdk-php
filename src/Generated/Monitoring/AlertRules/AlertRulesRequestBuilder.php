@@ -53,9 +53,10 @@ class AlertRulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of alert rules.
+     * Get a list of the alertRule objects and their properties.
      * @param AlertRulesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/devicemanagement-alertrule-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?AlertRulesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class AlertRulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to alertRules for monitoring
+     * Create an alertRule object.
      * @param AlertRule $body The request body
      * @param AlertRulesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/devicemanagement-alertrule-post?view=graph-rest-1.0 Find more info here
     */
     public function post(AlertRule $body, ?AlertRulesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class AlertRulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of alert rules.
+     * Get a list of the alertRule objects and their properties.
      * @param AlertRulesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class AlertRulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to alertRules for monitoring
+     * Create an alertRule object.
      * @param AlertRule $body The request body
      * @param AlertRulesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

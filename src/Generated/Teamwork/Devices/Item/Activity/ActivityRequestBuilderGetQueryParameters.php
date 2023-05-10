@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\Activity;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The activity properties that change based on the device usage.
+ * Get the activity status of a Microsoft Teams-enabled device. 
 */
 class ActivityRequestBuilderGetQueryParameters 
 {

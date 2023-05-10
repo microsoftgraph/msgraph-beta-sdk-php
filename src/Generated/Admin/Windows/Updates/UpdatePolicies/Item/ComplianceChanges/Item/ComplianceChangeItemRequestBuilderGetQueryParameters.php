@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatePolicies\It
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Compliance changes like content approvals which result in the automatic creation of deployments using the audience and deploymentSettings of the policy.
+ * Read the properties and relationships of a complianceChange object.
 */
 class ComplianceChangeItemRequestBuilderGetQueryParameters 
 {

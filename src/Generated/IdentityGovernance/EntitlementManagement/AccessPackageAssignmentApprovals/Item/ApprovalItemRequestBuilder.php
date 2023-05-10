@@ -58,9 +58,10 @@ class ApprovalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get accessPackageAssignmentApprovals from identityGovernance
+     * In Azure AD entitlement management, retrieves the properties of an approval object.  This call can be made by an approver, providing the identifier of the access package assignment request.
      * @param ApprovalItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/approval-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ApprovalItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -112,7 +113,7 @@ class ApprovalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get accessPackageAssignmentApprovals from identityGovernance
+     * In Azure AD entitlement management, retrieves the properties of an approval object.  This call can be made by an approver, providing the identifier of the access package assignment request.
      * @param ApprovalItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

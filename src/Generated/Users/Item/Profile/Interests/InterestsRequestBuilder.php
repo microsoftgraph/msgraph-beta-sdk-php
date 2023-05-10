@@ -53,9 +53,10 @@ class InterestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Provides detailed information about interests the user has associated with themselves in various services.
+     * Retrieve a list of personInterest objects from a user's profile.
      * @param InterestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/profile-list-interests?view=graph-rest-1.0 Find more info here
     */
     public function get(?InterestsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class InterestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to interests for users
+     * Create a new personInterest.
      * @param PersonInterest $body The request body
      * @param InterestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/profile-post-interests?view=graph-rest-1.0 Find more info here
     */
     public function post(PersonInterest $body, ?InterestsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class InterestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Provides detailed information about interests the user has associated with themselves in various services.
+     * Retrieve a list of personInterest objects from a user's profile.
      * @param InterestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class InterestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to interests for users
+     * Create a new personInterest.
      * @param PersonInterest $body The request body
      * @param InterestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
