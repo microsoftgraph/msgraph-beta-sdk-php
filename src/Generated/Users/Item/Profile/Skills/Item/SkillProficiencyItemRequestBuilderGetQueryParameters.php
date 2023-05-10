@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Skills\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents detailed information about skills associated with a user in various services.
+ * Retrieve the properties and relationships of a skillproficiency object in a user's profile.
 */
 class SkillProficiencyItemRequestBuilderGetQueryParameters 
 {

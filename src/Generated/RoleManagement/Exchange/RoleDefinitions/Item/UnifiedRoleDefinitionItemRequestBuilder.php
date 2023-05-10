@@ -66,9 +66,10 @@ class UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The roles allowed by RBAC providers and the permissions assigned to the roles.
+     * Get the properties and relationships of a unifiedRoleDefinition object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune)- directory (Azure AD directory roles)- entitlement management (Azure AD entitlement management)- Exchange Online
      * @param UnifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/unifiedroledefinition-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?UnifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -120,7 +121,7 @@ class UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The roles allowed by RBAC providers and the permissions assigned to the roles.
+     * Get the properties and relationships of a unifiedRoleDefinition object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune)- directory (Azure AD directory roles)- entitlement management (Azure AD entitlement management)- Exchange Online
      * @param UnifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

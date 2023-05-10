@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UnifiedRbacResourceAction;
+use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\ResourceNamespaces\Item\ResourceActions\Item\AuthenticationContext\AuthenticationContextRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\ResourceNamespaces\Item\ResourceActions\Item\ResourceScope\ResourceScopeRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -18,6 +19,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class UnifiedRbacResourceActionItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the authenticationContext property of the microsoft.graph.unifiedRbacResourceAction entity.
+    */
+    public function authenticationContext(): AuthenticationContextRequestBuilder {
+        return new AuthenticationContextRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the resourceScope property of the microsoft.graph.unifiedRbacResourceAction entity.
     */
@@ -58,9 +66,10 @@ class UnifiedRbacResourceActionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Operations that an authorized principal are allowed to perform.
+     * Read the properties and relationships of an unifiedRbacResourceAction object.
      * @param UnifiedRbacResourceActionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/unifiedrbacresourceaction-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?UnifiedRbacResourceActionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -112,7 +121,7 @@ class UnifiedRbacResourceActionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Operations that an authorized principal are allowed to perform.
+     * Read the properties and relationships of an unifiedRbacResourceAction object.
      * @param UnifiedRbacResourceActionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

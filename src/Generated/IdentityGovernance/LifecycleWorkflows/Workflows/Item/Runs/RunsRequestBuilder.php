@@ -7,8 +7,8 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\Runs\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\Runs\IdentityGovernanceSummaryWithStartDateTimeWithEndDateTime\IdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\Runs\Item\RunItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\Runs\MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTime\MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\RunCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -54,9 +54,10 @@ class RunsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Workflow runs.
+     * Get a list of the run objects and their properties for a lifecycle workflow.
      * @param RunsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/identitygovernance-workflow-list-runs?view=graph-rest-1.0 Find more info here
     */
     public function get(?RunsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -75,14 +76,14 @@ class RunsRequestBuilder extends BaseRequestBuilder
      * Provides operations to call the summary method.
      * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
      * @param DateTime $startDateTime Usage: startDateTime={startDateTime}
-     * @return IdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder
+     * @return MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder
     */
-    public function identityGovernanceSummaryWithStartDateTimeWithEndDateTime(DateTime $endDateTime, DateTime $startDateTime): IdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder {
-        return new IdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
+    public function microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTime(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder {
+        return new MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
     }
 
     /**
-     * Workflow runs.
+     * Get a list of the run objects and their properties for a lifecycle workflow.
      * @param RunsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

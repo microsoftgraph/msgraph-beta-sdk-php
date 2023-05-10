@@ -6,9 +6,9 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\CustodiansRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\EdiscoveryClose\EdiscoveryCloseRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\EdiscoveryReopen\EdiscoveryReopenRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\LegalHoldsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\MicrosoftGraphEdiscoveryClose\MicrosoftGraphEdiscoveryCloseRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\MicrosoftGraphEdiscoveryReopen\MicrosoftGraphEdiscoveryReopenRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\NoncustodialDataSourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Operations\OperationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\ReviewSetsRequestBuilder;
@@ -35,24 +35,24 @@ class CaseItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the legalHolds property of the microsoft.graph.ediscovery.case entity.
+    */
+    public function legalHolds(): LegalHoldsRequestBuilder {
+        return new LegalHoldsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the close method.
     */
-    public function ediscoveryClose(): EdiscoveryCloseRequestBuilder {
-        return new EdiscoveryCloseRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphEdiscoveryClose(): MicrosoftGraphEdiscoveryCloseRequestBuilder {
+        return new MicrosoftGraphEdiscoveryCloseRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the reopen method.
     */
-    public function ediscoveryReopen(): EdiscoveryReopenRequestBuilder {
-        return new EdiscoveryReopenRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the legalHolds property of the microsoft.graph.ediscovery.case entity.
-    */
-    public function legalHolds(): LegalHoldsRequestBuilder {
-        return new LegalHoldsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphEdiscoveryReopen(): MicrosoftGraphEdiscoveryReopenRequestBuilder {
+        return new MicrosoftGraphEdiscoveryReopenRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -112,9 +112,10 @@ class CaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property cases for compliance
+     * Delete a case object.
      * @param CaseItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/ediscovery-case-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?CaseItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -130,9 +131,10 @@ class CaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get cases from compliance
+     * Retrieve the properties and relationships of a case object.
      * @param CaseItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/ediscovery-case-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?CaseItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -148,10 +150,11 @@ class CaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property cases in compliance
+     * Update the properties of a case object.
      * @param EscapedCase $body The request body
      * @param CaseItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/ediscovery-case-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(EscapedCase $body, ?CaseItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -167,7 +170,7 @@ class CaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property cases for compliance
+     * Delete a case object.
      * @param CaseItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -184,7 +187,7 @@ class CaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get cases from compliance
+     * Retrieve the properties and relationships of a case object.
      * @param CaseItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -205,7 +208,7 @@ class CaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property cases in compliance
+     * Update the properties of a case object.
      * @param EscapedCase $body The request body
      * @param CaseItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

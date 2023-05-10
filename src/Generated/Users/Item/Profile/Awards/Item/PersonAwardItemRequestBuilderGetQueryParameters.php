@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Awards\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents the details of awards or honors associated with a person.
+ * Read the properties and relationships of a personAward object from a user's profile.
 */
 class PersonAwardItemRequestBuilderGetQueryParameters 
 {

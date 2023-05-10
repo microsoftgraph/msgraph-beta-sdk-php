@@ -10,7 +10,7 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagementActionTenantD
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementActionTenantDeploymentStatuses\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementActionTenantDeploymentStatuses\Item\ManagementActionTenantDeploymentStatusItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementActionTenantDeploymentStatuses\ManagedTenantsChangeDeploymentStatus\ManagedTenantsChangeDeploymentStatusRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementActionTenantDeploymentStatuses\MicrosoftGraphManagedTenantsChangeDeploymentStatus\MicrosoftGraphManagedTenantsChangeDeploymentStatusRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -31,8 +31,8 @@ class ManagementActionTenantDeploymentStatusesRequestBuilder extends BaseRequest
     /**
      * Provides operations to call the changeDeploymentStatus method.
     */
-    public function managedTenantsChangeDeploymentStatus(): ManagedTenantsChangeDeploymentStatusRequestBuilder {
-        return new ManagedTenantsChangeDeploymentStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphManagedTenantsChangeDeploymentStatus(): MicrosoftGraphManagedTenantsChangeDeploymentStatusRequestBuilder {
+        return new MicrosoftGraphManagedTenantsChangeDeploymentStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -61,9 +61,10 @@ class ManagementActionTenantDeploymentStatusesRequestBuilder extends BaseRequest
     }
 
     /**
-     * The tenant level status of management actions across managed tenants.
+     * Get a list of the managementActionTenantDeploymentStatus objects and their properties.
      * @param ManagementActionTenantDeploymentStatusesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/managedtenants-managedtenant-list-managementactiontenantdeploymentstatuses?view=graph-rest-1.0 Find more info here
     */
     public function get(?ManagementActionTenantDeploymentStatusesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -98,7 +99,7 @@ class ManagementActionTenantDeploymentStatusesRequestBuilder extends BaseRequest
     }
 
     /**
-     * The tenant level status of management actions across managed tenants.
+     * Get a list of the managementActionTenantDeploymentStatus objects and their properties.
      * @param ManagementActionTenantDeploymentStatusesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

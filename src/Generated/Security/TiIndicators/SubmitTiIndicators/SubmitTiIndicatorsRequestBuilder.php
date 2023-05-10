@@ -31,10 +31,11 @@ class SubmitTiIndicatorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action submitTiIndicators
+     * Upload multiple threat intelligence (TI) indicators in one request instead of multiple requests.
      * @param SubmitTiIndicatorsPostRequestBody $body The request body
      * @param SubmitTiIndicatorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/tiindicator-submittiindicators?view=graph-rest-1.0 Find more info here
     */
     public function post(SubmitTiIndicatorsPostRequestBody $body, ?SubmitTiIndicatorsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -50,7 +51,7 @@ class SubmitTiIndicatorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action submitTiIndicators
+     * Upload multiple threat intelligence (TI) indicators in one request instead of multiple requests.
      * @param SubmitTiIndicatorsPostRequestBody $body The request body
      * @param SubmitTiIndicatorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

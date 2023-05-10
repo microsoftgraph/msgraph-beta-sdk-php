@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\TermStore\Sets\I
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * All sets under the group in a term [store].
+ * Get a list of the set objects and their properties.
 */
 class SetsRequestBuilderGetQueryParameters 
 {

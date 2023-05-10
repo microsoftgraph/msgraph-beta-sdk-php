@@ -32,10 +32,11 @@ class ClockOutRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action clockOut
+     * Clock out to end an open timeCard.
      * @param ClockOutPostRequestBody $body The request body
      * @param ClockOutRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/timecard-clockout?view=graph-rest-1.0 Find more info here
     */
     public function post(ClockOutPostRequestBody $body, ?ClockOutRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -51,7 +52,7 @@ class ClockOutRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action clockOut
+     * Clock out to end an open timeCard.
      * @param ClockOutPostRequestBody $body The request body
      * @param ClockOutRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

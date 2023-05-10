@@ -32,9 +32,10 @@ class ItemPhoneItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property phones for users
+     * Delete an itemPhone object from the user's profile.
      * @param ItemPhoneItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/itemphone-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?ItemPhoneItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -50,9 +51,10 @@ class ItemPhoneItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents detailed information about phone numbers associated with a user in various services.
+     * Retrieve the properties and relationships of an itemPhone object in a user's profile.
      * @param ItemPhoneItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/itemphone-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ItemPhoneItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +70,11 @@ class ItemPhoneItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property phones in users
+     * Update the properties of an itemPhone object in a user's profile.
      * @param ItemPhone $body The request body
      * @param ItemPhoneItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/itemphone-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(ItemPhone $body, ?ItemPhoneItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -87,7 +90,7 @@ class ItemPhoneItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property phones for users
+     * Delete an itemPhone object from the user's profile.
      * @param ItemPhoneItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +107,7 @@ class ItemPhoneItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents detailed information about phone numbers associated with a user in various services.
+     * Retrieve the properties and relationships of an itemPhone object in a user's profile.
      * @param ItemPhoneItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +128,7 @@ class ItemPhoneItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property phones in users
+     * Update the properties of an itemPhone object in a user's profile.
      * @param ItemPhone $body The request body
      * @param ItemPhoneItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

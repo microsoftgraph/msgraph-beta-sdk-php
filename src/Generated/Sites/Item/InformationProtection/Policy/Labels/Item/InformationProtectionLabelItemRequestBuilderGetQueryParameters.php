@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\InformationProtection\Policy
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get labels from sites
+ * Retrieve the properties and relationships of an informationProtectionLabel object.
 */
 class InformationProtectionLabelItemRequestBuilderGetQueryParameters 
 {

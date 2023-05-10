@@ -61,9 +61,10 @@ class TasksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of tasks in the plan. Read-only. Nullable.
+     * Retrieve a list of plannerTask objects associated with a plannerPlan object.
      * @param TasksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/plannerplan-list-tasks?view=graph-rest-1.0 Find more info here
     */
     public function get(?TasksRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -98,7 +99,7 @@ class TasksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of tasks in the plan. Read-only. Nullable.
+     * Retrieve a list of plannerTask objects associated with a plannerPlan object.
      * @param TasksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

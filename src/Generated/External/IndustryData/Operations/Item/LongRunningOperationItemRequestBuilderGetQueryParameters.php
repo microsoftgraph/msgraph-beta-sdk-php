@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\IndustryData\Operations\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Set of ephemeral operations that the system runs currently. Read-only.
+ * Read the properties and relationships of a fileValidateOperation object.
 */
 class LongRunningOperationItemRequestBuilderGetQueryParameters 
 {

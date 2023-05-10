@@ -6,8 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\EdiscoveryAsHierarchy\EdiscoveryAsHierarchyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\Item\TagItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\MicrosoftGraphEdiscoveryAsHierarchy\MicrosoftGraphEdiscoveryAsHierarchyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\Tag;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\TagCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -31,8 +31,8 @@ class TagsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the asHierarchy method.
     */
-    public function ediscoveryAsHierarchy(): EdiscoveryAsHierarchyRequestBuilder {
-        return new EdiscoveryAsHierarchyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphEdiscoveryAsHierarchy(): MicrosoftGraphEdiscoveryAsHierarchyRequestBuilder {
+        return new MicrosoftGraphEdiscoveryAsHierarchyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -61,9 +61,10 @@ class TagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns a list of tag objects associated to this case.
+     * Retrieve a list of tag objects from an eDiscovery case.
      * @param TagsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/ediscovery-case-list-tags?view=graph-rest-1.0 Find more info here
     */
     public function get(?TagsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -79,10 +80,11 @@ class TagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to tags for compliance
+     * Create a new tag for the specified case.  The tags are used in review sets while reviewing content.
      * @param Tag $body The request body
      * @param TagsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/ediscovery-case-post-tags?view=graph-rest-1.0 Find more info here
     */
     public function post(Tag $body, ?TagsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -98,7 +100,7 @@ class TagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns a list of tag objects associated to this case.
+     * Retrieve a list of tag objects from an eDiscovery case.
      * @param TagsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +121,7 @@ class TagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to tags for compliance
+     * Create a new tag for the specified case.  The tags are used in review sets while reviewing content.
      * @param Tag $body The request body
      * @param TagsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

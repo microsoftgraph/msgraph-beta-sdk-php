@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents the resource-specific role which a subject has been assigned through an access package assignment.
+ * Retrieve a list of accessPackageAssignmentResourceRole objects.  The resulting list includes all the resource roles of all assignments that the caller has access to read, across all catalogs and access packages.
 */
 class AccessPackageAssignmentResourceRolesRequestBuilderGetQueryParameters 
 {

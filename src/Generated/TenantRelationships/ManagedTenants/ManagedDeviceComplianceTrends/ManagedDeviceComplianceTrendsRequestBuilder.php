@@ -53,9 +53,10 @@ class ManagedDeviceComplianceTrendsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Trend insights for device compliance across managed tenants.
+     * Get a list of the managedDeviceComplianceTrend objects and their properties.
      * @param ManagedDeviceComplianceTrendsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/managedtenants-managedtenant-list-manageddevicecompliancetrends?view=graph-rest-1.0 Find more info here
     */
     public function get(?ManagedDeviceComplianceTrendsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class ManagedDeviceComplianceTrendsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Trend insights for device compliance across managed tenants.
+     * Get a list of the managedDeviceComplianceTrend objects and their properties.
      * @param ManagedDeviceComplianceTrendsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

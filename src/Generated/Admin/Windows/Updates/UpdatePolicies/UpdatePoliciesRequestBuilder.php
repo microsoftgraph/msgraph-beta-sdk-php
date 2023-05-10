@@ -53,9 +53,10 @@ class UpdatePoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A collection of policies for approving the deployment of different content to an audience over time.
+     * Get a list of updatePolicy objects and their properties.
      * @param UpdatePoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/adminwindowsupdates-list-updatepolicies?view=graph-rest-1.0 Find more info here
     */
     public function get(?UpdatePoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class UpdatePoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to updatePolicies for admin
+     * Create a new updatePolicy object.
      * @param UpdatePolicy $body The request body
      * @param UpdatePoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/adminwindowsupdates-post-updatepolicies?view=graph-rest-1.0 Find more info here
     */
     public function post(UpdatePolicy $body, ?UpdatePoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class UpdatePoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A collection of policies for approving the deployment of different content to an audience over time.
+     * Get a list of updatePolicy objects and their properties.
      * @param UpdatePoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class UpdatePoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to updatePolicies for admin
+     * Create a new updatePolicy object.
      * @param UpdatePolicy $body The request body
      * @param UpdatePoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

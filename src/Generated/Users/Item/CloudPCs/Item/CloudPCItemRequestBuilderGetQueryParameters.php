@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get cloudPCs from users
+ * Read the properties and relationships of a specific cloudPC object.
 */
 class CloudPCItemRequestBuilderGetQueryParameters 
 {

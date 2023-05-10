@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApprova
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get steps from users
+ * Retrieve the properties of an approvalStep object.
 */
 class ApprovalStepItemRequestBuilderGetQueryParameters 
 {

@@ -6,7 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\External\IndustryData\Runs\Item\Activities\ActivitiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\Runs\Item\IndustryDataGetStatistics\IndustryDataGetStatisticsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\External\IndustryData\Runs\Item\MicrosoftGraphIndustryDataGetStatistics\MicrosoftGraphIndustryDataGetStatisticsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IndustryData\IndustryDataRun;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -29,8 +29,8 @@ class IndustryDataRunItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the getStatistics method.
     */
-    public function industryDataGetStatistics(): IndustryDataGetStatisticsRequestBuilder {
-        return new IndustryDataGetStatisticsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphIndustryDataGetStatistics(): MicrosoftGraphIndustryDataGetStatisticsRequestBuilder {
+        return new MicrosoftGraphIndustryDataGetStatisticsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -48,9 +48,10 @@ class IndustryDataRunItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set of ephemeral runs which present the point-in-time that diagnostic state of activities performed by the system. Read-only.
+     * Read the properties and relationships of an industryDataRun object.
      * @param IndustryDataRunItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/industrydata-industrydatarun-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?IndustryDataRunItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,7 +67,7 @@ class IndustryDataRunItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set of ephemeral runs which present the point-in-time that diagnostic state of activities performed by the system. Read-only.
+     * Read the properties and relationships of an industryDataRun object.
      * @param IndustryDataRunItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

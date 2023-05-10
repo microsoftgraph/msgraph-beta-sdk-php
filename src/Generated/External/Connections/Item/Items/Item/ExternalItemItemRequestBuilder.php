@@ -6,7 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\External\Connections\Item\Items\Item\Activities\ActivitiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\External\Connections\Item\Items\Item\ExternalConnectorsAddActivities\ExternalConnectorsAddActivitiesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\External\Connections\Item\Items\Item\MicrosoftGraphExternalConnectorsAddActivities\MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ExternalConnectors\ExternalItem;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -29,8 +29,8 @@ class ExternalItemItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the addActivities method.
     */
-    public function externalConnectorsAddActivities(): ExternalConnectorsAddActivitiesRequestBuilder {
-        return new ExternalConnectorsAddActivitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphExternalConnectorsAddActivities(): MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder {
+        return new MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -48,9 +48,10 @@ class ExternalItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property items for external
+     * Delete an externalitem.
      * @param ExternalItemItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/externalconnectors-externalitem-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?ExternalItemItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -66,9 +67,10 @@ class ExternalItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get items from external
+     * Get the properties and relationships of an externalitem object. This API is provided for diagnostic purposes only. It is not intended to be used for any other purpose. Repeated requests to this API might result in `429` HTTP errors.
      * @param ExternalItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/externalconnectors-externalitem-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ExternalItemItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -103,7 +105,7 @@ class ExternalItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property items for external
+     * Delete an externalitem.
      * @param ExternalItemItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -120,7 +122,7 @@ class ExternalItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get items from external
+     * Get the properties and relationships of an externalitem object. This API is provided for diagnostic purposes only. It is not intended to be used for any other purpose. Repeated requests to this API might result in `429` HTTP errors.
      * @param ExternalItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\IndustryData\Years;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Set of years represented in the system.
+ * Get a list of the yearTimePeriodDefinition objects and their properties.
 */
 class YearsRequestBuilderGetQueryParameters 
 {

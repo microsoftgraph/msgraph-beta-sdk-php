@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Settings\ContactMergeSuggest
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The user's settings for the visibility of merge suggestion for the duplicate contacts in the user's contact list.
+ * Read the properties and relationships of a contactMergeSuggestions object.
 */
 class ContactMergeSuggestionsRequestBuilderGetQueryParameters 
 {

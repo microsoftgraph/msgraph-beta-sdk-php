@@ -6,10 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackages\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackages\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackages\Item\AccessPackageItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackages\Search\SearchRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AccessPackage;
 use Microsoft\Graph\Beta\Generated\Models\AccessPackageCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -27,13 +24,6 @@ class AccessPackagesRequestBuilder extends BaseRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the Search method.
-    */
-    public function search(): SearchRequestBuilder {
-        return new SearchRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -62,15 +52,6 @@ class AccessPackagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Provides operations to call the filterByCurrentUser method.
-     * @param string $on Usage: on='{on}'
-     * @return FilterByCurrentUserWithOnRequestBuilder
-    */
-    public function filterByCurrentUserWithOn(string $on): FilterByCurrentUserWithOnRequestBuilder {
-        return new FilterByCurrentUserWithOnRequestBuilder($this->pathParameters, $this->requestAdapter, $on);
-    }
-
-    /**
      * The access packages in this catalog. Read-only. Nullable. Supports $expand.
      * @param AccessPackagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -83,25 +64,6 @@ class AccessPackagesRequestBuilder extends BaseRequestBuilder
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
             return $this->requestAdapter->sendAsync($requestInfo, [AccessPackageCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
-    }
-
-    /**
-     * Create new navigation property to accessPackages for identityGovernance
-     * @param AccessPackage $body The request body
-     * @param AccessPackagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
-    */
-    public function post(AccessPackage $body, ?AccessPackagesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
-        $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
-        try {
-            $errorMappings = [
-                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, [AccessPackage::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -125,26 +87,6 @@ class AccessPackagesRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        return $requestInfo;
-    }
-
-    /**
-     * Create new navigation property to accessPackages for identityGovernance
-     * @param AccessPackage $body The request body
-     * @param AccessPackagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return RequestInformation
-    */
-    public function toPostRequestInformation(AccessPackage $body, ?AccessPackagesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
-        $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
-        $requestInfo->pathParameters = $this->pathParameters;
-        $requestInfo->httpMethod = HttpMethod::POST;
-        $requestInfo->addHeader('Accept', "application/json");
-        if ($requestConfiguration !== null) {
-            $requestInfo->addHeaders($requestConfiguration->headers);
-            $requestInfo->addRequestOptions(...$requestConfiguration->options);
-        }
-        $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

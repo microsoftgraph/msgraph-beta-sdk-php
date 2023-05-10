@@ -32,10 +32,11 @@ class ValidatePasswordRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action validatePassword
+     * Check a user's password against the organization's password validation policy and report whether the password is valid. Use this action to provide real-time feedback on password strength while the user types their password.
      * @param ValidatePasswordPostRequestBody $body The request body
      * @param ValidatePasswordRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/user-validatepassword?view=graph-rest-1.0 Find more info here
     */
     public function post(ValidatePasswordPostRequestBody $body, ?ValidatePasswordRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -51,7 +52,7 @@ class ValidatePasswordRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action validatePassword
+     * Check a user's password against the organization's password validation policy and report whether the password is valid. Use this action to provide real-time feedback on password strength while the user types their password.
      * @param ValidatePasswordPostRequestBody $body The request body
      * @param ValidatePasswordRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -90,9 +90,10 @@ class ChatMessageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Replies for a specified message. Supports $expand for channel messages.
+     * Retrieve a single message or a message reply in a channel or a chat.
      * @param ChatMessageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/chatmessage-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ChatMessageItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -144,7 +145,7 @@ class ChatMessageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Replies for a specified message. Supports $expand for channel messages.
+     * Retrieve a single message or a message reply in a channel or a chat.
      * @param ChatMessageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

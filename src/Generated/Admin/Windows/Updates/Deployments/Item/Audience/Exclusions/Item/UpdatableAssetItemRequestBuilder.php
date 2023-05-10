@@ -5,10 +5,10 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\Item\WindowsUpdatesAddMembers\WindowsUpdatesAddMembersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\Item\WindowsUpdatesAddMembersById\WindowsUpdatesAddMembersByIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\Item\WindowsUpdatesRemoveMembers\WindowsUpdatesRemoveMembersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\Item\WindowsUpdatesRemoveMembersById\WindowsUpdatesRemoveMembersByIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\Item\MicrosoftGraphWindowsUpdatesAddMembers\MicrosoftGraphWindowsUpdatesAddMembersRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\Item\MicrosoftGraphWindowsUpdatesAddMembersById\MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\Item\MicrosoftGraphWindowsUpdatesRemoveMembers\MicrosoftGraphWindowsUpdatesRemoveMembersRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\Item\MicrosoftGraphWindowsUpdatesRemoveMembersById\MicrosoftGraphWindowsUpdatesRemoveMembersByIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdatableAsset;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -24,29 +24,29 @@ class UpdatableAssetItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the addMembers method.
     */
-    public function windowsUpdatesAddMembers(): WindowsUpdatesAddMembersRequestBuilder {
-        return new WindowsUpdatesAddMembersRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphWindowsUpdatesAddMembers(): MicrosoftGraphWindowsUpdatesAddMembersRequestBuilder {
+        return new MicrosoftGraphWindowsUpdatesAddMembersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the addMembersById method.
     */
-    public function windowsUpdatesAddMembersById(): WindowsUpdatesAddMembersByIdRequestBuilder {
-        return new WindowsUpdatesAddMembersByIdRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphWindowsUpdatesAddMembersById(): MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilder {
+        return new MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the removeMembers method.
     */
-    public function windowsUpdatesRemoveMembers(): WindowsUpdatesRemoveMembersRequestBuilder {
-        return new WindowsUpdatesRemoveMembersRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphWindowsUpdatesRemoveMembers(): MicrosoftGraphWindowsUpdatesRemoveMembersRequestBuilder {
+        return new MicrosoftGraphWindowsUpdatesRemoveMembersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the removeMembersById method.
     */
-    public function windowsUpdatesRemoveMembersById(): WindowsUpdatesRemoveMembersByIdRequestBuilder {
-        return new WindowsUpdatesRemoveMembersByIdRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphWindowsUpdatesRemoveMembersById(): MicrosoftGraphWindowsUpdatesRemoveMembersByIdRequestBuilder {
+        return new MicrosoftGraphWindowsUpdatesRemoveMembersByIdRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -31,10 +31,11 @@ class ConfirmSafeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action confirmSafe
+     * Allow admins to mark an event in Azure AD sign in logs as safe. Admins can either mark the events flagged as risky by Azure AD Identity Protection as safe, or they can mark unflagged events as safe. For details about investigating Identity Protection risks, see How to investigate risk.
      * @param ConfirmSafePostRequestBody $body The request body
      * @param ConfirmSafeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/signin-confirmsafe?view=graph-rest-1.0 Find more info here
     */
     public function post(ConfirmSafePostRequestBody $body, ?ConfirmSafeRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -50,7 +51,7 @@ class ConfirmSafeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action confirmSafe
+     * Allow admins to mark an event in Azure AD sign in logs as safe. Admins can either mark the events flagged as risky by Azure AD Identity Protection as safe, or they can mark unflagged events as safe. For details about investigating Identity Protection risks, see How to investigate risk.
      * @param ConfirmSafePostRequestBody $body The request body
      * @param ConfirmSafeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

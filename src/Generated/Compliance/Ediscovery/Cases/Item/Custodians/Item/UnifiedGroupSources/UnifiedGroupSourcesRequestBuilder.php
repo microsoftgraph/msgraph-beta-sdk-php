@@ -53,9 +53,10 @@ class UnifiedGroupSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Data source entity for groups associated with the custodian.
+     * Get a list of the unifiedGroupSource objects and their properties.
      * @param UnifiedGroupSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/ediscovery-custodian-list-unifiedgroupsources?view=graph-rest-1.0 Find more info here
     */
     public function get(?UnifiedGroupSourcesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class UnifiedGroupSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to unifiedGroupSources for compliance
+     * Create a new unifiedGroupSource object.
      * @param UnifiedGroupSource $body The request body
      * @param UnifiedGroupSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/ediscovery-custodian-post-unifiedgroupsources?view=graph-rest-1.0 Find more info here
     */
     public function post(UnifiedGroupSource $body, ?UnifiedGroupSourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class UnifiedGroupSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Data source entity for groups associated with the custodian.
+     * Get a list of the unifiedGroupSource objects and their properties.
      * @param UnifiedGroupSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class UnifiedGroupSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to unifiedGroupSources for compliance
+     * Create a new unifiedGroupSource object.
      * @param UnifiedGroupSource $body The request body
      * @param UnifiedGroupSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

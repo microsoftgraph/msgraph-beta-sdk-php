@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Review
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\Item\Queries\Item\EdiscoveryApplyTags\EdiscoveryApplyTagsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\Item\Queries\Item\MicrosoftGraphEdiscoveryApplyTags\MicrosoftGraphEdiscoveryApplyTagsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\ReviewSetQuery;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -21,8 +21,8 @@ class ReviewSetQueryItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the applyTags method.
     */
-    public function ediscoveryApplyTags(): EdiscoveryApplyTagsRequestBuilder {
-        return new EdiscoveryApplyTagsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphEdiscoveryApplyTags(): MicrosoftGraphEdiscoveryApplyTagsRequestBuilder {
+        return new MicrosoftGraphEdiscoveryApplyTagsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -40,9 +40,10 @@ class ReviewSetQueryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property queries for compliance
+     * Delete a reviewSetQuery object.
      * @param ReviewSetQueryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/ediscovery-reviewsetquery-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?ReviewSetQueryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -58,9 +59,10 @@ class ReviewSetQueryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get queries from compliance
+     * Retrieve the properties and relationships of an eDiscovery reviewSetQuery object.
      * @param ReviewSetQueryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/ediscovery-reviewsetquery-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ReviewSetQueryItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,10 +78,11 @@ class ReviewSetQueryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property queries in compliance
+     * Update the properties of an eDiscovery reviewSetQuery.
      * @param ReviewSetQuery $body The request body
      * @param ReviewSetQueryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/ediscovery-reviewsetquery-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(ReviewSetQuery $body, ?ReviewSetQueryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -95,7 +98,7 @@ class ReviewSetQueryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property queries for compliance
+     * Delete a reviewSetQuery object.
      * @param ReviewSetQueryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -112,7 +115,7 @@ class ReviewSetQueryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get queries from compliance
+     * Retrieve the properties and relationships of an eDiscovery reviewSetQuery object.
      * @param ReviewSetQueryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -133,7 +136,7 @@ class ReviewSetQueryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property queries in compliance
+     * Update the properties of an eDiscovery reviewSetQuery.
      * @param ReviewSetQuery $body The request body
      * @param ReviewSetQueryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

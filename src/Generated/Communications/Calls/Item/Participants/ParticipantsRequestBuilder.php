@@ -69,9 +69,10 @@ class ParticipantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get participants from communications
+     * Retrieve a list of participant objects in the call.
      * @param ParticipantsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/call-list-participants?view=graph-rest-1.0 Find more info here
     */
     public function get(?ParticipantsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -106,7 +107,7 @@ class ParticipantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get participants from communications
+     * Retrieve a list of participant objects in the call.
      * @param ParticipantsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

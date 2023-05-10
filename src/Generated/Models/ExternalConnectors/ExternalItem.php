@@ -34,7 +34,7 @@ class ExternalItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the activities property value. Write-only property. Returns results.
+     * Gets the activities property value. Returns a list of activities performed on the item. Write-only.
      * @return array<ExternalActivity>|null
     */
     public function getActivities(): ?array {
@@ -92,7 +92,7 @@ class ExternalItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the activities property value. Write-only property. Returns results.
+     * Sets the activities property value. Returns a list of activities performed on the item. Write-only.
      * @param array<ExternalActivity>|null $value Value to set for the activities property.
     */
     public function setActivities(?array $value): void {

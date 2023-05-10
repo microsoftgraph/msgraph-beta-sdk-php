@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\IndustryData\DataConnectors\It
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\DataConnectors\Item\IndustryDataValidate\IndustryDataValidateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\External\IndustryData\DataConnectors\Item\MicrosoftGraphIndustryDataValidate\MicrosoftGraphIndustryDataValidateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\External\IndustryData\DataConnectors\Item\SourceSystem\SourceSystemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IndustryData\IndustryDataConnector;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -22,8 +22,8 @@ class IndustryDataConnectorItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the validate method.
     */
-    public function industryDataValidate(): IndustryDataValidateRequestBuilder {
-        return new IndustryDataValidateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphIndustryDataValidate(): MicrosoftGraphIndustryDataValidateRequestBuilder {
+        return new MicrosoftGraphIndustryDataValidateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -48,9 +48,10 @@ class IndustryDataConnectorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property dataConnectors for external
+     * Delete an industryDataConnector object.
      * @param IndustryDataConnectorItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/industrydata-industrydataconnector-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?IndustryDataConnectorItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -66,9 +67,10 @@ class IndustryDataConnectorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set of connectors for importing data from source systems.
+     * Read the properties and relationships of an industryDataConnector object.
      * @param IndustryDataConnectorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/industrydata-industrydataconnector-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?IndustryDataConnectorItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -84,10 +86,11 @@ class IndustryDataConnectorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property dataConnectors in external
+     * Update the properties of an azureDataLakeConnector object.
      * @param IndustryDataConnector $body The request body
      * @param IndustryDataConnectorItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/industrydata-azuredatalakeconnector-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(IndustryDataConnector $body, ?IndustryDataConnectorItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -103,7 +106,7 @@ class IndustryDataConnectorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property dataConnectors for external
+     * Delete an industryDataConnector object.
      * @param IndustryDataConnectorItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -120,7 +123,7 @@ class IndustryDataConnectorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set of connectors for importing data from source systems.
+     * Read the properties and relationships of an industryDataConnector object.
      * @param IndustryDataConnectorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -141,7 +144,7 @@ class IndustryDataConnectorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property dataConnectors in external
+     * Update the properties of an azureDataLakeConnector object.
      * @param IndustryDataConnector $body The request body
      * @param IndustryDataConnectorItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -18,11 +18,9 @@ use Microsoft\Graph\Beta\Generated\Users\Item\Messages\Item\MarkAsJunk\MarkAsJun
 use Microsoft\Graph\Beta\Generated\Users\Item\Messages\Item\MarkAsNotJunk\MarkAsNotJunkRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Messages\Item\Mentions\MentionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Messages\Item\Move\MoveRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Messages\Item\MultiValueExtendedProperties\MultiValueExtendedPropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Messages\Item\Reply\ReplyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Messages\Item\ReplyAll\ReplyAllRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Messages\Item\Send\SendRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Messages\Item\SingleValueExtendedProperties\SingleValueExtendedPropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Messages\Item\Unsubscribe\UnsubscribeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Messages\Item\Value\ContentRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -120,13 +118,6 @@ class MessageItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.message entity.
-    */
-    public function multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
-        return new MultiValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to call the reply method.
     */
     public function reply(): ReplyRequestBuilder {
@@ -145,13 +136,6 @@ class MessageItemRequestBuilder extends BaseRequestBuilder
     */
     public function send(): SendRequestBuilder {
         return new SendRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.message entity.
-    */
-    public function singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
-        return new SingleValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -176,9 +160,10 @@ class MessageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property messages for users
+     * Delete a message in the specified user's mailbox, or delete a relationship of the message. For example, you can delete a specific @-mention of the specified user in the message.
      * @param MessageItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/message-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?MessageItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -197,6 +182,7 @@ class MessageItemRequestBuilder extends BaseRequestBuilder
      * The messages in a mailbox or folder. Read-only. Nullable.
      * @param MessageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/opentypeextension-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?MessageItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -212,10 +198,11 @@ class MessageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property messages in users
+     * Update the properties of an eventMessage object.
      * @param Message $body The request body
      * @param MessageItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/eventmessage-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(Message $body, ?MessageItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -231,7 +218,7 @@ class MessageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property messages for users
+     * Delete a message in the specified user's mailbox, or delete a relationship of the message. For example, you can delete a specific @-mention of the specified user in the message.
      * @param MessageItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -269,7 +256,7 @@ class MessageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property messages in users
+     * Update the properties of an eventMessage object.
      * @param Message $body The request body
      * @param MessageItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

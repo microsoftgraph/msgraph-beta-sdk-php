@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The collection of lists under this site.
+ * Get the list of richLongRunningOperations associated with a list.
 */
 class ListItemRequestBuilderGetQueryParameters 
 {

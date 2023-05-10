@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\WebAccounts;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents web accounts the user has indicated they use or has added to their user profile.
+ * Retrieve a list of webAccounts objects from the user's profile.
 */
 class WebAccountsRequestBuilderGetQueryParameters 
 {

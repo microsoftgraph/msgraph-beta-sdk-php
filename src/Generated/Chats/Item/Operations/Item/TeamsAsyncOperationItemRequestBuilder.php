@@ -50,9 +50,10 @@ class TeamsAsyncOperationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A collection of all the Teams async operations that ran or are running on the chat. Nullable.
+     * Get the specified Teams async operation that ran or is running on a specific resource.
      * @param TeamsAsyncOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/teamsasyncoperation-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?TeamsAsyncOperationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -104,7 +105,7 @@ class TeamsAsyncOperationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A collection of all the Teams async operations that ran or are running on the chat. Nullable.
+     * Get the specified Teams async operation that ran or is running on a specific resource.
      * @param TeamsAsyncOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

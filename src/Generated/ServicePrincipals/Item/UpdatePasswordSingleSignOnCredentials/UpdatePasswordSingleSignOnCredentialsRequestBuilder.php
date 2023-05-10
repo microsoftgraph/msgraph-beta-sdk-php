@@ -31,10 +31,11 @@ class UpdatePasswordSingleSignOnCredentialsRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Invoke action updatePasswordSingleSignOnCredentials
+     * Update single sign-on credentials using a password for a user or group.
      * @param UpdatePasswordSingleSignOnCredentialsPostRequestBody $body The request body
      * @param UpdatePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/serviceprincipal-updatepasswordsinglesignoncredentials?view=graph-rest-1.0 Find more info here
     */
     public function post(UpdatePasswordSingleSignOnCredentialsPostRequestBody $body, ?UpdatePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -50,7 +51,7 @@ class UpdatePasswordSingleSignOnCredentialsRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Invoke action updatePasswordSingleSignOnCredentials
+     * Update single sign-on credentials using a password for a user or group.
      * @param UpdatePasswordSingleSignOnCredentialsPostRequestBody $body The request body
      * @param UpdatePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

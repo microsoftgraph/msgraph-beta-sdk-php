@@ -32,9 +32,10 @@ class PersonAnnotationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property notes for users
+     * Deletes a personAnnotation object from a user's profile.
      * @param PersonAnnotationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/personannotation-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?PersonAnnotationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -50,9 +51,10 @@ class PersonAnnotationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents notes that a user has added to their profile.
+     * Read the properties and relationships of a personAnnotation object from a user's profile.
      * @param PersonAnnotationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/personannotation-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PersonAnnotationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +70,11 @@ class PersonAnnotationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property notes in users
+     * Update the properties of a personAnnotation object in a user's profile.
      * @param PersonAnnotation $body The request body
      * @param PersonAnnotationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/personannotation-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(PersonAnnotation $body, ?PersonAnnotationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -87,7 +90,7 @@ class PersonAnnotationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property notes for users
+     * Deletes a personAnnotation object from a user's profile.
      * @param PersonAnnotationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +107,7 @@ class PersonAnnotationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents notes that a user has added to their profile.
+     * Read the properties and relationships of a personAnnotation object from a user's profile.
      * @param PersonAnnotationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +128,7 @@ class PersonAnnotationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property notes in users
+     * Update the properties of a personAnnotation object in a user's profile.
      * @param PersonAnnotation $body The request body
      * @param PersonAnnotationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

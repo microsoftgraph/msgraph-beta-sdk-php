@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Policies\MobileDeviceManagementPolicies
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get mobileDeviceManagementPolicies from policies
+ * Read the properties and relationships of a mobilityManagementPolicy object.
 */
 class MobilityManagementPolicyItemRequestBuilderGetQueryParameters 
 {

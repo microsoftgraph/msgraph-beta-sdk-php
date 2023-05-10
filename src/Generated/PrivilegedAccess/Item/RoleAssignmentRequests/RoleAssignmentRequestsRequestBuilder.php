@@ -71,10 +71,11 @@ class RoleAssignmentRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to roleAssignmentRequests for privilegedAccess
+     * Create a role assignment request to represent the operation you want on a role assignment. The following table lists the operations.
      * @param GovernanceRoleAssignmentRequest $body The request body
      * @param RoleAssignmentRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/governanceroleassignmentrequest-post?view=graph-rest-1.0 Find more info here
     */
     public function post(GovernanceRoleAssignmentRequest $body, ?RoleAssignmentRequestsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -111,7 +112,7 @@ class RoleAssignmentRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to roleAssignmentRequests for privilegedAccess
+     * Create a role assignment request to represent the operation you want on a role assignment. The following table lists the operations.
      * @param GovernanceRoleAssignmentRequest $body The request body
      * @param RoleAssignmentRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

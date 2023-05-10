@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Workshe
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents the title of the specified chart, including the text, visibility, position and formating of the title. Read-only.
+ * Retrieve the properties and relationships of charttitle object.
 */
 class TitleRequestBuilderGetQueryParameters 
 {

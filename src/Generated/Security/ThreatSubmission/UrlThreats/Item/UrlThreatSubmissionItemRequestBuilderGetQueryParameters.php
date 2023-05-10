@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\UrlThreats\It
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get urlThreats from security
+ * Read the properties and relationships of an urlThreatSubmission object.
 */
 class UrlThreatSubmissionItemRequestBuilderGetQueryParameters 
 {

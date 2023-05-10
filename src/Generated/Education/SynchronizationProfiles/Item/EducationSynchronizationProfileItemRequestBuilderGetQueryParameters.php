@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\SynchronizationProfiles\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get synchronizationProfiles from education
+ * Retrieve a school data synchronization profile in the tenant based on the identifier.
 */
 class EducationSynchronizationProfileItemRequestBuilderGetQueryParameters 
 {

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyUploadedDefinitionFiles\Item\AddLanguageFiles\AddLanguageFilesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyUploadedDefinitionFiles\Item\Definitions\DefinitionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyUploadedDefinitionFiles\Item\GroupPolicyOperations\GroupPolicyOperationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyUploadedDefinitionFiles\Item\Remove\RemoveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyUploadedDefinitionFiles\Item\RemoveLanguageFiles\RemoveLanguageFilesRequestBuilder;
@@ -28,6 +29,13 @@ class GroupPolicyUploadedDefinitionFileItemRequestBuilder extends BaseRequestBui
     */
     public function addLanguageFiles(): AddLanguageFilesRequestBuilder {
         return new AddLanguageFilesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the definitions property of the microsoft.graph.groupPolicyDefinitionFile entity.
+    */
+    public function definitions(): DefinitionsRequestBuilder {
+        return new DefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

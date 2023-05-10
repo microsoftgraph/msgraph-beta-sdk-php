@@ -50,9 +50,10 @@ class ProfileCardPropertyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Contains a collection of the properties an administrator has defined as visible on the Microsoft 365 profile card. Get organization settings returns the properties configured for profile cards for the organization.
+     * Retrieve the properties and relationships of a profileCardProperty entity, which contains the profile card customizations that exist in your Microsoft 365 organization for a given field. The profileCardProperty is identified by its **directoryPropertyName** property.
      * @param ProfileCardPropertyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/profilecardproperty-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ProfileCardPropertyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -104,7 +105,7 @@ class ProfileCardPropertyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Contains a collection of the properties an administrator has defined as visible on the Microsoft 365 profile card. Get organization settings returns the properties configured for profile cards for the organization.
+     * Retrieve the properties and relationships of a profileCardProperty entity, which contains the profile card customizations that exist in your Microsoft 365 organization for a given field. The profileCardProperty is identified by its **directoryPropertyName** property.
      * @param ProfileCardPropertyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

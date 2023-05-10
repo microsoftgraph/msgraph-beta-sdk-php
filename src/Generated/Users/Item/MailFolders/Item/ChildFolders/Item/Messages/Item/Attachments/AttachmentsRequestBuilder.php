@@ -61,9 +61,10 @@ class AttachmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The fileAttachment and itemAttachment attachments for the message.
+     * Retrieve a list of attachment objects.
      * @param AttachmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/eventmessage-list-attachments?view=graph-rest-1.0 Find more info here
     */
     public function get(?AttachmentsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -79,10 +80,11 @@ class AttachmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to attachments for users
+     * Use this API to add an attachment to a message.  An attachment can be one of the following types: All these types of attachment resources are derived from the attachmentresource.  You can add an attachment to an existing message by posting to its attachments collection, or to a new message that is being drafted, or created and sent on the fly.
      * @param Attachment $body The request body
      * @param AttachmentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/message-post-attachments?view=graph-rest-1.0 Find more info here
     */
     public function post(Attachment $body, ?AttachmentsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -98,7 +100,7 @@ class AttachmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The fileAttachment and itemAttachment attachments for the message.
+     * Retrieve a list of attachment objects.
      * @param AttachmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +121,7 @@ class AttachmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to attachments for users
+     * Use this API to add an attachment to a message.  An attachment can be one of the following types: All these types of attachment resources are derived from the attachmentresource.  You can add an attachment to an existing message by posting to its attachments collection, or to a new message that is being drafted, or created and sent on the fly.
      * @param Attachment $body The request body
      * @param AttachmentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

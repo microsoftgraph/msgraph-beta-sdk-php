@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Source
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Adds an additional source to the sourceCollection.
+ * Get a list of additional dataSource objects associated with a source collection.
 */
 class AdditionalSourcesRequestBuilderGetQueryParameters 
 {

@@ -61,10 +61,9 @@ class PrivilegedRoleAssignmentRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a collection of privilegedRoleAssignmentRequest.  **Note:** This requester must have at least one role assignment on the resource.
+     * Get entities from privilegedRoleAssignmentRequests
      * @param PrivilegedRoleAssignmentRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/privilegedroleassignmentrequest-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?PrivilegedRoleAssignmentRequestsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -80,11 +79,10 @@ class PrivilegedRoleAssignmentRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a privilegedroleassignmentrequest object.
+     * Add new entity to privilegedRoleAssignmentRequests
      * @param PrivilegedRoleAssignmentRequest $body The request body
      * @param PrivilegedRoleAssignmentRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/privilegedroleassignmentrequest-post?view=graph-rest-1.0 Find more info here
     */
     public function post(PrivilegedRoleAssignmentRequest $body, ?PrivilegedRoleAssignmentRequestsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -100,7 +98,7 @@ class PrivilegedRoleAssignmentRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a collection of privilegedRoleAssignmentRequest.  **Note:** This requester must have at least one role assignment on the resource.
+     * Get entities from privilegedRoleAssignmentRequests
      * @param PrivilegedRoleAssignmentRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,7 +119,7 @@ class PrivilegedRoleAssignmentRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a privilegedroleassignmentrequest object.
+     * Add new entity to privilegedRoleAssignmentRequests
      * @param PrivilegedRoleAssignmentRequest $body The request body
      * @param PrivilegedRoleAssignmentRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

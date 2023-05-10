@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Cus
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Operation entity that represents the latest indexing for the custodian.
+ * Get a list of the ediscoveryIndexOperation associated with an ediscoveryCustodian.
 */
 class LastIndexOperationRequestBuilderGetQueryParameters 
 {

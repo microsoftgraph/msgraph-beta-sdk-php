@@ -40,9 +40,10 @@ class BusinessScenarioItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property businessScenarios for solutions
+     * Delete a businessScenario object. The deletion of a scenario causes all data associated with the scenario to be deleted.
      * @param BusinessScenarioItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/businessscenario-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?BusinessScenarioItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -58,9 +59,10 @@ class BusinessScenarioItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get businessScenarios from solutions
+     * Read the properties and relationships of a businessScenario object.
      * @param BusinessScenarioItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/businessscenario-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?BusinessScenarioItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,10 +78,11 @@ class BusinessScenarioItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property businessScenarios in solutions
+     * Update the properties of a businessScenario object.
      * @param BusinessScenario $body The request body
      * @param BusinessScenarioItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/businessscenario-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(BusinessScenario $body, ?BusinessScenarioItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -95,7 +98,7 @@ class BusinessScenarioItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property businessScenarios for solutions
+     * Delete a businessScenario object. The deletion of a scenario causes all data associated with the scenario to be deleted.
      * @param BusinessScenarioItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -112,7 +115,7 @@ class BusinessScenarioItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get businessScenarios from solutions
+     * Read the properties and relationships of a businessScenario object.
      * @param BusinessScenarioItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -133,7 +136,7 @@ class BusinessScenarioItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property businessScenarios in solutions
+     * Update the properties of a businessScenario object.
      * @param BusinessScenario $body The request body
      * @param BusinessScenarioItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

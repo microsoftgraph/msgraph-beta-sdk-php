@@ -53,9 +53,10 @@ class RoleManagementPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents the role management policies.
+     * Get role management policies and their details. This API only applies to Azure AD roles. To retrieve policies that apply to Azure RBAC, use the Azure REST PIM API for role management policies.
      * @param RoleManagementPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/policyroot-list-rolemanagementpolicies?view=graph-rest-1.0 Find more info here
     */
     public function get(?RoleManagementPoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class RoleManagementPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents the role management policies.
+     * Get role management policies and their details. This API only applies to Azure AD roles. To retrieve policies that apply to Azure RBAC, use the Azure REST PIM API for role management policies.
      * @param RoleManagementPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

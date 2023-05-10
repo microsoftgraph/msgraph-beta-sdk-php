@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\MobilityManagementPolicies\Item\Include
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Azure AD groups under the scope of the mobility management application if appliesTo is selected
+ * Get the list of groups that are included in a mobile app management policy.
 */
 class RefRequestBuilderGetQueryParameters 
 {

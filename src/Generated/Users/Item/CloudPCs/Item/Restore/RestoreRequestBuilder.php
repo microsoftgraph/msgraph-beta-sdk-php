@@ -31,10 +31,11 @@ class RestoreRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action restore
+     * Restore a specific Cloud PC. Use this API to trigger a remote action that restores a Cloud PC device to a previous state.
      * @param RestorePostRequestBody $body The request body
      * @param RestoreRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/cloudpc-restore?view=graph-rest-1.0 Find more info here
     */
     public function post(RestorePostRequestBody $body, ?RestoreRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -50,7 +51,7 @@ class RestoreRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action restore
+     * Restore a specific Cloud PC. Use this API to trigger a remote action that restores a Cloud PC device to a previous state.
      * @param RestorePostRequestBody $body The request body
      * @param RestoreRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

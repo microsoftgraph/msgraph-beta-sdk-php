@@ -32,9 +32,10 @@ class AcronymItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property acronyms for search
+     * Deletes an acronym object.
      * @param AcronymItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/search-acronym-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?AcronymItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -50,9 +51,10 @@ class AcronymItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Administrative answer in Microsoft Search results to define common acronyms in a organization.
+     * Read the properties and relationships of an acronym object.
      * @param AcronymItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/search-acronym-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?AcronymItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +70,11 @@ class AcronymItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property acronyms in search
+     * Update the properties of an acronym object.
      * @param Acronym $body The request body
      * @param AcronymItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/search-acronym-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(Acronym $body, ?AcronymItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -87,7 +90,7 @@ class AcronymItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property acronyms for search
+     * Deletes an acronym object.
      * @param AcronymItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +107,7 @@ class AcronymItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Administrative answer in Microsoft Search results to define common acronyms in a organization.
+     * Read the properties and relationships of an acronym object.
      * @param AcronymItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +128,7 @@ class AcronymItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property acronyms in search
+     * Update the properties of an acronym object.
      * @param Acronym $body The request body
      * @param AcronymItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

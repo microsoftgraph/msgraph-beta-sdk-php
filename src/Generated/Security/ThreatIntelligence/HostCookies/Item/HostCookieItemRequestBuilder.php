@@ -58,9 +58,10 @@ class HostCookieItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve details about microsoft.graph.security.hostCookie objects.Note: List retrieval is not yet supported.
+     * Read the properties and relationships of a hostCookie object.
      * @param HostCookieItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/security-hostcookie-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?HostCookieItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -112,7 +113,7 @@ class HostCookieItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve details about microsoft.graph.security.hostCookie objects.Note: List retrieval is not yet supported.
+     * Read the properties and relationships of a hostCookie object.
      * @param HostCookieItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

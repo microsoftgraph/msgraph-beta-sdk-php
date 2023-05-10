@@ -8,7 +8,9 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SitePage;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\CanvasLayout\CanvasLayoutRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\CreatedByUser\CreatedByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\GetWebPartsByPosition\GetWebPartsByPositionRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\LastModifiedByUser\LastModifiedByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\Publish\PublishRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\WebParts\WebPartsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -29,10 +31,24 @@ class SitePageItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
+    */
+    public function createdByUser(): CreatedByUserRequestBuilder {
+        return new CreatedByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the getWebPartsByPosition method.
     */
     public function getWebPartsByPosition(): GetWebPartsByPositionRequestBuilder {
         return new GetWebPartsByPositionRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.
+    */
+    public function lastModifiedByUser(): LastModifiedByUserRequestBuilder {
+        return new LastModifiedByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -82,9 +98,10 @@ class SitePageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of pages in the SitePages list in this site.
+     * Returns the metadata for a [sitePage][] in the site pages [list][] in a [site][].
      * @param SitePageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/sitepage-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?SitePageItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -100,10 +117,11 @@ class SitePageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property pages in sites
+     * Update the properties of a sitePage object.
      * @param SitePage $body The request body
      * @param SitePageItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/sitepage-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(SitePage $body, ?SitePageItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -136,7 +154,7 @@ class SitePageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of pages in the SitePages list in this site.
+     * Returns the metadata for a [sitePage][] in the site pages [list][] in a [site][].
      * @param SitePageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -157,7 +175,7 @@ class SitePageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property pages in sites
+     * Update the properties of a sitePage object.
      * @param SitePage $body The request body
      * @param SitePageItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

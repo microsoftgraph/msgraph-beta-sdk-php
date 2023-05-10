@@ -5,11 +5,12 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custod
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\EdiscoveryActivate\EdiscoveryActivateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\EdiscoveryApplyHold\EdiscoveryApplyHoldRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\EdiscoveryRelease\EdiscoveryReleaseRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\EdiscoveryRemoveHold\EdiscoveryRemoveHoldRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\EdiscoveryUpdateIndex\EdiscoveryUpdateIndexRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\LastIndexOperation\LastIndexOperationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\MicrosoftGraphEdiscoveryActivate\MicrosoftGraphEdiscoveryActivateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\MicrosoftGraphEdiscoveryApplyHold\MicrosoftGraphEdiscoveryApplyHoldRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\MicrosoftGraphEdiscoveryRelease\MicrosoftGraphEdiscoveryReleaseRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\MicrosoftGraphEdiscoveryRemoveHold\MicrosoftGraphEdiscoveryRemoveHoldRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\MicrosoftGraphEdiscoveryUpdateIndex\MicrosoftGraphEdiscoveryUpdateIndexRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\SiteSources\SiteSourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\UnifiedGroupSources\UnifiedGroupSourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\UserSources\UserSourcesRequestBuilder;
@@ -26,38 +27,45 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 class CustodianItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
+     * Provides operations to manage the lastIndexOperation property of the microsoft.graph.ediscovery.dataSourceContainer entity.
+    */
+    public function lastIndexOperation(): LastIndexOperationRequestBuilder {
+        return new LastIndexOperationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the activate method.
     */
-    public function ediscoveryActivate(): EdiscoveryActivateRequestBuilder {
-        return new EdiscoveryActivateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphEdiscoveryActivate(): MicrosoftGraphEdiscoveryActivateRequestBuilder {
+        return new MicrosoftGraphEdiscoveryActivateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the applyHold method.
     */
-    public function ediscoveryApplyHold(): EdiscoveryApplyHoldRequestBuilder {
-        return new EdiscoveryApplyHoldRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphEdiscoveryApplyHold(): MicrosoftGraphEdiscoveryApplyHoldRequestBuilder {
+        return new MicrosoftGraphEdiscoveryApplyHoldRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the release method.
     */
-    public function ediscoveryRelease(): EdiscoveryReleaseRequestBuilder {
-        return new EdiscoveryReleaseRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphEdiscoveryRelease(): MicrosoftGraphEdiscoveryReleaseRequestBuilder {
+        return new MicrosoftGraphEdiscoveryReleaseRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the removeHold method.
     */
-    public function ediscoveryRemoveHold(): EdiscoveryRemoveHoldRequestBuilder {
-        return new EdiscoveryRemoveHoldRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphEdiscoveryRemoveHold(): MicrosoftGraphEdiscoveryRemoveHoldRequestBuilder {
+        return new MicrosoftGraphEdiscoveryRemoveHoldRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the updateIndex method.
     */
-    public function ediscoveryUpdateIndex(): EdiscoveryUpdateIndexRequestBuilder {
-        return new EdiscoveryUpdateIndexRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphEdiscoveryUpdateIndex(): MicrosoftGraphEdiscoveryUpdateIndexRequestBuilder {
+        return new MicrosoftGraphEdiscoveryUpdateIndexRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -114,9 +122,10 @@ class CustodianItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns a list of case custodian objects for this case.  Nullable.
+     * Read the properties and relationships of a custodian object.
      * @param CustodianItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/ediscovery-custodian-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?CustodianItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -132,10 +141,11 @@ class CustodianItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property custodians in compliance
+     * Update the properties of a custodian object.
      * @param Custodian $body The request body
      * @param CustodianItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/ediscovery-custodian-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(Custodian $body, ?CustodianItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -168,7 +178,7 @@ class CustodianItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns a list of case custodian objects for this case.  Nullable.
+     * Read the properties and relationships of a custodian object.
      * @param CustodianItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -189,7 +199,7 @@ class CustodianItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property custodians in compliance
+     * Update the properties of a custodian object.
      * @param Custodian $body The request body
      * @param CustodianItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

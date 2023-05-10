@@ -50,9 +50,10 @@ class CloudPcOverviewTenantItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Overview of cloud PC information across managed tenants.
+     * Read the properties and relationships of a cloudPcOverview object.
      * @param CloudPcOverviewTenantItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/managedtenants-cloudpcoverview-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?CloudPcOverviewTenantItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -104,7 +105,7 @@ class CloudPcOverviewTenantItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Overview of cloud PC information across managed tenants.
+     * Read the properties and relationships of a cloudPcOverview object.
      * @param CloudPcOverviewTenantItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

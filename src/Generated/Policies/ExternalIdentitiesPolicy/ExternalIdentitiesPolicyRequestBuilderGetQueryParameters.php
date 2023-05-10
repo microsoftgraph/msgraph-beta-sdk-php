@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Policies\ExternalIdentitiesPolicy;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents the tenant-wide policy that controls whether external users can leave an Azure AD tenant via self-service controls.
+ * Read the properties and relationships of the tenant-wide externalIdentitiesPolicy object that controls whether external users can leave an Azure AD tenant via self-service controls.
 */
 class ExternalIdentitiesPolicyRequestBuilderGetQueryParameters 
 {

@@ -7,8 +7,6 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\OutlookTaskFolder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskFolders\Item\MultiValueExtendedProperties\MultiValueExtendedPropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskFolders\Item\SingleValueExtendedProperties\SingleValueExtendedPropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskFolders\Item\Tasks\TasksRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -20,20 +18,6 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class OutlookTaskFolderItemRequestBuilder extends BaseRequestBuilder 
 {
-    /**
-     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.outlookTaskFolder entity.
-    */
-    public function multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
-        return new MultiValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.outlookTaskFolder entity.
-    */
-    public function singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
-        return new SingleValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
     /**
      * Provides operations to manage the tasks property of the microsoft.graph.outlookTaskFolder entity.
     */
@@ -56,9 +40,10 @@ class OutlookTaskFolderItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property taskFolders for users
+     * Delete the specified Outlook task folder.
      * @param OutlookTaskFolderItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/outlooktaskfolder-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?OutlookTaskFolderItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -74,9 +59,10 @@ class OutlookTaskFolderItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get taskFolders from users
+     * Get the properties and relationships of the specified Outlook task folder.
      * @param OutlookTaskFolderItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/outlooktaskfolder-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?OutlookTaskFolderItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -92,10 +78,11 @@ class OutlookTaskFolderItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property taskFolders in users
+     * Update the writable properties of an Outlook task folder. You cannot change the **name** property value of the default task folder, 'Tasks'.
      * @param OutlookTaskFolder $body The request body
      * @param OutlookTaskFolderItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/outlooktaskfolder-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(OutlookTaskFolder $body, ?OutlookTaskFolderItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -111,7 +98,7 @@ class OutlookTaskFolderItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property taskFolders for users
+     * Delete the specified Outlook task folder.
      * @param OutlookTaskFolderItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -128,7 +115,7 @@ class OutlookTaskFolderItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get taskFolders from users
+     * Get the properties and relationships of the specified Outlook task folder.
      * @param OutlookTaskFolderItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -149,7 +136,7 @@ class OutlookTaskFolderItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property taskFolders in users
+     * Update the writable properties of an Outlook task folder. You cannot change the **name** property value of the default task folder, 'Tasks'.
      * @param OutlookTaskFolder $body The request body
      * @param OutlookTaskFolderItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

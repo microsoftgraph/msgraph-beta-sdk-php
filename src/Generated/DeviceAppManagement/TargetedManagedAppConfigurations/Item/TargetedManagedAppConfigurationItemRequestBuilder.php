@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\DeviceAppManagement\TargetedManagedAppConfigu
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\TargetedManagedAppConfigurations\Item\Assignments\AssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\TargetedManagedAppConfigurations\Item\ChangeSettings\ChangeSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\TargetedManagedAppConfigurations\Item\DeploymentSummary\DeploymentSummaryRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\TargetedManagedAppConfigurations\Item\Settings\SettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\TargetedManagedAppConfigurations\Item\TargetApps\TargetAppsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TargetedManagedAppConfiguration;
@@ -56,6 +57,13 @@ class TargetedManagedAppConfigurationItemRequestBuilder extends BaseRequestBuild
     */
     public function deploymentSummary(): DeploymentSummaryRequestBuilder {
         return new DeploymentSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the settings property of the microsoft.graph.managedAppConfiguration entity.
+    */
+    public function settings(): SettingsRequestBuilder {
+        return new SettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

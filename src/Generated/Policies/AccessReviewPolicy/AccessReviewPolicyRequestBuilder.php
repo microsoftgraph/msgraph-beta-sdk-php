@@ -50,9 +50,10 @@ class AccessReviewPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The policy that contains directory-level access review settings.
+     * Read the properties and relationships of an accessReviewPolicy object.
      * @param AccessReviewPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/accessreviewpolicy-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?AccessReviewPolicyRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +69,11 @@ class AccessReviewPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property accessReviewPolicy in policies
+     * Update the properties of an accessReviewPolicy object.
      * @param AccessReviewPolicy $body The request body
      * @param AccessReviewPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/accessreviewpolicy-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(AccessReviewPolicy $body, ?AccessReviewPolicyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -104,7 +106,7 @@ class AccessReviewPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The policy that contains directory-level access review settings.
+     * Read the properties and relationships of an accessReviewPolicy object.
      * @param AccessReviewPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +127,7 @@ class AccessReviewPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property accessReviewPolicy in policies
+     * Update the properties of an accessReviewPolicy object.
      * @param AccessReviewPolicy $body The request body
      * @param AccessReviewPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

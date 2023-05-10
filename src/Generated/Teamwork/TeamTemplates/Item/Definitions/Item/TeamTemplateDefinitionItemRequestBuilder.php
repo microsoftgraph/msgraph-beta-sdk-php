@@ -58,9 +58,10 @@ class TeamTemplateDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get definitions from teamwork
+     * Read the properties and relationships of a teamTemplateDefinition object.
      * @param TeamTemplateDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/teamtemplatedefinition-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?TeamTemplateDefinitionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -112,7 +113,7 @@ class TeamTemplateDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get definitions from teamwork
+     * Read the properties and relationships of a teamTemplateDefinition object.
      * @param TeamTemplateDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

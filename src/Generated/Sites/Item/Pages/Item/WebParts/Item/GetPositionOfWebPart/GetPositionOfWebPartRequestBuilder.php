@@ -35,6 +35,7 @@ class GetPositionOfWebPartRequestBuilder extends BaseRequestBuilder
      * Invoke action getPositionOfWebPart
      * @param GetPositionOfWebPartRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/webpart-getposition?view=graph-rest-1.0 Find more info here
     */
     public function post(?GetPositionOfWebPartRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);

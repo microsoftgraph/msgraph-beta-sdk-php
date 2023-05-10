@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\SchedulingGroups\It
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The logical grouping of users in the schedule (usually by role).
+ * Retrieve the properties and relationships of a schedulingGroup by ID.
 */
 class SchedulingGroupItemRequestBuilderGetQueryParameters 
 {

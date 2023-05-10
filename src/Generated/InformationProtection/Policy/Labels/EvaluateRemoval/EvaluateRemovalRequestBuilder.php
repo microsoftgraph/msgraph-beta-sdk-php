@@ -31,10 +31,11 @@ class EvaluateRemovalRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action evaluateRemoval
+     * Indicate to the consuming application what actions it should take to remove the label information. Given contentInfo as an input, which includes existing content metadata key/value pairs, the API returns an informationProtectionAction that contains some combination of one of more of the following: 
      * @param EvaluateRemovalPostRequestBody $body The request body
      * @param EvaluateRemovalRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/informationprotectionlabel-evaluateremoval?view=graph-rest-1.0 Find more info here
     */
     public function post(EvaluateRemovalPostRequestBody $body, ?EvaluateRemovalRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -50,7 +51,7 @@ class EvaluateRemovalRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action evaluateRemoval
+     * Indicate to the consuming application what actions it should take to remove the label information. Given contentInfo as an input, which includes existing content metadata key/value pairs, the API returns an informationProtectionAction that contains some combination of one of more of the following: 
      * @param EvaluateRemovalPostRequestBody $body The request body
      * @param EvaluateRemovalRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

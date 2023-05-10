@@ -85,9 +85,10 @@ class LabelsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get labels from sites
+     * Get a collection of information protection labels available to the user or to the organization.
      * @param LabelsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/informationprotectionpolicy-list-labels?view=graph-rest-1.0 Find more info here
     */
     public function get(?LabelsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -122,7 +123,7 @@ class LabelsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get labels from sites
+     * Get a collection of information protection labels available to the user or to the organization.
      * @param LabelsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

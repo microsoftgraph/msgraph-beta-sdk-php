@@ -26,7 +26,7 @@ class ExternalActivityResult extends ExternalActivity implements Parsable
     }
 
     /**
-     * Gets the error property value. Error information explaining failure to process external activity.
+     * Gets the error property value. Error information that explains the failure to process an external activity.
      * @return PublicError|null
     */
     public function getError(): ?PublicError {
@@ -54,7 +54,7 @@ class ExternalActivityResult extends ExternalActivity implements Parsable
     }
 
     /**
-     * Sets the error property value. Error information explaining failure to process external activity.
+     * Sets the error property value. Error information that explains the failure to process an external activity.
      * @param PublicError|null $value Value to set for the error property.
     */
     public function setError(?PublicError $value): void {

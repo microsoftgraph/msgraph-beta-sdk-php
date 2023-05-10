@@ -8,8 +8,10 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Activities\ActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Columns\ColumnsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\ContentTypes\ContentTypesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\CreatedByUser\CreatedByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Drive\DriveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\ItemsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\LastModifiedByUser\LastModifiedByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Operations\OperationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Subscriptions\SubscriptionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EscapedList;
@@ -46,6 +48,13 @@ class ListRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
+    */
+    public function createdByUser(): CreatedByUserRequestBuilder {
+        return new CreatedByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the drive property of the microsoft.graph.list entity.
     */
     public function drive(): DriveRequestBuilder {
@@ -57,6 +66,13 @@ class ListRequestBuilder extends BaseRequestBuilder
     */
     public function items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.
+    */
+    public function lastModifiedByUser(): LastModifiedByUserRequestBuilder {
+        return new LastModifiedByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

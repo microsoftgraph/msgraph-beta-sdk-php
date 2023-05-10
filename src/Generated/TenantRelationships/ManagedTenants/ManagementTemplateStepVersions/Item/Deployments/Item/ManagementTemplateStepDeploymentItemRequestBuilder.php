@@ -7,7 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagementTemplateStepDeployment;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateStepVersions\Item\Deployments\Item\ManagedTenantsChangeDeploymentStatus\ManagedTenantsChangeDeploymentStatusRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateStepVersions\Item\Deployments\Item\MicrosoftGraphManagedTenantsChangeDeploymentStatus\MicrosoftGraphManagedTenantsChangeDeploymentStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateStepVersions\Item\Deployments\Item\TemplateStepVersion\TemplateStepVersionRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -22,8 +22,8 @@ class ManagementTemplateStepDeploymentItemRequestBuilder extends BaseRequestBuil
     /**
      * Provides operations to call the changeDeploymentStatus method.
     */
-    public function managedTenantsChangeDeploymentStatus(): ManagedTenantsChangeDeploymentStatusRequestBuilder {
-        return new ManagedTenantsChangeDeploymentStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphManagedTenantsChangeDeploymentStatus(): MicrosoftGraphManagedTenantsChangeDeploymentStatusRequestBuilder {
+        return new MicrosoftGraphManagedTenantsChangeDeploymentStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -12,8 +12,6 @@ use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\Copy\CopyRequestB
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\MessageRules\MessageRulesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\Messages\MessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\Move\MoveRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\MultiValueExtendedProperties\MultiValueExtendedPropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\SingleValueExtendedProperties\SingleValueExtendedPropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\UserConfigurations\UserConfigurationsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -61,20 +59,6 @@ class MailFolderItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.mailFolder entity.
-    */
-    public function multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
-        return new MultiValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.mailFolder entity.
-    */
-    public function singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
-        return new SingleValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the userConfigurations property of the microsoft.graph.mailFolder entity.
     */
     public function userConfigurations(): UserConfigurationsRequestBuilder {
@@ -96,9 +80,10 @@ class MailFolderItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property mailFolders for users
+     * Delete the specified mailFolder. The folder can be a mailSearchFolder. You can specify a mail folder by its folder ID, or by its well-known folder name, if one exists.
      * @param MailFolderItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/mailfolder-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?MailFolderItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -117,6 +102,7 @@ class MailFolderItemRequestBuilder extends BaseRequestBuilder
      * The user's mail folders. Read-only. Nullable.
      * @param MailFolderItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/mailfolder-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?MailFolderItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -132,10 +118,11 @@ class MailFolderItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property mailFolders in users
+     * Update the properties of mailFolder object.
      * @param MailFolder $body The request body
      * @param MailFolderItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/mailfolder-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(MailFolder $body, ?MailFolderItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -151,7 +138,7 @@ class MailFolderItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property mailFolders for users
+     * Delete the specified mailFolder. The folder can be a mailSearchFolder. You can specify a mail folder by its folder ID, or by its well-known folder name, if one exists.
      * @param MailFolderItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -189,7 +176,7 @@ class MailFolderItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property mailFolders in users
+     * Update the properties of mailFolder object.
      * @param MailFolder $body The request body
      * @param MailFolderItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

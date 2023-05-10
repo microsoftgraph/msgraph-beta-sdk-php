@@ -63,7 +63,7 @@ class EligibilityScheduleInstancesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get eligibilityScheduleInstances from identityGovernance
+     * Read the properties and relationships of a privilegedAccessGroupEligibilityScheduleInstance object.
      * @param EligibilityScheduleInstancesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -100,7 +100,7 @@ class EligibilityScheduleInstancesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get eligibilityScheduleInstances from identityGovernance
+     * Read the properties and relationships of a privilegedAccessGroupEligibilityScheduleInstance object.
      * @param EligibilityScheduleInstancesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

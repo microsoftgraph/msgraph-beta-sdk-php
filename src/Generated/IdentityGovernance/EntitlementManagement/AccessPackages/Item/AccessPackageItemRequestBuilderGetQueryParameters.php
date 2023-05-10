@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents access package objects.
+ * Retrieve the properties and relationships of an accessPackage object.
 */
 class AccessPackageItemRequestBuilderGetQueryParameters 
 {

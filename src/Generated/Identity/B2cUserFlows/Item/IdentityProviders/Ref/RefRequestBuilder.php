@@ -33,9 +33,10 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get ref of identityProviders from identity
+     * Get the identity providers in a b2cIdentityUserFlow object.
      * @param RefRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/b2cidentityuserflow-list-identityproviders?view=graph-rest-1.0 Find more info here
     */
     public function get(?RefRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -51,10 +52,11 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property ref to identityProviders for identity
+     * Add identity providers in a b2cIdentityUserFlow object.
      * @param ReferenceCreate $body The request body
      * @param RefRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/b2cidentityuserflow-post-identityproviders?view=graph-rest-1.0 Find more info here
     */
     public function post(ReferenceCreate $body, ?RefRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -70,7 +72,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get ref of identityProviders from identity
+     * Get the identity providers in a b2cIdentityUserFlow object.
      * @param RefRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -91,7 +93,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property ref to identityProviders for identity
+     * Add identity providers in a b2cIdentityUserFlow object.
      * @param ReferenceCreate $body The request body
      * @param RefRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

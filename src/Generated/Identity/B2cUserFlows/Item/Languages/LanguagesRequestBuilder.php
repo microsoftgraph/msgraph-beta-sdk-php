@@ -53,9 +53,10 @@ class LanguagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The languages supported for customization within the user flow. Language customization is not enabled by default in B2C user flows.
+     * Retrieve a list of languages supported for customization in an Azure AD B2C user flow. **Note:** To retrieve a list of languages supported for customization, you must first enable language customization on your Azure AD B2C user flow. For more information, see Update b2cIdentityUserFlow.
      * @param LanguagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/b2cidentityuserflow-list-languages?view=graph-rest-1.0 Find more info here
     */
     public function get(?LanguagesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class LanguagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The languages supported for customization within the user flow. Language customization is not enabled by default in B2C user flows.
+     * Retrieve a list of languages supported for customization in an Azure AD B2C user flow. **Note:** To retrieve a list of languages supported for customization, you must first enable language customization on your Azure AD B2C user flow. For more information, see Update b2cIdentityUserFlow.
      * @param LanguagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

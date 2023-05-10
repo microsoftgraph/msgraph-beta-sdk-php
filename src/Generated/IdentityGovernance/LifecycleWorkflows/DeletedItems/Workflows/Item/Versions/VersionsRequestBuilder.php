@@ -52,9 +52,10 @@ class VersionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The workflow versions that are available.
+     * Get a list of the workflowVersion objects and their properties.
      * @param VersionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/identitygovernance-workflow-list-versions?view=graph-rest-1.0 Find more info here
     */
     public function get(?VersionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -70,7 +71,7 @@ class VersionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The workflow versions that are available.
+     * Get a list of the workflowVersion objects and their properties.
      * @param VersionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

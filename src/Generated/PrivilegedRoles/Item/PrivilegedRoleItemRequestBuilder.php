@@ -90,10 +90,9 @@ class PrivilegedRoleItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of privilegedRole object. 
+     * Get entity from privilegedRoles by key
      * @param PrivilegedRoleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/privilegedrole-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PrivilegedRoleItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -145,7 +144,7 @@ class PrivilegedRoleItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of privilegedRole object. 
+     * Get entity from privilegedRoles by key
      * @param PrivilegedRoleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

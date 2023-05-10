@@ -31,10 +31,11 @@ class ConfirmCompromisedRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action confirmCompromised
+     * Allow admins to mark an event in the Azure AD sign in logs as risky. Events marked as risky by an admin are immediately flagged as high risk in Azure AD Identity Protection, overriding previous risk states. Admins can confirm that events flagged as risky by Azure AD Identity Protection are in fact risky. For details about investigating Identity Protection risks, see How to investigate risk.
      * @param ConfirmCompromisedPostRequestBody $body The request body
      * @param ConfirmCompromisedRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/signin-confirmcompromised?view=graph-rest-1.0 Find more info here
     */
     public function post(ConfirmCompromisedPostRequestBody $body, ?ConfirmCompromisedRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -50,7 +51,7 @@ class ConfirmCompromisedRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action confirmCompromised
+     * Allow admins to mark an event in the Azure AD sign in logs as risky. Events marked as risky by an admin are immediately flagged as high risk in Azure AD Identity Protection, overriding previous risk states. Admins can confirm that events flagged as risky by Azure AD Identity Protection are in fact risky. For details about investigating Identity Protection risks, see How to investigate risk.
      * @param ConfirmCompromisedPostRequestBody $body The request body
      * @param ConfirmCompromisedRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

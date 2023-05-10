@@ -53,9 +53,10 @@ class AddressesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents details of addresses associated with the user.
+     * Get the itemAddress resources from the **addresses** navigation property.
      * @param AddressesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/profile-list-addresses?view=graph-rest-1.0 Find more info here
     */
     public function get(?AddressesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class AddressesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to addresses for users
+     * Create a new itemAddress object in a user's profile.
      * @param ItemAddress $body The request body
      * @param AddressesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/profile-post-addresses?view=graph-rest-1.0 Find more info here
     */
     public function post(ItemAddress $body, ?AddressesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class AddressesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents details of addresses associated with the user.
+     * Get the itemAddress resources from the **addresses** navigation property.
      * @param AddressesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class AddressesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to addresses for users
+     * Create a new itemAddress object in a user's profile.
      * @param ItemAddress $body The request body
      * @param AddressesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

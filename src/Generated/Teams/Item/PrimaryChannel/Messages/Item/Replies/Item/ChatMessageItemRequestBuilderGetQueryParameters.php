@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Messages\Item
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Replies for a specified message. Supports $expand for channel messages.
+ * Retrieve a single message or a message reply in a channel or a chat.
 */
 class ChatMessageItemRequestBuilderGetQueryParameters 
 {

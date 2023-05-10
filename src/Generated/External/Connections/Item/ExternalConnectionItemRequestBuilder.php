@@ -72,9 +72,10 @@ class ExternalConnectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property connections for external
+     * Delete an externalConnection.
      * @param ExternalConnectionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/externalconnectors-externalconnection-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?ExternalConnectionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -90,9 +91,10 @@ class ExternalConnectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get connections from external
+     * Retrieve the properties and relationships of an externalConnection.
      * @param ExternalConnectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/externalconnectors-externalconnection-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ExternalConnectionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -108,10 +110,11 @@ class ExternalConnectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property connections in external
+     * Update the properties of an externalConnection.
      * @param ExternalConnection $body The request body
      * @param ExternalConnectionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/externalconnectors-externalconnection-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(ExternalConnection $body, ?ExternalConnectionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -127,7 +130,7 @@ class ExternalConnectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property connections for external
+     * Delete an externalConnection.
      * @param ExternalConnectionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -144,7 +147,7 @@ class ExternalConnectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get connections from external
+     * Retrieve the properties and relationships of an externalConnection.
      * @param ExternalConnectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -165,7 +168,7 @@ class ExternalConnectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property connections in external
+     * Update the properties of an externalConnection.
      * @param ExternalConnection $body The request body
      * @param ExternalConnectionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

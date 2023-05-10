@@ -53,9 +53,10 @@ class SiteSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Data source entity for SharePoint sites associated with the legal hold.
+     * Get the list of siteSource objecs associated with a legal hold.
      * @param SiteSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/ediscovery-legalhold-list-sitesources?view=graph-rest-1.0 Find more info here
     */
     public function get(?SiteSourcesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class SiteSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to siteSources for compliance
+     * Adds a siteSource to a legalHold object.
      * @param SiteSource $body The request body
      * @param SiteSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/ediscovery-legalhold-post-sitesources?view=graph-rest-1.0 Find more info here
     */
     public function post(SiteSource $body, ?SiteSourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class SiteSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Data source entity for SharePoint sites associated with the legal hold.
+     * Get the list of siteSource objecs associated with a legal hold.
      * @param SiteSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class SiteSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to siteSources for compliance
+     * Adds a siteSource to a legalHold object.
      * @param SiteSource $body The request body
      * @param SiteSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

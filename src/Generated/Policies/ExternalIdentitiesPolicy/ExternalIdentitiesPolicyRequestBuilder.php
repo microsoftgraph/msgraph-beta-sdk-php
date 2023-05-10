@@ -50,9 +50,10 @@ class ExternalIdentitiesPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents the tenant-wide policy that controls whether external users can leave an Azure AD tenant via self-service controls.
+     * Read the properties and relationships of the tenant-wide externalIdentitiesPolicy object that controls whether external users can leave an Azure AD tenant via self-service controls.
      * @param ExternalIdentitiesPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/externalidentitiespolicy-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ExternalIdentitiesPolicyRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +69,11 @@ class ExternalIdentitiesPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property externalIdentitiesPolicy in policies
+     * Update the settings of the tenant-wide externalIdentitiesPolicy object that controls whether external users can leave an Azure AD tenant via self-service controls.
      * @param ExternalIdentitiesPolicy $body The request body
      * @param ExternalIdentitiesPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/externalidentitiespolicy-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(ExternalIdentitiesPolicy $body, ?ExternalIdentitiesPolicyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -104,7 +106,7 @@ class ExternalIdentitiesPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents the tenant-wide policy that controls whether external users can leave an Azure AD tenant via self-service controls.
+     * Read the properties and relationships of the tenant-wide externalIdentitiesPolicy object that controls whether external users can leave an Azure AD tenant via self-service controls.
      * @param ExternalIdentitiesPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +127,7 @@ class ExternalIdentitiesPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property externalIdentitiesPolicy in policies
+     * Update the settings of the tenant-wide externalIdentitiesPolicy object that controls whether external users can leave an Azure AD tenant via self-service controls.
      * @param ExternalIdentitiesPolicy $body The request body
      * @param ExternalIdentitiesPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Me\Classes;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Classes to which the user belongs. Nullable.
+ * Retrieve a collection of educationClass resources.
 */
 class ClassesRequestBuilderGetQueryParameters 
 {

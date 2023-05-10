@@ -90,7 +90,7 @@ class RoleInfoRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The roleInfo object of the role assignment request.
+     * Get roleInfo from privilegedRoleAssignmentRequests
      * @param RoleInfoRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -144,7 +144,7 @@ class RoleInfoRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The roleInfo object of the role assignment request.
+     * Get roleInfo from privilegedRoleAssignmentRequests
      * @param RoleInfoRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

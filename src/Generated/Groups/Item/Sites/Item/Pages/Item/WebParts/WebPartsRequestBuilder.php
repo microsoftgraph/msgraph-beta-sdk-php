@@ -53,7 +53,7 @@ class WebPartsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of webparts on the SharePoint page
+     * Read the properties and relationships of a webPart object.
      * @param WebPartsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -90,7 +90,7 @@ class WebPartsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of webparts on the SharePoint page
+     * Read the properties and relationships of a webPart object.
      * @param WebPartsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

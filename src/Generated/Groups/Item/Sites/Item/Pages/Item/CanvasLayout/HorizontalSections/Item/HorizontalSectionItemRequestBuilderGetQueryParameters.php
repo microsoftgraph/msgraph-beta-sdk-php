@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\Canva
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Collection of horizontal sections on the SharePoint page.
+ * Read the properties and relationships of a horizontalSection object.
 */
 class HorizontalSectionItemRequestBuilderGetQueryParameters 
 {

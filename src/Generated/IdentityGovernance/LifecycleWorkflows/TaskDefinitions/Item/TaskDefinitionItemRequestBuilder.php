@@ -32,9 +32,10 @@ class TaskDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The definition of tasks within the lifecycle workflows instance.
+     * Read the details of a built-in workflow task.
      * @param TaskDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/identitygovernance-taskdefinition-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?TaskDefinitionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class TaskDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The definition of tasks within the lifecycle workflows instance.
+     * Read the details of a built-in workflow task.
      * @param TaskDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

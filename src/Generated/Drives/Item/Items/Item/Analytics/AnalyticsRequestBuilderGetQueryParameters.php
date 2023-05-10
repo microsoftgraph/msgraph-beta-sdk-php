@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Analytics;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Analytics about the view activities that took place on this item.
+ * Get [itemAnalytics][] about the views that took place under this resource.The **itemAnalytics** resource is a convenient way to get activity stats for `allTime` and the `lastSevenDays`.For a custom time range or interval, use the [getActivitiesByInterval][] API.
 */
 class AnalyticsRequestBuilderGetQueryParameters 
 {

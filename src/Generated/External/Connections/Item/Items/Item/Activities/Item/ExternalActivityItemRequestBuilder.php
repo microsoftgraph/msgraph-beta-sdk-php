@@ -58,7 +58,7 @@ class ExternalActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Write-only property. Returns results.
+     * Returns a list of activities performed on the item. Write-only.
      * @param ExternalActivityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -112,7 +112,7 @@ class ExternalActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Write-only property. Returns results.
+     * Returns a list of activities performed on the item. Write-only.
      * @param ExternalActivityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

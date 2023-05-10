@@ -7,11 +7,13 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Items\Item\Activities\ActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Items\Item\Analytics\AnalyticsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Items\Item\CreatedByUser\CreatedByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Items\Item\CreateLink\CreateLinkRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Items\Item\DocumentSetVersions\DocumentSetVersionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Items\Item\DriveItem\DriveItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Items\Item\Fields\FieldsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Items\Item\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Items\Item\LastModifiedByUser\LastModifiedByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Items\Item\Versions\VersionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ListItem;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -37,6 +39,13 @@ class ListItemItemRequestBuilder extends BaseRequestBuilder
     */
     public function analytics(): AnalyticsRequestBuilder {
         return new AnalyticsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
+    */
+    public function createdByUser(): CreatedByUserRequestBuilder {
+        return new CreatedByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -68,6 +77,13 @@ class ListItemItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.
+    */
+    public function lastModifiedByUser(): LastModifiedByUserRequestBuilder {
+        return new LastModifiedByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the versions property of the microsoft.graph.listItem entity.
     */
     public function versions(): VersionsRequestBuilder {
@@ -89,9 +105,10 @@ class ListItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property items for groups
+     * Removes an item from a [list][].
      * @param ListItemItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/listitem-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?ListItemItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -107,9 +124,10 @@ class ListItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * All items contained in the list.
+     * Returns the metadata for an [item][] in a [list][].
      * @param ListItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/listitem-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ListItemItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -155,7 +173,7 @@ class ListItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property items for groups
+     * Removes an item from a [list][].
      * @param ListItemItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -172,7 +190,7 @@ class ListItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * All items contained in the list.
+     * Returns the metadata for an [item][] in a [list][].
      * @param ListItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

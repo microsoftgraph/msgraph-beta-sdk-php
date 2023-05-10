@@ -50,9 +50,10 @@ class WindowsProtectionStateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The protection state for Windows devices, registered with Microsoft Endpoint Manager, across managed tenants.
+     * Read the properties and relationships of a windowsProtectionState object.
      * @param WindowsProtectionStateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/managedtenants-windowsprotectionstate-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?WindowsProtectionStateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -104,7 +105,7 @@ class WindowsProtectionStateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The protection state for Windows devices, registered with Microsoft Endpoint Manager, across managed tenants.
+     * Read the properties and relationships of a windowsProtectionState object.
      * @param WindowsProtectionStateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

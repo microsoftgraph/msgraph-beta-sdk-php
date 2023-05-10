@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Devi
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Summary information for device compliance policy setting states across managed tenants.
+ * Get a list of the deviceCompliancePolicySettingStateSummary objects and their properties.
 */
 class DeviceCompliancePolicySettingStateSummariesRequestBuilderGetQueryParameters 
 {

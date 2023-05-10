@@ -33,9 +33,10 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * All users in the class. Nullable.
+     * Retrieves the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class.
      * @param RefRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/educationclass-list-members?view=graph-rest-1.0 Find more info here
     */
     public function get(?RefRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -51,10 +52,11 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property ref to members for education
+     * Add an educationUser member to an educationClass.
      * @param ReferenceCreate $body The request body
      * @param RefRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/educationclass-post-members?view=graph-rest-1.0 Find more info here
     */
     public function post(ReferenceCreate $body, ?RefRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -70,7 +72,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * All users in the class. Nullable.
+     * Retrieves the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class.
      * @param RefRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -91,7 +93,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property ref to members for education
+     * Add an educationUser member to an educationClass.
      * @param ReferenceCreate $body The request body
      * @param RefRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

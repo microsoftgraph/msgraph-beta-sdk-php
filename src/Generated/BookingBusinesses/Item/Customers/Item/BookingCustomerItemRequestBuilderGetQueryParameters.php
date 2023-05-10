@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Customers\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * All the customers of this business. Read-only. Nullable.
+ * Get the properties and relationships of a bookingCustomer object.
 */
 class BookingCustomerItemRequestBuilderGetQueryParameters 
 {

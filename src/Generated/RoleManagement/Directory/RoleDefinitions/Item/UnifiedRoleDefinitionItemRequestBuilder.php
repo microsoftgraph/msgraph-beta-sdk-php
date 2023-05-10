@@ -48,9 +48,10 @@ class UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property roleDefinitions for roleManagement
+     * Delete a unifiedRoleDefinition object for an RBAC provider. You cannot delete built-in roles. This feature requires an Azure AD Premium P1 or P2 license. The following RBAC providers are currently supported:- Cloud PC- device management (Intune)- directory (Azure AD) 
      * @param UnifiedRoleDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/unifiedroledefinition-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?UnifiedRoleDefinitionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -66,9 +67,10 @@ class UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get roleDefinitions from roleManagement
+     * Get the properties and relationships of a unifiedRoleDefinition object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune)- directory (Azure AD directory roles)- entitlement management (Azure AD entitlement management)- Exchange Online
      * @param UnifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/unifiedroledefinition-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?UnifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -84,10 +86,11 @@ class UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property roleDefinitions in roleManagement
+     * Update the properties of a unifiedRoleDefinition object for an RBAC provider. You cannot update built-in roles. This feature requires an Azure AD Premium P1 or P2 license. The following RBAC providers are currently supported:- Cloud PC- device management (Intune)- directory (Azure AD) 
      * @param UnifiedRoleDefinition $body The request body
      * @param UnifiedRoleDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/unifiedroledefinition-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(UnifiedRoleDefinition $body, ?UnifiedRoleDefinitionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -103,7 +106,7 @@ class UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property roleDefinitions for roleManagement
+     * Delete a unifiedRoleDefinition object for an RBAC provider. You cannot delete built-in roles. This feature requires an Azure AD Premium P1 or P2 license. The following RBAC providers are currently supported:- Cloud PC- device management (Intune)- directory (Azure AD) 
      * @param UnifiedRoleDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -120,7 +123,7 @@ class UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get roleDefinitions from roleManagement
+     * Get the properties and relationships of a unifiedRoleDefinition object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune)- directory (Azure AD directory roles)- entitlement management (Azure AD entitlement management)- Exchange Online
      * @param UnifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -141,7 +144,7 @@ class UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property roleDefinitions in roleManagement
+     * Update the properties of a unifiedRoleDefinition object for an RBAC provider. You cannot update built-in roles. This feature requires an Azure AD Premium P1 or P2 license. The following RBAC providers are currently supported:- Cloud PC- device management (Intune)- directory (Azure AD) 
      * @param UnifiedRoleDefinition $body The request body
      * @param UnifiedRoleDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

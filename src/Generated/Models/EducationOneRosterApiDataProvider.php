@@ -34,7 +34,7 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
     }
 
     /**
-     * Gets the connectionUrl property value. The connectionUrl property
+     * Gets the connectionUrl property value. The connection URL to the OneRoster instance.
      * @return string|null
     */
     public function getConnectionUrl(): ?string {
@@ -42,7 +42,7 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
     }
 
     /**
-     * Gets the customizations property value. The customizations property
+     * Gets the customizations property value. Optional customization to be applied to the synchronization profile.
      * @return EducationSynchronizationCustomizations|null
     */
     public function getCustomizations(): ?EducationSynchronizationCustomizations {
@@ -66,7 +66,7 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
     }
 
     /**
-     * Gets the providerName property value. The providerName property
+     * Gets the providerName property value. The OneRoster Service Provider name as defined by the [OneRoster specification][oneroster].
      * @return string|null
     */
     public function getProviderName(): ?string {
@@ -74,7 +74,7 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
     }
 
     /**
-     * Gets the schoolsIds property value. The schoolsIds property
+     * Gets the schoolsIds property value. The list of [School/Org][orgs] sourcedId to sync.
      * @return array<string>|null
     */
     public function getSchoolsIds(): ?array {
@@ -82,7 +82,7 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
     }
 
     /**
-     * Gets the termIds property value. The termIds property
+     * Gets the termIds property value. The list of [academic sessions][terms] to sync.
      * @return array<string>|null
     */
     public function getTermIds(): ?array {
@@ -112,7 +112,7 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
     }
 
     /**
-     * Sets the connectionUrl property value. The connectionUrl property
+     * Sets the connectionUrl property value. The connection URL to the OneRoster instance.
      * @param string|null $value Value to set for the connectionUrl property.
     */
     public function setConnectionUrl(?string $value): void {
@@ -120,7 +120,7 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
     }
 
     /**
-     * Sets the customizations property value. The customizations property
+     * Sets the customizations property value. Optional customization to be applied to the synchronization profile.
      * @param EducationSynchronizationCustomizations|null $value Value to set for the customizations property.
     */
     public function setCustomizations(?EducationSynchronizationCustomizations $value): void {
@@ -128,7 +128,7 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
     }
 
     /**
-     * Sets the providerName property value. The providerName property
+     * Sets the providerName property value. The OneRoster Service Provider name as defined by the [OneRoster specification][oneroster].
      * @param string|null $value Value to set for the providerName property.
     */
     public function setProviderName(?string $value): void {
@@ -136,7 +136,7 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
     }
 
     /**
-     * Sets the schoolsIds property value. The schoolsIds property
+     * Sets the schoolsIds property value. The list of [School/Org][orgs] sourcedId to sync.
      * @param array<string>|null $value Value to set for the schoolsIds property.
     */
     public function setSchoolsIds(?array $value): void {
@@ -144,7 +144,7 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
     }
 
     /**
-     * Sets the termIds property value. The termIds property
+     * Sets the termIds property value. The list of [academic sessions][terms] to sync.
      * @param array<string>|null $value Value to set for the termIds property.
     */
     public function setTermIds(?array $value): void {

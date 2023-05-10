@@ -60,9 +60,10 @@ class CreatedObjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Directory objects created by this service principal. Read-only. Nullable.
+     * Retrieve a list of directoryobject objects.
      * @param CreatedObjectsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/serviceprincipal-list-createdobjects?view=graph-rest-1.0 Find more info here
     */
     public function get(?CreatedObjectsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -78,7 +79,7 @@ class CreatedObjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Directory objects created by this service principal. Read-only. Nullable.
+     * Retrieve a list of directoryobject objects.
      * @param CreatedObjectsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

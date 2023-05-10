@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\Categorie
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\Categories\Item\SettingDefinitions\SettingDefinitionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\Categories\Item\Settings\SettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementIntentSettingCategory;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -18,6 +19,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class DeviceManagementIntentSettingCategoryItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the settingDefinitions property of the microsoft.graph.deviceManagementSettingCategory entity.
+    */
+    public function settingDefinitions(): SettingDefinitionsRequestBuilder {
+        return new SettingDefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the settings property of the microsoft.graph.deviceManagementIntentSettingCategory entity.
     */

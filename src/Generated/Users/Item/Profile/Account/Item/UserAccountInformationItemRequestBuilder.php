@@ -32,9 +32,10 @@ class UserAccountInformationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property account for users
+     * Delete an userAccountInformation object from a user's profile.
      * @param UserAccountInformationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/useraccountinformation-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?UserAccountInformationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -50,9 +51,10 @@ class UserAccountInformationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get account from users
+     * Retrieve the properties and relationships of an userAccountInformation object in a user's profile.
      * @param UserAccountInformationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/useraccountinformation-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?UserAccountInformationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +70,11 @@ class UserAccountInformationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property account in users
+     * Update the properties of an userAccountInformation object in a user's profile.
      * @param UserAccountInformation $body The request body
      * @param UserAccountInformationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/useraccountinformation-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(UserAccountInformation $body, ?UserAccountInformationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -87,7 +90,7 @@ class UserAccountInformationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property account for users
+     * Delete an userAccountInformation object from a user's profile.
      * @param UserAccountInformationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +107,7 @@ class UserAccountInformationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get account from users
+     * Retrieve the properties and relationships of an userAccountInformation object in a user's profile.
      * @param UserAccountInformationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +128,7 @@ class UserAccountInformationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property account in users
+     * Update the properties of an userAccountInformation object in a user's profile.
      * @param UserAccountInformation $body The request body
      * @param UserAccountInformationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

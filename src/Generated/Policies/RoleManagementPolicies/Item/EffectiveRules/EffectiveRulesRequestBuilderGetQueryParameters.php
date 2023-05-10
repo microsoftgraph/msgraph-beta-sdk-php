@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicies\Item\Ef
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval. Supports $expand.
+ * Get the unifiedRoleManagementPolicyRule resources from the effectiveRules navigation property. To retrieve rules for a policy that applies to Azure RBAC, use the Azure REST PIM API for role management policies.
 */
 class EffectiveRulesRequestBuilderGetQueryParameters 
 {

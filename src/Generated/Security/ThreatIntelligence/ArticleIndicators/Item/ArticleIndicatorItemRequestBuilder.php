@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\ArticleIndicator;
+use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\ArticleIndicators\Item\Artifact\ArtifactRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -17,6 +18,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class ArticleIndicatorItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the artifact property of the microsoft.graph.security.indicator entity.
+    */
+    public function artifact(): ArtifactRequestBuilder {
+        return new ArtifactRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new ArticleIndicatorItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
@@ -50,9 +58,10 @@ class ArticleIndicatorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Refers to indicators of threat or compromise highlighted in an microsoft.graph.security.article.Note: List retrieval is not yet supported.
+     * Read the properties and relationships of an articleIndicator object.
      * @param ArticleIndicatorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/security-articleindicator-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ArticleIndicatorItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -104,7 +113,7 @@ class ArticleIndicatorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Refers to indicators of threat or compromise highlighted in an microsoft.graph.security.article.Note: List retrieval is not yet supported.
+     * Read the properties and relationships of an articleIndicator object.
      * @param ArticleIndicatorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

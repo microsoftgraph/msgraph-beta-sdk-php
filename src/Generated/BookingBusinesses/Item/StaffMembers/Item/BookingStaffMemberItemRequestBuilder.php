@@ -32,9 +32,10 @@ class BookingStaffMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property staffMembers for bookingBusinesses
+     * Delete a staff member in the specified bookingbusiness.
      * @param BookingStaffMemberItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/bookingstaffmember-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?BookingStaffMemberItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -50,9 +51,10 @@ class BookingStaffMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * All the staff members that provide services in this business. Read-only. Nullable.
+     * Get the properties and relationships of a bookingStaffMember in the specified bookingBusiness.
      * @param BookingStaffMemberItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/bookingstaffmember-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?BookingStaffMemberItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +70,11 @@ class BookingStaffMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property staffMembers in bookingBusinesses
+     * Update the properties of a bookingStaffMember in the specified bookingBusiness.
      * @param BookingStaffMember $body The request body
      * @param BookingStaffMemberItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/bookingstaffmember-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(BookingStaffMember $body, ?BookingStaffMemberItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -87,7 +90,7 @@ class BookingStaffMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property staffMembers for bookingBusinesses
+     * Delete a staff member in the specified bookingbusiness.
      * @param BookingStaffMemberItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +107,7 @@ class BookingStaffMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * All the staff members that provide services in this business. Read-only. Nullable.
+     * Get the properties and relationships of a bookingStaffMember in the specified bookingBusiness.
      * @param BookingStaffMemberItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +128,7 @@ class BookingStaffMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property staffMembers in bookingBusinesses
+     * Update the properties of a bookingStaffMember in the specified bookingBusiness.
      * @param BookingStaffMember $body The request body
      * @param BookingStaffMemberItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

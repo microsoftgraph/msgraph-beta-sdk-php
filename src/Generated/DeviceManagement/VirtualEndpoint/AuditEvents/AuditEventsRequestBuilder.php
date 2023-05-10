@@ -61,9 +61,10 @@ class AuditEventsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Cloud PC audit event.
+     * List all the cloudPcAuditEvent objects for the tenant.
      * @param AuditEventsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/virtualendpoint-list-auditevents?view=graph-rest-1.0 Find more info here
     */
     public function get(?AuditEventsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -98,7 +99,7 @@ class AuditEventsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Cloud PC audit event.
+     * List all the cloudPcAuditEvent objects for the tenant.
      * @param AuditEventsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

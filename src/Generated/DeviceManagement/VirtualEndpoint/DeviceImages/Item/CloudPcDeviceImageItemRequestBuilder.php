@@ -40,9 +40,10 @@ class CloudPcDeviceImageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property deviceImages for deviceManagement
+     * Delete a cloudPcDeviceImage object.
      * @param CloudPcDeviceImageItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/cloudpcdeviceimage-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?CloudPcDeviceImageItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -58,9 +59,10 @@ class CloudPcDeviceImageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The image resource on Cloud PC.
+     * Read the properties and relationships of a specific cloudPcDeviceImage object.
      * @param CloudPcDeviceImageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/cloudpcdeviceimage-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?CloudPcDeviceImageItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -95,7 +97,7 @@ class CloudPcDeviceImageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property deviceImages for deviceManagement
+     * Delete a cloudPcDeviceImage object.
      * @param CloudPcDeviceImageItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -112,7 +114,7 @@ class CloudPcDeviceImageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The image resource on Cloud PC.
+     * Read the properties and relationships of a specific cloudPcDeviceImage object.
      * @param CloudPcDeviceImageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

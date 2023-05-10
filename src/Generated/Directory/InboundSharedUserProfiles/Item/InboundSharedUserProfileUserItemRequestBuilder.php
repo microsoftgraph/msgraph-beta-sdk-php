@@ -66,9 +66,10 @@ class InboundSharedUserProfileUserItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A collection of external Azure AD users whose profile data has been shared with the Azure AD tenant. Nullable.
+     * Read the properties of an inboundSharedUserProfile.
      * @param InboundSharedUserProfileUserItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/inboundshareduserprofile-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?InboundSharedUserProfileUserItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -120,7 +121,7 @@ class InboundSharedUserProfileUserItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A collection of external Azure AD users whose profile data has been shared with the Azure AD tenant. Nullable.
+     * Read the properties of an inboundSharedUserProfile.
      * @param InboundSharedUserProfileUserItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

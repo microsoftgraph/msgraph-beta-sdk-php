@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProte
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get threatAssessmentRequests from groups
+ * Retrieve a list of threatAssessmentRequest objects. A threat assessment request can be one of the following types:
 */
 class ThreatAssessmentRequestsRequestBuilderGetQueryParameters 
 {

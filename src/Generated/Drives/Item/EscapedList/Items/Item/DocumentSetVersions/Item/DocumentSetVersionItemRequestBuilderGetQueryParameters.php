@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\Docu
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Version information for a document set version created by a user.
+ * Read the properties and relationships of a documentSetVersion object.
 */
 class DocumentSetVersionItemRequestBuilderGetQueryParameters 
 {

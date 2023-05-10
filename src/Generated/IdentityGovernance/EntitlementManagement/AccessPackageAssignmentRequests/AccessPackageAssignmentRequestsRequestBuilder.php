@@ -63,9 +63,10 @@ class AccessPackageAssignmentRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents access package assignment requests created by or on behalf of a user.
+     * In Azure AD entitlement management, retrieve a list of accessPackageAssignmentRequest objects.  The resulting list includes all the assignment requests, current and well as expired, that the caller has access to read, across all catalogs and access packages.
      * @param AccessPackageAssignmentRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/entitlementmanagement-list-accesspackageassignmentrequests?view=graph-rest-1.0 Find more info here
     */
     public function get(?AccessPackageAssignmentRequestsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,10 +82,11 @@ class AccessPackageAssignmentRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to accessPackageAssignmentRequests for identityGovernance
+     * In Azure AD Entitlement Management, create a new accessPackageAssignmentRequest object.  This operation is used to assign a user to an access package, or to remove an access package assignment.
      * @param AccessPackageAssignmentRequest $body The request body
      * @param AccessPackageAssignmentRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/entitlementmanagement-post-accesspackageassignmentrequests?view=graph-rest-1.0 Find more info here
     */
     public function post(AccessPackageAssignmentRequest $body, ?AccessPackageAssignmentRequestsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -100,7 +102,7 @@ class AccessPackageAssignmentRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents access package assignment requests created by or on behalf of a user.
+     * In Azure AD entitlement management, retrieve a list of accessPackageAssignmentRequest objects.  The resulting list includes all the assignment requests, current and well as expired, that the caller has access to read, across all catalogs and access packages.
      * @param AccessPackageAssignmentRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,7 +123,7 @@ class AccessPackageAssignmentRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to accessPackageAssignmentRequests for identityGovernance
+     * In Azure AD Entitlement Management, create a new accessPackageAssignmentRequest object.  This operation is used to assign a user to an access package, or to remove an access package assignment.
      * @param AccessPackageAssignmentRequest $body The request body
      * @param AccessPackageAssignmentRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

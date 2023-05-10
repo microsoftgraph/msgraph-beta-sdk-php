@@ -50,9 +50,10 @@ class RegionalAndLanguageSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The user's preferences for languages, regional locale and date/time formatting.
+     * Get the properties of a regionalAndLanguageSettings object.
      * @param RegionalAndLanguageSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/regionalandlanguagesettings-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?RegionalAndLanguageSettingsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +69,11 @@ class RegionalAndLanguageSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property regionalAndLanguageSettings in users
+     * Update some or all of the properties of a regionalAndLanguageSettings object.
      * @param RegionalAndLanguageSettings $body The request body
      * @param RegionalAndLanguageSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/regionalandlanguagesettings-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(RegionalAndLanguageSettings $body, ?RegionalAndLanguageSettingsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -104,7 +106,7 @@ class RegionalAndLanguageSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The user's preferences for languages, regional locale and date/time formatting.
+     * Get the properties of a regionalAndLanguageSettings object.
      * @param RegionalAndLanguageSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +127,7 @@ class RegionalAndLanguageSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property regionalAndLanguageSettings in users
+     * Update some or all of the properties of a regionalAndLanguageSettings object.
      * @param RegionalAndLanguageSettings $body The request body
      * @param RegionalAndLanguageSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -61,9 +61,10 @@ class AttachmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the task.  Read-only. Nullable.
+     * Get a list of attachment objects attached to an Outlook task.
      * @param AttachmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/outlooktask-list-attachments?view=graph-rest-1.0 Find more info here
     */
     public function get(?AttachmentsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -79,10 +80,11 @@ class AttachmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to attachments for users
+     * Use this API to add an attachment to an outlookTask. The attachment can be a file (of fileAttachment type) or Outlook item (itemAttachment type).
      * @param Attachment $body The request body
      * @param AttachmentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/outlooktask-post-attachments?view=graph-rest-1.0 Find more info here
     */
     public function post(Attachment $body, ?AttachmentsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -98,7 +100,7 @@ class AttachmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the task.  Read-only. Nullable.
+     * Get a list of attachment objects attached to an Outlook task.
      * @param AttachmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +121,7 @@ class AttachmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to attachments for users
+     * Use this API to add an attachment to an outlookTask. The attachment can be a file (of fileAttachment type) or Outlook item (itemAttachment type).
      * @param Attachment $body The request body
      * @param AttachmentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -31,9 +31,10 @@ class PauseRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action pause
+     * Pause the sync of a specific school data synchronization profile in the tenant.
      * @param PauseRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/educationsynchronizationprofile-pause?view=graph-rest-1.0 Find more info here
     */
     public function post(?PauseRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -49,7 +50,7 @@ class PauseRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action pause
+     * Pause the sync of a specific school data synchronization profile in the tenant.
      * @param PauseRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

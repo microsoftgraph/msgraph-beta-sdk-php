@@ -50,9 +50,10 @@ class SchemaRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get schema from connections
+     * Retrieve the properties of a schema for an externalConnection.
      * @param SchemaRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/externalconnectors-schema-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?SchemaRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,10 +69,11 @@ class SchemaRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property schema in connections
+     * Update the properties of a schema for an externalConnection.
      * @param Schema $body The request body
      * @param SchemaRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/externalconnectors-schema-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(Schema $body, ?SchemaRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -104,7 +106,7 @@ class SchemaRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get schema from connections
+     * Retrieve the properties of a schema for an externalConnection.
      * @param SchemaRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +127,7 @@ class SchemaRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property schema in connections
+     * Update the properties of a schema for an externalConnection.
      * @param Schema $body The request body
      * @param SchemaRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

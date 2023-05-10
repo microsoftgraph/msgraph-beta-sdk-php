@@ -7,10 +7,10 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Members\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Members\Item\UpdatableAssetItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Members\WindowsUpdatesEnrollAssets\WindowsUpdatesEnrollAssetsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Members\WindowsUpdatesEnrollAssetsById\WindowsUpdatesEnrollAssetsByIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Members\WindowsUpdatesUnenrollAssets\WindowsUpdatesUnenrollAssetsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Members\WindowsUpdatesUnenrollAssetsById\WindowsUpdatesUnenrollAssetsByIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Members\MicrosoftGraphWindowsUpdatesEnrollAssets\MicrosoftGraphWindowsUpdatesEnrollAssetsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Members\MicrosoftGraphWindowsUpdatesEnrollAssetsById\MicrosoftGraphWindowsUpdatesEnrollAssetsByIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Members\MicrosoftGraphWindowsUpdatesUnenrollAssets\MicrosoftGraphWindowsUpdatesUnenrollAssetsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Members\MicrosoftGraphWindowsUpdatesUnenrollAssetsById\MicrosoftGraphWindowsUpdatesUnenrollAssetsByIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdatableAsset;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdatableAssetCollectionResponse;
@@ -34,29 +34,29 @@ class MembersRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the enrollAssets method.
     */
-    public function windowsUpdatesEnrollAssets(): WindowsUpdatesEnrollAssetsRequestBuilder {
-        return new WindowsUpdatesEnrollAssetsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphWindowsUpdatesEnrollAssets(): MicrosoftGraphWindowsUpdatesEnrollAssetsRequestBuilder {
+        return new MicrosoftGraphWindowsUpdatesEnrollAssetsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the enrollAssetsById method.
     */
-    public function windowsUpdatesEnrollAssetsById(): WindowsUpdatesEnrollAssetsByIdRequestBuilder {
-        return new WindowsUpdatesEnrollAssetsByIdRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphWindowsUpdatesEnrollAssetsById(): MicrosoftGraphWindowsUpdatesEnrollAssetsByIdRequestBuilder {
+        return new MicrosoftGraphWindowsUpdatesEnrollAssetsByIdRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the unenrollAssets method.
     */
-    public function windowsUpdatesUnenrollAssets(): WindowsUpdatesUnenrollAssetsRequestBuilder {
-        return new WindowsUpdatesUnenrollAssetsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphWindowsUpdatesUnenrollAssets(): MicrosoftGraphWindowsUpdatesUnenrollAssetsRequestBuilder {
+        return new MicrosoftGraphWindowsUpdatesUnenrollAssetsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the unenrollAssetsById method.
     */
-    public function windowsUpdatesUnenrollAssetsById(): WindowsUpdatesUnenrollAssetsByIdRequestBuilder {
-        return new WindowsUpdatesUnenrollAssetsByIdRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphWindowsUpdatesUnenrollAssetsById(): MicrosoftGraphWindowsUpdatesUnenrollAssetsByIdRequestBuilder {
+        return new MicrosoftGraphWindowsUpdatesUnenrollAssetsByIdRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -85,9 +85,10 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Specifies the assets to include in the audience.
+     * List the updatableAsset resources that are members of a deploymentAudience.
      * @param MembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/windowsupdates-deploymentaudience-list-members?view=graph-rest-1.0 Find more info here
     */
     public function get(?MembersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -122,7 +123,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Specifies the assets to include in the audience.
+     * List the updatableAsset resources that are members of a deploymentAudience.
      * @param MembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

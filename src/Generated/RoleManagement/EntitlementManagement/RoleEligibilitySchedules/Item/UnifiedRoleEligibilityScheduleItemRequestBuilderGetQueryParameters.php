@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\Ro
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get roleEligibilitySchedules from roleManagement
+ * Read the properties and relationships of an unifiedRoleEligibilitySchedule object.
 */
 class UnifiedRoleEligibilityScheduleItemRequestBuilderGetQueryParameters 
 {

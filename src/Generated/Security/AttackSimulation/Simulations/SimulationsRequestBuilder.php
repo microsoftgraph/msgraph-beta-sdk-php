@@ -53,9 +53,10 @@ class SimulationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents an attack simulation training campaign in a tenant.
+     * Get a list of attack simulation campaigns for a tenant.
      * @param SimulationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/attacksimulationroot-list-simulations?view=graph-rest-1.0 Find more info here
     */
     public function get(?SimulationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class SimulationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to simulations for security
+     * Create an attack simulation campaign for a tenant.
      * @param Simulation $body The request body
      * @param SimulationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/attacksimulationroot-post-simulation?view=graph-rest-1.0 Find more info here
     */
     public function post(Simulation $body, ?SimulationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class SimulationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents an attack simulation training campaign in a tenant.
+     * Get a list of attack simulation campaigns for a tenant.
      * @param SimulationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class SimulationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to simulations for security
+     * Create an attack simulation campaign for a tenant.
      * @param Simulation $body The request body
      * @param SimulationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

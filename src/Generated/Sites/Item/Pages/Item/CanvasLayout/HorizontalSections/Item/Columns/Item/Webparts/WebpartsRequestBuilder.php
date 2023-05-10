@@ -53,9 +53,10 @@ class WebpartsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of WebParts in this column.
+     * Get the webPart resources from a sitePage. Sort by the order in which they appear on the page.
      * @param WebpartsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/webpart-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?WebpartsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class WebpartsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of WebParts in this column.
+     * Get the webPart resources from a sitePage. Sort by the order in which they appear on the page.
      * @param WebpartsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

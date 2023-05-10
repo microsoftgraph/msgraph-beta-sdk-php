@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Planner\Plans;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get plans from users
+ * Retrieve a list of **plannerplan** objects shared with a user object.
 */
 class PlansRequestBuilderGetQueryParameters 
 {

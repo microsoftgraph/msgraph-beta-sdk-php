@@ -31,9 +31,10 @@ class SendReminderRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action sendReminder
+     * In the Azure AD access reviews feature, send a reminder to the reviewers of a currently active accessReview.  The target object can be either a one-time access review, or an instance of a recurring access review. 
      * @param SendReminderRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/accessreview-sendreminder?view=graph-rest-1.0 Find more info here
     */
     public function post(?SendReminderRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -49,7 +50,7 @@ class SendReminderRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action sendReminder
+     * In the Azure AD access reviews feature, send a reminder to the reviewers of a currently active accessReview.  The target object can be either a one-time access review, or an instance of a recurring access review. 
      * @param SendReminderRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

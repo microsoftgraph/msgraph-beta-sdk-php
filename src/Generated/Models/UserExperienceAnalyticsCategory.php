@@ -6,9 +6,6 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * The user experience analytics category entity contains the scores and insights for the various metrics of a category.
-*/
 class UserExperienceAnalyticsCategory extends Entity implements Parsable 
 {
     /**

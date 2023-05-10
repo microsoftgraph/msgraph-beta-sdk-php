@@ -48,9 +48,10 @@ class ConnectorGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property connectorGroups for onPremisesPublishingProfiles
+     * Delete a connectorGroup. All connectors and applications must be removed from the connector group before a connector group can be deleted.
      * @param ConnectorGroupItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/connectorgroup-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?ConnectorGroupItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -66,9 +67,10 @@ class ConnectorGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List of existing connectorGroup objects for applications published through Application Proxy. Read-only. Nullable.
+     * Retrieve the properties of a connectorGroup.
      * @param ConnectorGroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/connectorgroup-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ConnectorGroupItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -84,10 +86,11 @@ class ConnectorGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property connectorGroups in onPremisesPublishingProfiles
+     * Update the properties of a connectorGroup object.
      * @param ConnectorGroup $body The request body
      * @param ConnectorGroupItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/connectorgroup-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(ConnectorGroup $body, ?ConnectorGroupItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -103,7 +106,7 @@ class ConnectorGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property connectorGroups for onPremisesPublishingProfiles
+     * Delete a connectorGroup. All connectors and applications must be removed from the connector group before a connector group can be deleted.
      * @param ConnectorGroupItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -120,7 +123,7 @@ class ConnectorGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List of existing connectorGroup objects for applications published through Application Proxy. Read-only. Nullable.
+     * Retrieve the properties of a connectorGroup.
      * @param ConnectorGroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -141,7 +144,7 @@ class ConnectorGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property connectorGroups in onPremisesPublishingProfiles
+     * Update the properties of a connectorGroup object.
      * @param ConnectorGroup $body The request body
      * @param ConnectorGroupItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

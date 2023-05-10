@@ -60,9 +60,10 @@ class TokenLifetimePoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The tokenLifetimePolicies assigned to this application. Supports $expand.
+     * List the tokenLifetimePolicy objects that are assigned to an application or servicePrincipal..
      * @param TokenLifetimePoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/application-list-tokenlifetimepolicies?view=graph-rest-1.0 Find more info here
     */
     public function get(?TokenLifetimePoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -78,7 +79,7 @@ class TokenLifetimePoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The tokenLifetimePolicies assigned to this application. Supports $expand.
+     * List the tokenLifetimePolicy objects that are assigned to an application or servicePrincipal..
      * @param TokenLifetimePoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

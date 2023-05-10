@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Workshe
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents a collection of all the rows in the table. Read-only.
+ * Retrieve the properties and relationships of tablerow object.
 */
 class WorkbookTableRowItemRequestBuilderGetQueryParameters 
 {

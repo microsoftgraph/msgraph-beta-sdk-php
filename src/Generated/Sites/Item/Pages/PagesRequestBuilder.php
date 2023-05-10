@@ -53,9 +53,10 @@ class PagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of pages in the SitePages list in this site.
+     * Get the collection of [sitePage][] objects from the site pages [list][] in a site [site][]. All pages in the site are returned (with pagination). Sort alphabetically by `name` in ascending order.
      * @param PagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/sitepage-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?PagesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class PagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to pages for sites
+     * Create a new [sitePage][] in the site pages [list][] in a [site][].
      * @param SitePage $body The request body
      * @param PagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/sitepage-create?view=graph-rest-1.0 Find more info here
     */
     public function post(SitePage $body, ?PagesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class PagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of pages in the SitePages list in this site.
+     * Get the collection of [sitePage][] objects from the site pages [list][] in a site [site][]. All pages in the site are returned (with pagination). Sort alphabetically by `name` in ascending order.
      * @param PagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class PagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to pages for sites
+     * Create a new [sitePage][] in the site pages [list][] in a [site][].
      * @param SitePage $body The request body
      * @param PagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

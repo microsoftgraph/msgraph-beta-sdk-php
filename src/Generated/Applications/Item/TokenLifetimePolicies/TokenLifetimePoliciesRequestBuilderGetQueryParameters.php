@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Applications\Item\TokenLifetimePolicies
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The tokenLifetimePolicies assigned to this application. Supports $expand.
+ * List the tokenLifetimePolicy objects that are assigned to an application or servicePrincipal..
 */
 class TokenLifetimePoliciesRequestBuilderGetQueryParameters 
 {

@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -47,6 +48,7 @@ class UserRegistrationDetails extends Entity implements Parsable
             'isSsprCapable' => fn(ParseNode $n) => $o->setIsSsprCapable($n->getBooleanValue()),
             'isSsprEnabled' => fn(ParseNode $n) => $o->setIsSsprEnabled($n->getBooleanValue()),
             'isSsprRegistered' => fn(ParseNode $n) => $o->setIsSsprRegistered($n->getBooleanValue()),
+            'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
             'methodsRegistered' => fn(ParseNode $n) => $o->setMethodsRegistered($n->getCollectionOfPrimitiveValues()),
             'userDisplayName' => fn(ParseNode $n) => $o->setUserDisplayName($n->getStringValue()),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
@@ -111,6 +113,14 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
+     * Gets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * @return DateTime|null
+    */
+    public function getLastUpdatedDateTime(): ?DateTime {
+        return $this->getBackingStore()->get('lastUpdatedDateTime');
+    }
+
+    /**
      * Gets the methodsRegistered property value. Collection of authentication methods registered, such as mobilePhone, email, fido2. Supports $filter (any with eq).
      * @return array<string>|null
     */
@@ -156,6 +166,7 @@ class UserRegistrationDetails extends Entity implements Parsable
         $writer->writeBooleanValue('isSsprCapable', $this->getIsSsprCapable());
         $writer->writeBooleanValue('isSsprEnabled', $this->getIsSsprEnabled());
         $writer->writeBooleanValue('isSsprRegistered', $this->getIsSsprRegistered());
+        $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
         $writer->writeCollectionOfPrimitiveValues('methodsRegistered', $this->getMethodsRegistered());
         $writer->writeStringValue('userDisplayName', $this->getUserDisplayName());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
@@ -224,6 +235,14 @@ class UserRegistrationDetails extends Entity implements Parsable
     */
     public function setIsSsprRegistered(?bool $value): void {
         $this->getBackingStore()->set('isSsprRegistered', $value);
+    }
+
+    /**
+     * Sets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
+    */
+    public function setLastUpdatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastUpdatedDateTime', $value);
     }
 
     /**

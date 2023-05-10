@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Shared
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Cloud PC shared-use service plans.
+ * Read the properties and relationships of a cloudPcSharedUseServicePlan object.
 */
 class CloudPcSharedUseServicePlanItemRequestBuilderGetQueryParameters 
 {

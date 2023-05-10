@@ -50,9 +50,10 @@ class EndpointItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Endpoints for the group. Read-only. Nullable.
+     * Retrieve the properties and relationships of a specific endpoint object.
      * @param EndpointItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/endpoint-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?EndpointItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -104,7 +105,7 @@ class EndpointItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Endpoints for the group. Read-only. Nullable.
+     * Retrieve the properties and relationships of a specific endpoint object.
      * @param EndpointItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

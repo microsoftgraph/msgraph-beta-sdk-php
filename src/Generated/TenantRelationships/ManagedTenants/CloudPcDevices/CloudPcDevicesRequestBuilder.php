@@ -53,9 +53,10 @@ class CloudPcDevicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of cloud PC devices across managed tenants.
+     * Get a list of the cloudPcDevice objects and their properties.
      * @param CloudPcDevicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/managedtenants-managedtenant-list-cloudpcdevices?view=graph-rest-1.0 Find more info here
     */
     public function get(?CloudPcDevicesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class CloudPcDevicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of cloud PC devices across managed tenants.
+     * Get a list of the cloudPcDevice objects and their properties.
      * @param CloudPcDevicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
