@@ -9,7 +9,7 @@ You can install the Beta PHP SDK with Composer by editing your `composer.json` f
 {
     "minimum-stability": "RC",
     "require": {
-        "microsoft/microsoft-graph-beta": "^2.0.0-RC15",
+        "microsoft/microsoft-graph-beta": "^2.0.0-RC16",
     }
 }
 ```
@@ -17,7 +17,7 @@ OR
 ```
 {
     "require": {
-        "microsoft/microsoft-graph-beta": "^2.0.0-RC15",
+        "microsoft/microsoft-graph-beta": "^2.0.0-RC16",
         "microsoft/microsoft-graph-core": "@RC"
     }
 }
@@ -37,24 +37,26 @@ The provided authentication provider wraps around the [The PHP League OAuth clie
 The following sample creates an authentication provider that [gets access without a user](https://docs.microsoft.com/en-us/graph/auth-v2-service?context=graph%2Fapi%2F1.0&view=graph-rest-1.0):
 ```php
 
+<?php
 use Microsoft\Kiota\Authentication\Oauth\ClientCredentialContext;
-use Microsoft\Kiota\Authentication\PhpLeagueAuthenticationProvider;
+use Microsoft\Graph\Core\Authentication\GraphPhpLeagueAuthenticationProvider;
 
 $tokenRequestContext = new ClientCredentialContext(
     'tenantId',
     'clientId',
     'clientSecret'
 );
-$scopes = ['https://graph.microsoft.com/.default'];
-$authProvider = new PhpLeagueAuthenticationProvider($tokenRequestContext, $scopes);
+// uses https://graph.microsoft.com/.default scopes
+$authProvider = new GraphPhpLeagueAuthenticationProvider($tokenRequestContext);
 
 ```
 
 To create an authentication provider that [gets access on behalf of a user](https://docs.microsoft.com/en-us/graph/auth-v2-user?context=graph%2Fapi%2F1.0&view=graph-rest-1.0):
 ```php
 
+<?php
 use Microsoft\Kiota\Authentication\Oauth\AuthorizationCodeContext;
-use Microsoft\Kiota\Authentication\PhpLeagueAuthenticationProvider;
+use Microsoft\Graph\Core\Authentication\GraphPhpLeagueAuthenticationProvider;
 
 $tokenRequestContext = new AuthorizationCodeContext(
     'tenantId',
@@ -64,7 +66,7 @@ $tokenRequestContext = new AuthorizationCodeContext(
     'redirectUri'
 );
 $scopes = ['User.Read', 'Mail.Read'];
-$authProvider = new PhpLeagueAuthenticationProvider($tokenRequestContext, $scopes);
+$authProvider = new GraphPhpLeagueAuthenticationProvider($tokenRequestContext, $scopes);
 
 ```
 Note that your application will need to handle redirecting the user to the Microsoft Identity login page to get the `authorization_code` that's passed into the `AuthorizationCodeContext`.
@@ -111,25 +113,23 @@ use Microsoft\Graph\Beta\GraphRequestAdapter;
 use Microsoft\Graph\Beta\GraphServiceClient;
 use Microsoft\Kiota\Abstractions\ApiException;
 use Microsoft\Kiota\Authentication\Oauth\ClientCredentialContext;
-use Microsoft\Kiota\Authentication\PhpLeagueAuthenticationProvider;
+use Microsoft\Graph\Core\Authentication\GraphPhpLeagueAuthenticationProvider;
 
 $tokenRequestContext = new ClientCredentialContext(
     'tenantId',
     'clientId',
     'clientSecret'
 );
-$scopes = ['https://graph.microsoft.com/.default'];
-$authProvider = new PhpLeagueAuthenticationProvider($tokenRequestContext, $scopes);
+$authProvider = new GraphPhpLeagueAuthenticationProvider($tokenRequestContext);
 $requestAdapter = new GraphRequestAdapter($authProvider);
 $betaGraphServiceClient = new GraphServiceClient($requestAdapter);
 
 try {
-    $response = $betaGraphServiceClient->usersById('[userPrincipalName]')->get();
-    $user = $response->wait();
+    $user = $betaGraphServiceClient->users()->byUserId('[userPrincipalName]')->get()->wait();
     echo "Hello, I am {$user->getGivenName()}";
 
 } catch (ApiException $ex) {
-    echo $ex->getMessage();
+    echo $ex->getError()->getMessage();
 }
 
 ```
@@ -141,7 +141,7 @@ use Microsoft\Graph\Beta\GraphRequestAdapter;
 use Microsoft\Graph\Beta\GraphServiceClient;
 use Microsoft\Kiota\Abstractions\ApiException;
 use Microsoft\Kiota\Authentication\Oauth\AuthorizationCodeContext;
-use Microsoft\Kiota\Authentication\PhpLeagueAuthenticationProvider;
+use Microsoft\Graph\Core\Authentication\GraphPhpLeagueAuthenticationProvider;
 
 $tokenRequestContext = new AuthorizationCodeContext(
     'tenantId',
@@ -151,16 +151,15 @@ $tokenRequestContext = new AuthorizationCodeContext(
     'redirectUri'
 );
 $scopes = ['User.Read'];
-$authProvider = new PhpLeagueAuthenticationProvider($tokenRequestContext, $scopes);
+$authProvider = new GraphPhpLeagueAuthenticationProvider($tokenRequestContext, $scopes);
 $requestAdapter = new GraphRequestAdapter($authProvider);
 $betaGraphServiceClient = new GraphServiceClient($requestAdapter);
 
 try {
-    $response = $betaGraphServiceClient->me()->get();
-    $user = $response->wait();
+    $user = $betaGraphServiceClient->me()->get()->wait();
     echo "Hello, I am {$user->getGivenName()}";
 } catch (ApiException $ex) {
-    echo $ex->getMessage();
+    echo $ex->getError()->getMessage();
 }
 
 ```
