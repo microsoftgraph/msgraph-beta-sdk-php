@@ -71,7 +71,7 @@ class CustomExtensionClientConfiguration implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the timeoutInMilliseconds property value. The max duration in milliseconds that Azure AD will wait for a response from the logic app before it shuts down the connection. The valid range is between 200 and 2000 milliseconds. Default duration is 1000.
+     * Gets the timeoutInMilliseconds property value. The max duration in milliseconds that Azure AD will wait for a response from the external app before it shuts down the connection. The valid range is between 200 and 2000 milliseconds. Default duration is 1000.
      * @return int|null
     */
     public function getTimeoutInMilliseconds(): ?int {
@@ -113,7 +113,7 @@ class CustomExtensionClientConfiguration implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Sets the timeoutInMilliseconds property value. The max duration in milliseconds that Azure AD will wait for a response from the logic app before it shuts down the connection. The valid range is between 200 and 2000 milliseconds. Default duration is 1000.
+     * Sets the timeoutInMilliseconds property value. The max duration in milliseconds that Azure AD will wait for a response from the external app before it shuts down the connection. The valid range is between 200 and 2000 milliseconds. Default duration is 1000.
      * @param int|null $value Value to set for the timeoutInMilliseconds property.
     */
     public function setTimeoutInMilliseconds(?int $value): void {

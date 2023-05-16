@@ -87,6 +87,7 @@ class UserSimulationDetails implements AdditionalDataHolder, BackedModel, Parsab
             'compromisedDateTime' => fn(ParseNode $n) => $o->setCompromisedDateTime($n->getDateTimeValue()),
             'inProgressTrainingsCount' => fn(ParseNode $n) => $o->setInProgressTrainingsCount($n->getIntegerValue()),
             'isCompromised' => fn(ParseNode $n) => $o->setIsCompromised($n->getBooleanValue()),
+            'latestSimulationActivity' => fn(ParseNode $n) => $o->setLatestSimulationActivity($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'reportedPhishDateTime' => fn(ParseNode $n) => $o->setReportedPhishDateTime($n->getDateTimeValue()),
             'simulationEvents' => fn(ParseNode $n) => $o->setSimulationEvents($n->getCollectionOfObjectValues([UserSimulationEventInfo::class, 'createFromDiscriminatorValue'])),
@@ -109,6 +110,14 @@ class UserSimulationDetails implements AdditionalDataHolder, BackedModel, Parsab
     */
     public function getIsCompromised(): ?bool {
         return $this->getBackingStore()->get('isCompromised');
+    }
+
+    /**
+     * Gets the latestSimulationActivity property value. Indicates latest user activity.
+     * @return string|null
+    */
+    public function getLatestSimulationActivity(): ?string {
+        return $this->getBackingStore()->get('latestSimulationActivity');
     }
 
     /**
@@ -161,6 +170,7 @@ class UserSimulationDetails implements AdditionalDataHolder, BackedModel, Parsab
         $writer->writeDateTimeValue('compromisedDateTime', $this->getCompromisedDateTime());
         $writer->writeIntegerValue('inProgressTrainingsCount', $this->getInProgressTrainingsCount());
         $writer->writeBooleanValue('isCompromised', $this->getIsCompromised());
+        $writer->writeStringValue('latestSimulationActivity', $this->getLatestSimulationActivity());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('reportedPhishDateTime', $this->getReportedPhishDateTime());
         $writer->writeCollectionOfObjectValues('simulationEvents', $this->getSimulationEvents());
@@ -223,6 +233,14 @@ class UserSimulationDetails implements AdditionalDataHolder, BackedModel, Parsab
     */
     public function setIsCompromised(?bool $value): void {
         $this->getBackingStore()->set('isCompromised', $value);
+    }
+
+    /**
+     * Sets the latestSimulationActivity property value. Indicates latest user activity.
+     * @param string|null $value Value to set for the latestSimulationActivity property.
+    */
+    public function setLatestSimulationActivity(?string $value): void {
+        $this->getBackingStore()->set('latestSimulationActivity', $value);
     }
 
     /**

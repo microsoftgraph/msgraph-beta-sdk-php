@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AuthenticationEventListener extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new authenticationEventListener and sets the default values.
+     * Instantiates a new AuthenticationEventListener and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -32,7 +32,7 @@ class AuthenticationEventListener extends Entity implements Parsable
     }
 
     /**
-     * Gets the authenticationEventsFlowId property value. The authenticationEventsFlowId property
+     * Gets the authenticationEventsFlowId property value. The identifier of the authenticationEventsFlow object.
      * @return string|null
     */
     public function getAuthenticationEventsFlowId(): ?string {
@@ -40,7 +40,7 @@ class AuthenticationEventListener extends Entity implements Parsable
     }
 
     /**
-     * Gets the conditions property value. The conditions property
+     * Gets the conditions property value. The conditions on which this authenticationEventListener should trigger.
      * @return AuthenticationConditions|null
     */
     public function getConditions(): ?AuthenticationConditions {
@@ -61,7 +61,7 @@ class AuthenticationEventListener extends Entity implements Parsable
     }
 
     /**
-     * Gets the priority property value. The priority property
+     * Gets the priority property value. The priority of this handler. Between 0 (lower priority) and 1000 (higher priority).
      * @return int|null
     */
     public function getPriority(): ?int {
@@ -80,7 +80,7 @@ class AuthenticationEventListener extends Entity implements Parsable
     }
 
     /**
-     * Sets the authenticationEventsFlowId property value. The authenticationEventsFlowId property
+     * Sets the authenticationEventsFlowId property value. The identifier of the authenticationEventsFlow object.
      * @param string|null $value Value to set for the authenticationEventsFlowId property.
     */
     public function setAuthenticationEventsFlowId(?string $value): void {
@@ -88,7 +88,7 @@ class AuthenticationEventListener extends Entity implements Parsable
     }
 
     /**
-     * Sets the conditions property value. The conditions property
+     * Sets the conditions property value. The conditions on which this authenticationEventListener should trigger.
      * @param AuthenticationConditions|null $value Value to set for the conditions property.
     */
     public function setConditions(?AuthenticationConditions $value): void {
@@ -96,7 +96,7 @@ class AuthenticationEventListener extends Entity implements Parsable
     }
 
     /**
-     * Sets the priority property value. The priority property
+     * Sets the priority property value. The priority of this handler. Between 0 (lower priority) and 1000 (higher priority).
      * @param int|null $value Value to set for the priority property.
     */
     public function setPriority(?int $value): void {

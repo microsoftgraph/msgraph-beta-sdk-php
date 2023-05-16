@@ -51,7 +51,7 @@ class OnTokenIssuanceStartReturnClaim implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Gets the claimIdInApiResponse property value. The claimIdInApiResponse property
+     * Gets the claimIdInApiResponse property value. The identifier of the claim returned by an API that is to be add to a token being issued.
      * @return string|null
     */
     public function getClaimIdInApiResponse(): ?string {
@@ -105,7 +105,7 @@ class OnTokenIssuanceStartReturnClaim implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Sets the claimIdInApiResponse property value. The claimIdInApiResponse property
+     * Sets the claimIdInApiResponse property value. The identifier of the claim returned by an API that is to be add to a token being issued.
      * @param string|null $value Value to set for the claimIdInApiResponse property.
     */
     public function setClaimIdInApiResponse(?string $value): void {

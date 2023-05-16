@@ -7,13 +7,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * A termsAndConditions entity represents the metadata and contents of a given Terms and Conditions (T&C) policy. T&C policies’ contents are presented to users upon their first attempt to enroll into Intune and subsequently upon edits where an administrator has required re-acceptance. They enable administrators to communicate the provisions to which a user must agree in order to have devices enrolled into Intune.
-*/
 class TermsAndConditions extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new termsAndConditions and sets the default values.
+     * Instantiates a new TermsAndConditions and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\Models\SiteCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Sites\Add\AddRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Delta\DeltaRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\GetAllSites\GetAllSitesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\SiteItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Remove\RemoveRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -41,6 +42,13 @@ class SitesRequestBuilder extends BaseRequestBuilder
     */
     public function delta(): DeltaRequestBuilder {
         return new DeltaRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getAllSites method.
+    */
+    public function getAllSites(): GetAllSitesRequestBuilder {
+        return new GetAllSitesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

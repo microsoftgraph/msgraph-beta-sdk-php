@@ -7,13 +7,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * Graph model for a reusable setting
-*/
 class DeviceManagementReusablePolicySetting extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementReusablePolicySetting and sets the default values.
+     * Instantiates a new DeviceManagementReusablePolicySetting and sets the default values.
     */
     public function __construct() {
         parent::__construct();

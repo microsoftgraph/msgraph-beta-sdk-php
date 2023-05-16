@@ -40,9 +40,10 @@ class CustomAuthenticationExtensionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property customAuthenticationExtensions for identity
+     * Delete a customAuthenticationExtension object.
      * @param CustomAuthenticationExtensionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/customauthenticationextension-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?CustomAuthenticationExtensionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -58,9 +59,10 @@ class CustomAuthenticationExtensionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get customAuthenticationExtensions from identity
+     * Read the properties and relationships of an authenticationEventListener object. The **@odata.type** property in the response object indicates the type of the authenticationEventListener object.
      * @param CustomAuthenticationExtensionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/authenticationeventlistener-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?CustomAuthenticationExtensionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -95,7 +97,7 @@ class CustomAuthenticationExtensionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property customAuthenticationExtensions for identity
+     * Delete a customAuthenticationExtension object.
      * @param CustomAuthenticationExtensionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -112,7 +114,7 @@ class CustomAuthenticationExtensionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get customAuthenticationExtensions from identity
+     * Read the properties and relationships of an authenticationEventListener object. The **@odata.type** property in the response object indicates the type of the authenticationEventListener object.
      * @param CustomAuthenticationExtensionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

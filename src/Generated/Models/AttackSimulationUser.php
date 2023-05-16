@@ -76,6 +76,7 @@ class AttackSimulationUser implements AdditionalDataHolder, BackedModel, Parsabl
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'email' => fn(ParseNode $n) => $o->setEmail($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'outOfOfficeDays' => fn(ParseNode $n) => $o->setOutOfOfficeDays($n->getIntegerValue()),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ];
     }
@@ -89,7 +90,15 @@ class AttackSimulationUser implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the userId property value. This is the id property value of the user resource that represents the user in the Azure Active Directory tenant.
+     * Gets the outOfOfficeDays property value. The outOfOfficeDays property
+     * @return int|null
+    */
+    public function getOutOfOfficeDays(): ?int {
+        return $this->getBackingStore()->get('outOfOfficeDays');
+    }
+
+    /**
+     * Gets the userId property value. id property value of the user resource that represents the user in the Azure Active Directory tenant.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -104,6 +113,7 @@ class AttackSimulationUser implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('email', $this->getEmail());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeIntegerValue('outOfOfficeDays', $this->getOutOfOfficeDays());
         $writer->writeStringValue('userId', $this->getUserId());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -149,7 +159,15 @@ class AttackSimulationUser implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the userId property value. This is the id property value of the user resource that represents the user in the Azure Active Directory tenant.
+     * Sets the outOfOfficeDays property value. The outOfOfficeDays property
+     * @param int|null $value Value to set for the outOfOfficeDays property.
+    */
+    public function setOutOfOfficeDays(?int $value): void {
+        $this->getBackingStore()->set('outOfOfficeDays', $value);
+    }
+
+    /**
+     * Sets the userId property value. id property value of the user resource that represents the user in the Azure Active Directory tenant.
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {

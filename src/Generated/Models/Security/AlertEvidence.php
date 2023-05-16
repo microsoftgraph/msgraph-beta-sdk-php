@@ -48,6 +48,7 @@ class AlertEvidence implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.security.registryKeyEvidence': return new RegistryKeyEvidence();
                 case '#microsoft.graph.security.registryValueEvidence': return new RegistryValueEvidence();
                 case '#microsoft.graph.security.securityGroupEvidence': return new SecurityGroupEvidence();
+                case '#microsoft.graph.security.urlEvidence': return new UrlEvidence();
                 case '#microsoft.graph.security.userEvidence': return new UserEvidence();
             }
         }

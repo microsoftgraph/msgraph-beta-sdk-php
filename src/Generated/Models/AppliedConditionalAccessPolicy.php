@@ -60,17 +60,17 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
 
     /**
      * Gets the conditionsNotSatisfied property value. Refers to the conditional access policy conditions that are not satisfied. The possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client,ipAddressSeenByAzureAD,ipAddressSeenByResourceProvider,unknownFutureValue,servicePrincipals,servicePrincipalRisk. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipals,servicePrincipalRisk.
-     * @return ConditionalAccessConditions|null
+     * @return array<ConditionalAccessConditions>|null
     */
-    public function getConditionsNotSatisfied(): ?ConditionalAccessConditions {
+    public function getConditionsNotSatisfied(): ?array {
         return $this->getBackingStore()->get('conditionsNotSatisfied');
     }
 
     /**
      * Gets the conditionsSatisfied property value. Refers to the conditional access policy conditions that are satisfied. The possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client,ipAddressSeenByAzureAD,ipAddressSeenByResourceProvider,unknownFutureValue,servicePrincipals,servicePrincipalRisk. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipals,servicePrincipalRisk.
-     * @return ConditionalAccessConditions|null
+     * @return array<ConditionalAccessConditions>|null
     */
-    public function getConditionsSatisfied(): ?ConditionalAccessConditions {
+    public function getConditionsSatisfied(): ?array {
         return $this->getBackingStore()->get('conditionsSatisfied');
     }
 
@@ -114,8 +114,8 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
         $o = $this;
         return  [
             'authenticationStrength' => fn(ParseNode $n) => $o->setAuthenticationStrength($n->getObjectValue([AuthenticationStrength::class, 'createFromDiscriminatorValue'])),
-            'conditionsNotSatisfied' => fn(ParseNode $n) => $o->setConditionsNotSatisfied($n->getEnumValue(ConditionalAccessConditions::class)),
-            'conditionsSatisfied' => fn(ParseNode $n) => $o->setConditionsSatisfied($n->getEnumValue(ConditionalAccessConditions::class)),
+            'conditionsNotSatisfied' => fn(ParseNode $n) => $o->setConditionsNotSatisfied($n->getCollectionOfEnumValues(ConditionalAccessConditions::class)),
+            'conditionsSatisfied' => fn(ParseNode $n) => $o->setConditionsSatisfied($n->getCollectionOfEnumValues(ConditionalAccessConditions::class)),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'enforcedGrantControls' => fn(ParseNode $n) => $o->setEnforcedGrantControls($n->getCollectionOfPrimitiveValues()),
             'enforcedSessionControls' => fn(ParseNode $n) => $o->setEnforcedSessionControls($n->getCollectionOfPrimitiveValues()),
@@ -174,8 +174,8 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('authenticationStrength', $this->getAuthenticationStrength());
-        $writer->writeEnumValue('conditionsNotSatisfied', $this->getConditionsNotSatisfied());
-        $writer->writeEnumValue('conditionsSatisfied', $this->getConditionsSatisfied());
+        $writer->writeCollectionOfEnumValues('conditionsNotSatisfied', $this->getConditionsNotSatisfied());
+        $writer->writeCollectionOfEnumValues('conditionsSatisfied', $this->getConditionsSatisfied());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeCollectionOfPrimitiveValues('enforcedGrantControls', $this->getEnforcedGrantControls());
         $writer->writeCollectionOfPrimitiveValues('enforcedSessionControls', $this->getEnforcedSessionControls());
@@ -214,17 +214,17 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the conditionsNotSatisfied property value. Refers to the conditional access policy conditions that are not satisfied. The possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client,ipAddressSeenByAzureAD,ipAddressSeenByResourceProvider,unknownFutureValue,servicePrincipals,servicePrincipalRisk. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipals,servicePrincipalRisk.
-     * @param ConditionalAccessConditions|null $value Value to set for the conditionsNotSatisfied property.
+     * @param array<ConditionalAccessConditions>|null $value Value to set for the conditionsNotSatisfied property.
     */
-    public function setConditionsNotSatisfied(?ConditionalAccessConditions $value): void {
+    public function setConditionsNotSatisfied(?array $value): void {
         $this->getBackingStore()->set('conditionsNotSatisfied', $value);
     }
 
     /**
      * Sets the conditionsSatisfied property value. Refers to the conditional access policy conditions that are satisfied. The possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client,ipAddressSeenByAzureAD,ipAddressSeenByResourceProvider,unknownFutureValue,servicePrincipals,servicePrincipalRisk. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipals,servicePrincipalRisk.
-     * @param ConditionalAccessConditions|null $value Value to set for the conditionsSatisfied property.
+     * @param array<ConditionalAccessConditions>|null $value Value to set for the conditionsSatisfied property.
     */
-    public function setConditionsSatisfied(?ConditionalAccessConditions $value): void {
+    public function setConditionsSatisfied(?array $value): void {
         $this->getBackingStore()->set('conditionsSatisfied', $value);
     }
 

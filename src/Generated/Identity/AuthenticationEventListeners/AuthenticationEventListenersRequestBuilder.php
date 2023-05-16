@@ -53,9 +53,10 @@ class AuthenticationEventListenersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get authenticationEventListeners from identity
+     * Get a list of the authenticationEventListener objects and their properties. Only the onTokenIssuanceStartListener type is supported.
      * @param AuthenticationEventListenersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/identitycontainer-list-authenticationeventlisteners?view=graph-rest-1.0 Find more info here
     */
     public function get(?AuthenticationEventListenersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class AuthenticationEventListenersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to authenticationEventListeners for identity
+     * Create a new authenticationEventListener object. Only the onTokenIssuanceStartListener type is supported.
      * @param AuthenticationEventListener $body The request body
      * @param AuthenticationEventListenersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/identitycontainer-post-authenticationeventlisteners?view=graph-rest-1.0 Find more info here
     */
     public function post(AuthenticationEventListener $body, ?AuthenticationEventListenersRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class AuthenticationEventListenersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get authenticationEventListeners from identity
+     * Get a list of the authenticationEventListener objects and their properties. Only the onTokenIssuanceStartListener type is supported.
      * @param AuthenticationEventListenersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class AuthenticationEventListenersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to authenticationEventListeners for identity
+     * Create a new authenticationEventListener object. Only the onTokenIssuanceStartListener type is supported.
      * @param AuthenticationEventListener $body The request body
      * @param AuthenticationEventListenersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

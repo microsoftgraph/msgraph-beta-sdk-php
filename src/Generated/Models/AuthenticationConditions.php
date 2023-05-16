@@ -43,7 +43,7 @@ class AuthenticationConditions implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the applications property value. The applications property
+     * Gets the applications property value. Applications which will trigger a custom authentication extension.
      * @return AuthenticationConditionsApplications|null
     */
     public function getApplications(): ?AuthenticationConditionsApplications {
@@ -97,7 +97,7 @@ class AuthenticationConditions implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the applications property value. The applications property
+     * Sets the applications property value. Applications which will trigger a custom authentication extension.
      * @param AuthenticationConditionsApplications|null $value Value to set for the applications property.
     */
     public function setApplications(?AuthenticationConditionsApplications $value): void {

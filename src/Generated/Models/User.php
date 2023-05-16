@@ -522,6 +522,7 @@ class User extends DirectoryObject implements Parsable
             'informationProtection' => fn(ParseNode $n) => $o->setInformationProtection($n->getObjectValue([InformationProtection::class, 'createFromDiscriminatorValue'])),
             'insights' => fn(ParseNode $n) => $o->setInsights($n->getObjectValue([ItemInsights::class, 'createFromDiscriminatorValue'])),
             'interests' => fn(ParseNode $n) => $o->setInterests($n->getCollectionOfPrimitiveValues()),
+            'isLicenseReconciliationNeeded' => fn(ParseNode $n) => $o->setIsLicenseReconciliationNeeded($n->getBooleanValue()),
             'isManagementRestricted' => fn(ParseNode $n) => $o->setIsManagementRestricted($n->getBooleanValue()),
             'isResourceAccount' => fn(ParseNode $n) => $o->setIsResourceAccount($n->getBooleanValue()),
             'jobTitle' => fn(ParseNode $n) => $o->setJobTitle($n->getStringValue()),
@@ -685,6 +686,14 @@ class User extends DirectoryObject implements Parsable
     */
     public function getInterests(): ?array {
         return $this->getBackingStore()->get('interests');
+    }
+
+    /**
+     * Gets the isLicenseReconciliationNeeded property value. Indicates whether the user is pending an exchange mailbox license assignment.  Read-only.  Supports $filter (eq where true only).
+     * @return bool|null
+    */
+    public function getIsLicenseReconciliationNeeded(): ?bool {
+        return $this->getBackingStore()->get('isLicenseReconciliationNeeded');
     }
 
     /**
@@ -1208,7 +1217,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the serviceProvisioningErrors property value. The serviceProvisioningErrors property
+     * Gets the serviceProvisioningErrors property value. Errors published by a federated service describing a non-transient, service-specific error regarding the properties or link from a user object .  Supports $filter (eq, not, for isResolved and serviceInstance).
      * @return array<ServiceProvisioningError>|null
     */
     public function getServiceProvisioningErrors(): ?array {
@@ -1421,6 +1430,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeObjectValue('informationProtection', $this->getInformationProtection());
         $writer->writeObjectValue('insights', $this->getInsights());
         $writer->writeCollectionOfPrimitiveValues('interests', $this->getInterests());
+        $writer->writeBooleanValue('isLicenseReconciliationNeeded', $this->getIsLicenseReconciliationNeeded());
         $writer->writeBooleanValue('isManagementRestricted', $this->getIsManagementRestricted());
         $writer->writeBooleanValue('isResourceAccount', $this->getIsResourceAccount());
         $writer->writeStringValue('jobTitle', $this->getJobTitle());
@@ -2010,6 +2020,14 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
+     * Sets the isLicenseReconciliationNeeded property value. Indicates whether the user is pending an exchange mailbox license assignment.  Read-only.  Supports $filter (eq where true only).
+     * @param bool|null $value Value to set for the isLicenseReconciliationNeeded property.
+    */
+    public function setIsLicenseReconciliationNeeded(?bool $value): void {
+        $this->getBackingStore()->set('isLicenseReconciliationNeeded', $value);
+    }
+
+    /**
      * Sets the isManagementRestricted property value. The isManagementRestricted property
      * @param bool|null $value Value to set for the isManagementRestricted property.
     */
@@ -2530,7 +2548,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the serviceProvisioningErrors property value. The serviceProvisioningErrors property
+     * Sets the serviceProvisioningErrors property value. Errors published by a federated service describing a non-transient, service-specific error regarding the properties or link from a user object .  Supports $filter (eq, not, for isResolved and serviceInstance).
      * @param array<ServiceProvisioningError>|null $value Value to set for the serviceProvisioningErrors property.
     */
     public function setServiceProvisioningErrors(?array $value): void {

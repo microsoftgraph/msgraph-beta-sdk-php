@@ -15,6 +15,7 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Definitions\
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Definitions\Item\Instances\Item\SendReminder\SendReminderRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Definitions\Item\Instances\Item\Stages\StagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Definitions\Item\Instances\Item\Stop\StopRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Definitions\Item\Instances\Item\StopApplyDecisions\StopApplyDecisionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessReviewInstance;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -95,6 +96,13 @@ class AccessReviewInstanceItemRequestBuilder extends BaseRequestBuilder
     */
     public function stop(): StopRequestBuilder {
         return new StopRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the stopApplyDecisions method.
+    */
+    public function stopApplyDecisions(): StopApplyDecisionsRequestBuilder {
+        return new StopApplyDecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

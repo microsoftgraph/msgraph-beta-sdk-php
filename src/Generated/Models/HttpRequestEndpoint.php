@@ -37,7 +37,7 @@ class HttpRequestEndpoint extends CustomExtensionEndpointConfiguration implement
     }
 
     /**
-     * Gets the targetUrl property value. The targetUrl property
+     * Gets the targetUrl property value. The HTTP endpoint that a custom extension calls.
      * @return string|null
     */
     public function getTargetUrl(): ?string {
@@ -54,7 +54,7 @@ class HttpRequestEndpoint extends CustomExtensionEndpointConfiguration implement
     }
 
     /**
-     * Sets the targetUrl property value. The targetUrl property
+     * Sets the targetUrl property value. The HTTP endpoint that a custom extension calls.
      * @param string|null $value Value to set for the targetUrl property.
     */
     public function setTargetUrl(?string $value): void {

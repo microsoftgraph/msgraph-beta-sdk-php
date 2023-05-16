@@ -37,7 +37,7 @@ class OnTokenIssuanceStartListener extends AuthenticationEventListener implement
     }
 
     /**
-     * Gets the handler property value. The handler property
+     * Gets the handler property value. The handler to invoke when conditions are met for this onTokenIssuanceStartListener.
      * @return OnTokenIssuanceStartHandler|null
     */
     public function getHandler(): ?OnTokenIssuanceStartHandler {
@@ -54,7 +54,7 @@ class OnTokenIssuanceStartListener extends AuthenticationEventListener implement
     }
 
     /**
-     * Sets the handler property value. The handler property
+     * Sets the handler property value. The handler to invoke when conditions are met for this onTokenIssuanceStartListener.
      * @param OnTokenIssuanceStartHandler|null $value Value to set for the handler property.
     */
     public function setHandler(?OnTokenIssuanceStartHandler $value): void {

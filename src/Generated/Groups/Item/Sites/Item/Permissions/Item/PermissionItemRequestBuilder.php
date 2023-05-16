@@ -48,10 +48,9 @@ class PermissionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a permission object on a site.
+     * Delete navigation property permissions for groups
      * @param PermissionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/site-delete-permission?view=graph-rest-1.0 Find more info here
     */
     public function delete(?PermissionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -106,7 +105,7 @@ class PermissionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a permission object on a site.
+     * Delete navigation property permissions for groups
      * @param PermissionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
