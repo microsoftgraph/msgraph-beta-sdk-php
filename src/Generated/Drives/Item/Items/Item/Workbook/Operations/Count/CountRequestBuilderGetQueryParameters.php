@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Items\Count;
+namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Operations\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
@@ -10,12 +10,6 @@ use Microsoft\Kiota\Abstractions\QueryParameter;
 class CountRequestBuilderGetQueryParameters 
 {
     /**
-     * @QueryParameter("%24filter")
-     * @var string|null $filter Filter items by property values
-    */
-    public ?string $filter = null;
-    
-    /**
      * @QueryParameter("%24search")
      * @var string|null $search Search items by search phrases
     */
@@ -23,11 +17,9 @@ class CountRequestBuilderGetQueryParameters
     
     /**
      * Instantiates a new CountRequestBuilderGetQueryParameters and sets the default values.
-     * @param string|null $filter Filter items by property values
      * @param string|null $search Search items by search phrases
     */
-    public function __construct(?string $filter = null, ?string $search = null) {
-        $this->filter = $filter;
+    public function __construct(?string $search = null) {
         $this->search = $search;
     }
 

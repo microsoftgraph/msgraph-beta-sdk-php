@@ -17,6 +17,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\SendReminder\SendReminderRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Stages\StagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Stop\StopRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\StopApplyDecisions\StopApplyDecisionsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -95,6 +96,13 @@ class AccessReviewInstanceItemRequestBuilder extends BaseRequestBuilder
     */
     public function stop(): StopRequestBuilder {
         return new StopRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the stopApplyDecisions method.
+    */
+    public function stopApplyDecisions(): StopApplyDecisionsRequestBuilder {
+        return new StopApplyDecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

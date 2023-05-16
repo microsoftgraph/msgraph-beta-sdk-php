@@ -32,9 +32,10 @@ class ValidateAuthenticationConfigurationRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Invoke action validateAuthenticationConfiguration
+     * An API to check validity of the endpoint and and authentication configuration for a customAuthenticationExtension.
      * @param ValidateAuthenticationConfigurationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/customauthenticationextension-validateauthenticationconfiguration?view=graph-rest-1.0 Find more info here
     */
     public function post(?ValidateAuthenticationConfigurationRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class ValidateAuthenticationConfigurationRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Invoke action validateAuthenticationConfiguration
+     * An API to check validity of the endpoint and and authentication configuration for a customAuthenticationExtension.
      * @param ValidateAuthenticationConfigurationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -37,7 +37,7 @@ class CredentialUserRegistrationCount extends Entity implements Parsable
     }
 
     /**
-     * Gets the totalUserCount property value. Provides the total user count in the tenant.
+     * Gets the totalUserCount property value. Provides the count of users with accountEnabled set to true in the tenant.
      * @return int|null
     */
     public function getTotalUserCount(): ?int {
@@ -63,7 +63,7 @@ class CredentialUserRegistrationCount extends Entity implements Parsable
     }
 
     /**
-     * Sets the totalUserCount property value. Provides the total user count in the tenant.
+     * Sets the totalUserCount property value. Provides the count of users with accountEnabled set to true in the tenant.
      * @param int|null $value Value to set for the totalUserCount property.
     */
     public function setTotalUserCount(?int $value): void {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Drives\Count;
+namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Operations\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;
@@ -28,12 +28,11 @@ class CountRequestBuilderGetRequestConfiguration extends BaseRequestConfiguratio
 
     /**
      * Instantiates a new CountRequestBuilderGetQueryParameters.
-     * @param string|null $filter Filter items by property values
      * @param string|null $search Search items by search phrases
      * @return CountRequestBuilderGetQueryParameters
     */
-    public static function createQueryParameters(?string $filter = null, ?string $search = null): CountRequestBuilderGetQueryParameters {
-        return new CountRequestBuilderGetQueryParameters($filter, $search);
+    public static function createQueryParameters(?string $search = null): CountRequestBuilderGetQueryParameters {
+        return new CountRequestBuilderGetQueryParameters($search);
     }
 
 }

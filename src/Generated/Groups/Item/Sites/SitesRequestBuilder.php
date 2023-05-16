@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Add\AddRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Delta\DeltaRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\GetAllSites\GetAllSitesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\SiteItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Remove\RemoveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -41,6 +42,13 @@ class SitesRequestBuilder extends BaseRequestBuilder
     */
     public function delta(): DeltaRequestBuilder {
         return new DeltaRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getAllSites method.
+    */
+    public function getAllSites(): GetAllSitesRequestBuilder {
+        return new GetAllSitesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -51,7 +51,7 @@ class AuthenticationConfigurationValidation implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the errors property value. The errors property
+     * Gets the errors property value. Errors in the validation result of a customAuthenticationExtension.
      * @return array<GenericError>|null
     */
     public function getErrors(): ?array {
@@ -80,7 +80,7 @@ class AuthenticationConfigurationValidation implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the warnings property value. The warnings property
+     * Gets the warnings property value. Warnings in the validation result of a customAuthenticationExtension.
      * @return array<GenericError>|null
     */
     public function getWarnings(): ?array {
@@ -115,7 +115,7 @@ class AuthenticationConfigurationValidation implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the errors property value. The errors property
+     * Sets the errors property value. Errors in the validation result of a customAuthenticationExtension.
      * @param array<GenericError>|null $value Value to set for the errors property.
     */
     public function setErrors(?array $value): void {
@@ -131,7 +131,7 @@ class AuthenticationConfigurationValidation implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the warnings property value. The warnings property
+     * Sets the warnings property value. Warnings in the validation result of a customAuthenticationExtension.
      * @param array<GenericError>|null $value Value to set for the warnings property.
     */
     public function setWarnings(?array $value): void {

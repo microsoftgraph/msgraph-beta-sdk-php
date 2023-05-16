@@ -128,7 +128,7 @@ class KeyCredential implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the type property value. The type of key credential; for example, Symmetric, AsymmetricX509Cert.
+     * Gets the type property value. The type of key credential; for example, Symmetric, AsymmetricX509Cert, or X509CertAndPassword.
      * @return string|null
     */
     public function getType(): ?string {
@@ -136,7 +136,7 @@ class KeyCredential implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the usage property value. A string that describes the purpose for which the key can be used; for example, Verify.
+     * Gets the usage property value. A string that describes the purpose for which the key can be used; for example, None​, Verify​, PairwiseIdentifier​, Delegation​, Decrypt​, Encrypt​, HashedIdentifier​, SelfSignedTls, or Sign. If usage is Sign​, the type should be X509CertAndPassword​, and the passwordCredentials​ for signing should be defined.
      * @return string|null
     */
     public function getUsage(): ?string {
@@ -233,7 +233,7 @@ class KeyCredential implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the type property value. The type of key credential; for example, Symmetric, AsymmetricX509Cert.
+     * Sets the type property value. The type of key credential; for example, Symmetric, AsymmetricX509Cert, or X509CertAndPassword.
      * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {
@@ -241,7 +241,7 @@ class KeyCredential implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the usage property value. A string that describes the purpose for which the key can be used; for example, Verify.
+     * Sets the usage property value. A string that describes the purpose for which the key can be used; for example, None​, Verify​, PairwiseIdentifier​, Delegation​, Decrypt​, Encrypt​, HashedIdentifier​, SelfSignedTls, or Sign. If usage is Sign​, the type should be X509CertAndPassword​, and the passwordCredentials​ for signing should be defined.
      * @param string|null $value Value to set for the usage property.
     */
     public function setUsage(?string $value): void {

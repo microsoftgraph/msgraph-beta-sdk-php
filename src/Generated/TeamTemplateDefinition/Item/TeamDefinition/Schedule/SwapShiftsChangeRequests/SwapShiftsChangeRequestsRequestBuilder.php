@@ -53,7 +53,7 @@ class SwapShiftsChangeRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of swapShiftsChangeRequest objects in the team.
+     * Retrieve a list of swapShiftsChangeRequest objects in a team.
      * @param SwapShiftsChangeRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/swapshiftschangerequest-list?view=graph-rest-1.0 Find more info here
@@ -92,7 +92,7 @@ class SwapShiftsChangeRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of swapShiftsChangeRequest objects in the team.
+     * Retrieve a list of swapShiftsChangeRequest objects in a team.
      * @param SwapShiftsChangeRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

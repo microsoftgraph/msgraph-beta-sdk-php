@@ -64,7 +64,7 @@ class AuthenticationConditionsApplications implements AdditionalDataHolder, Back
     }
 
     /**
-     * Gets the includeAllApplications property value. The includeAllApplications property
+     * Gets the includeAllApplications property value. Whether the custom authentication extension should trigger for all applications with appIds specified in the includeApplications relationship. This property must be set to false for listener of type onTokenIssuanceStartListener.
      * @return bool|null
     */
     public function getIncludeAllApplications(): ?bool {
@@ -115,7 +115,7 @@ class AuthenticationConditionsApplications implements AdditionalDataHolder, Back
     }
 
     /**
-     * Sets the includeAllApplications property value. The includeAllApplications property
+     * Sets the includeAllApplications property value. Whether the custom authentication extension should trigger for all applications with appIds specified in the includeApplications relationship. This property must be set to false for listener of type onTokenIssuanceStartListener.
      * @param bool|null $value Value to set for the includeAllApplications property.
     */
     public function setIncludeAllApplications(?bool $value): void {

@@ -7,13 +7,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * Notification messages are messages that are sent to end users who are determined to be not-compliant with the compliance policies defined by the administrator. Administrators choose notifications and configure them in the Intune Admin Console using the compliance policy creation page under the “Actions for non-compliance” section. Use the notificationMessageTemplate object to create your own custom notifications for administrators to choose while configuring actions for non-compliance.
-*/
 class NotificationMessageTemplate extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new notificationMessageTemplate and sets the default values.
+     * Instantiates a new NotificationMessageTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

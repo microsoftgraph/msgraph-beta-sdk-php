@@ -53,9 +53,10 @@ class GradingCategoriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get gradingCategories from education
+     * Get a list of the educationGradingCategory objects and their properties.
      * @param GradingCategoriesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/educationassignment-list-gradingcategory?view=graph-rest-1.0 Find more info here
     */
     public function get(?GradingCategoriesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +91,7 @@ class GradingCategoriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get gradingCategories from education
+     * Get a list of the educationGradingCategory objects and their properties.
      * @param GradingCategoriesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

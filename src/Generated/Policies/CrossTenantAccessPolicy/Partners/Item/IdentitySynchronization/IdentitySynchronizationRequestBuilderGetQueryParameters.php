@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Policies\CrossTenantAccessPolicy\Partne
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the user synchronization policy of a partner-specific configuration.
+ * Get the user synchronization policy of a partner-specific configuration.
 */
 class IdentitySynchronizationRequestBuilderGetQueryParameters 
 {

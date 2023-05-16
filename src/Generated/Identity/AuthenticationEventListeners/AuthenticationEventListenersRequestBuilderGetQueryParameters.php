@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventListeners;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get authenticationEventListeners from identity
+ * Get a list of the authenticationEventListener objects and their properties. Only the onTokenIssuanceStartListener type is supported.
 */
 class AuthenticationEventListenersRequestBuilderGetQueryParameters 
 {

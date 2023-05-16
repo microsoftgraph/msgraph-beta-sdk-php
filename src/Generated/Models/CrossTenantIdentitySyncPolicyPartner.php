@@ -51,7 +51,7 @@ class CrossTenantIdentitySyncPolicyPartner implements AdditionalDataHolder, Back
     }
 
     /**
-     * Gets the displayName property value. Display name for the cross-tenant user synchronization policy. Use the name of the partner Azure AD tenant to easily identify the policy. Optional.
+     * Gets the displayName property value. Display name for the cross-tenant user synchronization policy. Use the name of the partner Azure AD (Azure Active Directory) tenant to easily identify the policy. Optional.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -125,7 +125,7 @@ class CrossTenantIdentitySyncPolicyPartner implements AdditionalDataHolder, Back
     }
 
     /**
-     * Sets the displayName property value. Display name for the cross-tenant user synchronization policy. Use the name of the partner Azure AD tenant to easily identify the policy. Optional.
+     * Sets the displayName property value. Display name for the cross-tenant user synchronization policy. Use the name of the partner Azure AD (Azure Active Directory) tenant to easily identify the policy. Optional.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {

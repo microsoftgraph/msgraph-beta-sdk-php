@@ -60,7 +60,7 @@ class ServiceProvisioningError implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date and time at which the error occurred.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -82,7 +82,7 @@ class ServiceProvisioningError implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the isResolved property value. The isResolved property
+     * Gets the isResolved property value. Indicates whether the Error has been attended to.
      * @return bool|null
     */
     public function getIsResolved(): ?bool {
@@ -98,7 +98,7 @@ class ServiceProvisioningError implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the serviceInstance property value. The serviceInstance property
+     * Gets the serviceInstance property value. Qualified service instance (e.g., 'SharePoint/Dublin') that published the service error information.
      * @return string|null
     */
     public function getServiceInstance(): ?string {
@@ -134,7 +134,7 @@ class ServiceProvisioningError implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The date and time at which the error occurred.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -142,7 +142,7 @@ class ServiceProvisioningError implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the isResolved property value. The isResolved property
+     * Sets the isResolved property value. Indicates whether the Error has been attended to.
      * @param bool|null $value Value to set for the isResolved property.
     */
     public function setIsResolved(?bool $value): void {
@@ -158,7 +158,7 @@ class ServiceProvisioningError implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the serviceInstance property value. The serviceInstance property
+     * Sets the serviceInstance property value. Qualified service instance (e.g., 'SharePoint/Dublin') that published the service error information.
      * @param string|null $value Value to set for the serviceInstance property.
     */
     public function setServiceInstance(?string $value): void {
