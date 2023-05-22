@@ -28,13 +28,14 @@ OR
 
 Register your application to use the Microsoft Graph API using [Microsoft Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) in your tenant's Active Directory to support work or school users for your tenant, or multiple tenants.
 
-### Create an Authentication Provider object
+### Create a Token Request Context
 
-An AuthenticationProvider handles authentication of requests made to the Graph. It fetches, caches and refreshes access tokens ensuring all requests are authenticated against the Microsoft Identity platform. It supports various OAuth 2.0 flows: `client_credentials`, `authorization_code` and `on_behalf_of` with support for secret-based and certificate-based client authentication.
+A Token Request Context contains the credentials used to authenticate requests. The SDK supports various contexts that align with OAuth 2.0 flows: `client_credentials`, `authorization_code` and `on_behalf_of` with support for secret-based and certificate-based client authentication.
 
-The provided authentication provider wraps around the [The PHP League OAuth client](https://oauth2-client.thephpleague.com/).
+Under the hood, the Token Request Context is passed to an authentication provider which fetches, caches and refreshes access tokens ensuring all requests are authenticated against the Microsoft Identity platform.
 
-The following sample creates an authentication provider that [gets access without a user](https://docs.microsoft.com/en-us/graph/auth-v2-service?context=graph%2Fapi%2F1.0&view=graph-rest-1.0):
+The following sample creates a TokenRequestContext that [gets access without a user](https://docs.microsoft.com/en-us/graph/auth-v2-service?context=graph%2Fapi%2F1.0&view=graph-rest-1.0):
+
 ```php
 
 <?php
@@ -46,12 +47,10 @@ $tokenRequestContext = new ClientCredentialContext(
     'clientId',
     'clientSecret'
 );
-// uses https://graph.microsoft.com/.default scopes
-$authProvider = new GraphPhpLeagueAuthenticationProvider($tokenRequestContext);
 
 ```
 
-To create an authentication provider that [gets access on behalf of a user](https://docs.microsoft.com/en-us/graph/auth-v2-user?context=graph%2Fapi%2F1.0&view=graph-rest-1.0):
+To [gets access on behalf of a user](https://docs.microsoft.com/en-us/graph/auth-v2-user?context=graph%2Fapi%2F1.0&view=graph-rest-1.0):
 ```php
 
 <?php
@@ -65,42 +64,25 @@ $tokenRequestContext = new AuthorizationCodeContext(
     'authCode',
     'redirectUri'
 );
-$scopes = ['User.Read', 'Mail.Read'];
-$authProvider = new GraphPhpLeagueAuthenticationProvider($tokenRequestContext, $scopes);
 
 ```
 Note that your application will need to handle redirecting the user to the Microsoft Identity login page to get the `authorization_code` that's passed into the `AuthorizationCodeContext`.
 [See](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow) for more on the `authorization_code` grant flow.
 
-The SDK also provides equivalent `TokenRequestContext` objects that rely on certificates as opposed to client secrets: `ClientCredentialCertificateContext`, `AuthorizationCodeCertificateContext`.
+### Initialise a GraphServiceClient
 
-### Initialise a GraphServiceClient HTTP Adapter object
-
-The SDK uses an adapter object that handles the HTTP concerns. This HTTP adapter object is used to build the Graph client for making requests.
-
-To initialise one using the authentication provider created in the previous step:
+Using the Token Request Context and optional scopes, a `GraphServiceClient` can be initialised:
 ```php
+use Microsoft\Graph\GraphServiceClient;
 
-use Microsoft\Graph\Beta\GraphRequestAdapter;
-
-$requestAdapter = new GraphRequestAdapter($authProvider);
-
+// Defaults to using https://graph.microsoft.com/.default scopes
+$graphServiceClient = new GraphServiceClient($tokenRequestContext);
+// With specific scopes
+$scopes = ['User.Read', 'Mail.ReadWrite'];
+$graphServiceClient = new GraphServiceClient($tokenRequestContext, $scopes);
 ```
 
-We currently use [Guzzle](http://guzzlephp.org/) as our HTTP client. You can pass your custom configured Guzzle client using `withHttpClient()`:
-
-```php
-
-use Microsoft\Graph\Core\GraphClientFactory;
-use Microsoft\Graph\Beta\GraphRequestAdapter;
-
-$guzzleConfig = [
-    // your custom config
-];
-$httpClient = GraphClientFactory::createWithConfig($guzzleConfig);
-$requestAdapter = new GraphRequestAdapter($authProvider, $httpClient);
-
-```
+For more on Graph client configuration, see [more examples](https://aka.ms/graph/sdk/php/preview/examples)
 
 
 ### Call Microsoft Graph using the Beta endpoint and models
@@ -109,20 +91,16 @@ The following is an example that shows how to fetch a user from Microsoft Graph
 
 ```php
 
-use Microsoft\Graph\Beta\GraphRequestAdapter;
 use Microsoft\Graph\Beta\GraphServiceClient;
 use Microsoft\Kiota\Abstractions\ApiException;
 use Microsoft\Kiota\Authentication\Oauth\ClientCredentialContext;
-use Microsoft\Graph\Core\Authentication\GraphPhpLeagueAuthenticationProvider;
 
 $tokenRequestContext = new ClientCredentialContext(
     'tenantId',
     'clientId',
     'clientSecret'
 );
-$authProvider = new GraphPhpLeagueAuthenticationProvider($tokenRequestContext);
-$requestAdapter = new GraphRequestAdapter($authProvider);
-$betaGraphServiceClient = new GraphServiceClient($requestAdapter);
+$betaGraphServiceClient = new GraphServiceClient($tokenRequestContext);
 
 try {
     $user = $betaGraphServiceClient->users()->byUserId('[userPrincipalName]')->get()->wait();
@@ -137,11 +115,9 @@ try {
 Note that to calling `me()` requires a signed-in user and therefore delegated permissions (obtained using the `authorization_code` flow):
 ```php
 
-use Microsoft\Graph\Beta\GraphRequestAdapter;
 use Microsoft\Graph\Beta\GraphServiceClient;
 use Microsoft\Kiota\Abstractions\ApiException;
 use Microsoft\Kiota\Authentication\Oauth\AuthorizationCodeContext;
-use Microsoft\Graph\Core\Authentication\GraphPhpLeagueAuthenticationProvider;
 
 $tokenRequestContext = new AuthorizationCodeContext(
     'tenantId',
@@ -151,9 +127,7 @@ $tokenRequestContext = new AuthorizationCodeContext(
     'redirectUri'
 );
 $scopes = ['User.Read'];
-$authProvider = new GraphPhpLeagueAuthenticationProvider($tokenRequestContext, $scopes);
-$requestAdapter = new GraphRequestAdapter($authProvider);
-$betaGraphServiceClient = new GraphServiceClient($requestAdapter);
+$betaGraphServiceClient = new GraphServiceClient($tokenRequestContext, $scopes);
 
 try {
     $user = $betaGraphServiceClient->me()->get()->wait();
