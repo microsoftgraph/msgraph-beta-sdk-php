@@ -37,7 +37,7 @@ class DeviceManagementConfigurationSettingGroupCollectionDefinition extends Devi
     }
 
     /**
-     * Gets the maximumCount property value. Maximum number of setting group count in the collection. Valid values 1 to 100
+     * Gets the maximumCount property value. Maximum number of setting group count in the collection
      * @return int|null
     */
     public function getMaximumCount(): ?int {
@@ -45,7 +45,7 @@ class DeviceManagementConfigurationSettingGroupCollectionDefinition extends Devi
     }
 
     /**
-     * Gets the minimumCount property value. Minimum number of setting group count in the collection. Valid values 1 to 100
+     * Gets the minimumCount property value. Minimum number of setting group count in the collection
      * @return int|null
     */
     public function getMinimumCount(): ?int {
@@ -63,16 +63,16 @@ class DeviceManagementConfigurationSettingGroupCollectionDefinition extends Devi
     }
 
     /**
-     * Sets the maximumCount property value. Maximum number of setting group count in the collection. Valid values 1 to 100
-     *  @param int|null $value Value to set for the maximumCount property.
+     * Sets the maximumCount property value. Maximum number of setting group count in the collection
+     * @param int|null $value Value to set for the maximumCount property.
     */
     public function setMaximumCount(?int $value): void {
         $this->getBackingStore()->set('maximumCount', $value);
     }
 
     /**
-     * Sets the minimumCount property value. Minimum number of setting group count in the collection. Valid values 1 to 100
-     *  @param int|null $value Value to set for the minimumCount property.
+     * Sets the minimumCount property value. Minimum number of setting group count in the collection
+     * @param int|null $value Value to set for the minimumCount property.
     */
     public function setMinimumCount(?int $value): void {
         $this->getBackingStore()->set('minimumCount', $value);

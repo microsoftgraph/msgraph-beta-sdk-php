@@ -84,7 +84,7 @@ class OutlookUser extends Entity implements Parsable
 
     /**
      * Sets the masterCategories property value. A list of categories defined for the user.
-     *  @param array<OutlookCategory>|null $value Value to set for the masterCategories property.
+     * @param array<OutlookCategory>|null $value Value to set for the masterCategories property.
     */
     public function setMasterCategories(?array $value): void {
         $this->getBackingStore()->set('masterCategories', $value);
@@ -92,7 +92,7 @@ class OutlookUser extends Entity implements Parsable
 
     /**
      * Sets the taskFolders property value. The taskFolders property
-     *  @param array<OutlookTaskFolder>|null $value Value to set for the taskFolders property.
+     * @param array<OutlookTaskFolder>|null $value Value to set for the taskFolders property.
     */
     public function setTaskFolders(?array $value): void {
         $this->getBackingStore()->set('taskFolders', $value);
@@ -100,7 +100,7 @@ class OutlookUser extends Entity implements Parsable
 
     /**
      * Sets the taskGroups property value. The taskGroups property
-     *  @param array<OutlookTaskGroup>|null $value Value to set for the taskGroups property.
+     * @param array<OutlookTaskGroup>|null $value Value to set for the taskGroups property.
     */
     public function setTaskGroups(?array $value): void {
         $this->getBackingStore()->set('taskGroups', $value);
@@ -108,7 +108,7 @@ class OutlookUser extends Entity implements Parsable
 
     /**
      * Sets the tasks property value. The tasks property
-     *  @param array<OutlookTask>|null $value Value to set for the tasks property.
+     * @param array<OutlookTask>|null $value Value to set for the tasks property.
     */
     public function setTasks(?array $value): void {
         $this->getBackingStore()->set('tasks', $value);

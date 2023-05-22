@@ -50,7 +50,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the appliedEventListeners property value. The appliedEventListeners property
+     * Gets the appliedEventListeners property value. Detailed information about the listeners, such as Azure Logic Apps and Azure Functions, that were triggered by the corresponding events in the sign-in event.
      * @return array<AppliedAuthenticationEventListener>|null
     */
     public function getAppliedEventListeners(): ?array {
@@ -248,6 +248,7 @@ class SignIn extends Entity implements Parsable
             'isInteractive' => fn(ParseNode $n) => $o->setIsInteractive($n->getBooleanValue()),
             'isTenantRestricted' => fn(ParseNode $n) => $o->setIsTenantRestricted($n->getBooleanValue()),
             'location' => fn(ParseNode $n) => $o->setLocation($n->getObjectValue([SignInLocation::class, 'createFromDiscriminatorValue'])),
+            'managedServiceIdentity' => fn(ParseNode $n) => $o->setManagedServiceIdentity($n->getObjectValue([ManagedIdentity::class, 'createFromDiscriminatorValue'])),
             'mfaDetail' => fn(ParseNode $n) => $o->setMfaDetail($n->getObjectValue([MfaDetail::class, 'createFromDiscriminatorValue'])),
             'networkLocationDetails' => fn(ParseNode $n) => $o->setNetworkLocationDetails($n->getCollectionOfObjectValues([NetworkLocationDetail::class, 'createFromDiscriminatorValue'])),
             'originalRequestId' => fn(ParseNode $n) => $o->setOriginalRequestId($n->getStringValue()),
@@ -258,7 +259,7 @@ class SignIn extends Entity implements Parsable
             'resourceServicePrincipalId' => fn(ParseNode $n) => $o->setResourceServicePrincipalId($n->getStringValue()),
             'resourceTenantId' => fn(ParseNode $n) => $o->setResourceTenantId($n->getStringValue()),
             'riskDetail' => fn(ParseNode $n) => $o->setRiskDetail($n->getEnumValue(RiskDetail::class)),
-            'riskEventTypes_v2' => fn(ParseNode $n) => $o->setRiskEventTypes_v2($n->getCollectionOfPrimitiveValues()),
+            'riskEventTypes_v2' => fn(ParseNode $n) => $o->setRiskEventTypesV2($n->getCollectionOfPrimitiveValues()),
             'riskLevelAggregated' => fn(ParseNode $n) => $o->setRiskLevelAggregated($n->getEnumValue(RiskLevel::class)),
             'riskLevelDuringSignIn' => fn(ParseNode $n) => $o->setRiskLevelDuringSignIn($n->getEnumValue(RiskLevel::class)),
             'riskState' => fn(ParseNode $n) => $o->setRiskState($n->getEnumValue(RiskState::class)),
@@ -355,6 +356,14 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
+     * Gets the managedServiceIdentity property value. Contains information about the managed identity used for the sign in, including its type and associated Azure Resource Manager (ARM) resource ID.
+     * @return ManagedIdentity|null
+    */
+    public function getManagedServiceIdentity(): ?ManagedIdentity {
+        return $this->getBackingStore()->get('managedServiceIdentity');
+    }
+
+    /**
      * Gets the mfaDetail property value. The mfaDetail property
      * @return MfaDetail|null
     */
@@ -438,7 +447,7 @@ class SignIn extends Entity implements Parsable
      * Gets the riskEventTypes_v2 property value. The list of risk event types associated with the sign-in. Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, or unknownFutureValue. Supports $filter (eq and startsWith operators only).
      * @return array<string>|null
     */
-    public function getRiskEventTypes_v2(): ?array {
+    public function getRiskEventTypesV2(): ?array {
         return $this->getBackingStore()->get('riskEventTypes_v2');
     }
 
@@ -640,6 +649,7 @@ class SignIn extends Entity implements Parsable
         $writer->writeBooleanValue('isInteractive', $this->getIsInteractive());
         $writer->writeBooleanValue('isTenantRestricted', $this->getIsTenantRestricted());
         $writer->writeObjectValue('location', $this->getLocation());
+        $writer->writeObjectValue('managedServiceIdentity', $this->getManagedServiceIdentity());
         $writer->writeObjectValue('mfaDetail', $this->getMfaDetail());
         $writer->writeCollectionOfObjectValues('networkLocationDetails', $this->getNetworkLocationDetails());
         $writer->writeStringValue('originalRequestId', $this->getOriginalRequestId());
@@ -650,7 +660,7 @@ class SignIn extends Entity implements Parsable
         $writer->writeStringValue('resourceServicePrincipalId', $this->getResourceServicePrincipalId());
         $writer->writeStringValue('resourceTenantId', $this->getResourceTenantId());
         $writer->writeEnumValue('riskDetail', $this->getRiskDetail());
-        $writer->writeCollectionOfPrimitiveValues('riskEventTypes_v2', $this->getRiskEventTypes_v2());
+        $writer->writeCollectionOfPrimitiveValues('riskEventTypes_v2', $this->getRiskEventTypesV2());
         $writer->writeEnumValue('riskLevelAggregated', $this->getRiskLevelAggregated());
         $writer->writeEnumValue('riskLevelDuringSignIn', $this->getRiskLevelDuringSignIn());
         $writer->writeEnumValue('riskState', $this->getRiskState());
@@ -675,7 +685,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the appDisplayName property value. The application name displayed in the Azure Portal. Supports $filter (eq and startsWith operators only).
-     *  @param string|null $value Value to set for the appDisplayName property.
+     * @param string|null $value Value to set for the appDisplayName property.
     */
     public function setAppDisplayName(?string $value): void {
         $this->getBackingStore()->set('appDisplayName', $value);
@@ -683,7 +693,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the appId property value. The application identifier in Azure Active Directory. Supports $filter (eq operator only).
-     *  @param string|null $value Value to set for the appId property.
+     * @param string|null $value Value to set for the appId property.
     */
     public function setAppId(?string $value): void {
         $this->getBackingStore()->set('appId', $value);
@@ -691,15 +701,15 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the appliedConditionalAccessPolicies property value. A list of conditional access policies that are triggered by the corresponding sign-in activity.
-     *  @param array<AppliedConditionalAccessPolicy>|null $value Value to set for the appliedConditionalAccessPolicies property.
+     * @param array<AppliedConditionalAccessPolicy>|null $value Value to set for the appliedConditionalAccessPolicies property.
     */
     public function setAppliedConditionalAccessPolicies(?array $value): void {
         $this->getBackingStore()->set('appliedConditionalAccessPolicies', $value);
     }
 
     /**
-     * Sets the appliedEventListeners property value. The appliedEventListeners property
-     *  @param array<AppliedAuthenticationEventListener>|null $value Value to set for the appliedEventListeners property.
+     * Sets the appliedEventListeners property value. Detailed information about the listeners, such as Azure Logic Apps and Azure Functions, that were triggered by the corresponding events in the sign-in event.
+     * @param array<AppliedAuthenticationEventListener>|null $value Value to set for the appliedEventListeners property.
     */
     public function setAppliedEventListeners(?array $value): void {
         $this->getBackingStore()->set('appliedEventListeners', $value);
@@ -707,7 +717,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the authenticationAppDeviceDetails property value. Provides details about the app and device used during an Azure AD authentication step.
-     *  @param AuthenticationAppDeviceDetails|null $value Value to set for the authenticationAppDeviceDetails property.
+     * @param AuthenticationAppDeviceDetails|null $value Value to set for the authenticationAppDeviceDetails property.
     */
     public function setAuthenticationAppDeviceDetails(?AuthenticationAppDeviceDetails $value): void {
         $this->getBackingStore()->set('authenticationAppDeviceDetails', $value);
@@ -715,7 +725,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the authenticationAppPolicyEvaluationDetails property value. Provides details of the Azure AD policies applied to a user and client authentication app during an authentication step.
-     *  @param array<AuthenticationAppPolicyDetails>|null $value Value to set for the authenticationAppPolicyEvaluationDetails property.
+     * @param array<AuthenticationAppPolicyDetails>|null $value Value to set for the authenticationAppPolicyEvaluationDetails property.
     */
     public function setAuthenticationAppPolicyEvaluationDetails(?array $value): void {
         $this->getBackingStore()->set('authenticationAppPolicyEvaluationDetails', $value);
@@ -723,7 +733,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the authenticationContextClassReferences property value. Contains a collection of values that represent the conditional access authentication contexts applied to the sign-in.
-     *  @param array<AuthenticationContext>|null $value Value to set for the authenticationContextClassReferences property.
+     * @param array<AuthenticationContext>|null $value Value to set for the authenticationContextClassReferences property.
     */
     public function setAuthenticationContextClassReferences(?array $value): void {
         $this->getBackingStore()->set('authenticationContextClassReferences', $value);
@@ -731,7 +741,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the authenticationDetails property value. The result of the authentication attempt and additional details on the authentication method.
-     *  @param array<AuthenticationDetail>|null $value Value to set for the authenticationDetails property.
+     * @param array<AuthenticationDetail>|null $value Value to set for the authenticationDetails property.
     */
     public function setAuthenticationDetails(?array $value): void {
         $this->getBackingStore()->set('authenticationDetails', $value);
@@ -739,7 +749,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the authenticationMethodsUsed property value. The authentication methods used. Possible values: SMS, Authenticator App, App Verification code, Password, FIDO, PTA, or PHS.
-     *  @param array<string>|null $value Value to set for the authenticationMethodsUsed property.
+     * @param array<string>|null $value Value to set for the authenticationMethodsUsed property.
     */
     public function setAuthenticationMethodsUsed(?array $value): void {
         $this->getBackingStore()->set('authenticationMethodsUsed', $value);
@@ -747,7 +757,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the authenticationProcessingDetails property value. Additional authentication processing details, such as the agent name in case of PTA/PHS or Server/farm name in case of federated authentication.
-     *  @param array<KeyValue>|null $value Value to set for the authenticationProcessingDetails property.
+     * @param array<KeyValue>|null $value Value to set for the authenticationProcessingDetails property.
     */
     public function setAuthenticationProcessingDetails(?array $value): void {
         $this->getBackingStore()->set('authenticationProcessingDetails', $value);
@@ -755,7 +765,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the authenticationProtocol property value. Lists the protocol type or grant type used in the authentication. The possible values are: none, oAuth2, ropc, wsFederation, saml20, deviceCode, unknownFutureValue. For authentications that use protocols other than the possible values listed, the protocol type is listed as none.
-     *  @param ProtocolType|null $value Value to set for the authenticationProtocol property.
+     * @param ProtocolType|null $value Value to set for the authenticationProtocol property.
     */
     public function setAuthenticationProtocol(?ProtocolType $value): void {
         $this->getBackingStore()->set('authenticationProtocol', $value);
@@ -763,7 +773,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the authenticationRequirement property value. This holds the highest level of authentication needed through all the sign-in steps, for sign-in to succeed. Supports $filter (eq and startsWith operators only).
-     *  @param string|null $value Value to set for the authenticationRequirement property.
+     * @param string|null $value Value to set for the authenticationRequirement property.
     */
     public function setAuthenticationRequirement(?string $value): void {
         $this->getBackingStore()->set('authenticationRequirement', $value);
@@ -771,7 +781,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the authenticationRequirementPolicies property value. Sources of authentication requirement, such as conditional access, per-user MFA, identity protection, and security defaults.
-     *  @param array<AuthenticationRequirementPolicy>|null $value Value to set for the authenticationRequirementPolicies property.
+     * @param array<AuthenticationRequirementPolicy>|null $value Value to set for the authenticationRequirementPolicies property.
     */
     public function setAuthenticationRequirementPolicies(?array $value): void {
         $this->getBackingStore()->set('authenticationRequirementPolicies', $value);
@@ -779,7 +789,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the autonomousSystemNumber property value. The Autonomous System Number (ASN) of the network used by the actor.
-     *  @param int|null $value Value to set for the autonomousSystemNumber property.
+     * @param int|null $value Value to set for the autonomousSystemNumber property.
     */
     public function setAutonomousSystemNumber(?int $value): void {
         $this->getBackingStore()->set('autonomousSystemNumber', $value);
@@ -787,7 +797,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the azureResourceId property value. Contains a fully qualified Azure Resource Manager ID of an Azure resource accessed during the sign-in.
-     *  @param string|null $value Value to set for the azureResourceId property.
+     * @param string|null $value Value to set for the azureResourceId property.
     */
     public function setAzureResourceId(?string $value): void {
         $this->getBackingStore()->set('azureResourceId', $value);
@@ -795,7 +805,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the clientAppUsed property value. The legacy client used for sign-in activity. For example: Browser, Exchange ActiveSync, Modern clients, IMAP, MAPI, SMTP, or POP. Supports $filter (eq operator only).
-     *  @param string|null $value Value to set for the clientAppUsed property.
+     * @param string|null $value Value to set for the clientAppUsed property.
     */
     public function setClientAppUsed(?string $value): void {
         $this->getBackingStore()->set('clientAppUsed', $value);
@@ -803,7 +813,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the clientCredentialType property value. Describes the credential type that a user client or service principal provided to Azure AD to authenticate itself. You may wish to review clientCredentialType to track and eliminate less secure credential types or to watch for clients and service principals using anomalous credential types. The possible values are: none, clientSecret, clientAssertion, federatedIdentityCredential, managedIdentity, certificate, unknownFutureValue.
-     *  @param ClientCredentialType|null $value Value to set for the clientCredentialType property.
+     * @param ClientCredentialType|null $value Value to set for the clientCredentialType property.
     */
     public function setClientCredentialType(?ClientCredentialType $value): void {
         $this->getBackingStore()->set('clientCredentialType', $value);
@@ -811,7 +821,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the conditionalAccessStatus property value. The status of the conditional access policy triggered. Possible values: success, failure, notApplied, or unknownFutureValue. Supports $filter (eq operator only).
-     *  @param ConditionalAccessStatus|null $value Value to set for the conditionalAccessStatus property.
+     * @param ConditionalAccessStatus|null $value Value to set for the conditionalAccessStatus property.
     */
     public function setConditionalAccessStatus(?ConditionalAccessStatus $value): void {
         $this->getBackingStore()->set('conditionalAccessStatus', $value);
@@ -819,7 +829,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the correlationId property value. The identifier that's sent from the client when sign-in is initiated. This is used for troubleshooting the corresponding sign-in activity when calling for support. Supports $filter (eq operator only).
-     *  @param string|null $value Value to set for the correlationId property.
+     * @param string|null $value Value to set for the correlationId property.
     */
     public function setCorrelationId(?string $value): void {
         $this->getBackingStore()->set('correlationId', $value);
@@ -827,7 +837,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date and time the sign-in was initiated. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $orderby and $filter (eq, le, and ge operators only).
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -835,7 +845,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the crossTenantAccessType property value. Describes the type of cross-tenant access used by the actor to access the resource. Possible values are: none, b2bCollaboration, b2bDirectConnect, microsoftSupport, serviceProvider, unknownFutureValue. If the sign in did not cross tenant boundaries, the value is none.
-     *  @param SignInAccessType|null $value Value to set for the crossTenantAccessType property.
+     * @param SignInAccessType|null $value Value to set for the crossTenantAccessType property.
     */
     public function setCrossTenantAccessType(?SignInAccessType $value): void {
         $this->getBackingStore()->set('crossTenantAccessType', $value);
@@ -843,7 +853,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the deviceDetail property value. The device information from where the sign-in occurred. Includes information such as deviceId, OS, and browser. Supports $filter (eq and startsWith operators only) on browser and operatingSystem properties.
-     *  @param DeviceDetail|null $value Value to set for the deviceDetail property.
+     * @param DeviceDetail|null $value Value to set for the deviceDetail property.
     */
     public function setDeviceDetail(?DeviceDetail $value): void {
         $this->getBackingStore()->set('deviceDetail', $value);
@@ -851,7 +861,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the federatedCredentialId property value. Contains the identifier of an application's federated identity credential, if a federated identity credential was used to sign in.
-     *  @param string|null $value Value to set for the federatedCredentialId property.
+     * @param string|null $value Value to set for the federatedCredentialId property.
     */
     public function setFederatedCredentialId(?string $value): void {
         $this->getBackingStore()->set('federatedCredentialId', $value);
@@ -859,7 +869,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the flaggedForReview property value. During a failed sign in, a user may click a button in the Azure portal to mark the failed event for tenant admins. If a user clicked the button to flag the failed sign in, this value is true.
-     *  @param bool|null $value Value to set for the flaggedForReview property.
+     * @param bool|null $value Value to set for the flaggedForReview property.
     */
     public function setFlaggedForReview(?bool $value): void {
         $this->getBackingStore()->set('flaggedForReview', $value);
@@ -867,7 +877,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the homeTenantId property value. The tenant identifier of the user initiating the sign in. Not applicable in Managed Identity or service principal sign ins.
-     *  @param string|null $value Value to set for the homeTenantId property.
+     * @param string|null $value Value to set for the homeTenantId property.
     */
     public function setHomeTenantId(?string $value): void {
         $this->getBackingStore()->set('homeTenantId', $value);
@@ -875,7 +885,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the homeTenantName property value. For user sign ins, the identifier of the tenant that the user is a member of. Only populated in cases where the home tenant has provided affirmative consent to Azure AD to show the tenant content.
-     *  @param string|null $value Value to set for the homeTenantName property.
+     * @param string|null $value Value to set for the homeTenantName property.
     */
     public function setHomeTenantName(?string $value): void {
         $this->getBackingStore()->set('homeTenantName', $value);
@@ -883,7 +893,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the incomingTokenType property value. Indicates the token types that were presented to Azure AD to authenticate the actor in the sign in. The possible values are: none, primaryRefreshToken, saml11, saml20, unknownFutureValue, remoteDesktopToken.  NOTE Azure AD may have also used token types not listed in this Enum type to authenticate the actor. Do not infer the lack of a token if it is not one of the types listed. Also, please note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: remoteDesktopToken.
-     *  @param IncomingTokenType|null $value Value to set for the incomingTokenType property.
+     * @param IncomingTokenType|null $value Value to set for the incomingTokenType property.
     */
     public function setIncomingTokenType(?IncomingTokenType $value): void {
         $this->getBackingStore()->set('incomingTokenType', $value);
@@ -891,7 +901,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the ipAddress property value. The IP address of the client from where the sign-in occurred. Supports $filter (eq and startsWith operators only).
-     *  @param string|null $value Value to set for the ipAddress property.
+     * @param string|null $value Value to set for the ipAddress property.
     */
     public function setIpAddress(?string $value): void {
         $this->getBackingStore()->set('ipAddress', $value);
@@ -899,7 +909,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the ipAddressFromResourceProvider property value. The IP address a user used to reach a resource provider, used to determine Conditional Access compliance for some policies. For example, when a user interacts with Exchange Online, the IP address Exchange receives from the user may be recorded here. This value is often null.
-     *  @param string|null $value Value to set for the ipAddressFromResourceProvider property.
+     * @param string|null $value Value to set for the ipAddressFromResourceProvider property.
     */
     public function setIpAddressFromResourceProvider(?string $value): void {
         $this->getBackingStore()->set('ipAddressFromResourceProvider', $value);
@@ -907,7 +917,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the isInteractive property value. Indicates whether a user sign in is interactive. In interactive sign in, the user provides an authentication factor to Azure AD. These factors include passwords, responses to MFA challenges, biometric factors, or QR codes that a user provides to Azure AD or an associated app. In non-interactive sign in, the user doesn't provide an authentication factor. Instead, the client app uses a token or code to authenticate or access a resource on behalf of a user. Non-interactive sign ins are commonly used for a client to sign in on a user's behalf in a process transparent to the user.
-     *  @param bool|null $value Value to set for the isInteractive property.
+     * @param bool|null $value Value to set for the isInteractive property.
     */
     public function setIsInteractive(?bool $value): void {
         $this->getBackingStore()->set('isInteractive', $value);
@@ -915,7 +925,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the isTenantRestricted property value. Shows whether the sign in event was subject to an Azure AD tenant restriction policy.
-     *  @param bool|null $value Value to set for the isTenantRestricted property.
+     * @param bool|null $value Value to set for the isTenantRestricted property.
     */
     public function setIsTenantRestricted(?bool $value): void {
         $this->getBackingStore()->set('isTenantRestricted', $value);
@@ -923,15 +933,23 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the location property value. The city, state, and 2 letter country code from where the sign-in occurred. Supports $filter (eq and startsWith operators only) on city, state, and countryOrRegion properties.
-     *  @param SignInLocation|null $value Value to set for the location property.
+     * @param SignInLocation|null $value Value to set for the location property.
     */
     public function setLocation(?SignInLocation $value): void {
         $this->getBackingStore()->set('location', $value);
     }
 
     /**
+     * Sets the managedServiceIdentity property value. Contains information about the managed identity used for the sign in, including its type and associated Azure Resource Manager (ARM) resource ID.
+     * @param ManagedIdentity|null $value Value to set for the managedServiceIdentity property.
+    */
+    public function setManagedServiceIdentity(?ManagedIdentity $value): void {
+        $this->getBackingStore()->set('managedServiceIdentity', $value);
+    }
+
+    /**
      * Sets the mfaDetail property value. The mfaDetail property
-     *  @param MfaDetail|null $value Value to set for the mfaDetail property.
+     * @param MfaDetail|null $value Value to set for the mfaDetail property.
     */
     public function setMfaDetail(?MfaDetail $value): void {
         $this->getBackingStore()->set('mfaDetail', $value);
@@ -939,7 +957,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the networkLocationDetails property value. The network location details including the type of network used and its names.
-     *  @param array<NetworkLocationDetail>|null $value Value to set for the networkLocationDetails property.
+     * @param array<NetworkLocationDetail>|null $value Value to set for the networkLocationDetails property.
     */
     public function setNetworkLocationDetails(?array $value): void {
         $this->getBackingStore()->set('networkLocationDetails', $value);
@@ -947,7 +965,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the originalRequestId property value. The request identifier of the first request in the authentication sequence. Supports $filter (eq operator only).
-     *  @param string|null $value Value to set for the originalRequestId property.
+     * @param string|null $value Value to set for the originalRequestId property.
     */
     public function setOriginalRequestId(?string $value): void {
         $this->getBackingStore()->set('originalRequestId', $value);
@@ -955,7 +973,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the privateLinkDetails property value. Contains information about the Azure AD Private Link policy that is associated with the sign in event.
-     *  @param PrivateLinkDetails|null $value Value to set for the privateLinkDetails property.
+     * @param PrivateLinkDetails|null $value Value to set for the privateLinkDetails property.
     */
     public function setPrivateLinkDetails(?PrivateLinkDetails $value): void {
         $this->getBackingStore()->set('privateLinkDetails', $value);
@@ -963,7 +981,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the processingTimeInMilliseconds property value. The request processing time in milliseconds in AD STS.
-     *  @param int|null $value Value to set for the processingTimeInMilliseconds property.
+     * @param int|null $value Value to set for the processingTimeInMilliseconds property.
     */
     public function setProcessingTimeInMilliseconds(?int $value): void {
         $this->getBackingStore()->set('processingTimeInMilliseconds', $value);
@@ -971,7 +989,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the resourceDisplayName property value. The name of the resource that the user signed in to. Supports $filter (eq operator only).
-     *  @param string|null $value Value to set for the resourceDisplayName property.
+     * @param string|null $value Value to set for the resourceDisplayName property.
     */
     public function setResourceDisplayName(?string $value): void {
         $this->getBackingStore()->set('resourceDisplayName', $value);
@@ -979,7 +997,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the resourceId property value. The identifier of the resource that the user signed in to. Supports $filter (eq operator only).
-     *  @param string|null $value Value to set for the resourceId property.
+     * @param string|null $value Value to set for the resourceId property.
     */
     public function setResourceId(?string $value): void {
         $this->getBackingStore()->set('resourceId', $value);
@@ -987,7 +1005,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the resourceServicePrincipalId property value. The identifier of the service principal representing the target resource in the sign-in event.
-     *  @param string|null $value Value to set for the resourceServicePrincipalId property.
+     * @param string|null $value Value to set for the resourceServicePrincipalId property.
     */
     public function setResourceServicePrincipalId(?string $value): void {
         $this->getBackingStore()->set('resourceServicePrincipalId', $value);
@@ -995,7 +1013,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the resourceTenantId property value. The tenant identifier of the resource referenced in the sign in.
-     *  @param string|null $value Value to set for the resourceTenantId property.
+     * @param string|null $value Value to set for the resourceTenantId property.
     */
     public function setResourceTenantId(?string $value): void {
         $this->getBackingStore()->set('resourceTenantId', $value);
@@ -1003,7 +1021,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the riskDetail property value. The reason behind a specific state of a risky user, sign-in, or a risk event. Possible values: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, or unknownFutureValue. The value none means that no action has been performed on the user or sign-in so far. Supports $filter (eq operator only). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.
-     *  @param RiskDetail|null $value Value to set for the riskDetail property.
+     * @param RiskDetail|null $value Value to set for the riskDetail property.
     */
     public function setRiskDetail(?RiskDetail $value): void {
         $this->getBackingStore()->set('riskDetail', $value);
@@ -1011,15 +1029,15 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the riskEventTypes_v2 property value. The list of risk event types associated with the sign-in. Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, or unknownFutureValue. Supports $filter (eq and startsWith operators only).
-     *  @param array<string>|null $value Value to set for the riskEventTypes_v2 property.
+     * @param array<string>|null $value Value to set for the riskEventTypes_v2 property.
     */
-    public function setRiskEventTypes_v2(?array $value): void {
+    public function setRiskEventTypesV2(?array $value): void {
         $this->getBackingStore()->set('riskEventTypes_v2', $value);
     }
 
     /**
      * Sets the riskLevelAggregated property value. The aggregated risk level. Possible values: none, low, medium, high, hidden, or unknownFutureValue. The value hidden means the user or sign-in was not enabled for Azure AD Identity Protection. Supports $filter (eq operator only). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.
-     *  @param RiskLevel|null $value Value to set for the riskLevelAggregated property.
+     * @param RiskLevel|null $value Value to set for the riskLevelAggregated property.
     */
     public function setRiskLevelAggregated(?RiskLevel $value): void {
         $this->getBackingStore()->set('riskLevelAggregated', $value);
@@ -1027,7 +1045,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the riskLevelDuringSignIn property value. The risk level during sign-in. Possible values: none, low, medium, high, hidden, or unknownFutureValue. The value hidden means the user or sign-in was not enabled for Azure AD Identity Protection. Supports $filter (eq operator only). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.
-     *  @param RiskLevel|null $value Value to set for the riskLevelDuringSignIn property.
+     * @param RiskLevel|null $value Value to set for the riskLevelDuringSignIn property.
     */
     public function setRiskLevelDuringSignIn(?RiskLevel $value): void {
         $this->getBackingStore()->set('riskLevelDuringSignIn', $value);
@@ -1035,7 +1053,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the riskState property value. The risk state of a risky user, sign-in, or a risk event. Possible values: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, or unknownFutureValue. Supports $filter (eq operator only).
-     *  @param RiskState|null $value Value to set for the riskState property.
+     * @param RiskState|null $value Value to set for the riskState property.
     */
     public function setRiskState(?RiskState $value): void {
         $this->getBackingStore()->set('riskState', $value);
@@ -1043,7 +1061,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the servicePrincipalCredentialKeyId property value. The unique identifier of the key credential used by the service principal to authenticate.
-     *  @param string|null $value Value to set for the servicePrincipalCredentialKeyId property.
+     * @param string|null $value Value to set for the servicePrincipalCredentialKeyId property.
     */
     public function setServicePrincipalCredentialKeyId(?string $value): void {
         $this->getBackingStore()->set('servicePrincipalCredentialKeyId', $value);
@@ -1051,7 +1069,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the servicePrincipalCredentialThumbprint property value. The certificate thumbprint of the certificate used by the service principal to authenticate.
-     *  @param string|null $value Value to set for the servicePrincipalCredentialThumbprint property.
+     * @param string|null $value Value to set for the servicePrincipalCredentialThumbprint property.
     */
     public function setServicePrincipalCredentialThumbprint(?string $value): void {
         $this->getBackingStore()->set('servicePrincipalCredentialThumbprint', $value);
@@ -1059,7 +1077,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the servicePrincipalId property value. The application identifier used for sign-in. This field is populated when you are signing in using an application. Supports $filter (eq and startsWith operators only).
-     *  @param string|null $value Value to set for the servicePrincipalId property.
+     * @param string|null $value Value to set for the servicePrincipalId property.
     */
     public function setServicePrincipalId(?string $value): void {
         $this->getBackingStore()->set('servicePrincipalId', $value);
@@ -1067,7 +1085,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the servicePrincipalName property value. The application name used for sign-in. This field is populated when you are signing in using an application. Supports $filter (eq and startsWith operators only).
-     *  @param string|null $value Value to set for the servicePrincipalName property.
+     * @param string|null $value Value to set for the servicePrincipalName property.
     */
     public function setServicePrincipalName(?string $value): void {
         $this->getBackingStore()->set('servicePrincipalName', $value);
@@ -1075,7 +1093,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the sessionLifetimePolicies property value. Any conditional access session management policies that were applied during the sign-in event.
-     *  @param array<SessionLifetimePolicy>|null $value Value to set for the sessionLifetimePolicies property.
+     * @param array<SessionLifetimePolicy>|null $value Value to set for the sessionLifetimePolicies property.
     */
     public function setSessionLifetimePolicies(?array $value): void {
         $this->getBackingStore()->set('sessionLifetimePolicies', $value);
@@ -1083,7 +1101,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the signInEventTypes property value. Indicates the category of sign in that the event represents. For user sign ins, the category can be interactiveUser or nonInteractiveUser and corresponds to the value for the isInteractive property on the signin resource. For managed identity sign ins, the category is managedIdentity. For service principal sign ins, the category is servicePrincipal. Possible values are: interactiveUser, nonInteractiveUser, servicePrincipal, managedIdentity, unknownFutureValue. Supports $filter (eq, ne).
-     *  @param array<string>|null $value Value to set for the signInEventTypes property.
+     * @param array<string>|null $value Value to set for the signInEventTypes property.
     */
     public function setSignInEventTypes(?array $value): void {
         $this->getBackingStore()->set('signInEventTypes', $value);
@@ -1091,7 +1109,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the signInIdentifier property value. The identification that the user provided to sign in. It may be the userPrincipalName but it's also populated when a user signs in using other identifiers.
-     *  @param string|null $value Value to set for the signInIdentifier property.
+     * @param string|null $value Value to set for the signInIdentifier property.
     */
     public function setSignInIdentifier(?string $value): void {
         $this->getBackingStore()->set('signInIdentifier', $value);
@@ -1099,7 +1117,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the signInIdentifierType property value. The type of sign in identifier. Possible values are: userPrincipalName, phoneNumber, proxyAddress, qrCode, onPremisesUserPrincipalName, unknownFutureValue.
-     *  @param SignInIdentifierType|null $value Value to set for the signInIdentifierType property.
+     * @param SignInIdentifierType|null $value Value to set for the signInIdentifierType property.
     */
     public function setSignInIdentifierType(?SignInIdentifierType $value): void {
         $this->getBackingStore()->set('signInIdentifierType', $value);
@@ -1107,7 +1125,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the status property value. The sign-in status. Includes the error code and description of the error (in case of a sign-in failure). Supports $filter (eq operator only) on errorCode property.
-     *  @param SignInStatus|null $value Value to set for the status property.
+     * @param SignInStatus|null $value Value to set for the status property.
     */
     public function setStatus(?SignInStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -1115,7 +1133,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the tokenIssuerName property value. The name of the identity provider. For example, sts.microsoft.com. Supports $filter (eq operator only).
-     *  @param string|null $value Value to set for the tokenIssuerName property.
+     * @param string|null $value Value to set for the tokenIssuerName property.
     */
     public function setTokenIssuerName(?string $value): void {
         $this->getBackingStore()->set('tokenIssuerName', $value);
@@ -1123,7 +1141,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the tokenIssuerType property value. The type of identity provider. The possible values are: AzureAD, ADFederationServices, UnknownFutureValue, AzureADBackupAuth, ADFederationServicesMFAAdapter, NPSExtension. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: AzureADBackupAuth , ADFederationServicesMFAAdapter , NPSExtension.
-     *  @param TokenIssuerType|null $value Value to set for the tokenIssuerType property.
+     * @param TokenIssuerType|null $value Value to set for the tokenIssuerType property.
     */
     public function setTokenIssuerType(?TokenIssuerType $value): void {
         $this->getBackingStore()->set('tokenIssuerType', $value);
@@ -1131,7 +1149,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the uniqueTokenIdentifier property value. A unique base64 encoded request identifier used to track tokens issued by Azure AD as they are redeemed at resource providers.
-     *  @param string|null $value Value to set for the uniqueTokenIdentifier property.
+     * @param string|null $value Value to set for the uniqueTokenIdentifier property.
     */
     public function setUniqueTokenIdentifier(?string $value): void {
         $this->getBackingStore()->set('uniqueTokenIdentifier', $value);
@@ -1139,7 +1157,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the userAgent property value. The user agent information related to sign-in. Supports $filter (eq and startsWith operators only).
-     *  @param string|null $value Value to set for the userAgent property.
+     * @param string|null $value Value to set for the userAgent property.
     */
     public function setUserAgent(?string $value): void {
         $this->getBackingStore()->set('userAgent', $value);
@@ -1147,7 +1165,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the userDisplayName property value. The display name of the user. Supports $filter (eq and startsWith operators only).
-     *  @param string|null $value Value to set for the userDisplayName property.
+     * @param string|null $value Value to set for the userDisplayName property.
     */
     public function setUserDisplayName(?string $value): void {
         $this->getBackingStore()->set('userDisplayName', $value);
@@ -1155,7 +1173,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the userId property value. The identifier of the user. Supports $filter (eq operator only).
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);
@@ -1163,7 +1181,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the userPrincipalName property value. The UPN of the user. Supports $filter (eq and startsWith operators only).
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);
@@ -1171,7 +1189,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the userType property value. Identifies whether the user is a member or guest in the tenant. Possible values are: member, guest, unknownFutureValue.
-     *  @param SignInUserType|null $value Value to set for the userType property.
+     * @param SignInUserType|null $value Value to set for the userType property.
     */
     public function setUserType(?SignInUserType $value): void {
         $this->getBackingStore()->set('userType', $value);

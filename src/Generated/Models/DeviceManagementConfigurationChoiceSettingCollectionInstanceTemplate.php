@@ -65,7 +65,7 @@ class DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate exten
 
     /**
      * Sets the allowUnmanagedValues property value. Linked policy may append values which are not present in the template.
-     *  @param bool|null $value Value to set for the allowUnmanagedValues property.
+     * @param bool|null $value Value to set for the allowUnmanagedValues property.
     */
     public function setAllowUnmanagedValues(?bool $value): void {
         $this->getBackingStore()->set('allowUnmanagedValues', $value);
@@ -73,7 +73,7 @@ class DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate exten
 
     /**
      * Sets the choiceSettingCollectionValueTemplate property value. Choice Setting Collection Value Template
-     *  @param array<DeviceManagementConfigurationChoiceSettingValueTemplate>|null $value Value to set for the choiceSettingCollectionValueTemplate property.
+     * @param array<DeviceManagementConfigurationChoiceSettingValueTemplate>|null $value Value to set for the choiceSettingCollectionValueTemplate property.
     */
     public function setChoiceSettingCollectionValueTemplate(?array $value): void {
         $this->getBackingStore()->set('choiceSettingCollectionValueTemplate', $value);

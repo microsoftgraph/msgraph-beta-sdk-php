@@ -37,6 +37,7 @@ class CustomExtensionData implements AdditionalDataHolder, BackedModel, Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.accessPackageAssignmentRequestCallbackData': return new AccessPackageAssignmentRequestCallbackData();
                 case '#microsoft.graph.identityGovernance.customTaskExtensionCallbackData': return new CustomTaskExtensionCallbackData();
                 case '#microsoft.graph.identityGovernance.customTaskExtensionCalloutData': return new CustomTaskExtensionCalloutData();
             }
@@ -46,7 +47,7 @@ class CustomExtensionData implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -90,7 +91,7 @@ class CustomExtensionData implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -98,7 +99,7 @@ class CustomExtensionData implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -106,7 +107,7 @@ class CustomExtensionData implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

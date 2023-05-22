@@ -46,7 +46,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Gets the applicability property value. Details which device setting is applicable on
+     * Gets the applicability property value. Details which device setting is applicable on. Supports: $filters.
      * @return DeviceManagementConfigurationSettingApplicability|null
     */
     public function getApplicability(): ?DeviceManagementConfigurationSettingApplicability {
@@ -62,7 +62,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Gets the categoryId property value. Specifies the area group under which the setting is configured in a specified configuration service provider (CSP)
+     * Gets the categoryId property value. Specify category in which the setting is under. Support $filters.
      * @return string|null
     */
     public function getCategoryId(): ?string {
@@ -70,7 +70,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Gets the description property value. Description of the item
+     * Gets the description property value. Description of the setting.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -78,7 +78,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Gets the displayName property value. Display name of the item
+     * Gets the displayName property value. Name of the setting. For example: Allow Toast.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -114,7 +114,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Gets the helpText property value. Help text of the item
+     * Gets the helpText property value. Help text of the setting. Give more details of the setting.
      * @return string|null
     */
     public function getHelpText(): ?string {
@@ -122,7 +122,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Gets the infoUrls property value. List of links more info for the setting can be found at
+     * Gets the infoUrls property value. List of links more info for the setting can be found at.
      * @return array<string>|null
     */
     public function getInfoUrls(): ?array {
@@ -170,7 +170,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Gets the rootDefinitionId property value. Root setting definition if the setting is a child setting.
+     * Gets the rootDefinitionId property value. Root setting definition id if the setting is a child setting.
      * @return string|null
     */
     public function getRootDefinitionId(): ?string {
@@ -237,15 +237,15 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
 
     /**
      * Sets the accessTypes property value. The accessTypes property
-     *  @param DeviceManagementConfigurationSettingAccessTypes|null $value Value to set for the accessTypes property.
+     * @param DeviceManagementConfigurationSettingAccessTypes|null $value Value to set for the accessTypes property.
     */
     public function setAccessTypes(?DeviceManagementConfigurationSettingAccessTypes $value): void {
         $this->getBackingStore()->set('accessTypes', $value);
     }
 
     /**
-     * Sets the applicability property value. Details which device setting is applicable on
-     *  @param DeviceManagementConfigurationSettingApplicability|null $value Value to set for the applicability property.
+     * Sets the applicability property value. Details which device setting is applicable on. Supports: $filters.
+     * @param DeviceManagementConfigurationSettingApplicability|null $value Value to set for the applicability property.
     */
     public function setApplicability(?DeviceManagementConfigurationSettingApplicability $value): void {
         $this->getBackingStore()->set('applicability', $value);
@@ -253,47 +253,47 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
 
     /**
      * Sets the baseUri property value. Base CSP Path
-     *  @param string|null $value Value to set for the baseUri property.
+     * @param string|null $value Value to set for the baseUri property.
     */
     public function setBaseUri(?string $value): void {
         $this->getBackingStore()->set('baseUri', $value);
     }
 
     /**
-     * Sets the categoryId property value. Specifies the area group under which the setting is configured in a specified configuration service provider (CSP)
-     *  @param string|null $value Value to set for the categoryId property.
+     * Sets the categoryId property value. Specify category in which the setting is under. Support $filters.
+     * @param string|null $value Value to set for the categoryId property.
     */
     public function setCategoryId(?string $value): void {
         $this->getBackingStore()->set('categoryId', $value);
     }
 
     /**
-     * Sets the description property value. Description of the item
-     *  @param string|null $value Value to set for the description property.
+     * Sets the description property value. Description of the setting.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
     }
 
     /**
-     * Sets the displayName property value. Display name of the item
-     *  @param string|null $value Value to set for the displayName property.
+     * Sets the displayName property value. Name of the setting. For example: Allow Toast.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
-     * Sets the helpText property value. Help text of the item
-     *  @param string|null $value Value to set for the helpText property.
+     * Sets the helpText property value. Help text of the setting. Give more details of the setting.
+     * @param string|null $value Value to set for the helpText property.
     */
     public function setHelpText(?string $value): void {
         $this->getBackingStore()->set('helpText', $value);
     }
 
     /**
-     * Sets the infoUrls property value. List of links more info for the setting can be found at
-     *  @param array<string>|null $value Value to set for the infoUrls property.
+     * Sets the infoUrls property value. List of links more info for the setting can be found at.
+     * @param array<string>|null $value Value to set for the infoUrls property.
     */
     public function setInfoUrls(?array $value): void {
         $this->getBackingStore()->set('infoUrls', $value);
@@ -301,7 +301,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
 
     /**
      * Sets the keywords property value. Tokens which to search settings on
-     *  @param array<string>|null $value Value to set for the keywords property.
+     * @param array<string>|null $value Value to set for the keywords property.
     */
     public function setKeywords(?array $value): void {
         $this->getBackingStore()->set('keywords', $value);
@@ -309,7 +309,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
 
     /**
      * Sets the name property value. Name of the item
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -317,7 +317,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
 
     /**
      * Sets the occurrence property value. Indicates whether the setting is required or not
-     *  @param DeviceManagementConfigurationSettingOccurrence|null $value Value to set for the occurrence property.
+     * @param DeviceManagementConfigurationSettingOccurrence|null $value Value to set for the occurrence property.
     */
     public function setOccurrence(?DeviceManagementConfigurationSettingOccurrence $value): void {
         $this->getBackingStore()->set('occurrence', $value);
@@ -325,7 +325,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
 
     /**
      * Sets the offsetUri property value. Offset CSP Path from Base
-     *  @param string|null $value Value to set for the offsetUri property.
+     * @param string|null $value Value to set for the offsetUri property.
     */
     public function setOffsetUri(?string $value): void {
         $this->getBackingStore()->set('offsetUri', $value);
@@ -333,15 +333,15 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
 
     /**
      * Sets the referredSettingInformationList property value. List of referred setting information.
-     *  @param array<DeviceManagementConfigurationReferredSettingInformation>|null $value Value to set for the referredSettingInformationList property.
+     * @param array<DeviceManagementConfigurationReferredSettingInformation>|null $value Value to set for the referredSettingInformationList property.
     */
     public function setReferredSettingInformationList(?array $value): void {
         $this->getBackingStore()->set('referredSettingInformationList', $value);
     }
 
     /**
-     * Sets the rootDefinitionId property value. Root setting definition if the setting is a child setting.
-     *  @param string|null $value Value to set for the rootDefinitionId property.
+     * Sets the rootDefinitionId property value. Root setting definition id if the setting is a child setting.
+     * @param string|null $value Value to set for the rootDefinitionId property.
     */
     public function setRootDefinitionId(?string $value): void {
         $this->getBackingStore()->set('rootDefinitionId', $value);
@@ -349,7 +349,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
 
     /**
      * Sets the settingUsage property value. Supported setting types
-     *  @param DeviceManagementConfigurationSettingUsage|null $value Value to set for the settingUsage property.
+     * @param DeviceManagementConfigurationSettingUsage|null $value Value to set for the settingUsage property.
     */
     public function setSettingUsage(?DeviceManagementConfigurationSettingUsage $value): void {
         $this->getBackingStore()->set('settingUsage', $value);
@@ -357,7 +357,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
 
     /**
      * Sets the uxBehavior property value. Setting control type representation in the UX
-     *  @param DeviceManagementConfigurationControlType|null $value Value to set for the uxBehavior property.
+     * @param DeviceManagementConfigurationControlType|null $value Value to set for the uxBehavior property.
     */
     public function setUxBehavior(?DeviceManagementConfigurationControlType $value): void {
         $this->getBackingStore()->set('uxBehavior', $value);
@@ -365,7 +365,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
 
     /**
      * Sets the version property value. Item Version
-     *  @param string|null $value Value to set for the version property.
+     * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {
         $this->getBackingStore()->set('version', $value);
@@ -373,7 +373,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
 
     /**
      * Sets the visibility property value. Supported setting types
-     *  @param DeviceManagementConfigurationSettingVisibility|null $value Value to set for the visibility property.
+     * @param DeviceManagementConfigurationSettingVisibility|null $value Value to set for the visibility property.
     */
     public function setVisibility(?DeviceManagementConfigurationSettingVisibility $value): void {
         $this->getBackingStore()->set('visibility', $value);

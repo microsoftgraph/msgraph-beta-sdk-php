@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * VPN Traffic Rule definition.
+*/
 class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -92,6 +95,7 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
             'remoteAddressRanges' => fn(ParseNode $n) => $o->setRemoteAddressRanges($n->getCollectionOfObjectValues([IPv4Range::class, 'createFromDiscriminatorValue'])),
             'remotePortRanges' => fn(ParseNode $n) => $o->setRemotePortRanges($n->getCollectionOfObjectValues([NumberRange::class, 'createFromDiscriminatorValue'])),
             'routingPolicyType' => fn(ParseNode $n) => $o->setRoutingPolicyType($n->getEnumValue(VpnTrafficRuleRoutingPolicyType::class)),
+            'vpnTrafficDirection' => fn(ParseNode $n) => $o->setVpnTrafficDirection($n->getEnumValue(VpnTrafficDirection::class)),
         ];
     }
 
@@ -160,6 +164,14 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the vpnTrafficDirection property value. Specify whether the rule applies to inbound traffic or outbound traffic.
+     * @return VpnTrafficDirection|null
+    */
+    public function getVpnTrafficDirection(): ?VpnTrafficDirection {
+        return $this->getBackingStore()->get('vpnTrafficDirection');
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -175,12 +187,13 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeCollectionOfObjectValues('remoteAddressRanges', $this->getRemoteAddressRanges());
         $writer->writeCollectionOfObjectValues('remotePortRanges', $this->getRemotePortRanges());
         $writer->writeEnumValue('routingPolicyType', $this->getRoutingPolicyType());
+        $writer->writeEnumValue('vpnTrafficDirection', $this->getVpnTrafficDirection());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -188,7 +201,7 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the appId property value. App identifier, if this traffic rule is triggered by an app.
-     *  @param string|null $value Value to set for the appId property.
+     * @param string|null $value Value to set for the appId property.
     */
     public function setAppId(?string $value): void {
         $this->getBackingStore()->set('appId', $value);
@@ -196,7 +209,7 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the appType property value. Indicates the type of app that a VPN traffic rule is associated with.
-     *  @param VpnTrafficRuleAppType|null $value Value to set for the appType property.
+     * @param VpnTrafficRuleAppType|null $value Value to set for the appType property.
     */
     public function setAppType(?VpnTrafficRuleAppType $value): void {
         $this->getBackingStore()->set('appType', $value);
@@ -204,7 +217,7 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -212,7 +225,7 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the claims property value. Claims associated with this traffic rule.
-     *  @param string|null $value Value to set for the claims property.
+     * @param string|null $value Value to set for the claims property.
     */
     public function setClaims(?string $value): void {
         $this->getBackingStore()->set('claims', $value);
@@ -220,7 +233,7 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the localAddressRanges property value. Local address range. This collection can contain a maximum of 500 elements.
-     *  @param array<IPv4Range>|null $value Value to set for the localAddressRanges property.
+     * @param array<IPv4Range>|null $value Value to set for the localAddressRanges property.
     */
     public function setLocalAddressRanges(?array $value): void {
         $this->getBackingStore()->set('localAddressRanges', $value);
@@ -228,7 +241,7 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the localPortRanges property value. Local port range can be set only when protocol is either TCP or UDP (6 or 17). This collection can contain a maximum of 500 elements.
-     *  @param array<NumberRange>|null $value Value to set for the localPortRanges property.
+     * @param array<NumberRange>|null $value Value to set for the localPortRanges property.
     */
     public function setLocalPortRanges(?array $value): void {
         $this->getBackingStore()->set('localPortRanges', $value);
@@ -236,7 +249,7 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the name property value. Name.
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -244,7 +257,7 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -252,7 +265,7 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the protocols property value. Protocols (0-255). Valid values 0 to 255
-     *  @param int|null $value Value to set for the protocols property.
+     * @param int|null $value Value to set for the protocols property.
     */
     public function setProtocols(?int $value): void {
         $this->getBackingStore()->set('protocols', $value);
@@ -260,7 +273,7 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the remoteAddressRanges property value. Remote address range. This collection can contain a maximum of 500 elements.
-     *  @param array<IPv4Range>|null $value Value to set for the remoteAddressRanges property.
+     * @param array<IPv4Range>|null $value Value to set for the remoteAddressRanges property.
     */
     public function setRemoteAddressRanges(?array $value): void {
         $this->getBackingStore()->set('remoteAddressRanges', $value);
@@ -268,7 +281,7 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the remotePortRanges property value. Remote port range can be set only when protocol is either TCP or UDP (6 or 17). This collection can contain a maximum of 500 elements.
-     *  @param array<NumberRange>|null $value Value to set for the remotePortRanges property.
+     * @param array<NumberRange>|null $value Value to set for the remotePortRanges property.
     */
     public function setRemotePortRanges(?array $value): void {
         $this->getBackingStore()->set('remotePortRanges', $value);
@@ -276,10 +289,18 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the routingPolicyType property value. Specifies the routing policy for a VPN traffic rule.
-     *  @param VpnTrafficRuleRoutingPolicyType|null $value Value to set for the routingPolicyType property.
+     * @param VpnTrafficRuleRoutingPolicyType|null $value Value to set for the routingPolicyType property.
     */
     public function setRoutingPolicyType(?VpnTrafficRuleRoutingPolicyType $value): void {
         $this->getBackingStore()->set('routingPolicyType', $value);
+    }
+
+    /**
+     * Sets the vpnTrafficDirection property value. Specify whether the rule applies to inbound traffic or outbound traffic.
+     * @param VpnTrafficDirection|null $value Value to set for the vpnTrafficDirection property.
+    */
+    public function setVpnTrafficDirection(?VpnTrafficDirection $value): void {
+        $this->getBackingStore()->set('vpnTrafficDirection', $value);
     }
 
 }

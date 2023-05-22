@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analyte connectivity issue entity.
+*/
 class CloudPCConnectivityIssue extends Entity implements Parsable 
 {
     /**
@@ -105,7 +108,7 @@ class CloudPCConnectivityIssue extends Entity implements Parsable
 
     /**
      * Sets the deviceId property value. The Intune DeviceId of the device the connection is associated with.
-     *  @param string|null $value Value to set for the deviceId property.
+     * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
         $this->getBackingStore()->set('deviceId', $value);
@@ -113,7 +116,7 @@ class CloudPCConnectivityIssue extends Entity implements Parsable
 
     /**
      * Sets the errorCode property value. The error code of the connectivity issue.
-     *  @param string|null $value Value to set for the errorCode property.
+     * @param string|null $value Value to set for the errorCode property.
     */
     public function setErrorCode(?string $value): void {
         $this->getBackingStore()->set('errorCode', $value);
@@ -121,7 +124,7 @@ class CloudPCConnectivityIssue extends Entity implements Parsable
 
     /**
      * Sets the errorDateTime property value. The time that the connection initiated. The time is shown in ISO 8601 format and Coordinated Universal Time (UTC) time.
-     *  @param DateTime|null $value Value to set for the errorDateTime property.
+     * @param DateTime|null $value Value to set for the errorDateTime property.
     */
     public function setErrorDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('errorDateTime', $value);
@@ -129,7 +132,7 @@ class CloudPCConnectivityIssue extends Entity implements Parsable
 
     /**
      * Sets the errorDescription property value. The detailed description of what went wrong.
-     *  @param string|null $value Value to set for the errorDescription property.
+     * @param string|null $value Value to set for the errorDescription property.
     */
     public function setErrorDescription(?string $value): void {
         $this->getBackingStore()->set('errorDescription', $value);
@@ -137,7 +140,7 @@ class CloudPCConnectivityIssue extends Entity implements Parsable
 
     /**
      * Sets the recommendedAction property value. The recommended action to fix the corresponding error.
-     *  @param string|null $value Value to set for the recommendedAction property.
+     * @param string|null $value Value to set for the recommendedAction property.
     */
     public function setRecommendedAction(?string $value): void {
         $this->getBackingStore()->set('recommendedAction', $value);
@@ -145,7 +148,7 @@ class CloudPCConnectivityIssue extends Entity implements Parsable
 
     /**
      * Sets the userId property value. The unique id of user who initialize the connection.
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);

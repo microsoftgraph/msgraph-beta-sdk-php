@@ -37,7 +37,7 @@ class OverrideComplianceStatePostRequestBody implements AdditionalDataHolder, Ba
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -91,7 +91,7 @@ class OverrideComplianceStatePostRequestBody implements AdditionalDataHolder, Ba
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -99,7 +99,7 @@ class OverrideComplianceStatePostRequestBody implements AdditionalDataHolder, Ba
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -107,7 +107,7 @@ class OverrideComplianceStatePostRequestBody implements AdditionalDataHolder, Ba
 
     /**
      * Sets the complianceState property value. Administrator configured device compliance state Enum
-     *  @param AdministratorConfiguredDeviceComplianceState|null $value Value to set for the complianceState property.
+     * @param AdministratorConfiguredDeviceComplianceState|null $value Value to set for the complianceState property.
     */
     public function setComplianceState(?AdministratorConfiguredDeviceComplianceState $value): void {
         $this->getBackingStore()->set('complianceState', $value);
@@ -115,7 +115,7 @@ class OverrideComplianceStatePostRequestBody implements AdditionalDataHolder, Ba
 
     /**
      * Sets the remediationUrl property value. The remediationUrl property
-     *  @param string|null $value Value to set for the remediationUrl property.
+     * @param string|null $value Value to set for the remediationUrl property.
     */
     public function setRemediationUrl(?string $value): void {
         $this->getBackingStore()->set('remediationUrl', $value);

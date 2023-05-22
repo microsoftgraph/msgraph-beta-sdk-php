@@ -25,7 +25,7 @@ class LinkedResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the applicationName property value. Field indicating the app name of the source that is sending the linkedResource.
+     * Gets the applicationName property value. The app name of the source that sends the linkedResource.
      * @return string|null
     */
     public function getApplicationName(): ?string {
@@ -33,7 +33,7 @@ class LinkedResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. Field indicating the title of the linkedResource.
+     * Gets the displayName property value. The title of the linkedResource.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -41,7 +41,7 @@ class LinkedResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the externalId property value. Id of the object that is associated with this task on the third-party/partner system.
+     * Gets the externalId property value. ID of the object that is associated with this task on the third-party/partner system.
      * @return string|null
     */
     public function getExternalId(): ?string {
@@ -83,24 +83,24 @@ class LinkedResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the applicationName property value. Field indicating the app name of the source that is sending the linkedResource.
-     *  @param string|null $value Value to set for the applicationName property.
+     * Sets the applicationName property value. The app name of the source that sends the linkedResource.
+     * @param string|null $value Value to set for the applicationName property.
     */
     public function setApplicationName(?string $value): void {
         $this->getBackingStore()->set('applicationName', $value);
     }
 
     /**
-     * Sets the displayName property value. Field indicating the title of the linkedResource.
-     *  @param string|null $value Value to set for the displayName property.
+     * Sets the displayName property value. The title of the linkedResource.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
-     * Sets the externalId property value. Id of the object that is associated with this task on the third-party/partner system.
-     *  @param string|null $value Value to set for the externalId property.
+     * Sets the externalId property value. ID of the object that is associated with this task on the third-party/partner system.
+     * @param string|null $value Value to set for the externalId property.
     */
     public function setExternalId(?string $value): void {
         $this->getBackingStore()->set('externalId', $value);
@@ -108,7 +108,7 @@ class LinkedResource extends Entity implements Parsable
 
     /**
      * Sets the webUrl property value. Deep link to the linkedResource.
-     *  @param string|null $value Value to set for the webUrl property.
+     * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {
         $this->getBackingStore()->set('webUrl', $value);

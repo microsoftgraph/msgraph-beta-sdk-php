@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MessageEvent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new messageEvent and sets the default values.
+     * Instantiates a new MessageEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -75,7 +75,7 @@ class MessageEvent extends Entity implements Parsable
 
     /**
      * Sets the dateTime property value. The dateTime property
-     *  @param DateTime|null $value Value to set for the dateTime property.
+     * @param DateTime|null $value Value to set for the dateTime property.
     */
     public function setDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('dateTime', $value);
@@ -83,7 +83,7 @@ class MessageEvent extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description property
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -91,7 +91,7 @@ class MessageEvent extends Entity implements Parsable
 
     /**
      * Sets the eventType property value. The eventType property
-     *  @param MessageEventType|null $value Value to set for the eventType property.
+     * @param MessageEventType|null $value Value to set for the eventType property.
     */
     public function setEventType(?MessageEventType $value): void {
         $this->getBackingStore()->set('eventType', $value);

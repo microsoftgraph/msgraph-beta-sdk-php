@@ -26,7 +26,7 @@ class BusinessScenario extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdBy property value. The createdBy property
+     * Gets the createdBy property value. The identity of the user who created the scenario.
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
@@ -34,7 +34,7 @@ class BusinessScenario extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date and time when the scenario was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -42,7 +42,7 @@ class BusinessScenario extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. Display name of the scenario.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -68,7 +68,7 @@ class BusinessScenario extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedBy property value. The lastModifiedBy property
+     * Gets the lastModifiedBy property value. The identity of the user who last modified the scenario.
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
@@ -76,7 +76,7 @@ class BusinessScenario extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. The date and time when the scenario was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -84,7 +84,7 @@ class BusinessScenario extends Entity implements Parsable
     }
 
     /**
-     * Gets the ownerAppIds property value. The ownerAppIds property
+     * Gets the ownerAppIds property value. Identifiers of applications that are authorized to work with this scenario.
      * @return array<string>|null
     */
     public function getOwnerAppIds(): ?array {
@@ -92,7 +92,7 @@ class BusinessScenario extends Entity implements Parsable
     }
 
     /**
-     * Gets the planner property value. The planner property
+     * Gets the planner property value. Planner content related to the scenario.
      * @return BusinessScenarioPlanner|null
     */
     public function getPlanner(): ?BusinessScenarioPlanner {
@@ -100,7 +100,7 @@ class BusinessScenario extends Entity implements Parsable
     }
 
     /**
-     * Gets the uniqueName property value. The uniqueName property
+     * Gets the uniqueName property value. Unique name of the scenario. To avoid conflicts, the recommended value for the unique name is a reverse domain name format, owned by the author of the scenario. For example, a scenario authored by Contoso.com would have a unique name that starts with com.contoso.
      * @return string|null
     */
     public function getUniqueName(): ?string {
@@ -124,64 +124,64 @@ class BusinessScenario extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdBy property value. The createdBy property
-     *  @param IdentitySet|null $value Value to set for the createdBy property.
+     * Sets the createdBy property value. The identity of the user who created the scenario.
+     * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('createdBy', $value);
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * Sets the createdDateTime property value. The date and time when the scenario was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
-     * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * Sets the displayName property value. Display name of the scenario.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
-     * Sets the lastModifiedBy property value. The lastModifiedBy property
-     *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
+     * Sets the lastModifiedBy property value. The identity of the user who last modified the scenario.
+     * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('lastModifiedBy', $value);
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * Sets the lastModifiedDateTime property value. The date and time when the scenario was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
-     * Sets the ownerAppIds property value. The ownerAppIds property
-     *  @param array<string>|null $value Value to set for the ownerAppIds property.
+     * Sets the ownerAppIds property value. Identifiers of applications that are authorized to work with this scenario.
+     * @param array<string>|null $value Value to set for the ownerAppIds property.
     */
     public function setOwnerAppIds(?array $value): void {
         $this->getBackingStore()->set('ownerAppIds', $value);
     }
 
     /**
-     * Sets the planner property value. The planner property
-     *  @param BusinessScenarioPlanner|null $value Value to set for the planner property.
+     * Sets the planner property value. Planner content related to the scenario.
+     * @param BusinessScenarioPlanner|null $value Value to set for the planner property.
     */
     public function setPlanner(?BusinessScenarioPlanner $value): void {
         $this->getBackingStore()->set('planner', $value);
     }
 
     /**
-     * Sets the uniqueName property value. The uniqueName property
-     *  @param string|null $value Value to set for the uniqueName property.
+     * Sets the uniqueName property value. Unique name of the scenario. To avoid conflicts, the recommended value for the unique name is a reverse domain name format, owned by the author of the scenario. For example, a scenario authored by Contoso.com would have a unique name that starts with com.contoso.
+     * @param string|null $value Value to set for the uniqueName property.
     */
     public function setUniqueName(?string $value): void {
         $this->getBackingStore()->set('uniqueName', $value);

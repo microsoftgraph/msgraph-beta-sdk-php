@@ -75,7 +75,7 @@ class AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration extends Dev
 
     /**
      * Sets the certificateAccessType property value. Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
-     *  @param AndroidDeviceOwnerCertificateAccessType|null $value Value to set for the certificateAccessType property.
+     * @param AndroidDeviceOwnerCertificateAccessType|null $value Value to set for the certificateAccessType property.
     */
     public function setCertificateAccessType(?AndroidDeviceOwnerCertificateAccessType $value): void {
         $this->getBackingStore()->set('certificateAccessType', $value);
@@ -83,7 +83,7 @@ class AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration extends Dev
 
     /**
      * Sets the derivedCredentialSettings property value. Tenant level settings for the Derived Credentials to be used for authentication.
-     *  @param DeviceManagementDerivedCredentialSettings|null $value Value to set for the derivedCredentialSettings property.
+     * @param DeviceManagementDerivedCredentialSettings|null $value Value to set for the derivedCredentialSettings property.
     */
     public function setDerivedCredentialSettings(?DeviceManagementDerivedCredentialSettings $value): void {
         $this->getBackingStore()->set('derivedCredentialSettings', $value);
@@ -91,7 +91,7 @@ class AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration extends Dev
 
     /**
      * Sets the silentCertificateAccessDetails property value. Certificate access information. This collection can contain a maximum of 50 elements.
-     *  @param array<AndroidDeviceOwnerSilentCertificateAccess>|null $value Value to set for the silentCertificateAccessDetails property.
+     * @param array<AndroidDeviceOwnerSilentCertificateAccess>|null $value Value to set for the silentCertificateAccessDetails property.
     */
     public function setSilentCertificateAccessDetails(?array $value): void {
         $this->getBackingStore()->set('silentCertificateAccessDetails', $value);

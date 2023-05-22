@@ -36,7 +36,7 @@ class InboundSharedUserProfile implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -51,7 +51,7 @@ class InboundSharedUserProfile implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The name displayed in the address book for teh user at the time when the sharing record was created. Read-only.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -74,7 +74,7 @@ class InboundSharedUserProfile implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the homeTenantId property value. The homeTenantId property
+     * Gets the homeTenantId property value. The home tenant id of the external user. Read-only.
      * @return string|null
     */
     public function getHomeTenantId(): ?string {
@@ -90,7 +90,7 @@ class InboundSharedUserProfile implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the userId property value. The userId property
+     * Gets the userId property value. The object id of the external user. Read-only.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -98,7 +98,7 @@ class InboundSharedUserProfile implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the userPrincipalName property value. The userPrincipalName property
+     * Gets the userPrincipalName property value. The user principal name (UPN) of the external user. Read-only.
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
@@ -120,7 +120,7 @@ class InboundSharedUserProfile implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,23 +128,23 @@ class InboundSharedUserProfile implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
-     * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * Sets the displayName property value. The name displayed in the address book for teh user at the time when the sharing record was created. Read-only.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
-     * Sets the homeTenantId property value. The homeTenantId property
-     *  @param string|null $value Value to set for the homeTenantId property.
+     * Sets the homeTenantId property value. The home tenant id of the external user. Read-only.
+     * @param string|null $value Value to set for the homeTenantId property.
     */
     public function setHomeTenantId(?string $value): void {
         $this->getBackingStore()->set('homeTenantId', $value);
@@ -152,23 +152,23 @@ class InboundSharedUserProfile implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
-     * Sets the userId property value. The userId property
-     *  @param string|null $value Value to set for the userId property.
+     * Sets the userId property value. The object id of the external user. Read-only.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);
     }
 
     /**
-     * Sets the userPrincipalName property value. The userPrincipalName property
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * Sets the userPrincipalName property value. The user principal name (UPN) of the external user. Read-only.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);

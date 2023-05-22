@@ -115,7 +115,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
 
     /**
      * Sets the allowTeachersInMultipleSchools property value. Indicates whether the source has multiple identifiers for a single student or teacher.
-     *  @param bool|null $value Value to set for the allowTeachersInMultipleSchools property.
+     * @param bool|null $value Value to set for the allowTeachersInMultipleSchools property.
     */
     public function setAllowTeachersInMultipleSchools(?bool $value): void {
         $this->getBackingStore()->set('allowTeachersInMultipleSchools', $value);
@@ -123,7 +123,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
 
     /**
      * Sets the clientId property value. The client ID used to connect to PowerSchool.
-     *  @param string|null $value Value to set for the clientId property.
+     * @param string|null $value Value to set for the clientId property.
     */
     public function setClientId(?string $value): void {
         $this->getBackingStore()->set('clientId', $value);
@@ -131,7 +131,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
 
     /**
      * Sets the clientSecret property value. The client secret to authenticate the connection to the PowerSchool instance.
-     *  @param string|null $value Value to set for the clientSecret property.
+     * @param string|null $value Value to set for the clientSecret property.
     */
     public function setClientSecret(?string $value): void {
         $this->getBackingStore()->set('clientSecret', $value);
@@ -139,7 +139,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
 
     /**
      * Sets the connectionUrl property value. The connection URL to the PowerSchool instance.
-     *  @param string|null $value Value to set for the connectionUrl property.
+     * @param string|null $value Value to set for the connectionUrl property.
     */
     public function setConnectionUrl(?string $value): void {
         $this->getBackingStore()->set('connectionUrl', $value);
@@ -147,7 +147,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
 
     /**
      * Sets the customizations property value. Optional customization to be applied to the synchronization profile.
-     *  @param EducationSynchronizationCustomizations|null $value Value to set for the customizations property.
+     * @param EducationSynchronizationCustomizations|null $value Value to set for the customizations property.
     */
     public function setCustomizations(?EducationSynchronizationCustomizations $value): void {
         $this->getBackingStore()->set('customizations', $value);
@@ -155,7 +155,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
 
     /**
      * Sets the schoolsIds property value. The list of schools to sync.
-     *  @param array<string>|null $value Value to set for the schoolsIds property.
+     * @param array<string>|null $value Value to set for the schoolsIds property.
     */
     public function setSchoolsIds(?array $value): void {
         $this->getBackingStore()->set('schoolsIds', $value);
@@ -163,7 +163,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
 
     /**
      * Sets the schoolYear property value. The school year to sync.
-     *  @param string|null $value Value to set for the schoolYear property.
+     * @param string|null $value Value to set for the schoolYear property.
     */
     public function setSchoolYear(?string $value): void {
         $this->getBackingStore()->set('schoolYear', $value);

@@ -67,9 +67,18 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
             'azureADRegistration' => fn(ParseNode $n) => $o->setAzureADRegistration($n->getObjectValue([AzureADRegistrationPolicy::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'localAdminPassword' => fn(ParseNode $n) => $o->setLocalAdminPassword($n->getObjectValue([LocalAdminPasswordSettings::class, 'createFromDiscriminatorValue'])),
             'multiFactorAuthConfiguration' => fn(ParseNode $n) => $o->setMultiFactorAuthConfiguration($n->getEnumValue(MultiFactorAuthConfiguration::class)),
             'userDeviceQuota' => fn(ParseNode $n) => $o->setUserDeviceQuota($n->getIntegerValue()),
         ]);
+    }
+
+    /**
+     * Gets the localAdminPassword property value. Specifies the setting for Local Admin Password Solution (LAPS) within your organization.
+     * @return LocalAdminPasswordSettings|null
+    */
+    public function getLocalAdminPassword(): ?LocalAdminPasswordSettings {
+        return $this->getBackingStore()->get('localAdminPassword');
     }
 
     /**
@@ -98,13 +107,14 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
         $writer->writeObjectValue('azureADRegistration', $this->getAzureADRegistration());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeObjectValue('localAdminPassword', $this->getLocalAdminPassword());
         $writer->writeEnumValue('multiFactorAuthConfiguration', $this->getMultiFactorAuthConfiguration());
         $writer->writeIntegerValue('userDeviceQuota', $this->getUserDeviceQuota());
     }
 
     /**
      * Sets the azureADJoin property value. Specifies the authorization policy for controlling registration of new devices using Azure AD Join within your organization. Required. For more information, see What is a device identity?.
-     *  @param AzureAdJoinPolicy|null $value Value to set for the azureADJoin property.
+     * @param AzureAdJoinPolicy|null $value Value to set for the azureADJoin property.
     */
     public function setAzureADJoin(?AzureAdJoinPolicy $value): void {
         $this->getBackingStore()->set('azureADJoin', $value);
@@ -112,7 +122,7 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
 
     /**
      * Sets the azureADRegistration property value. Specifies the authorization policy for controlling registration of new devices using Azure AD registered within your organization. Required. For more information, see What is a device identity?.
-     *  @param AzureADRegistrationPolicy|null $value Value to set for the azureADRegistration property.
+     * @param AzureADRegistrationPolicy|null $value Value to set for the azureADRegistration property.
     */
     public function setAzureADRegistration(?AzureADRegistrationPolicy $value): void {
         $this->getBackingStore()->set('azureADRegistration', $value);
@@ -120,7 +130,7 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description of the device registration policy. It is always set to Tenant-wide policy that manages intial provisioning controls using quota restrictions, additional authentication and authorization checks. Read-only.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -128,15 +138,23 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The name of the device registration policy. It is always set to Device Registration Policy. Read-only.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
+     * Sets the localAdminPassword property value. Specifies the setting for Local Admin Password Solution (LAPS) within your organization.
+     * @param LocalAdminPasswordSettings|null $value Value to set for the localAdminPassword property.
+    */
+    public function setLocalAdminPassword(?LocalAdminPasswordSettings $value): void {
+        $this->getBackingStore()->set('localAdminPassword', $value);
+    }
+
+    /**
      * Sets the multiFactorAuthConfiguration property value. The multiFactorAuthConfiguration property
-     *  @param MultiFactorAuthConfiguration|null $value Value to set for the multiFactorAuthConfiguration property.
+     * @param MultiFactorAuthConfiguration|null $value Value to set for the multiFactorAuthConfiguration property.
     */
     public function setMultiFactorAuthConfiguration(?MultiFactorAuthConfiguration $value): void {
         $this->getBackingStore()->set('multiFactorAuthConfiguration', $value);
@@ -144,7 +162,7 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
 
     /**
      * Sets the userDeviceQuota property value. Specifies the maximum number of devices that a user can have within your organization before blocking new device registrations. The default value is set to 50. If this property is not specified during the policy update operation, it is automatically reset to 0 to indicate that users are not allowed to join any devices.
-     *  @param int|null $value Value to set for the userDeviceQuota property.
+     * @param int|null $value Value to set for the userDeviceQuota property.
     */
     public function setUserDeviceQuota(?int $value): void {
         $this->getBackingStore()->set('userDeviceQuota', $value);

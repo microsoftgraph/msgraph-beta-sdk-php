@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\AgreementAcceptances;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get entities from agreementAcceptances
+*/
 class AgreementAcceptancesRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class AgreementAcceptancesRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new agreementAcceptancesRequestBuilderGetQueryParameters and sets the default values.
+     * @param string|null $search Search items by search phrases
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?string $search = null, ?array $select = null) {
+        $this->search = $search;
+        $this->select = $select;
+    }
+
 }

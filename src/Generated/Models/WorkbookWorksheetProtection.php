@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WorkbookWorksheetProtection extends Entity implements Parsable 
 {
     /**
-     * @var bool|null $escapedProtected Indicates if the worksheet is protected.  Read-only.
-    */
-    public ?bool $escapedProtected = null;
-    
-    /**
      * Instantiates a new workbookWorksheetProtection and sets the default values.
     */
     public function __construct() {
@@ -69,7 +64,7 @@ class WorkbookWorksheetProtection extends Entity implements Parsable
 
     /**
      * Sets the options property value. Sheet protection options. Read-only.
-     *  @param WorkbookWorksheetProtectionOptions|null $value Value to set for the options property.
+     * @param WorkbookWorksheetProtectionOptions|null $value Value to set for the options property.
     */
     public function setOptions(?WorkbookWorksheetProtectionOptions $value): void {
         $this->getBackingStore()->set('options', $value);
@@ -77,7 +72,7 @@ class WorkbookWorksheetProtection extends Entity implements Parsable
 
     /**
      * Sets the protected property value. Indicates if the worksheet is protected.  Read-only.
-     *  @param bool|null $value Value to set for the EscapedProtected property.
+     * @param bool|null $value Value to set for the EscapedProtected property.
     */
     public function setProtected(?bool $value): void {
         $this->getBackingStore()->set('escapedProtected', $value);

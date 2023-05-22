@@ -74,7 +74,7 @@ class DeviceCategory extends Entity implements Parsable
 
     /**
      * Sets the description property value. Optional description for the device category.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -82,7 +82,7 @@ class DeviceCategory extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Display name for the device category.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -90,7 +90,7 @@ class DeviceCategory extends Entity implements Parsable
 
     /**
      * Sets the roleScopeTagIds property value. Optional role scope tags for the device category.
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);

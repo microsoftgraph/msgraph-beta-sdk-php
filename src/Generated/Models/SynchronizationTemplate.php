@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SynchronizationTemplate extends Entity implements Parsable 
 {
     /**
-     * @var bool|null $escapedDefault true if this template is recommended to be the default for the application.
-    */
-    public ?bool $escapedDefault = null;
-    
-    /**
      * Instantiates a new synchronizationTemplate and sets the default values.
     */
     public function __construct() {
@@ -119,7 +114,7 @@ class SynchronizationTemplate extends Entity implements Parsable
 
     /**
      * Sets the applicationId property value. Identifier of the application this template belongs to.
-     *  @param string|null $value Value to set for the applicationId property.
+     * @param string|null $value Value to set for the applicationId property.
     */
     public function setApplicationId(?string $value): void {
         $this->getBackingStore()->set('applicationId', $value);
@@ -127,7 +122,7 @@ class SynchronizationTemplate extends Entity implements Parsable
 
     /**
      * Sets the default property value. true if this template is recommended to be the default for the application.
-     *  @param bool|null $value Value to set for the EscapedDefault property.
+     * @param bool|null $value Value to set for the EscapedDefault property.
     */
     public function setDefault(?bool $value): void {
         $this->getBackingStore()->set('escapedDefault', $value);
@@ -135,7 +130,7 @@ class SynchronizationTemplate extends Entity implements Parsable
 
     /**
      * Sets the description property value. Description of the template.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -143,7 +138,7 @@ class SynchronizationTemplate extends Entity implements Parsable
 
     /**
      * Sets the discoverable property value. true if this template should appear in the collection of templates available for the application instance (service principal).
-     *  @param bool|null $value Value to set for the discoverable property.
+     * @param bool|null $value Value to set for the discoverable property.
     */
     public function setDiscoverable(?bool $value): void {
         $this->getBackingStore()->set('discoverable', $value);
@@ -151,7 +146,7 @@ class SynchronizationTemplate extends Entity implements Parsable
 
     /**
      * Sets the factoryTag property value. One of the well-known factory tags supported by the synchronization engine. The factoryTag tells the synchronization engine which implementation to use when processing jobs based on this template.
-     *  @param string|null $value Value to set for the factoryTag property.
+     * @param string|null $value Value to set for the factoryTag property.
     */
     public function setFactoryTag(?string $value): void {
         $this->getBackingStore()->set('factoryTag', $value);
@@ -159,7 +154,7 @@ class SynchronizationTemplate extends Entity implements Parsable
 
     /**
      * Sets the metadata property value. Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
-     *  @param array<MetadataEntry>|null $value Value to set for the metadata property.
+     * @param array<MetadataEntry>|null $value Value to set for the metadata property.
     */
     public function setMetadata(?array $value): void {
         $this->getBackingStore()->set('metadata', $value);
@@ -167,7 +162,7 @@ class SynchronizationTemplate extends Entity implements Parsable
 
     /**
      * Sets the schema property value. Default synchronization schema for the jobs based on this template.
-     *  @param SynchronizationSchema|null $value Value to set for the schema property.
+     * @param SynchronizationSchema|null $value Value to set for the schema property.
     */
     public function setSchema(?SynchronizationSchema $value): void {
         $this->getBackingStore()->set('schema', $value);

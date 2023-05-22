@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IntuneBrandingProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new intuneBrandingProfile and sets the default values.
+     * Instantiates a new IntuneBrandingProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -114,6 +114,14 @@ class IntuneBrandingProfile extends Entity implements Parsable
     }
 
     /**
+     * Gets the disableDeviceCategorySelection property value. Boolean that indicates if Device Category Selection will be shown in Company Portal
+     * @return bool|null
+    */
+    public function getDisableDeviceCategorySelection(): ?bool {
+        return $this->getBackingStore()->get('disableDeviceCategorySelection');
+    }
+
+    /**
      * Gets the displayName property value. Company/organization name that is displayed to end users
      * @return string|null
     */
@@ -147,6 +155,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
             'customCantSeePrivacyMessage' => fn(ParseNode $n) => $o->setCustomCantSeePrivacyMessage($n->getStringValue()),
             'customPrivacyMessage' => fn(ParseNode $n) => $o->setCustomPrivacyMessage($n->getStringValue()),
             'disableClientTelemetry' => fn(ParseNode $n) => $o->setDisableClientTelemetry($n->getBooleanValue()),
+            'disableDeviceCategorySelection' => fn(ParseNode $n) => $o->setDisableDeviceCategorySelection($n->getBooleanValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'enrollmentAvailability' => fn(ParseNode $n) => $o->setEnrollmentAvailability($n->getEnumValue(EnrollmentAvailabilityOptions::class)),
             'isDefaultProfile' => fn(ParseNode $n) => $o->setIsDefaultProfile($n->getBooleanValue()),
@@ -349,6 +358,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
         $writer->writeStringValue('customCantSeePrivacyMessage', $this->getCustomCantSeePrivacyMessage());
         $writer->writeStringValue('customPrivacyMessage', $this->getCustomPrivacyMessage());
         $writer->writeBooleanValue('disableClientTelemetry', $this->getDisableClientTelemetry());
+        $writer->writeBooleanValue('disableDeviceCategorySelection', $this->getDisableDeviceCategorySelection());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeEnumValue('enrollmentAvailability', $this->getEnrollmentAvailability());
         $writer->writeBooleanValue('isDefaultProfile', $this->getIsDefaultProfile());
@@ -375,7 +385,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the assignments property value. The list of group assignments for the branding profile
-     *  @param array<IntuneBrandingProfileAssignment>|null $value Value to set for the assignments property.
+     * @param array<IntuneBrandingProfileAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -383,7 +393,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the companyPortalBlockedActions property value. Collection of blocked actions on the company portal as per platform and device ownership types.
-     *  @param array<CompanyPortalBlockedAction>|null $value Value to set for the companyPortalBlockedActions property.
+     * @param array<CompanyPortalBlockedAction>|null $value Value to set for the companyPortalBlockedActions property.
     */
     public function setCompanyPortalBlockedActions(?array $value): void {
         $this->getBackingStore()->set('companyPortalBlockedActions', $value);
@@ -391,7 +401,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the contactITEmailAddress property value. E-mail address of the person/organization responsible for IT support
-     *  @param string|null $value Value to set for the contactITEmailAddress property.
+     * @param string|null $value Value to set for the contactITEmailAddress property.
     */
     public function setContactITEmailAddress(?string $value): void {
         $this->getBackingStore()->set('contactITEmailAddress', $value);
@@ -399,7 +409,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the contactITName property value. Name of the person/organization responsible for IT support
-     *  @param string|null $value Value to set for the contactITName property.
+     * @param string|null $value Value to set for the contactITName property.
     */
     public function setContactITName(?string $value): void {
         $this->getBackingStore()->set('contactITName', $value);
@@ -407,7 +417,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the contactITNotes property value. Text comments regarding the person/organization responsible for IT support
-     *  @param string|null $value Value to set for the contactITNotes property.
+     * @param string|null $value Value to set for the contactITNotes property.
     */
     public function setContactITNotes(?string $value): void {
         $this->getBackingStore()->set('contactITNotes', $value);
@@ -415,7 +425,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the contactITPhoneNumber property value. Phone number of the person/organization responsible for IT support
-     *  @param string|null $value Value to set for the contactITPhoneNumber property.
+     * @param string|null $value Value to set for the contactITPhoneNumber property.
     */
     public function setContactITPhoneNumber(?string $value): void {
         $this->getBackingStore()->set('contactITPhoneNumber', $value);
@@ -423,7 +433,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. Time when the BrandingProfile was created
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -431,7 +441,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the customCanSeePrivacyMessage property value. Text comments regarding what the admin has access to on the device
-     *  @param string|null $value Value to set for the customCanSeePrivacyMessage property.
+     * @param string|null $value Value to set for the customCanSeePrivacyMessage property.
     */
     public function setCustomCanSeePrivacyMessage(?string $value): void {
         $this->getBackingStore()->set('customCanSeePrivacyMessage', $value);
@@ -439,7 +449,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the customCantSeePrivacyMessage property value. Text comments regarding what the admin doesn't have access to on the device
-     *  @param string|null $value Value to set for the customCantSeePrivacyMessage property.
+     * @param string|null $value Value to set for the customCantSeePrivacyMessage property.
     */
     public function setCustomCantSeePrivacyMessage(?string $value): void {
         $this->getBackingStore()->set('customCantSeePrivacyMessage', $value);
@@ -447,7 +457,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the customPrivacyMessage property value. Text comments regarding what the admin doesn't have access to on the device
-     *  @param string|null $value Value to set for the customPrivacyMessage property.
+     * @param string|null $value Value to set for the customPrivacyMessage property.
     */
     public function setCustomPrivacyMessage(?string $value): void {
         $this->getBackingStore()->set('customPrivacyMessage', $value);
@@ -455,15 +465,23 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the disableClientTelemetry property value. Applies to telemetry sent from all clients to the Intune service. When disabled, all proactive troubleshooting and issue warnings within the client are turned off, and telemetry settings appear inactive or hidden to the device user.
-     *  @param bool|null $value Value to set for the disableClientTelemetry property.
+     * @param bool|null $value Value to set for the disableClientTelemetry property.
     */
     public function setDisableClientTelemetry(?bool $value): void {
         $this->getBackingStore()->set('disableClientTelemetry', $value);
     }
 
     /**
+     * Sets the disableDeviceCategorySelection property value. Boolean that indicates if Device Category Selection will be shown in Company Portal
+     * @param bool|null $value Value to set for the disableDeviceCategorySelection property.
+    */
+    public function setDisableDeviceCategorySelection(?bool $value): void {
+        $this->getBackingStore()->set('disableDeviceCategorySelection', $value);
+    }
+
+    /**
      * Sets the displayName property value. Company/organization name that is displayed to end users
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -471,7 +489,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the enrollmentAvailability property value. Options available for enrollment flow customization
-     *  @param EnrollmentAvailabilityOptions|null $value Value to set for the enrollmentAvailability property.
+     * @param EnrollmentAvailabilityOptions|null $value Value to set for the enrollmentAvailability property.
     */
     public function setEnrollmentAvailability(?EnrollmentAvailabilityOptions $value): void {
         $this->getBackingStore()->set('enrollmentAvailability', $value);
@@ -479,7 +497,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the isDefaultProfile property value. Boolean that represents whether the profile is used as default or not
-     *  @param bool|null $value Value to set for the isDefaultProfile property.
+     * @param bool|null $value Value to set for the isDefaultProfile property.
     */
     public function setIsDefaultProfile(?bool $value): void {
         $this->getBackingStore()->set('isDefaultProfile', $value);
@@ -487,7 +505,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the isFactoryResetDisabled property value. Boolean that represents whether the adminsistrator has disabled the 'Factory Reset' action on corporate owned devices.
-     *  @param bool|null $value Value to set for the isFactoryResetDisabled property.
+     * @param bool|null $value Value to set for the isFactoryResetDisabled property.
     */
     public function setIsFactoryResetDisabled(?bool $value): void {
         $this->getBackingStore()->set('isFactoryResetDisabled', $value);
@@ -495,7 +513,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the isRemoveDeviceDisabled property value. Boolean that represents whether the adminsistrator has disabled the 'Remove Device' action on corporate owned devices.
-     *  @param bool|null $value Value to set for the isRemoveDeviceDisabled property.
+     * @param bool|null $value Value to set for the isRemoveDeviceDisabled property.
     */
     public function setIsRemoveDeviceDisabled(?bool $value): void {
         $this->getBackingStore()->set('isRemoveDeviceDisabled', $value);
@@ -503,7 +521,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the landingPageCustomizedImage property value. Customized image displayed in Company Portal apps landing page
-     *  @param MimeContent|null $value Value to set for the landingPageCustomizedImage property.
+     * @param MimeContent|null $value Value to set for the landingPageCustomizedImage property.
     */
     public function setLandingPageCustomizedImage(?MimeContent $value): void {
         $this->getBackingStore()->set('landingPageCustomizedImage', $value);
@@ -511,7 +529,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. Time when the BrandingProfile was last modified
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -519,7 +537,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the lightBackgroundLogo property value. Logo image displayed in Company Portal apps which have a light background behind the logo
-     *  @param MimeContent|null $value Value to set for the lightBackgroundLogo property.
+     * @param MimeContent|null $value Value to set for the lightBackgroundLogo property.
     */
     public function setLightBackgroundLogo(?MimeContent $value): void {
         $this->getBackingStore()->set('lightBackgroundLogo', $value);
@@ -527,7 +545,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the onlineSupportSiteName property value. Display name of the company/organization’s IT helpdesk site
-     *  @param string|null $value Value to set for the onlineSupportSiteName property.
+     * @param string|null $value Value to set for the onlineSupportSiteName property.
     */
     public function setOnlineSupportSiteName(?string $value): void {
         $this->getBackingStore()->set('onlineSupportSiteName', $value);
@@ -535,7 +553,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the onlineSupportSiteUrl property value. URL to the company/organization’s IT helpdesk site
-     *  @param string|null $value Value to set for the onlineSupportSiteUrl property.
+     * @param string|null $value Value to set for the onlineSupportSiteUrl property.
     */
     public function setOnlineSupportSiteUrl(?string $value): void {
         $this->getBackingStore()->set('onlineSupportSiteUrl', $value);
@@ -543,7 +561,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the privacyUrl property value. URL to the company/organization’s privacy policy
-     *  @param string|null $value Value to set for the privacyUrl property.
+     * @param string|null $value Value to set for the privacyUrl property.
     */
     public function setPrivacyUrl(?string $value): void {
         $this->getBackingStore()->set('privacyUrl', $value);
@@ -551,7 +569,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the profileDescription property value. Description of the profile
-     *  @param string|null $value Value to set for the profileDescription property.
+     * @param string|null $value Value to set for the profileDescription property.
     */
     public function setProfileDescription(?string $value): void {
         $this->getBackingStore()->set('profileDescription', $value);
@@ -559,7 +577,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the profileName property value. Name of the profile
-     *  @param string|null $value Value to set for the profileName property.
+     * @param string|null $value Value to set for the profileName property.
     */
     public function setProfileName(?string $value): void {
         $this->getBackingStore()->set('profileName', $value);
@@ -567,7 +585,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the roleScopeTagIds property value. List of scope tags assigned to the branding profile
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);
@@ -575,7 +593,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the sendDeviceOwnershipChangePushNotification property value. Boolean that indicates if a push notification is sent to users when their device ownership type changes from personal to corporate
-     *  @param bool|null $value Value to set for the sendDeviceOwnershipChangePushNotification property.
+     * @param bool|null $value Value to set for the sendDeviceOwnershipChangePushNotification property.
     */
     public function setSendDeviceOwnershipChangePushNotification(?bool $value): void {
         $this->getBackingStore()->set('sendDeviceOwnershipChangePushNotification', $value);
@@ -583,7 +601,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the showAzureADEnterpriseApps property value. Boolean that indicates if AzureAD Enterprise Apps will be shown in Company Portal
-     *  @param bool|null $value Value to set for the showAzureADEnterpriseApps property.
+     * @param bool|null $value Value to set for the showAzureADEnterpriseApps property.
     */
     public function setShowAzureADEnterpriseApps(?bool $value): void {
         $this->getBackingStore()->set('showAzureADEnterpriseApps', $value);
@@ -591,7 +609,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the showConfigurationManagerApps property value. Boolean that indicates if Configuration Manager Apps will be shown in Company Portal
-     *  @param bool|null $value Value to set for the showConfigurationManagerApps property.
+     * @param bool|null $value Value to set for the showConfigurationManagerApps property.
     */
     public function setShowConfigurationManagerApps(?bool $value): void {
         $this->getBackingStore()->set('showConfigurationManagerApps', $value);
@@ -599,7 +617,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the showDisplayNameNextToLogo property value. Boolean that represents whether the administrator-supplied display name will be shown next to the logo image or not
-     *  @param bool|null $value Value to set for the showDisplayNameNextToLogo property.
+     * @param bool|null $value Value to set for the showDisplayNameNextToLogo property.
     */
     public function setShowDisplayNameNextToLogo(?bool $value): void {
         $this->getBackingStore()->set('showDisplayNameNextToLogo', $value);
@@ -607,7 +625,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the showLogo property value. Boolean that represents whether the administrator-supplied logo images are shown or not
-     *  @param bool|null $value Value to set for the showLogo property.
+     * @param bool|null $value Value to set for the showLogo property.
     */
     public function setShowLogo(?bool $value): void {
         $this->getBackingStore()->set('showLogo', $value);
@@ -615,7 +633,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the showOfficeWebApps property value. Boolean that indicates if Office WebApps will be shown in Company Portal
-     *  @param bool|null $value Value to set for the showOfficeWebApps property.
+     * @param bool|null $value Value to set for the showOfficeWebApps property.
     */
     public function setShowOfficeWebApps(?bool $value): void {
         $this->getBackingStore()->set('showOfficeWebApps', $value);
@@ -623,7 +641,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the themeColor property value. Primary theme color used in the Company Portal applications and web portal
-     *  @param RgbColor|null $value Value to set for the themeColor property.
+     * @param RgbColor|null $value Value to set for the themeColor property.
     */
     public function setThemeColor(?RgbColor $value): void {
         $this->getBackingStore()->set('themeColor', $value);
@@ -631,7 +649,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
 
     /**
      * Sets the themeColorLogo property value. Logo image displayed in Company Portal apps which have a theme color background behind the logo
-     *  @param MimeContent|null $value Value to set for the themeColorLogo property.
+     * @param MimeContent|null $value Value to set for the themeColorLogo property.
     */
     public function setThemeColorLogo(?MimeContent $value): void {
         $this->getBackingStore()->set('themeColorLogo', $value);

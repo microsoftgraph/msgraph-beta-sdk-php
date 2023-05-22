@@ -34,7 +34,7 @@ class ExternalItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the activities property value. Write-only property. Returns results.
+     * Gets the activities property value. Returns a list of activities performed on the item. Write-only.
      * @return array<ExternalActivity>|null
     */
     public function getActivities(): ?array {
@@ -85,15 +85,15 @@ class ExternalItem extends Entity implements Parsable
 
     /**
      * Sets the acl property value. An array of access control entries. Each entry specifies the access granted to a user or group. Required.
-     *  @param array<Acl>|null $value Value to set for the acl property.
+     * @param array<Acl>|null $value Value to set for the acl property.
     */
     public function setAcl(?array $value): void {
         $this->getBackingStore()->set('acl', $value);
     }
 
     /**
-     * Sets the activities property value. Write-only property. Returns results.
-     *  @param array<ExternalActivity>|null $value Value to set for the activities property.
+     * Sets the activities property value. Returns a list of activities performed on the item. Write-only.
+     * @param array<ExternalActivity>|null $value Value to set for the activities property.
     */
     public function setActivities(?array $value): void {
         $this->getBackingStore()->set('activities', $value);
@@ -101,7 +101,7 @@ class ExternalItem extends Entity implements Parsable
 
     /**
      * Sets the content property value. A plain-text representation of the contents of the item. The text in this property is full-text indexed. Optional.
-     *  @param ExternalItemContent|null $value Value to set for the content property.
+     * @param ExternalItemContent|null $value Value to set for the content property.
     */
     public function setContent(?ExternalItemContent $value): void {
         $this->getBackingStore()->set('content', $value);
@@ -109,7 +109,7 @@ class ExternalItem extends Entity implements Parsable
 
     /**
      * Sets the properties property value. A property bag with the properties of the item. The properties MUST conform to the schema defined for the externalConnection. Required.
-     *  @param Properties|null $value Value to set for the properties property.
+     * @param Properties|null $value Value to set for the properties property.
     */
     public function setProperties(?Properties $value): void {
         $this->getBackingStore()->set('properties', $value);

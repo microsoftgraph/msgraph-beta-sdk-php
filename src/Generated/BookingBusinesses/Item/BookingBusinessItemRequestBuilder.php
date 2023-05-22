@@ -8,27 +8,23 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Appointments\AppointmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\CalendarView\CalendarViewRequestBuilder;
 use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Customers\CustomersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Customers\Item\BookingCustomerItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\CustomQuestions\CustomQuestionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\CustomQuestions\Item\BookingCustomQuestionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\GetStaffAvailability\GetStaffAvailabilityRequestBuilder;
 use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Publish\PublishRequestBuilder;
-use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Services\Item\BookingServiceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Services\ServicesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\StaffMembers\Item\BookingStaffMemberItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\StaffMembers\StaffMembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Unpublish\UnpublishRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\BookingBusiness;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
-class BookingBusinessItemRequestBuilder 
+/**
+ * Provides operations to manage the collection of bookingBusiness entities.
+*/
+class BookingBusinessItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to manage the appointments property of the microsoft.graph.bookingBusiness entity.
@@ -66,21 +62,11 @@ class BookingBusinessItemRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
      * Provides operations to call the publish method.
     */
     public function publish(): PublishRequestBuilder {
         return new PublishRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
     
     /**
      * Provides operations to manage the services property of the microsoft.graph.bookingBusiness entity.
@@ -104,79 +90,33 @@ class BookingBusinessItemRequestBuilder
     }
     
     /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
-     * Provides operations to manage the appointments property of the microsoft.graph.bookingBusiness entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Appointments\Item\BookingAppointmentItemRequestBuilder
-    */
-    public function appointmentsById(string $id): \Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Appointments\Item\BookingAppointmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['bookingAppointment%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Appointments\Item\BookingAppointmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the calendarView property of the microsoft.graph.bookingBusiness entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\CalendarView\Item\BookingAppointmentItemRequestBuilder
-    */
-    public function calendarViewById(string $id): \Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\CalendarView\Item\BookingAppointmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['bookingAppointment%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\CalendarView\Item\BookingAppointmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new BookingBusinessItemRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/bookingBusinesses/{bookingBusiness%2Did}{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
-    }
-
-    /**
-     * Provides operations to manage the customers property of the microsoft.graph.bookingBusiness entity.
-     * @param string $id Unique identifier of the item
-     * @return BookingCustomerItemRequestBuilder
-    */
-    public function customersById(string $id): BookingCustomerItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['bookingCustomer%2Did'] = $id;
-        return new BookingCustomerItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the customQuestions property of the microsoft.graph.bookingBusiness entity.
-     * @param string $id Unique identifier of the item
-     * @return BookingCustomQuestionItemRequestBuilder
-    */
-    public function customQuestionsById(string $id): BookingCustomQuestionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['bookingCustomQuestion%2Did'] = $id;
-        return new BookingCustomQuestionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
+        parent::__construct($requestAdapter, [], '{+baseurl}/bookingBusinesses/{bookingBusiness%2Did}{?%24select,%24expand}');
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
      * Delete a bookingBusiness object.
      * @param BookingBusinessItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/bookingbusiness-delete?view=graph-rest-1.0 Find more info here
     */
-    public function delete(?BookingBusinessItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?BookingBusinessItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -185,17 +125,17 @@ class BookingBusinessItemRequestBuilder
     /**
      * Get the properties and relationships of a bookingBusiness object.
      * @param BookingBusinessItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/bookingbusiness-get?view=graph-rest-1.0 Find more info here
     */
-    public function get(?BookingBusinessItemRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?BookingBusinessItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [BookingBusiness::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [BookingBusiness::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -205,42 +145,20 @@ class BookingBusinessItemRequestBuilder
      * Update the properties of a bookingBusiness object.
      * @param BookingBusiness $body The request body
      * @param BookingBusinessItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/bookingbusiness-update?view=graph-rest-1.0 Find more info here
     */
-    public function patch(BookingBusiness $body, ?BookingBusinessItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(BookingBusiness $body, ?BookingBusinessItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [BookingBusiness::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [BookingBusiness::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the services property of the microsoft.graph.bookingBusiness entity.
-     * @param string $id Unique identifier of the item
-     * @return BookingServiceItemRequestBuilder
-    */
-    public function servicesById(string $id): BookingServiceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['bookingService%2Did'] = $id;
-        return new BookingServiceItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the staffMembers property of the microsoft.graph.bookingBusiness entity.
-     * @param string $id Unique identifier of the item
-     * @return BookingStaffMemberItemRequestBuilder
-    */
-    public function staffMembersById(string $id): BookingStaffMemberItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['bookingStaffMember%2Did'] = $id;
-        return new BookingStaffMemberItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -254,12 +172,8 @@ class BookingBusinessItemRequestBuilder
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -274,17 +188,13 @@ class BookingBusinessItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -300,14 +210,10 @@ class BookingBusinessItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

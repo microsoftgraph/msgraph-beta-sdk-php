@@ -75,7 +75,7 @@ class DeviceManagementConfigurationIntegerSettingValueTemplate extends DeviceMan
 
     /**
      * Sets the defaultValue property value. Integer Setting Value Default Template.
-     *  @param DeviceManagementConfigurationIntegerSettingValueDefaultTemplate|null $value Value to set for the defaultValue property.
+     * @param DeviceManagementConfigurationIntegerSettingValueDefaultTemplate|null $value Value to set for the defaultValue property.
     */
     public function setDefaultValue(?DeviceManagementConfigurationIntegerSettingValueDefaultTemplate $value): void {
         $this->getBackingStore()->set('defaultValue', $value);
@@ -83,7 +83,7 @@ class DeviceManagementConfigurationIntegerSettingValueTemplate extends DeviceMan
 
     /**
      * Sets the recommendedValueDefinition property value. Recommended value definition.
-     *  @param DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate|null $value Value to set for the recommendedValueDefinition property.
+     * @param DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate|null $value Value to set for the recommendedValueDefinition property.
     */
     public function setRecommendedValueDefinition(?DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate $value): void {
         $this->getBackingStore()->set('recommendedValueDefinition', $value);
@@ -91,7 +91,7 @@ class DeviceManagementConfigurationIntegerSettingValueTemplate extends DeviceMan
 
     /**
      * Sets the requiredValueDefinition property value. Required value definition.
-     *  @param DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate|null $value Value to set for the requiredValueDefinition property.
+     * @param DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate|null $value Value to set for the requiredValueDefinition property.
     */
     public function setRequiredValueDefinition(?DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate $value): void {
         $this->getBackingStore()->set('requiredValueDefinition', $value);

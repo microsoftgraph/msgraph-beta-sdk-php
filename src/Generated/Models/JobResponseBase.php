@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class JobResponseBase extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new jobResponseBase and sets the default values.
+     * Instantiates a new JobResponseBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -72,6 +72,7 @@ class JobResponseBase extends Entity implements Parsable
             'status' => fn(ParseNode $n) => $o->setStatus($n->getStringValue()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
             'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ]);
     }
 
@@ -108,6 +109,14 @@ class JobResponseBase extends Entity implements Parsable
     }
 
     /**
+     * Gets the userId property value. The userId property
+     * @return string|null
+    */
+    public function getUserId(): ?string {
+        return $this->getBackingStore()->get('userId');
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -120,11 +129,12 @@ class JobResponseBase extends Entity implements Parsable
         $writer->writeStringValue('status', $this->getStatus());
         $writer->writeStringValue('tenantId', $this->getTenantId());
         $writer->writeStringValue('type', $this->getType());
+        $writer->writeStringValue('userId', $this->getUserId());
     }
 
     /**
      * Sets the creationDateTime property value. The creationDateTime property
-     *  @param DateTime|null $value Value to set for the creationDateTime property.
+     * @param DateTime|null $value Value to set for the creationDateTime property.
     */
     public function setCreationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('creationDateTime', $value);
@@ -132,7 +142,7 @@ class JobResponseBase extends Entity implements Parsable
 
     /**
      * Sets the endDateTime property value. The endDateTime property
-     *  @param DateTime|null $value Value to set for the endDateTime property.
+     * @param DateTime|null $value Value to set for the endDateTime property.
     */
     public function setEndDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('endDateTime', $value);
@@ -140,7 +150,7 @@ class JobResponseBase extends Entity implements Parsable
 
     /**
      * Sets the error property value. The error property
-     *  @param ClassificationError|null $value Value to set for the error property.
+     * @param ClassificationError|null $value Value to set for the error property.
     */
     public function setError(?ClassificationError $value): void {
         $this->getBackingStore()->set('error', $value);
@@ -148,7 +158,7 @@ class JobResponseBase extends Entity implements Parsable
 
     /**
      * Sets the startDateTime property value. The startDateTime property
-     *  @param DateTime|null $value Value to set for the startDateTime property.
+     * @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('startDateTime', $value);
@@ -156,7 +166,7 @@ class JobResponseBase extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status property
-     *  @param string|null $value Value to set for the status property.
+     * @param string|null $value Value to set for the status property.
     */
     public function setStatus(?string $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -164,7 +174,7 @@ class JobResponseBase extends Entity implements Parsable
 
     /**
      * Sets the tenantId property value. The tenantId property
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);
@@ -172,10 +182,18 @@ class JobResponseBase extends Entity implements Parsable
 
     /**
      * Sets the type property value. The type property
-     *  @param string|null $value Value to set for the type property.
+     * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {
         $this->getBackingStore()->set('type', $value);
+    }
+
+    /**
+     * Sets the userId property value. The userId property
+     * @param string|null $value Value to set for the userId property.
+    */
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
 }

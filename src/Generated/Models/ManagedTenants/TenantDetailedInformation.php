@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TenantDetailedInformation extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new tenantDetailedInformation and sets the default values.
+     * Instantiates a new TenantDetailedInformation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -145,7 +145,7 @@ class TenantDetailedInformation extends Entity implements Parsable
 
     /**
      * Sets the city property value. The city where the managed tenant is located. Optional. Read-only.
-     *  @param string|null $value Value to set for the city property.
+     * @param string|null $value Value to set for the city property.
     */
     public function setCity(?string $value): void {
         $this->getBackingStore()->set('city', $value);
@@ -153,7 +153,7 @@ class TenantDetailedInformation extends Entity implements Parsable
 
     /**
      * Sets the countryCode property value. The code for the country where the managed tenant is located. Optional. Read-only.
-     *  @param string|null $value Value to set for the countryCode property.
+     * @param string|null $value Value to set for the countryCode property.
     */
     public function setCountryCode(?string $value): void {
         $this->getBackingStore()->set('countryCode', $value);
@@ -161,7 +161,7 @@ class TenantDetailedInformation extends Entity implements Parsable
 
     /**
      * Sets the countryName property value. The name for the country where the managed tenant is located. Optional. Read-only.
-     *  @param string|null $value Value to set for the countryName property.
+     * @param string|null $value Value to set for the countryName property.
     */
     public function setCountryName(?string $value): void {
         $this->getBackingStore()->set('countryName', $value);
@@ -169,7 +169,7 @@ class TenantDetailedInformation extends Entity implements Parsable
 
     /**
      * Sets the defaultDomainName property value. The default domain name for the managed tenant. Optional. Read-only.
-     *  @param string|null $value Value to set for the defaultDomainName property.
+     * @param string|null $value Value to set for the defaultDomainName property.
     */
     public function setDefaultDomainName(?string $value): void {
         $this->getBackingStore()->set('defaultDomainName', $value);
@@ -177,7 +177,7 @@ class TenantDetailedInformation extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name for the managed tenant.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -185,7 +185,7 @@ class TenantDetailedInformation extends Entity implements Parsable
 
     /**
      * Sets the industryName property value. The business industry associated with the managed tenant. Optional. Read-only.
-     *  @param string|null $value Value to set for the industryName property.
+     * @param string|null $value Value to set for the industryName property.
     */
     public function setIndustryName(?string $value): void {
         $this->getBackingStore()->set('industryName', $value);
@@ -193,7 +193,7 @@ class TenantDetailedInformation extends Entity implements Parsable
 
     /**
      * Sets the region property value. The region where the managed tenant is located. Optional. Read-only.
-     *  @param string|null $value Value to set for the region property.
+     * @param string|null $value Value to set for the region property.
     */
     public function setRegion(?string $value): void {
         $this->getBackingStore()->set('region', $value);
@@ -201,7 +201,7 @@ class TenantDetailedInformation extends Entity implements Parsable
 
     /**
      * Sets the segmentName property value. The business segment associated with the managed tenant. Optional. Read-only.
-     *  @param string|null $value Value to set for the segmentName property.
+     * @param string|null $value Value to set for the segmentName property.
     */
     public function setSegmentName(?string $value): void {
         $this->getBackingStore()->set('segmentName', $value);
@@ -209,7 +209,7 @@ class TenantDetailedInformation extends Entity implements Parsable
 
     /**
      * Sets the tenantId property value. The Azure Active Directory tenant identifier for the managed tenant.
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);
@@ -217,7 +217,7 @@ class TenantDetailedInformation extends Entity implements Parsable
 
     /**
      * Sets the verticalName property value. The vertical associated with the managed tenant. Optional. Read-only.
-     *  @param string|null $value Value to set for the verticalName property.
+     * @param string|null $value Value to set for the verticalName property.
     */
     public function setVerticalName(?string $value): void {
         $this->getBackingStore()->set('verticalName', $value);

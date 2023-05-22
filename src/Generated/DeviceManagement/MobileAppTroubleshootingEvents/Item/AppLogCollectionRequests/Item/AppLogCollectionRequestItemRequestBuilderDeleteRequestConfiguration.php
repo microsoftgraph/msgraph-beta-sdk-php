@@ -2,18 +2,21 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\MobileAppTroubleshootingEvents\Item\AppLogCollectionRequests\Item;
 
+use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;
 
-class AppLogCollectionRequestItemRequestBuilderDeleteRequestConfiguration 
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
+class AppLogCollectionRequestItemRequestBuilderDeleteRequestConfiguration extends BaseRequestConfiguration 
 {
     /**
-     * @var array<string, string>|null $headers Request headers
+     * Instantiates a new AppLogCollectionRequestItemRequestBuilderDeleteRequestConfiguration and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
     */
-    public ?array $headers = null;
-    
-    /**
-     * @var array<string, RequestOption>|null $options Request options
-    */
-    public ?array $options = null;
-    
+    public function __construct(?array $headers = null, ?array $options = null) {
+        parent::__construct($headers ?? [], $options ?? []);
+    }
+
 }

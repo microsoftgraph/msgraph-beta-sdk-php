@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics metric for work from anywhere report
+*/
 class UserExperienceAnalyticsWorkFromAnywhereMetric extends Entity implements Parsable 
 {
     /**
@@ -54,7 +57,7 @@ class UserExperienceAnalyticsWorkFromAnywhereMetric extends Entity implements Pa
 
     /**
      * Sets the metricDevices property value. The work from anywhere metric devices.
-     *  @param array<UserExperienceAnalyticsWorkFromAnywhereDevice>|null $value Value to set for the metricDevices property.
+     * @param array<UserExperienceAnalyticsWorkFromAnywhereDevice>|null $value Value to set for the metricDevices property.
     */
     public function setMetricDevices(?array $value): void {
         $this->getBackingStore()->set('metricDevices', $value);

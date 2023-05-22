@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity for AppLogCollectionRequest contains all logs values.
+*/
 class AppLogCollectionRequest extends Entity implements Parsable 
 {
     /**
@@ -26,7 +29,7 @@ class AppLogCollectionRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the completedDateTime property value. Time at which the upload log request reached a terminal state
+     * Gets the completedDateTime property value. Time at which the upload log request reached a completed state if not completed yet NULL will be returned.
      * @return DateTime|null
     */
     public function getCompletedDateTime(): ?DateTime {
@@ -42,7 +45,7 @@ class AppLogCollectionRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the errorMessage property value. Error message if any during the upload process
+     * Gets the errorMessage property value. Indicates error message if any during the upload process.
      * @return string|null
     */
     public function getErrorMessage(): ?string {
@@ -84,8 +87,8 @@ class AppLogCollectionRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the completedDateTime property value. Time at which the upload log request reached a terminal state
-     *  @param DateTime|null $value Value to set for the completedDateTime property.
+     * Sets the completedDateTime property value. Time at which the upload log request reached a completed state if not completed yet NULL will be returned.
+     * @param DateTime|null $value Value to set for the completedDateTime property.
     */
     public function setCompletedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('completedDateTime', $value);
@@ -93,15 +96,15 @@ class AppLogCollectionRequest extends Entity implements Parsable
 
     /**
      * Sets the customLogFolders property value. List of log folders.
-     *  @param array<string>|null $value Value to set for the customLogFolders property.
+     * @param array<string>|null $value Value to set for the customLogFolders property.
     */
     public function setCustomLogFolders(?array $value): void {
         $this->getBackingStore()->set('customLogFolders', $value);
     }
 
     /**
-     * Sets the errorMessage property value. Error message if any during the upload process
-     *  @param string|null $value Value to set for the errorMessage property.
+     * Sets the errorMessage property value. Indicates error message if any during the upload process.
+     * @param string|null $value Value to set for the errorMessage property.
     */
     public function setErrorMessage(?string $value): void {
         $this->getBackingStore()->set('errorMessage', $value);
@@ -109,7 +112,7 @@ class AppLogCollectionRequest extends Entity implements Parsable
 
     /**
      * Sets the status property value. AppLogUploadStatus
-     *  @param AppLogUploadState|null $value Value to set for the status property.
+     * @param AppLogUploadState|null $value Value to set for the status property.
     */
     public function setStatus(?AppLogUploadState $value): void {
         $this->getBackingStore()->set('status', $value);

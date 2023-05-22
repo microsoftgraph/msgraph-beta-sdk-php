@@ -42,6 +42,14 @@ class CloudPcSnapshot extends Entity implements Parsable
     }
 
     /**
+     * Gets the expirationDateTime property value. The date and time when the snapshot expires. The time is shown in ISO 8601 format and Coordinated Universal Time (UTC) time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @return DateTime|null
+    */
+    public function getExpirationDateTime(): ?DateTime {
+        return $this->getBackingStore()->get('expirationDateTime');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
@@ -50,7 +58,9 @@ class CloudPcSnapshot extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'cloudPcId' => fn(ParseNode $n) => $o->setCloudPcId($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
             'lastRestoredDateTime' => fn(ParseNode $n) => $o->setLastRestoredDateTime($n->getDateTimeValue()),
+            'snapshotType' => fn(ParseNode $n) => $o->setSnapshotType($n->getEnumValue(CloudPcSnapshotType::class)),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CloudPcSnapshotStatus::class)),
         ]);
     }
@@ -61,6 +71,14 @@ class CloudPcSnapshot extends Entity implements Parsable
     */
     public function getLastRestoredDateTime(): ?DateTime {
         return $this->getBackingStore()->get('lastRestoredDateTime');
+    }
+
+    /**
+     * Gets the snapshotType property value. The type of snapshot that indicates how to create the snapshot. Possible values are automatic, manual. Default value is automatic.
+     * @return CloudPcSnapshotType|null
+    */
+    public function getSnapshotType(): ?CloudPcSnapshotType {
+        return $this->getBackingStore()->get('snapshotType');
     }
 
     /**
@@ -79,13 +97,15 @@ class CloudPcSnapshot extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('cloudPcId', $this->getCloudPcId());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
         $writer->writeDateTimeValue('lastRestoredDateTime', $this->getLastRestoredDateTime());
+        $writer->writeEnumValue('snapshotType', $this->getSnapshotType());
         $writer->writeEnumValue('status', $this->getStatus());
     }
 
     /**
      * Sets the cloudPcId property value. The unique identifier for the Cloud PC.
-     *  @param string|null $value Value to set for the cloudPcId property.
+     * @param string|null $value Value to set for the cloudPcId property.
     */
     public function setCloudPcId(?string $value): void {
         $this->getBackingStore()->set('cloudPcId', $value);
@@ -93,23 +113,39 @@ class CloudPcSnapshot extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date and time at which the snapshot was taken. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
+     * Sets the expirationDateTime property value. The date and time when the snapshot expires. The time is shown in ISO 8601 format and Coordinated Universal Time (UTC) time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @param DateTime|null $value Value to set for the expirationDateTime property.
+    */
+    public function setExpirationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('expirationDateTime', $value);
+    }
+
+    /**
      * Sets the lastRestoredDateTime property value. The date and time at which the snapshot was last used to restore the Cloud PC device. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the lastRestoredDateTime property.
+     * @param DateTime|null $value Value to set for the lastRestoredDateTime property.
     */
     public function setLastRestoredDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastRestoredDateTime', $value);
     }
 
     /**
+     * Sets the snapshotType property value. The type of snapshot that indicates how to create the snapshot. Possible values are automatic, manual. Default value is automatic.
+     * @param CloudPcSnapshotType|null $value Value to set for the snapshotType property.
+    */
+    public function setSnapshotType(?CloudPcSnapshotType $value): void {
+        $this->getBackingStore()->set('snapshotType', $value);
+    }
+
+    /**
      * Sets the status property value. The status of the Cloud PC snapshot. The possible values are: ready, unknownFutureValue.
-     *  @param CloudPcSnapshotStatus|null $value Value to set for the status property.
+     * @param CloudPcSnapshotStatus|null $value Value to set for the status property.
     */
     public function setStatus(?CloudPcSnapshotStatus $value): void {
         $this->getBackingStore()->set('status', $value);

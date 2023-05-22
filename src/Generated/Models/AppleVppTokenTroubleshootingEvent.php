@@ -54,7 +54,7 @@ class AppleVppTokenTroubleshootingEvent extends DeviceManagementTroubleshootingE
 
     /**
      * Sets the tokenId property value. Apple Volume Purchase Program Token Identifier.
-     *  @param string|null $value Value to set for the tokenId property.
+     * @param string|null $value Value to set for the tokenId property.
     */
     public function setTokenId(?string $value): void {
         $this->getBackingStore()->set('tokenId', $value);

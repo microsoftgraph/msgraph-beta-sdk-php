@@ -122,7 +122,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
 
     /**
      * Sets the certificateValidityPeriodScale property value. Certificate Validity Period Options.
-     *  @param CertificateValidityPeriodScale|null $value Value to set for the certificateValidityPeriodScale property.
+     * @param CertificateValidityPeriodScale|null $value Value to set for the certificateValidityPeriodScale property.
     */
     public function setCertificateValidityPeriodScale(?CertificateValidityPeriodScale $value): void {
         $this->getBackingStore()->set('certificateValidityPeriodScale', $value);
@@ -130,7 +130,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
 
     /**
      * Sets the certificateValidityPeriodValue property value. Value for the Certificate Validtiy Period.
-     *  @param int|null $value Value to set for the certificateValidityPeriodValue property.
+     * @param int|null $value Value to set for the certificateValidityPeriodValue property.
     */
     public function setCertificateValidityPeriodValue(?int $value): void {
         $this->getBackingStore()->set('certificateValidityPeriodValue', $value);
@@ -138,7 +138,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
 
     /**
      * Sets the extendedKeyUsages property value. Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.
-     *  @param array<ExtendedKeyUsage>|null $value Value to set for the extendedKeyUsages property.
+     * @param array<ExtendedKeyUsage>|null $value Value to set for the extendedKeyUsages property.
     */
     public function setExtendedKeyUsages(?array $value): void {
         $this->getBackingStore()->set('extendedKeyUsages', $value);
@@ -146,7 +146,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
 
     /**
      * Sets the keyStorageProvider property value. Key Storage Provider (KSP) Import Options.
-     *  @param KeyStorageProviderOption|null $value Value to set for the keyStorageProvider property.
+     * @param KeyStorageProviderOption|null $value Value to set for the keyStorageProvider property.
     */
     public function setKeyStorageProvider(?KeyStorageProviderOption $value): void {
         $this->getBackingStore()->set('keyStorageProvider', $value);
@@ -154,7 +154,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
 
     /**
      * Sets the renewalThresholdPercentage property value. Certificate renewal threshold percentage.
-     *  @param int|null $value Value to set for the renewalThresholdPercentage property.
+     * @param int|null $value Value to set for the renewalThresholdPercentage property.
     */
     public function setRenewalThresholdPercentage(?int $value): void {
         $this->getBackingStore()->set('renewalThresholdPercentage', $value);
@@ -162,7 +162,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
 
     /**
      * Sets the subjectAlternativeNameType property value. Subject Alternative Name Options.
-     *  @param SubjectAlternativeNameType|null $value Value to set for the subjectAlternativeNameType property.
+     * @param SubjectAlternativeNameType|null $value Value to set for the subjectAlternativeNameType property.
     */
     public function setSubjectAlternativeNameType(?SubjectAlternativeNameType $value): void {
         $this->getBackingStore()->set('subjectAlternativeNameType', $value);
@@ -170,7 +170,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
 
     /**
      * Sets the subjectNameFormat property value. Subject Name Format Options.
-     *  @param SubjectNameFormat|null $value Value to set for the subjectNameFormat property.
+     * @param SubjectNameFormat|null $value Value to set for the subjectNameFormat property.
     */
     public function setSubjectNameFormat(?SubjectNameFormat $value): void {
         $this->getBackingStore()->set('subjectNameFormat', $value);

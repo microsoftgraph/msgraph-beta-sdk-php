@@ -55,7 +55,7 @@ class EducationCsvDataProvider extends EducationSynchronizationDataProvider impl
 
     /**
      * Sets the customizations property value. Optional customizations to be applied to the synchronization profile.
-     *  @param EducationSynchronizationCustomizations|null $value Value to set for the customizations property.
+     * @param EducationSynchronizationCustomizations|null $value Value to set for the customizations property.
     */
     public function setCustomizations(?EducationSynchronizationCustomizations $value): void {
         $this->getBackingStore()->set('customizations', $value);

@@ -34,7 +34,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the connectivityResult property value. The connectivity health check result of a Cloud PC, including the updated timestamp and whether the Cloud PC is able to be connected or not.
+     * Gets the connectivityResult property value. The connectivity health check result of a Cloud PC, including the updated timestamp and whether the Cloud PC can be connected.
      * @return CloudPcConnectivityResult|null
     */
     public function getConnectivityResult(): ?CloudPcConnectivityResult {
@@ -42,7 +42,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the diskEncryptionState property value. The diskEncryptionState property
+     * Gets the diskEncryptionState property value. The disk encryption applied to the Cloud PC. Possible values: notAvailable, notEncrypted, encryptedUsingPlatformManagedKey, encryptedUsingCustomerManagedKey, and unknownFutureValue.
      * @return CloudPcDiskEncryptionState|null
     */
     public function getDiskEncryptionState(): ?CloudPcDiskEncryptionState {
@@ -78,6 +78,7 @@ class CloudPC extends Entity implements Parsable
             'onPremisesConnectionName' => fn(ParseNode $n) => $o->setOnPremisesConnectionName($n->getStringValue()),
             'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getEnumValue(CloudPcOperatingSystem::class)),
             'partnerAgentInstallResults' => fn(ParseNode $n) => $o->setPartnerAgentInstallResults($n->getCollectionOfObjectValues([CloudPcPartnerAgentInstallResult::class, 'createFromDiscriminatorValue'])),
+            'powerState' => fn(ParseNode $n) => $o->setPowerState($n->getEnumValue(CloudPcPowerState::class)),
             'provisioningPolicyId' => fn(ParseNode $n) => $o->setProvisioningPolicyId($n->getStringValue()),
             'provisioningPolicyName' => fn(ParseNode $n) => $o->setProvisioningPolicyName($n->getStringValue()),
             'provisioningType' => fn(ParseNode $n) => $o->setProvisioningType($n->getEnumValue(CloudPcProvisioningType::class)),
@@ -172,6 +173,14 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
+     * Gets the powerState property value. The powerState property
+     * @return CloudPcPowerState|null
+    */
+    public function getPowerState(): ?CloudPcPowerState {
+        return $this->getBackingStore()->get('powerState');
+    }
+
+    /**
      * Gets the provisioningPolicyId property value. The provisioning policy ID of the Cloud PC.
      * @return string|null
     */
@@ -188,7 +197,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the provisioningType property value. The provisioningType property
+     * Gets the provisioningType property value. The type of licenses to be used when provisioning Cloud PCs using this policy. Possible values are: dedicated, shared, unknownFutureValue. Default value is dedicated.
      * @return CloudPcProvisioningType|null
     */
     public function getProvisioningType(): ?CloudPcProvisioningType {
@@ -271,6 +280,7 @@ class CloudPC extends Entity implements Parsable
         $writer->writeStringValue('onPremisesConnectionName', $this->getOnPremisesConnectionName());
         $writer->writeEnumValue('osVersion', $this->getOsVersion());
         $writer->writeCollectionOfObjectValues('partnerAgentInstallResults', $this->getPartnerAgentInstallResults());
+        $writer->writeEnumValue('powerState', $this->getPowerState());
         $writer->writeStringValue('provisioningPolicyId', $this->getProvisioningPolicyId());
         $writer->writeStringValue('provisioningPolicyName', $this->getProvisioningPolicyName());
         $writer->writeEnumValue('provisioningType', $this->getProvisioningType());
@@ -285,23 +295,23 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Sets the aadDeviceId property value. The Azure Active Directory (Azure AD) device ID of the Cloud PC.
-     *  @param string|null $value Value to set for the aadDeviceId property.
+     * @param string|null $value Value to set for the aadDeviceId property.
     */
     public function setAadDeviceId(?string $value): void {
         $this->getBackingStore()->set('aadDeviceId', $value);
     }
 
     /**
-     * Sets the connectivityResult property value. The connectivity health check result of a Cloud PC, including the updated timestamp and whether the Cloud PC is able to be connected or not.
-     *  @param CloudPcConnectivityResult|null $value Value to set for the connectivityResult property.
+     * Sets the connectivityResult property value. The connectivity health check result of a Cloud PC, including the updated timestamp and whether the Cloud PC can be connected.
+     * @param CloudPcConnectivityResult|null $value Value to set for the connectivityResult property.
     */
     public function setConnectivityResult(?CloudPcConnectivityResult $value): void {
         $this->getBackingStore()->set('connectivityResult', $value);
     }
 
     /**
-     * Sets the diskEncryptionState property value. The diskEncryptionState property
-     *  @param CloudPcDiskEncryptionState|null $value Value to set for the diskEncryptionState property.
+     * Sets the diskEncryptionState property value. The disk encryption applied to the Cloud PC. Possible values: notAvailable, notEncrypted, encryptedUsingPlatformManagedKey, encryptedUsingCustomerManagedKey, and unknownFutureValue.
+     * @param CloudPcDiskEncryptionState|null $value Value to set for the diskEncryptionState property.
     */
     public function setDiskEncryptionState(?CloudPcDiskEncryptionState $value): void {
         $this->getBackingStore()->set('diskEncryptionState', $value);
@@ -309,7 +319,7 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name of the Cloud PC.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -317,7 +327,7 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Sets the gracePeriodEndDateTime property value. The date and time when the grace period ends and reprovisioning/deprovisioning happens. Required only if the status is inGracePeriod. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the gracePeriodEndDateTime property.
+     * @param DateTime|null $value Value to set for the gracePeriodEndDateTime property.
     */
     public function setGracePeriodEndDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('gracePeriodEndDateTime', $value);
@@ -325,7 +335,7 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Sets the imageDisplayName property value. Name of the OS image that's on the Cloud PC.
-     *  @param string|null $value Value to set for the imageDisplayName property.
+     * @param string|null $value Value to set for the imageDisplayName property.
     */
     public function setImageDisplayName(?string $value): void {
         $this->getBackingStore()->set('imageDisplayName', $value);
@@ -333,7 +343,7 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Sets the lastLoginResult property value. The last login result of the Cloud PC. For example, { 'time': '2014-01-01T00:00:00Z'}.
-     *  @param CloudPcLoginResult|null $value Value to set for the lastLoginResult property.
+     * @param CloudPcLoginResult|null $value Value to set for the lastLoginResult property.
     */
     public function setLastLoginResult(?CloudPcLoginResult $value): void {
         $this->getBackingStore()->set('lastLoginResult', $value);
@@ -341,7 +351,7 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The last modified date and time of the Cloud PC. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -349,7 +359,7 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Sets the lastRemoteActionResult property value. The last remote action result of the enterprise Cloud PCs. The supported remote actions are: Reboot, Rename, Reprovision, Restore, and Troubleshoot.
-     *  @param CloudPcRemoteActionResult|null $value Value to set for the lastRemoteActionResult property.
+     * @param CloudPcRemoteActionResult|null $value Value to set for the lastRemoteActionResult property.
     */
     public function setLastRemoteActionResult(?CloudPcRemoteActionResult $value): void {
         $this->getBackingStore()->set('lastRemoteActionResult', $value);
@@ -357,7 +367,7 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Sets the managedDeviceId property value. The Intune device ID of the Cloud PC.
-     *  @param string|null $value Value to set for the managedDeviceId property.
+     * @param string|null $value Value to set for the managedDeviceId property.
     */
     public function setManagedDeviceId(?string $value): void {
         $this->getBackingStore()->set('managedDeviceId', $value);
@@ -365,7 +375,7 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Sets the managedDeviceName property value. The Intune device name of the Cloud PC.
-     *  @param string|null $value Value to set for the managedDeviceName property.
+     * @param string|null $value Value to set for the managedDeviceName property.
     */
     public function setManagedDeviceName(?string $value): void {
         $this->getBackingStore()->set('managedDeviceName', $value);
@@ -373,7 +383,7 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Sets the onPremisesConnectionName property value. The Azure network connection that is applied during the provisioning of Cloud PCs.
-     *  @param string|null $value Value to set for the onPremisesConnectionName property.
+     * @param string|null $value Value to set for the onPremisesConnectionName property.
     */
     public function setOnPremisesConnectionName(?string $value): void {
         $this->getBackingStore()->set('onPremisesConnectionName', $value);
@@ -381,7 +391,7 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Sets the osVersion property value. The version of the operating system (OS) to provision on Cloud PCs. Possible values are: windows10, windows11, and unknownFutureValue.
-     *  @param CloudPcOperatingSystem|null $value Value to set for the osVersion property.
+     * @param CloudPcOperatingSystem|null $value Value to set for the osVersion property.
     */
     public function setOsVersion(?CloudPcOperatingSystem $value): void {
         $this->getBackingStore()->set('osVersion', $value);
@@ -389,15 +399,23 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Sets the partnerAgentInstallResults property value. The results of every partner agent's installation status on Cloud PC.
-     *  @param array<CloudPcPartnerAgentInstallResult>|null $value Value to set for the partnerAgentInstallResults property.
+     * @param array<CloudPcPartnerAgentInstallResult>|null $value Value to set for the partnerAgentInstallResults property.
     */
     public function setPartnerAgentInstallResults(?array $value): void {
         $this->getBackingStore()->set('partnerAgentInstallResults', $value);
     }
 
     /**
+     * Sets the powerState property value. The powerState property
+     * @param CloudPcPowerState|null $value Value to set for the powerState property.
+    */
+    public function setPowerState(?CloudPcPowerState $value): void {
+        $this->getBackingStore()->set('powerState', $value);
+    }
+
+    /**
      * Sets the provisioningPolicyId property value. The provisioning policy ID of the Cloud PC.
-     *  @param string|null $value Value to set for the provisioningPolicyId property.
+     * @param string|null $value Value to set for the provisioningPolicyId property.
     */
     public function setProvisioningPolicyId(?string $value): void {
         $this->getBackingStore()->set('provisioningPolicyId', $value);
@@ -405,15 +423,15 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Sets the provisioningPolicyName property value. The provisioning policy that is applied during the provisioning of Cloud PCs.
-     *  @param string|null $value Value to set for the provisioningPolicyName property.
+     * @param string|null $value Value to set for the provisioningPolicyName property.
     */
     public function setProvisioningPolicyName(?string $value): void {
         $this->getBackingStore()->set('provisioningPolicyName', $value);
     }
 
     /**
-     * Sets the provisioningType property value. The provisioningType property
-     *  @param CloudPcProvisioningType|null $value Value to set for the provisioningType property.
+     * Sets the provisioningType property value. The type of licenses to be used when provisioning Cloud PCs using this policy. Possible values are: dedicated, shared, unknownFutureValue. Default value is dedicated.
+     * @param CloudPcProvisioningType|null $value Value to set for the provisioningType property.
     */
     public function setProvisioningType(?CloudPcProvisioningType $value): void {
         $this->getBackingStore()->set('provisioningType', $value);
@@ -421,7 +439,7 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Sets the servicePlanId property value. The service plan ID of the Cloud PC.
-     *  @param string|null $value Value to set for the servicePlanId property.
+     * @param string|null $value Value to set for the servicePlanId property.
     */
     public function setServicePlanId(?string $value): void {
         $this->getBackingStore()->set('servicePlanId', $value);
@@ -429,7 +447,7 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Sets the servicePlanName property value. The service plan name of the Cloud PC.
-     *  @param string|null $value Value to set for the servicePlanName property.
+     * @param string|null $value Value to set for the servicePlanName property.
     */
     public function setServicePlanName(?string $value): void {
         $this->getBackingStore()->set('servicePlanName', $value);
@@ -437,7 +455,7 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Sets the servicePlanType property value. The service plan type of the Cloud PC.
-     *  @param CloudPcServicePlanType|null $value Value to set for the servicePlanType property.
+     * @param CloudPcServicePlanType|null $value Value to set for the servicePlanType property.
     */
     public function setServicePlanType(?CloudPcServicePlanType $value): void {
         $this->getBackingStore()->set('servicePlanType', $value);
@@ -445,7 +463,7 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status property
-     *  @param CloudPcStatus|null $value Value to set for the status property.
+     * @param CloudPcStatus|null $value Value to set for the status property.
     */
     public function setStatus(?CloudPcStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -453,7 +471,7 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Sets the statusDetails property value. The details of the Cloud PC status.
-     *  @param CloudPcStatusDetails|null $value Value to set for the statusDetails property.
+     * @param CloudPcStatusDetails|null $value Value to set for the statusDetails property.
     */
     public function setStatusDetails(?CloudPcStatusDetails $value): void {
         $this->getBackingStore()->set('statusDetails', $value);
@@ -461,7 +479,7 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Sets the userAccountType property value. The account type of the user on provisioned Cloud PCs. Possible values are: standardUser, administrator, and unknownFutureValue.
-     *  @param CloudPcUserAccountType|null $value Value to set for the userAccountType property.
+     * @param CloudPcUserAccountType|null $value Value to set for the userAccountType property.
     */
     public function setUserAccountType(?CloudPcUserAccountType $value): void {
         $this->getBackingStore()->set('userAccountType', $value);
@@ -469,7 +487,7 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Sets the userPrincipalName property value. The user principal name (UPN) of the user assigned to the Cloud PC.
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);

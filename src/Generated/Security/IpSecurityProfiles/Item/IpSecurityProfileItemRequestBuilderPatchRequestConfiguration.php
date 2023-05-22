@@ -2,18 +2,21 @@
 
 namespace Microsoft\Graph\Beta\Generated\Security\IpSecurityProfiles\Item;
 
+use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;
 
-class IpSecurityProfileItemRequestBuilderPatchRequestConfiguration 
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
+class IpSecurityProfileItemRequestBuilderPatchRequestConfiguration extends BaseRequestConfiguration 
 {
     /**
-     * @var array<string, string>|null $headers Request headers
+     * Instantiates a new IpSecurityProfileItemRequestBuilderPatchRequestConfiguration and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
     */
-    public ?array $headers = null;
-    
-    /**
-     * @var array<string, RequestOption>|null $options Request options
-    */
-    public ?array $options = null;
-    
+    public function __construct(?array $headers = null, ?array $options = null) {
+        parent::__construct($headers ?? [], $options ?? []);
+    }
+
 }

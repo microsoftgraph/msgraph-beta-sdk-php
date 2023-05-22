@@ -36,7 +36,7 @@ class UpdateDevicePropertiesPostRequestBody implements AdditionalDataHolder, Bac
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -140,7 +140,7 @@ class UpdateDevicePropertiesPostRequestBody implements AdditionalDataHolder, Bac
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -148,7 +148,7 @@ class UpdateDevicePropertiesPostRequestBody implements AdditionalDataHolder, Bac
 
     /**
      * Sets the addressableUserName property value. The addressableUserName property
-     *  @param string|null $value Value to set for the addressableUserName property.
+     * @param string|null $value Value to set for the addressableUserName property.
     */
     public function setAddressableUserName(?string $value): void {
         $this->getBackingStore()->set('addressableUserName', $value);
@@ -156,7 +156,7 @@ class UpdateDevicePropertiesPostRequestBody implements AdditionalDataHolder, Bac
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -164,7 +164,7 @@ class UpdateDevicePropertiesPostRequestBody implements AdditionalDataHolder, Bac
 
     /**
      * Sets the deviceAccountPassword property value. The deviceAccountPassword property
-     *  @param string|null $value Value to set for the deviceAccountPassword property.
+     * @param string|null $value Value to set for the deviceAccountPassword property.
     */
     public function setDeviceAccountPassword(?string $value): void {
         $this->getBackingStore()->set('deviceAccountPassword', $value);
@@ -172,7 +172,7 @@ class UpdateDevicePropertiesPostRequestBody implements AdditionalDataHolder, Bac
 
     /**
      * Sets the deviceAccountUpn property value. The deviceAccountUpn property
-     *  @param string|null $value Value to set for the deviceAccountUpn property.
+     * @param string|null $value Value to set for the deviceAccountUpn property.
     */
     public function setDeviceAccountUpn(?string $value): void {
         $this->getBackingStore()->set('deviceAccountUpn', $value);
@@ -180,7 +180,7 @@ class UpdateDevicePropertiesPostRequestBody implements AdditionalDataHolder, Bac
 
     /**
      * Sets the deviceFriendlyName property value. The deviceFriendlyName property
-     *  @param string|null $value Value to set for the deviceFriendlyName property.
+     * @param string|null $value Value to set for the deviceFriendlyName property.
     */
     public function setDeviceFriendlyName(?string $value): void {
         $this->getBackingStore()->set('deviceFriendlyName', $value);
@@ -188,7 +188,7 @@ class UpdateDevicePropertiesPostRequestBody implements AdditionalDataHolder, Bac
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -196,7 +196,7 @@ class UpdateDevicePropertiesPostRequestBody implements AdditionalDataHolder, Bac
 
     /**
      * Sets the groupTag property value. The groupTag property
-     *  @param string|null $value Value to set for the groupTag property.
+     * @param string|null $value Value to set for the groupTag property.
     */
     public function setGroupTag(?string $value): void {
         $this->getBackingStore()->set('groupTag', $value);
@@ -204,7 +204,7 @@ class UpdateDevicePropertiesPostRequestBody implements AdditionalDataHolder, Bac
 
     /**
      * Sets the userPrincipalName property value. The userPrincipalName property
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);

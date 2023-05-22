@@ -38,7 +38,7 @@ class ParseExpressionPostRequestBody implements AdditionalDataHolder, BackedMode
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -102,7 +102,7 @@ class ParseExpressionPostRequestBody implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -110,7 +110,7 @@ class ParseExpressionPostRequestBody implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -118,7 +118,7 @@ class ParseExpressionPostRequestBody implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the expression property value. The expression property
-     *  @param string|null $value Value to set for the expression property.
+     * @param string|null $value Value to set for the expression property.
     */
     public function setExpression(?string $value): void {
         $this->getBackingStore()->set('expression', $value);
@@ -126,7 +126,7 @@ class ParseExpressionPostRequestBody implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the targetAttributeDefinition property value. The targetAttributeDefinition property
-     *  @param AttributeDefinition|null $value Value to set for the targetAttributeDefinition property.
+     * @param AttributeDefinition|null $value Value to set for the targetAttributeDefinition property.
     */
     public function setTargetAttributeDefinition(?AttributeDefinition $value): void {
         $this->getBackingStore()->set('targetAttributeDefinition', $value);
@@ -134,7 +134,7 @@ class ParseExpressionPostRequestBody implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the testInputObject property value. The testInputObject property
-     *  @param ExpressionInputObject|null $value Value to set for the testInputObject property.
+     * @param ExpressionInputObject|null $value Value to set for the testInputObject property.
     */
     public function setTestInputObject(?ExpressionInputObject $value): void {
         $this->getBackingStore()->set('testInputObject', $value);

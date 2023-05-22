@@ -54,7 +54,7 @@ class DeviceManagementTemplateSettingCategory extends DeviceManagementSettingCat
 
     /**
      * Sets the recommendedSettings property value. The settings this category contains
-     *  @param array<DeviceManagementSettingInstance>|null $value Value to set for the recommendedSettings property.
+     * @param array<DeviceManagementSettingInstance>|null $value Value to set for the recommendedSettings property.
     */
     public function setRecommendedSettings(?array $value): void {
         $this->getBackingStore()->set('recommendedSettings', $value);

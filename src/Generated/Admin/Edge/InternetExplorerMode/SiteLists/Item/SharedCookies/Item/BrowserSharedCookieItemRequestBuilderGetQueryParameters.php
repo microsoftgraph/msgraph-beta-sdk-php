@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Edge\InternetExplorerMode\SiteLis
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a session cookie that can be shared between a Microsoft Edge process and an Internet Explorer process, while using Internet Explorer mode.
+*/
 class BrowserSharedCookieItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class BrowserSharedCookieItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new BrowserSharedCookieItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\RejectedSenders\Item\Ref;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Remove a user or group from the rejected-senders list of the specified group.
+*/
 class RefRequestBuilderDeleteQueryParameters 
 {
     /**
@@ -12,4 +15,12 @@ class RefRequestBuilderDeleteQueryParameters
     */
     public ?string $id = null;
     
+    /**
+     * Instantiates a new RefRequestBuilderDeleteQueryParameters and sets the default values.
+     * @param string|null $id Delete Uri
+    */
+    public function __construct(?string $id = null) {
+        $this->id = $id;
+    }
+
 }

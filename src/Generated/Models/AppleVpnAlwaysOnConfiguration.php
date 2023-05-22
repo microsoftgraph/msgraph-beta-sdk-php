@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Always On VPN configuration for MacOS and iOS IKEv2
+*/
 class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -180,7 +183,7 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -188,7 +191,7 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the airPrintExceptionAction property value. Determine whether AirPrint service will be exempt from the always-on VPN connection. Possible values are: forceTrafficViaVPN, allowTrafficOutside, dropTraffic.
-     *  @param VpnServiceExceptionAction|null $value Value to set for the airPrintExceptionAction property.
+     * @param VpnServiceExceptionAction|null $value Value to set for the airPrintExceptionAction property.
     */
     public function setAirPrintExceptionAction(?VpnServiceExceptionAction $value): void {
         $this->getBackingStore()->set('airPrintExceptionAction', $value);
@@ -196,7 +199,7 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the allowAllCaptiveNetworkPlugins property value. Specifies whether traffic from all captive network plugins should be allowed outside the vpn
-     *  @param bool|null $value Value to set for the allowAllCaptiveNetworkPlugins property.
+     * @param bool|null $value Value to set for the allowAllCaptiveNetworkPlugins property.
     */
     public function setAllowAllCaptiveNetworkPlugins(?bool $value): void {
         $this->getBackingStore()->set('allowAllCaptiveNetworkPlugins', $value);
@@ -204,7 +207,7 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the allowCaptiveWebSheet property value. Determines whether traffic from the Websheet app is allowed outside of the VPN
-     *  @param bool|null $value Value to set for the allowCaptiveWebSheet property.
+     * @param bool|null $value Value to set for the allowCaptiveWebSheet property.
     */
     public function setAllowCaptiveWebSheet(?bool $value): void {
         $this->getBackingStore()->set('allowCaptiveWebSheet', $value);
@@ -212,7 +215,7 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the allowedCaptiveNetworkPlugins property value. Determines whether all, some, or no non-native captive networking apps are allowed
-     *  @param SpecifiedCaptiveNetworkPlugins|null $value Value to set for the allowedCaptiveNetworkPlugins property.
+     * @param SpecifiedCaptiveNetworkPlugins|null $value Value to set for the allowedCaptiveNetworkPlugins property.
     */
     public function setAllowedCaptiveNetworkPlugins(?SpecifiedCaptiveNetworkPlugins $value): void {
         $this->getBackingStore()->set('allowedCaptiveNetworkPlugins', $value);
@@ -220,7 +223,7 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -228,7 +231,7 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the cellularExceptionAction property value. Determine whether Cellular service will be exempt from the always-on VPN connection. Possible values are: forceTrafficViaVPN, allowTrafficOutside, dropTraffic.
-     *  @param VpnServiceExceptionAction|null $value Value to set for the cellularExceptionAction property.
+     * @param VpnServiceExceptionAction|null $value Value to set for the cellularExceptionAction property.
     */
     public function setCellularExceptionAction(?VpnServiceExceptionAction $value): void {
         $this->getBackingStore()->set('cellularExceptionAction', $value);
@@ -236,7 +239,7 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the natKeepAliveIntervalInSeconds property value. Specifies how often in seconds to send a network address translation keepalive package through the VPN
-     *  @param int|null $value Value to set for the natKeepAliveIntervalInSeconds property.
+     * @param int|null $value Value to set for the natKeepAliveIntervalInSeconds property.
     */
     public function setNatKeepAliveIntervalInSeconds(?int $value): void {
         $this->getBackingStore()->set('natKeepAliveIntervalInSeconds', $value);
@@ -244,7 +247,7 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the natKeepAliveOffloadEnable property value. Enable hardware offloading of NAT keepalive signals when the device is asleep
-     *  @param bool|null $value Value to set for the natKeepAliveOffloadEnable property.
+     * @param bool|null $value Value to set for the natKeepAliveOffloadEnable property.
     */
     public function setNatKeepAliveOffloadEnable(?bool $value): void {
         $this->getBackingStore()->set('natKeepAliveOffloadEnable', $value);
@@ -252,7 +255,7 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -260,7 +263,7 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the tunnelConfiguration property value. The type of tunnels that will be present to the VPN client for configuration
-     *  @param VpnTunnelConfigurationType|null $value Value to set for the tunnelConfiguration property.
+     * @param VpnTunnelConfigurationType|null $value Value to set for the tunnelConfiguration property.
     */
     public function setTunnelConfiguration(?VpnTunnelConfigurationType $value): void {
         $this->getBackingStore()->set('tunnelConfiguration', $value);
@@ -268,7 +271,7 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the userToggleEnabled property value. Allow the user to toggle the VPN configuration using the UI
-     *  @param bool|null $value Value to set for the userToggleEnabled property.
+     * @param bool|null $value Value to set for the userToggleEnabled property.
     */
     public function setUserToggleEnabled(?bool $value): void {
         $this->getBackingStore()->set('userToggleEnabled', $value);
@@ -276,7 +279,7 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the voicemailExceptionAction property value. Determine whether voicemail service will be exempt from the always-on VPN connection. Possible values are: forceTrafficViaVPN, allowTrafficOutside, dropTraffic.
-     *  @param VpnServiceExceptionAction|null $value Value to set for the voicemailExceptionAction property.
+     * @param VpnServiceExceptionAction|null $value Value to set for the voicemailExceptionAction property.
     */
     public function setVoicemailExceptionAction(?VpnServiceExceptionAction $value): void {
         $this->getBackingStore()->set('voicemailExceptionAction', $value);

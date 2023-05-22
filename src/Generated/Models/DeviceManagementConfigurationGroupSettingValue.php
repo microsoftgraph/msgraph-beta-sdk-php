@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationGroupSettingValue extends DeviceManagementConfigurationSettingValue implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementConfigurationGroupSettingValue and sets the default values.
+     * Instantiates a new DeviceManagementConfigurationGroupSettingValue and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,7 +55,7 @@ class DeviceManagementConfigurationGroupSettingValue extends DeviceManagementCon
 
     /**
      * Sets the children property value. Collection of child setting instances contained within this GroupSetting
-     *  @param array<DeviceManagementConfigurationSettingInstance>|null $value Value to set for the children property.
+     * @param array<DeviceManagementConfigurationSettingInstance>|null $value Value to set for the children property.
     */
     public function setChildren(?array $value): void {
         $this->getBackingStore()->set('children', $value);

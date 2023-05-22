@@ -102,7 +102,7 @@ class AndroidForWorkWiFiConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the connectAutomatically property value. Connect automatically when this network is in range. Setting this to true will skip the user prompt and automatically connect the device to Wi-Fi network.
-     *  @param bool|null $value Value to set for the connectAutomatically property.
+     * @param bool|null $value Value to set for the connectAutomatically property.
     */
     public function setConnectAutomatically(?bool $value): void {
         $this->getBackingStore()->set('connectAutomatically', $value);
@@ -110,7 +110,7 @@ class AndroidForWorkWiFiConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the connectWhenNetworkNameIsHidden property value. When set to true, this profile forces the device to connect to a network that doesn't broadcast its SSID to all devices.
-     *  @param bool|null $value Value to set for the connectWhenNetworkNameIsHidden property.
+     * @param bool|null $value Value to set for the connectWhenNetworkNameIsHidden property.
     */
     public function setConnectWhenNetworkNameIsHidden(?bool $value): void {
         $this->getBackingStore()->set('connectWhenNetworkNameIsHidden', $value);
@@ -118,7 +118,7 @@ class AndroidForWorkWiFiConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the networkName property value. Network Name
-     *  @param string|null $value Value to set for the networkName property.
+     * @param string|null $value Value to set for the networkName property.
     */
     public function setNetworkName(?string $value): void {
         $this->getBackingStore()->set('networkName', $value);
@@ -126,7 +126,7 @@ class AndroidForWorkWiFiConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the ssid property value. This is the name of the Wi-Fi network that is broadcast to all devices.
-     *  @param string|null $value Value to set for the ssid property.
+     * @param string|null $value Value to set for the ssid property.
     */
     public function setSsid(?string $value): void {
         $this->getBackingStore()->set('ssid', $value);
@@ -134,7 +134,7 @@ class AndroidForWorkWiFiConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the wiFiSecurityType property value. Wi-Fi Security Types for Android.
-     *  @param AndroidWiFiSecurityType|null $value Value to set for the wiFiSecurityType property.
+     * @param AndroidWiFiSecurityType|null $value Value to set for the wiFiSecurityType property.
     */
     public function setWiFiSecurityType(?AndroidWiFiSecurityType $value): void {
         $this->getBackingStore()->set('wiFiSecurityType', $value);

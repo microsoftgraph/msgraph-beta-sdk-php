@@ -115,7 +115,7 @@ class Notification extends Entity implements Parsable
 
     /**
      * Sets the displayTimeToLive property value. Sets how long (in seconds) this notification content will stay in each platform's notification viewer. For example, when the notification is delivered to a Windows device, the value of this property is passed on to ToastNotification.ExpirationTime, which determines how long the toast notification will stay in the user's Windows Action Center.
-     *  @param int|null $value Value to set for the displayTimeToLive property.
+     * @param int|null $value Value to set for the displayTimeToLive property.
     */
     public function setDisplayTimeToLive(?int $value): void {
         $this->getBackingStore()->set('displayTimeToLive', $value);
@@ -123,7 +123,7 @@ class Notification extends Entity implements Parsable
 
     /**
      * Sets the expirationDateTime property value. Sets a UTC expiration date and time on a user notification using ISO 8601 format (for example, midnight UTC on Jan 1, 2019 would look like this: '2019-01-01T00:00:00Z'). When time is up, the notification is removed from the Microsoft Graph notification feed store completely and is no longer part of notification history. Max value is 30 days.
-     *  @param DateTime|null $value Value to set for the expirationDateTime property.
+     * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('expirationDateTime', $value);
@@ -131,7 +131,7 @@ class Notification extends Entity implements Parsable
 
     /**
      * Sets the groupName property value. The name of the group that this notification belongs to. It is set by the developer for the purpose of grouping notifications together.
-     *  @param string|null $value Value to set for the groupName property.
+     * @param string|null $value Value to set for the groupName property.
     */
     public function setGroupName(?string $value): void {
         $this->getBackingStore()->set('groupName', $value);
@@ -139,7 +139,7 @@ class Notification extends Entity implements Parsable
 
     /**
      * Sets the payload property value. The payload property
-     *  @param PayloadTypes|null $value Value to set for the payload property.
+     * @param PayloadTypes|null $value Value to set for the payload property.
     */
     public function setPayload(?PayloadTypes $value): void {
         $this->getBackingStore()->set('payload', $value);
@@ -147,7 +147,7 @@ class Notification extends Entity implements Parsable
 
     /**
      * Sets the priority property value. Indicates the priority of a raw user notification. Visual notifications are sent with high priority by default. Valid values are None, High and Low.
-     *  @param Priority|null $value Value to set for the priority property.
+     * @param Priority|null $value Value to set for the priority property.
     */
     public function setPriority(?Priority $value): void {
         $this->getBackingStore()->set('priority', $value);
@@ -155,7 +155,7 @@ class Notification extends Entity implements Parsable
 
     /**
      * Sets the targetHostName property value. Represents the host name of the app to which the calling service wants to post the notification, for the given user. If targeting web endpoints (see targetPolicy.platformTypes), ensure that targetHostName is the same as the name used when creating a subscription on the client side within the application JSON property.
-     *  @param string|null $value Value to set for the targetHostName property.
+     * @param string|null $value Value to set for the targetHostName property.
     */
     public function setTargetHostName(?string $value): void {
         $this->getBackingStore()->set('targetHostName', $value);
@@ -163,7 +163,7 @@ class Notification extends Entity implements Parsable
 
     /**
      * Sets the targetPolicy property value. Target policy object handles notification delivery policy for endpoint types that should be targeted (Windows, iOS, Android and WebPush) for the given user.
-     *  @param TargetPolicyEndpoints|null $value Value to set for the targetPolicy property.
+     * @param TargetPolicyEndpoints|null $value Value to set for the targetPolicy property.
     */
     public function setTargetPolicy(?TargetPolicyEndpoints $value): void {
         $this->getBackingStore()->set('targetPolicy', $value);

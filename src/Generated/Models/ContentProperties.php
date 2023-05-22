@@ -37,6 +37,7 @@ class ContentProperties implements AdditionalDataHolder, BackedModel, Parsable
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
                 case '#microsoft.graph.attachmentContentProperties': return new AttachmentContentProperties();
+                case '#microsoft.graph.fileContentProperties': return new FileContentProperties();
             }
         }
         return new ContentProperties();
@@ -44,7 +45,7 @@ class ContentProperties implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -128,7 +129,7 @@ class ContentProperties implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -136,7 +137,7 @@ class ContentProperties implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -144,7 +145,7 @@ class ContentProperties implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the extensions property value. The extensions property
-     *  @param array<string>|null $value Value to set for the extensions property.
+     * @param array<string>|null $value Value to set for the extensions property.
     */
     public function setExtensions(?array $value): void {
         $this->getBackingStore()->set('extensions', $value);
@@ -152,7 +153,7 @@ class ContentProperties implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the lastModifiedBy property value. The lastModifiedBy property
-     *  @param string|null $value Value to set for the lastModifiedBy property.
+     * @param string|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?string $value): void {
         $this->getBackingStore()->set('lastModifiedBy', $value);
@@ -160,7 +161,7 @@ class ContentProperties implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -168,7 +169,7 @@ class ContentProperties implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the metadata property value. The metadata property
-     *  @param ContentMetadata|null $value Value to set for the metadata property.
+     * @param ContentMetadata|null $value Value to set for the metadata property.
     */
     public function setMetadata(?ContentMetadata $value): void {
         $this->getBackingStore()->set('metadata', $value);
@@ -176,7 +177,7 @@ class ContentProperties implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

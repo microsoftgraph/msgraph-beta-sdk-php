@@ -9,16 +9,17 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegedRoleAssignment;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegedRoleAssignmentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignments\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignments\Item\PrivilegedRoleAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignments\My\MyRequestBuilder;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
-class PrivilegedRoleAssignmentsRequestBuilder 
+/**
+ * Provides operations to manage the collection of privilegedRoleAssignment entities.
+*/
+class PrivilegedRoleAssignmentsRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to count the resources in the collection.
@@ -28,80 +29,76 @@ class PrivilegedRoleAssignmentsRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
+     * Provides operations to call the my method.
     */
-    private array $pathParameters;
+    public function my(): MyRequestBuilder {
+        return new MyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
     
     /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+     * Provides operations to manage the collection of privilegedRoleAssignment entities.
+     * @param string $privilegedRoleAssignmentId Unique identifier of the item
+     * @return PrivilegedRoleAssignmentItemRequestBuilder
     */
-    private RequestAdapter $requestAdapter;
-    
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
-     * Instantiates a new PrivilegedRoleAssignmentsRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
-     * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/privilegedRoleAssignments{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+    public function byPrivilegedRoleAssignmentId(string $privilegedRoleAssignmentId): PrivilegedRoleAssignmentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['privilegedRoleAssignment%2Did'] = $privilegedRoleAssignmentId;
+        return new PrivilegedRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
-     * Retrieve a list of privilegedRoleAssignment objects, which correspond to all role assignments for the organization.
+     * Instantiates a new PrivilegedRoleAssignmentsRequestBuilder and sets the default values.
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
+     * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+    */
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
+        parent::__construct($requestAdapter, [], '{+baseurl}/privilegedRoleAssignments{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}');
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
+    }
+
+    /**
+     * Get entities from privilegedRoleAssignments
      * @param PrivilegedRoleAssignmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?PrivilegedRoleAssignmentsRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?PrivilegedRoleAssignmentsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [PrivilegedRoleAssignmentCollectionResponse::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [PrivilegedRoleAssignmentCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Provides operations to call the my method.
-     * @return MyRequestBuilder
-    */
-    public function my(): MyRequestBuilder {
-        return new MyRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Use this API to create a new  privilegedRoleAssignment.
+     * Add new entity to privilegedRoleAssignments
      * @param PrivilegedRoleAssignment $body The request body
      * @param PrivilegedRoleAssignmentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function post(PrivilegedRoleAssignment $body, ?PrivilegedRoleAssignmentsRequestBuilderPostRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function post(PrivilegedRoleAssignment $body, ?PrivilegedRoleAssignmentsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [PrivilegedRoleAssignment::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [PrivilegedRoleAssignment::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Retrieve a list of privilegedRoleAssignment objects, which correspond to all role assignments for the organization.
+     * Get entities from privilegedRoleAssignments
      * @param PrivilegedRoleAssignmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -110,23 +107,19 @@ class PrivilegedRoleAssignmentsRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
 
     /**
-     * Use this API to create a new  privilegedRoleAssignment.
+     * Add new entity to privilegedRoleAssignments
      * @param PrivilegedRoleAssignment $body The request body
      * @param PrivilegedRoleAssignmentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -136,14 +129,10 @@ class PrivilegedRoleAssignmentsRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

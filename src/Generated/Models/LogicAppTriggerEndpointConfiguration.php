@@ -35,6 +35,7 @@ class LogicAppTriggerEndpointConfiguration extends CustomExtensionEndpointConfig
             'logicAppWorkflowName' => fn(ParseNode $n) => $o->setLogicAppWorkflowName($n->getStringValue()),
             'resourceGroupName' => fn(ParseNode $n) => $o->setResourceGroupName($n->getStringValue()),
             'subscriptionId' => fn(ParseNode $n) => $o->setSubscriptionId($n->getStringValue()),
+            'url' => fn(ParseNode $n) => $o->setUrl($n->getStringValue()),
         ]);
     }
 
@@ -63,6 +64,14 @@ class LogicAppTriggerEndpointConfiguration extends CustomExtensionEndpointConfig
     }
 
     /**
+     * Gets the url property value. The URL to the logic app endpoint that will be triggered. Only required for app-only token scenarios where app is creating a customCalloutExtension without a signed-in user.
+     * @return string|null
+    */
+    public function getUrl(): ?string {
+        return $this->getBackingStore()->get('url');
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -71,11 +80,12 @@ class LogicAppTriggerEndpointConfiguration extends CustomExtensionEndpointConfig
         $writer->writeStringValue('logicAppWorkflowName', $this->getLogicAppWorkflowName());
         $writer->writeStringValue('resourceGroupName', $this->getResourceGroupName());
         $writer->writeStringValue('subscriptionId', $this->getSubscriptionId());
+        $writer->writeStringValue('url', $this->getUrl());
     }
 
     /**
      * Sets the logicAppWorkflowName property value. The name of the logic app.
-     *  @param string|null $value Value to set for the logicAppWorkflowName property.
+     * @param string|null $value Value to set for the logicAppWorkflowName property.
     */
     public function setLogicAppWorkflowName(?string $value): void {
         $this->getBackingStore()->set('logicAppWorkflowName', $value);
@@ -83,7 +93,7 @@ class LogicAppTriggerEndpointConfiguration extends CustomExtensionEndpointConfig
 
     /**
      * Sets the resourceGroupName property value. The Azure resource group name for the logic app.
-     *  @param string|null $value Value to set for the resourceGroupName property.
+     * @param string|null $value Value to set for the resourceGroupName property.
     */
     public function setResourceGroupName(?string $value): void {
         $this->getBackingStore()->set('resourceGroupName', $value);
@@ -91,10 +101,18 @@ class LogicAppTriggerEndpointConfiguration extends CustomExtensionEndpointConfig
 
     /**
      * Sets the subscriptionId property value. Identifier of the Azure subscription for the logic app.
-     *  @param string|null $value Value to set for the subscriptionId property.
+     * @param string|null $value Value to set for the subscriptionId property.
     */
     public function setSubscriptionId(?string $value): void {
         $this->getBackingStore()->set('subscriptionId', $value);
+    }
+
+    /**
+     * Sets the url property value. The URL to the logic app endpoint that will be triggered. Only required for app-only token scenarios where app is creating a customCalloutExtension without a signed-in user.
+     * @param string|null $value Value to set for the url property.
+    */
+    public function setUrl(?string $value): void {
+        $this->getBackingStore()->set('url', $value);
     }
 
 }

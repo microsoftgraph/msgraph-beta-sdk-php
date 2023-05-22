@@ -36,7 +36,7 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, BackedMo
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -130,7 +130,7 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -138,7 +138,7 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -146,7 +146,7 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the managementActionId property value. The identifier for the management action. Required. Read-only.
-     *  @param string|null $value Value to set for the managementActionId property.
+     * @param string|null $value Value to set for the managementActionId property.
     */
     public function setManagementActionId(?string $value): void {
         $this->getBackingStore()->set('managementActionId', $value);
@@ -154,7 +154,7 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the managementTemplateId property value. The management template identifier that was used to generate the management action. Required. Read-only.
-     *  @param string|null $value Value to set for the managementTemplateId property.
+     * @param string|null $value Value to set for the managementTemplateId property.
     */
     public function setManagementTemplateId(?string $value): void {
         $this->getBackingStore()->set('managementTemplateId', $value);
@@ -162,7 +162,7 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the managementTemplateVersion property value. The managementTemplateVersion property
-     *  @param int|null $value Value to set for the managementTemplateVersion property.
+     * @param int|null $value Value to set for the managementTemplateVersion property.
     */
     public function setManagementTemplateVersion(?int $value): void {
         $this->getBackingStore()->set('managementTemplateVersion', $value);
@@ -170,7 +170,7 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -178,7 +178,7 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the status property value. The status property
-     *  @param ManagementActionStatus|null $value Value to set for the status property.
+     * @param ManagementActionStatus|null $value Value to set for the status property.
     */
     public function setStatus(?ManagementActionStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -186,7 +186,7 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the workloadActionDeploymentStatuses property value. The collection of workload action deployment statues for the given management action. Optional.
-     *  @param array<WorkloadActionDeploymentStatus>|null $value Value to set for the workloadActionDeploymentStatuses property.
+     * @param array<WorkloadActionDeploymentStatus>|null $value Value to set for the workloadActionDeploymentStatuses property.
     */
     public function setWorkloadActionDeploymentStatuses(?array $value): void {
         $this->getBackingStore()->set('workloadActionDeploymentStatuses', $value);

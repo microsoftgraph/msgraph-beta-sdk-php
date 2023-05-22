@@ -142,7 +142,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
 
     /**
      * Sets the appIdentifier property value. The Identity Name.
-     *  @param string|null $value Value to set for the appIdentifier property.
+     * @param string|null $value Value to set for the appIdentifier property.
     */
     public function setAppIdentifier(?string $value): void {
         $this->getBackingStore()->set('appIdentifier', $value);
@@ -150,7 +150,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
 
     /**
      * Sets the appStoreUrl property value. The Play for Work Store app URL.
-     *  @param string|null $value Value to set for the appStoreUrl property.
+     * @param string|null $value Value to set for the appStoreUrl property.
     */
     public function setAppStoreUrl(?string $value): void {
         $this->getBackingStore()->set('appStoreUrl', $value);
@@ -158,7 +158,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
 
     /**
      * Sets the appTracks property value. The tracks that are visible to this enterprise.
-     *  @param array<AndroidManagedStoreAppTrack>|null $value Value to set for the appTracks property.
+     * @param array<AndroidManagedStoreAppTrack>|null $value Value to set for the appTracks property.
     */
     public function setAppTracks(?array $value): void {
         $this->getBackingStore()->set('appTracks', $value);
@@ -166,7 +166,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
 
     /**
      * Sets the isPrivate property value. Indicates whether the app is only available to a given enterprise's users.
-     *  @param bool|null $value Value to set for the isPrivate property.
+     * @param bool|null $value Value to set for the isPrivate property.
     */
     public function setIsPrivate(?bool $value): void {
         $this->getBackingStore()->set('isPrivate', $value);
@@ -174,7 +174,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
 
     /**
      * Sets the isSystemApp property value. Indicates whether the app is a preinstalled system app.
-     *  @param bool|null $value Value to set for the isSystemApp property.
+     * @param bool|null $value Value to set for the isSystemApp property.
     */
     public function setIsSystemApp(?bool $value): void {
         $this->getBackingStore()->set('isSystemApp', $value);
@@ -182,7 +182,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
 
     /**
      * Sets the packageId property value. The package identifier.
-     *  @param string|null $value Value to set for the packageId property.
+     * @param string|null $value Value to set for the packageId property.
     */
     public function setPackageId(?string $value): void {
         $this->getBackingStore()->set('packageId', $value);
@@ -190,7 +190,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
 
     /**
      * Sets the supportsOemConfig property value. Whether this app supports OEMConfig policy.
-     *  @param bool|null $value Value to set for the supportsOemConfig property.
+     * @param bool|null $value Value to set for the supportsOemConfig property.
     */
     public function setSupportsOemConfig(?bool $value): void {
         $this->getBackingStore()->set('supportsOemConfig', $value);
@@ -198,7 +198,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
 
     /**
      * Sets the totalLicenseCount property value. The total number of VPP licenses.
-     *  @param int|null $value Value to set for the totalLicenseCount property.
+     * @param int|null $value Value to set for the totalLicenseCount property.
     */
     public function setTotalLicenseCount(?int $value): void {
         $this->getBackingStore()->set('totalLicenseCount', $value);
@@ -206,7 +206,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
 
     /**
      * Sets the usedLicenseCount property value. The number of VPP licenses in use.
-     *  @param int|null $value Value to set for the usedLicenseCount property.
+     * @param int|null $value Value to set for the usedLicenseCount property.
     */
     public function setUsedLicenseCount(?int $value): void {
         $this->getBackingStore()->set('usedLicenseCount', $value);

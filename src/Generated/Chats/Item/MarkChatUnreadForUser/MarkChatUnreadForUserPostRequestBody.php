@@ -38,7 +38,7 @@ class MarkChatUnreadForUserPostRequestBody implements AdditionalDataHolder, Back
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -102,7 +102,7 @@ class MarkChatUnreadForUserPostRequestBody implements AdditionalDataHolder, Back
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -110,7 +110,7 @@ class MarkChatUnreadForUserPostRequestBody implements AdditionalDataHolder, Back
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -118,7 +118,7 @@ class MarkChatUnreadForUserPostRequestBody implements AdditionalDataHolder, Back
 
     /**
      * Sets the lastMessageReadDateTime property value. The lastMessageReadDateTime property
-     *  @param DateTime|null $value Value to set for the lastMessageReadDateTime property.
+     * @param DateTime|null $value Value to set for the lastMessageReadDateTime property.
     */
     public function setLastMessageReadDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastMessageReadDateTime', $value);
@@ -126,7 +126,7 @@ class MarkChatUnreadForUserPostRequestBody implements AdditionalDataHolder, Back
 
     /**
      * Sets the tenantId property value. The tenantId property
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);
@@ -134,7 +134,7 @@ class MarkChatUnreadForUserPostRequestBody implements AdditionalDataHolder, Back
 
     /**
      * Sets the user property value. The user property
-     *  @param TeamworkUserIdentity|null $value Value to set for the user property.
+     * @param TeamworkUserIdentity|null $value Value to set for the user property.
     */
     public function setUser(?TeamworkUserIdentity $value): void {
         $this->getBackingStore()->set('user', $value);

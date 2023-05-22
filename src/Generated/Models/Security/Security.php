@@ -55,7 +55,7 @@ class Security extends Entity implements Parsable
 
     /**
      * Sets the informationProtection property value. The informationProtection property
-     *  @param InformationProtection|null $value Value to set for the informationProtection property.
+     * @param InformationProtection|null $value Value to set for the informationProtection property.
     */
     public function setInformationProtection(?InformationProtection $value): void {
         $this->getBackingStore()->set('informationProtection', $value);

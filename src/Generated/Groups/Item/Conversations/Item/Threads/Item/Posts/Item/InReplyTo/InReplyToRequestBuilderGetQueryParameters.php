@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Conversations\Item\Threads\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
+*/
 class InReplyToRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class InReplyToRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new inReplyToRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

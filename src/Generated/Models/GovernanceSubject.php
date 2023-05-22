@@ -84,7 +84,7 @@ class GovernanceSubject extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name of the subject.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -92,7 +92,7 @@ class GovernanceSubject extends Entity implements Parsable
 
     /**
      * Sets the email property value. The email address of the user subject. If the subject is in other types, it is empty.
-     *  @param string|null $value Value to set for the email property.
+     * @param string|null $value Value to set for the email property.
     */
     public function setEmail(?string $value): void {
         $this->getBackingStore()->set('email', $value);
@@ -100,7 +100,7 @@ class GovernanceSubject extends Entity implements Parsable
 
     /**
      * Sets the principalName property value. The principal name of the user subject. If the subject is in other types, it is empty.
-     *  @param string|null $value Value to set for the principalName property.
+     * @param string|null $value Value to set for the principalName property.
     */
     public function setPrincipalName(?string $value): void {
         $this->getBackingStore()->set('principalName', $value);
@@ -108,7 +108,7 @@ class GovernanceSubject extends Entity implements Parsable
 
     /**
      * Sets the type property value. The type of the subject. The value can be User, Group, and ServicePrincipal.
-     *  @param string|null $value Value to set for the type property.
+     * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {
         $this->getBackingStore()->set('type', $value);

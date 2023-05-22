@@ -36,7 +36,7 @@ class LoginPageLayoutConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class LoginPageLayoutConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class LoginPageLayoutConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class LoginPageLayoutConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the isFooterShown property value. Option to show the footer on the sign-in page.
-     *  @param bool|null $value Value to set for the isFooterShown property.
+     * @param bool|null $value Value to set for the isFooterShown property.
     */
     public function setIsFooterShown(?bool $value): void {
         $this->getBackingStore()->set('isFooterShown', $value);
@@ -134,7 +134,7 @@ class LoginPageLayoutConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the isHeaderShown property value. Option to show the header on the sign-in page.
-     *  @param bool|null $value Value to set for the isHeaderShown property.
+     * @param bool|null $value Value to set for the isHeaderShown property.
     */
     public function setIsHeaderShown(?bool $value): void {
         $this->getBackingStore()->set('isHeaderShown', $value);
@@ -142,7 +142,7 @@ class LoginPageLayoutConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the layoutTemplateType property value. Represents the layout template to be displayed on the login page for a tenant. The possible values are  default - Represents the default Microsoft layout with a centered lightbox.  verticalSplit - Represents a layout with a backgound on the left side and a full-height lightbox to the right.  unknownFutureValue - Evolvable enumeration sentinel value. Do not use.
-     *  @param LayoutTemplateType|null $value Value to set for the layoutTemplateType property.
+     * @param LayoutTemplateType|null $value Value to set for the layoutTemplateType property.
     */
     public function setLayoutTemplateType(?LayoutTemplateType $value): void {
         $this->getBackingStore()->set('layoutTemplateType', $value);
@@ -150,7 +150,7 @@ class LoginPageLayoutConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

@@ -55,7 +55,7 @@ class DeviceManagementSettingAppConstraint extends DeviceManagementConstraint im
 
     /**
      * Sets the supportedTypes property value. Acceptable app types to allow for this setting
-     *  @param array<string>|null $value Value to set for the supportedTypes property.
+     * @param array<string>|null $value Value to set for the supportedTypes property.
     */
     public function setSupportedTypes(?array $value): void {
         $this->getBackingStore()->set('supportedTypes', $value);

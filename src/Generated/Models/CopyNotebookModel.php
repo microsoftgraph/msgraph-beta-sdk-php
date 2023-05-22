@@ -19,11 +19,6 @@ class CopyNotebookModel implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * @var string|null $escapedSelf The self property
-    */
-    public ?string $escapedSelf = null;
-    
-    /**
      * Instantiates a new CopyNotebookModel and sets the default values.
     */
     public function __construct() {
@@ -42,7 +37,7 @@ class CopyNotebookModel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -236,7 +231,7 @@ class CopyNotebookModel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -244,7 +239,7 @@ class CopyNotebookModel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -252,7 +247,7 @@ class CopyNotebookModel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the createdBy property value. The createdBy property
-     *  @param string|null $value Value to set for the createdBy property.
+     * @param string|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?string $value): void {
         $this->getBackingStore()->set('createdBy', $value);
@@ -260,7 +255,7 @@ class CopyNotebookModel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the createdByIdentity property value. The createdByIdentity property
-     *  @param IdentitySet|null $value Value to set for the createdByIdentity property.
+     * @param IdentitySet|null $value Value to set for the createdByIdentity property.
     */
     public function setCreatedByIdentity(?IdentitySet $value): void {
         $this->getBackingStore()->set('createdByIdentity', $value);
@@ -268,7 +263,7 @@ class CopyNotebookModel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the createdTime property value. The createdTime property
-     *  @param DateTime|null $value Value to set for the createdTime property.
+     * @param DateTime|null $value Value to set for the createdTime property.
     */
     public function setCreatedTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdTime', $value);
@@ -276,7 +271,7 @@ class CopyNotebookModel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the id property value. The id property
-     *  @param string|null $value Value to set for the id property.
+     * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
         $this->getBackingStore()->set('id', $value);
@@ -284,7 +279,7 @@ class CopyNotebookModel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isDefault property value. The isDefault property
-     *  @param bool|null $value Value to set for the isDefault property.
+     * @param bool|null $value Value to set for the isDefault property.
     */
     public function setIsDefault(?bool $value): void {
         $this->getBackingStore()->set('isDefault', $value);
@@ -292,7 +287,7 @@ class CopyNotebookModel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isShared property value. The isShared property
-     *  @param bool|null $value Value to set for the isShared property.
+     * @param bool|null $value Value to set for the isShared property.
     */
     public function setIsShared(?bool $value): void {
         $this->getBackingStore()->set('isShared', $value);
@@ -300,7 +295,7 @@ class CopyNotebookModel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the lastModifiedBy property value. The lastModifiedBy property
-     *  @param string|null $value Value to set for the lastModifiedBy property.
+     * @param string|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?string $value): void {
         $this->getBackingStore()->set('lastModifiedBy', $value);
@@ -308,7 +303,7 @@ class CopyNotebookModel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the lastModifiedByIdentity property value. The lastModifiedByIdentity property
-     *  @param IdentitySet|null $value Value to set for the lastModifiedByIdentity property.
+     * @param IdentitySet|null $value Value to set for the lastModifiedByIdentity property.
     */
     public function setLastModifiedByIdentity(?IdentitySet $value): void {
         $this->getBackingStore()->set('lastModifiedByIdentity', $value);
@@ -316,7 +311,7 @@ class CopyNotebookModel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the lastModifiedTime property value. The lastModifiedTime property
-     *  @param DateTime|null $value Value to set for the lastModifiedTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedTime property.
     */
     public function setLastModifiedTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedTime', $value);
@@ -324,7 +319,7 @@ class CopyNotebookModel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the links property value. The links property
-     *  @param NotebookLinks|null $value Value to set for the links property.
+     * @param NotebookLinks|null $value Value to set for the links property.
     */
     public function setLinks(?NotebookLinks $value): void {
         $this->getBackingStore()->set('links', $value);
@@ -332,7 +327,7 @@ class CopyNotebookModel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the name property value. The name property
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -340,7 +335,7 @@ class CopyNotebookModel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -348,7 +343,7 @@ class CopyNotebookModel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the sectionGroupsUrl property value. The sectionGroupsUrl property
-     *  @param string|null $value Value to set for the sectionGroupsUrl property.
+     * @param string|null $value Value to set for the sectionGroupsUrl property.
     */
     public function setSectionGroupsUrl(?string $value): void {
         $this->getBackingStore()->set('sectionGroupsUrl', $value);
@@ -356,7 +351,7 @@ class CopyNotebookModel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the sectionsUrl property value. The sectionsUrl property
-     *  @param string|null $value Value to set for the sectionsUrl property.
+     * @param string|null $value Value to set for the sectionsUrl property.
     */
     public function setSectionsUrl(?string $value): void {
         $this->getBackingStore()->set('sectionsUrl', $value);
@@ -364,7 +359,7 @@ class CopyNotebookModel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the self property value. The self property
-     *  @param string|null $value Value to set for the EscapedSelf property.
+     * @param string|null $value Value to set for the EscapedSelf property.
     */
     public function setSelf(?string $value): void {
         $this->getBackingStore()->set('escapedSelf', $value);
@@ -372,7 +367,7 @@ class CopyNotebookModel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the userRole property value. The userRole property
-     *  @param OnenoteUserRole|null $value Value to set for the userRole property.
+     * @param OnenoteUserRole|null $value Value to set for the userRole property.
     */
     public function setUserRole(?OnenoteUserRole $value): void {
         $this->getBackingStore()->set('userRole', $value);

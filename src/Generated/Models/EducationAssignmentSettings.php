@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EducationAssignmentSettings extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new educationAssignmentSettings and sets the default values.
+     * Instantiates a new EducationAssignmentSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -31,12 +31,21 @@ class EducationAssignmentSettings extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'gradingCategories' => fn(ParseNode $n) => $o->setGradingCategories($n->getCollectionOfObjectValues([EducationGradingCategory::class, 'createFromDiscriminatorValue'])),
             'submissionAnimationDisabled' => fn(ParseNode $n) => $o->setSubmissionAnimationDisabled($n->getBooleanValue()),
         ]);
     }
 
     /**
-     * Gets the submissionAnimationDisabled property value. Indicates whether turn-in celebration animation will be shown. A value of true indicates that the animation will not be shown. Default value is false.
+     * Gets the gradingCategories property value. The gradingCategories property
+     * @return array<EducationGradingCategory>|null
+    */
+    public function getGradingCategories(): ?array {
+        return $this->getBackingStore()->get('gradingCategories');
+    }
+
+    /**
+     * Gets the submissionAnimationDisabled property value. Indicates whether turn-in celebration animation will be shown. If true, the animation will not be shown. The default value is false.
      * @return bool|null
     */
     public function getSubmissionAnimationDisabled(): ?bool {
@@ -49,12 +58,21 @@ class EducationAssignmentSettings extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('gradingCategories', $this->getGradingCategories());
         $writer->writeBooleanValue('submissionAnimationDisabled', $this->getSubmissionAnimationDisabled());
     }
 
     /**
-     * Sets the submissionAnimationDisabled property value. Indicates whether turn-in celebration animation will be shown. A value of true indicates that the animation will not be shown. Default value is false.
-     *  @param bool|null $value Value to set for the submissionAnimationDisabled property.
+     * Sets the gradingCategories property value. The gradingCategories property
+     * @param array<EducationGradingCategory>|null $value Value to set for the gradingCategories property.
+    */
+    public function setGradingCategories(?array $value): void {
+        $this->getBackingStore()->set('gradingCategories', $value);
+    }
+
+    /**
+     * Sets the submissionAnimationDisabled property value. Indicates whether turn-in celebration animation will be shown. If true, the animation will not be shown. The default value is false.
+     * @param bool|null $value Value to set for the submissionAnimationDisabled property.
     */
     public function setSubmissionAnimationDisabled(?bool $value): void {
         $this->getBackingStore()->set('submissionAnimationDisabled', $value);

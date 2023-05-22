@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models\ExternalConnectors;
 
+use Microsoft\Graph\Beta\Generated\Models\IndustryData\IndustryDataRoot;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -36,7 +37,7 @@ class External implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -66,8 +67,17 @@ class External implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             'connections' => fn(ParseNode $n) => $o->setConnections($n->getCollectionOfObjectValues([ExternalConnection::class, 'createFromDiscriminatorValue'])),
+            'industryData' => fn(ParseNode $n) => $o->setIndustryData($n->getObjectValue([IndustryDataRoot::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
+    }
+
+    /**
+     * Gets the industryData property value. The industryData property
+     * @return IndustryDataRoot|null
+    */
+    public function getIndustryData(): ?IndustryDataRoot {
+        return $this->getBackingStore()->get('industryData');
     }
 
     /**
@@ -84,13 +94,14 @@ class External implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfObjectValues('connections', $this->getConnections());
+        $writer->writeObjectValue('industryData', $this->getIndustryData());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -98,7 +109,7 @@ class External implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -106,15 +117,23 @@ class External implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the connections property value. The connections property
-     *  @param array<ExternalConnection>|null $value Value to set for the connections property.
+     * @param array<ExternalConnection>|null $value Value to set for the connections property.
     */
     public function setConnections(?array $value): void {
         $this->getBackingStore()->set('connections', $value);
     }
 
     /**
+     * Sets the industryData property value. The industryData property
+     * @param IndustryDataRoot|null $value Value to set for the industryData property.
+    */
+    public function setIndustryData(?IndustryDataRoot $value): void {
+        $this->getBackingStore()->set('industryData', $value);
+    }
+
+    /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Contacts;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get contacts in the user's mailbox. There are two scenarios where an app can get contacts in another user's contact folder:
+*/
 class ContactsRequestBuilderGetQueryParameters 
 {
     /**
@@ -11,6 +14,12 @@ class ContactsRequestBuilderGetQueryParameters
      * @var bool|null $count Include count of items
     */
     public ?bool $count = null;
+    
+    /**
+     * @QueryParameter("%24expand")
+     * @var array<string>|null $expand Expand related entities
+    */
+    public ?array $expand = null;
     
     /**
      * @QueryParameter("%24filter")
@@ -48,4 +57,26 @@ class ContactsRequestBuilderGetQueryParameters
     */
     public ?int $top = null;
     
+    /**
+     * Instantiates a new contactsRequestBuilderGetQueryParameters and sets the default values.
+     * @param bool|null $count Include count of items
+     * @param array<string>|null $expand Expand related entities
+     * @param string|null $filter Filter items by property values
+     * @param array<string>|null $orderby Order items by property values
+     * @param string|null $search Search items by search phrases
+     * @param array<string>|null $select Select properties to be returned
+     * @param int|null $skip Skip the first n items
+     * @param int|null $top Show only the first n items
+    */
+    public function __construct(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null) {
+        $this->count = $count;
+        $this->expand = $expand;
+        $this->filter = $filter;
+        $this->orderby = $orderby;
+        $this->search = $search;
+        $this->select = $select;
+        $this->skip = $skip;
+        $this->top = $top;
+    }
+
 }

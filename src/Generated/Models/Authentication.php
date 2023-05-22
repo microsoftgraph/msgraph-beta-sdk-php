@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Authentication extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new authentication and sets the default values.
+     * Instantiates a new Authentication and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,6 +55,7 @@ class Authentication extends Entity implements Parsable
             'passwordlessMicrosoftAuthenticatorMethods' => fn(ParseNode $n) => $o->setPasswordlessMicrosoftAuthenticatorMethods($n->getCollectionOfObjectValues([PasswordlessMicrosoftAuthenticatorAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'passwordMethods' => fn(ParseNode $n) => $o->setPasswordMethods($n->getCollectionOfObjectValues([PasswordAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'phoneMethods' => fn(ParseNode $n) => $o->setPhoneMethods($n->getCollectionOfObjectValues([PhoneAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
+            'signInPreferences' => fn(ParseNode $n) => $o->setSignInPreferences($n->getObjectValue([SignInPreferences::class, 'createFromDiscriminatorValue'])),
             'softwareOathMethods' => fn(ParseNode $n) => $o->setSoftwareOathMethods($n->getCollectionOfObjectValues([SoftwareOathAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'temporaryAccessPassMethods' => fn(ParseNode $n) => $o->setTemporaryAccessPassMethods($n->getCollectionOfObjectValues([TemporaryAccessPassAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'windowsHelloForBusinessMethods' => fn(ParseNode $n) => $o->setWindowsHelloForBusinessMethods($n->getCollectionOfObjectValues([WindowsHelloForBusinessAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
@@ -110,6 +111,14 @@ class Authentication extends Entity implements Parsable
     }
 
     /**
+     * Gets the signInPreferences property value. The settings and preferences for to the sign-in experience of a user.
+     * @return SignInPreferences|null
+    */
+    public function getSignInPreferences(): ?SignInPreferences {
+        return $this->getBackingStore()->get('signInPreferences');
+    }
+
+    /**
      * Gets the softwareOathMethods property value. The softwareOathMethods property
      * @return array<SoftwareOathAuthenticationMethod>|null
     */
@@ -147,6 +156,7 @@ class Authentication extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('passwordlessMicrosoftAuthenticatorMethods', $this->getPasswordlessMicrosoftAuthenticatorMethods());
         $writer->writeCollectionOfObjectValues('passwordMethods', $this->getPasswordMethods());
         $writer->writeCollectionOfObjectValues('phoneMethods', $this->getPhoneMethods());
+        $writer->writeObjectValue('signInPreferences', $this->getSignInPreferences());
         $writer->writeCollectionOfObjectValues('softwareOathMethods', $this->getSoftwareOathMethods());
         $writer->writeCollectionOfObjectValues('temporaryAccessPassMethods', $this->getTemporaryAccessPassMethods());
         $writer->writeCollectionOfObjectValues('windowsHelloForBusinessMethods', $this->getWindowsHelloForBusinessMethods());
@@ -154,7 +164,7 @@ class Authentication extends Entity implements Parsable
 
     /**
      * Sets the emailMethods property value. Represents the email addresses registered to a user for authentication.
-     *  @param array<EmailAuthenticationMethod>|null $value Value to set for the emailMethods property.
+     * @param array<EmailAuthenticationMethod>|null $value Value to set for the emailMethods property.
     */
     public function setEmailMethods(?array $value): void {
         $this->getBackingStore()->set('emailMethods', $value);
@@ -162,7 +172,7 @@ class Authentication extends Entity implements Parsable
 
     /**
      * Sets the fido2Methods property value. Represents the FIDO2 security keys registered to a user for authentication.
-     *  @param array<Fido2AuthenticationMethod>|null $value Value to set for the fido2Methods property.
+     * @param array<Fido2AuthenticationMethod>|null $value Value to set for the fido2Methods property.
     */
     public function setFido2Methods(?array $value): void {
         $this->getBackingStore()->set('fido2Methods', $value);
@@ -170,7 +180,7 @@ class Authentication extends Entity implements Parsable
 
     /**
      * Sets the methods property value. Represents all authentication methods registered to a user.
-     *  @param array<AuthenticationMethod>|null $value Value to set for the methods property.
+     * @param array<AuthenticationMethod>|null $value Value to set for the methods property.
     */
     public function setMethods(?array $value): void {
         $this->getBackingStore()->set('methods', $value);
@@ -178,7 +188,7 @@ class Authentication extends Entity implements Parsable
 
     /**
      * Sets the microsoftAuthenticatorMethods property value. The details of the Microsoft Authenticator app registered to a user for authentication.
-     *  @param array<MicrosoftAuthenticatorAuthenticationMethod>|null $value Value to set for the microsoftAuthenticatorMethods property.
+     * @param array<MicrosoftAuthenticatorAuthenticationMethod>|null $value Value to set for the microsoftAuthenticatorMethods property.
     */
     public function setMicrosoftAuthenticatorMethods(?array $value): void {
         $this->getBackingStore()->set('microsoftAuthenticatorMethods', $value);
@@ -186,7 +196,7 @@ class Authentication extends Entity implements Parsable
 
     /**
      * Sets the operations property value. The operations property
-     *  @param array<LongRunningOperation>|null $value Value to set for the operations property.
+     * @param array<LongRunningOperation>|null $value Value to set for the operations property.
     */
     public function setOperations(?array $value): void {
         $this->getBackingStore()->set('operations', $value);
@@ -194,7 +204,7 @@ class Authentication extends Entity implements Parsable
 
     /**
      * Sets the passwordlessMicrosoftAuthenticatorMethods property value. Represents the Microsoft Authenticator Passwordless Phone Sign-in methods registered to a user for authentication.
-     *  @param array<PasswordlessMicrosoftAuthenticatorAuthenticationMethod>|null $value Value to set for the passwordlessMicrosoftAuthenticatorMethods property.
+     * @param array<PasswordlessMicrosoftAuthenticatorAuthenticationMethod>|null $value Value to set for the passwordlessMicrosoftAuthenticatorMethods property.
     */
     public function setPasswordlessMicrosoftAuthenticatorMethods(?array $value): void {
         $this->getBackingStore()->set('passwordlessMicrosoftAuthenticatorMethods', $value);
@@ -202,7 +212,7 @@ class Authentication extends Entity implements Parsable
 
     /**
      * Sets the passwordMethods property value. Represents the details of the password authentication method registered to a user for authentication.
-     *  @param array<PasswordAuthenticationMethod>|null $value Value to set for the passwordMethods property.
+     * @param array<PasswordAuthenticationMethod>|null $value Value to set for the passwordMethods property.
     */
     public function setPasswordMethods(?array $value): void {
         $this->getBackingStore()->set('passwordMethods', $value);
@@ -210,15 +220,23 @@ class Authentication extends Entity implements Parsable
 
     /**
      * Sets the phoneMethods property value. Represents the phone registered to a user for authentication.
-     *  @param array<PhoneAuthenticationMethod>|null $value Value to set for the phoneMethods property.
+     * @param array<PhoneAuthenticationMethod>|null $value Value to set for the phoneMethods property.
     */
     public function setPhoneMethods(?array $value): void {
         $this->getBackingStore()->set('phoneMethods', $value);
     }
 
     /**
+     * Sets the signInPreferences property value. The settings and preferences for to the sign-in experience of a user.
+     * @param SignInPreferences|null $value Value to set for the signInPreferences property.
+    */
+    public function setSignInPreferences(?SignInPreferences $value): void {
+        $this->getBackingStore()->set('signInPreferences', $value);
+    }
+
+    /**
      * Sets the softwareOathMethods property value. The softwareOathMethods property
-     *  @param array<SoftwareOathAuthenticationMethod>|null $value Value to set for the softwareOathMethods property.
+     * @param array<SoftwareOathAuthenticationMethod>|null $value Value to set for the softwareOathMethods property.
     */
     public function setSoftwareOathMethods(?array $value): void {
         $this->getBackingStore()->set('softwareOathMethods', $value);
@@ -226,7 +244,7 @@ class Authentication extends Entity implements Parsable
 
     /**
      * Sets the temporaryAccessPassMethods property value. Represents a Temporary Access Pass registered to a user for authentication through time-limited passcodes.
-     *  @param array<TemporaryAccessPassAuthenticationMethod>|null $value Value to set for the temporaryAccessPassMethods property.
+     * @param array<TemporaryAccessPassAuthenticationMethod>|null $value Value to set for the temporaryAccessPassMethods property.
     */
     public function setTemporaryAccessPassMethods(?array $value): void {
         $this->getBackingStore()->set('temporaryAccessPassMethods', $value);
@@ -234,7 +252,7 @@ class Authentication extends Entity implements Parsable
 
     /**
      * Sets the windowsHelloForBusinessMethods property value. Represents the Windows Hello for Business authentication method registered to a user for authentication.
-     *  @param array<WindowsHelloForBusinessAuthenticationMethod>|null $value Value to set for the windowsHelloForBusinessMethods property.
+     * @param array<WindowsHelloForBusinessAuthenticationMethod>|null $value Value to set for the windowsHelloForBusinessMethods property.
     */
     public function setWindowsHelloForBusinessMethods(?array $value): void {
         $this->getBackingStore()->set('windowsHelloForBusinessMethods', $value);

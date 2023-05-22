@@ -2,25 +2,38 @@
 
 namespace Microsoft\Graph\Beta\Generated\Applications\Item\Owners\Item;
 
-use Microsoft\Graph\Beta\Generated\Applications\Item\Owners\Item\Endpoint\EndpointRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Applications\Item\Owners\Item\GraphEndpoint\GraphEndpointRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Applications\Item\Owners\Item\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Applications\Item\Owners\Item\GraphUser\GraphUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Owners\Item\Ref\RefRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\Owners\Item\ServicePrincipal\ServicePrincipalRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\Owners\Item\User\UserRequestBuilder;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
-class DirectoryObjectItemRequestBuilder 
+/**
+ * Builds and executes requests for operations under /applications/{application-id}/owners/{directoryObject-id}
+*/
+class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Casts the previous resource to endpoint.
     */
-    public function endpoint(): EndpointRequestBuilder {
-        return new EndpointRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function graphEndpoint(): GraphEndpointRequestBuilder {
+        return new GraphEndpointRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
+     * Casts the previous resource to servicePrincipal.
     */
-    private array $pathParameters;
+    public function graphServicePrincipal(): GraphServicePrincipalRequestBuilder {
+        return new GraphServicePrincipalRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to user.
+    */
+    public function graphUser(): GraphUserRequestBuilder {
+        return new GraphUserRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
     
     /**
      * Provides operations to manage the collection of application entities.
@@ -30,38 +43,17 @@ class DirectoryObjectItemRequestBuilder
     }
     
     /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
-     * Casts the previous resource to servicePrincipal.
-    */
-    public function servicePrincipal(): ServicePrincipalRequestBuilder {
-        return new ServicePrincipalRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
-     * Casts the previous resource to user.
-    */
-    public function user(): UserRequestBuilder {
-        return new UserRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Instantiates a new DirectoryObjectItemRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/applications/{application%2Did}/owners/{directoryObject%2Did}';
-        $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
+        parent::__construct($requestAdapter, [], '{+baseurl}/applications/{application%2Did}/owners/{directoryObject%2Did}');
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
 }

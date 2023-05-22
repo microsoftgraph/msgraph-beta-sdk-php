@@ -55,7 +55,7 @@ class DeviceManagementConfigurationStringSettingValueConstantDefaultTemplate ext
 
     /**
      * Sets the constantValue property value. Default Constant Value
-     *  @param string|null $value Value to set for the constantValue property.
+     * @param string|null $value Value to set for the constantValue property.
     */
     public function setConstantValue(?string $value): void {
         $this->getBackingStore()->set('constantValue', $value);

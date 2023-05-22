@@ -2,18 +2,21 @@
 
 namespace Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\Item;
 
+use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;
 
-class B2xIdentityUserFlowItemRequestBuilderPatchRequestConfiguration 
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
+class B2xIdentityUserFlowItemRequestBuilderPatchRequestConfiguration extends BaseRequestConfiguration 
 {
     /**
-     * @var array<string, string>|null $headers Request headers
+     * Instantiates a new B2xIdentityUserFlowItemRequestBuilderPatchRequestConfiguration and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
     */
-    public ?array $headers = null;
-    
-    /**
-     * @var array<string, RequestOption>|null $options Request options
-    */
-    public ?array $options = null;
-    
+    public function __construct(?array $headers = null, ?array $options = null) {
+        parent::__construct($headers ?? [], $options ?? []);
+    }
+
 }

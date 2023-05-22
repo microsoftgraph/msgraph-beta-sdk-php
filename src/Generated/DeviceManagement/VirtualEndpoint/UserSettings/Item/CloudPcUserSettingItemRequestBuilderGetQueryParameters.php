@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\UserSe
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read the properties and relationships of a cloudPcUserSetting object.
+*/
 class CloudPcUserSettingItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class CloudPcUserSettingItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new CloudPcUserSettingItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

@@ -146,7 +146,7 @@ class PersonCertification extends ItemFacet implements Parsable
 
     /**
      * Sets the certificationId property value. The referenceable identifier for the certification.
-     *  @param string|null $value Value to set for the certificationId property.
+     * @param string|null $value Value to set for the certificationId property.
     */
     public function setCertificationId(?string $value): void {
         $this->getBackingStore()->set('certificationId', $value);
@@ -154,7 +154,7 @@ class PersonCertification extends ItemFacet implements Parsable
 
     /**
      * Sets the description property value. Description of the certification.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -162,7 +162,7 @@ class PersonCertification extends ItemFacet implements Parsable
 
     /**
      * Sets the displayName property value. Title of the certification.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -170,7 +170,7 @@ class PersonCertification extends ItemFacet implements Parsable
 
     /**
      * Sets the endDate property value. The date that the certification expires.
-     *  @param Date|null $value Value to set for the endDate property.
+     * @param Date|null $value Value to set for the endDate property.
     */
     public function setEndDate(?Date $value): void {
         $this->getBackingStore()->set('endDate', $value);
@@ -178,7 +178,7 @@ class PersonCertification extends ItemFacet implements Parsable
 
     /**
      * Sets the issuedDate property value. The date that the certification was issued.
-     *  @param Date|null $value Value to set for the issuedDate property.
+     * @param Date|null $value Value to set for the issuedDate property.
     */
     public function setIssuedDate(?Date $value): void {
         $this->getBackingStore()->set('issuedDate', $value);
@@ -186,7 +186,7 @@ class PersonCertification extends ItemFacet implements Parsable
 
     /**
      * Sets the issuingAuthority property value. Authority which granted the certification.
-     *  @param string|null $value Value to set for the issuingAuthority property.
+     * @param string|null $value Value to set for the issuingAuthority property.
     */
     public function setIssuingAuthority(?string $value): void {
         $this->getBackingStore()->set('issuingAuthority', $value);
@@ -194,7 +194,7 @@ class PersonCertification extends ItemFacet implements Parsable
 
     /**
      * Sets the issuingCompany property value. Company which granted the certification.
-     *  @param string|null $value Value to set for the issuingCompany property.
+     * @param string|null $value Value to set for the issuingCompany property.
     */
     public function setIssuingCompany(?string $value): void {
         $this->getBackingStore()->set('issuingCompany', $value);
@@ -202,7 +202,7 @@ class PersonCertification extends ItemFacet implements Parsable
 
     /**
      * Sets the startDate property value. The date that the certification became valid.
-     *  @param Date|null $value Value to set for the startDate property.
+     * @param Date|null $value Value to set for the startDate property.
     */
     public function setStartDate(?Date $value): void {
         $this->getBackingStore()->set('startDate', $value);
@@ -210,7 +210,7 @@ class PersonCertification extends ItemFacet implements Parsable
 
     /**
      * Sets the thumbnailUrl property value. URL referencing a thumbnail of the certification.
-     *  @param string|null $value Value to set for the thumbnailUrl property.
+     * @param string|null $value Value to set for the thumbnailUrl property.
     */
     public function setThumbnailUrl(?string $value): void {
         $this->getBackingStore()->set('thumbnailUrl', $value);
@@ -218,7 +218,7 @@ class PersonCertification extends ItemFacet implements Parsable
 
     /**
      * Sets the webUrl property value. URL referencing the certification.
-     *  @param string|null $value Value to set for the webUrl property.
+     * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {
         $this->getBackingStore()->set('webUrl', $value);

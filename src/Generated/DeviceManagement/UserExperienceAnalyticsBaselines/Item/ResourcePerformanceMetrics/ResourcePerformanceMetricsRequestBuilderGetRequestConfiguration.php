@@ -2,23 +2,38 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBaselines\Item\ResourcePerformanceMetrics;
 
+use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;
 
-class ResourcePerformanceMetricsRequestBuilderGetRequestConfiguration 
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
+class ResourcePerformanceMetricsRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration 
 {
-    /**
-     * @var array<string, string>|null $headers Request headers
-    */
-    public ?array $headers = null;
-    
-    /**
-     * @var array<string, RequestOption>|null $options Request options
-    */
-    public ?array $options = null;
-    
     /**
      * @var ResourcePerformanceMetricsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
     */
     public ?ResourcePerformanceMetricsRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new resourcePerformanceMetricsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
+     * @param ResourcePerformanceMetricsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ResourcePerformanceMetricsRequestBuilderGetQueryParameters $queryParameters = null) {
+        parent::__construct($headers ?? [], $options ?? []);
+        $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new resourcePerformanceMetricsRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return ResourcePerformanceMetricsRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): ResourcePerformanceMetricsRequestBuilderGetQueryParameters {
+        return new ResourcePerformanceMetricsRequestBuilderGetQueryParameters($expand, $select);
+    }
+
 }

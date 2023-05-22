@@ -50,11 +50,20 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'container' => fn(ParseNode $n) => $o->setContainer($n->getObjectValue([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'containerId' => fn(ParseNode $n) => $o->setContainerId($n->getStringValue()),
+            'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([User::class, 'createFromDiscriminatorValue'])),
             'member' => fn(ParseNode $n) => $o->setMember($n->getObjectValue([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'memberId' => fn(ParseNode $n) => $o->setMemberId($n->getStringValue()),
             'outlierContainerType' => fn(ParseNode $n) => $o->setOutlierContainerType($n->getEnumValue(OutlierContainerType::class)),
             'outlierMemberType' => fn(ParseNode $n) => $o->setOutlierMemberType($n->getEnumValue(OutlierMemberType::class)),
         ]);
+    }
+
+    /**
+     * Gets the lastModifiedBy property value. Navigation link to a member object who modified the record. For example, to a user.
+     * @return User|null
+    */
+    public function getLastModifiedBy(): ?User {
+        return $this->getBackingStore()->get('lastModifiedBy');
     }
 
     /**
@@ -97,6 +106,7 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
         parent::serialize($writer);
         $writer->writeObjectValue('container', $this->getContainer());
         $writer->writeStringValue('containerId', $this->getContainerId());
+        $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeObjectValue('member', $this->getMember());
         $writer->writeStringValue('memberId', $this->getMemberId());
         $writer->writeEnumValue('outlierContainerType', $this->getOutlierContainerType());
@@ -105,7 +115,7 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
 
     /**
      * Sets the container property value. Navigation link to the container directory object. For example, to a group.
-     *  @param DirectoryObject|null $value Value to set for the container property.
+     * @param DirectoryObject|null $value Value to set for the container property.
     */
     public function setContainer(?DirectoryObject $value): void {
         $this->getBackingStore()->set('container', $value);
@@ -113,15 +123,23 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
 
     /**
      * Sets the containerId property value. Indicates the identifier of the container, for example, a group ID.
-     *  @param string|null $value Value to set for the containerId property.
+     * @param string|null $value Value to set for the containerId property.
     */
     public function setContainerId(?string $value): void {
         $this->getBackingStore()->set('containerId', $value);
     }
 
     /**
+     * Sets the lastModifiedBy property value. Navigation link to a member object who modified the record. For example, to a user.
+     * @param User|null $value Value to set for the lastModifiedBy property.
+    */
+    public function setLastModifiedBy(?User $value): void {
+        $this->getBackingStore()->set('lastModifiedBy', $value);
+    }
+
+    /**
      * Sets the member property value. Navigation link to a member object. For example, to a user.
-     *  @param DirectoryObject|null $value Value to set for the member property.
+     * @param DirectoryObject|null $value Value to set for the member property.
     */
     public function setMember(?DirectoryObject $value): void {
         $this->getBackingStore()->set('member', $value);
@@ -129,7 +147,7 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
 
     /**
      * Sets the memberId property value. Indicates the identifier of the user.
-     *  @param string|null $value Value to set for the memberId property.
+     * @param string|null $value Value to set for the memberId property.
     */
     public function setMemberId(?string $value): void {
         $this->getBackingStore()->set('memberId', $value);
@@ -137,7 +155,7 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
 
     /**
      * Sets the outlierContainerType property value. The outlierContainerType property
-     *  @param OutlierContainerType|null $value Value to set for the outlierContainerType property.
+     * @param OutlierContainerType|null $value Value to set for the outlierContainerType property.
     */
     public function setOutlierContainerType(?OutlierContainerType $value): void {
         $this->getBackingStore()->set('outlierContainerType', $value);
@@ -145,7 +163,7 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
 
     /**
      * Sets the outlierMemberType property value. The outlierMemberType property
-     *  @param OutlierMemberType|null $value Value to set for the outlierMemberType property.
+     * @param OutlierMemberType|null $value Value to set for the outlierMemberType property.
     */
     public function setOutlierMemberType(?OutlierMemberType $value): void {
         $this->getBackingStore()->set('outlierMemberType', $value);

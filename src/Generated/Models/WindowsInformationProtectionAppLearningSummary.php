@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsInformationProtectionAppLearningSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new windowsInformationProtectionAppLearningSummary and sets the default values.
+     * Instantiates a new WindowsInformationProtectionAppLearningSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -74,7 +74,7 @@ class WindowsInformationProtectionAppLearningSummary extends Entity implements P
 
     /**
      * Sets the applicationName property value. Application Name
-     *  @param string|null $value Value to set for the applicationName property.
+     * @param string|null $value Value to set for the applicationName property.
     */
     public function setApplicationName(?string $value): void {
         $this->getBackingStore()->set('applicationName', $value);
@@ -82,7 +82,7 @@ class WindowsInformationProtectionAppLearningSummary extends Entity implements P
 
     /**
      * Sets the applicationType property value. Possible types of Application
-     *  @param ApplicationType|null $value Value to set for the applicationType property.
+     * @param ApplicationType|null $value Value to set for the applicationType property.
     */
     public function setApplicationType(?ApplicationType $value): void {
         $this->getBackingStore()->set('applicationType', $value);
@@ -90,7 +90,7 @@ class WindowsInformationProtectionAppLearningSummary extends Entity implements P
 
     /**
      * Sets the deviceCount property value. Device Count
-     *  @param int|null $value Value to set for the deviceCount property.
+     * @param int|null $value Value to set for the deviceCount property.
     */
     public function setDeviceCount(?int $value): void {
         $this->getBackingStore()->set('deviceCount', $value);

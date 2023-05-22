@@ -2,6 +2,9 @@
 
 namespace Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName;
 
+/**
+ * Invoke function doesUserHaveAccess
+*/
 class DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilderGetQueryParameters 
 {
     /**
@@ -19,4 +22,16 @@ class DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincip
     */
     public ?string $userPrincipalName = null;
     
+    /**
+     * Instantiates a new doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilderGetQueryParameters and sets the default values.
+     * @param string|null $tenantId Usage: tenantId='@tenantId'
+     * @param string|null $userId Usage: userId='@userId'
+     * @param string|null $userPrincipalName Usage: userPrincipalName='@userPrincipalName'
+    */
+    public function __construct(?string $tenantId = null, ?string $userId = null, ?string $userPrincipalName = null) {
+        $this->tenantId = $tenantId;
+        $this->userId = $userId;
+        $this->userPrincipalName = $userPrincipalName;
+    }
+
 }

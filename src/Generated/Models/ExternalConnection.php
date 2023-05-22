@@ -123,7 +123,7 @@ class ExternalConnection extends Entity implements Parsable
 
     /**
      * Sets the configuration property value. The configuration property
-     *  @param Configuration|null $value Value to set for the configuration property.
+     * @param Configuration|null $value Value to set for the configuration property.
     */
     public function setConfiguration(?Configuration $value): void {
         $this->getBackingStore()->set('configuration', $value);
@@ -131,7 +131,7 @@ class ExternalConnection extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description property
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -139,7 +139,7 @@ class ExternalConnection extends Entity implements Parsable
 
     /**
      * Sets the groups property value. The groups property
-     *  @param array<ExternalGroup>|null $value Value to set for the groups property.
+     * @param array<ExternalGroup>|null $value Value to set for the groups property.
     */
     public function setGroups(?array $value): void {
         $this->getBackingStore()->set('groups', $value);
@@ -147,7 +147,7 @@ class ExternalConnection extends Entity implements Parsable
 
     /**
      * Sets the items property value. The items property
-     *  @param array<ExternalItem>|null $value Value to set for the items property.
+     * @param array<ExternalItem>|null $value Value to set for the items property.
     */
     public function setItems(?array $value): void {
         $this->getBackingStore()->set('items', $value);
@@ -155,7 +155,7 @@ class ExternalConnection extends Entity implements Parsable
 
     /**
      * Sets the name property value. The name property
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -163,7 +163,7 @@ class ExternalConnection extends Entity implements Parsable
 
     /**
      * Sets the operations property value. The operations property
-     *  @param array<ConnectionOperation>|null $value Value to set for the operations property.
+     * @param array<ConnectionOperation>|null $value Value to set for the operations property.
     */
     public function setOperations(?array $value): void {
         $this->getBackingStore()->set('operations', $value);
@@ -171,7 +171,7 @@ class ExternalConnection extends Entity implements Parsable
 
     /**
      * Sets the schema property value. The schema property
-     *  @param Schema|null $value Value to set for the schema property.
+     * @param Schema|null $value Value to set for the schema property.
     */
     public function setSchema(?Schema $value): void {
         $this->getBackingStore()->set('schema', $value);
@@ -179,7 +179,7 @@ class ExternalConnection extends Entity implements Parsable
 
     /**
      * Sets the state property value. The state property
-     *  @param ConnectionState|null $value Value to set for the state property.
+     * @param ConnectionState|null $value Value to set for the state property.
     */
     public function setState(?ConnectionState $value): void {
         $this->getBackingStore()->set('state', $value);

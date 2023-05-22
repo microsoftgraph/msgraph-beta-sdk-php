@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Calendars;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get all the user's calendars (`/calendars` navigation property), get the calendars from the default calendar group or from a specific calendar group. 
+*/
 class CalendarsRequestBuilderGetQueryParameters 
 {
     /**
@@ -11,6 +14,12 @@ class CalendarsRequestBuilderGetQueryParameters
      * @var bool|null $count Include count of items
     */
     public ?bool $count = null;
+    
+    /**
+     * @QueryParameter("%24expand")
+     * @var array<string>|null $expand Expand related entities
+    */
+    public ?array $expand = null;
     
     /**
      * @QueryParameter("%24filter")
@@ -42,4 +51,24 @@ class CalendarsRequestBuilderGetQueryParameters
     */
     public ?int $top = null;
     
+    /**
+     * Instantiates a new calendarsRequestBuilderGetQueryParameters and sets the default values.
+     * @param bool|null $count Include count of items
+     * @param array<string>|null $expand Expand related entities
+     * @param string|null $filter Filter items by property values
+     * @param array<string>|null $orderby Order items by property values
+     * @param array<string>|null $select Select properties to be returned
+     * @param int|null $skip Skip the first n items
+     * @param int|null $top Show only the first n items
+    */
+    public function __construct(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?array $select = null, ?int $skip = null, ?int $top = null) {
+        $this->count = $count;
+        $this->expand = $expand;
+        $this->filter = $filter;
+        $this->orderby = $orderby;
+        $this->select = $select;
+        $this->skip = $skip;
+        $this->top = $top;
+    }
+
 }

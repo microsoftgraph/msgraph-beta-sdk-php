@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredOwner
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Remove a user as a registered owner of the device.
+*/
 class RefRequestBuilderDeleteQueryParameters 
 {
     /**
@@ -12,4 +15,12 @@ class RefRequestBuilderDeleteQueryParameters
     */
     public ?string $id = null;
     
+    /**
+     * Instantiates a new RefRequestBuilderDeleteQueryParameters and sets the default values.
+     * @param string|null $id Delete Uri
+    */
+    public function __construct(?string $id = null) {
+        $this->id = $id;
+    }
+
 }

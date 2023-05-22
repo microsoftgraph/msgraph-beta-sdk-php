@@ -35,8 +35,6 @@ class PlannerPropertyRule implements AdditionalDataHolder, BackedModel, Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
-                case '#microsoft.graph.plannerBucketPropertyRule': return new PlannerBucketPropertyRule();
-                case '#microsoft.graph.plannerPlanPropertyRule': return new PlannerPlanPropertyRule();
                 case '#microsoft.graph.plannerTaskPropertyRule': return new PlannerTaskPropertyRule();
             }
         }
@@ -45,7 +43,7 @@ class PlannerPropertyRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -80,7 +78,7 @@ class PlannerPropertyRule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the ruleKind property value. The ruleKind property
+     * Gets the ruleKind property value. Identifies which type of property rules is represented by this instance. The possible values are: taskRule, bucketRule, planRule, unknownFutureValue.
      * @return PlannerRuleKind|null
     */
     public function getRuleKind(): ?PlannerRuleKind {
@@ -99,7 +97,7 @@ class PlannerPropertyRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -107,7 +105,7 @@ class PlannerPropertyRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -115,15 +113,15 @@ class PlannerPropertyRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
-     * Sets the ruleKind property value. The ruleKind property
-     *  @param PlannerRuleKind|null $value Value to set for the ruleKind property.
+     * Sets the ruleKind property value. Identifies which type of property rules is represented by this instance. The possible values are: taskRule, bucketRule, planRule, unknownFutureValue.
+     * @param PlannerRuleKind|null $value Value to set for the ruleKind property.
     */
     public function setRuleKind(?PlannerRuleKind $value): void {
         $this->getBackingStore()->set('ruleKind', $value);

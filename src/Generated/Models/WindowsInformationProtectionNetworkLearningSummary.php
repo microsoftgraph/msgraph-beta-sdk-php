@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsInformationProtectionNetworkLearningSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new windowsInformationProtectionNetworkLearningSummary and sets the default values.
+     * Instantiates a new WindowsInformationProtectionNetworkLearningSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -64,7 +64,7 @@ class WindowsInformationProtectionNetworkLearningSummary extends Entity implemen
 
     /**
      * Sets the deviceCount property value. Device Count
-     *  @param int|null $value Value to set for the deviceCount property.
+     * @param int|null $value Value to set for the deviceCount property.
     */
     public function setDeviceCount(?int $value): void {
         $this->getBackingStore()->set('deviceCount', $value);
@@ -72,7 +72,7 @@ class WindowsInformationProtectionNetworkLearningSummary extends Entity implemen
 
     /**
      * Sets the url property value. Website url
-     *  @param string|null $value Value to set for the url property.
+     * @param string|null $value Value to set for the url property.
     */
     public function setUrl(?string $value): void {
         $this->getBackingStore()->set('url', $value);

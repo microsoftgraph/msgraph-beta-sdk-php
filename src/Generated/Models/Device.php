@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Device extends DirectoryObject implements Parsable 
 {
     /**
-     * Instantiates a new device and sets the default values.
+     * Instantiates a new Device and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -360,7 +360,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the registeredOwners property value. The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Currently, there can be only one owner. Read-only. Nullable. Supports $expand.
+     * Gets the registeredOwners property value. The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Read-only. Nullable. Supports $expand.
      * @return array<DirectoryObject>|null
     */
     public function getRegisteredOwners(): ?array {
@@ -476,7 +476,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the accountEnabled property value. true if the account is enabled; otherwise, false. Default is true.  Supports $filter (eq, ne, not, in). Only callers in Global Administrator and Cloud Device Administrator roles can set this property.
-     *  @param bool|null $value Value to set for the accountEnabled property.
+     * @param bool|null $value Value to set for the accountEnabled property.
     */
     public function setAccountEnabled(?bool $value): void {
         $this->getBackingStore()->set('accountEnabled', $value);
@@ -484,7 +484,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the alternativeSecurityIds property value. For internal use only. Not nullable. Supports $filter (eq, not, ge, le).
-     *  @param array<AlternativeSecurityId>|null $value Value to set for the alternativeSecurityIds property.
+     * @param array<AlternativeSecurityId>|null $value Value to set for the alternativeSecurityIds property.
     */
     public function setAlternativeSecurityIds(?array $value): void {
         $this->getBackingStore()->set('alternativeSecurityIds', $value);
@@ -492,7 +492,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the approximateLastSignInDateTime property value. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, not, ge, le, and eq on null values) and $orderBy.
-     *  @param DateTime|null $value Value to set for the approximateLastSignInDateTime property.
+     * @param DateTime|null $value Value to set for the approximateLastSignInDateTime property.
     */
     public function setApproximateLastSignInDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('approximateLastSignInDateTime', $value);
@@ -500,7 +500,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the commands property value. Set of commands sent to this device.
-     *  @param array<Command>|null $value Value to set for the commands property.
+     * @param array<Command>|null $value Value to set for the commands property.
     */
     public function setCommands(?array $value): void {
         $this->getBackingStore()->set('commands', $value);
@@ -508,7 +508,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the complianceExpirationDateTime property value. The timestamp when the device is no longer deemed compliant. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-     *  @param DateTime|null $value Value to set for the complianceExpirationDateTime property.
+     * @param DateTime|null $value Value to set for the complianceExpirationDateTime property.
     */
     public function setComplianceExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('complianceExpirationDateTime', $value);
@@ -516,7 +516,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the deviceCategory property value. User-defined property set by Intune to automatically add devices to groups and simplify managing devices.
-     *  @param string|null $value Value to set for the deviceCategory property.
+     * @param string|null $value Value to set for the deviceCategory property.
     */
     public function setDeviceCategory(?string $value): void {
         $this->getBackingStore()->set('deviceCategory', $value);
@@ -524,7 +524,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the deviceId property value. Unique Identifier set by Azure Device Registration Service at the time of registration. This is an alternate key that can be used to reference the device object. Also Supports $filter (eq, ne, not, startsWith).
-     *  @param string|null $value Value to set for the deviceId property.
+     * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
         $this->getBackingStore()->set('deviceId', $value);
@@ -532,7 +532,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the deviceMetadata property value. For internal use only. Set to null.
-     *  @param string|null $value Value to set for the deviceMetadata property.
+     * @param string|null $value Value to set for the deviceMetadata property.
     */
     public function setDeviceMetadata(?string $value): void {
         $this->getBackingStore()->set('deviceMetadata', $value);
@@ -540,7 +540,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the deviceOwnership property value. Ownership of the device. This property is set by Intune. Possible values are: unknown, company, personal.
-     *  @param string|null $value Value to set for the deviceOwnership property.
+     * @param string|null $value Value to set for the deviceOwnership property.
     */
     public function setDeviceOwnership(?string $value): void {
         $this->getBackingStore()->set('deviceOwnership', $value);
@@ -548,7 +548,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the deviceVersion property value. For internal use only.
-     *  @param int|null $value Value to set for the deviceVersion property.
+     * @param int|null $value Value to set for the deviceVersion property.
     */
     public function setDeviceVersion(?int $value): void {
         $this->getBackingStore()->set('deviceVersion', $value);
@@ -556,7 +556,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the displayName property value. The display name for the device. Required. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -564,7 +564,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the domainName property value. The on-premises domain name of Hybrid Azure AD joined devices. This property is set by Intune.
-     *  @param string|null $value Value to set for the domainName property.
+     * @param string|null $value Value to set for the domainName property.
     */
     public function setDomainName(?string $value): void {
         $this->getBackingStore()->set('domainName', $value);
@@ -572,7 +572,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the enrollmentProfileName property value. Enrollment profile applied to the device. For example, Apple Device Enrollment Profile, Device enrollment - Corporate device identifiers, or Windows Autopilot profile name. This property is set by Intune.
-     *  @param string|null $value Value to set for the enrollmentProfileName property.
+     * @param string|null $value Value to set for the enrollmentProfileName property.
     */
     public function setEnrollmentProfileName(?string $value): void {
         $this->getBackingStore()->set('enrollmentProfileName', $value);
@@ -580,7 +580,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the enrollmentType property value. Enrollment type of the device. This property is set by Intune. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement.
-     *  @param string|null $value Value to set for the enrollmentType property.
+     * @param string|null $value Value to set for the enrollmentType property.
     */
     public function setEnrollmentType(?string $value): void {
         $this->getBackingStore()->set('enrollmentType', $value);
@@ -588,7 +588,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the extensionAttributes property value. Contains extension attributes 1-15 for the device. The individual extension attributes are not selectable. These properties are mastered in cloud and can be set during creation or update of a device object in Azure AD. Supports $filter (eq, not, startsWith, and eq on null values).
-     *  @param OnPremisesExtensionAttributes|null $value Value to set for the extensionAttributes property.
+     * @param OnPremisesExtensionAttributes|null $value Value to set for the extensionAttributes property.
     */
     public function setExtensionAttributes(?OnPremisesExtensionAttributes $value): void {
         $this->getBackingStore()->set('extensionAttributes', $value);
@@ -596,7 +596,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the extensions property value. The collection of open extensions defined for the device. Read-only. Nullable.
-     *  @param array<Extension>|null $value Value to set for the extensions property.
+     * @param array<Extension>|null $value Value to set for the extensions property.
     */
     public function setExtensions(?array $value): void {
         $this->getBackingStore()->set('extensions', $value);
@@ -604,7 +604,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the hostnames property value. List of hostNames for the device.
-     *  @param array<string>|null $value Value to set for the hostnames property.
+     * @param array<string>|null $value Value to set for the hostnames property.
     */
     public function setHostnames(?array $value): void {
         $this->getBackingStore()->set('hostnames', $value);
@@ -612,7 +612,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the isCompliant property value. true if the device complies with Mobile Device Management (MDM) policies; otherwise, false. Read-only. This can only be updated by Intune for any device OS type or by an approved MDM app for Windows OS devices. Supports $filter (eq, ne, not).
-     *  @param bool|null $value Value to set for the isCompliant property.
+     * @param bool|null $value Value to set for the isCompliant property.
     */
     public function setIsCompliant(?bool $value): void {
         $this->getBackingStore()->set('isCompliant', $value);
@@ -620,7 +620,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the isManaged property value. true if the device is managed by a Mobile Device Management (MDM) app; otherwise, false. This can only be updated by Intune for any device OS type or by an approved MDM app for Windows OS devices. Supports $filter (eq, ne, not).
-     *  @param bool|null $value Value to set for the isManaged property.
+     * @param bool|null $value Value to set for the isManaged property.
     */
     public function setIsManaged(?bool $value): void {
         $this->getBackingStore()->set('isManaged', $value);
@@ -628,7 +628,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the isManagementRestricted property value. The isManagementRestricted property
-     *  @param bool|null $value Value to set for the isManagementRestricted property.
+     * @param bool|null $value Value to set for the isManagementRestricted property.
     */
     public function setIsManagementRestricted(?bool $value): void {
         $this->getBackingStore()->set('isManagementRestricted', $value);
@@ -636,7 +636,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the isRooted property value. true if device is rooted; false if device is jail-broken. This can only be updated by Intune.
-     *  @param bool|null $value Value to set for the isRooted property.
+     * @param bool|null $value Value to set for the isRooted property.
     */
     public function setIsRooted(?bool $value): void {
         $this->getBackingStore()->set('isRooted', $value);
@@ -644,7 +644,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the kind property value. Form factor of device. Only returned if user signs in with a Microsoft account as part of Project Rome.
-     *  @param string|null $value Value to set for the kind property.
+     * @param string|null $value Value to set for the kind property.
     */
     public function setKind(?string $value): void {
         $this->getBackingStore()->set('kind', $value);
@@ -652,7 +652,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the managementType property value. Management channel of the device.  This property is set by Intune. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController.
-     *  @param string|null $value Value to set for the managementType property.
+     * @param string|null $value Value to set for the managementType property.
     */
     public function setManagementType(?string $value): void {
         $this->getBackingStore()->set('managementType', $value);
@@ -660,7 +660,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the manufacturer property value. Manufacturer of the device. Read-only.
-     *  @param string|null $value Value to set for the manufacturer property.
+     * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
         $this->getBackingStore()->set('manufacturer', $value);
@@ -668,7 +668,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the mdmAppId property value. Application identifier used to register device into MDM. Read-only. Supports $filter (eq, ne, not, startsWith).
-     *  @param string|null $value Value to set for the mdmAppId property.
+     * @param string|null $value Value to set for the mdmAppId property.
     */
     public function setMdmAppId(?string $value): void {
         $this->getBackingStore()->set('mdmAppId', $value);
@@ -676,7 +676,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the memberOf property value. Groups and administrative units that this device is a member of. Read-only. Nullable. Supports $expand.
-     *  @param array<DirectoryObject>|null $value Value to set for the memberOf property.
+     * @param array<DirectoryObject>|null $value Value to set for the memberOf property.
     */
     public function setMemberOf(?array $value): void {
         $this->getBackingStore()->set('memberOf', $value);
@@ -684,7 +684,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the model property value. Model of the device. Read-only.
-     *  @param string|null $value Value to set for the model property.
+     * @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value): void {
         $this->getBackingStore()->set('model', $value);
@@ -692,7 +692,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the name property value. Friendly name of a device. Only returned if user signs in with a Microsoft account as part of Project Rome.
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -700,7 +700,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the onPremisesLastSyncDateTime property value. The last time at which the object was synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z Read-only. Supports $filter (eq, ne, not, ge, le, in).
-     *  @param DateTime|null $value Value to set for the onPremisesLastSyncDateTime property.
+     * @param DateTime|null $value Value to set for the onPremisesLastSyncDateTime property.
     */
     public function setOnPremisesLastSyncDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('onPremisesLastSyncDateTime', $value);
@@ -708,7 +708,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Read-only. Supports $filter (eq, ne, not, in, and eq on null values).
-     *  @param bool|null $value Value to set for the onPremisesSyncEnabled property.
+     * @param bool|null $value Value to set for the onPremisesSyncEnabled property.
     */
     public function setOnPremisesSyncEnabled(?bool $value): void {
         $this->getBackingStore()->set('onPremisesSyncEnabled', $value);
@@ -716,7 +716,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the operatingSystem property value. The type of operating system on the device. Required. Supports $filter (eq, ne, not, ge, le, startsWith, and eq on null values).
-     *  @param string|null $value Value to set for the operatingSystem property.
+     * @param string|null $value Value to set for the operatingSystem property.
     */
     public function setOperatingSystem(?string $value): void {
         $this->getBackingStore()->set('operatingSystem', $value);
@@ -724,7 +724,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the operatingSystemVersion property value. Operating system version of the device. Required. Supports $filter (eq, ne, not, ge, le, startsWith, and eq on null values).
-     *  @param string|null $value Value to set for the operatingSystemVersion property.
+     * @param string|null $value Value to set for the operatingSystemVersion property.
     */
     public function setOperatingSystemVersion(?string $value): void {
         $this->getBackingStore()->set('operatingSystemVersion', $value);
@@ -732,7 +732,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the physicalIds property value. For internal use only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, /$count eq 0, /$count ne 0.
-     *  @param array<string>|null $value Value to set for the physicalIds property.
+     * @param array<string>|null $value Value to set for the physicalIds property.
     */
     public function setPhysicalIds(?array $value): void {
         $this->getBackingStore()->set('physicalIds', $value);
@@ -740,7 +740,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the platform property value. Platform of device. Only returned if user signs in with a Microsoft account as part of Project Rome. Only returned if user signs in with a Microsoft account as part of Project Rome.
-     *  @param string|null $value Value to set for the platform property.
+     * @param string|null $value Value to set for the platform property.
     */
     public function setPlatform(?string $value): void {
         $this->getBackingStore()->set('platform', $value);
@@ -748,15 +748,15 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the profileType property value. The profile type of the device. Possible values: RegisteredDevice (default), SecureVM, Printer, Shared, IoT.
-     *  @param string|null $value Value to set for the profileType property.
+     * @param string|null $value Value to set for the profileType property.
     */
     public function setProfileType(?string $value): void {
         $this->getBackingStore()->set('profileType', $value);
     }
 
     /**
-     * Sets the registeredOwners property value. The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Currently, there can be only one owner. Read-only. Nullable. Supports $expand.
-     *  @param array<DirectoryObject>|null $value Value to set for the registeredOwners property.
+     * Sets the registeredOwners property value. The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Read-only. Nullable. Supports $expand.
+     * @param array<DirectoryObject>|null $value Value to set for the registeredOwners property.
     */
     public function setRegisteredOwners(?array $value): void {
         $this->getBackingStore()->set('registeredOwners', $value);
@@ -764,7 +764,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the registeredUsers property value. Collection of registered users of the device. For cloud joined devices and registered personal devices, registered users are set to the same value as registered owners at the time of registration. Read-only. Nullable. Supports $expand.
-     *  @param array<DirectoryObject>|null $value Value to set for the registeredUsers property.
+     * @param array<DirectoryObject>|null $value Value to set for the registeredUsers property.
     */
     public function setRegisteredUsers(?array $value): void {
         $this->getBackingStore()->set('registeredUsers', $value);
@@ -772,7 +772,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the registrationDateTime property value. Date and time of when the device was registered. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-     *  @param DateTime|null $value Value to set for the registrationDateTime property.
+     * @param DateTime|null $value Value to set for the registrationDateTime property.
     */
     public function setRegistrationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('registrationDateTime', $value);
@@ -780,7 +780,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the status property value. Device is online or offline. Only returned if user signs in with a Microsoft account as part of Project Rome.
-     *  @param string|null $value Value to set for the status property.
+     * @param string|null $value Value to set for the status property.
     */
     public function setStatus(?string $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -788,7 +788,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the systemLabels property value. List of labels applied to the device by the system. Supports $filter (/$count eq 0, /$count ne 0).
-     *  @param array<string>|null $value Value to set for the systemLabels property.
+     * @param array<string>|null $value Value to set for the systemLabels property.
     */
     public function setSystemLabels(?array $value): void {
         $this->getBackingStore()->set('systemLabels', $value);
@@ -796,7 +796,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the transitiveMemberOf property value. Groups and administrative units that this device is a member of. This operation is transitive. Supports $expand.
-     *  @param array<DirectoryObject>|null $value Value to set for the transitiveMemberOf property.
+     * @param array<DirectoryObject>|null $value Value to set for the transitiveMemberOf property.
     */
     public function setTransitiveMemberOf(?array $value): void {
         $this->getBackingStore()->set('transitiveMemberOf', $value);
@@ -804,7 +804,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the trustType property value. Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory
-     *  @param string|null $value Value to set for the trustType property.
+     * @param string|null $value Value to set for the trustType property.
     */
     public function setTrustType(?string $value): void {
         $this->getBackingStore()->set('trustType', $value);
@@ -812,7 +812,7 @@ class Device extends DirectoryObject implements Parsable
 
     /**
      * Sets the usageRights property value. Represents the usage rights a device has been granted.
-     *  @param array<UsageRight>|null $value Value to set for the usageRights property.
+     * @param array<UsageRight>|null $value Value to set for the usageRights property.
     */
     public function setUsageRights(?array $value): void {
         $this->getBackingStore()->set('usageRights', $value);

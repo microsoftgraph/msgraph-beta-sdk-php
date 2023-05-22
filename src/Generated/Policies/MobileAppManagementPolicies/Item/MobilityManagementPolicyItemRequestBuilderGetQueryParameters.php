@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Policies\MobileAppManagementPolicies\It
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read the properties and relationships of a mobilityManagementPolicy object.
+*/
 class MobilityManagementPolicyItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class MobilityManagementPolicyItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new MobilityManagementPolicyItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

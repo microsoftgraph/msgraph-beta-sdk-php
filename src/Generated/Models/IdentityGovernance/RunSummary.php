@@ -36,7 +36,7 @@ class RunSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -108,7 +108,7 @@ class RunSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the totalTasks property value. The totalTasks property
+     * Gets the totalTasks property value. The total number of tasks processed by a workflow.
      * @return int|null
     */
     public function getTotalTasks(): ?int {
@@ -116,7 +116,7 @@ class RunSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the totalUsers property value. The totalUsers property
+     * Gets the totalUsers property value. The total number of users processed by a workflow.
      * @return int|null
     */
     public function getTotalUsers(): ?int {
@@ -140,7 +140,7 @@ class RunSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -148,7 +148,7 @@ class RunSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -156,7 +156,7 @@ class RunSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the failedRuns property value. The number of failed workflow runs.
-     *  @param int|null $value Value to set for the failedRuns property.
+     * @param int|null $value Value to set for the failedRuns property.
     */
     public function setFailedRuns(?int $value): void {
         $this->getBackingStore()->set('failedRuns', $value);
@@ -164,7 +164,7 @@ class RunSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the failedTasks property value. The number of failed tasks of a workflow.
-     *  @param int|null $value Value to set for the failedTasks property.
+     * @param int|null $value Value to set for the failedTasks property.
     */
     public function setFailedTasks(?int $value): void {
         $this->getBackingStore()->set('failedTasks', $value);
@@ -172,7 +172,7 @@ class RunSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -180,7 +180,7 @@ class RunSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the successfulRuns property value. The number of successful workflow runs.
-     *  @param int|null $value Value to set for the successfulRuns property.
+     * @param int|null $value Value to set for the successfulRuns property.
     */
     public function setSuccessfulRuns(?int $value): void {
         $this->getBackingStore()->set('successfulRuns', $value);
@@ -188,23 +188,23 @@ class RunSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the totalRuns property value. The total number of runs for a workflow.
-     *  @param int|null $value Value to set for the totalRuns property.
+     * @param int|null $value Value to set for the totalRuns property.
     */
     public function setTotalRuns(?int $value): void {
         $this->getBackingStore()->set('totalRuns', $value);
     }
 
     /**
-     * Sets the totalTasks property value. The totalTasks property
-     *  @param int|null $value Value to set for the totalTasks property.
+     * Sets the totalTasks property value. The total number of tasks processed by a workflow.
+     * @param int|null $value Value to set for the totalTasks property.
     */
     public function setTotalTasks(?int $value): void {
         $this->getBackingStore()->set('totalTasks', $value);
     }
 
     /**
-     * Sets the totalUsers property value. The totalUsers property
-     *  @param int|null $value Value to set for the totalUsers property.
+     * Sets the totalUsers property value. The total number of users processed by a workflow.
+     * @param int|null $value Value to set for the totalUsers property.
     */
     public function setTotalUsers(?int $value): void {
         $this->getBackingStore()->set('totalUsers', $value);

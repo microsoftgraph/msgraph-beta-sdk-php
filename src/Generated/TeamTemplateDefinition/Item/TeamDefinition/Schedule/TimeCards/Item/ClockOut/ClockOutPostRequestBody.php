@@ -37,7 +37,7 @@ class ClockOutPostRequestBody implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -91,7 +91,7 @@ class ClockOutPostRequestBody implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -99,7 +99,7 @@ class ClockOutPostRequestBody implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the atApprovedLocation property value. The atApprovedLocation property
-     *  @param bool|null $value Value to set for the atApprovedLocation property.
+     * @param bool|null $value Value to set for the atApprovedLocation property.
     */
     public function setAtApprovedLocation(?bool $value): void {
         $this->getBackingStore()->set('atApprovedLocation', $value);
@@ -107,7 +107,7 @@ class ClockOutPostRequestBody implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -115,7 +115,7 @@ class ClockOutPostRequestBody implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the notes property value. The notes property
-     *  @param ItemBody|null $value Value to set for the notes property.
+     * @param ItemBody|null $value Value to set for the notes property.
     */
     public function setNotes(?ItemBody $value): void {
         $this->getBackingStore()->set('notes', $value);

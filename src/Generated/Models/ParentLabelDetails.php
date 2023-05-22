@@ -43,7 +43,7 @@ class ParentLabelDetails implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -167,7 +167,7 @@ class ParentLabelDetails implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -175,7 +175,7 @@ class ParentLabelDetails implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -183,7 +183,7 @@ class ParentLabelDetails implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the color property value. The color that the user interface should display for the label, if configured.
-     *  @param string|null $value Value to set for the color property.
+     * @param string|null $value Value to set for the color property.
     */
     public function setColor(?string $value): void {
         $this->getBackingStore()->set('color', $value);
@@ -191,7 +191,7 @@ class ParentLabelDetails implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the description property value. The admin-defined description for the label.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -199,7 +199,7 @@ class ParentLabelDetails implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the id property value. The label ID is a globally unique identifier (GUID).
-     *  @param string|null $value Value to set for the id property.
+     * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
         $this->getBackingStore()->set('id', $value);
@@ -207,7 +207,7 @@ class ParentLabelDetails implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isActive property value. Indicates whether the label is active or not. Active labels should be hidden or disabled in user interfaces.
-     *  @param bool|null $value Value to set for the isActive property.
+     * @param bool|null $value Value to set for the isActive property.
     */
     public function setIsActive(?bool $value): void {
         $this->getBackingStore()->set('isActive', $value);
@@ -215,7 +215,7 @@ class ParentLabelDetails implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the name property value. The plaintext name of the label.
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -223,7 +223,7 @@ class ParentLabelDetails implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -231,7 +231,7 @@ class ParentLabelDetails implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the parent property value. The parent property
-     *  @param ParentLabelDetails|null $value Value to set for the parent property.
+     * @param ParentLabelDetails|null $value Value to set for the parent property.
     */
     public function setParent(?ParentLabelDetails $value): void {
         $this->getBackingStore()->set('parent', $value);
@@ -239,7 +239,7 @@ class ParentLabelDetails implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the sensitivity property value. The sensitivity value of the label, where lower is less sensitive.
-     *  @param int|null $value Value to set for the sensitivity property.
+     * @param int|null $value Value to set for the sensitivity property.
     */
     public function setSensitivity(?int $value): void {
         $this->getBackingStore()->set('sensitivity', $value);
@@ -247,7 +247,7 @@ class ParentLabelDetails implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the tooltip property value. The tooltip that should be displayed for the label in a user interface.
-     *  @param string|null $value Value to set for the tooltip property.
+     * @param string|null $value Value to set for the tooltip property.
     */
     public function setTooltip(?string $value): void {
         $this->getBackingStore()->set('tooltip', $value);

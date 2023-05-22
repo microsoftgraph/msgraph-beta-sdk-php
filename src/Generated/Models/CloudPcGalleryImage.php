@@ -34,7 +34,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the endDate property value. The date in which this image is no longer within long-term support. The Cloud PC will continue to provide short-term support. Read-only.
+     * Gets the endDate property value. The date in which this image is no longer within long-term support. The Cloud PC continues to provide short-term support. Read-only.
      * @return Date|null
     */
     public function getEndDate(): ?Date {
@@ -72,7 +72,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the offer property value. The offer name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
+     * Gets the offer property value. The offer name of the gallery image. This value is passed to Azure to get the image resource. Read-only.
      * @return string|null
     */
     public function getOffer(): ?string {
@@ -88,7 +88,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the publisher property value. The publisher name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
+     * Gets the publisher property value. The publisher name of the gallery image. This value is passed to Azure to get the image resource. Read-only.
      * @return string|null
     */
     public function getPublisher(): ?string {
@@ -112,7 +112,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the sku property value. The SKU name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
+     * Gets the sku property value. The SKU name of the gallery image. This value is passed to Azure to get the image resource. Read-only.
      * @return string|null
     */
     public function getSku(): ?string {
@@ -165,15 +165,15 @@ class CloudPcGalleryImage extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The official display name of the gallery image. Read-only.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
-     * Sets the endDate property value. The date in which this image is no longer within long-term support. The Cloud PC will continue to provide short-term support. Read-only.
-     *  @param Date|null $value Value to set for the endDate property.
+     * Sets the endDate property value. The date in which this image is no longer within long-term support. The Cloud PC continues to provide short-term support. Read-only.
+     * @param Date|null $value Value to set for the endDate property.
     */
     public function setEndDate(?Date $value): void {
         $this->getBackingStore()->set('endDate', $value);
@@ -181,15 +181,15 @@ class CloudPcGalleryImage extends Entity implements Parsable
 
     /**
      * Sets the expirationDate property value. The date when the image is no longer available. Read-only.
-     *  @param Date|null $value Value to set for the expirationDate property.
+     * @param Date|null $value Value to set for the expirationDate property.
     */
     public function setExpirationDate(?Date $value): void {
         $this->getBackingStore()->set('expirationDate', $value);
     }
 
     /**
-     * Sets the offer property value. The offer name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
-     *  @param string|null $value Value to set for the offer property.
+     * Sets the offer property value. The offer name of the gallery image. This value is passed to Azure to get the image resource. Read-only.
+     * @param string|null $value Value to set for the offer property.
     */
     public function setOffer(?string $value): void {
         $this->getBackingStore()->set('offer', $value);
@@ -197,15 +197,15 @@ class CloudPcGalleryImage extends Entity implements Parsable
 
     /**
      * Sets the offerDisplayName property value. The official display offer name of the gallery image. For example, Windows 10 Enterprise + OS Optimizations. Read-only.
-     *  @param string|null $value Value to set for the offerDisplayName property.
+     * @param string|null $value Value to set for the offerDisplayName property.
     */
     public function setOfferDisplayName(?string $value): void {
         $this->getBackingStore()->set('offerDisplayName', $value);
     }
 
     /**
-     * Sets the publisher property value. The publisher name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
-     *  @param string|null $value Value to set for the publisher property.
+     * Sets the publisher property value. The publisher name of the gallery image. This value is passed to Azure to get the image resource. Read-only.
+     * @param string|null $value Value to set for the publisher property.
     */
     public function setPublisher(?string $value): void {
         $this->getBackingStore()->set('publisher', $value);
@@ -213,7 +213,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
 
     /**
      * Sets the recommendedSku property value. Recommended Cloud PC SKU for this gallery image. Read-only.
-     *  @param string|null $value Value to set for the recommendedSku property.
+     * @param string|null $value Value to set for the recommendedSku property.
     */
     public function setRecommendedSku(?string $value): void {
         $this->getBackingStore()->set('recommendedSku', $value);
@@ -221,15 +221,15 @@ class CloudPcGalleryImage extends Entity implements Parsable
 
     /**
      * Sets the sizeInGB property value. The size of this image in gigabytes. Read-only.
-     *  @param int|null $value Value to set for the sizeInGB property.
+     * @param int|null $value Value to set for the sizeInGB property.
     */
     public function setSizeInGB(?int $value): void {
         $this->getBackingStore()->set('sizeInGB', $value);
     }
 
     /**
-     * Sets the sku property value. The SKU name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
-     *  @param string|null $value Value to set for the sku property.
+     * Sets the sku property value. The SKU name of the gallery image. This value is passed to Azure to get the image resource. Read-only.
+     * @param string|null $value Value to set for the sku property.
     */
     public function setSku(?string $value): void {
         $this->getBackingStore()->set('sku', $value);
@@ -237,7 +237,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
 
     /**
      * Sets the skuDisplayName property value. The official display stock keeping unit (SKU) name of this gallery image. For example, 2004. Read-only.
-     *  @param string|null $value Value to set for the skuDisplayName property.
+     * @param string|null $value Value to set for the skuDisplayName property.
     */
     public function setSkuDisplayName(?string $value): void {
         $this->getBackingStore()->set('skuDisplayName', $value);
@@ -245,7 +245,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
 
     /**
      * Sets the startDate property value. The date when the image becomes available. Read-only.
-     *  @param Date|null $value Value to set for the startDate property.
+     * @param Date|null $value Value to set for the startDate property.
     */
     public function setStartDate(?Date $value): void {
         $this->getBackingStore()->set('startDate', $value);
@@ -253,7 +253,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status of the gallery image on the Cloud PC. Possible values are: supported, supportedWithWarning, notSupported, unknownFutureValue. Read-only.
-     *  @param CloudPcGalleryImageStatus|null $value Value to set for the status property.
+     * @param CloudPcGalleryImageStatus|null $value Value to set for the status property.
     */
     public function setStatus(?CloudPcGalleryImageStatus $value): void {
         $this->getBackingStore()->set('status', $value);

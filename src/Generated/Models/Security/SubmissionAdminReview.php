@@ -37,7 +37,7 @@ class SubmissionAdminReview implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -111,7 +111,7 @@ class SubmissionAdminReview implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -119,7 +119,7 @@ class SubmissionAdminReview implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -127,7 +127,7 @@ class SubmissionAdminReview implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -135,7 +135,7 @@ class SubmissionAdminReview implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the reviewBy property value. Specifies who reviewed the email. The identification is an email ID or other identity strings.
-     *  @param string|null $value Value to set for the reviewBy property.
+     * @param string|null $value Value to set for the reviewBy property.
     */
     public function setReviewBy(?string $value): void {
         $this->getBackingStore()->set('reviewBy', $value);
@@ -143,7 +143,7 @@ class SubmissionAdminReview implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the reviewDateTime property value. Specifies the date time when the review occurred.
-     *  @param DateTime|null $value Value to set for the reviewDateTime property.
+     * @param DateTime|null $value Value to set for the reviewDateTime property.
     */
     public function setReviewDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('reviewDateTime', $value);
@@ -151,7 +151,7 @@ class SubmissionAdminReview implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the reviewResult property value. Specifies what the review result was. The possible values are: notJunk, spam, phishing, malware, allowedByPolicy, blockedByPolicy, spoof, unknown, noResultAvailable, and unknownFutureValue.
-     *  @param SubmissionResultCategory|null $value Value to set for the reviewResult property.
+     * @param SubmissionResultCategory|null $value Value to set for the reviewResult property.
     */
     public function setReviewResult(?SubmissionResultCategory $value): void {
         $this->getBackingStore()->set('reviewResult', $value);

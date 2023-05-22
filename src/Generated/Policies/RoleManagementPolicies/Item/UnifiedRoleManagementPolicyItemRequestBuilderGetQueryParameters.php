@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicies\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve the details of a role management policy. To read a policy that applies to Azure RBAC, use the Azure REST PIM API for role management policies.
+*/
 class UnifiedRoleManagementPolicyItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class UnifiedRoleManagementPolicyItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new UnifiedRoleManagementPolicyItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

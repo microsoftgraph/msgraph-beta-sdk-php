@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Shares\Item\Root;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get root from shares
+*/
 class RootRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class RootRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new rootRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

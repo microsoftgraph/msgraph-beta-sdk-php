@@ -36,7 +36,7 @@ class CloudPcBulkRemoteActionResult implements AdditionalDataHolder, BackedModel
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class CloudPcBulkRemoteActionResult implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class CloudPcBulkRemoteActionResult implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +136,7 @@ class CloudPcBulkRemoteActionResult implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the failedDeviceIds property value. A list of all the Intune managed device IDs that completed the bulk action with a failure.
-     *  @param array<string>|null $value Value to set for the failedDeviceIds property.
+     * @param array<string>|null $value Value to set for the failedDeviceIds property.
     */
     public function setFailedDeviceIds(?array $value): void {
         $this->getBackingStore()->set('failedDeviceIds', $value);
@@ -144,7 +144,7 @@ class CloudPcBulkRemoteActionResult implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the notFoundDeviceIds property value. A list of all the Intune managed device IDs that were not found when the bulk action was attempted.
-     *  @param array<string>|null $value Value to set for the notFoundDeviceIds property.
+     * @param array<string>|null $value Value to set for the notFoundDeviceIds property.
     */
     public function setNotFoundDeviceIds(?array $value): void {
         $this->getBackingStore()->set('notFoundDeviceIds', $value);
@@ -152,7 +152,7 @@ class CloudPcBulkRemoteActionResult implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the notSupportedDeviceIds property value. A list of all the Intune managed device IDs that were identified as unsupported for the bulk action.
-     *  @param array<string>|null $value Value to set for the notSupportedDeviceIds property.
+     * @param array<string>|null $value Value to set for the notSupportedDeviceIds property.
     */
     public function setNotSupportedDeviceIds(?array $value): void {
         $this->getBackingStore()->set('notSupportedDeviceIds', $value);
@@ -160,7 +160,7 @@ class CloudPcBulkRemoteActionResult implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -168,7 +168,7 @@ class CloudPcBulkRemoteActionResult implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the successfulDeviceIds property value. A list of all the Intune managed device IDs that completed the bulk action successfully.
-     *  @param array<string>|null $value Value to set for the successfulDeviceIds property.
+     * @param array<string>|null $value Value to set for the successfulDeviceIds property.
     */
     public function setSuccessfulDeviceIds(?array $value): void {
         $this->getBackingStore()->set('successfulDeviceIds', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item\Resources
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the properties of an education assignment resource associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
+*/
 class EducationAssignmentResourceItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class EducationAssignmentResourceItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new EducationAssignmentResourceItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

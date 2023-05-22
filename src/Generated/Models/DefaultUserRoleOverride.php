@@ -64,7 +64,7 @@ class DefaultUserRoleOverride extends Entity implements Parsable
 
     /**
      * Sets the isDefault property value. The isDefault property
-     *  @param bool|null $value Value to set for the isDefault property.
+     * @param bool|null $value Value to set for the isDefault property.
     */
     public function setIsDefault(?bool $value): void {
         $this->getBackingStore()->set('isDefault', $value);
@@ -72,7 +72,7 @@ class DefaultUserRoleOverride extends Entity implements Parsable
 
     /**
      * Sets the rolePermissions property value. The rolePermissions property
-     *  @param array<UnifiedRolePermission>|null $value Value to set for the rolePermissions property.
+     * @param array<UnifiedRolePermission>|null $value Value to set for the rolePermissions property.
     */
     public function setRolePermissions(?array $value): void {
         $this->getBackingStore()->set('rolePermissions', $value);

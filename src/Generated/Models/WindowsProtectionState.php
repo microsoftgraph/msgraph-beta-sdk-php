@@ -255,7 +255,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the antiMalwareVersion property value. Current anti malware version
-     *  @param string|null $value Value to set for the antiMalwareVersion property.
+     * @param string|null $value Value to set for the antiMalwareVersion property.
     */
     public function setAntiMalwareVersion(?string $value): void {
         $this->getBackingStore()->set('antiMalwareVersion', $value);
@@ -263,7 +263,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the detectedMalwareState property value. Device malware list
-     *  @param array<WindowsDeviceMalwareState>|null $value Value to set for the detectedMalwareState property.
+     * @param array<WindowsDeviceMalwareState>|null $value Value to set for the detectedMalwareState property.
     */
     public function setDetectedMalwareState(?array $value): void {
         $this->getBackingStore()->set('detectedMalwareState', $value);
@@ -271,7 +271,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the deviceState property value. Computer's state (like clean or pending full scan or pending reboot etc). Possible values are: clean, fullScanPending, rebootPending, manualStepsPending, offlineScanPending, critical.
-     *  @param WindowsDeviceHealthState|null $value Value to set for the deviceState property.
+     * @param WindowsDeviceHealthState|null $value Value to set for the deviceState property.
     */
     public function setDeviceState(?WindowsDeviceHealthState $value): void {
         $this->getBackingStore()->set('deviceState', $value);
@@ -279,7 +279,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the engineVersion property value. Current endpoint protection engine's version
-     *  @param string|null $value Value to set for the engineVersion property.
+     * @param string|null $value Value to set for the engineVersion property.
     */
     public function setEngineVersion(?string $value): void {
         $this->getBackingStore()->set('engineVersion', $value);
@@ -287,7 +287,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the fullScanOverdue property value. Full scan overdue or not?
-     *  @param bool|null $value Value to set for the fullScanOverdue property.
+     * @param bool|null $value Value to set for the fullScanOverdue property.
     */
     public function setFullScanOverdue(?bool $value): void {
         $this->getBackingStore()->set('fullScanOverdue', $value);
@@ -295,7 +295,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the fullScanRequired property value. Full scan required or not?
-     *  @param bool|null $value Value to set for the fullScanRequired property.
+     * @param bool|null $value Value to set for the fullScanRequired property.
     */
     public function setFullScanRequired(?bool $value): void {
         $this->getBackingStore()->set('fullScanRequired', $value);
@@ -303,7 +303,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the isVirtualMachine property value. Indicates whether the device is a virtual machine.
-     *  @param bool|null $value Value to set for the isVirtualMachine property.
+     * @param bool|null $value Value to set for the isVirtualMachine property.
     */
     public function setIsVirtualMachine(?bool $value): void {
         $this->getBackingStore()->set('isVirtualMachine', $value);
@@ -311,7 +311,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the lastFullScanDateTime property value. Last quick scan datetime
-     *  @param DateTime|null $value Value to set for the lastFullScanDateTime property.
+     * @param DateTime|null $value Value to set for the lastFullScanDateTime property.
     */
     public function setLastFullScanDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastFullScanDateTime', $value);
@@ -319,7 +319,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the lastFullScanSignatureVersion property value. Last full scan signature version
-     *  @param string|null $value Value to set for the lastFullScanSignatureVersion property.
+     * @param string|null $value Value to set for the lastFullScanSignatureVersion property.
     */
     public function setLastFullScanSignatureVersion(?string $value): void {
         $this->getBackingStore()->set('lastFullScanSignatureVersion', $value);
@@ -327,7 +327,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the lastQuickScanDateTime property value. Last quick scan datetime
-     *  @param DateTime|null $value Value to set for the lastQuickScanDateTime property.
+     * @param DateTime|null $value Value to set for the lastQuickScanDateTime property.
     */
     public function setLastQuickScanDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastQuickScanDateTime', $value);
@@ -335,7 +335,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the lastQuickScanSignatureVersion property value. Last quick scan signature version
-     *  @param string|null $value Value to set for the lastQuickScanSignatureVersion property.
+     * @param string|null $value Value to set for the lastQuickScanSignatureVersion property.
     */
     public function setLastQuickScanSignatureVersion(?string $value): void {
         $this->getBackingStore()->set('lastQuickScanSignatureVersion', $value);
@@ -343,7 +343,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the lastReportedDateTime property value. Last device health status reported time
-     *  @param DateTime|null $value Value to set for the lastReportedDateTime property.
+     * @param DateTime|null $value Value to set for the lastReportedDateTime property.
     */
     public function setLastReportedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastReportedDateTime', $value);
@@ -351,7 +351,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the malwareProtectionEnabled property value. Anti malware is enabled or not
-     *  @param bool|null $value Value to set for the malwareProtectionEnabled property.
+     * @param bool|null $value Value to set for the malwareProtectionEnabled property.
     */
     public function setMalwareProtectionEnabled(?bool $value): void {
         $this->getBackingStore()->set('malwareProtectionEnabled', $value);
@@ -359,7 +359,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the networkInspectionSystemEnabled property value. Network inspection system enabled or not?
-     *  @param bool|null $value Value to set for the networkInspectionSystemEnabled property.
+     * @param bool|null $value Value to set for the networkInspectionSystemEnabled property.
     */
     public function setNetworkInspectionSystemEnabled(?bool $value): void {
         $this->getBackingStore()->set('networkInspectionSystemEnabled', $value);
@@ -367,7 +367,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the productStatus property value. Product Status of Windows Defender Antivirus. Possible values are: noStatus, serviceNotRunning, serviceStartedWithoutMalwareProtection, pendingFullScanDueToThreatAction, pendingRebootDueToThreatAction, pendingManualStepsDueToThreatAction, avSignaturesOutOfDate, asSignaturesOutOfDate, noQuickScanHappenedForSpecifiedPeriod, noFullScanHappenedForSpecifiedPeriod, systemInitiatedScanInProgress, systemInitiatedCleanInProgress, samplesPendingSubmission, productRunningInEvaluationMode, productRunningInNonGenuineMode, productExpired, offlineScanRequired, serviceShutdownAsPartOfSystemShutdown, threatRemediationFailedCritically, threatRemediationFailedNonCritically, noStatusFlagsSet, platformOutOfDate, platformUpdateInProgress, platformAboutToBeOutdated, signatureOrPlatformEndOfLifeIsPastOrIsImpending, windowsSModeSignaturesInUseOnNonWin10SInstall.
-     *  @param WindowsDefenderProductStatus|null $value Value to set for the productStatus property.
+     * @param WindowsDefenderProductStatus|null $value Value to set for the productStatus property.
     */
     public function setProductStatus(?WindowsDefenderProductStatus $value): void {
         $this->getBackingStore()->set('productStatus', $value);
@@ -375,7 +375,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the quickScanOverdue property value. Quick scan overdue or not?
-     *  @param bool|null $value Value to set for the quickScanOverdue property.
+     * @param bool|null $value Value to set for the quickScanOverdue property.
     */
     public function setQuickScanOverdue(?bool $value): void {
         $this->getBackingStore()->set('quickScanOverdue', $value);
@@ -383,7 +383,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the realTimeProtectionEnabled property value. Real time protection is enabled or not?
-     *  @param bool|null $value Value to set for the realTimeProtectionEnabled property.
+     * @param bool|null $value Value to set for the realTimeProtectionEnabled property.
     */
     public function setRealTimeProtectionEnabled(?bool $value): void {
         $this->getBackingStore()->set('realTimeProtectionEnabled', $value);
@@ -391,7 +391,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the rebootRequired property value. Reboot required or not?
-     *  @param bool|null $value Value to set for the rebootRequired property.
+     * @param bool|null $value Value to set for the rebootRequired property.
     */
     public function setRebootRequired(?bool $value): void {
         $this->getBackingStore()->set('rebootRequired', $value);
@@ -399,7 +399,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the signatureUpdateOverdue property value. Signature out of date or not?
-     *  @param bool|null $value Value to set for the signatureUpdateOverdue property.
+     * @param bool|null $value Value to set for the signatureUpdateOverdue property.
     */
     public function setSignatureUpdateOverdue(?bool $value): void {
         $this->getBackingStore()->set('signatureUpdateOverdue', $value);
@@ -407,7 +407,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the signatureVersion property value. Current malware definitions version
-     *  @param string|null $value Value to set for the signatureVersion property.
+     * @param string|null $value Value to set for the signatureVersion property.
     */
     public function setSignatureVersion(?string $value): void {
         $this->getBackingStore()->set('signatureVersion', $value);
@@ -415,7 +415,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the tamperProtectionEnabled property value. Indicates whether the Windows Defender tamper protection feature is enabled.
-     *  @param bool|null $value Value to set for the tamperProtectionEnabled property.
+     * @param bool|null $value Value to set for the tamperProtectionEnabled property.
     */
     public function setTamperProtectionEnabled(?bool $value): void {
         $this->getBackingStore()->set('tamperProtectionEnabled', $value);

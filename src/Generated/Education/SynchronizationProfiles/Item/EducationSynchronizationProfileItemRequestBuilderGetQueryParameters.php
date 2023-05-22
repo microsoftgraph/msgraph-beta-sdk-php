@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Education\SynchronizationProfiles\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve a school data synchronization profile in the tenant based on the identifier.
+*/
 class EducationSynchronizationProfileItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class EducationSynchronizationProfileItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new EducationSynchronizationProfileItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The Group Policy setting to MDM/Intune mapping.
+*/
 class GroupPolicySettingMapping extends Entity implements Parsable 
 {
     /**
@@ -244,7 +247,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
 
     /**
      * Sets the admxSettingDefinitionId property value. Admx Group Policy Id
-     *  @param string|null $value Value to set for the admxSettingDefinitionId property.
+     * @param string|null $value Value to set for the admxSettingDefinitionId property.
     */
     public function setAdmxSettingDefinitionId(?string $value): void {
         $this->getBackingStore()->set('admxSettingDefinitionId', $value);
@@ -252,7 +255,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
 
     /**
      * Sets the childIdList property value. List of Child Ids of the group policy setting.
-     *  @param array<string>|null $value Value to set for the childIdList property.
+     * @param array<string>|null $value Value to set for the childIdList property.
     */
     public function setChildIdList(?array $value): void {
         $this->getBackingStore()->set('childIdList', $value);
@@ -260,7 +263,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
 
     /**
      * Sets the intuneSettingDefinitionId property value. The Intune Setting Definition Id
-     *  @param string|null $value Value to set for the intuneSettingDefinitionId property.
+     * @param string|null $value Value to set for the intuneSettingDefinitionId property.
     */
     public function setIntuneSettingDefinitionId(?string $value): void {
         $this->getBackingStore()->set('intuneSettingDefinitionId', $value);
@@ -268,7 +271,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
 
     /**
      * Sets the intuneSettingUriList property value. The list of Intune Setting URIs this group policy setting maps to
-     *  @param array<string>|null $value Value to set for the intuneSettingUriList property.
+     * @param array<string>|null $value Value to set for the intuneSettingUriList property.
     */
     public function setIntuneSettingUriList(?array $value): void {
         $this->getBackingStore()->set('intuneSettingUriList', $value);
@@ -276,7 +279,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
 
     /**
      * Sets the isMdmSupported property value. Indicates if the setting is supported by Intune or not
-     *  @param bool|null $value Value to set for the isMdmSupported property.
+     * @param bool|null $value Value to set for the isMdmSupported property.
     */
     public function setIsMdmSupported(?bool $value): void {
         $this->getBackingStore()->set('isMdmSupported', $value);
@@ -284,7 +287,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
 
     /**
      * Sets the mdmCspName property value. The CSP name this group policy setting maps to.
-     *  @param string|null $value Value to set for the mdmCspName property.
+     * @param string|null $value Value to set for the mdmCspName property.
     */
     public function setMdmCspName(?string $value): void {
         $this->getBackingStore()->set('mdmCspName', $value);
@@ -292,7 +295,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
 
     /**
      * Sets the mdmMinimumOSVersion property value. The minimum OS version this mdm setting supports.
-     *  @param int|null $value Value to set for the mdmMinimumOSVersion property.
+     * @param int|null $value Value to set for the mdmMinimumOSVersion property.
     */
     public function setMdmMinimumOSVersion(?int $value): void {
         $this->getBackingStore()->set('mdmMinimumOSVersion', $value);
@@ -300,7 +303,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
 
     /**
      * Sets the mdmSettingUri property value. The MDM CSP URI this group policy setting maps to.
-     *  @param string|null $value Value to set for the mdmSettingUri property.
+     * @param string|null $value Value to set for the mdmSettingUri property.
     */
     public function setMdmSettingUri(?string $value): void {
         $this->getBackingStore()->set('mdmSettingUri', $value);
@@ -308,7 +311,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
 
     /**
      * Sets the mdmSupportedState property value. Mdm Support Status of the setting.
-     *  @param MdmSupportedState|null $value Value to set for the mdmSupportedState property.
+     * @param MdmSupportedState|null $value Value to set for the mdmSupportedState property.
     */
     public function setMdmSupportedState(?MdmSupportedState $value): void {
         $this->getBackingStore()->set('mdmSupportedState', $value);
@@ -316,7 +319,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
 
     /**
      * Sets the parentId property value. Parent Id of the group policy setting.
-     *  @param string|null $value Value to set for the parentId property.
+     * @param string|null $value Value to set for the parentId property.
     */
     public function setParentId(?string $value): void {
         $this->getBackingStore()->set('parentId', $value);
@@ -324,7 +327,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
 
     /**
      * Sets the settingCategory property value. The category the group policy setting is in.
-     *  @param string|null $value Value to set for the settingCategory property.
+     * @param string|null $value Value to set for the settingCategory property.
     */
     public function setSettingCategory(?string $value): void {
         $this->getBackingStore()->set('settingCategory', $value);
@@ -332,7 +335,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
 
     /**
      * Sets the settingDisplayName property value. The display name of this group policy setting.
-     *  @param string|null $value Value to set for the settingDisplayName property.
+     * @param string|null $value Value to set for the settingDisplayName property.
     */
     public function setSettingDisplayName(?string $value): void {
         $this->getBackingStore()->set('settingDisplayName', $value);
@@ -340,7 +343,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
 
     /**
      * Sets the settingDisplayValue property value. The display value of this group policy setting.
-     *  @param string|null $value Value to set for the settingDisplayValue property.
+     * @param string|null $value Value to set for the settingDisplayValue property.
     */
     public function setSettingDisplayValue(?string $value): void {
         $this->getBackingStore()->set('settingDisplayValue', $value);
@@ -348,7 +351,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
 
     /**
      * Sets the settingDisplayValueType property value. The display value type of this group policy setting.
-     *  @param string|null $value Value to set for the settingDisplayValueType property.
+     * @param string|null $value Value to set for the settingDisplayValueType property.
     */
     public function setSettingDisplayValueType(?string $value): void {
         $this->getBackingStore()->set('settingDisplayValueType', $value);
@@ -356,7 +359,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
 
     /**
      * Sets the settingName property value. The name of this group policy setting.
-     *  @param string|null $value Value to set for the settingName property.
+     * @param string|null $value Value to set for the settingName property.
     */
     public function setSettingName(?string $value): void {
         $this->getBackingStore()->set('settingName', $value);
@@ -364,7 +367,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
 
     /**
      * Sets the settingScope property value. Scope of the group policy setting.
-     *  @param GroupPolicySettingScope|null $value Value to set for the settingScope property.
+     * @param GroupPolicySettingScope|null $value Value to set for the settingScope property.
     */
     public function setSettingScope(?GroupPolicySettingScope $value): void {
         $this->getBackingStore()->set('settingScope', $value);
@@ -372,7 +375,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
 
     /**
      * Sets the settingType property value. Setting type of the group policy.
-     *  @param GroupPolicySettingType|null $value Value to set for the settingType property.
+     * @param GroupPolicySettingType|null $value Value to set for the settingType property.
     */
     public function setSettingType(?GroupPolicySettingType $value): void {
         $this->getBackingStore()->set('settingType', $value);
@@ -380,7 +383,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
 
     /**
      * Sets the settingValue property value. The value of this group policy setting.
-     *  @param string|null $value Value to set for the settingValue property.
+     * @param string|null $value Value to set for the settingValue property.
     */
     public function setSettingValue(?string $value): void {
         $this->getBackingStore()->set('settingValue', $value);
@@ -388,7 +391,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
 
     /**
      * Sets the settingValueDisplayUnits property value. The display units of this group policy setting value
-     *  @param string|null $value Value to set for the settingValueDisplayUnits property.
+     * @param string|null $value Value to set for the settingValueDisplayUnits property.
     */
     public function setSettingValueDisplayUnits(?string $value): void {
         $this->getBackingStore()->set('settingValueDisplayUnits', $value);
@@ -396,7 +399,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
 
     /**
      * Sets the settingValueType property value. The value type of this group policy setting.
-     *  @param string|null $value Value to set for the settingValueType property.
+     * @param string|null $value Value to set for the settingValueType property.
     */
     public function setSettingValueType(?string $value): void {
         $this->getBackingStore()->set('settingValueType', $value);

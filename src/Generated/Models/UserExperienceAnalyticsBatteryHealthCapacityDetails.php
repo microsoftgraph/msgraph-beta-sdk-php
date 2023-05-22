@@ -95,7 +95,7 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity impleme
 
     /**
      * Sets the activeDevices property value. Number of active devices within the tenant. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the activeDevices property.
+     * @param int|null $value Value to set for the activeDevices property.
     */
     public function setActiveDevices(?int $value): void {
         $this->getBackingStore()->set('activeDevices', $value);
@@ -103,7 +103,7 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity impleme
 
     /**
      * Sets the batteryCapacityFair property value. Number of devices whose battery maximum capacity is greater than 50% but lesser than 80%. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the batteryCapacityFair property.
+     * @param int|null $value Value to set for the batteryCapacityFair property.
     */
     public function setBatteryCapacityFair(?int $value): void {
         $this->getBackingStore()->set('batteryCapacityFair', $value);
@@ -111,7 +111,7 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity impleme
 
     /**
      * Sets the batteryCapacityGood property value. Number of devices whose battery maximum capacity is greater than 80%. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the batteryCapacityGood property.
+     * @param int|null $value Value to set for the batteryCapacityGood property.
     */
     public function setBatteryCapacityGood(?int $value): void {
         $this->getBackingStore()->set('batteryCapacityGood', $value);
@@ -119,7 +119,7 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity impleme
 
     /**
      * Sets the batteryCapacityPoor property value. Number of devices whose battery maximum capacity is lesser than 50%. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the batteryCapacityPoor property.
+     * @param int|null $value Value to set for the batteryCapacityPoor property.
     */
     public function setBatteryCapacityPoor(?int $value): void {
         $this->getBackingStore()->set('batteryCapacityPoor', $value);
@@ -127,7 +127,7 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity impleme
 
     /**
      * Sets the lastRefreshedDateTime property value. Recorded date time of this capacity details instance.
-     *  @param DateTime|null $value Value to set for the lastRefreshedDateTime property.
+     * @param DateTime|null $value Value to set for the lastRefreshedDateTime property.
     */
     public function setLastRefreshedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastRefreshedDateTime', $value);

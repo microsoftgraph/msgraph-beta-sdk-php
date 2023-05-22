@@ -36,7 +36,7 @@ class EvaluateDynamicMembershipResult implements AdditionalDataHolder, BackedMod
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class EvaluateDynamicMembershipResult implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class EvaluateDynamicMembershipResult implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class EvaluateDynamicMembershipResult implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the membershipRule property value. If a group ID is provided, the value is the membership rule for the group. If a group ID is not provided, the value is the membership rule that was provided as a parameter. For more information, see Dynamic membership rules for groups in Azure Active Directory.
-     *  @param string|null $value Value to set for the membershipRule property.
+     * @param string|null $value Value to set for the membershipRule property.
     */
     public function setMembershipRule(?string $value): void {
         $this->getBackingStore()->set('membershipRule', $value);
@@ -134,7 +134,7 @@ class EvaluateDynamicMembershipResult implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the membershipRuleEvaluationDetails property value. Provides a detailed anaylsis of the membership evaluation result.
-     *  @param ExpressionEvaluationDetails|null $value Value to set for the membershipRuleEvaluationDetails property.
+     * @param ExpressionEvaluationDetails|null $value Value to set for the membershipRuleEvaluationDetails property.
     */
     public function setMembershipRuleEvaluationDetails(?ExpressionEvaluationDetails $value): void {
         $this->getBackingStore()->set('membershipRuleEvaluationDetails', $value);
@@ -142,7 +142,7 @@ class EvaluateDynamicMembershipResult implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the membershipRuleEvaluationResult property value. The value is true if the user or device is a member of the group. The value can also be true if a membership rule was provided and the user or device passes the rule evaluation; otherwise false.
-     *  @param bool|null $value Value to set for the membershipRuleEvaluationResult property.
+     * @param bool|null $value Value to set for the membershipRuleEvaluationResult property.
     */
     public function setMembershipRuleEvaluationResult(?bool $value): void {
         $this->getBackingStore()->set('membershipRuleEvaluationResult', $value);
@@ -150,7 +150,7 @@ class EvaluateDynamicMembershipResult implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

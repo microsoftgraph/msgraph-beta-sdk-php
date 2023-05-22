@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementSettingCategory extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementSettingCategory and sets the default values.
+     * Instantiates a new DeviceManagementSettingCategory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -82,7 +82,7 @@ class DeviceManagementSettingCategory extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The category name
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -90,7 +90,7 @@ class DeviceManagementSettingCategory extends Entity implements Parsable
 
     /**
      * Sets the hasRequiredSetting property value. The category contains top level required setting
-     *  @param bool|null $value Value to set for the hasRequiredSetting property.
+     * @param bool|null $value Value to set for the hasRequiredSetting property.
     */
     public function setHasRequiredSetting(?bool $value): void {
         $this->getBackingStore()->set('hasRequiredSetting', $value);
@@ -98,7 +98,7 @@ class DeviceManagementSettingCategory extends Entity implements Parsable
 
     /**
      * Sets the settingDefinitions property value. The setting definitions this category contains
-     *  @param array<DeviceManagementSettingDefinition>|null $value Value to set for the settingDefinitions property.
+     * @param array<DeviceManagementSettingDefinition>|null $value Value to set for the settingDefinitions property.
     */
     public function setSettingDefinitions(?array $value): void {
         $this->getBackingStore()->set('settingDefinitions', $value);

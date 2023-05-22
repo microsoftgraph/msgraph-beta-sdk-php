@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity that represents a defined collection of device settings
+*/
 class DeviceManagementTemplate extends Entity implements Parsable 
 {
     /**
@@ -172,7 +175,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the categories property value. Collection of setting categories within the template
-     *  @param array<DeviceManagementTemplateSettingCategory>|null $value Value to set for the categories property.
+     * @param array<DeviceManagementTemplateSettingCategory>|null $value Value to set for the categories property.
     */
     public function setCategories(?array $value): void {
         $this->getBackingStore()->set('categories', $value);
@@ -180,7 +183,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the description property value. The template's description
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -188,7 +191,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The template's display name
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -196,7 +199,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the intentCount property value. Number of Intents created from this template.
-     *  @param int|null $value Value to set for the intentCount property.
+     * @param int|null $value Value to set for the intentCount property.
     */
     public function setIntentCount(?int $value): void {
         $this->getBackingStore()->set('intentCount', $value);
@@ -204,7 +207,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the isDeprecated property value. The template is deprecated or not. Intents cannot be created from a deprecated template.
-     *  @param bool|null $value Value to set for the isDeprecated property.
+     * @param bool|null $value Value to set for the isDeprecated property.
     */
     public function setIsDeprecated(?bool $value): void {
         $this->getBackingStore()->set('isDeprecated', $value);
@@ -212,7 +215,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the migratableTo property value. Collection of templates this template can migrate to
-     *  @param array<DeviceManagementTemplate>|null $value Value to set for the migratableTo property.
+     * @param array<DeviceManagementTemplate>|null $value Value to set for the migratableTo property.
     */
     public function setMigratableTo(?array $value): void {
         $this->getBackingStore()->set('migratableTo', $value);
@@ -220,7 +223,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the platformType property value. Supported platform types for policies.
-     *  @param PolicyPlatformType|null $value Value to set for the platformType property.
+     * @param PolicyPlatformType|null $value Value to set for the platformType property.
     */
     public function setPlatformType(?PolicyPlatformType $value): void {
         $this->getBackingStore()->set('platformType', $value);
@@ -228,7 +231,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the publishedDateTime property value. When the template was published
-     *  @param DateTime|null $value Value to set for the publishedDateTime property.
+     * @param DateTime|null $value Value to set for the publishedDateTime property.
     */
     public function setPublishedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('publishedDateTime', $value);
@@ -236,7 +239,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the settings property value. Collection of all settings this template has
-     *  @param array<DeviceManagementSettingInstance>|null $value Value to set for the settings property.
+     * @param array<DeviceManagementSettingInstance>|null $value Value to set for the settings property.
     */
     public function setSettings(?array $value): void {
         $this->getBackingStore()->set('settings', $value);
@@ -244,7 +247,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the templateSubtype property value. Template subtype
-     *  @param DeviceManagementTemplateSubtype|null $value Value to set for the templateSubtype property.
+     * @param DeviceManagementTemplateSubtype|null $value Value to set for the templateSubtype property.
     */
     public function setTemplateSubtype(?DeviceManagementTemplateSubtype $value): void {
         $this->getBackingStore()->set('templateSubtype', $value);
@@ -252,7 +255,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the templateType property value. Template type
-     *  @param DeviceManagementTemplateType|null $value Value to set for the templateType property.
+     * @param DeviceManagementTemplateType|null $value Value to set for the templateType property.
     */
     public function setTemplateType(?DeviceManagementTemplateType $value): void {
         $this->getBackingStore()->set('templateType', $value);
@@ -260,7 +263,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the versionInfo property value. The template's version information
-     *  @param string|null $value Value to set for the versionInfo property.
+     * @param string|null $value Value to set for the versionInfo property.
     */
     public function setVersionInfo(?string $value): void {
         $this->getBackingStore()->set('versionInfo', $value);

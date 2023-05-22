@@ -74,7 +74,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Gets the maximumLength property value. Maximum length of string
+     * Gets the maximumLength property value. Maximum length of string. Valid values 0 to 87516
      * @return int|null
     */
     public function getMaximumLength(): ?int {
@@ -82,7 +82,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Gets the minimumLength property value. Minimum length of string
+     * Gets the minimumLength property value. Minimum length of string. Valid values 0 to 87516
      * @return int|null
     */
     public function getMinimumLength(): ?int {
@@ -105,7 +105,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
 
     /**
      * Sets the fileTypes property value. Supported file types for this setting.
-     *  @param array<string>|null $value Value to set for the fileTypes property.
+     * @param array<string>|null $value Value to set for the fileTypes property.
     */
     public function setFileTypes(?array $value): void {
         $this->getBackingStore()->set('fileTypes', $value);
@@ -113,7 +113,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
 
     /**
      * Sets the format property value. The format property
-     *  @param DeviceManagementConfigurationStringFormat|null $value Value to set for the format property.
+     * @param DeviceManagementConfigurationStringFormat|null $value Value to set for the format property.
     */
     public function setFormat(?DeviceManagementConfigurationStringFormat $value): void {
         $this->getBackingStore()->set('format', $value);
@@ -121,7 +121,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
 
     /**
      * Sets the inputValidationSchema property value. Regular expression or any xml or json schema that the input string should match
-     *  @param string|null $value Value to set for the inputValidationSchema property.
+     * @param string|null $value Value to set for the inputValidationSchema property.
     */
     public function setInputValidationSchema(?string $value): void {
         $this->getBackingStore()->set('inputValidationSchema', $value);
@@ -129,23 +129,23 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
 
     /**
      * Sets the isSecret property value. Specifies whether the setting needs to be treated as a secret. Settings marked as yes will be encrypted in transit and at rest and will be displayed as asterisks when represented in the UX.
-     *  @param bool|null $value Value to set for the isSecret property.
+     * @param bool|null $value Value to set for the isSecret property.
     */
     public function setIsSecret(?bool $value): void {
         $this->getBackingStore()->set('isSecret', $value);
     }
 
     /**
-     * Sets the maximumLength property value. Maximum length of string
-     *  @param int|null $value Value to set for the maximumLength property.
+     * Sets the maximumLength property value. Maximum length of string. Valid values 0 to 87516
+     * @param int|null $value Value to set for the maximumLength property.
     */
     public function setMaximumLength(?int $value): void {
         $this->getBackingStore()->set('maximumLength', $value);
     }
 
     /**
-     * Sets the minimumLength property value. Minimum length of string
-     *  @param int|null $value Value to set for the minimumLength property.
+     * Sets the minimumLength property value. Minimum length of string. Valid values 0 to 87516
+     * @param int|null $value Value to set for the minimumLength property.
     */
     public function setMinimumLength(?int $value): void {
         $this->getBackingStore()->set('minimumLength', $value);

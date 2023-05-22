@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Windows Driver Update Profile
+*/
 class WindowsDriverUpdateProfile extends Entity implements Parsable 
 {
     /**
@@ -165,7 +168,7 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the approvalType property value. An enum type to represent approval type of a driver update profile.
-     *  @param DriverUpdateProfileApprovalType|null $value Value to set for the approvalType property.
+     * @param DriverUpdateProfileApprovalType|null $value Value to set for the approvalType property.
     */
     public function setApprovalType(?DriverUpdateProfileApprovalType $value): void {
         $this->getBackingStore()->set('approvalType', $value);
@@ -173,7 +176,7 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the assignments property value. The list of group assignments of the profile.
-     *  @param array<WindowsDriverUpdateProfileAssignment>|null $value Value to set for the assignments property.
+     * @param array<WindowsDriverUpdateProfileAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -181,7 +184,7 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date time that the profile was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -189,7 +192,7 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the deploymentDeferralInDays property value. Deployment deferral settings in days, only applicable when ApprovalType is set to automatic approval.
-     *  @param int|null $value Value to set for the deploymentDeferralInDays property.
+     * @param int|null $value Value to set for the deploymentDeferralInDays property.
     */
     public function setDeploymentDeferralInDays(?int $value): void {
         $this->getBackingStore()->set('deploymentDeferralInDays', $value);
@@ -197,7 +200,7 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description of the profile which is specified by the user.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -205,7 +208,7 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the deviceReporting property value. Number of devices reporting for this profile
-     *  @param int|null $value Value to set for the deviceReporting property.
+     * @param int|null $value Value to set for the deviceReporting property.
     */
     public function setDeviceReporting(?int $value): void {
         $this->getBackingStore()->set('deviceReporting', $value);
@@ -213,7 +216,7 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name for the profile.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -221,7 +224,7 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the driverInventories property value. Driver inventories for this profile.
-     *  @param array<WindowsDriverUpdateInventory>|null $value Value to set for the driverInventories property.
+     * @param array<WindowsDriverUpdateInventory>|null $value Value to set for the driverInventories property.
     */
     public function setDriverInventories(?array $value): void {
         $this->getBackingStore()->set('driverInventories', $value);
@@ -229,7 +232,7 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the inventorySyncStatus property value. Driver inventory sync status for this profile.
-     *  @param WindowsDriverUpdateProfileInventorySyncStatus|null $value Value to set for the inventorySyncStatus property.
+     * @param WindowsDriverUpdateProfileInventorySyncStatus|null $value Value to set for the inventorySyncStatus property.
     */
     public function setInventorySyncStatus(?WindowsDriverUpdateProfileInventorySyncStatus $value): void {
         $this->getBackingStore()->set('inventorySyncStatus', $value);
@@ -237,7 +240,7 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date time that the profile was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -245,7 +248,7 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the newUpdates property value. Number of new driver updates available for this profile.
-     *  @param int|null $value Value to set for the newUpdates property.
+     * @param int|null $value Value to set for the newUpdates property.
     */
     public function setNewUpdates(?int $value): void {
         $this->getBackingStore()->set('newUpdates', $value);
@@ -253,7 +256,7 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tags for this Driver Update entity.
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);

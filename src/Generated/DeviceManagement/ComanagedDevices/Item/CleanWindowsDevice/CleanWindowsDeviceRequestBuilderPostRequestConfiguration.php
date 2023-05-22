@@ -2,18 +2,21 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\CleanWindowsDevice;
 
+use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;
 
-class CleanWindowsDeviceRequestBuilderPostRequestConfiguration 
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
+class CleanWindowsDeviceRequestBuilderPostRequestConfiguration extends BaseRequestConfiguration 
 {
     /**
-     * @var array<string, string>|null $headers Request headers
+     * Instantiates a new cleanWindowsDeviceRequestBuilderPostRequestConfiguration and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
     */
-    public ?array $headers = null;
-    
-    /**
-     * @var array<string, RequestOption>|null $options Request options
-    */
-    public ?array $options = null;
-    
+    public function __construct(?array $headers = null, ?array $options = null) {
+        parent::__construct($headers ?? [], $options ?? []);
+    }
+
 }

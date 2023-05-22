@@ -36,7 +36,7 @@ class SharedAppleDeviceUser implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class SharedAppleDeviceUser implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class SharedAppleDeviceUser implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +136,7 @@ class SharedAppleDeviceUser implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the dataQuota property value. Data quota
-     *  @param int|null $value Value to set for the dataQuota property.
+     * @param int|null $value Value to set for the dataQuota property.
     */
     public function setDataQuota(?int $value): void {
         $this->getBackingStore()->set('dataQuota', $value);
@@ -144,7 +144,7 @@ class SharedAppleDeviceUser implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the dataToSync property value. Data to sync
-     *  @param bool|null $value Value to set for the dataToSync property.
+     * @param bool|null $value Value to set for the dataToSync property.
     */
     public function setDataToSync(?bool $value): void {
         $this->getBackingStore()->set('dataToSync', $value);
@@ -152,7 +152,7 @@ class SharedAppleDeviceUser implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the dataUsed property value. Data quota
-     *  @param int|null $value Value to set for the dataUsed property.
+     * @param int|null $value Value to set for the dataUsed property.
     */
     public function setDataUsed(?int $value): void {
         $this->getBackingStore()->set('dataUsed', $value);
@@ -160,7 +160,7 @@ class SharedAppleDeviceUser implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -168,7 +168,7 @@ class SharedAppleDeviceUser implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the userPrincipalName property value. User name
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);

@@ -36,7 +36,7 @@ class Settings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class Settings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class Settings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class Settings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the hasGraphMailbox property value. Specifies if the user's primary mailbox is hosted in the cloud and is enabled for Microsoft Graph.
-     *  @param bool|null $value Value to set for the hasGraphMailbox property.
+     * @param bool|null $value Value to set for the hasGraphMailbox property.
     */
     public function setHasGraphMailbox(?bool $value): void {
         $this->getBackingStore()->set('hasGraphMailbox', $value);
@@ -134,7 +134,7 @@ class Settings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the hasLicense property value. Specifies if the user has a MyAnalytics license assigned.
-     *  @param bool|null $value Value to set for the hasLicense property.
+     * @param bool|null $value Value to set for the hasLicense property.
     */
     public function setHasLicense(?bool $value): void {
         $this->getBackingStore()->set('hasLicense', $value);
@@ -142,7 +142,7 @@ class Settings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the hasOptedOut property value. Specifies if the user opted out of MyAnalytics.
-     *  @param bool|null $value Value to set for the hasOptedOut property.
+     * @param bool|null $value Value to set for the hasOptedOut property.
     */
     public function setHasOptedOut(?bool $value): void {
         $this->getBackingStore()->set('hasOptedOut', $value);
@@ -150,7 +150,7 @@ class Settings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

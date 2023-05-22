@@ -84,7 +84,7 @@ class MeetingRegistrationQuestion extends Entity implements Parsable
 
     /**
      * Sets the answerInputType property value. Answer input type of the custom registration question.
-     *  @param AnswerInputType|null $value Value to set for the answerInputType property.
+     * @param AnswerInputType|null $value Value to set for the answerInputType property.
     */
     public function setAnswerInputType(?AnswerInputType $value): void {
         $this->getBackingStore()->set('answerInputType', $value);
@@ -92,7 +92,7 @@ class MeetingRegistrationQuestion extends Entity implements Parsable
 
     /**
      * Sets the answerOptions property value. Answer options when answerInputType is radioButton.
-     *  @param array<string>|null $value Value to set for the answerOptions property.
+     * @param array<string>|null $value Value to set for the answerOptions property.
     */
     public function setAnswerOptions(?array $value): void {
         $this->getBackingStore()->set('answerOptions', $value);
@@ -100,7 +100,7 @@ class MeetingRegistrationQuestion extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Display name of the custom registration question.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -108,7 +108,7 @@ class MeetingRegistrationQuestion extends Entity implements Parsable
 
     /**
      * Sets the isRequired property value. Indicates whether the question is required. Default value is false.
-     *  @param bool|null $value Value to set for the isRequired property.
+     * @param bool|null $value Value to set for the isRequired property.
     */
     public function setIsRequired(?bool $value): void {
         $this->getBackingStore()->set('isRequired', $value);

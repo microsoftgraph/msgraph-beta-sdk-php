@@ -65,7 +65,7 @@ class EducationSynchronizationOAuth2ClientCredentialsConnectionSettings extends 
 
     /**
      * Sets the scope property value. The scope of the access request (see RFC6749).
-     *  @param string|null $value Value to set for the scope property.
+     * @param string|null $value Value to set for the scope property.
     */
     public function setScope(?string $value): void {
         $this->getBackingStore()->set('scope', $value);
@@ -73,7 +73,7 @@ class EducationSynchronizationOAuth2ClientCredentialsConnectionSettings extends 
 
     /**
      * Sets the tokenUrl property value. The URL to get access tokens for the data provider.
-     *  @param string|null $value Value to set for the tokenUrl property.
+     * @param string|null $value Value to set for the tokenUrl property.
     */
     public function setTokenUrl(?string $value): void {
         $this->getBackingStore()->set('tokenUrl', $value);

@@ -54,7 +54,7 @@ class DeviceManagementAbstractComplexSettingDefinition extends DeviceManagementS
 
     /**
      * Sets the implementations property value. List of definition IDs for all possible implementations of this abstract complex setting
-     *  @param array<string>|null $value Value to set for the implementations property.
+     * @param array<string>|null $value Value to set for the implementations property.
     */
     public function setImplementations(?array $value): void {
         $this->getBackingStore()->set('implementations', $value);

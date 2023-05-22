@@ -36,7 +36,7 @@ class AttackSimulationUser implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -76,6 +76,7 @@ class AttackSimulationUser implements AdditionalDataHolder, BackedModel, Parsabl
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'email' => fn(ParseNode $n) => $o->setEmail($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'outOfOfficeDays' => fn(ParseNode $n) => $o->setOutOfOfficeDays($n->getIntegerValue()),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ];
     }
@@ -89,7 +90,15 @@ class AttackSimulationUser implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the userId property value. This is the id property value of the user resource that represents the user in the Azure Active Directory tenant.
+     * Gets the outOfOfficeDays property value. The outOfOfficeDays property
+     * @return int|null
+    */
+    public function getOutOfOfficeDays(): ?int {
+        return $this->getBackingStore()->get('outOfOfficeDays');
+    }
+
+    /**
+     * Gets the userId property value. id property value of the user resource that represents the user in the Azure Active Directory tenant.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -104,13 +113,14 @@ class AttackSimulationUser implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('email', $this->getEmail());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeIntegerValue('outOfOfficeDays', $this->getOutOfOfficeDays());
         $writer->writeStringValue('userId', $this->getUserId());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +128,7 @@ class AttackSimulationUser implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +136,7 @@ class AttackSimulationUser implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the displayName property value. Display name of the user.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -134,7 +144,7 @@ class AttackSimulationUser implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the email property value. Email address of the user.
-     *  @param string|null $value Value to set for the email property.
+     * @param string|null $value Value to set for the email property.
     */
     public function setEmail(?string $value): void {
         $this->getBackingStore()->set('email', $value);
@@ -142,15 +152,23 @@ class AttackSimulationUser implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
-     * Sets the userId property value. This is the id property value of the user resource that represents the user in the Azure Active Directory tenant.
-     *  @param string|null $value Value to set for the userId property.
+     * Sets the outOfOfficeDays property value. The outOfOfficeDays property
+     * @param int|null $value Value to set for the outOfOfficeDays property.
+    */
+    public function setOutOfOfficeDays(?int $value): void {
+        $this->getBackingStore()->set('outOfOfficeDays', $value);
+    }
+
+    /**
+     * Sets the userId property value. id property value of the user resource that represents the user in the Azure Active Directory tenant.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);

@@ -36,7 +36,7 @@ class ConditionalAccessGuestsOrExternalUsers implements AdditionalDataHolder, Ba
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -51,7 +51,7 @@ class ConditionalAccessGuestsOrExternalUsers implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Gets the externalTenants property value. The tenant ids of the selected types of external users. It could be either all b2b tenant, or a collection of tenant ids. External tenants can be specified only when guestOrExternalUserTypes is not null or an empty string.
+     * Gets the externalTenants property value. The tenant IDs of the selected types of external users. Either all B2B tenant or a collection of tenant IDs. External tenants can be specified only when the property guestOrExternalUserTypes is not null or an empty String.
      * @return ConditionalAccessExternalTenants|null
     */
     public function getExternalTenants(): ?ConditionalAccessExternalTenants {
@@ -100,7 +100,7 @@ class ConditionalAccessGuestsOrExternalUsers implements AdditionalDataHolder, Ba
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,15 +108,15 @@ class ConditionalAccessGuestsOrExternalUsers implements AdditionalDataHolder, Ba
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
-     * Sets the externalTenants property value. The tenant ids of the selected types of external users. It could be either all b2b tenant, or a collection of tenant ids. External tenants can be specified only when guestOrExternalUserTypes is not null or an empty string.
-     *  @param ConditionalAccessExternalTenants|null $value Value to set for the externalTenants property.
+     * Sets the externalTenants property value. The tenant IDs of the selected types of external users. Either all B2B tenant or a collection of tenant IDs. External tenants can be specified only when the property guestOrExternalUserTypes is not null or an empty String.
+     * @param ConditionalAccessExternalTenants|null $value Value to set for the externalTenants property.
     */
     public function setExternalTenants(?ConditionalAccessExternalTenants $value): void {
         $this->getBackingStore()->set('externalTenants', $value);
@@ -124,7 +124,7 @@ class ConditionalAccessGuestsOrExternalUsers implements AdditionalDataHolder, Ba
 
     /**
      * Sets the guestOrExternalUserTypes property value. The guestOrExternalUserTypes property
-     *  @param ConditionalAccessGuestOrExternalUserTypes|null $value Value to set for the guestOrExternalUserTypes property.
+     * @param ConditionalAccessGuestOrExternalUserTypes|null $value Value to set for the guestOrExternalUserTypes property.
     */
     public function setGuestOrExternalUserTypes(?ConditionalAccessGuestOrExternalUserTypes $value): void {
         $this->getBackingStore()->set('guestOrExternalUserTypes', $value);
@@ -132,7 +132,7 @@ class ConditionalAccessGuestsOrExternalUsers implements AdditionalDataHolder, Ba
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

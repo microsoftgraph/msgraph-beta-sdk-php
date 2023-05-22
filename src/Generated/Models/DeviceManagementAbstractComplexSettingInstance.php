@@ -65,7 +65,7 @@ class DeviceManagementAbstractComplexSettingInstance extends DeviceManagementSet
 
     /**
      * Sets the implementationId property value. The definition ID for the chosen implementation of this complex setting
-     *  @param string|null $value Value to set for the implementationId property.
+     * @param string|null $value Value to set for the implementationId property.
     */
     public function setImplementationId(?string $value): void {
         $this->getBackingStore()->set('implementationId', $value);
@@ -73,7 +73,7 @@ class DeviceManagementAbstractComplexSettingInstance extends DeviceManagementSet
 
     /**
      * Sets the value property value. The values that make up the complex setting
-     *  @param array<DeviceManagementSettingInstance>|null $value Value to set for the value property.
+     * @param array<DeviceManagementSettingInstance>|null $value Value to set for the value property.
     */
     public function setValue(?array $value): void {
         $this->getBackingStore()->set('value', $value);

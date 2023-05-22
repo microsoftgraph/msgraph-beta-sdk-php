@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Applications\Item\AppManagementPolicies
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Remove an appManagementPolicy policy object from an application or service principal object. When you remove the appManagementPolicy, the application or service principal adopts the tenant-wide tenantAppManagementPolicy setting. 
+*/
 class RefRequestBuilderDeleteQueryParameters 
 {
     /**
@@ -12,4 +15,12 @@ class RefRequestBuilderDeleteQueryParameters
     */
     public ?string $id = null;
     
+    /**
+     * Instantiates a new RefRequestBuilderDeleteQueryParameters and sets the default values.
+     * @param string|null $id Delete Uri
+    */
+    public function __construct(?string $id = null) {
+        $this->id = $id;
+    }
+
 }

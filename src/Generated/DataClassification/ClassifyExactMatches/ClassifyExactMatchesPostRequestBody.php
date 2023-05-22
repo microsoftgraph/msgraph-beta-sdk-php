@@ -37,7 +37,7 @@ class ClassifyExactMatchesPostRequestBody implements AdditionalDataHolder, Backe
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -111,7 +111,7 @@ class ClassifyExactMatchesPostRequestBody implements AdditionalDataHolder, Backe
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -119,7 +119,7 @@ class ClassifyExactMatchesPostRequestBody implements AdditionalDataHolder, Backe
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -127,7 +127,7 @@ class ClassifyExactMatchesPostRequestBody implements AdditionalDataHolder, Backe
 
     /**
      * Sets the contentClassifications property value. The contentClassifications property
-     *  @param array<ContentClassification>|null $value Value to set for the contentClassifications property.
+     * @param array<ContentClassification>|null $value Value to set for the contentClassifications property.
     */
     public function setContentClassifications(?array $value): void {
         $this->getBackingStore()->set('contentClassifications', $value);
@@ -135,7 +135,7 @@ class ClassifyExactMatchesPostRequestBody implements AdditionalDataHolder, Backe
 
     /**
      * Sets the sensitiveTypeIds property value. The sensitiveTypeIds property
-     *  @param array<string>|null $value Value to set for the sensitiveTypeIds property.
+     * @param array<string>|null $value Value to set for the sensitiveTypeIds property.
     */
     public function setSensitiveTypeIds(?array $value): void {
         $this->getBackingStore()->set('sensitiveTypeIds', $value);
@@ -143,7 +143,7 @@ class ClassifyExactMatchesPostRequestBody implements AdditionalDataHolder, Backe
 
     /**
      * Sets the text property value. The text property
-     *  @param string|null $value Value to set for the text property.
+     * @param string|null $value Value to set for the text property.
     */
     public function setText(?string $value): void {
         $this->getBackingStore()->set('text', $value);
@@ -151,7 +151,7 @@ class ClassifyExactMatchesPostRequestBody implements AdditionalDataHolder, Backe
 
     /**
      * Sets the timeoutInMs property value. The timeoutInMs property
-     *  @param string|null $value Value to set for the timeoutInMs property.
+     * @param string|null $value Value to set for the timeoutInMs property.
     */
     public function setTimeoutInMs(?string $value): void {
         $this->getBackingStore()->set('timeoutInMs', $value);

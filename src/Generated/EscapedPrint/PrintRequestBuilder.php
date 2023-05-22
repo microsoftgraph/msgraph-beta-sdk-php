@@ -6,29 +6,23 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Connectors\ConnectorsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Connectors\Item\PrintConnectorItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Operations\Item\PrintOperationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Operations\OperationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\Item\PrinterItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\PrintersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\PrinterSharesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\ReportsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Services\Item\PrintServiceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Services\ServicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\SharesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\TaskDefinitions\Item\PrintTaskDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\TaskDefinitions\TaskDefinitionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EscapedPrint;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
-class PrintRequestBuilder 
+/**
+ * Provides operations to manage the print singleton.
+*/
+class PrintRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to manage the connectors property of the microsoft.graph.print entity.
@@ -45,11 +39,6 @@ class PrintRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
      * Provides operations to manage the printers property of the microsoft.graph.print entity.
     */
     public function printers(): PrintersRequestBuilder {
@@ -62,18 +51,6 @@ class PrintRequestBuilder
     public function printerShares(): PrinterSharesRequestBuilder {
         return new PrinterSharesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
-    
-    /**
-     * Provides operations to manage the reports property of the microsoft.graph.print entity.
-    */
-    public function reports(): ReportsRequestBuilder {
-        return new ReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
     
     /**
      * Provides operations to manage the services property of the microsoft.graph.print entity.
@@ -97,135 +74,54 @@ class PrintRequestBuilder
     }
     
     /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
-     * Provides operations to manage the connectors property of the microsoft.graph.print entity.
-     * @param string $id Unique identifier of the item
-     * @return PrintConnectorItemRequestBuilder
-    */
-    public function connectorsById(string $id): PrintConnectorItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['printConnector%2Did'] = $id;
-        return new PrintConnectorItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new PrintRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/print{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
+        parent::__construct($requestAdapter, [], '{+baseurl}/print{?%24select,%24expand}');
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
      * Get print
      * @param PrintRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?PrintRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?PrintRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [EscapedPrint::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [EscapedPrint::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the operations property of the microsoft.graph.print entity.
-     * @param string $id Unique identifier of the item
-     * @return PrintOperationItemRequestBuilder
-    */
-    public function operationsById(string $id): PrintOperationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['printOperation%2Did'] = $id;
-        return new PrintOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Update print
      * @param EscapedPrint $body The request body
      * @param PrintRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(EscapedPrint $body, ?PrintRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(EscapedPrint $body, ?PrintRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [EscapedPrint::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [EscapedPrint::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the printers property of the microsoft.graph.print entity.
-     * @param string $id Unique identifier of the item
-     * @return PrinterItemRequestBuilder
-    */
-    public function printersById(string $id): PrinterItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['printer%2Did'] = $id;
-        return new PrinterItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the printerShares property of the microsoft.graph.print entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\PrinterShareItemRequestBuilder
-    */
-    public function printerSharesById(string $id): \Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\PrinterShareItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['printerShare%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\PrinterShareItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the services property of the microsoft.graph.print entity.
-     * @param string $id Unique identifier of the item
-     * @return PrintServiceItemRequestBuilder
-    */
-    public function servicesById(string $id): PrintServiceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['printService%2Did'] = $id;
-        return new PrintServiceItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the shares property of the microsoft.graph.print entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\PrinterShareItemRequestBuilder
-    */
-    public function sharesById(string $id): \Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\PrinterShareItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['printerShare%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\PrinterShareItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the taskDefinitions property of the microsoft.graph.print entity.
-     * @param string $id Unique identifier of the item
-     * @return PrintTaskDefinitionItemRequestBuilder
-    */
-    public function taskDefinitionsById(string $id): PrintTaskDefinitionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['printTaskDefinition%2Did'] = $id;
-        return new PrintTaskDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -238,17 +134,13 @@ class PrintRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -264,14 +156,10 @@ class PrintRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

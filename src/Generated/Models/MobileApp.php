@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * An abstract class containing the base properties for Intune mobile apps. Note: Listing mobile apps with `$expand=assignments` has been deprecated. Instead get the list of apps without the `$expand` query on `assignments`. Then, perform the expansion on individual applications.
+*/
 class MobileApp extends Entity implements Parsable 
 {
     /**
@@ -339,7 +342,7 @@ class MobileApp extends Entity implements Parsable
 
     /**
      * Sets the assignments property value. The list of group assignments for this mobile app.
-     *  @param array<MobileAppAssignment>|null $value Value to set for the assignments property.
+     * @param array<MobileAppAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -347,7 +350,7 @@ class MobileApp extends Entity implements Parsable
 
     /**
      * Sets the categories property value. The list of categories for this app.
-     *  @param array<MobileAppCategory>|null $value Value to set for the categories property.
+     * @param array<MobileAppCategory>|null $value Value to set for the categories property.
     */
     public function setCategories(?array $value): void {
         $this->getBackingStore()->set('categories', $value);
@@ -355,7 +358,7 @@ class MobileApp extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date and time the app was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -363,7 +366,7 @@ class MobileApp extends Entity implements Parsable
 
     /**
      * Sets the dependentAppCount property value. The total number of dependencies the child app has.
-     *  @param int|null $value Value to set for the dependentAppCount property.
+     * @param int|null $value Value to set for the dependentAppCount property.
     */
     public function setDependentAppCount(?int $value): void {
         $this->getBackingStore()->set('dependentAppCount', $value);
@@ -371,7 +374,7 @@ class MobileApp extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description of the app.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -379,7 +382,7 @@ class MobileApp extends Entity implements Parsable
 
     /**
      * Sets the developer property value. The developer of the app.
-     *  @param string|null $value Value to set for the developer property.
+     * @param string|null $value Value to set for the developer property.
     */
     public function setDeveloper(?string $value): void {
         $this->getBackingStore()->set('developer', $value);
@@ -387,7 +390,7 @@ class MobileApp extends Entity implements Parsable
 
     /**
      * Sets the deviceStatuses property value. The list of installation states for this mobile app.
-     *  @param array<MobileAppInstallStatus>|null $value Value to set for the deviceStatuses property.
+     * @param array<MobileAppInstallStatus>|null $value Value to set for the deviceStatuses property.
     */
     public function setDeviceStatuses(?array $value): void {
         $this->getBackingStore()->set('deviceStatuses', $value);
@@ -395,7 +398,7 @@ class MobileApp extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The admin provided or imported title of the app.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -403,7 +406,7 @@ class MobileApp extends Entity implements Parsable
 
     /**
      * Sets the informationUrl property value. The more information Url.
-     *  @param string|null $value Value to set for the informationUrl property.
+     * @param string|null $value Value to set for the informationUrl property.
     */
     public function setInformationUrl(?string $value): void {
         $this->getBackingStore()->set('informationUrl', $value);
@@ -411,7 +414,7 @@ class MobileApp extends Entity implements Parsable
 
     /**
      * Sets the installSummary property value. Mobile App Install Summary.
-     *  @param MobileAppInstallSummary|null $value Value to set for the installSummary property.
+     * @param MobileAppInstallSummary|null $value Value to set for the installSummary property.
     */
     public function setInstallSummary(?MobileAppInstallSummary $value): void {
         $this->getBackingStore()->set('installSummary', $value);
@@ -419,7 +422,7 @@ class MobileApp extends Entity implements Parsable
 
     /**
      * Sets the isAssigned property value. The value indicating whether the app is assigned to at least one group.
-     *  @param bool|null $value Value to set for the isAssigned property.
+     * @param bool|null $value Value to set for the isAssigned property.
     */
     public function setIsAssigned(?bool $value): void {
         $this->getBackingStore()->set('isAssigned', $value);
@@ -427,7 +430,7 @@ class MobileApp extends Entity implements Parsable
 
     /**
      * Sets the isFeatured property value. The value indicating whether the app is marked as featured by the admin.
-     *  @param bool|null $value Value to set for the isFeatured property.
+     * @param bool|null $value Value to set for the isFeatured property.
     */
     public function setIsFeatured(?bool $value): void {
         $this->getBackingStore()->set('isFeatured', $value);
@@ -435,7 +438,7 @@ class MobileApp extends Entity implements Parsable
 
     /**
      * Sets the largeIcon property value. The large icon, to be displayed in the app details and used for upload of the icon.
-     *  @param MimeContent|null $value Value to set for the largeIcon property.
+     * @param MimeContent|null $value Value to set for the largeIcon property.
     */
     public function setLargeIcon(?MimeContent $value): void {
         $this->getBackingStore()->set('largeIcon', $value);
@@ -443,7 +446,7 @@ class MobileApp extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time the app was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -451,7 +454,7 @@ class MobileApp extends Entity implements Parsable
 
     /**
      * Sets the notes property value. Notes for the app.
-     *  @param string|null $value Value to set for the notes property.
+     * @param string|null $value Value to set for the notes property.
     */
     public function setNotes(?string $value): void {
         $this->getBackingStore()->set('notes', $value);
@@ -459,7 +462,7 @@ class MobileApp extends Entity implements Parsable
 
     /**
      * Sets the owner property value. The owner of the app.
-     *  @param string|null $value Value to set for the owner property.
+     * @param string|null $value Value to set for the owner property.
     */
     public function setOwner(?string $value): void {
         $this->getBackingStore()->set('owner', $value);
@@ -467,7 +470,7 @@ class MobileApp extends Entity implements Parsable
 
     /**
      * Sets the privacyInformationUrl property value. The privacy statement Url.
-     *  @param string|null $value Value to set for the privacyInformationUrl property.
+     * @param string|null $value Value to set for the privacyInformationUrl property.
     */
     public function setPrivacyInformationUrl(?string $value): void {
         $this->getBackingStore()->set('privacyInformationUrl', $value);
@@ -475,7 +478,7 @@ class MobileApp extends Entity implements Parsable
 
     /**
      * Sets the publisher property value. The publisher of the app.
-     *  @param string|null $value Value to set for the publisher property.
+     * @param string|null $value Value to set for the publisher property.
     */
     public function setPublisher(?string $value): void {
         $this->getBackingStore()->set('publisher', $value);
@@ -483,7 +486,7 @@ class MobileApp extends Entity implements Parsable
 
     /**
      * Sets the publishingState property value. Indicates the publishing state of an app.
-     *  @param MobileAppPublishingState|null $value Value to set for the publishingState property.
+     * @param MobileAppPublishingState|null $value Value to set for the publishingState property.
     */
     public function setPublishingState(?MobileAppPublishingState $value): void {
         $this->getBackingStore()->set('publishingState', $value);
@@ -491,7 +494,7 @@ class MobileApp extends Entity implements Parsable
 
     /**
      * Sets the relationships property value. List of relationships for this mobile app.
-     *  @param array<MobileAppRelationship>|null $value Value to set for the relationships property.
+     * @param array<MobileAppRelationship>|null $value Value to set for the relationships property.
     */
     public function setRelationships(?array $value): void {
         $this->getBackingStore()->set('relationships', $value);
@@ -499,7 +502,7 @@ class MobileApp extends Entity implements Parsable
 
     /**
      * Sets the roleScopeTagIds property value. List of scope tag ids for this mobile app.
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);
@@ -507,7 +510,7 @@ class MobileApp extends Entity implements Parsable
 
     /**
      * Sets the supersededAppCount property value. The total number of apps this app is directly or indirectly superseded by.
-     *  @param int|null $value Value to set for the supersededAppCount property.
+     * @param int|null $value Value to set for the supersededAppCount property.
     */
     public function setSupersededAppCount(?int $value): void {
         $this->getBackingStore()->set('supersededAppCount', $value);
@@ -515,7 +518,7 @@ class MobileApp extends Entity implements Parsable
 
     /**
      * Sets the supersedingAppCount property value. The total number of apps this app directly or indirectly supersedes.
-     *  @param int|null $value Value to set for the supersedingAppCount property.
+     * @param int|null $value Value to set for the supersedingAppCount property.
     */
     public function setSupersedingAppCount(?int $value): void {
         $this->getBackingStore()->set('supersedingAppCount', $value);
@@ -523,7 +526,7 @@ class MobileApp extends Entity implements Parsable
 
     /**
      * Sets the uploadState property value. The upload state.
-     *  @param int|null $value Value to set for the uploadState property.
+     * @param int|null $value Value to set for the uploadState property.
     */
     public function setUploadState(?int $value): void {
         $this->getBackingStore()->set('uploadState', $value);
@@ -531,7 +534,7 @@ class MobileApp extends Entity implements Parsable
 
     /**
      * Sets the userStatuses property value. The list of installation states for this mobile app.
-     *  @param array<UserAppInstallStatus>|null $value Value to set for the userStatuses property.
+     * @param array<UserAppInstallStatus>|null $value Value to set for the userStatuses property.
     */
     public function setUserStatuses(?array $value): void {
         $this->getBackingStore()->set('userStatuses', $value);

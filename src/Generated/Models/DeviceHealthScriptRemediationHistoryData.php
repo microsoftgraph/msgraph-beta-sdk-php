@@ -11,6 +11,9 @@ use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
+/**
+ * The number of devices remediated by a device health script on a given date.
+*/
 class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -37,7 +40,7 @@ class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, 
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -111,7 +114,7 @@ class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, 
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -119,7 +122,7 @@ class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, 
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -127,7 +130,7 @@ class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, 
 
     /**
      * Sets the date property value. The date on which devices were remediated by the device health script.
-     *  @param Date|null $value Value to set for the date property.
+     * @param Date|null $value Value to set for the date property.
     */
     public function setDate(?Date $value): void {
         $this->getBackingStore()->set('date', $value);
@@ -135,7 +138,7 @@ class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, 
 
     /**
      * Sets the noIssueDeviceCount property value. The number of devices that were found to have no issue by the device health script.
-     *  @param int|null $value Value to set for the noIssueDeviceCount property.
+     * @param int|null $value Value to set for the noIssueDeviceCount property.
     */
     public function setNoIssueDeviceCount(?int $value): void {
         $this->getBackingStore()->set('noIssueDeviceCount', $value);
@@ -143,7 +146,7 @@ class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, 
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -151,7 +154,7 @@ class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, 
 
     /**
      * Sets the remediatedDeviceCount property value. The number of devices remediated by the device health script.
-     *  @param int|null $value Value to set for the remediatedDeviceCount property.
+     * @param int|null $value Value to set for the remediatedDeviceCount property.
     */
     public function setRemediatedDeviceCount(?int $value): void {
         $this->getBackingStore()->set('remediatedDeviceCount', $value);

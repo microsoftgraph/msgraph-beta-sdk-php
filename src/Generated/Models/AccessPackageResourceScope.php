@@ -124,7 +124,7 @@ class AccessPackageResourceScope extends Entity implements Parsable
 
     /**
      * Sets the accessPackageResource property value. The accessPackageResource property
-     *  @param AccessPackageResource|null $value Value to set for the accessPackageResource property.
+     * @param AccessPackageResource|null $value Value to set for the accessPackageResource property.
     */
     public function setAccessPackageResource(?AccessPackageResource $value): void {
         $this->getBackingStore()->set('accessPackageResource', $value);
@@ -132,7 +132,7 @@ class AccessPackageResourceScope extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description of the scope.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -140,7 +140,7 @@ class AccessPackageResourceScope extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name of the scope.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -148,7 +148,7 @@ class AccessPackageResourceScope extends Entity implements Parsable
 
     /**
      * Sets the isRootScope property value. True if the scopes are arranged in a hierarchy and this is the top or root scope of the resource.
-     *  @param bool|null $value Value to set for the isRootScope property.
+     * @param bool|null $value Value to set for the isRootScope property.
     */
     public function setIsRootScope(?bool $value): void {
         $this->getBackingStore()->set('isRootScope', $value);
@@ -156,7 +156,7 @@ class AccessPackageResourceScope extends Entity implements Parsable
 
     /**
      * Sets the originId property value. The unique identifier for the scope in the resource as defined in the origin system.
-     *  @param string|null $value Value to set for the originId property.
+     * @param string|null $value Value to set for the originId property.
     */
     public function setOriginId(?string $value): void {
         $this->getBackingStore()->set('originId', $value);
@@ -164,7 +164,7 @@ class AccessPackageResourceScope extends Entity implements Parsable
 
     /**
      * Sets the originSystem property value. The origin system for the scope.
-     *  @param string|null $value Value to set for the originSystem property.
+     * @param string|null $value Value to set for the originSystem property.
     */
     public function setOriginSystem(?string $value): void {
         $this->getBackingStore()->set('originSystem', $value);
@@ -172,7 +172,7 @@ class AccessPackageResourceScope extends Entity implements Parsable
 
     /**
      * Sets the roleOriginId property value. The origin system for the role, if different.
-     *  @param string|null $value Value to set for the roleOriginId property.
+     * @param string|null $value Value to set for the roleOriginId property.
     */
     public function setRoleOriginId(?string $value): void {
         $this->getBackingStore()->set('roleOriginId', $value);
@@ -180,7 +180,7 @@ class AccessPackageResourceScope extends Entity implements Parsable
 
     /**
      * Sets the url property value. A resource locator for the scope.
-     *  @param string|null $value Value to set for the url property.
+     * @param string|null $value Value to set for the url property.
     */
     public function setUrl(?string $value): void {
         $this->getBackingStore()->set('url', $value);

@@ -65,7 +65,7 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
 
     /**
      * Sets the destinationHost property value. The destinationHost property
-     *  @param string|null $value Value to set for the destinationHost property.
+     * @param string|null $value Value to set for the destinationHost property.
     */
     public function setDestinationHost(?string $value): void {
         $this->getBackingStore()->set('destinationHost', $value);
@@ -73,7 +73,7 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
 
     /**
      * Sets the port property value. The port property
-     *  @param int|null $value Value to set for the port property.
+     * @param int|null $value Value to set for the port property.
     */
     public function setPort(?int $value): void {
         $this->getBackingStore()->set('port', $value);

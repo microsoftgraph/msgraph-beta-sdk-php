@@ -75,7 +75,7 @@ class MacOSAzureAdSingleSignOnExtension extends MacOSSingleSignOnExtension imple
 
     /**
      * Sets the bundleIdAccessControlList property value. An optional list of additional bundle IDs allowed to use the AAD extension for single sign-on.
-     *  @param array<string>|null $value Value to set for the bundleIdAccessControlList property.
+     * @param array<string>|null $value Value to set for the bundleIdAccessControlList property.
     */
     public function setBundleIdAccessControlList(?array $value): void {
         $this->getBackingStore()->set('bundleIdAccessControlList', $value);
@@ -83,7 +83,7 @@ class MacOSAzureAdSingleSignOnExtension extends MacOSSingleSignOnExtension imple
 
     /**
      * Sets the configurations property value. Gets or sets a list of typed key-value pairs used to configure Credential-type profiles. This collection can contain a maximum of 500 elements.
-     *  @param array<KeyTypedValuePair>|null $value Value to set for the configurations property.
+     * @param array<KeyTypedValuePair>|null $value Value to set for the configurations property.
     */
     public function setConfigurations(?array $value): void {
         $this->getBackingStore()->set('configurations', $value);
@@ -91,7 +91,7 @@ class MacOSAzureAdSingleSignOnExtension extends MacOSSingleSignOnExtension imple
 
     /**
      * Sets the enableSharedDeviceMode property value. Enables or disables shared device mode.
-     *  @param bool|null $value Value to set for the enableSharedDeviceMode property.
+     * @param bool|null $value Value to set for the enableSharedDeviceMode property.
     */
     public function setEnableSharedDeviceMode(?bool $value): void {
         $this->getBackingStore()->set('enableSharedDeviceMode', $value);

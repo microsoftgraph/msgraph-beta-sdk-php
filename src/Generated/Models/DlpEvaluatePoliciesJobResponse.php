@@ -54,7 +54,7 @@ class DlpEvaluatePoliciesJobResponse extends JobResponseBase implements Parsable
 
     /**
      * Sets the result property value. The result property
-     *  @param DlpPoliciesJobResult|null $value Value to set for the result property.
+     * @param DlpPoliciesJobResult|null $value Value to set for the result property.
     */
     public function setResult(?DlpPoliciesJobResult $value): void {
         $this->getBackingStore()->set('result', $value);

@@ -54,7 +54,7 @@ class LookupResultRow extends Entity implements Parsable
 
     /**
      * Sets the row property value. The row property
-     *  @param string|null $value Value to set for the row property.
+     * @param string|null $value Value to set for the row property.
     */
     public function setRow(?string $value): void {
         $this->getBackingStore()->set('row', $value);

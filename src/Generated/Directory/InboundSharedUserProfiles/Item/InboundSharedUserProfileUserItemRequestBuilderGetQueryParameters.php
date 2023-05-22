@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Directory\InboundSharedUserProfiles\Ite
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read the properties of an inboundSharedUserProfile.
+*/
 class InboundSharedUserProfileUserItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class InboundSharedUserProfileUserItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new InboundSharedUserProfileUserItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

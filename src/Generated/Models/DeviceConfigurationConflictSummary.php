@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Conflict summary for a set of device configuration policies.
+*/
 class DeviceConfigurationConflictSummary extends Entity implements Parsable 
 {
     /**
@@ -74,7 +77,7 @@ class DeviceConfigurationConflictSummary extends Entity implements Parsable
 
     /**
      * Sets the conflictingDeviceConfigurations property value. The set of policies in conflict with the given setting
-     *  @param array<SettingSource>|null $value Value to set for the conflictingDeviceConfigurations property.
+     * @param array<SettingSource>|null $value Value to set for the conflictingDeviceConfigurations property.
     */
     public function setConflictingDeviceConfigurations(?array $value): void {
         $this->getBackingStore()->set('conflictingDeviceConfigurations', $value);
@@ -82,7 +85,7 @@ class DeviceConfigurationConflictSummary extends Entity implements Parsable
 
     /**
      * Sets the contributingSettings property value. The set of settings in conflict with the given policies
-     *  @param array<string>|null $value Value to set for the contributingSettings property.
+     * @param array<string>|null $value Value to set for the contributingSettings property.
     */
     public function setContributingSettings(?array $value): void {
         $this->getBackingStore()->set('contributingSettings', $value);
@@ -90,7 +93,7 @@ class DeviceConfigurationConflictSummary extends Entity implements Parsable
 
     /**
      * Sets the deviceCheckinsImpacted property value. The count of checkins impacted by the conflicting policies and settings
-     *  @param int|null $value Value to set for the deviceCheckinsImpacted property.
+     * @param int|null $value Value to set for the deviceCheckinsImpacted property.
     */
     public function setDeviceCheckinsImpacted(?int $value): void {
         $this->getBackingStore()->set('deviceCheckinsImpacted', $value);

@@ -52,7 +52,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -350,7 +350,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the accessReviewPolicy property value. The policy that contains directory-level access review settings.
-     *  @param AccessReviewPolicy|null $value Value to set for the accessReviewPolicy property.
+     * @param AccessReviewPolicy|null $value Value to set for the accessReviewPolicy property.
     */
     public function setAccessReviewPolicy(?AccessReviewPolicy $value): void {
         $this->getBackingStore()->set('accessReviewPolicy', $value);
@@ -358,7 +358,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the activityBasedTimeoutPolicies property value. The policy that controls the idle time out for web sessions for applications.
-     *  @param array<ActivityBasedTimeoutPolicy>|null $value Value to set for the activityBasedTimeoutPolicies property.
+     * @param array<ActivityBasedTimeoutPolicy>|null $value Value to set for the activityBasedTimeoutPolicies property.
     */
     public function setActivityBasedTimeoutPolicies(?array $value): void {
         $this->getBackingStore()->set('activityBasedTimeoutPolicies', $value);
@@ -366,7 +366,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -374,7 +374,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the adminConsentRequestPolicy property value. The policy by which consent requests are created and managed for the entire tenant.
-     *  @param AdminConsentRequestPolicy|null $value Value to set for the adminConsentRequestPolicy property.
+     * @param AdminConsentRequestPolicy|null $value Value to set for the adminConsentRequestPolicy property.
     */
     public function setAdminConsentRequestPolicy(?AdminConsentRequestPolicy $value): void {
         $this->getBackingStore()->set('adminConsentRequestPolicy', $value);
@@ -382,7 +382,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the appManagementPolicies property value. The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.
-     *  @param array<AppManagementPolicy>|null $value Value to set for the appManagementPolicies property.
+     * @param array<AppManagementPolicy>|null $value Value to set for the appManagementPolicies property.
     */
     public function setAppManagementPolicies(?array $value): void {
         $this->getBackingStore()->set('appManagementPolicies', $value);
@@ -390,7 +390,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the authenticationFlowsPolicy property value. The policy configuration of the self-service sign-up experience of external users.
-     *  @param AuthenticationFlowsPolicy|null $value Value to set for the authenticationFlowsPolicy property.
+     * @param AuthenticationFlowsPolicy|null $value Value to set for the authenticationFlowsPolicy property.
     */
     public function setAuthenticationFlowsPolicy(?AuthenticationFlowsPolicy $value): void {
         $this->getBackingStore()->set('authenticationFlowsPolicy', $value);
@@ -398,7 +398,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the authenticationMethodsPolicy property value. The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD).
-     *  @param AuthenticationMethodsPolicy|null $value Value to set for the authenticationMethodsPolicy property.
+     * @param AuthenticationMethodsPolicy|null $value Value to set for the authenticationMethodsPolicy property.
     */
     public function setAuthenticationMethodsPolicy(?AuthenticationMethodsPolicy $value): void {
         $this->getBackingStore()->set('authenticationMethodsPolicy', $value);
@@ -406,7 +406,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the authenticationStrengthPolicies property value. The authentication method combinations that are to be used in scenarios defined by Azure AD Conditional Access.
-     *  @param array<AuthenticationStrengthPolicy>|null $value Value to set for the authenticationStrengthPolicies property.
+     * @param array<AuthenticationStrengthPolicy>|null $value Value to set for the authenticationStrengthPolicies property.
     */
     public function setAuthenticationStrengthPolicies(?array $value): void {
         $this->getBackingStore()->set('authenticationStrengthPolicies', $value);
@@ -414,7 +414,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the authorizationPolicy property value. The policy that controls Azure AD authorization settings.
-     *  @param array<AuthorizationPolicy>|null $value Value to set for the authorizationPolicy property.
+     * @param array<AuthorizationPolicy>|null $value Value to set for the authorizationPolicy property.
     */
     public function setAuthorizationPolicy(?array $value): void {
         $this->getBackingStore()->set('authorizationPolicy', $value);
@@ -422,7 +422,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the b2cAuthenticationMethodsPolicy property value. The Azure AD B2C policies that define how end users register via local accounts.
-     *  @param B2cAuthenticationMethodsPolicy|null $value Value to set for the b2cAuthenticationMethodsPolicy property.
+     * @param B2cAuthenticationMethodsPolicy|null $value Value to set for the b2cAuthenticationMethodsPolicy property.
     */
     public function setB2cAuthenticationMethodsPolicy(?B2cAuthenticationMethodsPolicy $value): void {
         $this->getBackingStore()->set('b2cAuthenticationMethodsPolicy', $value);
@@ -430,7 +430,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -438,7 +438,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the claimsMappingPolicies property value. The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.
-     *  @param array<ClaimsMappingPolicy>|null $value Value to set for the claimsMappingPolicies property.
+     * @param array<ClaimsMappingPolicy>|null $value Value to set for the claimsMappingPolicies property.
     */
     public function setClaimsMappingPolicies(?array $value): void {
         $this->getBackingStore()->set('claimsMappingPolicies', $value);
@@ -446,7 +446,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the conditionalAccessPolicies property value. The custom rules that define an access scenario.
-     *  @param array<ConditionalAccessPolicy>|null $value Value to set for the conditionalAccessPolicies property.
+     * @param array<ConditionalAccessPolicy>|null $value Value to set for the conditionalAccessPolicies property.
     */
     public function setConditionalAccessPolicies(?array $value): void {
         $this->getBackingStore()->set('conditionalAccessPolicies', $value);
@@ -454,7 +454,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the crossTenantAccessPolicy property value. The custom rules that define an access scenario when interacting with external Azure AD tenants.
-     *  @param CrossTenantAccessPolicy|null $value Value to set for the crossTenantAccessPolicy property.
+     * @param CrossTenantAccessPolicy|null $value Value to set for the crossTenantAccessPolicy property.
     */
     public function setCrossTenantAccessPolicy(?CrossTenantAccessPolicy $value): void {
         $this->getBackingStore()->set('crossTenantAccessPolicy', $value);
@@ -462,7 +462,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the defaultAppManagementPolicy property value. The tenant-wide policy that enforces app management restrictions for all applications and service principals.
-     *  @param TenantAppManagementPolicy|null $value Value to set for the defaultAppManagementPolicy property.
+     * @param TenantAppManagementPolicy|null $value Value to set for the defaultAppManagementPolicy property.
     */
     public function setDefaultAppManagementPolicy(?TenantAppManagementPolicy $value): void {
         $this->getBackingStore()->set('defaultAppManagementPolicy', $value);
@@ -470,7 +470,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the deviceRegistrationPolicy property value. The deviceRegistrationPolicy property
-     *  @param DeviceRegistrationPolicy|null $value Value to set for the deviceRegistrationPolicy property.
+     * @param DeviceRegistrationPolicy|null $value Value to set for the deviceRegistrationPolicy property.
     */
     public function setDeviceRegistrationPolicy(?DeviceRegistrationPolicy $value): void {
         $this->getBackingStore()->set('deviceRegistrationPolicy', $value);
@@ -478,7 +478,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the directoryRoleAccessReviewPolicy property value. The directoryRoleAccessReviewPolicy property
-     *  @param DirectoryRoleAccessReviewPolicy|null $value Value to set for the directoryRoleAccessReviewPolicy property.
+     * @param DirectoryRoleAccessReviewPolicy|null $value Value to set for the directoryRoleAccessReviewPolicy property.
     */
     public function setDirectoryRoleAccessReviewPolicy(?DirectoryRoleAccessReviewPolicy $value): void {
         $this->getBackingStore()->set('directoryRoleAccessReviewPolicy', $value);
@@ -486,7 +486,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the externalIdentitiesPolicy property value. Represents the tenant-wide policy that controls whether external users can leave an Azure AD tenant via self-service controls.
-     *  @param ExternalIdentitiesPolicy|null $value Value to set for the externalIdentitiesPolicy property.
+     * @param ExternalIdentitiesPolicy|null $value Value to set for the externalIdentitiesPolicy property.
     */
     public function setExternalIdentitiesPolicy(?ExternalIdentitiesPolicy $value): void {
         $this->getBackingStore()->set('externalIdentitiesPolicy', $value);
@@ -494,7 +494,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the featureRolloutPolicies property value. The feature rollout policy associated with a directory object.
-     *  @param array<FeatureRolloutPolicy>|null $value Value to set for the featureRolloutPolicies property.
+     * @param array<FeatureRolloutPolicy>|null $value Value to set for the featureRolloutPolicies property.
     */
     public function setFeatureRolloutPolicies(?array $value): void {
         $this->getBackingStore()->set('featureRolloutPolicies', $value);
@@ -502,7 +502,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the homeRealmDiscoveryPolicies property value. The policy to control Azure AD authentication behavior for federated users.
-     *  @param array<HomeRealmDiscoveryPolicy>|null $value Value to set for the homeRealmDiscoveryPolicies property.
+     * @param array<HomeRealmDiscoveryPolicy>|null $value Value to set for the homeRealmDiscoveryPolicies property.
     */
     public function setHomeRealmDiscoveryPolicies(?array $value): void {
         $this->getBackingStore()->set('homeRealmDiscoveryPolicies', $value);
@@ -510,7 +510,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the identitySecurityDefaultsEnforcementPolicy property value. The policy that represents the security defaults that protect against common attacks.
-     *  @param IdentitySecurityDefaultsEnforcementPolicy|null $value Value to set for the identitySecurityDefaultsEnforcementPolicy property.
+     * @param IdentitySecurityDefaultsEnforcementPolicy|null $value Value to set for the identitySecurityDefaultsEnforcementPolicy property.
     */
     public function setIdentitySecurityDefaultsEnforcementPolicy(?IdentitySecurityDefaultsEnforcementPolicy $value): void {
         $this->getBackingStore()->set('identitySecurityDefaultsEnforcementPolicy', $value);
@@ -518,7 +518,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the mobileAppManagementPolicies property value. The policy that defines auto-enrollment configuration for a mobility management (MDM or MAM) application.
-     *  @param array<MobilityManagementPolicy>|null $value Value to set for the mobileAppManagementPolicies property.
+     * @param array<MobilityManagementPolicy>|null $value Value to set for the mobileAppManagementPolicies property.
     */
     public function setMobileAppManagementPolicies(?array $value): void {
         $this->getBackingStore()->set('mobileAppManagementPolicies', $value);
@@ -526,7 +526,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the mobileDeviceManagementPolicies property value. The mobileDeviceManagementPolicies property
-     *  @param array<MobilityManagementPolicy>|null $value Value to set for the mobileDeviceManagementPolicies property.
+     * @param array<MobilityManagementPolicy>|null $value Value to set for the mobileDeviceManagementPolicies property.
     */
     public function setMobileDeviceManagementPolicies(?array $value): void {
         $this->getBackingStore()->set('mobileDeviceManagementPolicies', $value);
@@ -534,7 +534,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -542,7 +542,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the permissionGrantPolicies property value. The policy that specifies the conditions under which consent can be granted.
-     *  @param array<PermissionGrantPolicy>|null $value Value to set for the permissionGrantPolicies property.
+     * @param array<PermissionGrantPolicy>|null $value Value to set for the permissionGrantPolicies property.
     */
     public function setPermissionGrantPolicies(?array $value): void {
         $this->getBackingStore()->set('permissionGrantPolicies', $value);
@@ -550,7 +550,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the roleManagementPolicies property value. Represents the role management policies.
-     *  @param array<UnifiedRoleManagementPolicy>|null $value Value to set for the roleManagementPolicies property.
+     * @param array<UnifiedRoleManagementPolicy>|null $value Value to set for the roleManagementPolicies property.
     */
     public function setRoleManagementPolicies(?array $value): void {
         $this->getBackingStore()->set('roleManagementPolicies', $value);
@@ -558,7 +558,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the roleManagementPolicyAssignments property value. Represents the role management policy assignments.
-     *  @param array<UnifiedRoleManagementPolicyAssignment>|null $value Value to set for the roleManagementPolicyAssignments property.
+     * @param array<UnifiedRoleManagementPolicyAssignment>|null $value Value to set for the roleManagementPolicyAssignments property.
     */
     public function setRoleManagementPolicyAssignments(?array $value): void {
         $this->getBackingStore()->set('roleManagementPolicyAssignments', $value);
@@ -566,7 +566,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the servicePrincipalCreationPolicies property value. The servicePrincipalCreationPolicies property
-     *  @param array<ServicePrincipalCreationPolicy>|null $value Value to set for the servicePrincipalCreationPolicies property.
+     * @param array<ServicePrincipalCreationPolicy>|null $value Value to set for the servicePrincipalCreationPolicies property.
     */
     public function setServicePrincipalCreationPolicies(?array $value): void {
         $this->getBackingStore()->set('servicePrincipalCreationPolicies', $value);
@@ -574,7 +574,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the tokenIssuancePolicies property value. The policy that specifies the characteristics of SAML tokens issued by Azure AD.
-     *  @param array<TokenIssuancePolicy>|null $value Value to set for the tokenIssuancePolicies property.
+     * @param array<TokenIssuancePolicy>|null $value Value to set for the tokenIssuancePolicies property.
     */
     public function setTokenIssuancePolicies(?array $value): void {
         $this->getBackingStore()->set('tokenIssuancePolicies', $value);
@@ -582,7 +582,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the tokenLifetimePolicies property value. The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Azure AD.
-     *  @param array<TokenLifetimePolicy>|null $value Value to set for the tokenLifetimePolicies property.
+     * @param array<TokenLifetimePolicy>|null $value Value to set for the tokenLifetimePolicies property.
     */
     public function setTokenLifetimePolicies(?array $value): void {
         $this->getBackingStore()->set('tokenLifetimePolicies', $value);

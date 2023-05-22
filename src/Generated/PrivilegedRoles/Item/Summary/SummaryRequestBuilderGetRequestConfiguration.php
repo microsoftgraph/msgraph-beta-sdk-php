@@ -2,23 +2,38 @@
 
 namespace Microsoft\Graph\Beta\Generated\PrivilegedRoles\Item\Summary;
 
+use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;
 
-class SummaryRequestBuilderGetRequestConfiguration 
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
+class SummaryRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration 
 {
-    /**
-     * @var array<string, string>|null $headers Request headers
-    */
-    public ?array $headers = null;
-    
-    /**
-     * @var array<string, RequestOption>|null $options Request options
-    */
-    public ?array $options = null;
-    
     /**
      * @var SummaryRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
     */
     public ?SummaryRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new summaryRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
+     * @param SummaryRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?SummaryRequestBuilderGetQueryParameters $queryParameters = null) {
+        parent::__construct($headers ?? [], $options ?? []);
+        $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new summaryRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return SummaryRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): SummaryRequestBuilderGetQueryParameters {
+        return new SummaryRequestBuilderGetQueryParameters($expand, $select);
+    }
+
 }

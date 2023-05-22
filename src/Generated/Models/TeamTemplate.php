@@ -25,7 +25,7 @@ class TeamTemplate extends Entity implements Parsable
     }
 
     /**
-     * Gets the definitions property value. The definitions property
+     * Gets the definitions property value. A generic representation of a team template definition for a team with a specific structure and configuration.
      * @return array<TeamTemplateDefinition>|null
     */
     public function getDefinitions(): ?array {
@@ -53,8 +53,8 @@ class TeamTemplate extends Entity implements Parsable
     }
 
     /**
-     * Sets the definitions property value. The definitions property
-     *  @param array<TeamTemplateDefinition>|null $value Value to set for the definitions property.
+     * Sets the definitions property value. A generic representation of a team template definition for a team with a specific structure and configuration.
+     * @param array<TeamTemplateDefinition>|null $value Value to set for the definitions property.
     */
     public function setDefinitions(?array $value): void {
         $this->getBackingStore()->set('definitions', $value);

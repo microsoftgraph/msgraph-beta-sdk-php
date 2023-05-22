@@ -195,7 +195,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
 
     /**
      * Sets the authenticationType property value. The authenticationType property
-     *  @param string|null $value Value to set for the authenticationType property.
+     * @param string|null $value Value to set for the authenticationType property.
     */
     public function setAuthenticationType(?string $value): void {
         $this->getBackingStore()->set('authenticationType', $value);
@@ -203,7 +203,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
 
     /**
      * Sets the authenticatorFlavor property value. The authenticatorFlavor property
-     *  @param string|null $value Value to set for the authenticatorFlavor property.
+     * @param string|null $value Value to set for the authenticatorFlavor property.
     */
     public function setAuthenticatorFlavor(?string $value): void {
         $this->getBackingStore()->set('authenticatorFlavor', $value);
@@ -211,7 +211,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
 
     /**
      * Sets the deviceId property value. The deviceId property
-     *  @param string|null $value Value to set for the deviceId property.
+     * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
         $this->getBackingStore()->set('deviceId', $value);
@@ -219,7 +219,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
 
     /**
      * Sets the deviceName property value. The deviceName property
-     *  @param string|null $value Value to set for the deviceName property.
+     * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
         $this->getBackingStore()->set('deviceName', $value);
@@ -227,7 +227,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
 
     /**
      * Sets the deviceTag property value. The deviceTag property
-     *  @param string|null $value Value to set for the deviceTag property.
+     * @param string|null $value Value to set for the deviceTag property.
     */
     public function setDeviceTag(?string $value): void {
         $this->getBackingStore()->set('deviceTag', $value);
@@ -235,7 +235,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
 
     /**
      * Sets the deviceToken property value. The deviceToken property
-     *  @param string|null $value Value to set for the deviceToken property.
+     * @param string|null $value Value to set for the deviceToken property.
     */
     public function setDeviceToken(?string $value): void {
         $this->getBackingStore()->set('deviceToken', $value);
@@ -243,7 +243,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
 
     /**
      * Sets the hashFunction property value. The hashFunction property
-     *  @param string|null $value Value to set for the hashFunction property.
+     * @param string|null $value Value to set for the hashFunction property.
     */
     public function setHashFunction(?string $value): void {
         $this->getBackingStore()->set('hashFunction', $value);
@@ -251,7 +251,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
 
     /**
      * Sets the lastAuthenticatedDateTime property value. The lastAuthenticatedDateTime property
-     *  @param DateTime|null $value Value to set for the lastAuthenticatedDateTime property.
+     * @param DateTime|null $value Value to set for the lastAuthenticatedDateTime property.
     */
     public function setLastAuthenticatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastAuthenticatedDateTime', $value);
@@ -259,7 +259,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
 
     /**
      * Sets the notificationType property value. The notificationType property
-     *  @param string|null $value Value to set for the notificationType property.
+     * @param string|null $value Value to set for the notificationType property.
     */
     public function setNotificationType(?string $value): void {
         $this->getBackingStore()->set('notificationType', $value);
@@ -267,7 +267,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
 
     /**
      * Sets the oathSecretKey property value. The oathSecretKey property
-     *  @param string|null $value Value to set for the oathSecretKey property.
+     * @param string|null $value Value to set for the oathSecretKey property.
     */
     public function setOathSecretKey(?string $value): void {
         $this->getBackingStore()->set('oathSecretKey', $value);
@@ -275,7 +275,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
 
     /**
      * Sets the oathTokenMetadata property value. The oathTokenMetadata property
-     *  @param OathTokenMetadata|null $value Value to set for the oathTokenMetadata property.
+     * @param OathTokenMetadata|null $value Value to set for the oathTokenMetadata property.
     */
     public function setOathTokenMetadata(?OathTokenMetadata $value): void {
         $this->getBackingStore()->set('oathTokenMetadata', $value);
@@ -283,7 +283,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
 
     /**
      * Sets the oathTokenTimeDriftInSeconds property value. The oathTokenTimeDriftInSeconds property
-     *  @param int|null $value Value to set for the oathTokenTimeDriftInSeconds property.
+     * @param int|null $value Value to set for the oathTokenTimeDriftInSeconds property.
     */
     public function setOathTokenTimeDriftInSeconds(?int $value): void {
         $this->getBackingStore()->set('oathTokenTimeDriftInSeconds', $value);
@@ -291,7 +291,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
 
     /**
      * Sets the phoneAppVersion property value. The phoneAppVersion property
-     *  @param string|null $value Value to set for the phoneAppVersion property.
+     * @param string|null $value Value to set for the phoneAppVersion property.
     */
     public function setPhoneAppVersion(?string $value): void {
         $this->getBackingStore()->set('phoneAppVersion', $value);
@@ -299,7 +299,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
 
     /**
      * Sets the tenantDeviceId property value. The tenantDeviceId property
-     *  @param string|null $value Value to set for the tenantDeviceId property.
+     * @param string|null $value Value to set for the tenantDeviceId property.
     */
     public function setTenantDeviceId(?string $value): void {
         $this->getBackingStore()->set('tenantDeviceId', $value);
@@ -307,7 +307,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
 
     /**
      * Sets the tokenGenerationIntervalInSeconds property value. The tokenGenerationIntervalInSeconds property
-     *  @param int|null $value Value to set for the tokenGenerationIntervalInSeconds property.
+     * @param int|null $value Value to set for the tokenGenerationIntervalInSeconds property.
     */
     public function setTokenGenerationIntervalInSeconds(?int $value): void {
         $this->getBackingStore()->set('tokenGenerationIntervalInSeconds', $value);

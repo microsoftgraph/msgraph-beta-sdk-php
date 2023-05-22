@@ -55,7 +55,7 @@ class WindowsAppIdentifier extends MobileAppIdentifier implements Parsable
 
     /**
      * Sets the windowsAppId property value. The identifier for an app, as specified in the app store.
-     *  @param string|null $value Value to set for the windowsAppId property.
+     * @param string|null $value Value to set for the windowsAppId property.
     */
     public function setWindowsAppId(?string $value): void {
         $this->getBackingStore()->set('windowsAppId', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Remove an access package from the list of access packages that have been marked as incompatible on an accessPackage.  
+*/
 class RefRequestBuilderDeleteQueryParameters 
 {
     /**
@@ -12,4 +15,12 @@ class RefRequestBuilderDeleteQueryParameters
     */
     public ?string $id = null;
     
+    /**
+     * Instantiates a new RefRequestBuilderDeleteQueryParameters and sets the default values.
+     * @param string|null $id Delete Uri
+    */
+    public function __construct(?string $id = null) {
+        $this->id = $id;
+    }
+
 }

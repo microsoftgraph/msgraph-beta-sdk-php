@@ -36,7 +36,7 @@ class MakePermanentPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -100,7 +100,7 @@ class MakePermanentPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,7 +108,7 @@ class MakePermanentPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -116,7 +116,7 @@ class MakePermanentPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the reason property value. The reason property
-     *  @param string|null $value Value to set for the reason property.
+     * @param string|null $value Value to set for the reason property.
     */
     public function setReason(?string $value): void {
         $this->getBackingStore()->set('reason', $value);
@@ -124,7 +124,7 @@ class MakePermanentPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the ticketNumber property value. The ticketNumber property
-     *  @param string|null $value Value to set for the ticketNumber property.
+     * @param string|null $value Value to set for the ticketNumber property.
     */
     public function setTicketNumber(?string $value): void {
         $this->getBackingStore()->set('ticketNumber', $value);
@@ -132,7 +132,7 @@ class MakePermanentPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the ticketSystem property value. The ticketSystem property
-     *  @param string|null $value Value to set for the ticketSystem property.
+     * @param string|null $value Value to set for the ticketSystem property.
     */
     public function setTicketSystem(?string $value): void {
         $this->getBackingStore()->set('ticketSystem', $value);

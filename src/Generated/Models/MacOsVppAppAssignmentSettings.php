@@ -32,9 +32,27 @@ class MacOsVppAppAssignmentSettings extends MobileAppAssignmentSettings implemen
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'preventAutoAppUpdate' => fn(ParseNode $n) => $o->setPreventAutoAppUpdate($n->getBooleanValue()),
+            'preventManagedAppBackup' => fn(ParseNode $n) => $o->setPreventManagedAppBackup($n->getBooleanValue()),
             'uninstallOnDeviceRemoval' => fn(ParseNode $n) => $o->setUninstallOnDeviceRemoval($n->getBooleanValue()),
             'useDeviceLicensing' => fn(ParseNode $n) => $o->setUseDeviceLicensing($n->getBooleanValue()),
         ]);
+    }
+
+    /**
+     * Gets the preventAutoAppUpdate property value. When TRUE, indicates that the app should not be automatically updated with the latest version from Apple app store. When FALSE, indicates that the app may be auto updated. By default, this property is set to null which internally is treated as FALSE.
+     * @return bool|null
+    */
+    public function getPreventAutoAppUpdate(): ?bool {
+        return $this->getBackingStore()->get('preventAutoAppUpdate');
+    }
+
+    /**
+     * Gets the preventManagedAppBackup property value. When TRUE, indicates that the app should not be backed up to iCloud. When FALSE, indicates that the app may be backed up to iCloud. By default, this property is set to null which internally is treated as FALSE.
+     * @return bool|null
+    */
+    public function getPreventManagedAppBackup(): ?bool {
+        return $this->getBackingStore()->get('preventManagedAppBackup');
     }
 
     /**
@@ -59,13 +77,31 @@ class MacOsVppAppAssignmentSettings extends MobileAppAssignmentSettings implemen
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeBooleanValue('preventAutoAppUpdate', $this->getPreventAutoAppUpdate());
+        $writer->writeBooleanValue('preventManagedAppBackup', $this->getPreventManagedAppBackup());
         $writer->writeBooleanValue('uninstallOnDeviceRemoval', $this->getUninstallOnDeviceRemoval());
         $writer->writeBooleanValue('useDeviceLicensing', $this->getUseDeviceLicensing());
     }
 
     /**
+     * Sets the preventAutoAppUpdate property value. When TRUE, indicates that the app should not be automatically updated with the latest version from Apple app store. When FALSE, indicates that the app may be auto updated. By default, this property is set to null which internally is treated as FALSE.
+     * @param bool|null $value Value to set for the preventAutoAppUpdate property.
+    */
+    public function setPreventAutoAppUpdate(?bool $value): void {
+        $this->getBackingStore()->set('preventAutoAppUpdate', $value);
+    }
+
+    /**
+     * Sets the preventManagedAppBackup property value. When TRUE, indicates that the app should not be backed up to iCloud. When FALSE, indicates that the app may be backed up to iCloud. By default, this property is set to null which internally is treated as FALSE.
+     * @param bool|null $value Value to set for the preventManagedAppBackup property.
+    */
+    public function setPreventManagedAppBackup(?bool $value): void {
+        $this->getBackingStore()->set('preventManagedAppBackup', $value);
+    }
+
+    /**
      * Sets the uninstallOnDeviceRemoval property value. Whether or not to uninstall the app when device is removed from Intune.
-     *  @param bool|null $value Value to set for the uninstallOnDeviceRemoval property.
+     * @param bool|null $value Value to set for the uninstallOnDeviceRemoval property.
     */
     public function setUninstallOnDeviceRemoval(?bool $value): void {
         $this->getBackingStore()->set('uninstallOnDeviceRemoval', $value);
@@ -73,7 +109,7 @@ class MacOsVppAppAssignmentSettings extends MobileAppAssignmentSettings implemen
 
     /**
      * Sets the useDeviceLicensing property value. Whether or not to use device licensing.
-     *  @param bool|null $value Value to set for the useDeviceLicensing property.
+     * @param bool|null $value Value to set for the useDeviceLicensing property.
     */
     public function setUseDeviceLicensing(?bool $value): void {
         $this->getBackingStore()->set('useDeviceLicensing', $value);

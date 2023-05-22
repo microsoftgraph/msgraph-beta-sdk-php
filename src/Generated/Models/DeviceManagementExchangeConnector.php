@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementExchangeConnector extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementExchangeConnector and sets the default values.
+     * Instantiates a new DeviceManagementExchangeConnector and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -135,7 +135,7 @@ class DeviceManagementExchangeConnector extends Entity implements Parsable
 
     /**
      * Sets the connectorServerName property value. The name of the server hosting the Exchange Connector.
-     *  @param string|null $value Value to set for the connectorServerName property.
+     * @param string|null $value Value to set for the connectorServerName property.
     */
     public function setConnectorServerName(?string $value): void {
         $this->getBackingStore()->set('connectorServerName', $value);
@@ -143,7 +143,7 @@ class DeviceManagementExchangeConnector extends Entity implements Parsable
 
     /**
      * Sets the exchangeAlias property value. An alias assigned to the Exchange server
-     *  @param string|null $value Value to set for the exchangeAlias property.
+     * @param string|null $value Value to set for the exchangeAlias property.
     */
     public function setExchangeAlias(?string $value): void {
         $this->getBackingStore()->set('exchangeAlias', $value);
@@ -151,7 +151,7 @@ class DeviceManagementExchangeConnector extends Entity implements Parsable
 
     /**
      * Sets the exchangeConnectorType property value. The type of Exchange Connector.
-     *  @param DeviceManagementExchangeConnectorType|null $value Value to set for the exchangeConnectorType property.
+     * @param DeviceManagementExchangeConnectorType|null $value Value to set for the exchangeConnectorType property.
     */
     public function setExchangeConnectorType(?DeviceManagementExchangeConnectorType $value): void {
         $this->getBackingStore()->set('exchangeConnectorType', $value);
@@ -159,7 +159,7 @@ class DeviceManagementExchangeConnector extends Entity implements Parsable
 
     /**
      * Sets the exchangeOrganization property value. Exchange Organization to the Exchange server
-     *  @param string|null $value Value to set for the exchangeOrganization property.
+     * @param string|null $value Value to set for the exchangeOrganization property.
     */
     public function setExchangeOrganization(?string $value): void {
         $this->getBackingStore()->set('exchangeOrganization', $value);
@@ -167,7 +167,7 @@ class DeviceManagementExchangeConnector extends Entity implements Parsable
 
     /**
      * Sets the lastSyncDateTime property value. Last sync time for the Exchange Connector
-     *  @param DateTime|null $value Value to set for the lastSyncDateTime property.
+     * @param DateTime|null $value Value to set for the lastSyncDateTime property.
     */
     public function setLastSyncDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSyncDateTime', $value);
@@ -175,7 +175,7 @@ class DeviceManagementExchangeConnector extends Entity implements Parsable
 
     /**
      * Sets the primarySmtpAddress property value. Email address used to configure the Service To Service Exchange Connector.
-     *  @param string|null $value Value to set for the primarySmtpAddress property.
+     * @param string|null $value Value to set for the primarySmtpAddress property.
     */
     public function setPrimarySmtpAddress(?string $value): void {
         $this->getBackingStore()->set('primarySmtpAddress', $value);
@@ -183,7 +183,7 @@ class DeviceManagementExchangeConnector extends Entity implements Parsable
 
     /**
      * Sets the serverName property value. The name of the Exchange server.
-     *  @param string|null $value Value to set for the serverName property.
+     * @param string|null $value Value to set for the serverName property.
     */
     public function setServerName(?string $value): void {
         $this->getBackingStore()->set('serverName', $value);
@@ -191,7 +191,7 @@ class DeviceManagementExchangeConnector extends Entity implements Parsable
 
     /**
      * Sets the status property value. The current status of the Exchange Connector.
-     *  @param DeviceManagementExchangeConnectorStatus|null $value Value to set for the status property.
+     * @param DeviceManagementExchangeConnectorStatus|null $value Value to set for the status property.
     */
     public function setStatus(?DeviceManagementExchangeConnectorStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -199,7 +199,7 @@ class DeviceManagementExchangeConnector extends Entity implements Parsable
 
     /**
      * Sets the version property value. The version of the ExchangeConnectorAgent
-     *  @param string|null $value Value to set for the version property.
+     * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {
         $this->getBackingStore()->set('version', $value);

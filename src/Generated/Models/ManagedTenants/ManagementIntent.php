@@ -75,7 +75,7 @@ class ManagementIntent extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name for the management intent. Optional. Read-only.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -83,7 +83,7 @@ class ManagementIntent extends Entity implements Parsable
 
     /**
      * Sets the isGlobal property value. A flag indicating whether the management intent is global. Required. Read-only.
-     *  @param bool|null $value Value to set for the isGlobal property.
+     * @param bool|null $value Value to set for the isGlobal property.
     */
     public function setIsGlobal(?bool $value): void {
         $this->getBackingStore()->set('isGlobal', $value);
@@ -91,7 +91,7 @@ class ManagementIntent extends Entity implements Parsable
 
     /**
      * Sets the managementTemplates property value. The collection of management templates associated with the management intent. Optional. Read-only.
-     *  @param array<ManagementTemplateDetailedInfo>|null $value Value to set for the managementTemplates property.
+     * @param array<ManagementTemplateDetailedInfo>|null $value Value to set for the managementTemplates property.
     */
     public function setManagementTemplates(?array $value): void {
         $this->getBackingStore()->set('managementTemplates', $value);

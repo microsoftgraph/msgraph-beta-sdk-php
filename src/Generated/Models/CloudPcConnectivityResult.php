@@ -37,7 +37,7 @@ class CloudPcConnectivityResult implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -111,7 +111,7 @@ class CloudPcConnectivityResult implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -119,7 +119,7 @@ class CloudPcConnectivityResult implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -127,7 +127,7 @@ class CloudPcConnectivityResult implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the failedHealthCheckItems property value. A list of failed health check items. If the status property is available, this property will be empty.
-     *  @param array<CloudPcHealthCheckItem>|null $value Value to set for the failedHealthCheckItems property.
+     * @param array<CloudPcHealthCheckItem>|null $value Value to set for the failedHealthCheckItems property.
     */
     public function setFailedHealthCheckItems(?array $value): void {
         $this->getBackingStore()->set('failedHealthCheckItems', $value);
@@ -135,7 +135,7 @@ class CloudPcConnectivityResult implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -143,7 +143,7 @@ class CloudPcConnectivityResult implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the status property value. The status property
-     *  @param CloudPcConnectivityStatus|null $value Value to set for the status property.
+     * @param CloudPcConnectivityStatus|null $value Value to set for the status property.
     */
     public function setStatus(?CloudPcConnectivityStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -151,7 +151,7 @@ class CloudPcConnectivityResult implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the updatedDateTime property value. Datetime when the status was updated. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the updatedDateTime property.
+     * @param DateTime|null $value Value to set for the updatedDateTime property.
     */
     public function setUpdatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('updatedDateTime', $value);

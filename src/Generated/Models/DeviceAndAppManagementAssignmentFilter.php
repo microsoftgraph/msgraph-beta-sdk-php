@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceAndAppManagementAssignmentFilter and sets the default values.
+     * Instantiates a new DeviceAndAppManagementAssignmentFilter and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -33,7 +33,15 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. Creation time of the Assignment Filter.
+     * Gets the assignmentFilterManagementType property value. Supported filter management types whether its devices or apps.
+     * @return AssignmentFilterManagementType|null
+    */
+    public function getAssignmentFilterManagementType(): ?AssignmentFilterManagementType {
+        return $this->getBackingStore()->get('assignmentFilterManagementType');
+    }
+
+    /**
+     * Gets the createdDateTime property value. The creation time of the assignment filter. The value cannot be modified and is automatically populated during new assignment filter process. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -41,7 +49,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. Description of the Assignment Filter.
+     * Gets the description property value. Optional description of the Assignment Filter.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -49,7 +57,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. DisplayName of the Assignment Filter.
+     * Gets the displayName property value. The name of the Assignment Filter.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -63,6 +71,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'assignmentFilterManagementType' => fn(ParseNode $n) => $o->setAssignmentFilterManagementType($n->getEnumValue(AssignmentFilterManagementType::class)),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
@@ -75,7 +84,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. Last modified time of the Assignment Filter.
+     * Gets the lastModifiedDateTime property value. Last modified time of the Assignment Filter. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -83,7 +92,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     }
 
     /**
-     * Gets the payloads property value. Associated assignments for a specific filter
+     * Gets the payloads property value. Indicates associated assignments for a specific filter.
      * @return array<PayloadByFilter>|null
     */
     public function getPayloads(): ?array {
@@ -99,7 +108,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     }
 
     /**
-     * Gets the roleScopeTags property value. RoleScopeTags of the Assignment Filter.
+     * Gets the roleScopeTags property value. Indicates role scope tags assigned for the assignment filter.
      * @return array<string>|null
     */
     public function getRoleScopeTags(): ?array {
@@ -107,7 +116,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     }
 
     /**
-     * Gets the rule property value. Rule definition of the Assignment Filter.
+     * Gets the rule property value. Rule definition of the assignment filter.
      * @return string|null
     */
     public function getRule(): ?string {
@@ -120,6 +129,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeEnumValue('assignmentFilterManagementType', $this->getAssignmentFilterManagementType());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
@@ -131,40 +141,48 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. Creation time of the Assignment Filter.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * Sets the assignmentFilterManagementType property value. Supported filter management types whether its devices or apps.
+     * @param AssignmentFilterManagementType|null $value Value to set for the assignmentFilterManagementType property.
+    */
+    public function setAssignmentFilterManagementType(?AssignmentFilterManagementType $value): void {
+        $this->getBackingStore()->set('assignmentFilterManagementType', $value);
+    }
+
+    /**
+     * Sets the createdDateTime property value. The creation time of the assignment filter. The value cannot be modified and is automatically populated during new assignment filter process. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
-     * Sets the description property value. Description of the Assignment Filter.
-     *  @param string|null $value Value to set for the description property.
+     * Sets the description property value. Optional description of the Assignment Filter.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
     }
 
     /**
-     * Sets the displayName property value. DisplayName of the Assignment Filter.
-     *  @param string|null $value Value to set for the displayName property.
+     * Sets the displayName property value. The name of the Assignment Filter.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. Last modified time of the Assignment Filter.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * Sets the lastModifiedDateTime property value. Last modified time of the Assignment Filter. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
-     * Sets the payloads property value. Associated assignments for a specific filter
-     *  @param array<PayloadByFilter>|null $value Value to set for the payloads property.
+     * Sets the payloads property value. Indicates associated assignments for a specific filter.
+     * @param array<PayloadByFilter>|null $value Value to set for the payloads property.
     */
     public function setPayloads(?array $value): void {
         $this->getBackingStore()->set('payloads', $value);
@@ -172,23 +190,23 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
 
     /**
      * Sets the platform property value. Supported platform types.
-     *  @param DevicePlatformType|null $value Value to set for the platform property.
+     * @param DevicePlatformType|null $value Value to set for the platform property.
     */
     public function setPlatform(?DevicePlatformType $value): void {
         $this->getBackingStore()->set('platform', $value);
     }
 
     /**
-     * Sets the roleScopeTags property value. RoleScopeTags of the Assignment Filter.
-     *  @param array<string>|null $value Value to set for the roleScopeTags property.
+     * Sets the roleScopeTags property value. Indicates role scope tags assigned for the assignment filter.
+     * @param array<string>|null $value Value to set for the roleScopeTags property.
     */
     public function setRoleScopeTags(?array $value): void {
         $this->getBackingStore()->set('roleScopeTags', $value);
     }
 
     /**
-     * Sets the rule property value. Rule definition of the Assignment Filter.
-     *  @param string|null $value Value to set for the rule property.
+     * Sets the rule property value. Rule definition of the assignment filter.
+     * @param string|null $value Value to set for the rule property.
     */
     public function setRule(?string $value): void {
         $this->getBackingStore()->set('rule', $value);

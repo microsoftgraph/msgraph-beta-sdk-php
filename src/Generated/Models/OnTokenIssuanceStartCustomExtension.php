@@ -26,7 +26,7 @@ class OnTokenIssuanceStartCustomExtension extends CustomAuthenticationExtension 
     }
 
     /**
-     * Gets the claimsForTokenConfiguration property value. The claimsForTokenConfiguration property
+     * Gets the claimsForTokenConfiguration property value. Collection of claims to be returned by the API called by this custom authentication extension.
      * @return array<OnTokenIssuanceStartReturnClaim>|null
     */
     public function getClaimsForTokenConfiguration(): ?array {
@@ -54,8 +54,8 @@ class OnTokenIssuanceStartCustomExtension extends CustomAuthenticationExtension 
     }
 
     /**
-     * Sets the claimsForTokenConfiguration property value. The claimsForTokenConfiguration property
-     *  @param array<OnTokenIssuanceStartReturnClaim>|null $value Value to set for the claimsForTokenConfiguration property.
+     * Sets the claimsForTokenConfiguration property value. Collection of claims to be returned by the API called by this custom authentication extension.
+     * @param array<OnTokenIssuanceStartReturnClaim>|null $value Value to set for the claimsForTokenConfiguration property.
     */
     public function setClaimsForTokenConfiguration(?array $value): void {
         $this->getBackingStore()->set('claimsForTokenConfiguration', $value);

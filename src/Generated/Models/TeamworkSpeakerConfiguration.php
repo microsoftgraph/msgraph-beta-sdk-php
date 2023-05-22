@@ -36,7 +36,7 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -130,7 +130,7 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -138,7 +138,7 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -146,7 +146,7 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the defaultCommunicationSpeaker property value. The defaultCommunicationSpeaker property
-     *  @param TeamworkPeripheral|null $value Value to set for the defaultCommunicationSpeaker property.
+     * @param TeamworkPeripheral|null $value Value to set for the defaultCommunicationSpeaker property.
     */
     public function setDefaultCommunicationSpeaker(?TeamworkPeripheral $value): void {
         $this->getBackingStore()->set('defaultCommunicationSpeaker', $value);
@@ -154,7 +154,7 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the defaultSpeaker property value. The defaultSpeaker property
-     *  @param TeamworkPeripheral|null $value Value to set for the defaultSpeaker property.
+     * @param TeamworkPeripheral|null $value Value to set for the defaultSpeaker property.
     */
     public function setDefaultSpeaker(?TeamworkPeripheral $value): void {
         $this->getBackingStore()->set('defaultSpeaker', $value);
@@ -162,7 +162,7 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the isCommunicationSpeakerOptional property value. True if the communication speaker is optional. Used to compute the health state if the communication speaker is not optional.
-     *  @param bool|null $value Value to set for the isCommunicationSpeakerOptional property.
+     * @param bool|null $value Value to set for the isCommunicationSpeakerOptional property.
     */
     public function setIsCommunicationSpeakerOptional(?bool $value): void {
         $this->getBackingStore()->set('isCommunicationSpeakerOptional', $value);
@@ -170,7 +170,7 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the isSpeakerOptional property value. True if the configured speaker is optional. Used to compute the health state if the speaker is not optional.
-     *  @param bool|null $value Value to set for the isSpeakerOptional property.
+     * @param bool|null $value Value to set for the isSpeakerOptional property.
     */
     public function setIsSpeakerOptional(?bool $value): void {
         $this->getBackingStore()->set('isSpeakerOptional', $value);
@@ -178,7 +178,7 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -186,7 +186,7 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the speakers property value. The speakers property
-     *  @param array<TeamworkPeripheral>|null $value Value to set for the speakers property.
+     * @param array<TeamworkPeripheral>|null $value Value to set for the speakers property.
     */
     public function setSpeakers(?array $value): void {
         $this->getBackingStore()->set('speakers', $value);

@@ -7,24 +7,19 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\ActivateDeviceEsim\ActivateDeviceEsimRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\AssignmentFilterEvaluationStatusDetails\AssignmentFilterEvaluationStatusDetailsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\AssignmentFilterEvaluationStatusDetails\Item\AssignmentFilterEvaluationStatusDetailsItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\BypassActivationLock\BypassActivationLockRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\CleanWindowsDevice\CleanWindowsDeviceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\CreateDeviceLogCollectionRequest\CreateDeviceLogCollectionRequestRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\CreateRemoteHelpSession\CreateRemoteHelpSessionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\DeleteUserFromSharedAppleDevice\DeleteUserFromSharedAppleDeviceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\Deprovision\DeprovisionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\DetectedApps\DetectedAppsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\DetectedApps\Item\DetectedAppItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\DeviceCategory\DeviceCategoryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\DeviceCompliancePolicyStates\DeviceCompliancePolicyStatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\DeviceCompliancePolicyStates\Item\DeviceCompliancePolicyStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\DeviceConfigurationStates\DeviceConfigurationStatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\DeviceConfigurationStates\Item\DeviceConfigurationStateItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\DeviceHealthScriptStates\DeviceHealthScriptStatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\Disable\DisableRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\DisableLostMode\DisableLostModeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\EnableLostMode\EnableLostModeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\EndRemoteHelpSession\EndRemoteHelpSessionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\EnrollNowAction\EnrollNowActionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\GetCloudPcRemoteActionResults\GetCloudPcRemoteActionResultsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\GetCloudPcReviewStatus\GetCloudPcReviewStatusRequestBuilder;
@@ -32,11 +27,10 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\GetFileV
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\GetNonCompliantSettings\GetNonCompliantSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\GetOemWarranty\GetOemWarrantyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\InitiateMobileDeviceManagementKeyRecovery\InitiateMobileDeviceManagementKeyRecoveryRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\InitiateOnDemandProactiveRemediation\InitiateOnDemandProactiveRemediationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\LocateDevice\LocateDeviceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\LogCollectionRequests\Item\DeviceLogCollectionResponseItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\LogCollectionRequests\LogCollectionRequestsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\LogoutSharedAppleDeviceActiveUser\LogoutSharedAppleDeviceActiveUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\ManagedDeviceMobileAppConfigurationStates\Item\ManagedDeviceMobileAppConfigurationStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\ManagedDeviceMobileAppConfigurationStates\ManagedDeviceMobileAppConfigurationStatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\OverrideComplianceState\OverrideComplianceStateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\PlayLostModeSound\PlayLostModeSoundRequestBuilder;
@@ -47,16 +41,14 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\RemoteLo
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\RemoveDeviceFirmwareConfigurationInterfaceManagement\RemoveDeviceFirmwareConfigurationInterfaceManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\ReprovisionCloudPc\ReprovisionCloudPcRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\RequestRemoteAssistance\RequestRemoteAssistanceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\RequestRemoteHelpSessionAccess\RequestRemoteHelpSessionAccessRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\ResetPasscode\ResetPasscodeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\ResizeCloudPc\ResizeCloudPcRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\RestoreCloudPc\RestoreCloudPcRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\Retire\RetireRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\RetrieveRemoteHelpSessionWithSessionKey\RetrieveRemoteHelpSessionWithSessionKeyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\RevokeAppleVppLicenses\RevokeAppleVppLicensesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\RotateBitLockerKeys\RotateBitLockerKeysRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\RotateFileVaultKey\RotateFileVaultKeyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\SecurityBaselineStates\Item\SecurityBaselineStateItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\RotateLocalAdminPassword\RotateLocalAdminPasswordRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\SecurityBaselineStates\SecurityBaselineStatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\SendCustomNotificationToCompanyPortal\SendCustomNotificationToCompanyPortalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\SetCloudPcReviewStatus\SetCloudPcReviewStatusRequestBuilder;
@@ -72,15 +64,15 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\WindowsP
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\Wipe\WipeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ManagedDevice;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
-class ManagedDeviceItemRequestBuilder 
+/**
+ * Provides operations to manage the managedDevices property of the microsoft.graph.deviceManagement entity.
+*/
+class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to call the activateDeviceEsim method.
@@ -115,13 +107,6 @@ class ManagedDeviceItemRequestBuilder
     */
     public function createDeviceLogCollectionRequest(): CreateDeviceLogCollectionRequestRequestBuilder {
         return new CreateDeviceLogCollectionRequestRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the createRemoteHelpSession method.
-    */
-    public function createRemoteHelpSession(): CreateRemoteHelpSessionRequestBuilder {
-        return new CreateRemoteHelpSessionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -167,6 +152,13 @@ class ManagedDeviceItemRequestBuilder
     }
     
     /**
+     * Provides operations to manage the deviceHealthScriptStates property of the microsoft.graph.managedDevice entity.
+    */
+    public function deviceHealthScriptStates(): DeviceHealthScriptStatesRequestBuilder {
+        return new DeviceHealthScriptStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the disable method.
     */
     public function disable(): DisableRequestBuilder {
@@ -188,13 +180,6 @@ class ManagedDeviceItemRequestBuilder
     }
     
     /**
-     * Provides operations to call the endRemoteHelpSession method.
-    */
-    public function endRemoteHelpSession(): EndRemoteHelpSessionRequestBuilder {
-        return new EndRemoteHelpSessionRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to call the enrollNowAction method.
     */
     public function enrollNowAction(): EnrollNowActionRequestBuilder {
@@ -202,10 +187,52 @@ class ManagedDeviceItemRequestBuilder
     }
     
     /**
+     * Provides operations to call the getCloudPcRemoteActionResults method.
+    */
+    public function getCloudPcRemoteActionResults(): GetCloudPcRemoteActionResultsRequestBuilder {
+        return new GetCloudPcRemoteActionResultsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getCloudPcReviewStatus method.
+    */
+    public function getCloudPcReviewStatus(): GetCloudPcReviewStatusRequestBuilder {
+        return new GetCloudPcReviewStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getFileVaultKey method.
+    */
+    public function getFileVaultKey(): GetFileVaultKeyRequestBuilder {
+        return new GetFileVaultKeyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getNonCompliantSettings method.
+    */
+    public function getNonCompliantSettings(): GetNonCompliantSettingsRequestBuilder {
+        return new GetNonCompliantSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getOemWarranty method.
+    */
+    public function getOemWarranty(): GetOemWarrantyRequestBuilder {
+        return new GetOemWarrantyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the initiateMobileDeviceManagementKeyRecovery method.
     */
     public function initiateMobileDeviceManagementKeyRecovery(): InitiateMobileDeviceManagementKeyRecoveryRequestBuilder {
         return new InitiateMobileDeviceManagementKeyRecoveryRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the initiateOnDemandProactiveRemediation method.
+    */
+    public function initiateOnDemandProactiveRemediation(): InitiateOnDemandProactiveRemediationRequestBuilder {
+        return new InitiateOnDemandProactiveRemediationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -242,11 +269,6 @@ class ManagedDeviceItemRequestBuilder
     public function overrideComplianceState(): OverrideComplianceStateRequestBuilder {
         return new OverrideComplianceStateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
-    
-    /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
     
     /**
      * Provides operations to call the playLostModeSound method.
@@ -298,22 +320,10 @@ class ManagedDeviceItemRequestBuilder
     }
     
     /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
      * Provides operations to call the requestRemoteAssistance method.
     */
     public function requestRemoteAssistance(): RequestRemoteAssistanceRequestBuilder {
         return new RequestRemoteAssistanceRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the requestRemoteHelpSessionAccess method.
-    */
-    public function requestRemoteHelpSessionAccess(): RequestRemoteHelpSessionAccessRequestBuilder {
-        return new RequestRemoteHelpSessionAccessRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -363,6 +373,13 @@ class ManagedDeviceItemRequestBuilder
     */
     public function rotateFileVaultKey(): RotateFileVaultKeyRequestBuilder {
         return new RotateFileVaultKeyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the rotateLocalAdminPassword method.
+    */
+    public function rotateLocalAdminPassword(): RotateLocalAdminPasswordRequestBuilder {
+        return new RotateLocalAdminPasswordRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -422,11 +439,6 @@ class ManagedDeviceItemRequestBuilder
     }
     
     /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
      * Provides operations to manage the users property of the microsoft.graph.managedDevice entity.
     */
     public function users(): UsersRequestBuilder {
@@ -462,198 +474,72 @@ class ManagedDeviceItemRequestBuilder
     }
     
     /**
-     * Provides operations to manage the assignmentFilterEvaluationStatusDetails property of the microsoft.graph.managedDevice entity.
-     * @param string $id Unique identifier of the item
-     * @return AssignmentFilterEvaluationStatusDetailsItemRequestBuilder
-    */
-    public function assignmentFilterEvaluationStatusDetailsById(string $id): AssignmentFilterEvaluationStatusDetailsItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['assignmentFilterEvaluationStatusDetails%2Did'] = $id;
-        return new AssignmentFilterEvaluationStatusDetailsItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new ManagedDeviceItemRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}{?%24select,%24expand}');
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
      * Delete navigation property managedDevices for deviceManagement
      * @param ManagedDeviceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?ManagedDeviceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?ManagedDeviceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Provides operations to manage the detectedApps property of the microsoft.graph.managedDevice entity.
-     * @param string $id Unique identifier of the item
-     * @return DetectedAppItemRequestBuilder
-    */
-    public function detectedAppsById(string $id): DetectedAppItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['detectedApp%2Did'] = $id;
-        return new DetectedAppItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the deviceCompliancePolicyStates property of the microsoft.graph.managedDevice entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceCompliancePolicyStateItemRequestBuilder
-    */
-    public function deviceCompliancePolicyStatesById(string $id): DeviceCompliancePolicyStateItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceCompliancePolicyState%2Did'] = $id;
-        return new DeviceCompliancePolicyStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the deviceConfigurationStates property of the microsoft.graph.managedDevice entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceConfigurationStateItemRequestBuilder
-    */
-    public function deviceConfigurationStatesById(string $id): DeviceConfigurationStateItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceConfigurationState%2Did'] = $id;
-        return new DeviceConfigurationStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * The list of managed devices.
      * @param ManagedDeviceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?ManagedDeviceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?ManagedDeviceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [ManagedDevice::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [ManagedDevice::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to call the getCloudPcRemoteActionResults method.
-     * @return GetCloudPcRemoteActionResultsRequestBuilder
-    */
-    public function getCloudPcRemoteActionResults(): GetCloudPcRemoteActionResultsRequestBuilder {
-        return new GetCloudPcRemoteActionResultsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the getCloudPcReviewStatus method.
-     * @return GetCloudPcReviewStatusRequestBuilder
-    */
-    public function getCloudPcReviewStatus(): GetCloudPcReviewStatusRequestBuilder {
-        return new GetCloudPcReviewStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the getFileVaultKey method.
-     * @return GetFileVaultKeyRequestBuilder
-    */
-    public function getFileVaultKey(): GetFileVaultKeyRequestBuilder {
-        return new GetFileVaultKeyRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the getNonCompliantSettings method.
-     * @return GetNonCompliantSettingsRequestBuilder
-    */
-    public function getNonCompliantSettings(): GetNonCompliantSettingsRequestBuilder {
-        return new GetNonCompliantSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the getOemWarranty method.
-     * @return GetOemWarrantyRequestBuilder
-    */
-    public function getOemWarranty(): GetOemWarrantyRequestBuilder {
-        return new GetOemWarrantyRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the logCollectionRequests property of the microsoft.graph.managedDevice entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceLogCollectionResponseItemRequestBuilder
-    */
-    public function logCollectionRequestsById(string $id): DeviceLogCollectionResponseItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceLogCollectionResponse%2Did'] = $id;
-        return new DeviceLogCollectionResponseItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the managedDeviceMobileAppConfigurationStates property of the microsoft.graph.managedDevice entity.
-     * @param string $id Unique identifier of the item
-     * @return ManagedDeviceMobileAppConfigurationStateItemRequestBuilder
-    */
-    public function managedDeviceMobileAppConfigurationStatesById(string $id): ManagedDeviceMobileAppConfigurationStateItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['managedDeviceMobileAppConfigurationState%2Did'] = $id;
-        return new ManagedDeviceMobileAppConfigurationStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Update the navigation property managedDevices in deviceManagement
      * @param ManagedDevice $body The request body
      * @param ManagedDeviceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(ManagedDevice $body, ?ManagedDeviceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(ManagedDevice $body, ?ManagedDeviceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [ManagedDevice::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [ManagedDevice::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to call the retrieveRemoteHelpSession method.
-     * @param string $sessionKey Usage: sessionKey='{sessionKey}'
-     * @return RetrieveRemoteHelpSessionWithSessionKeyRequestBuilder
-    */
-    public function retrieveRemoteHelpSessionWithSessionKey(string $sessionKey): RetrieveRemoteHelpSessionWithSessionKeyRequestBuilder {
-        return new RetrieveRemoteHelpSessionWithSessionKeyRequestBuilder($this->pathParameters, $this->requestAdapter, $sessionKey);
-    }
-
-    /**
-     * Provides operations to manage the securityBaselineStates property of the microsoft.graph.managedDevice entity.
-     * @param string $id Unique identifier of the item
-     * @return SecurityBaselineStateItemRequestBuilder
-    */
-    public function securityBaselineStatesById(string $id): SecurityBaselineStateItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['securityBaselineState%2Did'] = $id;
-        return new SecurityBaselineStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -667,12 +553,8 @@ class ManagedDeviceItemRequestBuilder
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -687,17 +569,13 @@ class ManagedDeviceItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -713,14 +591,10 @@ class ManagedDeviceItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

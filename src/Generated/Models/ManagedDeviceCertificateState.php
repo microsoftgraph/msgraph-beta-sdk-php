@@ -285,7 +285,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateEnhancedKeyUsage property value. Extended key usage
-     *  @param string|null $value Value to set for the certificateEnhancedKeyUsage property.
+     * @param string|null $value Value to set for the certificateEnhancedKeyUsage property.
     */
     public function setCertificateEnhancedKeyUsage(?string $value): void {
         $this->getBackingStore()->set('certificateEnhancedKeyUsage', $value);
@@ -293,7 +293,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateErrorCode property value. Error code
-     *  @param int|null $value Value to set for the certificateErrorCode property.
+     * @param int|null $value Value to set for the certificateErrorCode property.
     */
     public function setCertificateErrorCode(?int $value): void {
         $this->getBackingStore()->set('certificateErrorCode', $value);
@@ -301,7 +301,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateExpirationDateTime property value. Certificate expiry date
-     *  @param DateTime|null $value Value to set for the certificateExpirationDateTime property.
+     * @param DateTime|null $value Value to set for the certificateExpirationDateTime property.
     */
     public function setCertificateExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('certificateExpirationDateTime', $value);
@@ -309,7 +309,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateIssuanceDateTime property value. Issuance date
-     *  @param DateTime|null $value Value to set for the certificateIssuanceDateTime property.
+     * @param DateTime|null $value Value to set for the certificateIssuanceDateTime property.
     */
     public function setCertificateIssuanceDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('certificateIssuanceDateTime', $value);
@@ -317,7 +317,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateIssuanceState property value. Certificate Issuance State Options.
-     *  @param CertificateIssuanceStates|null $value Value to set for the certificateIssuanceState property.
+     * @param CertificateIssuanceStates|null $value Value to set for the certificateIssuanceState property.
     */
     public function setCertificateIssuanceState(?CertificateIssuanceStates $value): void {
         $this->getBackingStore()->set('certificateIssuanceState', $value);
@@ -325,7 +325,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateIssuer property value. Issuer
-     *  @param string|null $value Value to set for the certificateIssuer property.
+     * @param string|null $value Value to set for the certificateIssuer property.
     */
     public function setCertificateIssuer(?string $value): void {
         $this->getBackingStore()->set('certificateIssuer', $value);
@@ -333,7 +333,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateKeyLength property value. Key length
-     *  @param int|null $value Value to set for the certificateKeyLength property.
+     * @param int|null $value Value to set for the certificateKeyLength property.
     */
     public function setCertificateKeyLength(?int $value): void {
         $this->getBackingStore()->set('certificateKeyLength', $value);
@@ -341,7 +341,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateKeyStorageProvider property value. Key Storage Provider (KSP) Import Options.
-     *  @param KeyStorageProviderOption|null $value Value to set for the certificateKeyStorageProvider property.
+     * @param KeyStorageProviderOption|null $value Value to set for the certificateKeyStorageProvider property.
     */
     public function setCertificateKeyStorageProvider(?KeyStorageProviderOption $value): void {
         $this->getBackingStore()->set('certificateKeyStorageProvider', $value);
@@ -349,7 +349,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateKeyUsage property value. Key Usage Options.
-     *  @param KeyUsages|null $value Value to set for the certificateKeyUsage property.
+     * @param KeyUsages|null $value Value to set for the certificateKeyUsage property.
     */
     public function setCertificateKeyUsage(?KeyUsages $value): void {
         $this->getBackingStore()->set('certificateKeyUsage', $value);
@@ -357,7 +357,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateLastIssuanceStateChangedDateTime property value. Last certificate issuance state change
-     *  @param DateTime|null $value Value to set for the certificateLastIssuanceStateChangedDateTime property.
+     * @param DateTime|null $value Value to set for the certificateLastIssuanceStateChangedDateTime property.
     */
     public function setCertificateLastIssuanceStateChangedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('certificateLastIssuanceStateChangedDateTime', $value);
@@ -365,7 +365,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateProfileDisplayName property value. Certificate profile display name
-     *  @param string|null $value Value to set for the certificateProfileDisplayName property.
+     * @param string|null $value Value to set for the certificateProfileDisplayName property.
     */
     public function setCertificateProfileDisplayName(?string $value): void {
         $this->getBackingStore()->set('certificateProfileDisplayName', $value);
@@ -373,7 +373,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateRevokeStatus property value. Certificate Revocation Status.
-     *  @param CertificateRevocationStatus|null $value Value to set for the certificateRevokeStatus property.
+     * @param CertificateRevocationStatus|null $value Value to set for the certificateRevokeStatus property.
     */
     public function setCertificateRevokeStatus(?CertificateRevocationStatus $value): void {
         $this->getBackingStore()->set('certificateRevokeStatus', $value);
@@ -381,7 +381,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateSerialNumber property value. Serial number
-     *  @param string|null $value Value to set for the certificateSerialNumber property.
+     * @param string|null $value Value to set for the certificateSerialNumber property.
     */
     public function setCertificateSerialNumber(?string $value): void {
         $this->getBackingStore()->set('certificateSerialNumber', $value);
@@ -389,7 +389,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateSubjectAlternativeNameFormat property value. Subject Alternative Name Options.
-     *  @param SubjectAlternativeNameType|null $value Value to set for the certificateSubjectAlternativeNameFormat property.
+     * @param SubjectAlternativeNameType|null $value Value to set for the certificateSubjectAlternativeNameFormat property.
     */
     public function setCertificateSubjectAlternativeNameFormat(?SubjectAlternativeNameType $value): void {
         $this->getBackingStore()->set('certificateSubjectAlternativeNameFormat', $value);
@@ -397,7 +397,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateSubjectAlternativeNameFormatString property value. Subject alternative name format string for custom formats
-     *  @param string|null $value Value to set for the certificateSubjectAlternativeNameFormatString property.
+     * @param string|null $value Value to set for the certificateSubjectAlternativeNameFormatString property.
     */
     public function setCertificateSubjectAlternativeNameFormatString(?string $value): void {
         $this->getBackingStore()->set('certificateSubjectAlternativeNameFormatString', $value);
@@ -405,7 +405,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateSubjectNameFormat property value. Subject Name Format Options.
-     *  @param SubjectNameFormat|null $value Value to set for the certificateSubjectNameFormat property.
+     * @param SubjectNameFormat|null $value Value to set for the certificateSubjectNameFormat property.
     */
     public function setCertificateSubjectNameFormat(?SubjectNameFormat $value): void {
         $this->getBackingStore()->set('certificateSubjectNameFormat', $value);
@@ -413,7 +413,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateSubjectNameFormatString property value. Subject name format string for custom subject name formats
-     *  @param string|null $value Value to set for the certificateSubjectNameFormatString property.
+     * @param string|null $value Value to set for the certificateSubjectNameFormatString property.
     */
     public function setCertificateSubjectNameFormatString(?string $value): void {
         $this->getBackingStore()->set('certificateSubjectNameFormatString', $value);
@@ -421,7 +421,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateThumbprint property value. Thumbprint
-     *  @param string|null $value Value to set for the certificateThumbprint property.
+     * @param string|null $value Value to set for the certificateThumbprint property.
     */
     public function setCertificateThumbprint(?string $value): void {
         $this->getBackingStore()->set('certificateThumbprint', $value);
@@ -429,7 +429,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateValidityPeriod property value. Validity period
-     *  @param int|null $value Value to set for the certificateValidityPeriod property.
+     * @param int|null $value Value to set for the certificateValidityPeriod property.
     */
     public function setCertificateValidityPeriod(?int $value): void {
         $this->getBackingStore()->set('certificateValidityPeriod', $value);
@@ -437,7 +437,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateValidityPeriodUnits property value. Certificate Validity Period Options.
-     *  @param CertificateValidityPeriodScale|null $value Value to set for the certificateValidityPeriodUnits property.
+     * @param CertificateValidityPeriodScale|null $value Value to set for the certificateValidityPeriodUnits property.
     */
     public function setCertificateValidityPeriodUnits(?CertificateValidityPeriodScale $value): void {
         $this->getBackingStore()->set('certificateValidityPeriodUnits', $value);
@@ -445,7 +445,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the deviceDisplayName property value. Device display name
-     *  @param string|null $value Value to set for the deviceDisplayName property.
+     * @param string|null $value Value to set for the deviceDisplayName property.
     */
     public function setDeviceDisplayName(?string $value): void {
         $this->getBackingStore()->set('deviceDisplayName', $value);
@@ -453,7 +453,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the devicePlatform property value. Supported platform types.
-     *  @param DevicePlatformType|null $value Value to set for the devicePlatform property.
+     * @param DevicePlatformType|null $value Value to set for the devicePlatform property.
     */
     public function setDevicePlatform(?DevicePlatformType $value): void {
         $this->getBackingStore()->set('devicePlatform', $value);
@@ -461,7 +461,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the lastCertificateStateChangeDateTime property value. Last certificate issuance state change
-     *  @param DateTime|null $value Value to set for the lastCertificateStateChangeDateTime property.
+     * @param DateTime|null $value Value to set for the lastCertificateStateChangeDateTime property.
     */
     public function setLastCertificateStateChangeDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastCertificateStateChangeDateTime', $value);
@@ -469,7 +469,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the userDisplayName property value. User display name
-     *  @param string|null $value Value to set for the userDisplayName property.
+     * @param string|null $value Value to set for the userDisplayName property.
     */
     public function setUserDisplayName(?string $value): void {
         $this->getBackingStore()->set('userDisplayName', $value);

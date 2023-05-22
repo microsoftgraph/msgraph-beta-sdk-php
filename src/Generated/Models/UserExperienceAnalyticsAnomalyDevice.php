@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsAnomalyDevice and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsAnomalyDevice and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -135,7 +135,7 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
 
     /**
      * Sets the anomalyId property value. The unique identifier of the anomaly.
-     *  @param string|null $value Value to set for the anomalyId property.
+     * @param string|null $value Value to set for the anomalyId property.
     */
     public function setAnomalyId(?string $value): void {
         $this->getBackingStore()->set('anomalyId', $value);
@@ -143,7 +143,7 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
 
     /**
      * Sets the anomalyOnDeviceFirstOccurrenceDateTime property value. Indicates the first occurance date and time for the anomaly on the device.
-     *  @param DateTime|null $value Value to set for the anomalyOnDeviceFirstOccurrenceDateTime property.
+     * @param DateTime|null $value Value to set for the anomalyOnDeviceFirstOccurrenceDateTime property.
     */
     public function setAnomalyOnDeviceFirstOccurrenceDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('anomalyOnDeviceFirstOccurrenceDateTime', $value);
@@ -151,7 +151,7 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
 
     /**
      * Sets the anomalyOnDeviceLatestOccurrenceDateTime property value. Indicates the latest occurance date and time for the anomaly on the device.
-     *  @param DateTime|null $value Value to set for the anomalyOnDeviceLatestOccurrenceDateTime property.
+     * @param DateTime|null $value Value to set for the anomalyOnDeviceLatestOccurrenceDateTime property.
     */
     public function setAnomalyOnDeviceLatestOccurrenceDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('anomalyOnDeviceLatestOccurrenceDateTime', $value);
@@ -159,7 +159,7 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
 
     /**
      * Sets the deviceId property value. The unique identifier of the device.
-     *  @param string|null $value Value to set for the deviceId property.
+     * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
         $this->getBackingStore()->set('deviceId', $value);
@@ -167,7 +167,7 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
 
     /**
      * Sets the deviceManufacturer property value. The manufacturer name of the device.
-     *  @param string|null $value Value to set for the deviceManufacturer property.
+     * @param string|null $value Value to set for the deviceManufacturer property.
     */
     public function setDeviceManufacturer(?string $value): void {
         $this->getBackingStore()->set('deviceManufacturer', $value);
@@ -175,7 +175,7 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
 
     /**
      * Sets the deviceModel property value. The model name of the device.
-     *  @param string|null $value Value to set for the deviceModel property.
+     * @param string|null $value Value to set for the deviceModel property.
     */
     public function setDeviceModel(?string $value): void {
         $this->getBackingStore()->set('deviceModel', $value);
@@ -183,7 +183,7 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
 
     /**
      * Sets the deviceName property value. The name of the device.
-     *  @param string|null $value Value to set for the deviceName property.
+     * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
         $this->getBackingStore()->set('deviceName', $value);
@@ -191,7 +191,7 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
 
     /**
      * Sets the osName property value. The name of the OS installed on the device.
-     *  @param string|null $value Value to set for the osName property.
+     * @param string|null $value Value to set for the osName property.
     */
     public function setOsName(?string $value): void {
         $this->getBackingStore()->set('osName', $value);
@@ -199,7 +199,7 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
 
     /**
      * Sets the osVersion property value. The OS version installed on the device.
-     *  @param string|null $value Value to set for the osVersion property.
+     * @param string|null $value Value to set for the osVersion property.
     */
     public function setOsVersion(?string $value): void {
         $this->getBackingStore()->set('osVersion', $value);

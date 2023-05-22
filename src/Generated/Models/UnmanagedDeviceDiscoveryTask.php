@@ -55,7 +55,7 @@ class UnmanagedDeviceDiscoveryTask extends DeviceAppManagementTask implements Pa
 
     /**
      * Sets the unmanagedDevices property value. Unmanaged devices discovered in the network.
-     *  @param array<UnmanagedDevice>|null $value Value to set for the unmanagedDevices property.
+     * @param array<UnmanagedDevice>|null $value Value to set for the unmanagedDevices property.
     */
     public function setUnmanagedDevices(?array $value): void {
         $this->getBackingStore()->set('unmanagedDevices', $value);

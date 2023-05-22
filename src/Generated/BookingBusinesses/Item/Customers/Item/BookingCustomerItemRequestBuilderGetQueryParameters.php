@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Customers\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the properties and relationships of a bookingCustomer object.
+*/
 class BookingCustomerItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class BookingCustomerItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new BookingCustomerItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

@@ -36,14 +36,14 @@ class MailboxSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
     }
 
     /**
-     * Gets the archiveFolder property value. Folder ID of an archive folder for the user. Read only.
+     * Gets the archiveFolder property value. Folder ID of an archive folder for the user. Read-only.
      * @return string|null
     */
     public function getArchiveFolder(): ?string {
@@ -136,7 +136,7 @@ class MailboxSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userPurpose property value. The purpose of the mailbox. Used to differentiate a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Read only.
+     * Gets the userPurpose property value. The purpose of the mailbox. Differentiates a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Possible values are: user, linked, shared, room, equipment, others, unknownFutureValue. Read-only.
      * @return UserPurpose|null
     */
     public function getUserPurpose(): ?UserPurpose {
@@ -180,15 +180,15 @@ class MailboxSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the archiveFolder property value. Folder ID of an archive folder for the user. Read only.
-     *  @param string|null $value Value to set for the archiveFolder property.
+     * Sets the archiveFolder property value. Folder ID of an archive folder for the user. Read-only.
+     * @param string|null $value Value to set for the archiveFolder property.
     */
     public function setArchiveFolder(?string $value): void {
         $this->getBackingStore()->set('archiveFolder', $value);
@@ -196,7 +196,7 @@ class MailboxSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the automaticRepliesSetting property value. Configuration settings to automatically notify the sender of an incoming email with a message from the signed-in user.
-     *  @param AutomaticRepliesSetting|null $value Value to set for the automaticRepliesSetting property.
+     * @param AutomaticRepliesSetting|null $value Value to set for the automaticRepliesSetting property.
     */
     public function setAutomaticRepliesSetting(?AutomaticRepliesSetting $value): void {
         $this->getBackingStore()->set('automaticRepliesSetting', $value);
@@ -204,7 +204,7 @@ class MailboxSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -212,7 +212,7 @@ class MailboxSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the dateFormat property value. The date format for the user's mailbox.
-     *  @param string|null $value Value to set for the dateFormat property.
+     * @param string|null $value Value to set for the dateFormat property.
     */
     public function setDateFormat(?string $value): void {
         $this->getBackingStore()->set('dateFormat', $value);
@@ -220,7 +220,7 @@ class MailboxSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the delegateMeetingMessageDeliveryOptions property value. If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly. The default is sendToDelegateOnly.
-     *  @param DelegateMeetingMessageDeliveryOptions|null $value Value to set for the delegateMeetingMessageDeliveryOptions property.
+     * @param DelegateMeetingMessageDeliveryOptions|null $value Value to set for the delegateMeetingMessageDeliveryOptions property.
     */
     public function setDelegateMeetingMessageDeliveryOptions(?DelegateMeetingMessageDeliveryOptions $value): void {
         $this->getBackingStore()->set('delegateMeetingMessageDeliveryOptions', $value);
@@ -228,7 +228,7 @@ class MailboxSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the language property value. The locale information for the user, including the preferred language and country/region.
-     *  @param LocaleInfo|null $value Value to set for the language property.
+     * @param LocaleInfo|null $value Value to set for the language property.
     */
     public function setLanguage(?LocaleInfo $value): void {
         $this->getBackingStore()->set('language', $value);
@@ -236,7 +236,7 @@ class MailboxSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -244,7 +244,7 @@ class MailboxSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the timeFormat property value. The time format for the user's mailbox.
-     *  @param string|null $value Value to set for the timeFormat property.
+     * @param string|null $value Value to set for the timeFormat property.
     */
     public function setTimeFormat(?string $value): void {
         $this->getBackingStore()->set('timeFormat', $value);
@@ -252,15 +252,15 @@ class MailboxSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the timeZone property value. The default time zone for the user's mailbox.
-     *  @param string|null $value Value to set for the timeZone property.
+     * @param string|null $value Value to set for the timeZone property.
     */
     public function setTimeZone(?string $value): void {
         $this->getBackingStore()->set('timeZone', $value);
     }
 
     /**
-     * Sets the userPurpose property value. The purpose of the mailbox. Used to differentiate a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Read only.
-     *  @param UserPurpose|null $value Value to set for the userPurpose property.
+     * Sets the userPurpose property value. The purpose of the mailbox. Differentiates a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Possible values are: user, linked, shared, room, equipment, others, unknownFutureValue. Read-only.
+     * @param UserPurpose|null $value Value to set for the userPurpose property.
     */
     public function setUserPurpose(?UserPurpose $value): void {
         $this->getBackingStore()->set('userPurpose', $value);
@@ -268,7 +268,7 @@ class MailboxSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the userPurposeV2 property value. The userPurposeV2 property
-     *  @param MailboxRecipientType|null $value Value to set for the userPurposeV2 property.
+     * @param MailboxRecipientType|null $value Value to set for the userPurposeV2 property.
     */
     public function setUserPurposeV2(?MailboxRecipientType $value): void {
         $this->getBackingStore()->set('userPurposeV2', $value);
@@ -276,7 +276,7 @@ class MailboxSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the workingHours property value. The days of the week and hours in a specific time zone that the user works.
-     *  @param WorkingHours|null $value Value to set for the workingHours property.
+     * @param WorkingHours|null $value Value to set for the workingHours property.
     */
     public function setWorkingHours(?WorkingHours $value): void {
         $this->getBackingStore()->set('workingHours', $value);

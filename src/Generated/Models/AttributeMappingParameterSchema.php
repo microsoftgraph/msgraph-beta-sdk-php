@@ -36,7 +36,7 @@ class AttributeMappingParameterSchema implements AdditionalDataHolder, BackedMod
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class AttributeMappingParameterSchema implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class AttributeMappingParameterSchema implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the allowMultipleOccurrences property value. The given parameter can be provided multiple times (for example, multiple input strings in the Concatenate(string,string,...) function).
-     *  @param bool|null $value Value to set for the allowMultipleOccurrences property.
+     * @param bool|null $value Value to set for the allowMultipleOccurrences property.
     */
     public function setAllowMultipleOccurrences(?bool $value): void {
         $this->getBackingStore()->set('allowMultipleOccurrences', $value);
@@ -136,7 +136,7 @@ class AttributeMappingParameterSchema implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -144,7 +144,7 @@ class AttributeMappingParameterSchema implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the name property value. Parameter name.
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -152,7 +152,7 @@ class AttributeMappingParameterSchema implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -160,7 +160,7 @@ class AttributeMappingParameterSchema implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the required property value. true if the parameter is required; otherwise false.
-     *  @param bool|null $value Value to set for the required property.
+     * @param bool|null $value Value to set for the required property.
     */
     public function setRequired(?bool $value): void {
         $this->getBackingStore()->set('required', $value);
@@ -168,7 +168,7 @@ class AttributeMappingParameterSchema implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the type property value. The type property
-     *  @param AttributeType|null $value Value to set for the type property.
+     * @param AttributeType|null $value Value to set for the type property.
     */
     public function setType(?AttributeType $value): void {
         $this->getBackingStore()->set('type', $value);

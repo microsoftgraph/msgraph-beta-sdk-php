@@ -205,7 +205,7 @@ class Office365ServicesUserCounts extends Entity implements Parsable
 
     /**
      * Sets the exchangeActive property value. The number of active users on Exchange. Any user who can read and send email is considered an active user.
-     *  @param int|null $value Value to set for the exchangeActive property.
+     * @param int|null $value Value to set for the exchangeActive property.
     */
     public function setExchangeActive(?int $value): void {
         $this->getBackingStore()->set('exchangeActive', $value);
@@ -213,7 +213,7 @@ class Office365ServicesUserCounts extends Entity implements Parsable
 
     /**
      * Sets the exchangeInactive property value. The number of inactive users on Exchange.
-     *  @param int|null $value Value to set for the exchangeInactive property.
+     * @param int|null $value Value to set for the exchangeInactive property.
     */
     public function setExchangeInactive(?int $value): void {
         $this->getBackingStore()->set('exchangeInactive', $value);
@@ -221,7 +221,7 @@ class Office365ServicesUserCounts extends Entity implements Parsable
 
     /**
      * Sets the office365Active property value. The number of active users on Microsoft 365.
-     *  @param int|null $value Value to set for the office365Active property.
+     * @param int|null $value Value to set for the office365Active property.
     */
     public function setOffice365Active(?int $value): void {
         $this->getBackingStore()->set('office365Active', $value);
@@ -229,7 +229,7 @@ class Office365ServicesUserCounts extends Entity implements Parsable
 
     /**
      * Sets the office365Inactive property value. The number of inactive users on Microsoft 365.
-     *  @param int|null $value Value to set for the office365Inactive property.
+     * @param int|null $value Value to set for the office365Inactive property.
     */
     public function setOffice365Inactive(?int $value): void {
         $this->getBackingStore()->set('office365Inactive', $value);
@@ -237,7 +237,7 @@ class Office365ServicesUserCounts extends Entity implements Parsable
 
     /**
      * Sets the oneDriveActive property value. The number of active users on OneDrive. Any user who viewed or edited files, shared files internally or externally, or synced files is considered an active user.
-     *  @param int|null $value Value to set for the oneDriveActive property.
+     * @param int|null $value Value to set for the oneDriveActive property.
     */
     public function setOneDriveActive(?int $value): void {
         $this->getBackingStore()->set('oneDriveActive', $value);
@@ -245,7 +245,7 @@ class Office365ServicesUserCounts extends Entity implements Parsable
 
     /**
      * Sets the oneDriveInactive property value. The number of inactive users on OneDrive.
-     *  @param int|null $value Value to set for the oneDriveInactive property.
+     * @param int|null $value Value to set for the oneDriveInactive property.
     */
     public function setOneDriveInactive(?int $value): void {
         $this->getBackingStore()->set('oneDriveInactive', $value);
@@ -253,7 +253,7 @@ class Office365ServicesUserCounts extends Entity implements Parsable
 
     /**
      * Sets the reportPeriod property value. The number of days the report covers.
-     *  @param string|null $value Value to set for the reportPeriod property.
+     * @param string|null $value Value to set for the reportPeriod property.
     */
     public function setReportPeriod(?string $value): void {
         $this->getBackingStore()->set('reportPeriod', $value);
@@ -261,7 +261,7 @@ class Office365ServicesUserCounts extends Entity implements Parsable
 
     /**
      * Sets the reportRefreshDate property value. The latest date of the content.
-     *  @param Date|null $value Value to set for the reportRefreshDate property.
+     * @param Date|null $value Value to set for the reportRefreshDate property.
     */
     public function setReportRefreshDate(?Date $value): void {
         $this->getBackingStore()->set('reportRefreshDate', $value);
@@ -269,7 +269,7 @@ class Office365ServicesUserCounts extends Entity implements Parsable
 
     /**
      * Sets the sharePointActive property value. The number of active users on SharePoint. Any user who viewed or edited files, shared files internally or externally, synced files, or viewed SharePoint pages is considered an active user.
-     *  @param int|null $value Value to set for the sharePointActive property.
+     * @param int|null $value Value to set for the sharePointActive property.
     */
     public function setSharePointActive(?int $value): void {
         $this->getBackingStore()->set('sharePointActive', $value);
@@ -277,7 +277,7 @@ class Office365ServicesUserCounts extends Entity implements Parsable
 
     /**
      * Sets the sharePointInactive property value. The number of inactive users on SharePoint.
-     *  @param int|null $value Value to set for the sharePointInactive property.
+     * @param int|null $value Value to set for the sharePointInactive property.
     */
     public function setSharePointInactive(?int $value): void {
         $this->getBackingStore()->set('sharePointInactive', $value);
@@ -285,7 +285,7 @@ class Office365ServicesUserCounts extends Entity implements Parsable
 
     /**
      * Sets the skypeForBusinessActive property value. The number of active users on Skype For Business. Any user who organized or participated in conferences, or joined peer-to-peer sessions is considered an active user.
-     *  @param int|null $value Value to set for the skypeForBusinessActive property.
+     * @param int|null $value Value to set for the skypeForBusinessActive property.
     */
     public function setSkypeForBusinessActive(?int $value): void {
         $this->getBackingStore()->set('skypeForBusinessActive', $value);
@@ -293,7 +293,7 @@ class Office365ServicesUserCounts extends Entity implements Parsable
 
     /**
      * Sets the skypeForBusinessInactive property value. The number of inactive users on Skype For Business.
-     *  @param int|null $value Value to set for the skypeForBusinessInactive property.
+     * @param int|null $value Value to set for the skypeForBusinessInactive property.
     */
     public function setSkypeForBusinessInactive(?int $value): void {
         $this->getBackingStore()->set('skypeForBusinessInactive', $value);
@@ -301,7 +301,7 @@ class Office365ServicesUserCounts extends Entity implements Parsable
 
     /**
      * Sets the teamsActive property value. The number of active users on Microsoft Teams. Any user who posted messages in team channels, sent messages in private chat sessions, or participated in meetings or calls is considered an active user.
-     *  @param int|null $value Value to set for the teamsActive property.
+     * @param int|null $value Value to set for the teamsActive property.
     */
     public function setTeamsActive(?int $value): void {
         $this->getBackingStore()->set('teamsActive', $value);
@@ -309,7 +309,7 @@ class Office365ServicesUserCounts extends Entity implements Parsable
 
     /**
      * Sets the teamsInactive property value. The number of inactive users on Microsoft Teams.
-     *  @param int|null $value Value to set for the teamsInactive property.
+     * @param int|null $value Value to set for the teamsInactive property.
     */
     public function setTeamsInactive(?int $value): void {
         $this->getBackingStore()->set('teamsInactive', $value);
@@ -317,7 +317,7 @@ class Office365ServicesUserCounts extends Entity implements Parsable
 
     /**
      * Sets the yammerActive property value. The number of active users on Yammer. Any user who can post, read, or like messages is considered an active user.
-     *  @param int|null $value Value to set for the yammerActive property.
+     * @param int|null $value Value to set for the yammerActive property.
     */
     public function setYammerActive(?int $value): void {
         $this->getBackingStore()->set('yammerActive', $value);
@@ -325,7 +325,7 @@ class Office365ServicesUserCounts extends Entity implements Parsable
 
     /**
      * Sets the yammerInactive property value. The number of inactive users on Yammer.
-     *  @param int|null $value Value to set for the yammerInactive property.
+     * @param int|null $value Value to set for the yammerInactive property.
     */
     public function setYammerInactive(?int $value): void {
         $this->getBackingStore()->set('yammerInactive', $value);

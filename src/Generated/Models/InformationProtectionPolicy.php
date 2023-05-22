@@ -54,7 +54,7 @@ class InformationProtectionPolicy extends Entity implements Parsable
 
     /**
      * Sets the labels property value. The labels property
-     *  @param array<InformationProtectionLabel>|null $value Value to set for the labels property.
+     * @param array<InformationProtectionLabel>|null $value Value to set for the labels property.
     */
     public function setLabels(?array $value): void {
         $this->getBackingStore()->set('labels', $value);

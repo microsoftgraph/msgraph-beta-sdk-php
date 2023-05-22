@@ -36,7 +36,7 @@ class ChannelModerationSettings implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class ChannelModerationSettings implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class ChannelModerationSettings implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the allowNewMessageFromBots property value. Indicates whether bots are allowed to post messages.
-     *  @param bool|null $value Value to set for the allowNewMessageFromBots property.
+     * @param bool|null $value Value to set for the allowNewMessageFromBots property.
     */
     public function setAllowNewMessageFromBots(?bool $value): void {
         $this->getBackingStore()->set('allowNewMessageFromBots', $value);
@@ -136,7 +136,7 @@ class ChannelModerationSettings implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the allowNewMessageFromConnectors property value. Indicates whether connectors are allowed to post messages.
-     *  @param bool|null $value Value to set for the allowNewMessageFromConnectors property.
+     * @param bool|null $value Value to set for the allowNewMessageFromConnectors property.
     */
     public function setAllowNewMessageFromConnectors(?bool $value): void {
         $this->getBackingStore()->set('allowNewMessageFromConnectors', $value);
@@ -144,7 +144,7 @@ class ChannelModerationSettings implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -152,7 +152,7 @@ class ChannelModerationSettings implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -160,7 +160,7 @@ class ChannelModerationSettings implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the replyRestriction property value. Indicates who is allowed to reply to the teams channel. Possible values are: everyone, authorAndModerators, unknownFutureValue.
-     *  @param ReplyRestriction|null $value Value to set for the replyRestriction property.
+     * @param ReplyRestriction|null $value Value to set for the replyRestriction property.
     */
     public function setReplyRestriction(?ReplyRestriction $value): void {
         $this->getBackingStore()->set('replyRestriction', $value);
@@ -168,7 +168,7 @@ class ChannelModerationSettings implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the userNewMessageRestriction property value. Indicates who is allowed to post messages to teams channel. Possible values are: everyone, everyoneExceptGuests, moderators, unknownFutureValue.
-     *  @param UserNewMessageRestriction|null $value Value to set for the userNewMessageRestriction property.
+     * @param UserNewMessageRestriction|null $value Value to set for the userNewMessageRestriction property.
     */
     public function setUserNewMessageRestriction(?UserNewMessageRestriction $value): void {
         $this->getBackingStore()->set('userNewMessageRestriction', $value);

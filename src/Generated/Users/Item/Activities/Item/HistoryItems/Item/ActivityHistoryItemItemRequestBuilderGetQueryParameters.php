@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Activities\Item\HistoryItems
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get historyItems from users
+*/
 class ActivityHistoryItemItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class ActivityHistoryItemItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new ActivityHistoryItemItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

@@ -36,7 +36,7 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -64,7 +64,7 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the key property value. Key.
+     * Gets the key property value. Contains the name of the field that a value is associated with. When a sign in or domain hint is included in the sign-in request, corresponding fields are included as key-value pairs. Possible keys: Login hint present, Domain hint present.
      * @return string|null
     */
     public function getKey(): ?string {
@@ -80,7 +80,7 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the value property value. Value.
+     * Gets the value property value. Contains the corresponding value for the specified key. The value is true if a sign in hint was included in the sign-in request; otherwise false. The value is true if a domain hint was included in the sign-in request; otherwise false.
      * @return string|null
     */
     public function getValue(): ?string {
@@ -100,7 +100,7 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,15 +108,15 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
-     * Sets the key property value. Key.
-     *  @param string|null $value Value to set for the key property.
+     * Sets the key property value. Contains the name of the field that a value is associated with. When a sign in or domain hint is included in the sign-in request, corresponding fields are included as key-value pairs. Possible keys: Login hint present, Domain hint present.
+     * @param string|null $value Value to set for the key property.
     */
     public function setKey(?string $value): void {
         $this->getBackingStore()->set('key', $value);
@@ -124,15 +124,15 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
-     * Sets the value property value. Value.
-     *  @param string|null $value Value to set for the value property.
+     * Sets the value property value. Contains the corresponding value for the specified key. The value is true if a sign in hint was included in the sign-in request; otherwise false. The value is true if a domain hint was included in the sign-in request; otherwise false.
+     * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {
         $this->getBackingStore()->set('value', $value);

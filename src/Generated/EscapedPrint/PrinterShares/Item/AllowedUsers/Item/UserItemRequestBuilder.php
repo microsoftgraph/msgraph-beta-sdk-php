@@ -2,15 +2,22 @@
 
 namespace Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\AllowedUsers\Item;
 
+use Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\AllowedUsers\Item\MailboxSettings\MailboxSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\AllowedUsers\Item\Ref\RefRequestBuilder;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
-class UserItemRequestBuilder 
+/**
+ * Builds and executes requests for operations under /print/printerShares/{printerShare-id}/allowedUsers/{user-id}
+*/
+class UserItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
+     * The mailboxSettings property
     */
-    private array $pathParameters;
+    public function mailboxSettings(): MailboxSettingsRequestBuilder {
+        return new MailboxSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
     
     /**
      * Provides operations to manage the collection of print entities.
@@ -20,24 +27,17 @@ class UserItemRequestBuilder
     }
     
     /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
      * Instantiates a new UserItemRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/print/printerShares/{printerShare%2Did}/allowedUsers/{user%2Did}';
-        $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
+        parent::__construct($requestAdapter, [], '{+baseurl}/print/printerShares/{printerShare%2Did}/allowedUsers/{user%2Did}');
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
 }

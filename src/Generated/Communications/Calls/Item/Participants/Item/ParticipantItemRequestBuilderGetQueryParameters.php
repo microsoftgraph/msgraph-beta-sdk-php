@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Communications\Calls\Item\Participants\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve the properties and relationships of a **participant** object.
+*/
 class ParticipantItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class ParticipantItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new ParticipantItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

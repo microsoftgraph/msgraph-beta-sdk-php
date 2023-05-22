@@ -11,7 +11,7 @@ use Psr\Http\Message\StreamInterface;
 class UserPFXCertificate extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userPFXCertificate and sets the default values.
+     * Instantiates a new UserPFXCertificate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -166,7 +166,7 @@ class UserPFXCertificate extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. Date/time when this PFX certificate was imported.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -174,7 +174,7 @@ class UserPFXCertificate extends Entity implements Parsable
 
     /**
      * Sets the encryptedPfxBlob property value. Encrypted PFX blob.
-     *  @param StreamInterface|null $value Value to set for the encryptedPfxBlob property.
+     * @param StreamInterface|null $value Value to set for the encryptedPfxBlob property.
     */
     public function setEncryptedPfxBlob(?StreamInterface $value): void {
         $this->getBackingStore()->set('encryptedPfxBlob', $value);
@@ -182,7 +182,7 @@ class UserPFXCertificate extends Entity implements Parsable
 
     /**
      * Sets the encryptedPfxPassword property value. Encrypted PFX password.
-     *  @param string|null $value Value to set for the encryptedPfxPassword property.
+     * @param string|null $value Value to set for the encryptedPfxPassword property.
     */
     public function setEncryptedPfxPassword(?string $value): void {
         $this->getBackingStore()->set('encryptedPfxPassword', $value);
@@ -190,7 +190,7 @@ class UserPFXCertificate extends Entity implements Parsable
 
     /**
      * Sets the expirationDateTime property value. Certificate's validity expiration date/time.
-     *  @param DateTime|null $value Value to set for the expirationDateTime property.
+     * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('expirationDateTime', $value);
@@ -198,7 +198,7 @@ class UserPFXCertificate extends Entity implements Parsable
 
     /**
      * Sets the intendedPurpose property value. Supported values for the intended purpose of a user PFX certificate.
-     *  @param UserPfxIntendedPurpose|null $value Value to set for the intendedPurpose property.
+     * @param UserPfxIntendedPurpose|null $value Value to set for the intendedPurpose property.
     */
     public function setIntendedPurpose(?UserPfxIntendedPurpose $value): void {
         $this->getBackingStore()->set('intendedPurpose', $value);
@@ -206,7 +206,7 @@ class UserPFXCertificate extends Entity implements Parsable
 
     /**
      * Sets the keyName property value. Name of the key (within the provider) used to encrypt the blob.
-     *  @param string|null $value Value to set for the keyName property.
+     * @param string|null $value Value to set for the keyName property.
     */
     public function setKeyName(?string $value): void {
         $this->getBackingStore()->set('keyName', $value);
@@ -214,7 +214,7 @@ class UserPFXCertificate extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. Date/time when this PFX certificate was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -222,7 +222,7 @@ class UserPFXCertificate extends Entity implements Parsable
 
     /**
      * Sets the paddingScheme property value. Supported values for the padding scheme used by encryption provider.
-     *  @param UserPfxPaddingScheme|null $value Value to set for the paddingScheme property.
+     * @param UserPfxPaddingScheme|null $value Value to set for the paddingScheme property.
     */
     public function setPaddingScheme(?UserPfxPaddingScheme $value): void {
         $this->getBackingStore()->set('paddingScheme', $value);
@@ -230,7 +230,7 @@ class UserPFXCertificate extends Entity implements Parsable
 
     /**
      * Sets the providerName property value. Crypto provider used to encrypt this blob.
-     *  @param string|null $value Value to set for the providerName property.
+     * @param string|null $value Value to set for the providerName property.
     */
     public function setProviderName(?string $value): void {
         $this->getBackingStore()->set('providerName', $value);
@@ -238,7 +238,7 @@ class UserPFXCertificate extends Entity implements Parsable
 
     /**
      * Sets the startDateTime property value. Certificate's validity start date/time.
-     *  @param DateTime|null $value Value to set for the startDateTime property.
+     * @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('startDateTime', $value);
@@ -246,7 +246,7 @@ class UserPFXCertificate extends Entity implements Parsable
 
     /**
      * Sets the thumbprint property value. SHA-1 thumbprint of the PFX certificate.
-     *  @param string|null $value Value to set for the thumbprint property.
+     * @param string|null $value Value to set for the thumbprint property.
     */
     public function setThumbprint(?string $value): void {
         $this->getBackingStore()->set('thumbprint', $value);
@@ -254,7 +254,7 @@ class UserPFXCertificate extends Entity implements Parsable
 
     /**
      * Sets the userPrincipalName property value. User Principal Name of the PFX certificate.
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);

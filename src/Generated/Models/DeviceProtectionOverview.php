@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Hardware information of a given device.
+*/
 class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -190,7 +193,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -198,7 +201,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -206,7 +209,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the cleanDeviceCount property value. Clean device count.
-     *  @param int|null $value Value to set for the cleanDeviceCount property.
+     * @param int|null $value Value to set for the cleanDeviceCount property.
     */
     public function setCleanDeviceCount(?int $value): void {
         $this->getBackingStore()->set('cleanDeviceCount', $value);
@@ -214,7 +217,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the criticalFailuresDeviceCount property value. Critical failures device count.
-     *  @param int|null $value Value to set for the criticalFailuresDeviceCount property.
+     * @param int|null $value Value to set for the criticalFailuresDeviceCount property.
     */
     public function setCriticalFailuresDeviceCount(?int $value): void {
         $this->getBackingStore()->set('criticalFailuresDeviceCount', $value);
@@ -222,7 +225,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the inactiveThreatAgentDeviceCount property value. Device with inactive threat agent count
-     *  @param int|null $value Value to set for the inactiveThreatAgentDeviceCount property.
+     * @param int|null $value Value to set for the inactiveThreatAgentDeviceCount property.
     */
     public function setInactiveThreatAgentDeviceCount(?int $value): void {
         $this->getBackingStore()->set('inactiveThreatAgentDeviceCount', $value);
@@ -230,7 +233,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -238,7 +241,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the pendingFullScanDeviceCount property value. Pending full scan device count.
-     *  @param int|null $value Value to set for the pendingFullScanDeviceCount property.
+     * @param int|null $value Value to set for the pendingFullScanDeviceCount property.
     */
     public function setPendingFullScanDeviceCount(?int $value): void {
         $this->getBackingStore()->set('pendingFullScanDeviceCount', $value);
@@ -246,7 +249,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the pendingManualStepsDeviceCount property value. Pending manual steps device count.
-     *  @param int|null $value Value to set for the pendingManualStepsDeviceCount property.
+     * @param int|null $value Value to set for the pendingManualStepsDeviceCount property.
     */
     public function setPendingManualStepsDeviceCount(?int $value): void {
         $this->getBackingStore()->set('pendingManualStepsDeviceCount', $value);
@@ -254,7 +257,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the pendingOfflineScanDeviceCount property value. Pending offline scan device count.
-     *  @param int|null $value Value to set for the pendingOfflineScanDeviceCount property.
+     * @param int|null $value Value to set for the pendingOfflineScanDeviceCount property.
     */
     public function setPendingOfflineScanDeviceCount(?int $value): void {
         $this->getBackingStore()->set('pendingOfflineScanDeviceCount', $value);
@@ -262,7 +265,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the pendingQuickScanDeviceCount property value. Pending quick scan device count. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the pendingQuickScanDeviceCount property.
+     * @param int|null $value Value to set for the pendingQuickScanDeviceCount property.
     */
     public function setPendingQuickScanDeviceCount(?int $value): void {
         $this->getBackingStore()->set('pendingQuickScanDeviceCount', $value);
@@ -270,7 +273,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the pendingRestartDeviceCount property value. Pending restart device count.
-     *  @param int|null $value Value to set for the pendingRestartDeviceCount property.
+     * @param int|null $value Value to set for the pendingRestartDeviceCount property.
     */
     public function setPendingRestartDeviceCount(?int $value): void {
         $this->getBackingStore()->set('pendingRestartDeviceCount', $value);
@@ -278,7 +281,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the pendingSignatureUpdateDeviceCount property value. Device with old signature count.
-     *  @param int|null $value Value to set for the pendingSignatureUpdateDeviceCount property.
+     * @param int|null $value Value to set for the pendingSignatureUpdateDeviceCount property.
     */
     public function setPendingSignatureUpdateDeviceCount(?int $value): void {
         $this->getBackingStore()->set('pendingSignatureUpdateDeviceCount', $value);
@@ -286,7 +289,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the totalReportedDeviceCount property value. Total device count.
-     *  @param int|null $value Value to set for the totalReportedDeviceCount property.
+     * @param int|null $value Value to set for the totalReportedDeviceCount property.
     */
     public function setTotalReportedDeviceCount(?int $value): void {
         $this->getBackingStore()->set('totalReportedDeviceCount', $value);
@@ -294,7 +297,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the unknownStateThreatAgentDeviceCount property value. Device with threat agent state as unknown count.
-     *  @param int|null $value Value to set for the unknownStateThreatAgentDeviceCount property.
+     * @param int|null $value Value to set for the unknownStateThreatAgentDeviceCount property.
     */
     public function setUnknownStateThreatAgentDeviceCount(?int $value): void {
         $this->getBackingStore()->set('unknownStateThreatAgentDeviceCount', $value);

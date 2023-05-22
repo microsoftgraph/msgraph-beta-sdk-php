@@ -95,7 +95,7 @@ class WorkflowTemplate extends Entity implements Parsable
 
     /**
      * Sets the category property value. The category property
-     *  @param LifecycleWorkflowCategory|null $value Value to set for the category property.
+     * @param LifecycleWorkflowCategory|null $value Value to set for the category property.
     */
     public function setCategory(?LifecycleWorkflowCategory $value): void {
         $this->getBackingStore()->set('category', $value);
@@ -103,7 +103,7 @@ class WorkflowTemplate extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description of the workflowTemplate.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -111,7 +111,7 @@ class WorkflowTemplate extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name of the workflowTemplate.Supports $filter(eq, ne) and $orderby.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -119,7 +119,7 @@ class WorkflowTemplate extends Entity implements Parsable
 
     /**
      * Sets the executionConditions property value. Conditions describing when to execute the workflow and the criteria to identify in-scope subject set.
-     *  @param WorkflowExecutionConditions|null $value Value to set for the executionConditions property.
+     * @param WorkflowExecutionConditions|null $value Value to set for the executionConditions property.
     */
     public function setExecutionConditions(?WorkflowExecutionConditions $value): void {
         $this->getBackingStore()->set('executionConditions', $value);
@@ -127,7 +127,7 @@ class WorkflowTemplate extends Entity implements Parsable
 
     /**
      * Sets the tasks property value. Represents the configured tasks to execute and their execution sequence within a workflow. This relationship is expanded by default.
-     *  @param array<Task>|null $value Value to set for the tasks property.
+     * @param array<Task>|null $value Value to set for the tasks property.
     */
     public function setTasks(?array $value): void {
         $this->getBackingStore()->set('tasks', $value);

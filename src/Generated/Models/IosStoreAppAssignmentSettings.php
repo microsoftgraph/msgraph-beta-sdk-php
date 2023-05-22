@@ -33,17 +33,26 @@ class IosStoreAppAssignmentSettings extends MobileAppAssignmentSettings implemen
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'isRemovable' => fn(ParseNode $n) => $o->setIsRemovable($n->getBooleanValue()),
+            'preventManagedAppBackup' => fn(ParseNode $n) => $o->setPreventManagedAppBackup($n->getBooleanValue()),
             'uninstallOnDeviceRemoval' => fn(ParseNode $n) => $o->setUninstallOnDeviceRemoval($n->getBooleanValue()),
             'vpnConfigurationId' => fn(ParseNode $n) => $o->setVpnConfigurationId($n->getStringValue()),
         ]);
     }
 
     /**
-     * Gets the isRemovable property value. Whether or not the app can be removed by the user.
+     * Gets the isRemovable property value. When TRUE, indicates that the app can be uninstalled by the user. When FALSE, indicates that the app cannot be uninstalled by the user. By default, this property is set to null which internally is treated as TRUE.
      * @return bool|null
     */
     public function getIsRemovable(): ?bool {
         return $this->getBackingStore()->get('isRemovable');
+    }
+
+    /**
+     * Gets the preventManagedAppBackup property value. When TRUE, indicates that the app should not be backed up to iCloud. When FALSE, indicates that the app may be backed up to iCloud. By default, this property is set to null which internally is treated as FALSE.
+     * @return bool|null
+    */
+    public function getPreventManagedAppBackup(): ?bool {
+        return $this->getBackingStore()->get('preventManagedAppBackup');
     }
 
     /**
@@ -69,21 +78,30 @@ class IosStoreAppAssignmentSettings extends MobileAppAssignmentSettings implemen
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('isRemovable', $this->getIsRemovable());
+        $writer->writeBooleanValue('preventManagedAppBackup', $this->getPreventManagedAppBackup());
         $writer->writeBooleanValue('uninstallOnDeviceRemoval', $this->getUninstallOnDeviceRemoval());
         $writer->writeStringValue('vpnConfigurationId', $this->getVpnConfigurationId());
     }
 
     /**
-     * Sets the isRemovable property value. Whether or not the app can be removed by the user.
-     *  @param bool|null $value Value to set for the isRemovable property.
+     * Sets the isRemovable property value. When TRUE, indicates that the app can be uninstalled by the user. When FALSE, indicates that the app cannot be uninstalled by the user. By default, this property is set to null which internally is treated as TRUE.
+     * @param bool|null $value Value to set for the isRemovable property.
     */
     public function setIsRemovable(?bool $value): void {
         $this->getBackingStore()->set('isRemovable', $value);
     }
 
     /**
+     * Sets the preventManagedAppBackup property value. When TRUE, indicates that the app should not be backed up to iCloud. When FALSE, indicates that the app may be backed up to iCloud. By default, this property is set to null which internally is treated as FALSE.
+     * @param bool|null $value Value to set for the preventManagedAppBackup property.
+    */
+    public function setPreventManagedAppBackup(?bool $value): void {
+        $this->getBackingStore()->set('preventManagedAppBackup', $value);
+    }
+
+    /**
      * Sets the uninstallOnDeviceRemoval property value. Whether or not to uninstall the app when device is removed from Intune.
-     *  @param bool|null $value Value to set for the uninstallOnDeviceRemoval property.
+     * @param bool|null $value Value to set for the uninstallOnDeviceRemoval property.
     */
     public function setUninstallOnDeviceRemoval(?bool $value): void {
         $this->getBackingStore()->set('uninstallOnDeviceRemoval', $value);
@@ -91,7 +109,7 @@ class IosStoreAppAssignmentSettings extends MobileAppAssignmentSettings implemen
 
     /**
      * Sets the vpnConfigurationId property value. The VPN Configuration Id to apply for this app.
-     *  @param string|null $value Value to set for the vpnConfigurationId property.
+     * @param string|null $value Value to set for the vpnConfigurationId property.
     */
     public function setVpnConfigurationId(?string $value): void {
         $this->getBackingStore()->set('vpnConfigurationId', $value);

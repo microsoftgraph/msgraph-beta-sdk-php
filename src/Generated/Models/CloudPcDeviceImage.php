@@ -27,7 +27,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The image's display name.
+     * Gets the displayName property value. The display name of the image.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -63,7 +63,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The data and time that the image was last modified. The time is shown in ISO 8601 format and  Coordinated Universal Time (UTC) time. For example, midnight UTC on Jan 1, 2014 appears as '2014-01-01T00:00:00Z'.
+     * Gets the lastModifiedDateTime property value. The data and time that the image was last modified. The time is shown in ISO 8601 format and  Coordinated Universal Time (UTC) time. For example, midnight UTC on Jan 1, 2014 appears as 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -71,7 +71,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the operatingSystem property value. The image's operating system. For example: Windows 10 Enterprise.
+     * Gets the operatingSystem property value. The operating system of the image. For example, Windows 10 Enterprise.
      * @return string|null
     */
     public function getOperatingSystem(): ?string {
@@ -79,7 +79,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the osBuildNumber property value. The image's OS build version. For example: 1909.
+     * Gets the osBuildNumber property value. The OS build version of the image. For example, 1909.
      * @return string|null
     */
     public function getOsBuildNumber(): ?string {
@@ -95,7 +95,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the sourceImageResourceId property value. The ID of the source image resource on Azure. Required format: '/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/images/{imageName}'.
+     * Gets the sourceImageResourceId property value. The ID of the source image resource on Azure. Required format: /subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/images/{imageName}.
      * @return string|null
     */
     public function getSourceImageResourceId(): ?string {
@@ -111,7 +111,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the statusDetails property value. The details of the image's status, which indicates why the upload failed, if applicable. Possible values are: internalServerError, sourceImageNotFound, osVersionNotSupported, sourceImageInvalid, and sourceImageNotGeneralized.
+     * Gets the statusDetails property value. The details of the status of the image that indicates why the upload failed, if applicable. Possible values are: internalServerError, sourceImageNotFound, osVersionNotSupported, sourceImageInvalid, and sourceImageNotGeneralized.
      * @return CloudPcDeviceImageStatusDetails|null
     */
     public function getStatusDetails(): ?CloudPcDeviceImageStatusDetails {
@@ -119,7 +119,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the version property value. The image version. For example: 0.0.1, 1.5.13.
+     * Gets the version property value. The image version. For example, 0.0.1 and 1.5.13.
      * @return string|null
     */
     public function getVersion(): ?string {
@@ -145,8 +145,8 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The image's display name.
-     *  @param string|null $value Value to set for the displayName property.
+     * Sets the displayName property value. The display name of the image.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -154,31 +154,31 @@ class CloudPcDeviceImage extends Entity implements Parsable
 
     /**
      * Sets the expirationDate property value. The date the image became unavailable.
-     *  @param Date|null $value Value to set for the expirationDate property.
+     * @param Date|null $value Value to set for the expirationDate property.
     */
     public function setExpirationDate(?Date $value): void {
         $this->getBackingStore()->set('expirationDate', $value);
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The data and time that the image was last modified. The time is shown in ISO 8601 format and  Coordinated Universal Time (UTC) time. For example, midnight UTC on Jan 1, 2014 appears as '2014-01-01T00:00:00Z'.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * Sets the lastModifiedDateTime property value. The data and time that the image was last modified. The time is shown in ISO 8601 format and  Coordinated Universal Time (UTC) time. For example, midnight UTC on Jan 1, 2014 appears as 2014-01-01T00:00:00Z.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
-     * Sets the operatingSystem property value. The image's operating system. For example: Windows 10 Enterprise.
-     *  @param string|null $value Value to set for the operatingSystem property.
+     * Sets the operatingSystem property value. The operating system of the image. For example, Windows 10 Enterprise.
+     * @param string|null $value Value to set for the operatingSystem property.
     */
     public function setOperatingSystem(?string $value): void {
         $this->getBackingStore()->set('operatingSystem', $value);
     }
 
     /**
-     * Sets the osBuildNumber property value. The image's OS build version. For example: 1909.
-     *  @param string|null $value Value to set for the osBuildNumber property.
+     * Sets the osBuildNumber property value. The OS build version of the image. For example, 1909.
+     * @param string|null $value Value to set for the osBuildNumber property.
     */
     public function setOsBuildNumber(?string $value): void {
         $this->getBackingStore()->set('osBuildNumber', $value);
@@ -186,15 +186,15 @@ class CloudPcDeviceImage extends Entity implements Parsable
 
     /**
      * Sets the osStatus property value. The OS status of this image. Possible values are: supported, supportedWithWarning, unknownFutureValue.
-     *  @param CloudPcDeviceImageOsStatus|null $value Value to set for the osStatus property.
+     * @param CloudPcDeviceImageOsStatus|null $value Value to set for the osStatus property.
     */
     public function setOsStatus(?CloudPcDeviceImageOsStatus $value): void {
         $this->getBackingStore()->set('osStatus', $value);
     }
 
     /**
-     * Sets the sourceImageResourceId property value. The ID of the source image resource on Azure. Required format: '/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/images/{imageName}'.
-     *  @param string|null $value Value to set for the sourceImageResourceId property.
+     * Sets the sourceImageResourceId property value. The ID of the source image resource on Azure. Required format: /subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/images/{imageName}.
+     * @param string|null $value Value to set for the sourceImageResourceId property.
     */
     public function setSourceImageResourceId(?string $value): void {
         $this->getBackingStore()->set('sourceImageResourceId', $value);
@@ -202,23 +202,23 @@ class CloudPcDeviceImage extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status of the image on Cloud PC. Possible values are: pending, ready, failed.
-     *  @param CloudPcDeviceImageStatus|null $value Value to set for the status property.
+     * @param CloudPcDeviceImageStatus|null $value Value to set for the status property.
     */
     public function setStatus(?CloudPcDeviceImageStatus $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 
     /**
-     * Sets the statusDetails property value. The details of the image's status, which indicates why the upload failed, if applicable. Possible values are: internalServerError, sourceImageNotFound, osVersionNotSupported, sourceImageInvalid, and sourceImageNotGeneralized.
-     *  @param CloudPcDeviceImageStatusDetails|null $value Value to set for the statusDetails property.
+     * Sets the statusDetails property value. The details of the status of the image that indicates why the upload failed, if applicable. Possible values are: internalServerError, sourceImageNotFound, osVersionNotSupported, sourceImageInvalid, and sourceImageNotGeneralized.
+     * @param CloudPcDeviceImageStatusDetails|null $value Value to set for the statusDetails property.
     */
     public function setStatusDetails(?CloudPcDeviceImageStatusDetails $value): void {
         $this->getBackingStore()->set('statusDetails', $value);
     }
 
     /**
-     * Sets the version property value. The image version. For example: 0.0.1, 1.5.13.
-     *  @param string|null $value Value to set for the version property.
+     * Sets the version property value. The image version. For example, 0.0.1 and 1.5.13.
+     * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {
         $this->getBackingStore()->set('version', $value);

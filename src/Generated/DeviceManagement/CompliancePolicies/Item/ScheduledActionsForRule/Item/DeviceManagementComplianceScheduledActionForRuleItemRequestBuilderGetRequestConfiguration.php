@@ -2,23 +2,38 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Item\ScheduledActionsForRule\Item;
 
+use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;
 
-class DeviceManagementComplianceScheduledActionForRuleItemRequestBuilderGetRequestConfiguration 
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
+class DeviceManagementComplianceScheduledActionForRuleItemRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration 
 {
-    /**
-     * @var array<string, string>|null $headers Request headers
-    */
-    public ?array $headers = null;
-    
-    /**
-     * @var array<string, RequestOption>|null $options Request options
-    */
-    public ?array $options = null;
-    
     /**
      * @var DeviceManagementComplianceScheduledActionForRuleItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
     */
     public ?DeviceManagementComplianceScheduledActionForRuleItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new DeviceManagementComplianceScheduledActionForRuleItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
+     * @param DeviceManagementComplianceScheduledActionForRuleItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?DeviceManagementComplianceScheduledActionForRuleItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        parent::__construct($headers ?? [], $options ?? []);
+        $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new DeviceManagementComplianceScheduledActionForRuleItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return DeviceManagementComplianceScheduledActionForRuleItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): DeviceManagementComplianceScheduledActionForRuleItemRequestBuilderGetQueryParameters {
+        return new DeviceManagementComplianceScheduledActionForRuleItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
 }

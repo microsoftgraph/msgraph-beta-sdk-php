@@ -286,7 +286,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the allowedInboundDataTransferSources property value. Data can be transferred from/to these classes of apps
-     *  @param WindowsManagedAppDataTransferLevel|null $value Value to set for the allowedInboundDataTransferSources property.
+     * @param WindowsManagedAppDataTransferLevel|null $value Value to set for the allowedInboundDataTransferSources property.
     */
     public function setAllowedInboundDataTransferSources(?WindowsManagedAppDataTransferLevel $value): void {
         $this->getBackingStore()->set('allowedInboundDataTransferSources', $value);
@@ -294,7 +294,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the allowedOutboundClipboardSharingLevel property value. Represents the level to which the device's clipboard may be shared between apps
-     *  @param WindowsManagedAppClipboardSharingLevel|null $value Value to set for the allowedOutboundClipboardSharingLevel property.
+     * @param WindowsManagedAppClipboardSharingLevel|null $value Value to set for the allowedOutboundClipboardSharingLevel property.
     */
     public function setAllowedOutboundClipboardSharingLevel(?WindowsManagedAppClipboardSharingLevel $value): void {
         $this->getBackingStore()->set('allowedOutboundClipboardSharingLevel', $value);
@@ -302,7 +302,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the allowedOutboundDataTransferDestinations property value. Data can be transferred from/to these classes of apps
-     *  @param WindowsManagedAppDataTransferLevel|null $value Value to set for the allowedOutboundDataTransferDestinations property.
+     * @param WindowsManagedAppDataTransferLevel|null $value Value to set for the allowedOutboundDataTransferDestinations property.
     */
     public function setAllowedOutboundDataTransferDestinations(?WindowsManagedAppDataTransferLevel $value): void {
         $this->getBackingStore()->set('allowedOutboundDataTransferDestinations', $value);
@@ -310,7 +310,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the appActionIfUnableToAuthenticateUser property value. If set, it will specify what action to take in the case where the user is unable to checkin because their authentication token is invalid. This happens when the user is deleted or disabled in AAD. Some possible values are block or wipe. If this property is not set, no action will be taken. Possible values are: block, wipe, warn.
-     *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfUnableToAuthenticateUser property.
+     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfUnableToAuthenticateUser property.
     */
     public function setAppActionIfUnableToAuthenticateUser(?ManagedAppRemediationAction $value): void {
         $this->getBackingStore()->set('appActionIfUnableToAuthenticateUser', $value);
@@ -318,7 +318,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the apps property value. List of apps to which the policy is deployed.
-     *  @param array<ManagedMobileApp>|null $value Value to set for the apps property.
+     * @param array<ManagedMobileApp>|null $value Value to set for the apps property.
     */
     public function setApps(?array $value): void {
         $this->getBackingStore()->set('apps', $value);
@@ -326,7 +326,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the assignments property value. Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
-     *  @param array<TargetedManagedAppPolicyAssignment>|null $value Value to set for the assignments property.
+     * @param array<TargetedManagedAppPolicyAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -334,7 +334,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the deployedAppCount property value. Indicates the total number of applications for which the current policy is deployed.
-     *  @param int|null $value Value to set for the deployedAppCount property.
+     * @param int|null $value Value to set for the deployedAppCount property.
     */
     public function setDeployedAppCount(?int $value): void {
         $this->getBackingStore()->set('deployedAppCount', $value);
@@ -342,7 +342,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the isAssigned property value. When TRUE, indicates that the policy is deployed to some inclusion groups. When FALSE, indicates that the policy is not deployed to any inclusion groups. Default value is FALSE.
-     *  @param bool|null $value Value to set for the isAssigned property.
+     * @param bool|null $value Value to set for the isAssigned property.
     */
     public function setIsAssigned(?bool $value): void {
         $this->getBackingStore()->set('isAssigned', $value);
@@ -350,7 +350,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the maximumAllowedDeviceThreatLevel property value. The maxium threat level allowed for an app to be compliant.
-     *  @param ManagedAppDeviceThreatLevel|null $value Value to set for the maximumAllowedDeviceThreatLevel property.
+     * @param ManagedAppDeviceThreatLevel|null $value Value to set for the maximumAllowedDeviceThreatLevel property.
     */
     public function setMaximumAllowedDeviceThreatLevel(?ManagedAppDeviceThreatLevel $value): void {
         $this->getBackingStore()->set('maximumAllowedDeviceThreatLevel', $value);
@@ -358,7 +358,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the maximumRequiredOsVersion property value. Versions bigger than the specified version will block the managed app from accessing company data. For example: '8.1.0' or '13.1.1'.
-     *  @param string|null $value Value to set for the maximumRequiredOsVersion property.
+     * @param string|null $value Value to set for the maximumRequiredOsVersion property.
     */
     public function setMaximumRequiredOsVersion(?string $value): void {
         $this->getBackingStore()->set('maximumRequiredOsVersion', $value);
@@ -366,7 +366,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the maximumWarningOsVersion property value. Versions bigger than the specified version will result in warning message on the managed app from accessing company data. For example: '8.1.0' or '13.1.1'.
-     *  @param string|null $value Value to set for the maximumWarningOsVersion property.
+     * @param string|null $value Value to set for the maximumWarningOsVersion property.
     */
     public function setMaximumWarningOsVersion(?string $value): void {
         $this->getBackingStore()->set('maximumWarningOsVersion', $value);
@@ -374,7 +374,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the maximumWipeOsVersion property value. Versions bigger than the specified version will wipe the managed app and the associated company data. For example: '8.1.0' or '13.1.1'.
-     *  @param string|null $value Value to set for the maximumWipeOsVersion property.
+     * @param string|null $value Value to set for the maximumWipeOsVersion property.
     */
     public function setMaximumWipeOsVersion(?string $value): void {
         $this->getBackingStore()->set('maximumWipeOsVersion', $value);
@@ -382,7 +382,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the minimumRequiredAppVersion property value. Versions less than the specified version will block the managed app from accessing company data. For example: '8.1.0' or '13.1.1'.
-     *  @param string|null $value Value to set for the minimumRequiredAppVersion property.
+     * @param string|null $value Value to set for the minimumRequiredAppVersion property.
     */
     public function setMinimumRequiredAppVersion(?string $value): void {
         $this->getBackingStore()->set('minimumRequiredAppVersion', $value);
@@ -390,7 +390,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the minimumRequiredOsVersion property value. Versions less than the specified version will block the managed app from accessing company data. For example: '8.1.0' or '13.1.1'.
-     *  @param string|null $value Value to set for the minimumRequiredOsVersion property.
+     * @param string|null $value Value to set for the minimumRequiredOsVersion property.
     */
     public function setMinimumRequiredOsVersion(?string $value): void {
         $this->getBackingStore()->set('minimumRequiredOsVersion', $value);
@@ -398,7 +398,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the minimumRequiredSdkVersion property value. Versions less than the specified version will block the managed app from accessing company data. For example: '8.1.0' or '13.1.1'.
-     *  @param string|null $value Value to set for the minimumRequiredSdkVersion property.
+     * @param string|null $value Value to set for the minimumRequiredSdkVersion property.
     */
     public function setMinimumRequiredSdkVersion(?string $value): void {
         $this->getBackingStore()->set('minimumRequiredSdkVersion', $value);
@@ -406,7 +406,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the minimumWarningAppVersion property value. Versions less than the specified version will result in warning message on the managed app from accessing company data. For example: '8.1.0' or '13.1.1'.
-     *  @param string|null $value Value to set for the minimumWarningAppVersion property.
+     * @param string|null $value Value to set for the minimumWarningAppVersion property.
     */
     public function setMinimumWarningAppVersion(?string $value): void {
         $this->getBackingStore()->set('minimumWarningAppVersion', $value);
@@ -414,7 +414,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the minimumWarningOsVersion property value. Versions less than the specified version will result in warning message on the managed app from accessing company data. For example: '8.1.0' or '13.1.1'.
-     *  @param string|null $value Value to set for the minimumWarningOsVersion property.
+     * @param string|null $value Value to set for the minimumWarningOsVersion property.
     */
     public function setMinimumWarningOsVersion(?string $value): void {
         $this->getBackingStore()->set('minimumWarningOsVersion', $value);
@@ -422,7 +422,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the minimumWipeAppVersion property value. Versions less than the specified version will wipe the managed app and the associated company data. For example: '8.1.0' or '13.1.1'.
-     *  @param string|null $value Value to set for the minimumWipeAppVersion property.
+     * @param string|null $value Value to set for the minimumWipeAppVersion property.
     */
     public function setMinimumWipeAppVersion(?string $value): void {
         $this->getBackingStore()->set('minimumWipeAppVersion', $value);
@@ -430,7 +430,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the minimumWipeOsVersion property value. Versions less than the specified version will wipe the managed app and the associated company data. For example: '8.1.0' or '13.1.1'.
-     *  @param string|null $value Value to set for the minimumWipeOsVersion property.
+     * @param string|null $value Value to set for the minimumWipeOsVersion property.
     */
     public function setMinimumWipeOsVersion(?string $value): void {
         $this->getBackingStore()->set('minimumWipeOsVersion', $value);
@@ -438,7 +438,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the minimumWipeSdkVersion property value. Versions less than the specified version will wipe the managed app and the associated company data. For example: '8.1.0' or '13.1.1'.
-     *  @param string|null $value Value to set for the minimumWipeSdkVersion property.
+     * @param string|null $value Value to set for the minimumWipeSdkVersion property.
     */
     public function setMinimumWipeSdkVersion(?string $value): void {
         $this->getBackingStore()->set('minimumWipeSdkVersion', $value);
@@ -446,7 +446,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the mobileThreatDefenseRemediationAction property value. An admin initiated action to be applied on a managed app.
-     *  @param ManagedAppRemediationAction|null $value Value to set for the mobileThreatDefenseRemediationAction property.
+     * @param ManagedAppRemediationAction|null $value Value to set for the mobileThreatDefenseRemediationAction property.
     */
     public function setMobileThreatDefenseRemediationAction(?ManagedAppRemediationAction $value): void {
         $this->getBackingStore()->set('mobileThreatDefenseRemediationAction', $value);
@@ -454,7 +454,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the periodOfflineBeforeAccessCheck property value. The period after which access is checked when the device is not connected to the internet. For example, PT5M indicates that the interval is 5 minutes in duration. A timespan value of PT0S indicates that access will be blocked immediately when the device is not connected to the internet.
-     *  @param DateInterval|null $value Value to set for the periodOfflineBeforeAccessCheck property.
+     * @param DateInterval|null $value Value to set for the periodOfflineBeforeAccessCheck property.
     */
     public function setPeriodOfflineBeforeAccessCheck(?DateInterval $value): void {
         $this->getBackingStore()->set('periodOfflineBeforeAccessCheck', $value);
@@ -462,7 +462,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the periodOfflineBeforeWipeIsEnforced property value. The amount of time an app is allowed to remain disconnected from the internet before all managed data it is wiped. For example, P5D indicates that the interval is 5 days in duration. A timespan value of PT0S indicates that managed data will never be wiped when the device is not connected to the internet.
-     *  @param DateInterval|null $value Value to set for the periodOfflineBeforeWipeIsEnforced property.
+     * @param DateInterval|null $value Value to set for the periodOfflineBeforeWipeIsEnforced property.
     */
     public function setPeriodOfflineBeforeWipeIsEnforced(?DateInterval $value): void {
         $this->getBackingStore()->set('periodOfflineBeforeWipeIsEnforced', $value);
@@ -470,7 +470,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the printBlocked property value. When TRUE, indicates that printing is blocked from managed apps. When FALSE, indicates that printing is allowed from managed apps. Default value is FALSE.
-     *  @param bool|null $value Value to set for the printBlocked property.
+     * @param bool|null $value Value to set for the printBlocked property.
     */
     public function setPrintBlocked(?bool $value): void {
         $this->getBackingStore()->set('printBlocked', $value);

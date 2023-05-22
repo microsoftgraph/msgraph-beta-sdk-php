@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * The user experience analytics anomaly severity overview entity contains the count information for each severity of anomaly.
+*/
 class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -66,7 +69,7 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
     }
 
     /**
-     * Gets the highSeverityAnomalyCount property value. The number of high severity anomalies which have been detected. Valid values -2147483648 to 2147483647
+     * Gets the highSeverityAnomalyCount property value. Indicates count of high severity anomalies which have been detected. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getHighSeverityAnomalyCount(): ?int {
@@ -74,7 +77,7 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
     }
 
     /**
-     * Gets the informationalSeverityAnomalyCount property value. The number of informational severity anomalies which have been detected. Valid values -2147483648 to 2147483647
+     * Gets the informationalSeverityAnomalyCount property value. Indicates count of informational severity anomalies which have been detected. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getInformationalSeverityAnomalyCount(): ?int {
@@ -82,7 +85,7 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
     }
 
     /**
-     * Gets the lowSeverityAnomalyCount property value. The number of low severity anomalies which have been detected. Valid values -2147483648 to 2147483647
+     * Gets the lowSeverityAnomalyCount property value. Indicates count of low severity anomalies which have been detected. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getLowSeverityAnomalyCount(): ?int {
@@ -90,7 +93,7 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
     }
 
     /**
-     * Gets the mediumSeverityAnomalyCount property value. The number of medium severity anomalies which have been detected. Valid values -2147483648 to 2147483647
+     * Gets the mediumSeverityAnomalyCount property value. Indicates count of medium severity anomalies which have been detected. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getMediumSeverityAnomalyCount(): ?int {
@@ -120,7 +123,7 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,39 +131,39 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
-     * Sets the highSeverityAnomalyCount property value. The number of high severity anomalies which have been detected. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the highSeverityAnomalyCount property.
+     * Sets the highSeverityAnomalyCount property value. Indicates count of high severity anomalies which have been detected. Valid values -2147483648 to 2147483647
+     * @param int|null $value Value to set for the highSeverityAnomalyCount property.
     */
     public function setHighSeverityAnomalyCount(?int $value): void {
         $this->getBackingStore()->set('highSeverityAnomalyCount', $value);
     }
 
     /**
-     * Sets the informationalSeverityAnomalyCount property value. The number of informational severity anomalies which have been detected. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the informationalSeverityAnomalyCount property.
+     * Sets the informationalSeverityAnomalyCount property value. Indicates count of informational severity anomalies which have been detected. Valid values -2147483648 to 2147483647
+     * @param int|null $value Value to set for the informationalSeverityAnomalyCount property.
     */
     public function setInformationalSeverityAnomalyCount(?int $value): void {
         $this->getBackingStore()->set('informationalSeverityAnomalyCount', $value);
     }
 
     /**
-     * Sets the lowSeverityAnomalyCount property value. The number of low severity anomalies which have been detected. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the lowSeverityAnomalyCount property.
+     * Sets the lowSeverityAnomalyCount property value. Indicates count of low severity anomalies which have been detected. Valid values -2147483648 to 2147483647
+     * @param int|null $value Value to set for the lowSeverityAnomalyCount property.
     */
     public function setLowSeverityAnomalyCount(?int $value): void {
         $this->getBackingStore()->set('lowSeverityAnomalyCount', $value);
     }
 
     /**
-     * Sets the mediumSeverityAnomalyCount property value. The number of medium severity anomalies which have been detected. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the mediumSeverityAnomalyCount property.
+     * Sets the mediumSeverityAnomalyCount property value. Indicates count of medium severity anomalies which have been detected. Valid values -2147483648 to 2147483647
+     * @param int|null $value Value to set for the mediumSeverityAnomalyCount property.
     */
     public function setMediumSeverityAnomalyCount(?int $value): void {
         $this->getBackingStore()->set('mediumSeverityAnomalyCount', $value);
@@ -168,7 +171,7 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

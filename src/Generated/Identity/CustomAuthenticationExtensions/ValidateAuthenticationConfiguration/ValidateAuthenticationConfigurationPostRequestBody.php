@@ -38,7 +38,7 @@ class ValidateAuthenticationConfigurationPostRequestBody implements AdditionalDa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -92,7 +92,7 @@ class ValidateAuthenticationConfigurationPostRequestBody implements AdditionalDa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -100,7 +100,7 @@ class ValidateAuthenticationConfigurationPostRequestBody implements AdditionalDa
 
     /**
      * Sets the authenticationConfiguration property value. The authenticationConfiguration property
-     *  @param CustomExtensionAuthenticationConfiguration|null $value Value to set for the authenticationConfiguration property.
+     * @param CustomExtensionAuthenticationConfiguration|null $value Value to set for the authenticationConfiguration property.
     */
     public function setAuthenticationConfiguration(?CustomExtensionAuthenticationConfiguration $value): void {
         $this->getBackingStore()->set('authenticationConfiguration', $value);
@@ -108,7 +108,7 @@ class ValidateAuthenticationConfigurationPostRequestBody implements AdditionalDa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -116,7 +116,7 @@ class ValidateAuthenticationConfigurationPostRequestBody implements AdditionalDa
 
     /**
      * Sets the endpointConfiguration property value. The endpointConfiguration property
-     *  @param CustomExtensionEndpointConfiguration|null $value Value to set for the endpointConfiguration property.
+     * @param CustomExtensionEndpointConfiguration|null $value Value to set for the endpointConfiguration property.
     */
     public function setEndpointConfiguration(?CustomExtensionEndpointConfiguration $value): void {
         $this->getBackingStore()->set('endpointConfiguration', $value);

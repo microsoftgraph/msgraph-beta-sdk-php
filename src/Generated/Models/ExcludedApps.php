@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Contains properties for Excluded Office365 Apps.
+*/
 class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -44,7 +47,7 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -230,7 +233,7 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the access property value. The value for if MS Office Access should be excluded or not.
-     *  @param bool|null $value Value to set for the access property.
+     * @param bool|null $value Value to set for the access property.
     */
     public function setAccess(?bool $value): void {
         $this->getBackingStore()->set('access', $value);
@@ -238,7 +241,7 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -246,7 +249,7 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -254,7 +257,7 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the bing property value. The value for if Microsoft Search as default should be excluded or not.
-     *  @param bool|null $value Value to set for the bing property.
+     * @param bool|null $value Value to set for the bing property.
     */
     public function setBing(?bool $value): void {
         $this->getBackingStore()->set('bing', $value);
@@ -262,7 +265,7 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the excel property value. The value for if MS Office Excel should be excluded or not.
-     *  @param bool|null $value Value to set for the excel property.
+     * @param bool|null $value Value to set for the excel property.
     */
     public function setExcel(?bool $value): void {
         $this->getBackingStore()->set('excel', $value);
@@ -270,7 +273,7 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the groove property value. The value for if MS Office OneDrive for Business - Groove should be excluded or not.
-     *  @param bool|null $value Value to set for the groove property.
+     * @param bool|null $value Value to set for the groove property.
     */
     public function setGroove(?bool $value): void {
         $this->getBackingStore()->set('groove', $value);
@@ -278,7 +281,7 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the infoPath property value. The value for if MS Office InfoPath should be excluded or not.
-     *  @param bool|null $value Value to set for the infoPath property.
+     * @param bool|null $value Value to set for the infoPath property.
     */
     public function setInfoPath(?bool $value): void {
         $this->getBackingStore()->set('infoPath', $value);
@@ -286,7 +289,7 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the lync property value. The value for if MS Office Skype for Business - Lync should be excluded or not.
-     *  @param bool|null $value Value to set for the lync property.
+     * @param bool|null $value Value to set for the lync property.
     */
     public function setLync(?bool $value): void {
         $this->getBackingStore()->set('lync', $value);
@@ -294,7 +297,7 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -302,7 +305,7 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the oneDrive property value. The value for if MS Office OneDrive should be excluded or not.
-     *  @param bool|null $value Value to set for the oneDrive property.
+     * @param bool|null $value Value to set for the oneDrive property.
     */
     public function setOneDrive(?bool $value): void {
         $this->getBackingStore()->set('oneDrive', $value);
@@ -310,7 +313,7 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the oneNote property value. The value for if MS Office OneNote should be excluded or not.
-     *  @param bool|null $value Value to set for the oneNote property.
+     * @param bool|null $value Value to set for the oneNote property.
     */
     public function setOneNote(?bool $value): void {
         $this->getBackingStore()->set('oneNote', $value);
@@ -318,7 +321,7 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the outlook property value. The value for if MS Office Outlook should be excluded or not.
-     *  @param bool|null $value Value to set for the outlook property.
+     * @param bool|null $value Value to set for the outlook property.
     */
     public function setOutlook(?bool $value): void {
         $this->getBackingStore()->set('outlook', $value);
@@ -326,7 +329,7 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the powerPoint property value. The value for if MS Office PowerPoint should be excluded or not.
-     *  @param bool|null $value Value to set for the powerPoint property.
+     * @param bool|null $value Value to set for the powerPoint property.
     */
     public function setPowerPoint(?bool $value): void {
         $this->getBackingStore()->set('powerPoint', $value);
@@ -334,7 +337,7 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the publisher property value. The value for if MS Office Publisher should be excluded or not.
-     *  @param bool|null $value Value to set for the publisher property.
+     * @param bool|null $value Value to set for the publisher property.
     */
     public function setPublisher(?bool $value): void {
         $this->getBackingStore()->set('publisher', $value);
@@ -342,7 +345,7 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the sharePointDesigner property value. The value for if MS Office SharePointDesigner should be excluded or not.
-     *  @param bool|null $value Value to set for the sharePointDesigner property.
+     * @param bool|null $value Value to set for the sharePointDesigner property.
     */
     public function setSharePointDesigner(?bool $value): void {
         $this->getBackingStore()->set('sharePointDesigner', $value);
@@ -350,7 +353,7 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the teams property value. The value for if MS Office Teams should be excluded or not.
-     *  @param bool|null $value Value to set for the teams property.
+     * @param bool|null $value Value to set for the teams property.
     */
     public function setTeams(?bool $value): void {
         $this->getBackingStore()->set('teams', $value);
@@ -358,7 +361,7 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the visio property value. The value for if MS Office Visio should be excluded or not.
-     *  @param bool|null $value Value to set for the visio property.
+     * @param bool|null $value Value to set for the visio property.
     */
     public function setVisio(?bool $value): void {
         $this->getBackingStore()->set('visio', $value);
@@ -366,7 +369,7 @@ class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the word property value. The value for if MS Office Word should be excluded or not.
-     *  @param bool|null $value Value to set for the word property.
+     * @param bool|null $value Value to set for the word property.
     */
     public function setWord(?bool $value): void {
         $this->getBackingStore()->set('word', $value);

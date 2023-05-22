@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ImportedDeviceIdentity extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new importedDeviceIdentity and sets the default values.
+     * Instantiates a new ImportedDeviceIdentity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -132,7 +132,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. Created Date Time of the device
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -140,7 +140,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description of the device
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -148,7 +148,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the enrollmentState property value. The enrollmentState property
-     *  @param EnrollmentState|null $value Value to set for the enrollmentState property.
+     * @param EnrollmentState|null $value Value to set for the enrollmentState property.
     */
     public function setEnrollmentState(?EnrollmentState $value): void {
         $this->getBackingStore()->set('enrollmentState', $value);
@@ -156,7 +156,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the importedDeviceIdentifier property value. Imported Device Identifier
-     *  @param string|null $value Value to set for the importedDeviceIdentifier property.
+     * @param string|null $value Value to set for the importedDeviceIdentifier property.
     */
     public function setImportedDeviceIdentifier(?string $value): void {
         $this->getBackingStore()->set('importedDeviceIdentifier', $value);
@@ -164,7 +164,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the importedDeviceIdentityType property value. The importedDeviceIdentityType property
-     *  @param ImportedDeviceIdentityType|null $value Value to set for the importedDeviceIdentityType property.
+     * @param ImportedDeviceIdentityType|null $value Value to set for the importedDeviceIdentityType property.
     */
     public function setImportedDeviceIdentityType(?ImportedDeviceIdentityType $value): void {
         $this->getBackingStore()->set('importedDeviceIdentityType', $value);
@@ -172,7 +172,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the lastContactedDateTime property value. Last Contacted Date Time of the device
-     *  @param DateTime|null $value Value to set for the lastContactedDateTime property.
+     * @param DateTime|null $value Value to set for the lastContactedDateTime property.
     */
     public function setLastContactedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastContactedDateTime', $value);
@@ -180,7 +180,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. Last Modified DateTime of the description
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -188,7 +188,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the platform property value. The platform property
-     *  @param Platform|null $value Value to set for the platform property.
+     * @param Platform|null $value Value to set for the platform property.
     */
     public function setPlatform(?Platform $value): void {
         $this->getBackingStore()->set('platform', $value);

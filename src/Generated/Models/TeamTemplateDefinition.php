@@ -26,7 +26,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the audience property value. The audience property
+     * Gets the audience property value. Describes the audience the team template is available to. The possible values are: organization, user, public, unknownFutureValue.
      * @return TeamTemplateAudience|null
     */
     public function getAudience(): ?TeamTemplateAudience {
@@ -34,7 +34,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the categories property value. The categories property
+     * Gets the categories property value. The assigned categories for the team template.
      * @return array<string>|null
     */
     public function getCategories(): ?array {
@@ -42,7 +42,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. A brief description of the team template as it will appear to the users in Microsoft Teams.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -50,7 +50,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The user defined name of the team template.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -80,7 +80,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the iconUrl property value. The iconUrl property
+     * Gets the iconUrl property value. The icon url for the team template.
      * @return string|null
     */
     public function getIconUrl(): ?string {
@@ -88,7 +88,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the languageTag property value. The languageTag property
+     * Gets the languageTag property value. Language the template is available in.
      * @return string|null
     */
     public function getLanguageTag(): ?string {
@@ -96,7 +96,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedBy property value. The lastModifiedBy property
+     * Gets the lastModifiedBy property value. The identity of the user who last modified the team template.
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
@@ -104,7 +104,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. The date time of when the team template was last modified.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -112,7 +112,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the parentTemplateId property value. The parentTemplateId property
+     * Gets the parentTemplateId property value. The templateId for the team template
      * @return string|null
     */
     public function getParentTemplateId(): ?string {
@@ -120,7 +120,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the publisherName property value. The publisherName property
+     * Gets the publisherName property value. The organization which published the team template.
      * @return string|null
     */
     public function getPublisherName(): ?string {
@@ -128,7 +128,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the shortDescription property value. The shortDescription property
+     * Gets the shortDescription property value. A short-description of the team template as it will appear to the users in Microsoft Teams.
      * @return string|null
     */
     public function getShortDescription(): ?string {
@@ -136,7 +136,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the teamDefinition property value. The teamDefinition property
+     * Gets the teamDefinition property value. Collection of channel objects. A channel represents a topic, and therefore a logical isolation of discussion, within a team.
      * @return Team|null
     */
     public function getTeamDefinition(): ?Team {
@@ -164,96 +164,96 @@ class TeamTemplateDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the audience property value. The audience property
-     *  @param TeamTemplateAudience|null $value Value to set for the audience property.
+     * Sets the audience property value. Describes the audience the team template is available to. The possible values are: organization, user, public, unknownFutureValue.
+     * @param TeamTemplateAudience|null $value Value to set for the audience property.
     */
     public function setAudience(?TeamTemplateAudience $value): void {
         $this->getBackingStore()->set('audience', $value);
     }
 
     /**
-     * Sets the categories property value. The categories property
-     *  @param array<string>|null $value Value to set for the categories property.
+     * Sets the categories property value. The assigned categories for the team template.
+     * @param array<string>|null $value Value to set for the categories property.
     */
     public function setCategories(?array $value): void {
         $this->getBackingStore()->set('categories', $value);
     }
 
     /**
-     * Sets the description property value. The description property
-     *  @param string|null $value Value to set for the description property.
+     * Sets the description property value. A brief description of the team template as it will appear to the users in Microsoft Teams.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
     }
 
     /**
-     * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * Sets the displayName property value. The user defined name of the team template.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
-     * Sets the iconUrl property value. The iconUrl property
-     *  @param string|null $value Value to set for the iconUrl property.
+     * Sets the iconUrl property value. The icon url for the team template.
+     * @param string|null $value Value to set for the iconUrl property.
     */
     public function setIconUrl(?string $value): void {
         $this->getBackingStore()->set('iconUrl', $value);
     }
 
     /**
-     * Sets the languageTag property value. The languageTag property
-     *  @param string|null $value Value to set for the languageTag property.
+     * Sets the languageTag property value. Language the template is available in.
+     * @param string|null $value Value to set for the languageTag property.
     */
     public function setLanguageTag(?string $value): void {
         $this->getBackingStore()->set('languageTag', $value);
     }
 
     /**
-     * Sets the lastModifiedBy property value. The lastModifiedBy property
-     *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
+     * Sets the lastModifiedBy property value. The identity of the user who last modified the team template.
+     * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('lastModifiedBy', $value);
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * Sets the lastModifiedDateTime property value. The date time of when the team template was last modified.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
-     * Sets the parentTemplateId property value. The parentTemplateId property
-     *  @param string|null $value Value to set for the parentTemplateId property.
+     * Sets the parentTemplateId property value. The templateId for the team template
+     * @param string|null $value Value to set for the parentTemplateId property.
     */
     public function setParentTemplateId(?string $value): void {
         $this->getBackingStore()->set('parentTemplateId', $value);
     }
 
     /**
-     * Sets the publisherName property value. The publisherName property
-     *  @param string|null $value Value to set for the publisherName property.
+     * Sets the publisherName property value. The organization which published the team template.
+     * @param string|null $value Value to set for the publisherName property.
     */
     public function setPublisherName(?string $value): void {
         $this->getBackingStore()->set('publisherName', $value);
     }
 
     /**
-     * Sets the shortDescription property value. The shortDescription property
-     *  @param string|null $value Value to set for the shortDescription property.
+     * Sets the shortDescription property value. A short-description of the team template as it will appear to the users in Microsoft Teams.
+     * @param string|null $value Value to set for the shortDescription property.
     */
     public function setShortDescription(?string $value): void {
         $this->getBackingStore()->set('shortDescription', $value);
     }
 
     /**
-     * Sets the teamDefinition property value. The teamDefinition property
-     *  @param Team|null $value Value to set for the teamDefinition property.
+     * Sets the teamDefinition property value. Collection of channel objects. A channel represents a topic, and therefore a logical isolation of discussion, within a team.
+     * @param Team|null $value Value to set for the teamDefinition property.
     */
     public function setTeamDefinition(?Team $value): void {
         $this->getBackingStore()->set('teamDefinition', $value);

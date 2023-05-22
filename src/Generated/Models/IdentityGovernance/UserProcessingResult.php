@@ -157,7 +157,7 @@ class UserProcessingResult extends Entity implements Parsable
 
     /**
      * Sets the completedDateTime property value. The date time that the workflow execution for a user completed. Value is null if the workflow hasn't completed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
-     *  @param DateTime|null $value Value to set for the completedDateTime property.
+     * @param DateTime|null $value Value to set for the completedDateTime property.
     */
     public function setCompletedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('completedDateTime', $value);
@@ -165,7 +165,7 @@ class UserProcessingResult extends Entity implements Parsable
 
     /**
      * Sets the failedTasksCount property value. The number of tasks that failed in the workflow execution.
-     *  @param int|null $value Value to set for the failedTasksCount property.
+     * @param int|null $value Value to set for the failedTasksCount property.
     */
     public function setFailedTasksCount(?int $value): void {
         $this->getBackingStore()->set('failedTasksCount', $value);
@@ -173,7 +173,7 @@ class UserProcessingResult extends Entity implements Parsable
 
     /**
      * Sets the processingStatus property value. The processingStatus property
-     *  @param LifecycleWorkflowProcessingStatus|null $value Value to set for the processingStatus property.
+     * @param LifecycleWorkflowProcessingStatus|null $value Value to set for the processingStatus property.
     */
     public function setProcessingStatus(?LifecycleWorkflowProcessingStatus $value): void {
         $this->getBackingStore()->set('processingStatus', $value);
@@ -181,7 +181,7 @@ class UserProcessingResult extends Entity implements Parsable
 
     /**
      * Sets the scheduledDateTime property value. The date time that the workflow is scheduled to be executed for a user.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
-     *  @param DateTime|null $value Value to set for the scheduledDateTime property.
+     * @param DateTime|null $value Value to set for the scheduledDateTime property.
     */
     public function setScheduledDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('scheduledDateTime', $value);
@@ -189,7 +189,7 @@ class UserProcessingResult extends Entity implements Parsable
 
     /**
      * Sets the startedDateTime property value. The date time that the workflow execution started. Value is null if the workflow execution has not started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
-     *  @param DateTime|null $value Value to set for the startedDateTime property.
+     * @param DateTime|null $value Value to set for the startedDateTime property.
     */
     public function setStartedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('startedDateTime', $value);
@@ -197,7 +197,7 @@ class UserProcessingResult extends Entity implements Parsable
 
     /**
      * Sets the subject property value. The subject property
-     *  @param User|null $value Value to set for the subject property.
+     * @param User|null $value Value to set for the subject property.
     */
     public function setSubject(?User $value): void {
         $this->getBackingStore()->set('subject', $value);
@@ -205,7 +205,7 @@ class UserProcessingResult extends Entity implements Parsable
 
     /**
      * Sets the taskProcessingResults property value. The associated individual task execution.
-     *  @param array<TaskProcessingResult>|null $value Value to set for the taskProcessingResults property.
+     * @param array<TaskProcessingResult>|null $value Value to set for the taskProcessingResults property.
     */
     public function setTaskProcessingResults(?array $value): void {
         $this->getBackingStore()->set('taskProcessingResults', $value);
@@ -213,7 +213,7 @@ class UserProcessingResult extends Entity implements Parsable
 
     /**
      * Sets the totalTasksCount property value. The total number of tasks that in the workflow execution.
-     *  @param int|null $value Value to set for the totalTasksCount property.
+     * @param int|null $value Value to set for the totalTasksCount property.
     */
     public function setTotalTasksCount(?int $value): void {
         $this->getBackingStore()->set('totalTasksCount', $value);
@@ -221,7 +221,7 @@ class UserProcessingResult extends Entity implements Parsable
 
     /**
      * Sets the totalUnprocessedTasksCount property value. The total number of unprocessed tasks for the workflow.
-     *  @param int|null $value Value to set for the totalUnprocessedTasksCount property.
+     * @param int|null $value Value to set for the totalUnprocessedTasksCount property.
     */
     public function setTotalUnprocessedTasksCount(?int $value): void {
         $this->getBackingStore()->set('totalUnprocessedTasksCount', $value);
@@ -229,7 +229,7 @@ class UserProcessingResult extends Entity implements Parsable
 
     /**
      * Sets the workflowExecutionType property value. The workflowExecutionType property
-     *  @param WorkflowExecutionType|null $value Value to set for the workflowExecutionType property.
+     * @param WorkflowExecutionType|null $value Value to set for the workflowExecutionType property.
     */
     public function setWorkflowExecutionType(?WorkflowExecutionType $value): void {
         $this->getBackingStore()->set('workflowExecutionType', $value);
@@ -237,7 +237,7 @@ class UserProcessingResult extends Entity implements Parsable
 
     /**
      * Sets the workflowVersion property value. The version of the workflow that was executed.
-     *  @param int|null $value Value to set for the workflowVersion property.
+     * @param int|null $value Value to set for the workflowVersion property.
     */
     public function setWorkflowVersion(?int $value): void {
         $this->getBackingStore()->set('workflowVersion', $value);

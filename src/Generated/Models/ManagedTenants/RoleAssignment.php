@@ -36,7 +36,7 @@ class RoleAssignment implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -100,7 +100,7 @@ class RoleAssignment implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,7 +108,7 @@ class RoleAssignment implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the assignmentType property value. The type of the admin relationship(s) associated with the role assignment. Possible values are: none, delegatedAdminPrivileges, unknownFutureValue, granularDelegatedAdminPrivileges, delegatedAndGranularDelegetedAdminPrivileges. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: granularDelegatedAdminPrivileges , delegatedAndGranularDelegetedAdminPrivileges.
-     *  @param DelegatedPrivilegeStatus|null $value Value to set for the assignmentType property.
+     * @param DelegatedPrivilegeStatus|null $value Value to set for the assignmentType property.
     */
     public function setAssignmentType(?DelegatedPrivilegeStatus $value): void {
         $this->getBackingStore()->set('assignmentType', $value);
@@ -116,7 +116,7 @@ class RoleAssignment implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -124,7 +124,7 @@ class RoleAssignment implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -132,7 +132,7 @@ class RoleAssignment implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the roles property value. The collection of roles assigned.
-     *  @param array<RoleDefinition>|null $value Value to set for the roles property.
+     * @param array<RoleDefinition>|null $value Value to set for the roles property.
     */
     public function setRoles(?array $value): void {
         $this->getBackingStore()->set('roles', $value);

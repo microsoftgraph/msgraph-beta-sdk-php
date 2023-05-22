@@ -64,7 +64,7 @@ class IosVppAppAssignedDeviceLicense extends IosVppAppAssignedLicense implements
 
     /**
      * Sets the deviceName property value. The device name.
-     *  @param string|null $value Value to set for the deviceName property.
+     * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
         $this->getBackingStore()->set('deviceName', $value);
@@ -72,7 +72,7 @@ class IosVppAppAssignedDeviceLicense extends IosVppAppAssignedLicense implements
 
     /**
      * Sets the managedDeviceId property value. The managed device ID.
-     *  @param string|null $value Value to set for the managedDeviceId property.
+     * @param string|null $value Value to set for the managedDeviceId property.
     */
     public function setManagedDeviceId(?string $value): void {
         $this->getBackingStore()->set('managedDeviceId', $value);

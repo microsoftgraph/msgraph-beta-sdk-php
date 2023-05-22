@@ -55,7 +55,7 @@ class Fido2CombinationConfiguration extends AuthenticationCombinationConfigurati
 
     /**
      * Sets the allowedAAGUIDs property value. A list of AAGUIDs allowed to be used as part of the specified authentication method combinations.
-     *  @param array<string>|null $value Value to set for the allowedAAGUIDs property.
+     * @param array<string>|null $value Value to set for the allowedAAGUIDs property.
     */
     public function setAllowedAAGUIDs(?array $value): void {
         $this->getBackingStore()->set('allowedAAGUIDs', $value);

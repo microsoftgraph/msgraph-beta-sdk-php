@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Represents an AirPrint destination.
+*/
 class AirPrintDestination implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class AirPrintDestination implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +123,7 @@ class AirPrintDestination implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +131,7 @@ class AirPrintDestination implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +139,7 @@ class AirPrintDestination implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the forceTls property value. If true AirPrint connections are secured by Transport Layer Security (TLS). Default is false. Available in iOS 11.0 and later.
-     *  @param bool|null $value Value to set for the forceTls property.
+     * @param bool|null $value Value to set for the forceTls property.
     */
     public function setForceTls(?bool $value): void {
         $this->getBackingStore()->set('forceTls', $value);
@@ -144,7 +147,7 @@ class AirPrintDestination implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the ipAddress property value. The IP Address of the AirPrint destination.
-     *  @param string|null $value Value to set for the ipAddress property.
+     * @param string|null $value Value to set for the ipAddress property.
     */
     public function setIpAddress(?string $value): void {
         $this->getBackingStore()->set('ipAddress', $value);
@@ -152,7 +155,7 @@ class AirPrintDestination implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -160,7 +163,7 @@ class AirPrintDestination implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the port property value. The listening port of the AirPrint destination. If this key is not specified AirPrint will use the default port. Available in iOS 11.0 and later.
-     *  @param int|null $value Value to set for the port property.
+     * @param int|null $value Value to set for the port property.
     */
     public function setPort(?int $value): void {
         $this->getBackingStore()->set('port', $value);
@@ -168,7 +171,7 @@ class AirPrintDestination implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the resourcePath property value. The Resource Path associated with the printer. This corresponds to the rp parameter of the ipps.tcp Bonjour record. For example: printers/Canon_MG5300_series, printers/Xerox_Phaser_7600, ipp/print, Epson_IPP_Printer.
-     *  @param string|null $value Value to set for the resourcePath property.
+     * @param string|null $value Value to set for the resourcePath property.
     */
     public function setResourcePath(?string $value): void {
         $this->getBackingStore()->set('resourcePath', $value);

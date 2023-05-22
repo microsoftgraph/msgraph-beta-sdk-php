@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\T
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read the details of a built-in workflow task.
+*/
 class TaskDefinitionItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class TaskDefinitionItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new TaskDefinitionItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

@@ -62,7 +62,7 @@ class ResourceConnection extends Entity implements Parsable
 
     /**
      * Sets the state property value. The state of the connection. The possible values are: connected, notAuthorized, notFound, unknownFutureValue.
-     *  @param ResourceConnectionState|null $value Value to set for the state property.
+     * @param ResourceConnectionState|null $value Value to set for the state property.
     */
     public function setState(?ResourceConnectionState $value): void {
         $this->getBackingStore()->set('state', $value);

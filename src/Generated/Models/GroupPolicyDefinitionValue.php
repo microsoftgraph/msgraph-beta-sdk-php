@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The definition value entity stores the value for a single group policy definition.
+*/
 class GroupPolicyDefinitionValue extends Entity implements Parsable 
 {
     /**
@@ -105,7 +108,7 @@ class GroupPolicyDefinitionValue extends Entity implements Parsable
 
     /**
      * Sets the configurationType property value. Group Policy Configuration Type
-     *  @param GroupPolicyConfigurationType|null $value Value to set for the configurationType property.
+     * @param GroupPolicyConfigurationType|null $value Value to set for the configurationType property.
     */
     public function setConfigurationType(?GroupPolicyConfigurationType $value): void {
         $this->getBackingStore()->set('configurationType', $value);
@@ -113,7 +116,7 @@ class GroupPolicyDefinitionValue extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date and time the object was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -121,7 +124,7 @@ class GroupPolicyDefinitionValue extends Entity implements Parsable
 
     /**
      * Sets the definition property value. The associated group policy definition with the value.
-     *  @param GroupPolicyDefinition|null $value Value to set for the definition property.
+     * @param GroupPolicyDefinition|null $value Value to set for the definition property.
     */
     public function setDefinition(?GroupPolicyDefinition $value): void {
         $this->getBackingStore()->set('definition', $value);
@@ -129,7 +132,7 @@ class GroupPolicyDefinitionValue extends Entity implements Parsable
 
     /**
      * Sets the enabled property value. Enables or disables the associated group policy definition.
-     *  @param bool|null $value Value to set for the enabled property.
+     * @param bool|null $value Value to set for the enabled property.
     */
     public function setEnabled(?bool $value): void {
         $this->getBackingStore()->set('enabled', $value);
@@ -137,7 +140,7 @@ class GroupPolicyDefinitionValue extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time the entity was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -145,7 +148,7 @@ class GroupPolicyDefinitionValue extends Entity implements Parsable
 
     /**
      * Sets the presentationValues property value. The associated group policy presentation values with the definition value.
-     *  @param array<GroupPolicyPresentationValue>|null $value Value to set for the presentationValues property.
+     * @param array<GroupPolicyPresentationValue>|null $value Value to set for the presentationValues property.
     */
     public function setPresentationValues(?array $value): void {
         $this->getBackingStore()->set('presentationValues', $value);

@@ -101,7 +101,7 @@ class OutlookItem extends Entity implements Parsable
 
     /**
      * Sets the categories property value. The categories property
-     *  @param array<string>|null $value Value to set for the categories property.
+     * @param array<string>|null $value Value to set for the categories property.
     */
     public function setCategories(?array $value): void {
         $this->getBackingStore()->set('categories', $value);
@@ -109,7 +109,7 @@ class OutlookItem extends Entity implements Parsable
 
     /**
      * Sets the changeKey property value. The changeKey property
-     *  @param string|null $value Value to set for the changeKey property.
+     * @param string|null $value Value to set for the changeKey property.
     */
     public function setChangeKey(?string $value): void {
         $this->getBackingStore()->set('changeKey', $value);
@@ -117,7 +117,7 @@ class OutlookItem extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -125,7 +125,7 @@ class OutlookItem extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);

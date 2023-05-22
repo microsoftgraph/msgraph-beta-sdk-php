@@ -8,43 +8,36 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Applications\Item\AddKey\AddKeyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\AddPassword\AddPasswordRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\AppManagementPolicies\AppManagementPoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\AppManagementPolicies\Item\AppManagementPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\CheckMemberGroups\CheckMemberGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\ConnectorGroup\ConnectorGroupRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\CreatedOnBehalfOf\CreatedOnBehalfOfRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\ExtensionProperties\ExtensionPropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\ExtensionProperties\Item\ExtensionPropertyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\FederatedIdentityCredentials\FederatedIdentityCredentialsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\FederatedIdentityCredentials\Item\FederatedIdentityCredentialItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\HomeRealmDiscoveryPolicies\HomeRealmDiscoveryPoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\HomeRealmDiscoveryPolicies\Item\HomeRealmDiscoveryPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Logo\LogoRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\Owners\Item\DirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Owners\OwnersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\RemoveKey\RemoveKeyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\RemovePassword\RemovePasswordRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Restore\RestoreRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\SetVerifiedPublisher\SetVerifiedPublisherRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\SynchronizationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\TokenIssuancePolicies\Item\TokenIssuancePolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\TokenIssuancePolicies\TokenIssuancePoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\TokenLifetimePolicies\Item\TokenLifetimePolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\TokenLifetimePolicies\TokenLifetimePoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\UnsetVerifiedPublisher\UnsetVerifiedPublisherRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Application;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
-class ApplicationItemRequestBuilder 
+/**
+ * Provides operations to manage the collection of application entities.
+*/
+class ApplicationItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to call the addKey method.
@@ -145,11 +138,6 @@ class ApplicationItemRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
      * Provides operations to call the removeKey method.
     */
     public function removeKey(): RemoveKeyRequestBuilder {
@@ -162,11 +150,6 @@ class ApplicationItemRequestBuilder
     public function removePassword(): RemovePasswordRequestBuilder {
         return new RemovePasswordRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
     
     /**
      * Provides operations to call the restore method.
@@ -211,129 +194,72 @@ class ApplicationItemRequestBuilder
     }
     
     /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.applications.item.appManagementPolicies.item collection
-     * @param string $id Unique identifier of the item
-     * @return AppManagementPolicyItemRequestBuilder
-    */
-    public function appManagementPoliciesById(string $id): AppManagementPolicyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['appManagementPolicy%2Did'] = $id;
-        return new AppManagementPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new ApplicationItemRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/applications/{application%2Did}{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
+        parent::__construct($requestAdapter, [], '{+baseurl}/applications/{application%2Did}{?%24select,%24expand}');
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
      * Deletes an application. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted.
      * @param ApplicationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/application-delete?view=graph-rest-1.0 Find more info here
     */
-    public function delete(?ApplicationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?ApplicationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Provides operations to manage the extensionProperties property of the microsoft.graph.application entity.
-     * @param string $id Unique identifier of the item
-     * @return ExtensionPropertyItemRequestBuilder
-    */
-    public function extensionPropertiesById(string $id): ExtensionPropertyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['extensionProperty%2Did'] = $id;
-        return new ExtensionPropertyItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.application entity.
-     * @param string $id Unique identifier of the item
-     * @return FederatedIdentityCredentialItemRequestBuilder
-    */
-    public function federatedIdentityCredentialsById(string $id): FederatedIdentityCredentialItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['federatedIdentityCredential%2Did'] = $id;
-        return new FederatedIdentityCredentialItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Get the properties and relationships of an application object.
      * @param ApplicationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/application-get?view=graph-rest-1.0 Find more info here
     */
-    public function get(?ApplicationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?ApplicationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Application::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Application::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.application entity.
-     * @param string $id Unique identifier of the item
-     * @return HomeRealmDiscoveryPolicyItemRequestBuilder
-    */
-    public function homeRealmDiscoveryPoliciesById(string $id): HomeRealmDiscoveryPolicyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['homeRealmDiscoveryPolicy%2Did'] = $id;
-        return new HomeRealmDiscoveryPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.applications.item.owners.item collection
-     * @param string $id Unique identifier of the item
-     * @return DirectoryObjectItemRequestBuilder
-    */
-    public function ownersById(string $id): DirectoryObjectItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
-        return new DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Update the properties of an application object.
      * @param Application $body The request body
      * @param ApplicationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/application-update?view=graph-rest-1.0 Find more info here
     */
-    public function patch(Application $body, ?ApplicationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(Application $body, ?ApplicationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Application::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Application::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -350,12 +276,8 @@ class ApplicationItemRequestBuilder
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -370,41 +292,15 @@ class ApplicationItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
-    }
-
-    /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.applications.item.tokenIssuancePolicies.item collection
-     * @param string $id Unique identifier of the item
-     * @return TokenIssuancePolicyItemRequestBuilder
-    */
-    public function tokenIssuancePoliciesById(string $id): TokenIssuancePolicyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['tokenIssuancePolicy%2Did'] = $id;
-        return new TokenIssuancePolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.applications.item.tokenLifetimePolicies.item collection
-     * @param string $id Unique identifier of the item
-     * @return TokenLifetimePolicyItemRequestBuilder
-    */
-    public function tokenLifetimePoliciesById(string $id): TokenLifetimePolicyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['tokenLifetimePolicy%2Did'] = $id;
-        return new TokenLifetimePolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -418,14 +314,10 @@ class ApplicationItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

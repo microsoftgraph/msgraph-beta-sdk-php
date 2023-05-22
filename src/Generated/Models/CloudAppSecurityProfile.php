@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudAppSecurityProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new cloudAppSecurityProfile and sets the default values.
+     * Instantiates a new CloudAppSecurityProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -215,7 +215,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the azureSubscriptionId property value. The azureSubscriptionId property
-     *  @param string|null $value Value to set for the azureSubscriptionId property.
+     * @param string|null $value Value to set for the azureSubscriptionId property.
     */
     public function setAzureSubscriptionId(?string $value): void {
         $this->getBackingStore()->set('azureSubscriptionId', $value);
@@ -223,7 +223,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the azureTenantId property value. The azureTenantId property
-     *  @param string|null $value Value to set for the azureTenantId property.
+     * @param string|null $value Value to set for the azureTenantId property.
     */
     public function setAzureTenantId(?string $value): void {
         $this->getBackingStore()->set('azureTenantId', $value);
@@ -231,7 +231,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The createdDateTime property
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -239,7 +239,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the deploymentPackageUrl property value. The deploymentPackageUrl property
-     *  @param string|null $value Value to set for the deploymentPackageUrl property.
+     * @param string|null $value Value to set for the deploymentPackageUrl property.
     */
     public function setDeploymentPackageUrl(?string $value): void {
         $this->getBackingStore()->set('deploymentPackageUrl', $value);
@@ -247,7 +247,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the destinationServiceName property value. The destinationServiceName property
-     *  @param string|null $value Value to set for the destinationServiceName property.
+     * @param string|null $value Value to set for the destinationServiceName property.
     */
     public function setDestinationServiceName(?string $value): void {
         $this->getBackingStore()->set('destinationServiceName', $value);
@@ -255,7 +255,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the isSigned property value. The isSigned property
-     *  @param bool|null $value Value to set for the isSigned property.
+     * @param bool|null $value Value to set for the isSigned property.
     */
     public function setIsSigned(?bool $value): void {
         $this->getBackingStore()->set('isSigned', $value);
@@ -263,7 +263,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -271,7 +271,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the manifest property value. The manifest property
-     *  @param string|null $value Value to set for the manifest property.
+     * @param string|null $value Value to set for the manifest property.
     */
     public function setManifest(?string $value): void {
         $this->getBackingStore()->set('manifest', $value);
@@ -279,7 +279,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the name property value. The name property
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -287,7 +287,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the permissionsRequired property value. The permissionsRequired property
-     *  @param ApplicationPermissionsRequired|null $value Value to set for the permissionsRequired property.
+     * @param ApplicationPermissionsRequired|null $value Value to set for the permissionsRequired property.
     */
     public function setPermissionsRequired(?ApplicationPermissionsRequired $value): void {
         $this->getBackingStore()->set('permissionsRequired', $value);
@@ -295,7 +295,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the platform property value. The platform property
-     *  @param string|null $value Value to set for the platform property.
+     * @param string|null $value Value to set for the platform property.
     */
     public function setPlatform(?string $value): void {
         $this->getBackingStore()->set('platform', $value);
@@ -303,7 +303,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the policyName property value. The policyName property
-     *  @param string|null $value Value to set for the policyName property.
+     * @param string|null $value Value to set for the policyName property.
     */
     public function setPolicyName(?string $value): void {
         $this->getBackingStore()->set('policyName', $value);
@@ -311,7 +311,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the publisher property value. The publisher property
-     *  @param string|null $value Value to set for the publisher property.
+     * @param string|null $value Value to set for the publisher property.
     */
     public function setPublisher(?string $value): void {
         $this->getBackingStore()->set('publisher', $value);
@@ -319,7 +319,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the riskScore property value. The riskScore property
-     *  @param string|null $value Value to set for the riskScore property.
+     * @param string|null $value Value to set for the riskScore property.
     */
     public function setRiskScore(?string $value): void {
         $this->getBackingStore()->set('riskScore', $value);
@@ -327,7 +327,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the tags property value. The tags property
-     *  @param array<string>|null $value Value to set for the tags property.
+     * @param array<string>|null $value Value to set for the tags property.
     */
     public function setTags(?array $value): void {
         $this->getBackingStore()->set('tags', $value);
@@ -335,7 +335,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the type property value. The type property
-     *  @param string|null $value Value to set for the type property.
+     * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {
         $this->getBackingStore()->set('type', $value);
@@ -343,7 +343,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the vendorInformation property value. The vendorInformation property
-     *  @param SecurityVendorInformation|null $value Value to set for the vendorInformation property.
+     * @param SecurityVendorInformation|null $value Value to set for the vendorInformation property.
     */
     public function setVendorInformation(?SecurityVendorInformation $value): void {
         $this->getBackingStore()->set('vendorInformation', $value);

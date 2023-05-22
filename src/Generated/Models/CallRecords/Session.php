@@ -69,10 +69,19 @@ class Session extends Entity implements Parsable
             'caller' => fn(ParseNode $n) => $o->setCaller($n->getObjectValue([Endpoint::class, 'createFromDiscriminatorValue'])),
             'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
             'failureInfo' => fn(ParseNode $n) => $o->setFailureInfo($n->getObjectValue([FailureInfo::class, 'createFromDiscriminatorValue'])),
+            'isTest' => fn(ParseNode $n) => $o->setIsTest($n->getBooleanValue()),
             'modalities' => fn(ParseNode $n) => $o->setModalities($n->getCollectionOfEnumValues(Modality::class)),
             'segments' => fn(ParseNode $n) => $o->setSegments($n->getCollectionOfObjectValues([Segment::class, 'createFromDiscriminatorValue'])),
             'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
         ]);
+    }
+
+    /**
+     * Gets the isTest property value. Specifies whether the session is a test.
+     * @return bool|null
+    */
+    public function getIsTest(): ?bool {
+        return $this->getBackingStore()->get('isTest');
     }
 
     /**
@@ -109,6 +118,7 @@ class Session extends Entity implements Parsable
         $writer->writeObjectValue('caller', $this->getCaller());
         $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
         $writer->writeObjectValue('failureInfo', $this->getFailureInfo());
+        $writer->writeBooleanValue('isTest', $this->getIsTest());
         $writer->writeCollectionOfEnumValues('modalities', $this->getModalities());
         $writer->writeCollectionOfObjectValues('segments', $this->getSegments());
         $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
@@ -116,7 +126,7 @@ class Session extends Entity implements Parsable
 
     /**
      * Sets the callee property value. Endpoint that answered the session.
-     *  @param Endpoint|null $value Value to set for the callee property.
+     * @param Endpoint|null $value Value to set for the callee property.
     */
     public function setCallee(?Endpoint $value): void {
         $this->getBackingStore()->set('callee', $value);
@@ -124,7 +134,7 @@ class Session extends Entity implements Parsable
 
     /**
      * Sets the caller property value. Endpoint that initiated the session.
-     *  @param Endpoint|null $value Value to set for the caller property.
+     * @param Endpoint|null $value Value to set for the caller property.
     */
     public function setCaller(?Endpoint $value): void {
         $this->getBackingStore()->set('caller', $value);
@@ -132,7 +142,7 @@ class Session extends Entity implements Parsable
 
     /**
      * Sets the endDateTime property value. UTC time when the last user left the session. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the endDateTime property.
+     * @param DateTime|null $value Value to set for the endDateTime property.
     */
     public function setEndDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('endDateTime', $value);
@@ -140,15 +150,23 @@ class Session extends Entity implements Parsable
 
     /**
      * Sets the failureInfo property value. Failure information associated with the session if the session failed.
-     *  @param FailureInfo|null $value Value to set for the failureInfo property.
+     * @param FailureInfo|null $value Value to set for the failureInfo property.
     */
     public function setFailureInfo(?FailureInfo $value): void {
         $this->getBackingStore()->set('failureInfo', $value);
     }
 
     /**
+     * Sets the isTest property value. Specifies whether the session is a test.
+     * @param bool|null $value Value to set for the isTest property.
+    */
+    public function setIsTest(?bool $value): void {
+        $this->getBackingStore()->set('isTest', $value);
+    }
+
+    /**
      * Sets the modalities property value. List of modalities present in the session. Possible values are: unknown, audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.
-     *  @param array<Modality>|null $value Value to set for the modalities property.
+     * @param array<Modality>|null $value Value to set for the modalities property.
     */
     public function setModalities(?array $value): void {
         $this->getBackingStore()->set('modalities', $value);
@@ -156,7 +174,7 @@ class Session extends Entity implements Parsable
 
     /**
      * Sets the segments property value. The list of segments involved in the session. Read-only. Nullable.
-     *  @param array<Segment>|null $value Value to set for the segments property.
+     * @param array<Segment>|null $value Value to set for the segments property.
     */
     public function setSegments(?array $value): void {
         $this->getBackingStore()->set('segments', $value);
@@ -164,7 +182,7 @@ class Session extends Entity implements Parsable
 
     /**
      * Sets the startDateTime property value. UTC fime when the first user joined the session. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the startDateTime property.
+     * @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('startDateTime', $value);

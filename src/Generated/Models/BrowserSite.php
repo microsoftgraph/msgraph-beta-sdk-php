@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Singleton entity which is used to specify IE mode site metadata
+*/
 class BrowserSite extends Entity implements Parsable 
 {
     /**
@@ -165,7 +168,7 @@ class BrowserSite extends Entity implements Parsable
 
     /**
      * Sets the allowRedirect property value. Controls the behavior of redirected sites. If true, indicates that the site will open in Internet Explorer 11 or Microsoft Edge even if the site is navigated to as part of a HTTP or meta refresh redirection chain.
-     *  @param bool|null $value Value to set for the allowRedirect property.
+     * @param bool|null $value Value to set for the allowRedirect property.
     */
     public function setAllowRedirect(?bool $value): void {
         $this->getBackingStore()->set('allowRedirect', $value);
@@ -173,7 +176,7 @@ class BrowserSite extends Entity implements Parsable
 
     /**
      * Sets the comment property value. The comment for the site.
-     *  @param string|null $value Value to set for the comment property.
+     * @param string|null $value Value to set for the comment property.
     */
     public function setComment(?string $value): void {
         $this->getBackingStore()->set('comment', $value);
@@ -181,7 +184,7 @@ class BrowserSite extends Entity implements Parsable
 
     /**
      * Sets the compatibilityMode property value. The compatibilityMode property
-     *  @param BrowserSiteCompatibilityMode|null $value Value to set for the compatibilityMode property.
+     * @param BrowserSiteCompatibilityMode|null $value Value to set for the compatibilityMode property.
     */
     public function setCompatibilityMode(?BrowserSiteCompatibilityMode $value): void {
         $this->getBackingStore()->set('compatibilityMode', $value);
@@ -189,7 +192,7 @@ class BrowserSite extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date and time when the site was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -197,7 +200,7 @@ class BrowserSite extends Entity implements Parsable
 
     /**
      * Sets the deletedDateTime property value. The date and time when the site was deleted.
-     *  @param DateTime|null $value Value to set for the deletedDateTime property.
+     * @param DateTime|null $value Value to set for the deletedDateTime property.
     */
     public function setDeletedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('deletedDateTime', $value);
@@ -205,7 +208,7 @@ class BrowserSite extends Entity implements Parsable
 
     /**
      * Sets the history property value. The history of modifications applied to the site.
-     *  @param array<BrowserSiteHistory>|null $value Value to set for the history property.
+     * @param array<BrowserSiteHistory>|null $value Value to set for the history property.
     */
     public function setHistory(?array $value): void {
         $this->getBackingStore()->set('history', $value);
@@ -213,7 +216,7 @@ class BrowserSite extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedBy property value. The user who last modified the site.
-     *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
+     * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('lastModifiedBy', $value);
@@ -221,7 +224,7 @@ class BrowserSite extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time when the site was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -229,7 +232,7 @@ class BrowserSite extends Entity implements Parsable
 
     /**
      * Sets the mergeType property value. The mergeType property
-     *  @param BrowserSiteMergeType|null $value Value to set for the mergeType property.
+     * @param BrowserSiteMergeType|null $value Value to set for the mergeType property.
     */
     public function setMergeType(?BrowserSiteMergeType $value): void {
         $this->getBackingStore()->set('mergeType', $value);
@@ -237,7 +240,7 @@ class BrowserSite extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status property
-     *  @param BrowserSiteStatus|null $value Value to set for the status property.
+     * @param BrowserSiteStatus|null $value Value to set for the status property.
     */
     public function setStatus(?BrowserSiteStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -245,7 +248,7 @@ class BrowserSite extends Entity implements Parsable
 
     /**
      * Sets the targetEnvironment property value. The targetEnvironment property
-     *  @param BrowserSiteTargetEnvironment|null $value Value to set for the targetEnvironment property.
+     * @param BrowserSiteTargetEnvironment|null $value Value to set for the targetEnvironment property.
     */
     public function setTargetEnvironment(?BrowserSiteTargetEnvironment $value): void {
         $this->getBackingStore()->set('targetEnvironment', $value);
@@ -253,7 +256,7 @@ class BrowserSite extends Entity implements Parsable
 
     /**
      * Sets the webUrl property value. The URL of the site.
-     *  @param string|null $value Value to set for the webUrl property.
+     * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {
         $this->getBackingStore()->set('webUrl', $value);

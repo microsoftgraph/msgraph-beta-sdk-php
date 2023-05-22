@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models\IdentityGovernance;
 
+use Microsoft\Graph\Beta\Generated\Models\Application;
 use Microsoft\Graph\Beta\Generated\Models\CustomExtensionCallbackConfiguration;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -27,12 +28,21 @@ class CustomTaskExtensionCallbackConfiguration extends CustomExtensionCallbackCo
     }
 
     /**
+     * Gets the authorizedApps property value. The authorizedApps property
+     * @return array<Application>|null
+    */
+    public function getAuthorizedApps(): ?array {
+        return $this->getBackingStore()->get('authorizedApps');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'authorizedApps' => fn(ParseNode $n) => $o->setAuthorizedApps($n->getCollectionOfObjectValues([Application::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -42,6 +52,15 @@ class CustomTaskExtensionCallbackConfiguration extends CustomExtensionCallbackCo
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('authorizedApps', $this->getAuthorizedApps());
+    }
+
+    /**
+     * Sets the authorizedApps property value. The authorizedApps property
+     * @param array<Application>|null $value Value to set for the authorizedApps property.
+    */
+    public function setAuthorizedApps(?array $value): void {
+        $this->getBackingStore()->set('authorizedApps', $value);
     }
 
 }

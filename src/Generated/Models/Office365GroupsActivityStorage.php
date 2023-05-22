@@ -95,7 +95,7 @@ class Office365GroupsActivityStorage extends Entity implements Parsable
 
     /**
      * Sets the mailboxStorageUsedInBytes property value. The storage used in group mailbox.
-     *  @param int|null $value Value to set for the mailboxStorageUsedInBytes property.
+     * @param int|null $value Value to set for the mailboxStorageUsedInBytes property.
     */
     public function setMailboxStorageUsedInBytes(?int $value): void {
         $this->getBackingStore()->set('mailboxStorageUsedInBytes', $value);
@@ -103,7 +103,7 @@ class Office365GroupsActivityStorage extends Entity implements Parsable
 
     /**
      * Sets the reportDate property value. The snapshot date for Exchange and SharePoint used storage.
-     *  @param Date|null $value Value to set for the reportDate property.
+     * @param Date|null $value Value to set for the reportDate property.
     */
     public function setReportDate(?Date $value): void {
         $this->getBackingStore()->set('reportDate', $value);
@@ -111,7 +111,7 @@ class Office365GroupsActivityStorage extends Entity implements Parsable
 
     /**
      * Sets the reportPeriod property value. The number of days the report covers.
-     *  @param string|null $value Value to set for the reportPeriod property.
+     * @param string|null $value Value to set for the reportPeriod property.
     */
     public function setReportPeriod(?string $value): void {
         $this->getBackingStore()->set('reportPeriod', $value);
@@ -119,7 +119,7 @@ class Office365GroupsActivityStorage extends Entity implements Parsable
 
     /**
      * Sets the reportRefreshDate property value. The latest date of the content.
-     *  @param Date|null $value Value to set for the reportRefreshDate property.
+     * @param Date|null $value Value to set for the reportRefreshDate property.
     */
     public function setReportRefreshDate(?Date $value): void {
         $this->getBackingStore()->set('reportRefreshDate', $value);
@@ -127,7 +127,7 @@ class Office365GroupsActivityStorage extends Entity implements Parsable
 
     /**
      * Sets the siteStorageUsedInBytes property value. The storage used in SharePoint document library.
-     *  @param int|null $value Value to set for the siteStorageUsedInBytes property.
+     * @param int|null $value Value to set for the siteStorageUsedInBytes property.
     */
     public function setSiteStorageUsedInBytes(?int $value): void {
         $this->getBackingStore()->set('siteStorageUsedInBytes', $value);

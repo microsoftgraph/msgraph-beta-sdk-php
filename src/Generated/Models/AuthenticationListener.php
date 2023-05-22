@@ -71,7 +71,7 @@ class AuthenticationListener extends Entity implements Parsable
 
     /**
      * Sets the priority property value. The priority of the listener. Determines the order of evaluation when an event has multiple listeners. The priority is evaluated from low to high.
-     *  @param int|null $value Value to set for the priority property.
+     * @param int|null $value Value to set for the priority property.
     */
     public function setPriority(?int $value): void {
         $this->getBackingStore()->set('priority', $value);
@@ -79,7 +79,7 @@ class AuthenticationListener extends Entity implements Parsable
 
     /**
      * Sets the sourceFilter property value. Filter based on the source of the authentication that is used to determine whether the listener is evaluated. This is currently limited to evaluations based on application the user is authenticating to.
-     *  @param AuthenticationSourceFilter|null $value Value to set for the sourceFilter property.
+     * @param AuthenticationSourceFilter|null $value Value to set for the sourceFilter property.
     */
     public function setSourceFilter(?AuthenticationSourceFilter $value): void {
         $this->getBackingStore()->set('sourceFilter', $value);

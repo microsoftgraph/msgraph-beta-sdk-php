@@ -55,7 +55,7 @@ class AccessPackageResourceAttributeQuestion extends AccessPackageResourceAttrib
 
     /**
      * Sets the question property value. The question asked in order to get the value of the attribute
-     *  @param AccessPackageQuestion|null $value Value to set for the question property.
+     * @param AccessPackageQuestion|null $value Value to set for the question property.
     */
     public function setQuestion(?AccessPackageQuestion $value): void {
         $this->getBackingStore()->set('question', $value);

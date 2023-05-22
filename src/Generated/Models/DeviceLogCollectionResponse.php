@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Windows Log Collection request entity.
+*/
 class DeviceLogCollectionResponse extends Entity implements Parsable 
 {
     /**
@@ -26,7 +29,7 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
     }
 
     /**
-     * Gets the enrolledByUser property value. The User Principal Name (UPN) of the user that enrolled the device
+     * Gets the enrolledByUser property value. The User Principal Name (UPN) of the user that enrolled the device.
      * @return string|null
     */
     public function getEnrolledByUser(): ?string {
@@ -42,7 +45,7 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
     }
 
     /**
-     * Gets the expirationDateTimeUTC property value. The DateTime of the expiration of the logs
+     * Gets the expirationDateTimeUTC property value. The DateTime of the expiration of the logs.
      * @return DateTime|null
     */
     public function getExpirationDateTimeUTC(): ?DateTime {
@@ -64,12 +67,13 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
             'receivedDateTimeUTC' => fn(ParseNode $n) => $o->setReceivedDateTimeUTC($n->getDateTimeValue()),
             'requestedDateTimeUTC' => fn(ParseNode $n) => $o->setRequestedDateTimeUTC($n->getDateTimeValue()),
             'size' => fn(ParseNode $n) => $o->setSize($n->getFloatValue()),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getStringValue()),
+            'sizeInKB' => fn(ParseNode $n) => $o->setSizeInKB($n->getFloatValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(AppLogUploadState::class)),
         ]);
     }
 
     /**
-     * Gets the initiatedByUserPrincipalName property value. The UPN for who initiated the request
+     * Gets the initiatedByUserPrincipalName property value. The UPN for who initiated the request.
      * @return string|null
     */
     public function getInitiatedByUserPrincipalName(): ?string {
@@ -77,7 +81,7 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
     }
 
     /**
-     * Gets the managedDeviceId property value. The device Id
+     * Gets the managedDeviceId property value. Indicates Intune device unique identifier.
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
@@ -85,7 +89,7 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
     }
 
     /**
-     * Gets the receivedDateTimeUTC property value. The DateTime the request was received
+     * Gets the receivedDateTimeUTC property value. The DateTime the request was received.
      * @return DateTime|null
     */
     public function getReceivedDateTimeUTC(): ?DateTime {
@@ -93,7 +97,7 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
     }
 
     /**
-     * Gets the requestedDateTimeUTC property value. The DateTime of the request
+     * Gets the requestedDateTimeUTC property value. The DateTime of the request.
      * @return DateTime|null
     */
     public function getRequestedDateTimeUTC(): ?DateTime {
@@ -109,10 +113,18 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The status of the log collection request
-     * @return string|null
+     * Gets the sizeInKB property value. The size of the logs in KB. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * @return float|null
     */
-    public function getStatus(): ?string {
+    public function getSizeInKB(): ?float {
+        return $this->getBackingStore()->get('sizeInKB');
+    }
+
+    /**
+     * Gets the status property value. AppLogUploadStatus
+     * @return AppLogUploadState|null
+    */
+    public function getStatus(): ?AppLogUploadState {
         return $this->getBackingStore()->get('status');
     }
 
@@ -130,12 +142,13 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
         $writer->writeDateTimeValue('receivedDateTimeUTC', $this->getReceivedDateTimeUTC());
         $writer->writeDateTimeValue('requestedDateTimeUTC', $this->getRequestedDateTimeUTC());
         $writer->writeFloatValue('size', $this->getSize());
-        $writer->writeStringValue('status', $this->getStatus());
+        $writer->writeFloatValue('sizeInKB', $this->getSizeInKB());
+        $writer->writeEnumValue('status', $this->getStatus());
     }
 
     /**
-     * Sets the enrolledByUser property value. The User Principal Name (UPN) of the user that enrolled the device
-     *  @param string|null $value Value to set for the enrolledByUser property.
+     * Sets the enrolledByUser property value. The User Principal Name (UPN) of the user that enrolled the device.
+     * @param string|null $value Value to set for the enrolledByUser property.
     */
     public function setEnrolledByUser(?string $value): void {
         $this->getBackingStore()->set('enrolledByUser', $value);
@@ -143,47 +156,47 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
 
     /**
      * Sets the errorCode property value. The error code, if any. Valid values -9.22337203685478E+18 to 9.22337203685478E+18
-     *  @param int|null $value Value to set for the errorCode property.
+     * @param int|null $value Value to set for the errorCode property.
     */
     public function setErrorCode(?int $value): void {
         $this->getBackingStore()->set('errorCode', $value);
     }
 
     /**
-     * Sets the expirationDateTimeUTC property value. The DateTime of the expiration of the logs
-     *  @param DateTime|null $value Value to set for the expirationDateTimeUTC property.
+     * Sets the expirationDateTimeUTC property value. The DateTime of the expiration of the logs.
+     * @param DateTime|null $value Value to set for the expirationDateTimeUTC property.
     */
     public function setExpirationDateTimeUTC(?DateTime $value): void {
         $this->getBackingStore()->set('expirationDateTimeUTC', $value);
     }
 
     /**
-     * Sets the initiatedByUserPrincipalName property value. The UPN for who initiated the request
-     *  @param string|null $value Value to set for the initiatedByUserPrincipalName property.
+     * Sets the initiatedByUserPrincipalName property value. The UPN for who initiated the request.
+     * @param string|null $value Value to set for the initiatedByUserPrincipalName property.
     */
     public function setInitiatedByUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('initiatedByUserPrincipalName', $value);
     }
 
     /**
-     * Sets the managedDeviceId property value. The device Id
-     *  @param string|null $value Value to set for the managedDeviceId property.
+     * Sets the managedDeviceId property value. Indicates Intune device unique identifier.
+     * @param string|null $value Value to set for the managedDeviceId property.
     */
     public function setManagedDeviceId(?string $value): void {
         $this->getBackingStore()->set('managedDeviceId', $value);
     }
 
     /**
-     * Sets the receivedDateTimeUTC property value. The DateTime the request was received
-     *  @param DateTime|null $value Value to set for the receivedDateTimeUTC property.
+     * Sets the receivedDateTimeUTC property value. The DateTime the request was received.
+     * @param DateTime|null $value Value to set for the receivedDateTimeUTC property.
     */
     public function setReceivedDateTimeUTC(?DateTime $value): void {
         $this->getBackingStore()->set('receivedDateTimeUTC', $value);
     }
 
     /**
-     * Sets the requestedDateTimeUTC property value. The DateTime of the request
-     *  @param DateTime|null $value Value to set for the requestedDateTimeUTC property.
+     * Sets the requestedDateTimeUTC property value. The DateTime of the request.
+     * @param DateTime|null $value Value to set for the requestedDateTimeUTC property.
     */
     public function setRequestedDateTimeUTC(?DateTime $value): void {
         $this->getBackingStore()->set('requestedDateTimeUTC', $value);
@@ -191,17 +204,25 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
 
     /**
      * Sets the size property value. The size of the logs. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the size property.
+     * @param float|null $value Value to set for the size property.
     */
     public function setSize(?float $value): void {
         $this->getBackingStore()->set('size', $value);
     }
 
     /**
-     * Sets the status property value. The status of the log collection request
-     *  @param string|null $value Value to set for the status property.
+     * Sets the sizeInKB property value. The size of the logs in KB. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * @param float|null $value Value to set for the sizeInKB property.
     */
-    public function setStatus(?string $value): void {
+    public function setSizeInKB(?float $value): void {
+        $this->getBackingStore()->set('sizeInKB', $value);
+    }
+
+    /**
+     * Sets the status property value. AppLogUploadStatus
+     * @param AppLogUploadState|null $value Value to set for the status property.
+    */
+    public function setStatus(?AppLogUploadState $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

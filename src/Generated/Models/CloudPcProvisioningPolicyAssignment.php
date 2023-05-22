@@ -25,12 +25,21 @@ class CloudPcProvisioningPolicyAssignment extends Entity implements Parsable
     }
 
     /**
+     * Gets the assignedUsers property value. The assignment targeted users for the provisioning policy. This list of users is computed based on assignments, licenses, group memberships, and policies. This property is read-only. Supports$expand.
+     * @return array<User>|null
+    */
+    public function getAssignedUsers(): ?array {
+        return $this->getBackingStore()->get('assignedUsers');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'assignedUsers' => fn(ParseNode $n) => $o->setAssignedUsers($n->getCollectionOfObjectValues([User::class, 'createFromDiscriminatorValue'])),
             'target' => fn(ParseNode $n) => $o->setTarget($n->getObjectValue([CloudPcManagementAssignmentTarget::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -49,12 +58,21 @@ class CloudPcProvisioningPolicyAssignment extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('assignedUsers', $this->getAssignedUsers());
         $writer->writeObjectValue('target', $this->getTarget());
     }
 
     /**
+     * Sets the assignedUsers property value. The assignment targeted users for the provisioning policy. This list of users is computed based on assignments, licenses, group memberships, and policies. This property is read-only. Supports$expand.
+     * @param array<User>|null $value Value to set for the assignedUsers property.
+    */
+    public function setAssignedUsers(?array $value): void {
+        $this->getBackingStore()->set('assignedUsers', $value);
+    }
+
+    /**
      * Sets the target property value. The assignment target for the provisioning policy. Currently, the only target supported for this policy is a user group. For details, see cloudPcManagementGroupAssignmentTarget.
-     *  @param CloudPcManagementAssignmentTarget|null $value Value to set for the target property.
+     * @param CloudPcManagementAssignmentTarget|null $value Value to set for the target property.
     */
     public function setTarget(?CloudPcManagementAssignmentTarget $value): void {
         $this->getBackingStore()->set('target', $value);

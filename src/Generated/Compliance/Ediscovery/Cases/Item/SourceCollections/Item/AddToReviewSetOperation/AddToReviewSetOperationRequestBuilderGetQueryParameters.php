@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Source
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the last addToReviewSetOperation object associated with a source collection. 
+*/
 class AddToReviewSetOperationRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class AddToReviewSetOperationRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new addToReviewSetOperationRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

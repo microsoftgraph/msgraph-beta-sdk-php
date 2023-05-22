@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new advancedThreatProtectionOnboardingStateSummary and sets the default values.
+     * Instantiates a new AdvancedThreatProtectionOnboardingStateSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -134,7 +134,7 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements P
 
     /**
      * Sets the advancedThreatProtectionOnboardingDeviceSettingStates property value. Not yet documented
-     *  @param array<AdvancedThreatProtectionOnboardingDeviceSettingState>|null $value Value to set for the advancedThreatProtectionOnboardingDeviceSettingStates property.
+     * @param array<AdvancedThreatProtectionOnboardingDeviceSettingState>|null $value Value to set for the advancedThreatProtectionOnboardingDeviceSettingStates property.
     */
     public function setAdvancedThreatProtectionOnboardingDeviceSettingStates(?array $value): void {
         $this->getBackingStore()->set('advancedThreatProtectionOnboardingDeviceSettingStates', $value);
@@ -142,7 +142,7 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements P
 
     /**
      * Sets the compliantDeviceCount property value. Number of compliant devices
-     *  @param int|null $value Value to set for the compliantDeviceCount property.
+     * @param int|null $value Value to set for the compliantDeviceCount property.
     */
     public function setCompliantDeviceCount(?int $value): void {
         $this->getBackingStore()->set('compliantDeviceCount', $value);
@@ -150,7 +150,7 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements P
 
     /**
      * Sets the conflictDeviceCount property value. Number of conflict devices
-     *  @param int|null $value Value to set for the conflictDeviceCount property.
+     * @param int|null $value Value to set for the conflictDeviceCount property.
     */
     public function setConflictDeviceCount(?int $value): void {
         $this->getBackingStore()->set('conflictDeviceCount', $value);
@@ -158,7 +158,7 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements P
 
     /**
      * Sets the errorDeviceCount property value. Number of error devices
-     *  @param int|null $value Value to set for the errorDeviceCount property.
+     * @param int|null $value Value to set for the errorDeviceCount property.
     */
     public function setErrorDeviceCount(?int $value): void {
         $this->getBackingStore()->set('errorDeviceCount', $value);
@@ -166,7 +166,7 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements P
 
     /**
      * Sets the nonCompliantDeviceCount property value. Number of NonCompliant devices
-     *  @param int|null $value Value to set for the nonCompliantDeviceCount property.
+     * @param int|null $value Value to set for the nonCompliantDeviceCount property.
     */
     public function setNonCompliantDeviceCount(?int $value): void {
         $this->getBackingStore()->set('nonCompliantDeviceCount', $value);
@@ -174,7 +174,7 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements P
 
     /**
      * Sets the notApplicableDeviceCount property value. Number of not applicable devices
-     *  @param int|null $value Value to set for the notApplicableDeviceCount property.
+     * @param int|null $value Value to set for the notApplicableDeviceCount property.
     */
     public function setNotApplicableDeviceCount(?int $value): void {
         $this->getBackingStore()->set('notApplicableDeviceCount', $value);
@@ -182,7 +182,7 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements P
 
     /**
      * Sets the notAssignedDeviceCount property value. Number of not assigned devices
-     *  @param int|null $value Value to set for the notAssignedDeviceCount property.
+     * @param int|null $value Value to set for the notAssignedDeviceCount property.
     */
     public function setNotAssignedDeviceCount(?int $value): void {
         $this->getBackingStore()->set('notAssignedDeviceCount', $value);
@@ -190,7 +190,7 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements P
 
     /**
      * Sets the remediatedDeviceCount property value. Number of remediated devices
-     *  @param int|null $value Value to set for the remediatedDeviceCount property.
+     * @param int|null $value Value to set for the remediatedDeviceCount property.
     */
     public function setRemediatedDeviceCount(?int $value): void {
         $this->getBackingStore()->set('remediatedDeviceCount', $value);
@@ -198,7 +198,7 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements P
 
     /**
      * Sets the unknownDeviceCount property value. Number of unknown devices
-     *  @param int|null $value Value to set for the unknownDeviceCount property.
+     * @param int|null $value Value to set for the unknownDeviceCount property.
     */
     public function setUnknownDeviceCount(?int $value): void {
         $this->getBackingStore()->set('unknownDeviceCount', $value);

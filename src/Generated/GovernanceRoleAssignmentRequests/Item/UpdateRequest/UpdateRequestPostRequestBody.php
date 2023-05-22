@@ -37,7 +37,7 @@ class UpdateRequestPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -111,7 +111,7 @@ class UpdateRequestPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -119,7 +119,7 @@ class UpdateRequestPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the assignmentState property value. The assignmentState property
-     *  @param string|null $value Value to set for the assignmentState property.
+     * @param string|null $value Value to set for the assignmentState property.
     */
     public function setAssignmentState(?string $value): void {
         $this->getBackingStore()->set('assignmentState', $value);
@@ -127,7 +127,7 @@ class UpdateRequestPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -135,7 +135,7 @@ class UpdateRequestPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the decision property value. The decision property
-     *  @param string|null $value Value to set for the decision property.
+     * @param string|null $value Value to set for the decision property.
     */
     public function setDecision(?string $value): void {
         $this->getBackingStore()->set('decision', $value);
@@ -143,7 +143,7 @@ class UpdateRequestPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the reason property value. The reason property
-     *  @param string|null $value Value to set for the reason property.
+     * @param string|null $value Value to set for the reason property.
     */
     public function setReason(?string $value): void {
         $this->getBackingStore()->set('reason', $value);
@@ -151,7 +151,7 @@ class UpdateRequestPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the schedule property value. The schedule property
-     *  @param GovernanceSchedule|null $value Value to set for the schedule property.
+     * @param GovernanceSchedule|null $value Value to set for the schedule property.
     */
     public function setSchedule(?GovernanceSchedule $value): void {
         $this->getBackingStore()->set('schedule', $value);

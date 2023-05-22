@@ -65,7 +65,7 @@ class DeviceManagementConfigurationSimpleSettingCollectionInstanceTemplate exten
 
     /**
      * Sets the allowUnmanagedValues property value. Linked policy may append values which are not present in the template.
-     *  @param bool|null $value Value to set for the allowUnmanagedValues property.
+     * @param bool|null $value Value to set for the allowUnmanagedValues property.
     */
     public function setAllowUnmanagedValues(?bool $value): void {
         $this->getBackingStore()->set('allowUnmanagedValues', $value);
@@ -73,7 +73,7 @@ class DeviceManagementConfigurationSimpleSettingCollectionInstanceTemplate exten
 
     /**
      * Sets the simpleSettingCollectionValueTemplate property value. Simple Setting Collection Value Template
-     *  @param array<DeviceManagementConfigurationSimpleSettingValueTemplate>|null $value Value to set for the simpleSettingCollectionValueTemplate property.
+     * @param array<DeviceManagementConfigurationSimpleSettingValueTemplate>|null $value Value to set for the simpleSettingCollectionValueTemplate property.
     */
     public function setSimpleSettingCollectionValueTemplate(?array $value): void {
         $this->getBackingStore()->set('simpleSettingCollectionValueTemplate', $value);

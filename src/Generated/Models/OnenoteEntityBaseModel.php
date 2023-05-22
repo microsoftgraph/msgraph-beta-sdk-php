@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OnenoteEntityBaseModel extends Entity implements Parsable 
 {
     /**
-     * @var string|null $escapedSelf The self property
-    */
-    public ?string $escapedSelf = null;
-    
-    /**
      * Instantiates a new onenoteEntityBaseModel and sets the default values.
     */
     public function __construct() {
@@ -72,7 +67,7 @@ class OnenoteEntityBaseModel extends Entity implements Parsable
 
     /**
      * Sets the self property value. The self property
-     *  @param string|null $value Value to set for the EscapedSelf property.
+     * @param string|null $value Value to set for the EscapedSelf property.
     */
     public function setSelf(?string $value): void {
         $this->getBackingStore()->set('escapedSelf', $value);

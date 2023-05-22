@@ -75,7 +75,7 @@ class AccessReviewInstanceDecisionItemUserTarget extends AccessReviewInstanceDec
 
     /**
      * Sets the userDisplayName property value. The name of user.
-     *  @param string|null $value Value to set for the userDisplayName property.
+     * @param string|null $value Value to set for the userDisplayName property.
     */
     public function setUserDisplayName(?string $value): void {
         $this->getBackingStore()->set('userDisplayName', $value);
@@ -83,7 +83,7 @@ class AccessReviewInstanceDecisionItemUserTarget extends AccessReviewInstanceDec
 
     /**
      * Sets the userId property value. The identifier of user.
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);
@@ -91,7 +91,7 @@ class AccessReviewInstanceDecisionItemUserTarget extends AccessReviewInstanceDec
 
     /**
      * Sets the userPrincipalName property value. The user principal name.
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);

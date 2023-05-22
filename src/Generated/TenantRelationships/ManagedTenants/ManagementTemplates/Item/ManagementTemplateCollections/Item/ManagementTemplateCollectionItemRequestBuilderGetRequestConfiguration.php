@@ -2,23 +2,38 @@
 
 namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplates\Item\ManagementTemplateCollections\Item;
 
+use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;
 
-class ManagementTemplateCollectionItemRequestBuilderGetRequestConfiguration 
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
+class ManagementTemplateCollectionItemRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration 
 {
-    /**
-     * @var array<string, string>|null $headers Request headers
-    */
-    public ?array $headers = null;
-    
-    /**
-     * @var array<string, RequestOption>|null $options Request options
-    */
-    public ?array $options = null;
-    
     /**
      * @var ManagementTemplateCollectionItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
     */
     public ?ManagementTemplateCollectionItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new ManagementTemplateCollectionItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
+     * @param ManagementTemplateCollectionItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ManagementTemplateCollectionItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        parent::__construct($headers ?? [], $options ?? []);
+        $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new ManagementTemplateCollectionItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return ManagementTemplateCollectionItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): ManagementTemplateCollectionItemRequestBuilderGetQueryParameters {
+        return new ManagementTemplateCollectionItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
 }

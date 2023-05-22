@@ -175,7 +175,7 @@ class AccessPackageResource extends Entity implements Parsable
 
     /**
      * Sets the accessPackageResourceEnvironment property value. Contains the environment information for the resource. This can be set using either the @odata.bind annotation or the environment's originId.Supports $expand.
-     *  @param AccessPackageResourceEnvironment|null $value Value to set for the accessPackageResourceEnvironment property.
+     * @param AccessPackageResourceEnvironment|null $value Value to set for the accessPackageResourceEnvironment property.
     */
     public function setAccessPackageResourceEnvironment(?AccessPackageResourceEnvironment $value): void {
         $this->getBackingStore()->set('accessPackageResourceEnvironment', $value);
@@ -183,7 +183,7 @@ class AccessPackageResource extends Entity implements Parsable
 
     /**
      * Sets the accessPackageResourceRoles property value. Read-only. Nullable. Supports $expand.
-     *  @param array<AccessPackageResourceRole>|null $value Value to set for the accessPackageResourceRoles property.
+     * @param array<AccessPackageResourceRole>|null $value Value to set for the accessPackageResourceRoles property.
     */
     public function setAccessPackageResourceRoles(?array $value): void {
         $this->getBackingStore()->set('accessPackageResourceRoles', $value);
@@ -191,7 +191,7 @@ class AccessPackageResource extends Entity implements Parsable
 
     /**
      * Sets the accessPackageResourceScopes property value. Read-only. Nullable. Supports $expand.
-     *  @param array<AccessPackageResourceScope>|null $value Value to set for the accessPackageResourceScopes property.
+     * @param array<AccessPackageResourceScope>|null $value Value to set for the accessPackageResourceScopes property.
     */
     public function setAccessPackageResourceScopes(?array $value): void {
         $this->getBackingStore()->set('accessPackageResourceScopes', $value);
@@ -199,7 +199,7 @@ class AccessPackageResource extends Entity implements Parsable
 
     /**
      * Sets the addedBy property value. The name of the user or application that first added this resource. Read-only.
-     *  @param string|null $value Value to set for the addedBy property.
+     * @param string|null $value Value to set for the addedBy property.
     */
     public function setAddedBy(?string $value): void {
         $this->getBackingStore()->set('addedBy', $value);
@@ -207,7 +207,7 @@ class AccessPackageResource extends Entity implements Parsable
 
     /**
      * Sets the addedOn property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-     *  @param DateTime|null $value Value to set for the addedOn property.
+     * @param DateTime|null $value Value to set for the addedOn property.
     */
     public function setAddedOn(?DateTime $value): void {
         $this->getBackingStore()->set('addedOn', $value);
@@ -215,7 +215,7 @@ class AccessPackageResource extends Entity implements Parsable
 
     /**
      * Sets the attributes property value. Contains information about the attributes to be collected from the requestor and sent to the resource application.
-     *  @param array<AccessPackageResourceAttribute>|null $value Value to set for the attributes property.
+     * @param array<AccessPackageResourceAttribute>|null $value Value to set for the attributes property.
     */
     public function setAttributes(?array $value): void {
         $this->getBackingStore()->set('attributes', $value);
@@ -223,7 +223,7 @@ class AccessPackageResource extends Entity implements Parsable
 
     /**
      * Sets the description property value. A description for the resource.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -231,7 +231,7 @@ class AccessPackageResource extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name of the resource, such as the application name, group name or site name.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -239,7 +239,7 @@ class AccessPackageResource extends Entity implements Parsable
 
     /**
      * Sets the isPendingOnboarding property value. True if the resource is not yet available for assignment. Read-only.
-     *  @param bool|null $value Value to set for the isPendingOnboarding property.
+     * @param bool|null $value Value to set for the isPendingOnboarding property.
     */
     public function setIsPendingOnboarding(?bool $value): void {
         $this->getBackingStore()->set('isPendingOnboarding', $value);
@@ -247,7 +247,7 @@ class AccessPackageResource extends Entity implements Parsable
 
     /**
      * Sets the originId property value. The unique identifier of the resource in the origin system. In the case of an Azure AD group, this is the identifier of the group.
-     *  @param string|null $value Value to set for the originId property.
+     * @param string|null $value Value to set for the originId property.
     */
     public function setOriginId(?string $value): void {
         $this->getBackingStore()->set('originId', $value);
@@ -255,7 +255,7 @@ class AccessPackageResource extends Entity implements Parsable
 
     /**
      * Sets the originSystem property value. The type of the resource in the origin system, such as SharePointOnline, AadApplication or AadGroup.
-     *  @param string|null $value Value to set for the originSystem property.
+     * @param string|null $value Value to set for the originSystem property.
     */
     public function setOriginSystem(?string $value): void {
         $this->getBackingStore()->set('originSystem', $value);
@@ -263,7 +263,7 @@ class AccessPackageResource extends Entity implements Parsable
 
     /**
      * Sets the resourceType property value. The type of the resource, such as Application if it is an Azure AD connected application, or SharePoint Online Site for a SharePoint Online site.
-     *  @param string|null $value Value to set for the resourceType property.
+     * @param string|null $value Value to set for the resourceType property.
     */
     public function setResourceType(?string $value): void {
         $this->getBackingStore()->set('resourceType', $value);
@@ -271,7 +271,7 @@ class AccessPackageResource extends Entity implements Parsable
 
     /**
      * Sets the url property value. A unique resource locator for the resource, such as the URL for signing a user into an application.
-     *  @param string|null $value Value to set for the url property.
+     * @param string|null $value Value to set for the url property.
     */
     public function setUrl(?string $value): void {
         $this->getBackingStore()->set('url', $value);

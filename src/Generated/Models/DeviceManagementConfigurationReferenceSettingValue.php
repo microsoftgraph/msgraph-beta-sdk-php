@@ -55,7 +55,7 @@ class DeviceManagementConfigurationReferenceSettingValue extends DeviceManagemen
 
     /**
      * Sets the note property value. A note that admin can use to put some contextual information
-     *  @param string|null $value Value to set for the note property.
+     * @param string|null $value Value to set for the note property.
     */
     public function setNote(?string $value): void {
         $this->getBackingStore()->set('note', $value);

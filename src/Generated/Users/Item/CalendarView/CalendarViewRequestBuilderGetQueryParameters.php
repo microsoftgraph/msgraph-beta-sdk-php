@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\CalendarView;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The calendar view for the calendar. Read-only. Nullable.
+*/
 class CalendarViewRequestBuilderGetQueryParameters 
 {
     /**
@@ -16,6 +19,12 @@ class CalendarViewRequestBuilderGetQueryParameters
      * @var string|null $endDateTime The end date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T20:00:00-08:00
     */
     public ?string $endDateTime = null;
+    
+    /**
+     * @QueryParameter("%24expand")
+     * @var array<string>|null $expand Expand related entities
+    */
+    public ?array $expand = null;
     
     /**
      * @QueryParameter("%24filter")
@@ -52,4 +61,28 @@ class CalendarViewRequestBuilderGetQueryParameters
     */
     public ?int $top = null;
     
+    /**
+     * Instantiates a new calendarViewRequestBuilderGetQueryParameters and sets the default values.
+     * @param bool|null $count Include count of items
+     * @param string|null $endDateTime The end date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T20:00:00-08:00
+     * @param array<string>|null $expand Expand related entities
+     * @param string|null $filter Filter items by property values
+     * @param array<string>|null $orderby Order items by property values
+     * @param array<string>|null $select Select properties to be returned
+     * @param int|null $skip Skip the first n items
+     * @param string|null $startDateTime The start date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T19:00:00-08:00
+     * @param int|null $top Show only the first n items
+    */
+    public function __construct(?bool $count = null, ?string $endDateTime = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?array $select = null, ?int $skip = null, ?string $startDateTime = null, ?int $top = null) {
+        $this->count = $count;
+        $this->endDateTime = $endDateTime;
+        $this->expand = $expand;
+        $this->filter = $filter;
+        $this->orderby = $orderby;
+        $this->select = $select;
+        $this->skip = $skip;
+        $this->startDateTime = $startDateTime;
+        $this->top = $top;
+    }
+
 }

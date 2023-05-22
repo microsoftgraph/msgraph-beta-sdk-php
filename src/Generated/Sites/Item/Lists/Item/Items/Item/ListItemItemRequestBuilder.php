@@ -8,25 +8,24 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ListItem;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\Item\Activities\ActivitiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\Item\Activities\Item\ItemActivityOLDItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\Item\Analytics\AnalyticsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\Item\CreatedByUser\CreatedByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\Item\CreateLink\CreateLinkRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\Item\DocumentSetVersions\DocumentSetVersionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\Item\DocumentSetVersions\Item\DocumentSetVersionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\Item\DriveItem\DriveItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\Item\Fields\FieldsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\Item\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\Item\Versions\Item\ListItemVersionItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\Item\LastModifiedByUser\LastModifiedByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\Item\Versions\VersionsRequestBuilder;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
-class ListItemItemRequestBuilder 
+/**
+ * Provides operations to manage the items property of the microsoft.graph.list entity.
+*/
+class ListItemItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to manage the activities property of the microsoft.graph.listItem entity.
@@ -40,6 +39,13 @@ class ListItemItemRequestBuilder
     */
     public function analytics(): AnalyticsRequestBuilder {
         return new AnalyticsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
+    */
+    public function createdByUser(): CreatedByUserRequestBuilder {
+        return new CreatedByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -71,19 +77,11 @@ class ListItemItemRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
+     * Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.
     */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
+    public function lastModifiedByUser(): LastModifiedByUserRequestBuilder {
+        return new LastModifiedByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
     
     /**
      * Provides operations to manage the versions property of the microsoft.graph.listItem entity.
@@ -93,71 +91,52 @@ class ListItemItemRequestBuilder
     }
     
     /**
-     * Provides operations to manage the activities property of the microsoft.graph.listItem entity.
-     * @param string $id Unique identifier of the item
-     * @return ItemActivityOLDItemRequestBuilder
-    */
-    public function activitiesById(string $id): ItemActivityOLDItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['itemActivityOLD%2Did'] = $id;
-        return new ItemActivityOLDItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new ListItemItemRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/sites/{site%2Did}/lists/{list%2Did}/items/{listItem%2Did}{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
+        parent::__construct($requestAdapter, [], '{+baseurl}/sites/{site%2Did}/lists/{list%2Did}/items/{listItem%2Did}{?%24select,%24expand}');
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
-     * Delete navigation property items for sites
+     * Removes an item from a [list][].
      * @param ListItemItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/listitem-delete?view=graph-rest-1.0 Find more info here
     */
-    public function delete(?ListItemItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?ListItemItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.
-     * @param string $id Unique identifier of the item
-     * @return DocumentSetVersionItemRequestBuilder
-    */
-    public function documentSetVersionsById(string $id): DocumentSetVersionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['documentSetVersion%2Did'] = $id;
-        return new DocumentSetVersionItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * All items contained in the list.
+     * Returns the metadata for an [item][] in a [list][].
      * @param ListItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/listitem-get?view=graph-rest-1.0 Find more info here
     */
-    public function get(?ListItemItemRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?ListItemItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [ListItem::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [ListItem::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -178,24 +157,23 @@ class ListItemItemRequestBuilder
      * Update the navigation property items in sites
      * @param ListItem $body The request body
      * @param ListItemItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(ListItem $body, ?ListItemItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(ListItem $body, ?ListItemItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [ListItem::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [ListItem::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Delete navigation property items for sites
+     * Removes an item from a [list][].
      * @param ListItemItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -205,18 +183,14 @@ class ListItemItemRequestBuilder
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
 
     /**
-     * All items contained in the list.
+     * Returns the metadata for an [item][] in a [list][].
      * @param ListItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -225,17 +199,13 @@ class ListItemItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -251,28 +221,13 @@ class ListItemItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the versions property of the microsoft.graph.listItem entity.
-     * @param string $id Unique identifier of the item
-     * @return ListItemVersionItemRequestBuilder
-    */
-    public function versionsById(string $id): ListItemVersionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['listItemVersion%2Did'] = $id;
-        return new ListItemVersionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

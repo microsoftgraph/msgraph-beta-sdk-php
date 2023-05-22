@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Connections\Item\Items\Item\Activities\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Returns a list of activities performed on the item. Write-only.
+*/
 class ExternalActivityItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class ExternalActivityItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new ExternalActivityItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

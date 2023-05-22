@@ -55,7 +55,7 @@ class RemoveContentHeaderAction extends InformationProtectionAction implements P
 
     /**
      * Sets the uiElementNames property value. The name of the UI element of the header to be removed.
-     *  @param array<string>|null $value Value to set for the uiElementNames property.
+     * @param array<string>|null $value Value to set for the uiElementNames property.
     */
     public function setUiElementNames(?array $value): void {
         $this->getBackingStore()->set('uiElementNames', $value);

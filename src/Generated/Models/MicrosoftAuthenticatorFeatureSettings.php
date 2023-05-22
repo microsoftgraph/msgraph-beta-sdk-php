@@ -36,7 +36,7 @@ class MicrosoftAuthenticatorFeatureSettings implements AdditionalDataHolder, Bac
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -48,6 +48,14 @@ class MicrosoftAuthenticatorFeatureSettings implements AdditionalDataHolder, Bac
     */
     public function getBackingStore(): BackingStore {
         return $this->backingStore;
+    }
+
+    /**
+     * Gets the companionAppAllowedState property value. Determines whether users will be able to approve push notifications on other Microsoft applications such as Outlook Mobile.
+     * @return AuthenticationMethodFeatureConfiguration|null
+    */
+    public function getCompanionAppAllowedState(): ?AuthenticationMethodFeatureConfiguration {
+        return $this->getBackingStore()->get('companionAppAllowedState');
     }
 
     /**
@@ -73,6 +81,7 @@ class MicrosoftAuthenticatorFeatureSettings implements AdditionalDataHolder, Bac
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'companionAppAllowedState' => fn(ParseNode $n) => $o->setCompanionAppAllowedState($n->getObjectValue([AuthenticationMethodFeatureConfiguration::class, 'createFromDiscriminatorValue'])),
             'displayAppInformationRequiredState' => fn(ParseNode $n) => $o->setDisplayAppInformationRequiredState($n->getObjectValue([AuthenticationMethodFeatureConfiguration::class, 'createFromDiscriminatorValue'])),
             'displayLocationInformationRequiredState' => fn(ParseNode $n) => $o->setDisplayLocationInformationRequiredState($n->getObjectValue([AuthenticationMethodFeatureConfiguration::class, 'createFromDiscriminatorValue'])),
             'numberMatchingRequiredState' => fn(ParseNode $n) => $o->setNumberMatchingRequiredState($n->getObjectValue([AuthenticationMethodFeatureConfiguration::class, 'createFromDiscriminatorValue'])),
@@ -101,6 +110,7 @@ class MicrosoftAuthenticatorFeatureSettings implements AdditionalDataHolder, Bac
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeObjectValue('companionAppAllowedState', $this->getCompanionAppAllowedState());
         $writer->writeObjectValue('displayAppInformationRequiredState', $this->getDisplayAppInformationRequiredState());
         $writer->writeObjectValue('displayLocationInformationRequiredState', $this->getDisplayLocationInformationRequiredState());
         $writer->writeObjectValue('numberMatchingRequiredState', $this->getNumberMatchingRequiredState());
@@ -110,7 +120,7 @@ class MicrosoftAuthenticatorFeatureSettings implements AdditionalDataHolder, Bac
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,15 +128,23 @@ class MicrosoftAuthenticatorFeatureSettings implements AdditionalDataHolder, Bac
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
+     * Sets the companionAppAllowedState property value. Determines whether users will be able to approve push notifications on other Microsoft applications such as Outlook Mobile.
+     * @param AuthenticationMethodFeatureConfiguration|null $value Value to set for the companionAppAllowedState property.
+    */
+    public function setCompanionAppAllowedState(?AuthenticationMethodFeatureConfiguration $value): void {
+        $this->getBackingStore()->set('companionAppAllowedState', $value);
+    }
+
+    /**
      * Sets the displayAppInformationRequiredState property value. Determines whether the user's Authenticator app will show them the client app they are signing into.
-     *  @param AuthenticationMethodFeatureConfiguration|null $value Value to set for the displayAppInformationRequiredState property.
+     * @param AuthenticationMethodFeatureConfiguration|null $value Value to set for the displayAppInformationRequiredState property.
     */
     public function setDisplayAppInformationRequiredState(?AuthenticationMethodFeatureConfiguration $value): void {
         $this->getBackingStore()->set('displayAppInformationRequiredState', $value);
@@ -134,7 +152,7 @@ class MicrosoftAuthenticatorFeatureSettings implements AdditionalDataHolder, Bac
 
     /**
      * Sets the displayLocationInformationRequiredState property value. Determines whether the user's Authenticator app will show them the geographic location of where the authentication request originated from.
-     *  @param AuthenticationMethodFeatureConfiguration|null $value Value to set for the displayLocationInformationRequiredState property.
+     * @param AuthenticationMethodFeatureConfiguration|null $value Value to set for the displayLocationInformationRequiredState property.
     */
     public function setDisplayLocationInformationRequiredState(?AuthenticationMethodFeatureConfiguration $value): void {
         $this->getBackingStore()->set('displayLocationInformationRequiredState', $value);
@@ -142,7 +160,7 @@ class MicrosoftAuthenticatorFeatureSettings implements AdditionalDataHolder, Bac
 
     /**
      * Sets the numberMatchingRequiredState property value. Specifies whether the user needs to enter a number in the Authenticator app from the login screen to complete their login. Value is ignored for phone sign-in notifications.
-     *  @param AuthenticationMethodFeatureConfiguration|null $value Value to set for the numberMatchingRequiredState property.
+     * @param AuthenticationMethodFeatureConfiguration|null $value Value to set for the numberMatchingRequiredState property.
     */
     public function setNumberMatchingRequiredState(?AuthenticationMethodFeatureConfiguration $value): void {
         $this->getBackingStore()->set('numberMatchingRequiredState', $value);
@@ -150,7 +168,7 @@ class MicrosoftAuthenticatorFeatureSettings implements AdditionalDataHolder, Bac
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

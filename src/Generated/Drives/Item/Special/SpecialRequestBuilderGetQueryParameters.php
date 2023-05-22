@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Special;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Use the special collection to access a special folder by name. Special folders provide simple aliases to access well-known folders in OneDrive without the need to look up the folder by path (which would require localization), or reference the folder with an ID. If a special folder is renamed or moved to another location within the drive, this syntax will continue to find that folder. Special folders are automatically created the first time an application attempts to write to one, if it doesn't already exist. If a user deletes one, it is recreated when written to again.
+*/
 class SpecialRequestBuilderGetQueryParameters 
 {
     /**
@@ -54,4 +57,26 @@ class SpecialRequestBuilderGetQueryParameters
     */
     public ?int $top = null;
     
+    /**
+     * Instantiates a new specialRequestBuilderGetQueryParameters and sets the default values.
+     * @param bool|null $count Include count of items
+     * @param array<string>|null $expand Expand related entities
+     * @param string|null $filter Filter items by property values
+     * @param array<string>|null $orderby Order items by property values
+     * @param string|null $search Search items by search phrases
+     * @param array<string>|null $select Select properties to be returned
+     * @param int|null $skip Skip the first n items
+     * @param int|null $top Show only the first n items
+    */
+    public function __construct(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null) {
+        $this->count = $count;
+        $this->expand = $expand;
+        $this->filter = $filter;
+        $this->orderby = $orderby;
+        $this->search = $search;
+        $this->select = $select;
+        $this->skip = $skip;
+        $this->top = $top;
+    }
+
 }

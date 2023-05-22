@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceCompliancePolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceCompliancePolicy and sets the default values.
+     * Instantiates a new DeviceCompliancePolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -193,7 +193,7 @@ class DeviceCompliancePolicy extends Entity implements Parsable
 
     /**
      * Sets the assignments property value. The collection of assignments for this compliance policy.
-     *  @param array<DeviceCompliancePolicyAssignment>|null $value Value to set for the assignments property.
+     * @param array<DeviceCompliancePolicyAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -201,7 +201,7 @@ class DeviceCompliancePolicy extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. DateTime the object was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -209,7 +209,7 @@ class DeviceCompliancePolicy extends Entity implements Parsable
 
     /**
      * Sets the description property value. Admin provided description of the Device Configuration.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -217,7 +217,7 @@ class DeviceCompliancePolicy extends Entity implements Parsable
 
     /**
      * Sets the deviceSettingStateSummaries property value. Compliance Setting State Device Summary
-     *  @param array<SettingStateDeviceSummary>|null $value Value to set for the deviceSettingStateSummaries property.
+     * @param array<SettingStateDeviceSummary>|null $value Value to set for the deviceSettingStateSummaries property.
     */
     public function setDeviceSettingStateSummaries(?array $value): void {
         $this->getBackingStore()->set('deviceSettingStateSummaries', $value);
@@ -225,7 +225,7 @@ class DeviceCompliancePolicy extends Entity implements Parsable
 
     /**
      * Sets the deviceStatuses property value. List of DeviceComplianceDeviceStatus.
-     *  @param array<DeviceComplianceDeviceStatus>|null $value Value to set for the deviceStatuses property.
+     * @param array<DeviceComplianceDeviceStatus>|null $value Value to set for the deviceStatuses property.
     */
     public function setDeviceStatuses(?array $value): void {
         $this->getBackingStore()->set('deviceStatuses', $value);
@@ -233,7 +233,7 @@ class DeviceCompliancePolicy extends Entity implements Parsable
 
     /**
      * Sets the deviceStatusOverview property value. Device compliance devices status overview
-     *  @param DeviceComplianceDeviceOverview|null $value Value to set for the deviceStatusOverview property.
+     * @param DeviceComplianceDeviceOverview|null $value Value to set for the deviceStatusOverview property.
     */
     public function setDeviceStatusOverview(?DeviceComplianceDeviceOverview $value): void {
         $this->getBackingStore()->set('deviceStatusOverview', $value);
@@ -241,7 +241,7 @@ class DeviceCompliancePolicy extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Admin provided name of the device configuration.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -249,7 +249,7 @@ class DeviceCompliancePolicy extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. DateTime the object was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -257,7 +257,7 @@ class DeviceCompliancePolicy extends Entity implements Parsable
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tags for this Entity instance.
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);
@@ -265,7 +265,7 @@ class DeviceCompliancePolicy extends Entity implements Parsable
 
     /**
      * Sets the scheduledActionsForRule property value. The list of scheduled action for this rule
-     *  @param array<DeviceComplianceScheduledActionForRule>|null $value Value to set for the scheduledActionsForRule property.
+     * @param array<DeviceComplianceScheduledActionForRule>|null $value Value to set for the scheduledActionsForRule property.
     */
     public function setScheduledActionsForRule(?array $value): void {
         $this->getBackingStore()->set('scheduledActionsForRule', $value);
@@ -273,7 +273,7 @@ class DeviceCompliancePolicy extends Entity implements Parsable
 
     /**
      * Sets the userStatuses property value. List of DeviceComplianceUserStatus.
-     *  @param array<DeviceComplianceUserStatus>|null $value Value to set for the userStatuses property.
+     * @param array<DeviceComplianceUserStatus>|null $value Value to set for the userStatuses property.
     */
     public function setUserStatuses(?array $value): void {
         $this->getBackingStore()->set('userStatuses', $value);
@@ -281,7 +281,7 @@ class DeviceCompliancePolicy extends Entity implements Parsable
 
     /**
      * Sets the userStatusOverview property value. Device compliance users status overview
-     *  @param DeviceComplianceUserOverview|null $value Value to set for the userStatusOverview property.
+     * @param DeviceComplianceUserOverview|null $value Value to set for the userStatusOverview property.
     */
     public function setUserStatusOverview(?DeviceComplianceUserOverview $value): void {
         $this->getBackingStore()->set('userStatusOverview', $value);
@@ -289,7 +289,7 @@ class DeviceCompliancePolicy extends Entity implements Parsable
 
     /**
      * Sets the version property value. Version of the device configuration.
-     *  @param int|null $value Value to set for the version property.
+     * @param int|null $value Value to set for the version property.
     */
     public function setVersion(?int $value): void {
         $this->getBackingStore()->set('version', $value);

@@ -55,7 +55,7 @@ class RemoveWatermarkAction extends InformationProtectionAction implements Parsa
 
     /**
      * Sets the uiElementNames property value. The name of the UI element of watermark to be removed.
-     *  @param array<string>|null $value Value to set for the uiElementNames property.
+     * @param array<string>|null $value Value to set for the uiElementNames property.
     */
     public function setUiElementNames(?array $value): void {
         $this->getBackingStore()->set('uiElementNames', $value);

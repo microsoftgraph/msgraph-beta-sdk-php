@@ -35,7 +35,7 @@ class CloudPcRemoteActionCapability implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the actionCapability property value. The actionCapability property
+     * Gets the actionCapability property value. Indicates the state of the supported action capability to perform a Cloud PC remote action. Possible values are: enabled, disabled. Default value is enabled.
      * @return ActionCapability|null
     */
     public function getActionCapability(): ?ActionCapability {
@@ -43,7 +43,7 @@ class CloudPcRemoteActionCapability implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the actionName property value. The actionName property
+     * Gets the actionName property value. The name of the supported Cloud PC remote action. Possible values are: unknown, restart, rename, restore, resize, reprovision, troubleShoot, changeUserAccountType, placeUnderReview. Default value is unknown.
      * @return CloudPcRemoteActionName|null
     */
     public function getActionName(): ?CloudPcRemoteActionName {
@@ -52,7 +52,7 @@ class CloudPcRemoteActionCapability implements AdditionalDataHolder, BackedModel
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -99,16 +99,16 @@ class CloudPcRemoteActionCapability implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the actionCapability property value. The actionCapability property
-     *  @param ActionCapability|null $value Value to set for the actionCapability property.
+     * Sets the actionCapability property value. Indicates the state of the supported action capability to perform a Cloud PC remote action. Possible values are: enabled, disabled. Default value is enabled.
+     * @param ActionCapability|null $value Value to set for the actionCapability property.
     */
     public function setActionCapability(?ActionCapability $value): void {
         $this->getBackingStore()->set('actionCapability', $value);
     }
 
     /**
-     * Sets the actionName property value. The actionName property
-     *  @param CloudPcRemoteActionName|null $value Value to set for the actionName property.
+     * Sets the actionName property value. The name of the supported Cloud PC remote action. Possible values are: unknown, restart, rename, restore, resize, reprovision, troubleShoot, changeUserAccountType, placeUnderReview. Default value is unknown.
+     * @param CloudPcRemoteActionName|null $value Value to set for the actionName property.
     */
     public function setActionName(?CloudPcRemoteActionName $value): void {
         $this->getBackingStore()->set('actionName', $value);
@@ -116,7 +116,7 @@ class CloudPcRemoteActionCapability implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -124,7 +124,7 @@ class CloudPcRemoteActionCapability implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -132,7 +132,7 @@ class CloudPcRemoteActionCapability implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

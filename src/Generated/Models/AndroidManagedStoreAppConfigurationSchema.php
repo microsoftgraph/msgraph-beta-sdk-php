@@ -10,7 +10,7 @@ use Psr\Http\Message\StreamInterface;
 class AndroidManagedStoreAppConfigurationSchema extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new androidManagedStoreAppConfigurationSchema and sets the default values.
+     * Instantiates a new AndroidManagedStoreAppConfigurationSchema and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -75,7 +75,7 @@ class AndroidManagedStoreAppConfigurationSchema extends Entity implements Parsab
 
     /**
      * Sets the exampleJson property value. UTF8 encoded byte array containing example JSON string conforming to this schema that demonstrates how to set the configuration for this app
-     *  @param StreamInterface|null $value Value to set for the exampleJson property.
+     * @param StreamInterface|null $value Value to set for the exampleJson property.
     */
     public function setExampleJson(?StreamInterface $value): void {
         $this->getBackingStore()->set('exampleJson', $value);
@@ -83,7 +83,7 @@ class AndroidManagedStoreAppConfigurationSchema extends Entity implements Parsab
 
     /**
      * Sets the nestedSchemaItems property value. Collection of items each representing a named configuration option in the schema. It contains a flat list of all configuration.
-     *  @param array<AndroidManagedStoreAppConfigurationSchemaItem>|null $value Value to set for the nestedSchemaItems property.
+     * @param array<AndroidManagedStoreAppConfigurationSchemaItem>|null $value Value to set for the nestedSchemaItems property.
     */
     public function setNestedSchemaItems(?array $value): void {
         $this->getBackingStore()->set('nestedSchemaItems', $value);
@@ -91,7 +91,7 @@ class AndroidManagedStoreAppConfigurationSchema extends Entity implements Parsab
 
     /**
      * Sets the schemaItems property value. Collection of items each representing a named configuration option in the schema. It only contains the root-level configuration.
-     *  @param array<AndroidManagedStoreAppConfigurationSchemaItem>|null $value Value to set for the schemaItems property.
+     * @param array<AndroidManagedStoreAppConfigurationSchemaItem>|null $value Value to set for the schemaItems property.
     */
     public function setSchemaItems(?array $value): void {
         $this->getBackingStore()->set('schemaItems', $value);

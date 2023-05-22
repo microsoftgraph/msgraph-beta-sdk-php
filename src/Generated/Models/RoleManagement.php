@@ -36,7 +36,7 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -75,11 +75,27 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the enterpriseApps property value. The enterpriseApps property
+     * @return array<RbacApplication>|null
+    */
+    public function getEnterpriseApps(): ?array {
+        return $this->getBackingStore()->get('enterpriseApps');
+    }
+
+    /**
      * Gets the entitlementManagement property value. The RbacApplication for Entitlement Management
      * @return RbacApplication|null
     */
     public function getEntitlementManagement(): ?RbacApplication {
         return $this->getBackingStore()->get('entitlementManagement');
+    }
+
+    /**
+     * Gets the exchange property value. The exchange property
+     * @return UnifiedRbacApplication|null
+    */
+    public function getExchange(): ?UnifiedRbacApplication {
+        return $this->getBackingStore()->get('exchange');
     }
 
     /**
@@ -92,7 +108,9 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
             'cloudPC' => fn(ParseNode $n) => $o->setCloudPC($n->getObjectValue([RbacApplicationMultiple::class, 'createFromDiscriminatorValue'])),
             'deviceManagement' => fn(ParseNode $n) => $o->setDeviceManagement($n->getObjectValue([RbacApplicationMultiple::class, 'createFromDiscriminatorValue'])),
             'directory' => fn(ParseNode $n) => $o->setDirectory($n->getObjectValue([RbacApplication::class, 'createFromDiscriminatorValue'])),
+            'enterpriseApps' => fn(ParseNode $n) => $o->setEnterpriseApps($n->getCollectionOfObjectValues([RbacApplication::class, 'createFromDiscriminatorValue'])),
             'entitlementManagement' => fn(ParseNode $n) => $o->setEntitlementManagement($n->getObjectValue([RbacApplication::class, 'createFromDiscriminatorValue'])),
+            'exchange' => fn(ParseNode $n) => $o->setExchange($n->getObjectValue([UnifiedRbacApplication::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
@@ -113,14 +131,16 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeObjectValue('cloudPC', $this->getCloudPC());
         $writer->writeObjectValue('deviceManagement', $this->getDeviceManagement());
         $writer->writeObjectValue('directory', $this->getDirectory());
+        $writer->writeCollectionOfObjectValues('enterpriseApps', $this->getEnterpriseApps());
         $writer->writeObjectValue('entitlementManagement', $this->getEntitlementManagement());
+        $writer->writeObjectValue('exchange', $this->getExchange());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +148,7 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +156,7 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the cloudPC property value. The cloudPC property
-     *  @param RbacApplicationMultiple|null $value Value to set for the cloudPC property.
+     * @param RbacApplicationMultiple|null $value Value to set for the cloudPC property.
     */
     public function setCloudPC(?RbacApplicationMultiple $value): void {
         $this->getBackingStore()->set('cloudPC', $value);
@@ -144,7 +164,7 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the deviceManagement property value. The RbacApplication for Device Management
-     *  @param RbacApplicationMultiple|null $value Value to set for the deviceManagement property.
+     * @param RbacApplicationMultiple|null $value Value to set for the deviceManagement property.
     */
     public function setDeviceManagement(?RbacApplicationMultiple $value): void {
         $this->getBackingStore()->set('deviceManagement', $value);
@@ -152,23 +172,39 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the directory property value. The directory property
-     *  @param RbacApplication|null $value Value to set for the directory property.
+     * @param RbacApplication|null $value Value to set for the directory property.
     */
     public function setDirectory(?RbacApplication $value): void {
         $this->getBackingStore()->set('directory', $value);
     }
 
     /**
+     * Sets the enterpriseApps property value. The enterpriseApps property
+     * @param array<RbacApplication>|null $value Value to set for the enterpriseApps property.
+    */
+    public function setEnterpriseApps(?array $value): void {
+        $this->getBackingStore()->set('enterpriseApps', $value);
+    }
+
+    /**
      * Sets the entitlementManagement property value. The RbacApplication for Entitlement Management
-     *  @param RbacApplication|null $value Value to set for the entitlementManagement property.
+     * @param RbacApplication|null $value Value to set for the entitlementManagement property.
     */
     public function setEntitlementManagement(?RbacApplication $value): void {
         $this->getBackingStore()->set('entitlementManagement', $value);
     }
 
     /**
+     * Sets the exchange property value. The exchange property
+     * @param UnifiedRbacApplication|null $value Value to set for the exchange property.
+    */
+    public function setExchange(?UnifiedRbacApplication $value): void {
+        $this->getBackingStore()->set('exchange', $value);
+    }
+
+    /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

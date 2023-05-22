@@ -60,9 +60,11 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'policyMigrationState' => fn(ParseNode $n) => $o->setPolicyMigrationState($n->getEnumValue(AuthenticationMethodsPolicyMigrationState::class)),
             'policyVersion' => fn(ParseNode $n) => $o->setPolicyVersion($n->getStringValue()),
             'reconfirmationInDays' => fn(ParseNode $n) => $o->setReconfirmationInDays($n->getIntegerValue()),
             'registrationEnforcement' => fn(ParseNode $n) => $o->setRegistrationEnforcement($n->getObjectValue([RegistrationEnforcement::class, 'createFromDiscriminatorValue'])),
+            'systemCredentialPreferences' => fn(ParseNode $n) => $o->setSystemCredentialPreferences($n->getObjectValue([SystemCredentialPreferences::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -72,6 +74,14 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
     */
     public function getLastModifiedDateTime(): ?DateTime {
         return $this->getBackingStore()->get('lastModifiedDateTime');
+    }
+
+    /**
+     * Gets the policyMigrationState property value. The state of migration of the authentication methods policy from the legacy multifactor authentication and self-service password reset (SSPR) policies. The possible values are: premigration - means the authentication methods policy is used for authentication only, legacy policies are respected. migrationInProgress - means the authentication methods policy is used for both authenication and SSPR, legacy policies are respected. migrationComplete - means the authentication methods policy is used for authentication and SSPR, legacy policies are ignored. unknownFutureValue - Evolvable enumeration sentinel value. Do not use.
+     * @return AuthenticationMethodsPolicyMigrationState|null
+    */
+    public function getPolicyMigrationState(): ?AuthenticationMethodsPolicyMigrationState {
+        return $this->getBackingStore()->get('policyMigrationState');
     }
 
     /**
@@ -99,6 +109,14 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
     }
 
     /**
+     * Gets the systemCredentialPreferences property value. Prompt users with their most-preferred credential for multifactor authentication.
+     * @return SystemCredentialPreferences|null
+    */
+    public function getSystemCredentialPreferences(): ?SystemCredentialPreferences {
+        return $this->getBackingStore()->get('systemCredentialPreferences');
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -108,14 +126,16 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeEnumValue('policyMigrationState', $this->getPolicyMigrationState());
         $writer->writeStringValue('policyVersion', $this->getPolicyVersion());
         $writer->writeIntegerValue('reconfirmationInDays', $this->getReconfirmationInDays());
         $writer->writeObjectValue('registrationEnforcement', $this->getRegistrationEnforcement());
+        $writer->writeObjectValue('systemCredentialPreferences', $this->getSystemCredentialPreferences());
     }
 
     /**
      * Sets the authenticationMethodConfigurations property value. Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.
-     *  @param array<AuthenticationMethodConfiguration>|null $value Value to set for the authenticationMethodConfigurations property.
+     * @param array<AuthenticationMethodConfiguration>|null $value Value to set for the authenticationMethodConfigurations property.
     */
     public function setAuthenticationMethodConfigurations(?array $value): void {
         $this->getBackingStore()->set('authenticationMethodConfigurations', $value);
@@ -123,7 +143,7 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
 
     /**
      * Sets the description property value. A description of the policy.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -131,7 +151,7 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The name of the policy.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -139,15 +159,23 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time of the last update to the policy.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
+     * Sets the policyMigrationState property value. The state of migration of the authentication methods policy from the legacy multifactor authentication and self-service password reset (SSPR) policies. The possible values are: premigration - means the authentication methods policy is used for authentication only, legacy policies are respected. migrationInProgress - means the authentication methods policy is used for both authenication and SSPR, legacy policies are respected. migrationComplete - means the authentication methods policy is used for authentication and SSPR, legacy policies are ignored. unknownFutureValue - Evolvable enumeration sentinel value. Do not use.
+     * @param AuthenticationMethodsPolicyMigrationState|null $value Value to set for the policyMigrationState property.
+    */
+    public function setPolicyMigrationState(?AuthenticationMethodsPolicyMigrationState $value): void {
+        $this->getBackingStore()->set('policyMigrationState', $value);
+    }
+
+    /**
      * Sets the policyVersion property value. The version of the policy in use.
-     *  @param string|null $value Value to set for the policyVersion property.
+     * @param string|null $value Value to set for the policyVersion property.
     */
     public function setPolicyVersion(?string $value): void {
         $this->getBackingStore()->set('policyVersion', $value);
@@ -155,7 +183,7 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
 
     /**
      * Sets the reconfirmationInDays property value. Days before the user will be asked to reconfirm their method.
-     *  @param int|null $value Value to set for the reconfirmationInDays property.
+     * @param int|null $value Value to set for the reconfirmationInDays property.
     */
     public function setReconfirmationInDays(?int $value): void {
         $this->getBackingStore()->set('reconfirmationInDays', $value);
@@ -163,10 +191,18 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
 
     /**
      * Sets the registrationEnforcement property value. Enforce registration at sign-in time. This property can be used to remind users to set up targeted authentication methods.
-     *  @param RegistrationEnforcement|null $value Value to set for the registrationEnforcement property.
+     * @param RegistrationEnforcement|null $value Value to set for the registrationEnforcement property.
     */
     public function setRegistrationEnforcement(?RegistrationEnforcement $value): void {
         $this->getBackingStore()->set('registrationEnforcement', $value);
+    }
+
+    /**
+     * Sets the systemCredentialPreferences property value. Prompt users with their most-preferred credential for multifactor authentication.
+     * @param SystemCredentialPreferences|null $value Value to set for the systemCredentialPreferences property.
+    */
+    public function setSystemCredentialPreferences(?SystemCredentialPreferences $value): void {
+        $this->getBackingStore()->set('systemCredentialPreferences', $value);
     }
 
 }

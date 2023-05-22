@@ -2,23 +2,38 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCustomAttributeShellScripts\Item\UserRunStates\Item;
 
+use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;
 
-class DeviceManagementScriptUserStateItemRequestBuilderGetRequestConfiguration 
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
+class DeviceManagementScriptUserStateItemRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration 
 {
-    /**
-     * @var array<string, string>|null $headers Request headers
-    */
-    public ?array $headers = null;
-    
-    /**
-     * @var array<string, RequestOption>|null $options Request options
-    */
-    public ?array $options = null;
-    
     /**
      * @var DeviceManagementScriptUserStateItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
     */
     public ?DeviceManagementScriptUserStateItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new DeviceManagementScriptUserStateItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
+     * @param DeviceManagementScriptUserStateItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?DeviceManagementScriptUserStateItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        parent::__construct($headers ?? [], $options ?? []);
+        $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new DeviceManagementScriptUserStateItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return DeviceManagementScriptUserStateItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): DeviceManagementScriptUserStateItemRequestBuilderGetQueryParameters {
+        return new DeviceManagementScriptUserStateItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
 }

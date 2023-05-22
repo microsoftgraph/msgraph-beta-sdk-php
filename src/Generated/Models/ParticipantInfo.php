@@ -36,7 +36,7 @@ class ParticipantInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -160,7 +160,7 @@ class ParticipantInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -168,7 +168,7 @@ class ParticipantInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -176,7 +176,7 @@ class ParticipantInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the countryCode property value. The ISO 3166-1 Alpha-2 country code of the participant's best estimated physical location at the start of the call. Read-only.
-     *  @param string|null $value Value to set for the countryCode property.
+     * @param string|null $value Value to set for the countryCode property.
     */
     public function setCountryCode(?string $value): void {
         $this->getBackingStore()->set('countryCode', $value);
@@ -184,7 +184,7 @@ class ParticipantInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the endpointType property value. The type of endpoint the participant is using. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue. Read-only.
-     *  @param EndpointType|null $value Value to set for the endpointType property.
+     * @param EndpointType|null $value Value to set for the endpointType property.
     */
     public function setEndpointType(?EndpointType $value): void {
         $this->getBackingStore()->set('endpointType', $value);
@@ -192,7 +192,7 @@ class ParticipantInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the identity property value. The identity property
-     *  @param IdentitySet|null $value Value to set for the identity property.
+     * @param IdentitySet|null $value Value to set for the identity property.
     */
     public function setIdentity(?IdentitySet $value): void {
         $this->getBackingStore()->set('identity', $value);
@@ -200,7 +200,7 @@ class ParticipantInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the languageId property value. The language culture string. Read-only.
-     *  @param string|null $value Value to set for the languageId property.
+     * @param string|null $value Value to set for the languageId property.
     */
     public function setLanguageId(?string $value): void {
         $this->getBackingStore()->set('languageId', $value);
@@ -208,7 +208,7 @@ class ParticipantInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the nonAnonymizedIdentity property value. The nonAnonymizedIdentity property
-     *  @param IdentitySet|null $value Value to set for the nonAnonymizedIdentity property.
+     * @param IdentitySet|null $value Value to set for the nonAnonymizedIdentity property.
     */
     public function setNonAnonymizedIdentity(?IdentitySet $value): void {
         $this->getBackingStore()->set('nonAnonymizedIdentity', $value);
@@ -216,7 +216,7 @@ class ParticipantInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -224,7 +224,7 @@ class ParticipantInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the participantId property value. The participant ID of the participant. Read-only.
-     *  @param string|null $value Value to set for the participantId property.
+     * @param string|null $value Value to set for the participantId property.
     */
     public function setParticipantId(?string $value): void {
         $this->getBackingStore()->set('participantId', $value);
@@ -232,7 +232,7 @@ class ParticipantInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the platformId property value. The client platform ID of the participant. Read-only.
-     *  @param string|null $value Value to set for the platformId property.
+     * @param string|null $value Value to set for the platformId property.
     */
     public function setPlatformId(?string $value): void {
         $this->getBackingStore()->set('platformId', $value);
@@ -240,7 +240,7 @@ class ParticipantInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the region property value. The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant's current physical location, unlike countryCode. Read-only.
-     *  @param string|null $value Value to set for the region property.
+     * @param string|null $value Value to set for the region property.
     */
     public function setRegion(?string $value): void {
         $this->getBackingStore()->set('region', $value);

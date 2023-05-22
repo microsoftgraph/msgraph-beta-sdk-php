@@ -45,7 +45,7 @@ class UpdateDefinitionValuesPostRequestBody implements AdditionalDataHolder, Bac
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -101,7 +101,7 @@ class UpdateDefinitionValuesPostRequestBody implements AdditionalDataHolder, Bac
 
     /**
      * Sets the added property value. The added property
-     *  @param array<GroupPolicyDefinitionValue>|null $value Value to set for the added property.
+     * @param array<GroupPolicyDefinitionValue>|null $value Value to set for the added property.
     */
     public function setAdded(?array $value): void {
         $this->getBackingStore()->set('added', $value);
@@ -109,7 +109,7 @@ class UpdateDefinitionValuesPostRequestBody implements AdditionalDataHolder, Bac
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -117,7 +117,7 @@ class UpdateDefinitionValuesPostRequestBody implements AdditionalDataHolder, Bac
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -125,7 +125,7 @@ class UpdateDefinitionValuesPostRequestBody implements AdditionalDataHolder, Bac
 
     /**
      * Sets the deletedIds property value. The deletedIds property
-     *  @param array<string>|null $value Value to set for the deletedIds property.
+     * @param array<string>|null $value Value to set for the deletedIds property.
     */
     public function setDeletedIds(?array $value): void {
         $this->getBackingStore()->set('deletedIds', $value);
@@ -133,7 +133,7 @@ class UpdateDefinitionValuesPostRequestBody implements AdditionalDataHolder, Bac
 
     /**
      * Sets the updated property value. The updated property
-     *  @param array<GroupPolicyDefinitionValue>|null $value Value to set for the updated property.
+     * @param array<GroupPolicyDefinitionValue>|null $value Value to set for the updated property.
     */
     public function setUpdated(?array $value): void {
         $this->getBackingStore()->set('updated', $value);

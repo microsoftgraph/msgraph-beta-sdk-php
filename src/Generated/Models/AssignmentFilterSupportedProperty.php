@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Represents the information about the property which is supported in crafting the rule of AssignmentFilter.
+*/
 class AssignmentFilterSupportedProperty implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, BackedM
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -116,7 +119,7 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Gets the supportedValues property value. List of all supported values for this propery, empty if everything is supported.
+     * Gets the supportedValues property value. List of all supported values for this property, empty if everything is supported.
      * @return array<string>|null
     */
     public function getSupportedValues(): ?array {
@@ -140,7 +143,7 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -148,7 +151,7 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -156,7 +159,7 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the dataType property value. The data type of the property.
-     *  @param string|null $value Value to set for the dataType property.
+     * @param string|null $value Value to set for the dataType property.
     */
     public function setDataType(?string $value): void {
         $this->getBackingStore()->set('dataType', $value);
@@ -164,7 +167,7 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the isCollection property value. Indicates whether the property is a collection type or not.
-     *  @param bool|null $value Value to set for the isCollection property.
+     * @param bool|null $value Value to set for the isCollection property.
     */
     public function setIsCollection(?bool $value): void {
         $this->getBackingStore()->set('isCollection', $value);
@@ -172,7 +175,7 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the name property value. Name of the property.
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -180,7 +183,7 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -188,7 +191,7 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the propertyRegexConstraint property value. Regex string to do validation on the property value.
-     *  @param string|null $value Value to set for the propertyRegexConstraint property.
+     * @param string|null $value Value to set for the propertyRegexConstraint property.
     */
     public function setPropertyRegexConstraint(?string $value): void {
         $this->getBackingStore()->set('propertyRegexConstraint', $value);
@@ -196,15 +199,15 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the supportedOperators property value. List of all supported operators on this property.
-     *  @param array<AssignmentFilterOperator>|null $value Value to set for the supportedOperators property.
+     * @param array<AssignmentFilterOperator>|null $value Value to set for the supportedOperators property.
     */
     public function setSupportedOperators(?array $value): void {
         $this->getBackingStore()->set('supportedOperators', $value);
     }
 
     /**
-     * Sets the supportedValues property value. List of all supported values for this propery, empty if everything is supported.
-     *  @param array<string>|null $value Value to set for the supportedValues property.
+     * Sets the supportedValues property value. List of all supported values for this property, empty if everything is supported.
+     * @param array<string>|null $value Value to set for the supportedValues property.
     */
     public function setSupportedValues(?array $value): void {
         $this->getBackingStore()->set('supportedValues', $value);

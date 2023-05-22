@@ -36,7 +36,7 @@ class EmployeeExperience implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -57,9 +57,18 @@ class EmployeeExperience implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'learningCourseActivities' => fn(ParseNode $n) => $o->setLearningCourseActivities($n->getCollectionOfObjectValues([LearningCourseActivity::class, 'createFromDiscriminatorValue'])),
             'learningProviders' => fn(ParseNode $n) => $o->setLearningProviders($n->getCollectionOfObjectValues([LearningProvider::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
+    }
+
+    /**
+     * Gets the learningCourseActivities property value. The learningCourseActivities property
+     * @return array<LearningCourseActivity>|null
+    */
+    public function getLearningCourseActivities(): ?array {
+        return $this->getBackingStore()->get('learningCourseActivities');
     }
 
     /**
@@ -83,6 +92,7 @@ class EmployeeExperience implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeCollectionOfObjectValues('learningCourseActivities', $this->getLearningCourseActivities());
         $writer->writeCollectionOfObjectValues('learningProviders', $this->getLearningProviders());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -90,7 +100,7 @@ class EmployeeExperience implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -98,15 +108,23 @@ class EmployeeExperience implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
+     * Sets the learningCourseActivities property value. The learningCourseActivities property
+     * @param array<LearningCourseActivity>|null $value Value to set for the learningCourseActivities property.
+    */
+    public function setLearningCourseActivities(?array $value): void {
+        $this->getBackingStore()->set('learningCourseActivities', $value);
+    }
+
+    /**
      * Sets the learningProviders property value. A collection of learning providers.
-     *  @param array<LearningProvider>|null $value Value to set for the learningProviders property.
+     * @param array<LearningProvider>|null $value Value to set for the learningProviders property.
     */
     public function setLearningProviders(?array $value): void {
         $this->getBackingStore()->set('learningProviders', $value);
@@ -114,7 +132,7 @@ class EmployeeExperience implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

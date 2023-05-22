@@ -36,7 +36,7 @@ class TeamworkHardwareHealth implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -100,7 +100,7 @@ class TeamworkHardwareHealth implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,7 +108,7 @@ class TeamworkHardwareHealth implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -116,7 +116,7 @@ class TeamworkHardwareHealth implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the computeHealth property value. The system health details for a teamworkDevice.
-     *  @param TeamworkPeripheralHealth|null $value Value to set for the computeHealth property.
+     * @param TeamworkPeripheralHealth|null $value Value to set for the computeHealth property.
     */
     public function setComputeHealth(?TeamworkPeripheralHealth $value): void {
         $this->getBackingStore()->set('computeHealth', $value);
@@ -124,7 +124,7 @@ class TeamworkHardwareHealth implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the hdmiIngestHealth property value. The health details about the HDMI ingest of a device.
-     *  @param TeamworkPeripheralHealth|null $value Value to set for the hdmiIngestHealth property.
+     * @param TeamworkPeripheralHealth|null $value Value to set for the hdmiIngestHealth property.
     */
     public function setHdmiIngestHealth(?TeamworkPeripheralHealth $value): void {
         $this->getBackingStore()->set('hdmiIngestHealth', $value);
@@ -132,7 +132,7 @@ class TeamworkHardwareHealth implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

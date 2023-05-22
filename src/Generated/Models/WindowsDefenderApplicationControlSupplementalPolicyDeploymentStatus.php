@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties for the deployment state of a WindowsDefenderApplicationControl supplemental policy for a device.
+*/
 class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extends Entity implements Parsable 
 {
     /**
@@ -145,7 +148,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
 
     /**
      * Sets the deploymentStatus property value. Enum values for the various WindowsDefenderApplicationControl supplemental policy deployment statuses.
-     *  @param WindowsDefenderApplicationControlSupplementalPolicyStatuses|null $value Value to set for the deploymentStatus property.
+     * @param WindowsDefenderApplicationControlSupplementalPolicyStatuses|null $value Value to set for the deploymentStatus property.
     */
     public function setDeploymentStatus(?WindowsDefenderApplicationControlSupplementalPolicyStatuses $value): void {
         $this->getBackingStore()->set('deploymentStatus', $value);
@@ -153,7 +156,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
 
     /**
      * Sets the deviceId property value. Device ID.
-     *  @param string|null $value Value to set for the deviceId property.
+     * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
         $this->getBackingStore()->set('deviceId', $value);
@@ -161,7 +164,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
 
     /**
      * Sets the deviceName property value. Device name.
-     *  @param string|null $value Value to set for the deviceName property.
+     * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
         $this->getBackingStore()->set('deviceName', $value);
@@ -169,7 +172,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
 
     /**
      * Sets the lastSyncDateTime property value. Last sync date time.
-     *  @param DateTime|null $value Value to set for the lastSyncDateTime property.
+     * @param DateTime|null $value Value to set for the lastSyncDateTime property.
     */
     public function setLastSyncDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSyncDateTime', $value);
@@ -177,7 +180,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
 
     /**
      * Sets the osDescription property value. Windows OS Version Description.
-     *  @param string|null $value Value to set for the osDescription property.
+     * @param string|null $value Value to set for the osDescription property.
     */
     public function setOsDescription(?string $value): void {
         $this->getBackingStore()->set('osDescription', $value);
@@ -185,7 +188,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
 
     /**
      * Sets the osVersion property value. Windows OS Version.
-     *  @param string|null $value Value to set for the osVersion property.
+     * @param string|null $value Value to set for the osVersion property.
     */
     public function setOsVersion(?string $value): void {
         $this->getBackingStore()->set('osVersion', $value);
@@ -193,7 +196,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
 
     /**
      * Sets the policy property value. The navigation link to the WindowsDefenderApplicationControl supplemental policy.
-     *  @param WindowsDefenderApplicationControlSupplementalPolicy|null $value Value to set for the policy property.
+     * @param WindowsDefenderApplicationControlSupplementalPolicy|null $value Value to set for the policy property.
     */
     public function setPolicy(?WindowsDefenderApplicationControlSupplementalPolicy $value): void {
         $this->getBackingStore()->set('policy', $value);
@@ -201,7 +204,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
 
     /**
      * Sets the policyVersion property value. Human readable version of the WindowsDefenderApplicationControl supplemental policy.
-     *  @param string|null $value Value to set for the policyVersion property.
+     * @param string|null $value Value to set for the policyVersion property.
     */
     public function setPolicyVersion(?string $value): void {
         $this->getBackingStore()->set('policyVersion', $value);
@@ -209,7 +212,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
 
     /**
      * Sets the userName property value. The name of the user of this device.
-     *  @param string|null $value Value to set for the userName property.
+     * @param string|null $value Value to set for the userName property.
     */
     public function setUserName(?string $value): void {
         $this->getBackingStore()->set('userName', $value);
@@ -217,7 +220,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
 
     /**
      * Sets the userPrincipalName property value. User Principal Name.
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);

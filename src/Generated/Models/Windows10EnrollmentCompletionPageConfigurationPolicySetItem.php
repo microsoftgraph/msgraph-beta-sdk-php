@@ -55,7 +55,7 @@ class Windows10EnrollmentCompletionPageConfigurationPolicySetItem extends Policy
 
     /**
      * Sets the priority property value. Priority of the Windows10EnrollmentCompletionPageConfigurationPolicySetItem.
-     *  @param int|null $value Value to set for the priority property.
+     * @param int|null $value Value to set for the priority property.
     */
     public function setPriority(?int $value): void {
         $this->getBackingStore()->set('priority', $value);

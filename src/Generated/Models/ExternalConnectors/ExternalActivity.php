@@ -55,7 +55,7 @@ class ExternalActivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the startDateTime property value. When the particular activity occurred.
+     * Gets the startDateTime property value. The date and time when the particular activity occurred. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
@@ -83,15 +83,15 @@ class ExternalActivity extends Entity implements Parsable
 
     /**
      * Sets the performedBy property value. Represents an identity used to identify who is responsible for the activity.
-     *  @param Identity|null $value Value to set for the performedBy property.
+     * @param Identity|null $value Value to set for the performedBy property.
     */
     public function setPerformedBy(?Identity $value): void {
         $this->getBackingStore()->set('performedBy', $value);
     }
 
     /**
-     * Sets the startDateTime property value. When the particular activity occurred.
-     *  @param DateTime|null $value Value to set for the startDateTime property.
+     * Sets the startDateTime property value. The date and time when the particular activity occurred. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('startDateTime', $value);
@@ -99,7 +99,7 @@ class ExternalActivity extends Entity implements Parsable
 
     /**
      * Sets the type property value. The type property
-     *  @param ExternalActivityType|null $value Value to set for the type property.
+     * @param ExternalActivityType|null $value Value to set for the type property.
     */
     public function setType(?ExternalActivityType $value): void {
         $this->getBackingStore()->set('type', $value);

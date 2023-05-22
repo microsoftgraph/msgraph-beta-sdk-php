@@ -75,7 +75,7 @@ class ServicePrincipalCreationPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the excludes property value. The excludes property
-     *  @param array<ServicePrincipalCreationConditionSet>|null $value Value to set for the excludes property.
+     * @param array<ServicePrincipalCreationConditionSet>|null $value Value to set for the excludes property.
     */
     public function setExcludes(?array $value): void {
         $this->getBackingStore()->set('excludes', $value);
@@ -83,7 +83,7 @@ class ServicePrincipalCreationPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the includes property value. The includes property
-     *  @param array<ServicePrincipalCreationConditionSet>|null $value Value to set for the includes property.
+     * @param array<ServicePrincipalCreationConditionSet>|null $value Value to set for the includes property.
     */
     public function setIncludes(?array $value): void {
         $this->getBackingStore()->set('includes', $value);
@@ -91,7 +91,7 @@ class ServicePrincipalCreationPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the isBuiltIn property value. The isBuiltIn property
-     *  @param bool|null $value Value to set for the isBuiltIn property.
+     * @param bool|null $value Value to set for the isBuiltIn property.
     */
     public function setIsBuiltIn(?bool $value): void {
         $this->getBackingStore()->set('isBuiltIn', $value);

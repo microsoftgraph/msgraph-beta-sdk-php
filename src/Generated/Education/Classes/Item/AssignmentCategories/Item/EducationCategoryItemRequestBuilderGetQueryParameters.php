@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Education\Classes\Item\AssignmentCatego
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve an educationCategory object. Only teachers, students, and applications with application permissions can perform this operation.
+*/
 class EducationCategoryItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class EducationCategoryItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new EducationCategoryItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

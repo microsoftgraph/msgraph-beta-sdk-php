@@ -6,25 +6,21 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Education\Classes\ClassesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Classes\Item\EducationClassItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Me\MeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Schools\Item\EducationSchoolItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Schools\SchoolsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\SynchronizationProfiles\Item\EducationSynchronizationProfileItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\SynchronizationProfiles\SynchronizationProfilesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Users\Item\EducationUserItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Users\UsersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EducationRoot;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
-class EducationRequestBuilder 
+/**
+ * Provides operations to manage the educationRoot singleton.
+*/
+class EducationRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.
@@ -41,16 +37,6 @@ class EducationRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
      * Provides operations to manage the schools property of the microsoft.graph.educationRoot entity.
     */
     public function schools(): SchoolsRequestBuilder {
@@ -65,11 +51,6 @@ class EducationRequestBuilder
     }
     
     /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
      * Provides operations to manage the users property of the microsoft.graph.educationRoot entity.
     */
     public function users(): UsersRequestBuilder {
@@ -77,41 +58,32 @@ class EducationRequestBuilder
     }
     
     /**
-     * Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return EducationClassItemRequestBuilder
-    */
-    public function classesById(string $id): EducationClassItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['educationClass%2Did'] = $id;
-        return new EducationClassItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new EducationRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/education{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
+        parent::__construct($requestAdapter, [], '{+baseurl}/education{?%24select,%24expand}');
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
      * Get education
      * @param EducationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?EducationRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?EducationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [EducationRoot::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [EducationRoot::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -121,42 +93,19 @@ class EducationRequestBuilder
      * Update education
      * @param EducationRoot $body The request body
      * @param EducationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(EducationRoot $body, ?EducationRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(EducationRoot $body, ?EducationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [EducationRoot::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [EducationRoot::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the schools property of the microsoft.graph.educationRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return EducationSchoolItemRequestBuilder
-    */
-    public function schoolsById(string $id): EducationSchoolItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['educationSchool%2Did'] = $id;
-        return new EducationSchoolItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the synchronizationProfiles property of the microsoft.graph.educationRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return EducationSynchronizationProfileItemRequestBuilder
-    */
-    public function synchronizationProfilesById(string $id): EducationSynchronizationProfileItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['educationSynchronizationProfile%2Did'] = $id;
-        return new EducationSynchronizationProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -169,17 +118,13 @@ class EducationRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -195,28 +140,13 @@ class EducationRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the users property of the microsoft.graph.educationRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return EducationUserItemRequestBuilder
-    */
-    public function usersById(string $id): EducationUserItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['educationUser%2Did'] = $id;
-        return new EducationUserItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

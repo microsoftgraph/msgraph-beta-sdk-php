@@ -168,6 +168,7 @@ class EducationAssignment extends Entity implements Parsable
             'dueDateTime' => fn(ParseNode $n) => $o->setDueDateTime($n->getDateTimeValue()),
             'feedbackResourcesFolderUrl' => fn(ParseNode $n) => $o->setFeedbackResourcesFolderUrl($n->getStringValue()),
             'grading' => fn(ParseNode $n) => $o->setGrading($n->getObjectValue([EducationAssignmentGradeType::class, 'createFromDiscriminatorValue'])),
+            'gradingCategory' => fn(ParseNode $n) => $o->setGradingCategory($n->getObjectValue([EducationGradingCategory::class, 'createFromDiscriminatorValue'])),
             'instructions' => fn(ParseNode $n) => $o->setInstructions($n->getObjectValue([EducationItemBody::class, 'createFromDiscriminatorValue'])),
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
@@ -187,6 +188,14 @@ class EducationAssignment extends Entity implements Parsable
     */
     public function getGrading(): ?EducationAssignmentGradeType {
         return $this->getBackingStore()->get('grading');
+    }
+
+    /**
+     * Gets the gradingCategory property value. The gradingCategory property
+     * @return EducationGradingCategory|null
+    */
+    public function getGradingCategory(): ?EducationGradingCategory {
+        return $this->getBackingStore()->get('gradingCategory');
     }
 
     /**
@@ -246,7 +255,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Status of the Assignment.  You can not PATCH this value.  Possible values are: draft, scheduled, published, assigned.
+     * Gets the status property value. Status of the Assignment.  You can not PATCH this value.  Possible values are: draft, scheduled, published, assigned, unknownFutureValue and inactive. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: inactive.
      * @return EducationAssignmentStatus|null
     */
     public function getStatus(): ?EducationAssignmentStatus {
@@ -286,6 +295,7 @@ class EducationAssignment extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('dueDateTime', $this->getDueDateTime());
         $writer->writeObjectValue('grading', $this->getGrading());
+        $writer->writeObjectValue('gradingCategory', $this->getGradingCategory());
         $writer->writeObjectValue('instructions', $this->getInstructions());
         $writer->writeStringValue('notificationChannelUrl', $this->getNotificationChannelUrl());
         $writer->writeCollectionOfObjectValues('resources', $this->getResources());
@@ -295,7 +305,7 @@ class EducationAssignment extends Entity implements Parsable
 
     /**
      * Sets the addedStudentAction property value. Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none. Supported values are: none, assignIfOpen. For example, a teacher can use assignIfOpen to indicate that an assignment should be assigned to any new student who joins the class while the assignment is still open, and none to indicate that an assignment should not be assigned to new students.
-     *  @param EducationAddedStudentAction|null $value Value to set for the addedStudentAction property.
+     * @param EducationAddedStudentAction|null $value Value to set for the addedStudentAction property.
     */
     public function setAddedStudentAction(?EducationAddedStudentAction $value): void {
         $this->getBackingStore()->set('addedStudentAction', $value);
@@ -303,7 +313,7 @@ class EducationAssignment extends Entity implements Parsable
 
     /**
      * Sets the addToCalendarAction property value. Optional field to control the assignment behavior  for adding assignments to students' and teachers' calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: studentsOnly. The default value is none.
-     *  @param EducationAddToCalendarOptions|null $value Value to set for the addToCalendarAction property.
+     * @param EducationAddToCalendarOptions|null $value Value to set for the addToCalendarAction property.
     */
     public function setAddToCalendarAction(?EducationAddToCalendarOptions $value): void {
         $this->getBackingStore()->set('addToCalendarAction', $value);
@@ -311,7 +321,7 @@ class EducationAssignment extends Entity implements Parsable
 
     /**
      * Sets the allowLateSubmissions property value. Identifies whether students can submit after the due date. If this property is not specified during create, it defaults to true.
-     *  @param bool|null $value Value to set for the allowLateSubmissions property.
+     * @param bool|null $value Value to set for the allowLateSubmissions property.
     */
     public function setAllowLateSubmissions(?bool $value): void {
         $this->getBackingStore()->set('allowLateSubmissions', $value);
@@ -319,7 +329,7 @@ class EducationAssignment extends Entity implements Parsable
 
     /**
      * Sets the allowStudentsToAddResourcesToSubmission property value. Identifies whether students can add their own resources to a submission or if they can only modify resources added by the teacher.
-     *  @param bool|null $value Value to set for the allowStudentsToAddResourcesToSubmission property.
+     * @param bool|null $value Value to set for the allowStudentsToAddResourcesToSubmission property.
     */
     public function setAllowStudentsToAddResourcesToSubmission(?bool $value): void {
         $this->getBackingStore()->set('allowStudentsToAddResourcesToSubmission', $value);
@@ -327,7 +337,7 @@ class EducationAssignment extends Entity implements Parsable
 
     /**
      * Sets the assignDateTime property value. The date when the assignment should become active.  If in the future, the assignment is not shown to the student until this date.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the assignDateTime property.
+     * @param DateTime|null $value Value to set for the assignDateTime property.
     */
     public function setAssignDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('assignDateTime', $value);
@@ -335,7 +345,7 @@ class EducationAssignment extends Entity implements Parsable
 
     /**
      * Sets the assignedDateTime property value. The moment that the assignment was published to students and the assignment shows up on the students timeline.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the assignedDateTime property.
+     * @param DateTime|null $value Value to set for the assignedDateTime property.
     */
     public function setAssignedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('assignedDateTime', $value);
@@ -343,7 +353,7 @@ class EducationAssignment extends Entity implements Parsable
 
     /**
      * Sets the assignTo property value. Which users, or whole class should receive a submission object once the assignment is published.
-     *  @param EducationAssignmentRecipient|null $value Value to set for the assignTo property.
+     * @param EducationAssignmentRecipient|null $value Value to set for the assignTo property.
     */
     public function setAssignTo(?EducationAssignmentRecipient $value): void {
         $this->getBackingStore()->set('assignTo', $value);
@@ -351,7 +361,7 @@ class EducationAssignment extends Entity implements Parsable
 
     /**
      * Sets the categories property value. When set, enables users to easily find assignments of a given type.  Read-only. Nullable.
-     *  @param array<EducationCategory>|null $value Value to set for the categories property.
+     * @param array<EducationCategory>|null $value Value to set for the categories property.
     */
     public function setCategories(?array $value): void {
         $this->getBackingStore()->set('categories', $value);
@@ -359,7 +369,7 @@ class EducationAssignment extends Entity implements Parsable
 
     /**
      * Sets the classId property value. Class which this assignment belongs.
-     *  @param string|null $value Value to set for the classId property.
+     * @param string|null $value Value to set for the classId property.
     */
     public function setClassId(?string $value): void {
         $this->getBackingStore()->set('classId', $value);
@@ -367,7 +377,7 @@ class EducationAssignment extends Entity implements Parsable
 
     /**
      * Sets the closeDateTime property value. Date when the assignment will be closed for submissions. This is an optional field that can be null if the assignment does not allowLateSubmissions or when the closeDateTime is the same as the dueDateTime. But if specified, then the closeDateTime must be greater than or equal to the dueDateTime. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the closeDateTime property.
+     * @param DateTime|null $value Value to set for the closeDateTime property.
     */
     public function setCloseDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('closeDateTime', $value);
@@ -375,7 +385,7 @@ class EducationAssignment extends Entity implements Parsable
 
     /**
      * Sets the createdBy property value. Who created the assignment.
-     *  @param IdentitySet|null $value Value to set for the createdBy property.
+     * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('createdBy', $value);
@@ -383,7 +393,7 @@ class EducationAssignment extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. Moment when the assignment was created.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -391,7 +401,7 @@ class EducationAssignment extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Name of the assignment.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -399,7 +409,7 @@ class EducationAssignment extends Entity implements Parsable
 
     /**
      * Sets the dueDateTime property value. Date when the students assignment is due.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the dueDateTime property.
+     * @param DateTime|null $value Value to set for the dueDateTime property.
     */
     public function setDueDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('dueDateTime', $value);
@@ -407,7 +417,7 @@ class EducationAssignment extends Entity implements Parsable
 
     /**
      * Sets the feedbackResourcesFolderUrl property value. Folder URL where all the feedback file resources for this assignment are stored.
-     *  @param string|null $value Value to set for the feedbackResourcesFolderUrl property.
+     * @param string|null $value Value to set for the feedbackResourcesFolderUrl property.
     */
     public function setFeedbackResourcesFolderUrl(?string $value): void {
         $this->getBackingStore()->set('feedbackResourcesFolderUrl', $value);
@@ -415,15 +425,23 @@ class EducationAssignment extends Entity implements Parsable
 
     /**
      * Sets the grading property value. How the assignment will be graded.
-     *  @param EducationAssignmentGradeType|null $value Value to set for the grading property.
+     * @param EducationAssignmentGradeType|null $value Value to set for the grading property.
     */
     public function setGrading(?EducationAssignmentGradeType $value): void {
         $this->getBackingStore()->set('grading', $value);
     }
 
     /**
+     * Sets the gradingCategory property value. The gradingCategory property
+     * @param EducationGradingCategory|null $value Value to set for the gradingCategory property.
+    */
+    public function setGradingCategory(?EducationGradingCategory $value): void {
+        $this->getBackingStore()->set('gradingCategory', $value);
+    }
+
+    /**
      * Sets the instructions property value. Instructions for the assignment.  This along with the display name tell the student what to do.
-     *  @param EducationItemBody|null $value Value to set for the instructions property.
+     * @param EducationItemBody|null $value Value to set for the instructions property.
     */
     public function setInstructions(?EducationItemBody $value): void {
         $this->getBackingStore()->set('instructions', $value);
@@ -431,7 +449,7 @@ class EducationAssignment extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedBy property value. Who last modified the assignment.
-     *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
+     * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('lastModifiedBy', $value);
@@ -439,7 +457,7 @@ class EducationAssignment extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. Moment when the assignment was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -447,7 +465,7 @@ class EducationAssignment extends Entity implements Parsable
 
     /**
      * Sets the notificationChannelUrl property value. Optional field to specify the URL of the channel to post the assignment publish notification. If not specified or null, defaults to the General channel. This field only applies to assignments where the assignTo value is educationAssignmentClassRecipient. Updating the notificationChannelUrl is not allowed after the assignment has been published.
-     *  @param string|null $value Value to set for the notificationChannelUrl property.
+     * @param string|null $value Value to set for the notificationChannelUrl property.
     */
     public function setNotificationChannelUrl(?string $value): void {
         $this->getBackingStore()->set('notificationChannelUrl', $value);
@@ -455,7 +473,7 @@ class EducationAssignment extends Entity implements Parsable
 
     /**
      * Sets the resources property value. Learning objects that are associated with this assignment.  Only teachers can modify this list. Nullable.
-     *  @param array<EducationAssignmentResource>|null $value Value to set for the resources property.
+     * @param array<EducationAssignmentResource>|null $value Value to set for the resources property.
     */
     public function setResources(?array $value): void {
         $this->getBackingStore()->set('resources', $value);
@@ -463,7 +481,7 @@ class EducationAssignment extends Entity implements Parsable
 
     /**
      * Sets the resourcesFolderUrl property value. Folder URL where all the file resources for this assignment are stored.
-     *  @param string|null $value Value to set for the resourcesFolderUrl property.
+     * @param string|null $value Value to set for the resourcesFolderUrl property.
     */
     public function setResourcesFolderUrl(?string $value): void {
         $this->getBackingStore()->set('resourcesFolderUrl', $value);
@@ -471,15 +489,15 @@ class EducationAssignment extends Entity implements Parsable
 
     /**
      * Sets the rubric property value. When set, the grading rubric attached to this assignment.
-     *  @param EducationRubric|null $value Value to set for the rubric property.
+     * @param EducationRubric|null $value Value to set for the rubric property.
     */
     public function setRubric(?EducationRubric $value): void {
         $this->getBackingStore()->set('rubric', $value);
     }
 
     /**
-     * Sets the status property value. Status of the Assignment.  You can not PATCH this value.  Possible values are: draft, scheduled, published, assigned.
-     *  @param EducationAssignmentStatus|null $value Value to set for the status property.
+     * Sets the status property value. Status of the Assignment.  You can not PATCH this value.  Possible values are: draft, scheduled, published, assigned, unknownFutureValue and inactive. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: inactive.
+     * @param EducationAssignmentStatus|null $value Value to set for the status property.
     */
     public function setStatus(?EducationAssignmentStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -487,7 +505,7 @@ class EducationAssignment extends Entity implements Parsable
 
     /**
      * Sets the submissions property value. Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable.
-     *  @param array<EducationSubmission>|null $value Value to set for the submissions property.
+     * @param array<EducationSubmission>|null $value Value to set for the submissions property.
     */
     public function setSubmissions(?array $value): void {
         $this->getBackingStore()->set('submissions', $value);
@@ -495,7 +513,7 @@ class EducationAssignment extends Entity implements Parsable
 
     /**
      * Sets the webUrl property value. The deep link URL for the given assignment.
-     *  @param string|null $value Value to set for the webUrl property.
+     * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {
         $this->getBackingStore()->set('webUrl', $value);

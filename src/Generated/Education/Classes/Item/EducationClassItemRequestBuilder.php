@@ -6,27 +6,24 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\AssignmentCategories\AssignmentCategoriesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Classes\Item\AssignmentCategories\Item\EducationCategoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\AssignmentDefaults\AssignmentDefaultsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\EducationAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\AssignmentSettings\AssignmentSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Group\GroupRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Members\MembersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Schools\Item\EducationSchoolItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Schools\SchoolsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Teachers\TeachersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EducationClass;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
-class EducationClassItemRequestBuilder 
+/**
+ * Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.
+*/
+class EducationClassItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to manage the assignmentCategories property of the microsoft.graph.educationClass entity.
@@ -71,16 +68,6 @@ class EducationClassItemRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
      * Provides operations to manage the schools property of the microsoft.graph.educationClass entity.
     */
     public function schools(): SchoolsRequestBuilder {
@@ -95,136 +82,79 @@ class EducationClassItemRequestBuilder
     }
     
     /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
-     * Provides operations to manage the assignmentCategories property of the microsoft.graph.educationClass entity.
-     * @param string $id Unique identifier of the item
-     * @return EducationCategoryItemRequestBuilder
-    */
-    public function assignmentCategoriesById(string $id): EducationCategoryItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['educationCategory%2Did'] = $id;
-        return new EducationCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the assignments property of the microsoft.graph.educationClass entity.
-     * @param string $id Unique identifier of the item
-     * @return EducationAssignmentItemRequestBuilder
-    */
-    public function assignmentsById(string $id): EducationAssignmentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['educationAssignment%2Did'] = $id;
-        return new EducationAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new EducationClassItemRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/education/classes/{educationClass%2Did}{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
+        parent::__construct($requestAdapter, [], '{+baseurl}/education/classes/{educationClass%2Did}{?%24select,%24expand}');
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
-     * Delete navigation property classes for education
+     * Delete an educationClass. Because a class is also a universal group, deleting a class deletes the group.
      * @param EducationClassItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/educationclass-delete?view=graph-rest-1.0 Find more info here
     */
-    public function delete(?EducationClassItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?EducationClassItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Get classes from education
+     * Retrieve a class from the system. A class is a universal group with a special property that indicates to the system that the group is a class. Group members represent the students; group admins represent the teachers in the class. If you're using the delegated token, the user will only see classes in which they are members.
      * @param EducationClassItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/educationclass-get?view=graph-rest-1.0 Find more info here
     */
-    public function get(?EducationClassItemRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?EducationClassItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [EducationClass::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [EducationClass::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.education.classes.item.members.item collection
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Education\Classes\Item\Members\Item\EducationUserItemRequestBuilder
-    */
-    public function membersById(string $id): \Microsoft\Graph\Beta\Generated\Education\Classes\Item\Members\Item\EducationUserItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['educationUser%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Education\Classes\Item\Members\Item\EducationUserItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Update the navigation property classes in education
+     * Update the properties of a class.
      * @param EducationClass $body The request body
      * @param EducationClassItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/educationclass-update?view=graph-rest-1.0 Find more info here
     */
-    public function patch(EducationClass $body, ?EducationClassItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(EducationClass $body, ?EducationClassItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [EducationClass::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [EducationClass::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Provides operations to manage the schools property of the microsoft.graph.educationClass entity.
-     * @param string $id Unique identifier of the item
-     * @return EducationSchoolItemRequestBuilder
-    */
-    public function schoolsById(string $id): EducationSchoolItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['educationSchool%2Did'] = $id;
-        return new EducationSchoolItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.education.classes.item.teachers.item collection
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Education\Classes\Item\Teachers\Item\EducationUserItemRequestBuilder
-    */
-    public function teachersById(string $id): \Microsoft\Graph\Beta\Generated\Education\Classes\Item\Teachers\Item\EducationUserItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['educationUser%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Education\Classes\Item\Teachers\Item\EducationUserItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Delete navigation property classes for education
+     * Delete an educationClass. Because a class is also a universal group, deleting a class deletes the group.
      * @param EducationClassItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -234,18 +164,14 @@ class EducationClassItemRequestBuilder
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
 
     /**
-     * Get classes from education
+     * Retrieve a class from the system. A class is a universal group with a special property that indicates to the system that the group is a class. Group members represent the students; group admins represent the teachers in the class. If you're using the delegated token, the user will only see classes in which they are members.
      * @param EducationClassItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -254,23 +180,19 @@ class EducationClassItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
 
     /**
-     * Update the navigation property classes in education
+     * Update the properties of a class.
      * @param EducationClass $body The request body
      * @param EducationClassItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -280,14 +202,10 @@ class EducationClassItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

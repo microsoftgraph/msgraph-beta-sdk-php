@@ -38,7 +38,7 @@ class EvaluatePostRequestBody implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -92,7 +92,7 @@ class EvaluatePostRequestBody implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -100,7 +100,7 @@ class EvaluatePostRequestBody implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -108,7 +108,7 @@ class EvaluatePostRequestBody implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the currentLabel property value. The currentLabel property
-     *  @param CurrentLabel|null $value Value to set for the currentLabel property.
+     * @param CurrentLabel|null $value Value to set for the currentLabel property.
     */
     public function setCurrentLabel(?CurrentLabel $value): void {
         $this->getBackingStore()->set('currentLabel', $value);
@@ -116,7 +116,7 @@ class EvaluatePostRequestBody implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the discoveredSensitiveTypes property value. The discoveredSensitiveTypes property
-     *  @param array<DiscoveredSensitiveType>|null $value Value to set for the discoveredSensitiveTypes property.
+     * @param array<DiscoveredSensitiveType>|null $value Value to set for the discoveredSensitiveTypes property.
     */
     public function setDiscoveredSensitiveTypes(?array $value): void {
         $this->getBackingStore()->set('discoveredSensitiveTypes', $value);

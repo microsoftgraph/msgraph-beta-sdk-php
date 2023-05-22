@@ -13,35 +13,29 @@ use Microsoft\Graph\Beta\Generated\Groups\Item\Team\EscapedClone\CloneRequestBui
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Group\GroupRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\IncomingChannels\IncomingChannelsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\InstalledApps\InstalledAppsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Team\InstalledApps\Item\TeamsAppInstallationItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Members\Item\ConversationMemberItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Members\MembersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Operations\Item\TeamsAsyncOperationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Operations\OperationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Owners\Item\UserItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Owners\OwnersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PermissionGrants\Item\ResourceSpecificPermissionGrantItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PermissionGrants\PermissionGrantsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Photo\PhotoRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\PrimaryChannelRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\ScheduleRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\SendActivityNotification\SendActivityNotificationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Tags\Item\TeamworkTagItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Tags\TagsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Template\TemplateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\TemplateDefinition\TemplateDefinitionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Unarchive\UnarchiveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Team;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
-class TeamRequestBuilder 
+/**
+ * Provides operations to manage the team property of the microsoft.graph.group entity.
+*/
+class TeamRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to manage the allChannels property of the microsoft.graph.team entity.
@@ -121,11 +115,6 @@ class TeamRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
      * Provides operations to manage the permissionGrants property of the microsoft.graph.team entity.
     */
     public function permissionGrants(): PermissionGrantsRequestBuilder {
@@ -145,11 +134,6 @@ class TeamRequestBuilder
     public function primaryChannel(): PrimaryChannelRequestBuilder {
         return new PrimaryChannelRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
     
     /**
      * Provides operations to manage the schedule property of the microsoft.graph.team entity.
@@ -194,57 +178,32 @@ class TeamRequestBuilder
     }
     
     /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
-     * Provides operations to manage the allChannels property of the microsoft.graph.team entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Groups\Item\Team\AllChannels\Item\ChannelItemRequestBuilder
-    */
-    public function allChannelsById(string $id): \Microsoft\Graph\Beta\Generated\Groups\Item\Team\AllChannels\Item\ChannelItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['channel%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Groups\Item\Team\AllChannels\Item\ChannelItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the channels property of the microsoft.graph.team entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\ChannelItemRequestBuilder
-    */
-    public function channelsById(string $id): \Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\ChannelItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['channel%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\ChannelItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new TeamRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/groups/{group%2Did}/team{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
+        parent::__construct($requestAdapter, [], '{+baseurl}/groups/{group%2Did}/team{?%24select,%24expand}');
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
      * Delete navigation property team for groups
      * @param TeamRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?TeamRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?TeamRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -253,117 +212,38 @@ class TeamRequestBuilder
     /**
      * The team associated with this group.
      * @param TeamRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?TeamRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?TeamRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Team::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Team::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Provides operations to manage the incomingChannels property of the microsoft.graph.team entity.
-     * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Groups\Item\Team\IncomingChannels\Item\ChannelItemRequestBuilder
-    */
-    public function incomingChannelsById(string $id): \Microsoft\Graph\Beta\Generated\Groups\Item\Team\IncomingChannels\Item\ChannelItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['channel%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Groups\Item\Team\IncomingChannels\Item\ChannelItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the installedApps property of the microsoft.graph.team entity.
-     * @param string $id Unique identifier of the item
-     * @return TeamsAppInstallationItemRequestBuilder
-    */
-    public function installedAppsById(string $id): TeamsAppInstallationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['teamsAppInstallation%2Did'] = $id;
-        return new TeamsAppInstallationItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the members property of the microsoft.graph.team entity.
-     * @param string $id Unique identifier of the item
-     * @return ConversationMemberItemRequestBuilder
-    */
-    public function membersById(string $id): ConversationMemberItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['conversationMember%2Did'] = $id;
-        return new ConversationMemberItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the operations property of the microsoft.graph.team entity.
-     * @param string $id Unique identifier of the item
-     * @return TeamsAsyncOperationItemRequestBuilder
-    */
-    public function operationsById(string $id): TeamsAsyncOperationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['teamsAsyncOperation%2Did'] = $id;
-        return new TeamsAsyncOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the owners property of the microsoft.graph.team entity.
-     * @param string $id Unique identifier of the item
-     * @return UserItemRequestBuilder
-    */
-    public function ownersById(string $id): UserItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['user%2Did'] = $id;
-        return new UserItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Create a new team from a group. In order to create a team, the group must have a least one owner. If the group was created less than 15 minutes ago, it's possible for the Create team call to fail with a 404 error code due to replication delays.The recommended pattern is to retry the Create team call three times, with a 10 second delay between calls.
+     * Update the navigation property team in groups
      * @param Team $body The request body
-     * @param TeamRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @param TeamRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
-    public function patch(Team $body, ?TeamRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
+    public function put(Team $body, ?TeamRequestBuilderPutRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toPutRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Team::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Team::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the permissionGrants property of the microsoft.graph.team entity.
-     * @param string $id Unique identifier of the item
-     * @return ResourceSpecificPermissionGrantItemRequestBuilder
-    */
-    public function permissionGrantsById(string $id): ResourceSpecificPermissionGrantItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['resourceSpecificPermissionGrant%2Did'] = $id;
-        return new ResourceSpecificPermissionGrantItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the tags property of the microsoft.graph.team entity.
-     * @param string $id Unique identifier of the item
-     * @return TeamworkTagItemRequestBuilder
-    */
-    public function tagsById(string $id): TeamworkTagItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['teamworkTag%2Did'] = $id;
-        return new TeamworkTagItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -377,12 +257,8 @@ class TeamRequestBuilder
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -397,40 +273,32 @@ class TeamRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
 
     /**
-     * Create a new team from a group. In order to create a team, the group must have a least one owner. If the group was created less than 15 minutes ago, it's possible for the Create team call to fail with a 404 error code due to replication delays.The recommended pattern is to retry the Create team call three times, with a 10 second delay between calls.
+     * Update the navigation property team in groups
      * @param Team $body The request body
-     * @param TeamRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TeamRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(Team $body, ?TeamRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPutRequestInformation(Team $body, ?TeamRequestBuilderPutRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
-        $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->httpMethod = HttpMethod::PUT;
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

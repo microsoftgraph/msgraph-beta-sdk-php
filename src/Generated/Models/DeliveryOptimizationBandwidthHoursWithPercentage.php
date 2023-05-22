@@ -65,7 +65,7 @@ class DeliveryOptimizationBandwidthHoursWithPercentage extends DeliveryOptimizat
 
     /**
      * Sets the bandwidthBackgroundPercentageHours property value. Background download percentage hours.
-     *  @param DeliveryOptimizationBandwidthBusinessHoursLimit|null $value Value to set for the bandwidthBackgroundPercentageHours property.
+     * @param DeliveryOptimizationBandwidthBusinessHoursLimit|null $value Value to set for the bandwidthBackgroundPercentageHours property.
     */
     public function setBandwidthBackgroundPercentageHours(?DeliveryOptimizationBandwidthBusinessHoursLimit $value): void {
         $this->getBackingStore()->set('bandwidthBackgroundPercentageHours', $value);
@@ -73,7 +73,7 @@ class DeliveryOptimizationBandwidthHoursWithPercentage extends DeliveryOptimizat
 
     /**
      * Sets the bandwidthForegroundPercentageHours property value. Foreground download percentage hours.
-     *  @param DeliveryOptimizationBandwidthBusinessHoursLimit|null $value Value to set for the bandwidthForegroundPercentageHours property.
+     * @param DeliveryOptimizationBandwidthBusinessHoursLimit|null $value Value to set for the bandwidthForegroundPercentageHours property.
     */
     public function setBandwidthForegroundPercentageHours(?DeliveryOptimizationBandwidthBusinessHoursLimit $value): void {
         $this->getBackingStore()->set('bandwidthForegroundPercentageHours', $value);

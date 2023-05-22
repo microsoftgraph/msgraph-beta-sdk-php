@@ -37,7 +37,7 @@ class UserSimulationDetails implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -87,6 +87,7 @@ class UserSimulationDetails implements AdditionalDataHolder, BackedModel, Parsab
             'compromisedDateTime' => fn(ParseNode $n) => $o->setCompromisedDateTime($n->getDateTimeValue()),
             'inProgressTrainingsCount' => fn(ParseNode $n) => $o->setInProgressTrainingsCount($n->getIntegerValue()),
             'isCompromised' => fn(ParseNode $n) => $o->setIsCompromised($n->getBooleanValue()),
+            'latestSimulationActivity' => fn(ParseNode $n) => $o->setLatestSimulationActivity($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'reportedPhishDateTime' => fn(ParseNode $n) => $o->setReportedPhishDateTime($n->getDateTimeValue()),
             'simulationEvents' => fn(ParseNode $n) => $o->setSimulationEvents($n->getCollectionOfObjectValues([UserSimulationEventInfo::class, 'createFromDiscriminatorValue'])),
@@ -109,6 +110,14 @@ class UserSimulationDetails implements AdditionalDataHolder, BackedModel, Parsab
     */
     public function getIsCompromised(): ?bool {
         return $this->getBackingStore()->get('isCompromised');
+    }
+
+    /**
+     * Gets the latestSimulationActivity property value. Indicates latest user activity.
+     * @return string|null
+    */
+    public function getLatestSimulationActivity(): ?string {
+        return $this->getBackingStore()->get('latestSimulationActivity');
     }
 
     /**
@@ -161,6 +170,7 @@ class UserSimulationDetails implements AdditionalDataHolder, BackedModel, Parsab
         $writer->writeDateTimeValue('compromisedDateTime', $this->getCompromisedDateTime());
         $writer->writeIntegerValue('inProgressTrainingsCount', $this->getInProgressTrainingsCount());
         $writer->writeBooleanValue('isCompromised', $this->getIsCompromised());
+        $writer->writeStringValue('latestSimulationActivity', $this->getLatestSimulationActivity());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('reportedPhishDateTime', $this->getReportedPhishDateTime());
         $writer->writeCollectionOfObjectValues('simulationEvents', $this->getSimulationEvents());
@@ -171,7 +181,7 @@ class UserSimulationDetails implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -179,7 +189,7 @@ class UserSimulationDetails implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the assignedTrainingsCount property value. Number of trainings assigned to a user in an attack simulation and training campaign.
-     *  @param int|null $value Value to set for the assignedTrainingsCount property.
+     * @param int|null $value Value to set for the assignedTrainingsCount property.
     */
     public function setAssignedTrainingsCount(?int $value): void {
         $this->getBackingStore()->set('assignedTrainingsCount', $value);
@@ -187,7 +197,7 @@ class UserSimulationDetails implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -195,7 +205,7 @@ class UserSimulationDetails implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the completedTrainingsCount property value. Number of trainings completed by a user in an attack simulation and training campaign.
-     *  @param int|null $value Value to set for the completedTrainingsCount property.
+     * @param int|null $value Value to set for the completedTrainingsCount property.
     */
     public function setCompletedTrainingsCount(?int $value): void {
         $this->getBackingStore()->set('completedTrainingsCount', $value);
@@ -203,7 +213,7 @@ class UserSimulationDetails implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the compromisedDateTime property value. Date and time of the compromising online action by a user in an attack simulation and training campaign.
-     *  @param DateTime|null $value Value to set for the compromisedDateTime property.
+     * @param DateTime|null $value Value to set for the compromisedDateTime property.
     */
     public function setCompromisedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('compromisedDateTime', $value);
@@ -211,7 +221,7 @@ class UserSimulationDetails implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the inProgressTrainingsCount property value. Number of trainings in progress by a user in an attack simulation and training campaign.
-     *  @param int|null $value Value to set for the inProgressTrainingsCount property.
+     * @param int|null $value Value to set for the inProgressTrainingsCount property.
     */
     public function setInProgressTrainingsCount(?int $value): void {
         $this->getBackingStore()->set('inProgressTrainingsCount', $value);
@@ -219,15 +229,23 @@ class UserSimulationDetails implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the isCompromised property value. Indicates whether a user was compromised in an attack simulation and training campaign.
-     *  @param bool|null $value Value to set for the isCompromised property.
+     * @param bool|null $value Value to set for the isCompromised property.
     */
     public function setIsCompromised(?bool $value): void {
         $this->getBackingStore()->set('isCompromised', $value);
     }
 
     /**
+     * Sets the latestSimulationActivity property value. Indicates latest user activity.
+     * @param string|null $value Value to set for the latestSimulationActivity property.
+    */
+    public function setLatestSimulationActivity(?string $value): void {
+        $this->getBackingStore()->set('latestSimulationActivity', $value);
+    }
+
+    /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -235,7 +253,7 @@ class UserSimulationDetails implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the reportedPhishDateTime property value. Date and time when a user reported the delivered payload as phishing in the attack simulation and training campaign.
-     *  @param DateTime|null $value Value to set for the reportedPhishDateTime property.
+     * @param DateTime|null $value Value to set for the reportedPhishDateTime property.
     */
     public function setReportedPhishDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('reportedPhishDateTime', $value);
@@ -243,7 +261,7 @@ class UserSimulationDetails implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the simulationEvents property value. List of simulation events of a user in the attack simulation and training campaign.
-     *  @param array<UserSimulationEventInfo>|null $value Value to set for the simulationEvents property.
+     * @param array<UserSimulationEventInfo>|null $value Value to set for the simulationEvents property.
     */
     public function setSimulationEvents(?array $value): void {
         $this->getBackingStore()->set('simulationEvents', $value);
@@ -251,7 +269,7 @@ class UserSimulationDetails implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the simulationUser property value. The user in an attack simulation and training campaign.
-     *  @param AttackSimulationUser|null $value Value to set for the simulationUser property.
+     * @param AttackSimulationUser|null $value Value to set for the simulationUser property.
     */
     public function setSimulationUser(?AttackSimulationUser $value): void {
         $this->getBackingStore()->set('simulationUser', $value);
@@ -259,7 +277,7 @@ class UserSimulationDetails implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the trainingEvents property value. List of training events of a user in the attack simulation and training campaign.
-     *  @param array<UserTrainingEventInfo>|null $value Value to set for the trainingEvents property.
+     * @param array<UserTrainingEventInfo>|null $value Value to set for the trainingEvents property.
     */
     public function setTrainingEvents(?array $value): void {
         $this->getBackingStore()->set('trainingEvents', $value);

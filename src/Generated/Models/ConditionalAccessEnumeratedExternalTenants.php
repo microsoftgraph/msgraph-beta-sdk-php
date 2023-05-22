@@ -37,7 +37,7 @@ class ConditionalAccessEnumeratedExternalTenants extends ConditionalAccessExtern
     }
 
     /**
-     * Gets the members property value. Represents a collection of tenant ids in the scope of Conditional Access for guests and external users policy targeting.
+     * Gets the members property value. A collection of tenant IDs that define the scope of a policy targeting conditional access for guests and external users.
      * @return array<string>|null
     */
     public function getMembers(): ?array {
@@ -54,8 +54,8 @@ class ConditionalAccessEnumeratedExternalTenants extends ConditionalAccessExtern
     }
 
     /**
-     * Sets the members property value. Represents a collection of tenant ids in the scope of Conditional Access for guests and external users policy targeting.
-     *  @param array<string>|null $value Value to set for the members property.
+     * Sets the members property value. A collection of tenant IDs that define the scope of a policy targeting conditional access for guests and external users.
+     * @param array<string>|null $value Value to set for the members property.
     */
     public function setMembers(?array $value): void {
         $this->getBackingStore()->set('members', $value);

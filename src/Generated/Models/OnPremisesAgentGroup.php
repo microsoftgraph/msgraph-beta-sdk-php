@@ -94,7 +94,7 @@ class OnPremisesAgentGroup extends Entity implements Parsable
 
     /**
      * Sets the agents property value. List of onPremisesAgent that are assigned to an onPremisesAgentGroup. Read-only. Nullable.
-     *  @param array<OnPremisesAgent>|null $value Value to set for the agents property.
+     * @param array<OnPremisesAgent>|null $value Value to set for the agents property.
     */
     public function setAgents(?array $value): void {
         $this->getBackingStore()->set('agents', $value);
@@ -102,7 +102,7 @@ class OnPremisesAgentGroup extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Display name of the onPremisesAgentGroup.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -110,7 +110,7 @@ class OnPremisesAgentGroup extends Entity implements Parsable
 
     /**
      * Sets the isDefault property value. Indicates if the onPremisesAgentGroup is the default agent group. Only a single agent group can be the default onPremisesAgentGroup and is set by the system.
-     *  @param bool|null $value Value to set for the isDefault property.
+     * @param bool|null $value Value to set for the isDefault property.
     */
     public function setIsDefault(?bool $value): void {
         $this->getBackingStore()->set('isDefault', $value);
@@ -118,7 +118,7 @@ class OnPremisesAgentGroup extends Entity implements Parsable
 
     /**
      * Sets the publishedResources property value. List of publishedResource that are assigned to an onPremisesAgentGroup. Read-only. Nullable.
-     *  @param array<PublishedResource>|null $value Value to set for the publishedResources property.
+     * @param array<PublishedResource>|null $value Value to set for the publishedResources property.
     */
     public function setPublishedResources(?array $value): void {
         $this->getBackingStore()->set('publishedResources', $value);
@@ -126,7 +126,7 @@ class OnPremisesAgentGroup extends Entity implements Parsable
 
     /**
      * Sets the publishingType property value. The publishingType property
-     *  @param OnPremisesPublishingType|null $value Value to set for the publishingType property.
+     * @param OnPremisesPublishingType|null $value Value to set for the publishingType property.
     */
     public function setPublishingType(?OnPremisesPublishingType $value): void {
         $this->getBackingStore()->set('publishingType', $value);

@@ -55,7 +55,7 @@ class ProtectByTemplateAction extends InformationProtectionAction implements Par
 
     /**
      * Sets the templateId property value. The GUID of the Azure Information Protection template to apply to the information.
-     *  @param string|null $value Value to set for the templateId property.
+     * @param string|null $value Value to set for the templateId property.
     */
     public function setTemplateId(?string $value): void {
         $this->getBackingStore()->set('templateId', $value);

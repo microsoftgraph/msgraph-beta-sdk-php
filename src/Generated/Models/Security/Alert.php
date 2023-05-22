@@ -153,6 +153,7 @@ class Alert extends Entity implements Parsable
             'serviceSource' => fn(ParseNode $n) => $o->setServiceSource($n->getEnumValue(ServiceSource::class)),
             'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(AlertSeverity::class)),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(AlertStatus::class)),
+            'systemTags' => fn(ParseNode $n) => $o->setSystemTags($n->getCollectionOfPrimitiveValues()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
             'threatDisplayName' => fn(ParseNode $n) => $o->setThreatDisplayName($n->getStringValue()),
             'threatFamilyName' => fn(ParseNode $n) => $o->setThreatFamilyName($n->getStringValue()),
@@ -257,6 +258,14 @@ class Alert extends Entity implements Parsable
     }
 
     /**
+     * Gets the systemTags property value. The systemTags property
+     * @return array<string>|null
+    */
+    public function getSystemTags(): ?array {
+        return $this->getBackingStore()->get('systemTags');
+    }
+
+    /**
      * Gets the tenantId property value. The Azure Active Directory tenant the alert was created in.
      * @return string|null
     */
@@ -318,6 +327,7 @@ class Alert extends Entity implements Parsable
         $writer->writeEnumValue('serviceSource', $this->getServiceSource());
         $writer->writeEnumValue('severity', $this->getSeverity());
         $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeCollectionOfPrimitiveValues('systemTags', $this->getSystemTags());
         $writer->writeStringValue('tenantId', $this->getTenantId());
         $writer->writeStringValue('threatDisplayName', $this->getThreatDisplayName());
         $writer->writeStringValue('threatFamilyName', $this->getThreatFamilyName());
@@ -326,7 +336,7 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the actorDisplayName property value. The adversary or activity group that is associated with this alert.
-     *  @param string|null $value Value to set for the actorDisplayName property.
+     * @param string|null $value Value to set for the actorDisplayName property.
     */
     public function setActorDisplayName(?string $value): void {
         $this->getBackingStore()->set('actorDisplayName', $value);
@@ -334,7 +344,7 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the alertWebUrl property value. URL for the alert page in the Microsoft 365 Defender portal.
-     *  @param string|null $value Value to set for the alertWebUrl property.
+     * @param string|null $value Value to set for the alertWebUrl property.
     */
     public function setAlertWebUrl(?string $value): void {
         $this->getBackingStore()->set('alertWebUrl', $value);
@@ -342,7 +352,7 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the assignedTo property value. Owner of the alert, or null if no owner is assigned.
-     *  @param string|null $value Value to set for the assignedTo property.
+     * @param string|null $value Value to set for the assignedTo property.
     */
     public function setAssignedTo(?string $value): void {
         $this->getBackingStore()->set('assignedTo', $value);
@@ -350,7 +360,7 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the category property value. The attack kill-chain category that the alert belongs to. Aligned with the MITRE ATT&CK framework.
-     *  @param string|null $value Value to set for the category property.
+     * @param string|null $value Value to set for the category property.
     */
     public function setCategory(?string $value): void {
         $this->getBackingStore()->set('category', $value);
@@ -358,7 +368,7 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the classification property value. Specifies whether the alert represents a true threat. Possible values are: unknown, falsePositive, truePositive, benignPositive, unknownFutureValue.
-     *  @param AlertClassification|null $value Value to set for the classification property.
+     * @param AlertClassification|null $value Value to set for the classification property.
     */
     public function setClassification(?AlertClassification $value): void {
         $this->getBackingStore()->set('classification', $value);
@@ -366,7 +376,7 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the comments property value. Array of comments created by the Security Operations (SecOps) team during the alert management process.
-     *  @param array<AlertComment>|null $value Value to set for the comments property.
+     * @param array<AlertComment>|null $value Value to set for the comments property.
     */
     public function setComments(?array $value): void {
         $this->getBackingStore()->set('comments', $value);
@@ -374,7 +384,7 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. Time when Microsoft 365 Defender created the alert.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -382,7 +392,7 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the description property value. String value describing each alert.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -390,7 +400,7 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the detectionSource property value. Detection technology or sensor that identified the notable component or activity.
-     *  @param DetectionSource|null $value Value to set for the detectionSource property.
+     * @param DetectionSource|null $value Value to set for the detectionSource property.
     */
     public function setDetectionSource(?DetectionSource $value): void {
         $this->getBackingStore()->set('detectionSource', $value);
@@ -398,7 +408,7 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the detectorId property value. The ID of the detector that triggered the alert.
-     *  @param string|null $value Value to set for the detectorId property.
+     * @param string|null $value Value to set for the detectorId property.
     */
     public function setDetectorId(?string $value): void {
         $this->getBackingStore()->set('detectorId', $value);
@@ -406,7 +416,7 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the determination property value. Specifies the result of the investigation, whether the alert represents a true attack and if so, the nature of the attack. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedUser, phishing, maliciousUserActivity, clean, insufficientData, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
-     *  @param AlertDetermination|null $value Value to set for the determination property.
+     * @param AlertDetermination|null $value Value to set for the determination property.
     */
     public function setDetermination(?AlertDetermination $value): void {
         $this->getBackingStore()->set('determination', $value);
@@ -414,7 +424,7 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the evidence property value. Collection of evidence related to the alert.
-     *  @param array<AlertEvidence>|null $value Value to set for the evidence property.
+     * @param array<AlertEvidence>|null $value Value to set for the evidence property.
     */
     public function setEvidence(?array $value): void {
         $this->getBackingStore()->set('evidence', $value);
@@ -422,7 +432,7 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the firstActivityDateTime property value. The earliest activity associated with the alert.
-     *  @param DateTime|null $value Value to set for the firstActivityDateTime property.
+     * @param DateTime|null $value Value to set for the firstActivityDateTime property.
     */
     public function setFirstActivityDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('firstActivityDateTime', $value);
@@ -430,7 +440,7 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the incidentId property value. Unique identifier to represent the incident this alert resource is associated with.
-     *  @param string|null $value Value to set for the incidentId property.
+     * @param string|null $value Value to set for the incidentId property.
     */
     public function setIncidentId(?string $value): void {
         $this->getBackingStore()->set('incidentId', $value);
@@ -438,7 +448,7 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the incidentWebUrl property value. URL for the incident page in the Microsoft 365 Defender portal.
-     *  @param string|null $value Value to set for the incidentWebUrl property.
+     * @param string|null $value Value to set for the incidentWebUrl property.
     */
     public function setIncidentWebUrl(?string $value): void {
         $this->getBackingStore()->set('incidentWebUrl', $value);
@@ -446,7 +456,7 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the lastActivityDateTime property value. The oldest activity associated with the alert.
-     *  @param DateTime|null $value Value to set for the lastActivityDateTime property.
+     * @param DateTime|null $value Value to set for the lastActivityDateTime property.
     */
     public function setLastActivityDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastActivityDateTime', $value);
@@ -454,7 +464,7 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the lastUpdateDateTime property value. Time when the alert was last updated at Microsoft 365 Defender.
-     *  @param DateTime|null $value Value to set for the lastUpdateDateTime property.
+     * @param DateTime|null $value Value to set for the lastUpdateDateTime property.
     */
     public function setLastUpdateDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastUpdateDateTime', $value);
@@ -462,7 +472,7 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the mitreTechniques property value. The attack techniques, as aligned with the MITRE ATT&CK framework.
-     *  @param array<string>|null $value Value to set for the mitreTechniques property.
+     * @param array<string>|null $value Value to set for the mitreTechniques property.
     */
     public function setMitreTechniques(?array $value): void {
         $this->getBackingStore()->set('mitreTechniques', $value);
@@ -470,7 +480,7 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the providerAlertId property value. The ID of the alert as it appears in the security provider product that generated the alert.
-     *  @param string|null $value Value to set for the providerAlertId property.
+     * @param string|null $value Value to set for the providerAlertId property.
     */
     public function setProviderAlertId(?string $value): void {
         $this->getBackingStore()->set('providerAlertId', $value);
@@ -478,7 +488,7 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the recommendedActions property value. Recommended response and remediation actions to take in the event this alert was generated.
-     *  @param string|null $value Value to set for the recommendedActions property.
+     * @param string|null $value Value to set for the recommendedActions property.
     */
     public function setRecommendedActions(?string $value): void {
         $this->getBackingStore()->set('recommendedActions', $value);
@@ -486,7 +496,7 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the resolvedDateTime property value. Time when the alert was resolved.
-     *  @param DateTime|null $value Value to set for the resolvedDateTime property.
+     * @param DateTime|null $value Value to set for the resolvedDateTime property.
     */
     public function setResolvedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('resolvedDateTime', $value);
@@ -494,7 +504,7 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the serviceSource property value. The serviceSource property
-     *  @param ServiceSource|null $value Value to set for the serviceSource property.
+     * @param ServiceSource|null $value Value to set for the serviceSource property.
     */
     public function setServiceSource(?ServiceSource $value): void {
         $this->getBackingStore()->set('serviceSource', $value);
@@ -502,7 +512,7 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the severity property value. The severity property
-     *  @param AlertSeverity|null $value Value to set for the severity property.
+     * @param AlertSeverity|null $value Value to set for the severity property.
     */
     public function setSeverity(?AlertSeverity $value): void {
         $this->getBackingStore()->set('severity', $value);
@@ -510,15 +520,23 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status property
-     *  @param AlertStatus|null $value Value to set for the status property.
+     * @param AlertStatus|null $value Value to set for the status property.
     */
     public function setStatus(?AlertStatus $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 
     /**
+     * Sets the systemTags property value. The systemTags property
+     * @param array<string>|null $value Value to set for the systemTags property.
+    */
+    public function setSystemTags(?array $value): void {
+        $this->getBackingStore()->set('systemTags', $value);
+    }
+
+    /**
      * Sets the tenantId property value. The Azure Active Directory tenant the alert was created in.
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);
@@ -526,7 +544,7 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the threatDisplayName property value. The threat associated with this alert.
-     *  @param string|null $value Value to set for the threatDisplayName property.
+     * @param string|null $value Value to set for the threatDisplayName property.
     */
     public function setThreatDisplayName(?string $value): void {
         $this->getBackingStore()->set('threatDisplayName', $value);
@@ -534,7 +552,7 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the threatFamilyName property value. Threat family associated with this alert.
-     *  @param string|null $value Value to set for the threatFamilyName property.
+     * @param string|null $value Value to set for the threatFamilyName property.
     */
     public function setThreatFamilyName(?string $value): void {
         $this->getBackingStore()->set('threatFamilyName', $value);
@@ -542,7 +560,7 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the title property value. Brief identifying string value describing the alert.
-     *  @param string|null $value Value to set for the title property.
+     * @param string|null $value Value to set for the title property.
     */
     public function setTitle(?string $value): void {
         $this->getBackingStore()->set('title', $value);

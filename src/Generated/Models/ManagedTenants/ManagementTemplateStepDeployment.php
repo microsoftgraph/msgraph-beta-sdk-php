@@ -126,7 +126,7 @@ class ManagementTemplateStepDeployment extends Entity implements Parsable
 
     /**
      * Sets the createdByUserId property value. The createdByUserId property
-     *  @param string|null $value Value to set for the createdByUserId property.
+     * @param string|null $value Value to set for the createdByUserId property.
     */
     public function setCreatedByUserId(?string $value): void {
         $this->getBackingStore()->set('createdByUserId', $value);
@@ -134,7 +134,7 @@ class ManagementTemplateStepDeployment extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The createdDateTime property
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -142,7 +142,7 @@ class ManagementTemplateStepDeployment extends Entity implements Parsable
 
     /**
      * Sets the error property value. The error property
-     *  @param GraphAPIErrorDetails|null $value Value to set for the error property.
+     * @param GraphAPIErrorDetails|null $value Value to set for the error property.
     */
     public function setError(?GraphAPIErrorDetails $value): void {
         $this->getBackingStore()->set('error', $value);
@@ -150,7 +150,7 @@ class ManagementTemplateStepDeployment extends Entity implements Parsable
 
     /**
      * Sets the lastActionByUserId property value. The lastActionByUserId property
-     *  @param string|null $value Value to set for the lastActionByUserId property.
+     * @param string|null $value Value to set for the lastActionByUserId property.
     */
     public function setLastActionByUserId(?string $value): void {
         $this->getBackingStore()->set('lastActionByUserId', $value);
@@ -158,7 +158,7 @@ class ManagementTemplateStepDeployment extends Entity implements Parsable
 
     /**
      * Sets the lastActionDateTime property value. The lastActionDateTime property
-     *  @param DateTime|null $value Value to set for the lastActionDateTime property.
+     * @param DateTime|null $value Value to set for the lastActionDateTime property.
     */
     public function setLastActionDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastActionDateTime', $value);
@@ -166,7 +166,7 @@ class ManagementTemplateStepDeployment extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status property
-     *  @param ManagementTemplateDeploymentStatus|null $value Value to set for the status property.
+     * @param ManagementTemplateDeploymentStatus|null $value Value to set for the status property.
     */
     public function setStatus(?ManagementTemplateDeploymentStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -174,7 +174,7 @@ class ManagementTemplateStepDeployment extends Entity implements Parsable
 
     /**
      * Sets the templateStepVersion property value. The templateStepVersion property
-     *  @param ManagementTemplateStepVersion|null $value Value to set for the templateStepVersion property.
+     * @param ManagementTemplateStepVersion|null $value Value to set for the templateStepVersion property.
     */
     public function setTemplateStepVersion(?ManagementTemplateStepVersion $value): void {
         $this->getBackingStore()->set('templateStepVersion', $value);
@@ -182,7 +182,7 @@ class ManagementTemplateStepDeployment extends Entity implements Parsable
 
     /**
      * Sets the tenantId property value. The tenantId property
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);

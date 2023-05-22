@@ -8,52 +8,33 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Profile;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Account\AccountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Account\Item\UserAccountInformationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Addresses\AddressesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Addresses\Item\ItemAddressItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Anniversaries\AnniversariesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Anniversaries\Item\PersonAnnualEventItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Awards\AwardsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Awards\Item\PersonAwardItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Certifications\CertificationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Certifications\Item\PersonCertificationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\EducationalActivities\EducationalActivitiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\EducationalActivities\Item\EducationalActivityItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Emails\EmailsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Emails\Item\ItemEmailItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Interests\InterestsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Interests\Item\PersonInterestItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Languages\Item\LanguageProficiencyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Languages\LanguagesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Names\Item\PersonNameItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Names\NamesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Notes\Item\PersonAnnotationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Notes\NotesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Patents\Item\ItemPatentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Patents\PatentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Phones\Item\ItemPhoneItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Phones\PhonesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Positions\Item\WorkPositionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Positions\PositionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Projects\Item\ProjectParticipationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Projects\ProjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Publications\Item\ItemPublicationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Publications\PublicationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Skills\Item\SkillProficiencyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Skills\SkillsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\WebAccounts\Item\WebAccountItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\WebAccounts\WebAccountsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Websites\Item\PersonWebsiteItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Websites\WebsitesRequestBuilder;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
-class ProfileRequestBuilder 
+/**
+ * Provides operations to manage the profile property of the microsoft.graph.user entity.
+*/
+class ProfileRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to manage the account property of the microsoft.graph.profile entity.
@@ -140,11 +121,6 @@ class ProfileRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
      * Provides operations to manage the phones property of the microsoft.graph.profile entity.
     */
     public function phones(): PhonesRequestBuilder {
@@ -173,21 +149,11 @@ class ProfileRequestBuilder
     }
     
     /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
      * Provides operations to manage the skills property of the microsoft.graph.profile entity.
     */
     public function skills(): SkillsRequestBuilder {
         return new SkillsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
-    
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
     
     /**
      * Provides operations to manage the webAccounts property of the microsoft.graph.profile entity.
@@ -204,259 +170,74 @@ class ProfileRequestBuilder
     }
     
     /**
-     * Provides operations to manage the account property of the microsoft.graph.profile entity.
-     * @param string $id Unique identifier of the item
-     * @return UserAccountInformationItemRequestBuilder
-    */
-    public function accountById(string $id): UserAccountInformationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['userAccountInformation%2Did'] = $id;
-        return new UserAccountInformationItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the addresses property of the microsoft.graph.profile entity.
-     * @param string $id Unique identifier of the item
-     * @return ItemAddressItemRequestBuilder
-    */
-    public function addressesById(string $id): ItemAddressItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['itemAddress%2Did'] = $id;
-        return new ItemAddressItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the anniversaries property of the microsoft.graph.profile entity.
-     * @param string $id Unique identifier of the item
-     * @return PersonAnnualEventItemRequestBuilder
-    */
-    public function anniversariesById(string $id): PersonAnnualEventItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['personAnnualEvent%2Did'] = $id;
-        return new PersonAnnualEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the awards property of the microsoft.graph.profile entity.
-     * @param string $id Unique identifier of the item
-     * @return PersonAwardItemRequestBuilder
-    */
-    public function awardsById(string $id): PersonAwardItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['personAward%2Did'] = $id;
-        return new PersonAwardItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the certifications property of the microsoft.graph.profile entity.
-     * @param string $id Unique identifier of the item
-     * @return PersonCertificationItemRequestBuilder
-    */
-    public function certificationsById(string $id): PersonCertificationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['personCertification%2Did'] = $id;
-        return new PersonCertificationItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new ProfileRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/users/{user%2Did}/profile{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
+        parent::__construct($requestAdapter, [], '{+baseurl}/users/{user%2Did}/profile{?%24select,%24expand}');
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
      * Deletes a profile object from a user's account.
      * @param ProfileRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/profile-delete?view=graph-rest-1.0 Find more info here
     */
-    public function delete(?ProfileRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?ProfileRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Provides operations to manage the educationalActivities property of the microsoft.graph.profile entity.
-     * @param string $id Unique identifier of the item
-     * @return EducationalActivityItemRequestBuilder
-    */
-    public function educationalActivitiesById(string $id): EducationalActivityItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['educationalActivity%2Did'] = $id;
-        return new EducationalActivityItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the emails property of the microsoft.graph.profile entity.
-     * @param string $id Unique identifier of the item
-     * @return ItemEmailItemRequestBuilder
-    */
-    public function emailsById(string $id): ItemEmailItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['itemEmail%2Did'] = $id;
-        return new ItemEmailItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Retrieve the properties and relationships of a profile object for a given user. The **profile** resource exposes various rich properties that are descriptive of the user as relationships, for example, anniversaries and education activities. To get one of these navigation properties, use the corresponding GET method on that property. See the methods exposed by **profile**.
      * @param ProfileRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/profile-get?view=graph-rest-1.0 Find more info here
     */
-    public function get(?ProfileRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?ProfileRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Profile::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Profile::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the interests property of the microsoft.graph.profile entity.
-     * @param string $id Unique identifier of the item
-     * @return PersonInterestItemRequestBuilder
-    */
-    public function interestsById(string $id): PersonInterestItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['personInterest%2Did'] = $id;
-        return new PersonInterestItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the languages property of the microsoft.graph.profile entity.
-     * @param string $id Unique identifier of the item
-     * @return LanguageProficiencyItemRequestBuilder
-    */
-    public function languagesById(string $id): LanguageProficiencyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['languageProficiency%2Did'] = $id;
-        return new LanguageProficiencyItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the names property of the microsoft.graph.profile entity.
-     * @param string $id Unique identifier of the item
-     * @return PersonNameItemRequestBuilder
-    */
-    public function namesById(string $id): PersonNameItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['personName%2Did'] = $id;
-        return new PersonNameItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the notes property of the microsoft.graph.profile entity.
-     * @param string $id Unique identifier of the item
-     * @return PersonAnnotationItemRequestBuilder
-    */
-    public function notesById(string $id): PersonAnnotationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['personAnnotation%2Did'] = $id;
-        return new PersonAnnotationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Update the navigation property profile in users
      * @param Profile $body The request body
      * @param ProfileRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(Profile $body, ?ProfileRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(Profile $body, ?ProfileRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Profile::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Profile::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the patents property of the microsoft.graph.profile entity.
-     * @param string $id Unique identifier of the item
-     * @return ItemPatentItemRequestBuilder
-    */
-    public function patentsById(string $id): ItemPatentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['itemPatent%2Did'] = $id;
-        return new ItemPatentItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the phones property of the microsoft.graph.profile entity.
-     * @param string $id Unique identifier of the item
-     * @return ItemPhoneItemRequestBuilder
-    */
-    public function phonesById(string $id): ItemPhoneItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['itemPhone%2Did'] = $id;
-        return new ItemPhoneItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the positions property of the microsoft.graph.profile entity.
-     * @param string $id Unique identifier of the item
-     * @return WorkPositionItemRequestBuilder
-    */
-    public function positionsById(string $id): WorkPositionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['workPosition%2Did'] = $id;
-        return new WorkPositionItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the projects property of the microsoft.graph.profile entity.
-     * @param string $id Unique identifier of the item
-     * @return ProjectParticipationItemRequestBuilder
-    */
-    public function projectsById(string $id): ProjectParticipationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['projectParticipation%2Did'] = $id;
-        return new ProjectParticipationItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the publications property of the microsoft.graph.profile entity.
-     * @param string $id Unique identifier of the item
-     * @return ItemPublicationItemRequestBuilder
-    */
-    public function publicationsById(string $id): ItemPublicationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['itemPublication%2Did'] = $id;
-        return new ItemPublicationItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the skills property of the microsoft.graph.profile entity.
-     * @param string $id Unique identifier of the item
-     * @return SkillProficiencyItemRequestBuilder
-    */
-    public function skillsById(string $id): SkillProficiencyItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['skillProficiency%2Did'] = $id;
-        return new SkillProficiencyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -470,12 +251,8 @@ class ProfileRequestBuilder
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -490,17 +267,13 @@ class ProfileRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -516,39 +289,13 @@ class ProfileRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Provides operations to manage the webAccounts property of the microsoft.graph.profile entity.
-     * @param string $id Unique identifier of the item
-     * @return WebAccountItemRequestBuilder
-    */
-    public function webAccountsById(string $id): WebAccountItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['webAccount%2Did'] = $id;
-        return new WebAccountItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the websites property of the microsoft.graph.profile entity.
-     * @param string $id Unique identifier of the item
-     * @return PersonWebsiteItemRequestBuilder
-    */
-    public function websitesById(string $id): PersonWebsiteItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['personWebsite%2Did'] = $id;
-        return new PersonWebsiteItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

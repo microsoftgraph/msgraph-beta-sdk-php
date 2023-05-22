@@ -465,7 +465,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the adminShowHostInfo property value. Whether to show admin host information on the login window.
-     *  @param bool|null $value Value to set for the adminShowHostInfo property.
+     * @param bool|null $value Value to set for the adminShowHostInfo property.
     */
     public function setAdminShowHostInfo(?bool $value): void {
         $this->getBackingStore()->set('adminShowHostInfo', $value);
@@ -473,7 +473,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the appAssociatedDomains property value. Gets or sets a list that maps apps to their associated domains. Application identifiers must be unique. This collection can contain a maximum of 500 elements.
-     *  @param array<MacOSAssociatedDomainsItem>|null $value Value to set for the appAssociatedDomains property.
+     * @param array<MacOSAssociatedDomainsItem>|null $value Value to set for the appAssociatedDomains property.
     */
     public function setAppAssociatedDomains(?array $value): void {
         $this->getBackingStore()->set('appAssociatedDomains', $value);
@@ -481,7 +481,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the associatedDomains property value. DEPRECATED: use appAssociatedDomains instead. Gets or sets a list that maps apps to their associated domains. The key should match the app's ID, and the value should be a string in the form of 'service:domain' where domain is a fully qualified hostname (e.g. webcredentials:example.com). This collection can contain a maximum of 500 elements.
-     *  @param array<KeyValuePair>|null $value Value to set for the associatedDomains property.
+     * @param array<KeyValuePair>|null $value Value to set for the associatedDomains property.
     */
     public function setAssociatedDomains(?array $value): void {
         $this->getBackingStore()->set('associatedDomains', $value);
@@ -489,7 +489,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the authorizedUsersListHidden property value. Whether to show the name and password dialog or a list of users on the login window.
-     *  @param bool|null $value Value to set for the authorizedUsersListHidden property.
+     * @param bool|null $value Value to set for the authorizedUsersListHidden property.
     */
     public function setAuthorizedUsersListHidden(?bool $value): void {
         $this->getBackingStore()->set('authorizedUsersListHidden', $value);
@@ -497,7 +497,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the authorizedUsersListHideAdminUsers property value. Whether to hide admin users in the authorized users list on the login window.
-     *  @param bool|null $value Value to set for the authorizedUsersListHideAdminUsers property.
+     * @param bool|null $value Value to set for the authorizedUsersListHideAdminUsers property.
     */
     public function setAuthorizedUsersListHideAdminUsers(?bool $value): void {
         $this->getBackingStore()->set('authorizedUsersListHideAdminUsers', $value);
@@ -505,7 +505,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the authorizedUsersListHideLocalUsers property value. Whether to show only network and system users in the authorized users list on the login window.
-     *  @param bool|null $value Value to set for the authorizedUsersListHideLocalUsers property.
+     * @param bool|null $value Value to set for the authorizedUsersListHideLocalUsers property.
     */
     public function setAuthorizedUsersListHideLocalUsers(?bool $value): void {
         $this->getBackingStore()->set('authorizedUsersListHideLocalUsers', $value);
@@ -513,7 +513,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the authorizedUsersListHideMobileAccounts property value. Whether to hide mobile users in the authorized users list on the login window.
-     *  @param bool|null $value Value to set for the authorizedUsersListHideMobileAccounts property.
+     * @param bool|null $value Value to set for the authorizedUsersListHideMobileAccounts property.
     */
     public function setAuthorizedUsersListHideMobileAccounts(?bool $value): void {
         $this->getBackingStore()->set('authorizedUsersListHideMobileAccounts', $value);
@@ -521,7 +521,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the authorizedUsersListIncludeNetworkUsers property value. Whether to show network users in the authorized users list on the login window.
-     *  @param bool|null $value Value to set for the authorizedUsersListIncludeNetworkUsers property.
+     * @param bool|null $value Value to set for the authorizedUsersListIncludeNetworkUsers property.
     */
     public function setAuthorizedUsersListIncludeNetworkUsers(?bool $value): void {
         $this->getBackingStore()->set('authorizedUsersListIncludeNetworkUsers', $value);
@@ -529,7 +529,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the authorizedUsersListShowOtherManagedUsers property value. Whether to show other users in the authorized users list on the login window.
-     *  @param bool|null $value Value to set for the authorizedUsersListShowOtherManagedUsers property.
+     * @param bool|null $value Value to set for the authorizedUsersListShowOtherManagedUsers property.
     */
     public function setAuthorizedUsersListShowOtherManagedUsers(?bool $value): void {
         $this->getBackingStore()->set('authorizedUsersListShowOtherManagedUsers', $value);
@@ -537,7 +537,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the autoLaunchItems property value. List of applications, files, folders, and other items to launch when the user logs in. This collection can contain a maximum of 500 elements.
-     *  @param array<MacOSLaunchItem>|null $value Value to set for the autoLaunchItems property.
+     * @param array<MacOSLaunchItem>|null $value Value to set for the autoLaunchItems property.
     */
     public function setAutoLaunchItems(?array $value): void {
         $this->getBackingStore()->set('autoLaunchItems', $value);
@@ -545,7 +545,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the consoleAccessDisabled property value. Whether the Other user will disregard use of the console special user name.
-     *  @param bool|null $value Value to set for the consoleAccessDisabled property.
+     * @param bool|null $value Value to set for the consoleAccessDisabled property.
     */
     public function setConsoleAccessDisabled(?bool $value): void {
         $this->getBackingStore()->set('consoleAccessDisabled', $value);
@@ -553,7 +553,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the contentCachingBlockDeletion property value. Prevents content caches from purging content to free up disk space for other apps.
-     *  @param bool|null $value Value to set for the contentCachingBlockDeletion property.
+     * @param bool|null $value Value to set for the contentCachingBlockDeletion property.
     */
     public function setContentCachingBlockDeletion(?bool $value): void {
         $this->getBackingStore()->set('contentCachingBlockDeletion', $value);
@@ -561,7 +561,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the contentCachingClientListenRanges property value. A list of custom IP ranges content caches will use to listen for clients. This collection can contain a maximum of 500 elements.
-     *  @param array<IpRange>|null $value Value to set for the contentCachingClientListenRanges property.
+     * @param array<IpRange>|null $value Value to set for the contentCachingClientListenRanges property.
     */
     public function setContentCachingClientListenRanges(?array $value): void {
         $this->getBackingStore()->set('contentCachingClientListenRanges', $value);
@@ -569,7 +569,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the contentCachingClientPolicy property value. Determines which clients a content cache will serve.
-     *  @param MacOSContentCachingClientPolicy|null $value Value to set for the contentCachingClientPolicy property.
+     * @param MacOSContentCachingClientPolicy|null $value Value to set for the contentCachingClientPolicy property.
     */
     public function setContentCachingClientPolicy(?MacOSContentCachingClientPolicy $value): void {
         $this->getBackingStore()->set('contentCachingClientPolicy', $value);
@@ -577,7 +577,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the contentCachingDataPath property value. The path to the directory used to store cached content. The value must be (or end with) /Library/Application Support/Apple/AssetCache/Data
-     *  @param string|null $value Value to set for the contentCachingDataPath property.
+     * @param string|null $value Value to set for the contentCachingDataPath property.
     */
     public function setContentCachingDataPath(?string $value): void {
         $this->getBackingStore()->set('contentCachingDataPath', $value);
@@ -585,7 +585,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the contentCachingDisableConnectionSharing property value. Disables internet connection sharing.
-     *  @param bool|null $value Value to set for the contentCachingDisableConnectionSharing property.
+     * @param bool|null $value Value to set for the contentCachingDisableConnectionSharing property.
     */
     public function setContentCachingDisableConnectionSharing(?bool $value): void {
         $this->getBackingStore()->set('contentCachingDisableConnectionSharing', $value);
@@ -593,7 +593,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the contentCachingEnabled property value. Enables content caching and prevents it from being disabled by the user.
-     *  @param bool|null $value Value to set for the contentCachingEnabled property.
+     * @param bool|null $value Value to set for the contentCachingEnabled property.
     */
     public function setContentCachingEnabled(?bool $value): void {
         $this->getBackingStore()->set('contentCachingEnabled', $value);
@@ -601,7 +601,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the contentCachingForceConnectionSharing property value. Forces internet connection sharing. contentCachingDisableConnectionSharing overrides this setting.
-     *  @param bool|null $value Value to set for the contentCachingForceConnectionSharing property.
+     * @param bool|null $value Value to set for the contentCachingForceConnectionSharing property.
     */
     public function setContentCachingForceConnectionSharing(?bool $value): void {
         $this->getBackingStore()->set('contentCachingForceConnectionSharing', $value);
@@ -609,7 +609,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the contentCachingKeepAwake property value. Prevent the device from sleeping if content caching is enabled.
-     *  @param bool|null $value Value to set for the contentCachingKeepAwake property.
+     * @param bool|null $value Value to set for the contentCachingKeepAwake property.
     */
     public function setContentCachingKeepAwake(?bool $value): void {
         $this->getBackingStore()->set('contentCachingKeepAwake', $value);
@@ -617,7 +617,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the contentCachingLogClientIdentities property value. Enables logging of IP addresses and ports of clients that request cached content.
-     *  @param bool|null $value Value to set for the contentCachingLogClientIdentities property.
+     * @param bool|null $value Value to set for the contentCachingLogClientIdentities property.
     */
     public function setContentCachingLogClientIdentities(?bool $value): void {
         $this->getBackingStore()->set('contentCachingLogClientIdentities', $value);
@@ -625,7 +625,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the contentCachingMaxSizeBytes property value. The maximum number of bytes of disk space that will be used for the content cache. A value of 0 (default) indicates unlimited disk space.
-     *  @param int|null $value Value to set for the contentCachingMaxSizeBytes property.
+     * @param int|null $value Value to set for the contentCachingMaxSizeBytes property.
     */
     public function setContentCachingMaxSizeBytes(?int $value): void {
         $this->getBackingStore()->set('contentCachingMaxSizeBytes', $value);
@@ -633,7 +633,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the contentCachingParents property value. A list of IP addresses representing parent content caches.
-     *  @param array<string>|null $value Value to set for the contentCachingParents property.
+     * @param array<string>|null $value Value to set for the contentCachingParents property.
     */
     public function setContentCachingParents(?array $value): void {
         $this->getBackingStore()->set('contentCachingParents', $value);
@@ -641,7 +641,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the contentCachingParentSelectionPolicy property value. Determines how content caches select a parent cache.
-     *  @param MacOSContentCachingParentSelectionPolicy|null $value Value to set for the contentCachingParentSelectionPolicy property.
+     * @param MacOSContentCachingParentSelectionPolicy|null $value Value to set for the contentCachingParentSelectionPolicy property.
     */
     public function setContentCachingParentSelectionPolicy(?MacOSContentCachingParentSelectionPolicy $value): void {
         $this->getBackingStore()->set('contentCachingParentSelectionPolicy', $value);
@@ -649,7 +649,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the contentCachingPeerFilterRanges property value. A list of custom IP ranges content caches will use to query for content from peers caches. This collection can contain a maximum of 500 elements.
-     *  @param array<IpRange>|null $value Value to set for the contentCachingPeerFilterRanges property.
+     * @param array<IpRange>|null $value Value to set for the contentCachingPeerFilterRanges property.
     */
     public function setContentCachingPeerFilterRanges(?array $value): void {
         $this->getBackingStore()->set('contentCachingPeerFilterRanges', $value);
@@ -657,7 +657,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the contentCachingPeerListenRanges property value. A list of custom IP ranges content caches will use to listen for peer caches. This collection can contain a maximum of 500 elements.
-     *  @param array<IpRange>|null $value Value to set for the contentCachingPeerListenRanges property.
+     * @param array<IpRange>|null $value Value to set for the contentCachingPeerListenRanges property.
     */
     public function setContentCachingPeerListenRanges(?array $value): void {
         $this->getBackingStore()->set('contentCachingPeerListenRanges', $value);
@@ -665,7 +665,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the contentCachingPeerPolicy property value. Determines which content caches other content caches will peer with.
-     *  @param MacOSContentCachingPeerPolicy|null $value Value to set for the contentCachingPeerPolicy property.
+     * @param MacOSContentCachingPeerPolicy|null $value Value to set for the contentCachingPeerPolicy property.
     */
     public function setContentCachingPeerPolicy(?MacOSContentCachingPeerPolicy $value): void {
         $this->getBackingStore()->set('contentCachingPeerPolicy', $value);
@@ -673,7 +673,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the contentCachingPort property value. Sets the port used for content caching. If the value is 0, a random available port will be selected. Valid values 0 to 65535
-     *  @param int|null $value Value to set for the contentCachingPort property.
+     * @param int|null $value Value to set for the contentCachingPort property.
     */
     public function setContentCachingPort(?int $value): void {
         $this->getBackingStore()->set('contentCachingPort', $value);
@@ -681,7 +681,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the contentCachingPublicRanges property value. A list of custom IP ranges that Apple's content caching service should use to match clients to content caches. This collection can contain a maximum of 500 elements.
-     *  @param array<IpRange>|null $value Value to set for the contentCachingPublicRanges property.
+     * @param array<IpRange>|null $value Value to set for the contentCachingPublicRanges property.
     */
     public function setContentCachingPublicRanges(?array $value): void {
         $this->getBackingStore()->set('contentCachingPublicRanges', $value);
@@ -689,7 +689,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the contentCachingShowAlerts property value. Display content caching alerts as system notifications.
-     *  @param bool|null $value Value to set for the contentCachingShowAlerts property.
+     * @param bool|null $value Value to set for the contentCachingShowAlerts property.
     */
     public function setContentCachingShowAlerts(?bool $value): void {
         $this->getBackingStore()->set('contentCachingShowAlerts', $value);
@@ -697,7 +697,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the contentCachingType property value. Indicates the type of content allowed to be cached by Apple's content caching service.
-     *  @param MacOSContentCachingType|null $value Value to set for the contentCachingType property.
+     * @param MacOSContentCachingType|null $value Value to set for the contentCachingType property.
     */
     public function setContentCachingType(?MacOSContentCachingType $value): void {
         $this->getBackingStore()->set('contentCachingType', $value);
@@ -705,7 +705,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the loginWindowText property value. Custom text to be displayed on the login window.
-     *  @param string|null $value Value to set for the loginWindowText property.
+     * @param string|null $value Value to set for the loginWindowText property.
     */
     public function setLoginWindowText(?string $value): void {
         $this->getBackingStore()->set('loginWindowText', $value);
@@ -713,7 +713,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the logOutDisabledWhileLoggedIn property value. Whether the Log Out menu item on the login window will be disabled while the user is logged in.
-     *  @param bool|null $value Value to set for the logOutDisabledWhileLoggedIn property.
+     * @param bool|null $value Value to set for the logOutDisabledWhileLoggedIn property.
     */
     public function setLogOutDisabledWhileLoggedIn(?bool $value): void {
         $this->getBackingStore()->set('logOutDisabledWhileLoggedIn', $value);
@@ -721,7 +721,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the macOSSingleSignOnExtension property value. Gets or sets a single sign-on extension profile.
-     *  @param MacOSSingleSignOnExtension|null $value Value to set for the macOSSingleSignOnExtension property.
+     * @param MacOSSingleSignOnExtension|null $value Value to set for the macOSSingleSignOnExtension property.
     */
     public function setMacOSSingleSignOnExtension(?MacOSSingleSignOnExtension $value): void {
         $this->getBackingStore()->set('macOSSingleSignOnExtension', $value);
@@ -729,7 +729,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the powerOffDisabledWhileLoggedIn property value. Whether the Power Off menu item on the login window will be disabled while the user is logged in.
-     *  @param bool|null $value Value to set for the powerOffDisabledWhileLoggedIn property.
+     * @param bool|null $value Value to set for the powerOffDisabledWhileLoggedIn property.
     */
     public function setPowerOffDisabledWhileLoggedIn(?bool $value): void {
         $this->getBackingStore()->set('powerOffDisabledWhileLoggedIn', $value);
@@ -737,7 +737,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the restartDisabled property value. Whether to hide the Restart button item on the login window.
-     *  @param bool|null $value Value to set for the restartDisabled property.
+     * @param bool|null $value Value to set for the restartDisabled property.
     */
     public function setRestartDisabled(?bool $value): void {
         $this->getBackingStore()->set('restartDisabled', $value);
@@ -745,7 +745,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the restartDisabledWhileLoggedIn property value. Whether the Restart menu item on the login window will be disabled while the user is logged in.
-     *  @param bool|null $value Value to set for the restartDisabledWhileLoggedIn property.
+     * @param bool|null $value Value to set for the restartDisabledWhileLoggedIn property.
     */
     public function setRestartDisabledWhileLoggedIn(?bool $value): void {
         $this->getBackingStore()->set('restartDisabledWhileLoggedIn', $value);
@@ -753,7 +753,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the screenLockDisableImmediate property value. Whether to disable the immediate screen lock functions.
-     *  @param bool|null $value Value to set for the screenLockDisableImmediate property.
+     * @param bool|null $value Value to set for the screenLockDisableImmediate property.
     */
     public function setScreenLockDisableImmediate(?bool $value): void {
         $this->getBackingStore()->set('screenLockDisableImmediate', $value);
@@ -761,7 +761,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the shutDownDisabled property value. Whether to hide the Shut Down button item on the login window.
-     *  @param bool|null $value Value to set for the shutDownDisabled property.
+     * @param bool|null $value Value to set for the shutDownDisabled property.
     */
     public function setShutDownDisabled(?bool $value): void {
         $this->getBackingStore()->set('shutDownDisabled', $value);
@@ -769,7 +769,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the shutDownDisabledWhileLoggedIn property value. Whether the Shut Down menu item on the login window will be disabled while the user is logged in.
-     *  @param bool|null $value Value to set for the shutDownDisabledWhileLoggedIn property.
+     * @param bool|null $value Value to set for the shutDownDisabledWhileLoggedIn property.
     */
     public function setShutDownDisabledWhileLoggedIn(?bool $value): void {
         $this->getBackingStore()->set('shutDownDisabledWhileLoggedIn', $value);
@@ -777,7 +777,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the singleSignOnExtension property value. Gets or sets a single sign-on extension profile. Deprecated: use MacOSSingleSignOnExtension instead.
-     *  @param SingleSignOnExtension|null $value Value to set for the singleSignOnExtension property.
+     * @param SingleSignOnExtension|null $value Value to set for the singleSignOnExtension property.
     */
     public function setSingleSignOnExtension(?SingleSignOnExtension $value): void {
         $this->getBackingStore()->set('singleSignOnExtension', $value);
@@ -785,7 +785,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the singleSignOnExtensionPkinitCertificate property value. PKINIT Certificate for the authentication with single sign-on extensions.
-     *  @param MacOSCertificateProfileBase|null $value Value to set for the singleSignOnExtensionPkinitCertificate property.
+     * @param MacOSCertificateProfileBase|null $value Value to set for the singleSignOnExtensionPkinitCertificate property.
     */
     public function setSingleSignOnExtensionPkinitCertificate(?MacOSCertificateProfileBase $value): void {
         $this->getBackingStore()->set('singleSignOnExtensionPkinitCertificate', $value);
@@ -793,7 +793,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
 
     /**
      * Sets the sleepDisabled property value. Whether to hide the Sleep menu item on the login window.
-     *  @param bool|null $value Value to set for the sleepDisabled property.
+     * @param bool|null $value Value to set for the sleepDisabled property.
     */
     public function setSleepDisabled(?bool $value): void {
         $this->getBackingStore()->set('sleepDisabled', $value);

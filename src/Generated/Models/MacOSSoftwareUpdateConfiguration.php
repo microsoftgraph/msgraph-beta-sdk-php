@@ -69,6 +69,8 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
             'criticalUpdateBehavior' => fn(ParseNode $n) => $o->setCriticalUpdateBehavior($n->getEnumValue(MacOSSoftwareUpdateBehavior::class)),
             'customUpdateTimeWindows' => fn(ParseNode $n) => $o->setCustomUpdateTimeWindows($n->getCollectionOfObjectValues([CustomUpdateTimeWindow::class, 'createFromDiscriminatorValue'])),
             'firmwareUpdateBehavior' => fn(ParseNode $n) => $o->setFirmwareUpdateBehavior($n->getEnumValue(MacOSSoftwareUpdateBehavior::class)),
+            'maxUserDeferralsCount' => fn(ParseNode $n) => $o->setMaxUserDeferralsCount($n->getIntegerValue()),
+            'priority' => fn(ParseNode $n) => $o->setPriority($n->getEnumValue(MacOSPriority::class)),
             'updateScheduleType' => fn(ParseNode $n) => $o->setUpdateScheduleType($n->getEnumValue(MacOSSoftwareUpdateScheduleType::class)),
             'updateTimeWindowUtcOffsetInMinutes' => fn(ParseNode $n) => $o->setUpdateTimeWindowUtcOffsetInMinutes($n->getIntegerValue()),
         ]);
@@ -80,6 +82,22 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
     */
     public function getFirmwareUpdateBehavior(): ?MacOSSoftwareUpdateBehavior {
         return $this->getBackingStore()->get('firmwareUpdateBehavior');
+    }
+
+    /**
+     * Gets the maxUserDeferralsCount property value. The maximum number of times the system allows the user to postpone an update before it’s installed. Supported values: 0 - 366. Valid values 0 to 365
+     * @return int|null
+    */
+    public function getMaxUserDeferralsCount(): ?int {
+        return $this->getBackingStore()->get('maxUserDeferralsCount');
+    }
+
+    /**
+     * Gets the priority property value. The scheduling priority for downloading and preparing the requested update. Default: Low. Possible values: Null, Low, High. Possible values are: low, high, unknownFutureValue.
+     * @return MacOSPriority|null
+    */
+    public function getPriority(): ?MacOSPriority {
+        return $this->getBackingStore()->get('priority');
     }
 
     /**
@@ -109,13 +127,15 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
         $writer->writeEnumValue('criticalUpdateBehavior', $this->getCriticalUpdateBehavior());
         $writer->writeCollectionOfObjectValues('customUpdateTimeWindows', $this->getCustomUpdateTimeWindows());
         $writer->writeEnumValue('firmwareUpdateBehavior', $this->getFirmwareUpdateBehavior());
+        $writer->writeIntegerValue('maxUserDeferralsCount', $this->getMaxUserDeferralsCount());
+        $writer->writeEnumValue('priority', $this->getPriority());
         $writer->writeEnumValue('updateScheduleType', $this->getUpdateScheduleType());
         $writer->writeIntegerValue('updateTimeWindowUtcOffsetInMinutes', $this->getUpdateTimeWindowUtcOffsetInMinutes());
     }
 
     /**
      * Sets the allOtherUpdateBehavior property value. Update behavior options for macOS software updates.
-     *  @param MacOSSoftwareUpdateBehavior|null $value Value to set for the allOtherUpdateBehavior property.
+     * @param MacOSSoftwareUpdateBehavior|null $value Value to set for the allOtherUpdateBehavior property.
     */
     public function setAllOtherUpdateBehavior(?MacOSSoftwareUpdateBehavior $value): void {
         $this->getBackingStore()->set('allOtherUpdateBehavior', $value);
@@ -123,7 +143,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the configDataUpdateBehavior property value. Update behavior options for macOS software updates.
-     *  @param MacOSSoftwareUpdateBehavior|null $value Value to set for the configDataUpdateBehavior property.
+     * @param MacOSSoftwareUpdateBehavior|null $value Value to set for the configDataUpdateBehavior property.
     */
     public function setConfigDataUpdateBehavior(?MacOSSoftwareUpdateBehavior $value): void {
         $this->getBackingStore()->set('configDataUpdateBehavior', $value);
@@ -131,7 +151,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the criticalUpdateBehavior property value. Update behavior options for macOS software updates.
-     *  @param MacOSSoftwareUpdateBehavior|null $value Value to set for the criticalUpdateBehavior property.
+     * @param MacOSSoftwareUpdateBehavior|null $value Value to set for the criticalUpdateBehavior property.
     */
     public function setCriticalUpdateBehavior(?MacOSSoftwareUpdateBehavior $value): void {
         $this->getBackingStore()->set('criticalUpdateBehavior', $value);
@@ -139,7 +159,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the customUpdateTimeWindows property value. Custom Time windows when updates will be allowed or blocked. This collection can contain a maximum of 20 elements.
-     *  @param array<CustomUpdateTimeWindow>|null $value Value to set for the customUpdateTimeWindows property.
+     * @param array<CustomUpdateTimeWindow>|null $value Value to set for the customUpdateTimeWindows property.
     */
     public function setCustomUpdateTimeWindows(?array $value): void {
         $this->getBackingStore()->set('customUpdateTimeWindows', $value);
@@ -147,15 +167,31 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the firmwareUpdateBehavior property value. Update behavior options for macOS software updates.
-     *  @param MacOSSoftwareUpdateBehavior|null $value Value to set for the firmwareUpdateBehavior property.
+     * @param MacOSSoftwareUpdateBehavior|null $value Value to set for the firmwareUpdateBehavior property.
     */
     public function setFirmwareUpdateBehavior(?MacOSSoftwareUpdateBehavior $value): void {
         $this->getBackingStore()->set('firmwareUpdateBehavior', $value);
     }
 
     /**
+     * Sets the maxUserDeferralsCount property value. The maximum number of times the system allows the user to postpone an update before it’s installed. Supported values: 0 - 366. Valid values 0 to 365
+     * @param int|null $value Value to set for the maxUserDeferralsCount property.
+    */
+    public function setMaxUserDeferralsCount(?int $value): void {
+        $this->getBackingStore()->set('maxUserDeferralsCount', $value);
+    }
+
+    /**
+     * Sets the priority property value. The scheduling priority for downloading and preparing the requested update. Default: Low. Possible values: Null, Low, High. Possible values are: low, high, unknownFutureValue.
+     * @param MacOSPriority|null $value Value to set for the priority property.
+    */
+    public function setPriority(?MacOSPriority $value): void {
+        $this->getBackingStore()->set('priority', $value);
+    }
+
+    /**
      * Sets the updateScheduleType property value. Update schedule type for macOS software updates.
-     *  @param MacOSSoftwareUpdateScheduleType|null $value Value to set for the updateScheduleType property.
+     * @param MacOSSoftwareUpdateScheduleType|null $value Value to set for the updateScheduleType property.
     */
     public function setUpdateScheduleType(?MacOSSoftwareUpdateScheduleType $value): void {
         $this->getBackingStore()->set('updateScheduleType', $value);
@@ -163,7 +199,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the updateTimeWindowUtcOffsetInMinutes property value. Minutes indicating UTC offset for each update time window
-     *  @param int|null $value Value to set for the updateTimeWindowUtcOffsetInMinutes property.
+     * @param int|null $value Value to set for the updateTimeWindowUtcOffsetInMinutes property.
     */
     public function setUpdateTimeWindowUtcOffsetInMinutes(?int $value): void {
         $this->getBackingStore()->set('updateTimeWindowUtcOffsetInMinutes', $value);

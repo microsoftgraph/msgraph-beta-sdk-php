@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsFeatureUpdateProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new windowsFeatureUpdateProfile and sets the default values.
+     * Instantiates a new WindowsFeatureUpdateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -145,7 +145,7 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the assignments property value. The list of group assignments of the profile.
-     *  @param array<WindowsFeatureUpdateProfileAssignment>|null $value Value to set for the assignments property.
+     * @param array<WindowsFeatureUpdateProfileAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -153,7 +153,7 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date time that the profile was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -161,7 +161,7 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the deployableContentDisplayName property value. Friendly display name of the quality update profile deployable content
-     *  @param string|null $value Value to set for the deployableContentDisplayName property.
+     * @param string|null $value Value to set for the deployableContentDisplayName property.
     */
     public function setDeployableContentDisplayName(?string $value): void {
         $this->getBackingStore()->set('deployableContentDisplayName', $value);
@@ -169,7 +169,7 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description of the profile which is specified by the user.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -177,7 +177,7 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name of the profile.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -185,7 +185,7 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the endOfSupportDate property value. The last supported date for a feature update
-     *  @param DateTime|null $value Value to set for the endOfSupportDate property.
+     * @param DateTime|null $value Value to set for the endOfSupportDate property.
     */
     public function setEndOfSupportDate(?DateTime $value): void {
         $this->getBackingStore()->set('endOfSupportDate', $value);
@@ -193,7 +193,7 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the featureUpdateVersion property value. The feature update version that will be deployed to the devices targeted by this profile. The version could be any supported version for example 1709, 1803 or 1809 and so on.
-     *  @param string|null $value Value to set for the featureUpdateVersion property.
+     * @param string|null $value Value to set for the featureUpdateVersion property.
     */
     public function setFeatureUpdateVersion(?string $value): void {
         $this->getBackingStore()->set('featureUpdateVersion', $value);
@@ -201,7 +201,7 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date time that the profile was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -209,7 +209,7 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tags for this Feature Update entity.
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);
@@ -217,7 +217,7 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the rolloutSettings property value. The windows update rollout settings, including offer start date time, offer end date time, and days between each set of offers.
-     *  @param WindowsUpdateRolloutSettings|null $value Value to set for the rolloutSettings property.
+     * @param WindowsUpdateRolloutSettings|null $value Value to set for the rolloutSettings property.
     */
     public function setRolloutSettings(?WindowsUpdateRolloutSettings $value): void {
         $this->getBackingStore()->set('rolloutSettings', $value);

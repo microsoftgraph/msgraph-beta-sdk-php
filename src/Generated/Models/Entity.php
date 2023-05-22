@@ -43,14 +43,34 @@ use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\TaskProcessingResul
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\TaskReport;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\UserProcessingResult;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\WorkflowTemplate;
+use Microsoft\Graph\Beta\Generated\Models\IndustryData\AzureDataLakeConnector;
+use Microsoft\Graph\Beta\Generated\Models\IndustryData\FileDataConnector;
+use Microsoft\Graph\Beta\Generated\Models\IndustryData\FileValidateOperation;
+use Microsoft\Graph\Beta\Generated\Models\IndustryData\InboundFileFlow;
+use Microsoft\Graph\Beta\Generated\Models\IndustryData\InboundFlow;
+use Microsoft\Graph\Beta\Generated\Models\IndustryData\InboundFlowActivity;
+use Microsoft\Graph\Beta\Generated\Models\IndustryData\IndustryDataActivity;
+use Microsoft\Graph\Beta\Generated\Models\IndustryData\IndustryDataConnector;
+use Microsoft\Graph\Beta\Generated\Models\IndustryData\IndustryDataRoot;
+use Microsoft\Graph\Beta\Generated\Models\IndustryData\IndustryDataRun;
+use Microsoft\Graph\Beta\Generated\Models\IndustryData\IndustryDataRunActivity;
+use Microsoft\Graph\Beta\Generated\Models\IndustryData\OutboundFlowActivity;
+use Microsoft\Graph\Beta\Generated\Models\IndustryData\ReferenceDefinition;
+use Microsoft\Graph\Beta\Generated\Models\IndustryData\RoleGroup;
+use Microsoft\Graph\Beta\Generated\Models\IndustryData\SourceSystemDefinition;
+use Microsoft\Graph\Beta\Generated\Models\IndustryData\ValidateOperation;
+use Microsoft\Graph\Beta\Generated\Models\IndustryData\YearTimePeriodDefinition;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\AggregatedPolicyCompliance;
+use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\AppPerformance;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\AuditEvent;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\CloudPcConnection;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\CloudPcDevice;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\CloudPcOverview;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ConditionalAccessPolicyCoverage;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\CredentialUserRegistrationsSummary;
+use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\DeviceAppPerformance;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\DeviceCompliancePolicySettingStateSummary;
+use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\DeviceHealthStatus;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagedDeviceCompliance;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagedDeviceComplianceTrend;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagedTenant;
@@ -83,6 +103,9 @@ use Microsoft\Graph\Beta\Generated\Models\Search\Bookmark;
 use Microsoft\Graph\Beta\Generated\Models\Search\Qna;
 use Microsoft\Graph\Beta\Generated\Models\Search\SearchAnswer;
 use Microsoft\Graph\Beta\Generated\Models\Security\Alert;
+use Microsoft\Graph\Beta\Generated\Models\Security\Article;
+use Microsoft\Graph\Beta\Generated\Models\Security\ArticleIndicator;
+use Microsoft\Graph\Beta\Generated\Models\Security\Artifact;
 use Microsoft\Graph\Beta\Generated\Models\Security\CasesRoot;
 use Microsoft\Graph\Beta\Generated\Models\Security\DataSet;
 use Microsoft\Graph\Beta\Generated\Models\Security\DispositionReviewStage;
@@ -111,10 +134,21 @@ use Microsoft\Graph\Beta\Generated\Models\Security\File;
 use Microsoft\Graph\Beta\Generated\Models\Security\FileContentThreatSubmission;
 use Microsoft\Graph\Beta\Generated\Models\Security\FileThreatSubmission;
 use Microsoft\Graph\Beta\Generated\Models\Security\FileUrlThreatSubmission;
+use Microsoft\Graph\Beta\Generated\Models\Security\Host;
+use Microsoft\Graph\Beta\Generated\Models\Security\HostComponent;
+use Microsoft\Graph\Beta\Generated\Models\Security\HostCookie;
+use Microsoft\Graph\Beta\Generated\Models\Security\Hostname;
+use Microsoft\Graph\Beta\Generated\Models\Security\HostReputation;
+use Microsoft\Graph\Beta\Generated\Models\Security\HostTracker;
 use Microsoft\Graph\Beta\Generated\Models\Security\Incident;
+use Microsoft\Graph\Beta\Generated\Models\Security\Indicator;
 use Microsoft\Graph\Beta\Generated\Models\Security\InformationProtection;
 use Microsoft\Graph\Beta\Generated\Models\Security\InformationProtectionPolicySetting;
+use Microsoft\Graph\Beta\Generated\Models\Security\IntelligenceProfile;
+use Microsoft\Graph\Beta\Generated\Models\Security\IntelligenceProfileIndicator;
+use Microsoft\Graph\Beta\Generated\Models\Security\IpAddress;
 use Microsoft\Graph\Beta\Generated\Models\Security\LabelsRoot;
+use Microsoft\Graph\Beta\Generated\Models\Security\PassiveDnsRecord;
 use Microsoft\Graph\Beta\Generated\Models\Security\PolicyBase;
 use Microsoft\Graph\Beta\Generated\Models\Security\RetentionEvent;
 use Microsoft\Graph\Beta\Generated\Models\Security\RetentionEventType;
@@ -122,13 +156,15 @@ use Microsoft\Graph\Beta\Generated\Models\Security\RetentionLabel;
 use Microsoft\Graph\Beta\Generated\Models\Security\Search;
 use Microsoft\Graph\Beta\Generated\Models\Security\Security;
 use Microsoft\Graph\Beta\Generated\Models\Security\SensitivityLabel;
+use Microsoft\Graph\Beta\Generated\Models\Security\ThreatIntelligence;
 use Microsoft\Graph\Beta\Generated\Models\Security\ThreatSubmission;
 use Microsoft\Graph\Beta\Generated\Models\Security\ThreatSubmissionRoot;
 use Microsoft\Graph\Beta\Generated\Models\Security\TriggersRoot;
 use Microsoft\Graph\Beta\Generated\Models\Security\TriggerTypesRoot;
+use Microsoft\Graph\Beta\Generated\Models\Security\UnclassifiedArtifact;
 use Microsoft\Graph\Beta\Generated\Models\Security\UrlThreatSubmission;
-use Microsoft\Graph\Beta\Generated\Models\TenantAdmin\Settings;
-use Microsoft\Graph\Beta\Generated\Models\TenantAdmin\Sharepoint;
+use Microsoft\Graph\Beta\Generated\Models\Security\Vulnerability;
+use Microsoft\Graph\Beta\Generated\Models\Security\VulnerabilityComponent;
 use Microsoft\Graph\Beta\Generated\Models\TermStore\Group;
 use Microsoft\Graph\Beta\Generated\Models\TermStore\Relation;
 use Microsoft\Graph\Beta\Generated\Models\TermStore\Set;
@@ -137,8 +173,11 @@ use Microsoft\Graph\Beta\Generated\Models\TermStore\Term;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\AzureADDevice;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\Catalog;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\CatalogEntry;
+use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\ComplianceChange;
+use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\ContentApproval;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\Deployment;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\DeploymentAudience;
+use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\DriverUpdateCatalogEntry;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\FeatureUpdateCatalogEntry;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\OperationalInsightsConnection;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\QualityUpdateCatalogEntry;
@@ -146,8 +185,7 @@ use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\ResourceConnection;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\SoftwareUpdateCatalogEntry;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdatableAsset;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdatableAssetGroup;
-use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\Updates;
-use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\Windows;
+use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdatePolicy;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -186,7 +224,9 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.accessPackageAssignment': return new AccessPackageAssignment();
                 case '#microsoft.graph.accessPackageAssignmentPolicy': return new AccessPackageAssignmentPolicy();
                 case '#microsoft.graph.accessPackageAssignmentRequest': return new AccessPackageAssignmentRequest();
+                case '#microsoft.graph.accessPackageAssignmentRequestWorkflowExtension': return new AccessPackageAssignmentRequestWorkflowExtension();
                 case '#microsoft.graph.accessPackageAssignmentResourceRole': return new AccessPackageAssignmentResourceRole();
+                case '#microsoft.graph.accessPackageAssignmentWorkflowExtension': return new AccessPackageAssignmentWorkflowExtension();
                 case '#microsoft.graph.accessPackageCatalog': return new AccessPackageCatalog();
                 case '#microsoft.graph.accessPackageResource': return new AccessPackageResource();
                 case '#microsoft.graph.accessPackageResourceEnvironment': return new AccessPackageResourceEnvironment();
@@ -215,6 +255,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.adminConsentRequestPolicy': return new AdminConsentRequestPolicy();
                 case '#microsoft.graph.administrativeUnit': return new AdministrativeUnit();
                 case '#microsoft.graph.adminReportSettings': return new AdminReportSettings();
+                case '#microsoft.graph.adminWindows': return new AdminWindows();
+                case '#microsoft.graph.adminWindowsUpdates': return new AdminWindowsUpdates();
                 case '#microsoft.graph.advancedThreatProtectionOnboardingDeviceSettingState': return new AdvancedThreatProtectionOnboardingDeviceSettingState();
                 case '#microsoft.graph.advancedThreatProtectionOnboardingStateSummary': return new AdvancedThreatProtectionOnboardingStateSummary();
                 case '#microsoft.graph.agedAccountsPayable': return new AgedAccountsPayable();
@@ -336,6 +378,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.attachment': return new Attachment();
                 case '#microsoft.graph.attachmentBase': return new AttachmentBase();
                 case '#microsoft.graph.attachmentSession': return new AttachmentSession();
+                case '#microsoft.graph.attackSimulationOperation': return new AttackSimulationOperation();
                 case '#microsoft.graph.attackSimulationRoot': return new AttackSimulationRoot();
                 case '#microsoft.graph.attendanceRecord': return new AttendanceRecord();
                 case '#microsoft.graph.attributeMappingFunctionSchema': return new AttributeMappingFunctionSchema();
@@ -414,7 +457,6 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.claimsMappingPolicy': return new ClaimsMappingPolicy();
                 case '#microsoft.graph.classificationJobResponse': return new ClassificationJobResponse();
                 case '#microsoft.graph.cloudAppSecurityProfile': return new CloudAppSecurityProfile();
-                case '#microsoft.graph.cloudCommunications': return new CloudCommunications();
                 case '#microsoft.graph.cloudPC': return new CloudPC();
                 case '#microsoft.graph.cloudPcAuditEvent': return new CloudPcAuditEvent();
                 case '#microsoft.graph.cloudPCConnectivityIssue': return new CloudPCConnectivityIssue();
@@ -470,12 +512,14 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.crossTenantAccessPolicyConfigurationDefault': return new CrossTenantAccessPolicyConfigurationDefault();
                 case '#microsoft.graph.currency': return new Currency();
                 case '#microsoft.graph.customAccessPackageWorkflowExtension': return new CustomAccessPackageWorkflowExtension();
+                case '#microsoft.graph.customAppScope': return new CustomAppScope();
                 case '#microsoft.graph.customAuthenticationExtension': return new CustomAuthenticationExtension();
                 case '#microsoft.graph.customCalloutExtension': return new CustomCalloutExtension();
                 case '#microsoft.graph.customer': return new Customer();
                 case '#microsoft.graph.customerPayment': return new CustomerPayment();
                 case '#microsoft.graph.customerPaymentJournal': return new CustomerPaymentJournal();
                 case '#microsoft.graph.customExtensionHandler': return new CustomExtensionHandler();
+                case '#microsoft.graph.customExtensionStageSetting': return new CustomExtensionStageSetting();
                 case '#microsoft.graph.customSecurityAttributeDefinition': return new CustomSecurityAttributeDefinition();
                 case '#microsoft.graph.dataClassificationService': return new DataClassificationService();
                 case '#microsoft.graph.dataLossPreventionPolicy': return new DataLossPreventionPolicy();
@@ -493,6 +537,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.delegatedPermissionClassification': return new DelegatedPermissionClassification();
                 case '#microsoft.graph.deletedItemContainer': return new DeletedItemContainer();
                 case '#microsoft.graph.deletedTeam': return new DeletedTeam();
+                case '#microsoft.graph.deltaParticipants': return new DeltaParticipants();
                 case '#microsoft.graph.depEnrollmentBaseProfile': return new DepEnrollmentBaseProfile();
                 case '#microsoft.graph.depEnrollmentProfile': return new DepEnrollmentProfile();
                 case '#microsoft.graph.depIOSEnrollmentProfile': return new DepIOSEnrollmentProfile();
@@ -548,6 +593,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.deviceHealthScriptDeviceState': return new DeviceHealthScriptDeviceState();
                 case '#microsoft.graph.deviceHealthScriptRunSummary': return new DeviceHealthScriptRunSummary();
                 case '#microsoft.graph.deviceInstallState': return new DeviceInstallState();
+                case '#microsoft.graph.deviceLocalCredentialInfo': return new DeviceLocalCredentialInfo();
                 case '#microsoft.graph.deviceLogCollectionResponse': return new DeviceLogCollectionResponse();
                 case '#microsoft.graph.deviceManagement': return new DeviceManagement();
                 case '#microsoft.graph.deviceManagement.alertRecord': return new AlertRecord();
@@ -612,6 +658,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.deviceManagementSettingInstance': return new DeviceManagementSettingInstance();
                 case '#microsoft.graph.deviceManagementStringSettingInstance': return new DeviceManagementStringSettingInstance();
                 case '#microsoft.graph.deviceManagementTemplate': return new DeviceManagementTemplate();
+                case '#microsoft.graph.deviceManagementTemplateInsightsDefinition': return new DeviceManagementTemplateInsightsDefinition();
                 case '#microsoft.graph.deviceManagementTemplateSettingCategory': return new DeviceManagementTemplateSettingCategory();
                 case '#microsoft.graph.deviceManagementTroubleshootingEvent': return new DeviceManagementTroubleshootingEvent();
                 case '#microsoft.graph.deviceRegistrationPolicy': return new DeviceRegistrationPolicy();
@@ -681,6 +728,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.educationClass': return new EducationClass();
                 case '#microsoft.graph.educationFeedbackOutcome': return new EducationFeedbackOutcome();
                 case '#microsoft.graph.educationFeedbackResourceOutcome': return new EducationFeedbackResourceOutcome();
+                case '#microsoft.graph.educationGradingCategory': return new EducationGradingCategory();
                 case '#microsoft.graph.educationOrganization': return new EducationOrganization();
                 case '#microsoft.graph.educationOutcome': return new EducationOutcome();
                 case '#microsoft.graph.educationPointsOutcome': return new EducationPointsOutcome();
@@ -701,6 +749,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.embeddedSIMActivationCodePoolAssignment': return new EmbeddedSIMActivationCodePoolAssignment();
                 case '#microsoft.graph.embeddedSIMDeviceState': return new EmbeddedSIMDeviceState();
                 case '#microsoft.graph.employee': return new Employee();
+                case '#microsoft.graph.employeeExperienceUser': return new EmployeeExperienceUser();
                 case '#microsoft.graph.endpoint': return new Endpoint();
                 case '#microsoft.graph.enrollmentConfigurationAssignment': return new EnrollmentConfigurationAssignment();
                 case '#microsoft.graph.enrollmentProfile': return new EnrollmentProfile();
@@ -815,12 +864,30 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.identityUserFlow': return new IdentityUserFlow();
                 case '#microsoft.graph.identityUserFlowAttribute': return new IdentityUserFlowAttribute();
                 case '#microsoft.graph.identityUserFlowAttributeAssignment': return new IdentityUserFlowAttributeAssignment();
+                case '#microsoft.graph.impactedResource': return new ImpactedResource();
                 case '#microsoft.graph.importedAppleDeviceIdentity': return new ImportedAppleDeviceIdentity();
                 case '#microsoft.graph.importedAppleDeviceIdentityResult': return new ImportedAppleDeviceIdentityResult();
                 case '#microsoft.graph.importedDeviceIdentity': return new ImportedDeviceIdentity();
                 case '#microsoft.graph.importedDeviceIdentityResult': return new ImportedDeviceIdentityResult();
                 case '#microsoft.graph.importedWindowsAutopilotDeviceIdentity': return new ImportedWindowsAutopilotDeviceIdentity();
                 case '#microsoft.graph.importedWindowsAutopilotDeviceIdentityUpload': return new ImportedWindowsAutopilotDeviceIdentityUpload();
+                case '#microsoft.graph.industryData.azureDataLakeConnector': return new AzureDataLakeConnector();
+                case '#microsoft.graph.industryData.fileDataConnector': return new FileDataConnector();
+                case '#microsoft.graph.industryData.fileValidateOperation': return new FileValidateOperation();
+                case '#microsoft.graph.industryData.inboundFileFlow': return new InboundFileFlow();
+                case '#microsoft.graph.industryData.inboundFlow': return new InboundFlow();
+                case '#microsoft.graph.industryData.inboundFlowActivity': return new InboundFlowActivity();
+                case '#microsoft.graph.industryData.industryDataActivity': return new IndustryDataActivity();
+                case '#microsoft.graph.industryData.industryDataConnector': return new IndustryDataConnector();
+                case '#microsoft.graph.industryData.industryDataRoot': return new IndustryDataRoot();
+                case '#microsoft.graph.industryData.industryDataRun': return new IndustryDataRun();
+                case '#microsoft.graph.industryData.industryDataRunActivity': return new IndustryDataRunActivity();
+                case '#microsoft.graph.industryData.outboundFlowActivity': return new OutboundFlowActivity();
+                case '#microsoft.graph.industryData.referenceDefinition': return new ReferenceDefinition();
+                case '#microsoft.graph.industryData.roleGroup': return new RoleGroup();
+                case '#microsoft.graph.industryData.sourceSystemDefinition': return new SourceSystemDefinition();
+                case '#microsoft.graph.industryData.validateOperation': return new ValidateOperation();
+                case '#microsoft.graph.industryData.yearTimePeriodDefinition': return new YearTimePeriodDefinition();
                 case '#microsoft.graph.inferenceClassification': return new InferenceClassification();
                 case '#microsoft.graph.inferenceClassificationOverride': return new InferenceClassificationOverride();
                 case '#microsoft.graph.informationProtection': return new InformationProtection();
@@ -831,6 +898,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.internetExplorerMode': return new InternetExplorerMode();
                 case '#microsoft.graph.intuneBrandingProfile': return new IntuneBrandingProfile();
                 case '#microsoft.graph.intuneBrandingProfileAssignment': return new IntuneBrandingProfileAssignment();
+                case '#microsoft.graph.invalidLicenseAlertConfiguration': return new InvalidLicenseAlertConfiguration();
+                case '#microsoft.graph.invalidLicenseAlertIncident': return new InvalidLicenseAlertIncident();
                 case '#microsoft.graph.invitation': return new Invitation();
                 case '#microsoft.graph.inviteParticipantsOperation': return new InviteParticipantsOperation();
                 case '#microsoft.graph.invokeUserFlowListener': return new InvokeUserFlowListener();
@@ -887,12 +956,16 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.itemPatent': return new ItemPatent();
                 case '#microsoft.graph.itemPhone': return new ItemPhone();
                 case '#microsoft.graph.itemPublication': return new ItemPublication();
+                case '#microsoft.graph.itemRetentionLabel': return new ItemRetentionLabel();
                 case '#microsoft.graph.jobResponseBase': return new JobResponseBase();
                 case '#microsoft.graph.journal': return new Journal();
                 case '#microsoft.graph.journalLine': return new JournalLine();
                 case '#microsoft.graph.languageProficiency': return new LanguageProficiency();
+                case '#microsoft.graph.learningAssignment': return new LearningAssignment();
                 case '#microsoft.graph.learningContent': return new LearningContent();
+                case '#microsoft.graph.learningCourseActivity': return new LearningCourseActivity();
                 case '#microsoft.graph.learningProvider': return new LearningProvider();
+                case '#microsoft.graph.learningSelfInitiatedCourse': return new LearningSelfInitiatedCourse();
                 case '#microsoft.graph.licenseDetails': return new LicenseDetails();
                 case '#microsoft.graph.linkedResource': return new LinkedResource();
                 case '#microsoft.graph.list': return new EscapedList();
@@ -966,13 +1039,16 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.managedMobileApp': return new ManagedMobileApp();
                 case '#microsoft.graph.managedMobileLobApp': return new ManagedMobileLobApp();
                 case '#microsoft.graph.managedTenants.aggregatedPolicyCompliance': return new AggregatedPolicyCompliance();
+                case '#microsoft.graph.managedTenants.appPerformance': return new AppPerformance();
                 case '#microsoft.graph.managedTenants.auditEvent': return new AuditEvent();
                 case '#microsoft.graph.managedTenants.cloudPcConnection': return new CloudPcConnection();
                 case '#microsoft.graph.managedTenants.cloudPcDevice': return new CloudPcDevice();
                 case '#microsoft.graph.managedTenants.cloudPcOverview': return new CloudPcOverview();
                 case '#microsoft.graph.managedTenants.conditionalAccessPolicyCoverage': return new ConditionalAccessPolicyCoverage();
                 case '#microsoft.graph.managedTenants.credentialUserRegistrationsSummary': return new CredentialUserRegistrationsSummary();
+                case '#microsoft.graph.managedTenants.deviceAppPerformance': return new DeviceAppPerformance();
                 case '#microsoft.graph.managedTenants.deviceCompliancePolicySettingStateSummary': return new DeviceCompliancePolicySettingStateSummary();
+                case '#microsoft.graph.managedTenants.deviceHealthStatus': return new DeviceHealthStatus();
                 case '#microsoft.graph.managedTenants.managedDeviceCompliance': return new ManagedDeviceCompliance();
                 case '#microsoft.graph.managedTenants.managedDeviceComplianceTrend': return new ManagedDeviceComplianceTrend();
                 case '#microsoft.graph.managedTenants.managedTenant': return new ManagedTenant();
@@ -1051,6 +1127,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.muteParticipantsOperation': return new MuteParticipantsOperation();
                 case '#microsoft.graph.namedLocation': return new NamedLocation();
                 case '#microsoft.graph.ndesConnector': return new NdesConnector();
+                case '#microsoft.graph.noMfaOnRoleActivationAlertConfiguration': return new NoMfaOnRoleActivationAlertConfiguration();
+                case '#microsoft.graph.noMfaOnRoleActivationAlertIncident': return new NoMfaOnRoleActivationAlertIncident();
                 case '#microsoft.graph.note': return new Note();
                 case '#microsoft.graph.notebook': return new Notebook();
                 case '#microsoft.graph.notification': return new Notification();
@@ -1066,8 +1144,6 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.office365GroupsActivityGroupCounts': return new Office365GroupsActivityGroupCounts();
                 case '#microsoft.graph.office365GroupsActivityStorage': return new Office365GroupsActivityStorage();
                 case '#microsoft.graph.office365ServicesUserCounts': return new Office365ServicesUserCounts();
-                case '#microsoft.graph.officeClientConfiguration': return new OfficeClientConfiguration();
-                case '#microsoft.graph.officeClientConfigurationAssignment': return new OfficeClientConfigurationAssignment();
                 case '#microsoft.graph.officeGraphInsights': return new OfficeGraphInsights();
                 case '#microsoft.graph.officeSuiteApp': return new OfficeSuiteApp();
                 case '#microsoft.graph.onenote': return new Onenote();
@@ -1109,6 +1185,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.participantLeftNotification': return new ParticipantLeftNotification();
                 case '#microsoft.graph.passwordAuthenticationMethod': return new PasswordAuthenticationMethod();
                 case '#microsoft.graph.passwordlessMicrosoftAuthenticatorAuthenticationMethod': return new PasswordlessMicrosoftAuthenticatorAuthenticationMethod();
+                case '#microsoft.graph.payload': return new Payload();
                 case '#microsoft.graph.payloadCompatibleAssignmentFilter': return new PayloadCompatibleAssignmentFilter();
                 case '#microsoft.graph.payloadResponse': return new PayloadResponse();
                 case '#microsoft.graph.paymentMethod': return new PaymentMethod();
@@ -1172,6 +1249,17 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.printUsageByPrinter': return new PrintUsageByPrinter();
                 case '#microsoft.graph.printUsageByUser': return new PrintUsageByUser();
                 case '#microsoft.graph.privilegedAccess': return new PrivilegedAccess();
+                case '#microsoft.graph.privilegedAccessGroup': return new PrivilegedAccessGroup();
+                case '#microsoft.graph.privilegedAccessGroupAssignmentSchedule': return new PrivilegedAccessGroupAssignmentSchedule();
+                case '#microsoft.graph.privilegedAccessGroupAssignmentScheduleInstance': return new PrivilegedAccessGroupAssignmentScheduleInstance();
+                case '#microsoft.graph.privilegedAccessGroupAssignmentScheduleRequest': return new PrivilegedAccessGroupAssignmentScheduleRequest();
+                case '#microsoft.graph.privilegedAccessGroupEligibilitySchedule': return new PrivilegedAccessGroupEligibilitySchedule();
+                case '#microsoft.graph.privilegedAccessGroupEligibilityScheduleInstance': return new PrivilegedAccessGroupEligibilityScheduleInstance();
+                case '#microsoft.graph.privilegedAccessGroupEligibilityScheduleRequest': return new PrivilegedAccessGroupEligibilityScheduleRequest();
+                case '#microsoft.graph.privilegedAccessRoot': return new PrivilegedAccessRoot();
+                case '#microsoft.graph.privilegedAccessSchedule': return new PrivilegedAccessSchedule();
+                case '#microsoft.graph.privilegedAccessScheduleInstance': return new PrivilegedAccessScheduleInstance();
+                case '#microsoft.graph.privilegedAccessScheduleRequest': return new PrivilegedAccessScheduleRequest();
                 case '#microsoft.graph.privilegedApproval': return new PrivilegedApproval();
                 case '#microsoft.graph.privilegedOperationEvent': return new PrivilegedOperationEvent();
                 case '#microsoft.graph.privilegedRole': return new PrivilegedRole();
@@ -1187,6 +1275,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.programControl': return new ProgramControl();
                 case '#microsoft.graph.programControlType': return new ProgramControlType();
                 case '#microsoft.graph.projectParticipation': return new ProjectParticipation();
+                case '#microsoft.graph.pronounsSettings': return new PronounsSettings();
                 case '#microsoft.graph.providerTenantSetting': return new ProviderTenantSetting();
                 case '#microsoft.graph.provisioningObjectSummary': return new ProvisioningObjectSummary();
                 case '#microsoft.graph.publishedResource': return new PublishedResource();
@@ -1195,8 +1284,10 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.rbacApplication': return new RbacApplication();
                 case '#microsoft.graph.rbacApplicationMultiple': return new RbacApplicationMultiple();
                 case '#microsoft.graph.recommendation': return new Recommendation();
-                case '#microsoft.graph.recommendationResource': return new RecommendationResource();
+                case '#microsoft.graph.recommendationBase': return new RecommendationBase();
                 case '#microsoft.graph.recordOperation': return new RecordOperation();
+                case '#microsoft.graph.redundantAssignmentAlertConfiguration': return new RedundantAssignmentAlertConfiguration();
+                case '#microsoft.graph.redundantAssignmentAlertIncident': return new RedundantAssignmentAlertIncident();
                 case '#microsoft.graph.referenceAttachment': return new ReferenceAttachment();
                 case '#microsoft.graph.regionalAndLanguageSettings': return new RegionalAndLanguageSettings();
                 case '#microsoft.graph.relyingPartyDetailedSummary': return new RelyingPartyDetailedSummary();
@@ -1216,6 +1307,9 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.riskyUserHistoryItem': return new RiskyUserHistoryItem();
                 case '#microsoft.graph.roleAssignment': return new RoleAssignment();
                 case '#microsoft.graph.roleDefinition': return new RoleDefinition();
+                case '#microsoft.graph.roleManagementAlert': return new RoleManagementAlert();
+                case '#microsoft.graph.rolesAssignedOutsidePrivilegedIdentityManagementAlertConfiguration': return new RolesAssignedOutsidePrivilegedIdentityManagementAlertConfiguration();
+                case '#microsoft.graph.rolesAssignedOutsidePrivilegedIdentityManagementAlertIncident': return new RolesAssignedOutsidePrivilegedIdentityManagementAlertIncident();
                 case '#microsoft.graph.roleScopeTag': return new RoleScopeTag();
                 case '#microsoft.graph.roleScopeTagAutoAssignment': return new RoleScopeTagAutoAssignment();
                 case '#microsoft.graph.room': return new Room();
@@ -1246,6 +1340,9 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.secureScoreControlProfile': return new SecureScoreControlProfile();
                 case '#microsoft.graph.security': return new Security();
                 case '#microsoft.graph.security.alert': return new Alert();
+                case '#microsoft.graph.security.article': return new Article();
+                case '#microsoft.graph.security.articleIndicator': return new ArticleIndicator();
+                case '#microsoft.graph.security.artifact': return new Artifact();
                 case '#microsoft.graph.security.case': return new \Microsoft\Graph\Beta\Generated\Models\Security\EscapedCase();
                 case '#microsoft.graph.security.caseOperation': return new \Microsoft\Graph\Beta\Generated\Models\Security\CaseOperation();
                 case '#microsoft.graph.security.casesRoot': return new CasesRoot();
@@ -1278,10 +1375,21 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.security.fileContentThreatSubmission': return new FileContentThreatSubmission();
                 case '#microsoft.graph.security.fileThreatSubmission': return new FileThreatSubmission();
                 case '#microsoft.graph.security.fileUrlThreatSubmission': return new FileUrlThreatSubmission();
+                case '#microsoft.graph.security.host': return new Host();
+                case '#microsoft.graph.security.hostComponent': return new HostComponent();
+                case '#microsoft.graph.security.hostCookie': return new HostCookie();
+                case '#microsoft.graph.security.hostname': return new Hostname();
+                case '#microsoft.graph.security.hostReputation': return new HostReputation();
+                case '#microsoft.graph.security.hostTracker': return new HostTracker();
                 case '#microsoft.graph.security.incident': return new Incident();
+                case '#microsoft.graph.security.indicator': return new Indicator();
                 case '#microsoft.graph.security.informationProtection': return new InformationProtection();
                 case '#microsoft.graph.security.informationProtectionPolicySetting': return new InformationProtectionPolicySetting();
+                case '#microsoft.graph.security.intelligenceProfile': return new IntelligenceProfile();
+                case '#microsoft.graph.security.intelligenceProfileIndicator': return new IntelligenceProfileIndicator();
+                case '#microsoft.graph.security.ipAddress': return new IpAddress();
                 case '#microsoft.graph.security.labelsRoot': return new LabelsRoot();
+                case '#microsoft.graph.security.passiveDnsRecord': return new PassiveDnsRecord();
                 case '#microsoft.graph.security.policyBase': return new PolicyBase();
                 case '#microsoft.graph.security.retentionEvent': return new RetentionEvent();
                 case '#microsoft.graph.security.retentionEventType': return new RetentionEventType();
@@ -1291,13 +1399,17 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.security.sensitivityLabel': return new SensitivityLabel();
                 case '#microsoft.graph.security.siteSource': return new \Microsoft\Graph\Beta\Generated\Models\Security\SiteSource();
                 case '#microsoft.graph.security.tag': return new \Microsoft\Graph\Beta\Generated\Models\Security\Tag();
+                case '#microsoft.graph.security.threatIntelligence': return new ThreatIntelligence();
                 case '#microsoft.graph.security.threatSubmission': return new ThreatSubmission();
                 case '#microsoft.graph.security.threatSubmissionRoot': return new ThreatSubmissionRoot();
                 case '#microsoft.graph.security.triggersRoot': return new TriggersRoot();
                 case '#microsoft.graph.security.triggerTypesRoot': return new TriggerTypesRoot();
+                case '#microsoft.graph.security.unclassifiedArtifact': return new UnclassifiedArtifact();
                 case '#microsoft.graph.security.unifiedGroupSource': return new \Microsoft\Graph\Beta\Generated\Models\Security\UnifiedGroupSource();
                 case '#microsoft.graph.security.urlThreatSubmission': return new UrlThreatSubmission();
                 case '#microsoft.graph.security.userSource': return new \Microsoft\Graph\Beta\Generated\Models\Security\UserSource();
+                case '#microsoft.graph.security.vulnerability': return new Vulnerability();
+                case '#microsoft.graph.security.vulnerabilityComponent': return new VulnerabilityComponent();
                 case '#microsoft.graph.securityAction': return new SecurityAction();
                 case '#microsoft.graph.securityBaselineCategoryStateSummary': return new SecurityBaselineCategoryStateSummary();
                 case '#microsoft.graph.securityBaselineDeviceState': return new SecurityBaselineDeviceState();
@@ -1310,11 +1422,14 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.sensitiveType': return new SensitiveType();
                 case '#microsoft.graph.sensitivityLabel': return new SensitivityLabel();
                 case '#microsoft.graph.sensitivityPolicySettings': return new SensitivityPolicySettings();
+                case '#microsoft.graph.sequentialActivationRenewalsAlertConfiguration': return new SequentialActivationRenewalsAlertConfiguration();
+                case '#microsoft.graph.sequentialActivationRenewalsAlertIncident': return new SequentialActivationRenewalsAlertIncident();
                 case '#microsoft.graph.serviceAnnouncement': return new ServiceAnnouncement();
                 case '#microsoft.graph.serviceAnnouncementAttachment': return new ServiceAnnouncementAttachment();
                 case '#microsoft.graph.serviceAnnouncementBase': return new ServiceAnnouncementBase();
                 case '#microsoft.graph.serviceHealth': return new ServiceHealth();
                 case '#microsoft.graph.serviceHealthIssue': return new ServiceHealthIssue();
+                case '#microsoft.graph.serviceNowConnection': return new ServiceNowConnection();
                 case '#microsoft.graph.servicePrincipal': return new ServicePrincipal();
                 case '#microsoft.graph.servicePrincipalCreationConditionSet': return new ServicePrincipalCreationConditionSet();
                 case '#microsoft.graph.servicePrincipalCreationPolicy': return new ServicePrincipalCreationPolicy();
@@ -1327,10 +1442,11 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.sharedInsight': return new SharedInsight();
                 case '#microsoft.graph.sharedPCConfiguration': return new SharedPCConfiguration();
                 case '#microsoft.graph.sharedWithChannelTeamInfo': return new SharedWithChannelTeamInfo();
+                case '#microsoft.graph.sharepoint': return new Sharepoint();
+                case '#microsoft.graph.sharepointSettings': return new SharepointSettings();
                 case '#microsoft.graph.shift': return new Shift();
                 case '#microsoft.graph.shiftPreferences': return new ShiftPreferences();
                 case '#microsoft.graph.shipmentMethod': return new ShipmentMethod();
-                case '#microsoft.graph.sideLoadingKey': return new SideLoadingKey();
                 case '#microsoft.graph.signIn': return new SignIn();
                 case '#microsoft.graph.simulation': return new Simulation();
                 case '#microsoft.graph.simulationAutomation': return new SimulationAutomation();
@@ -1345,7 +1461,10 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.smsAuthenticationMethodTarget': return new SmsAuthenticationMethodTarget();
                 case '#microsoft.graph.socialIdentityProvider': return new SocialIdentityProvider();
                 case '#microsoft.graph.softwareOathAuthenticationMethod': return new SoftwareOathAuthenticationMethod();
+                case '#microsoft.graph.softwareOathAuthenticationMethodConfiguration': return new SoftwareOathAuthenticationMethodConfiguration();
                 case '#microsoft.graph.softwareUpdateStatusSummary': return new SoftwareUpdateStatusSummary();
+                case '#microsoft.graph.staleSignInAlertConfiguration': return new StaleSignInAlertConfiguration();
+                case '#microsoft.graph.staleSignInAlertIncident': return new StaleSignInAlertIncident();
                 case '#microsoft.graph.standardWebPart': return new StandardWebPart();
                 case '#microsoft.graph.startHoldMusicOperation': return new StartHoldMusicOperation();
                 case '#microsoft.graph.stopHoldMusicOperation': return new StopHoldMusicOperation();
@@ -1395,11 +1514,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.telecomExpenseManagementPartner': return new TelecomExpenseManagementPartner();
                 case '#microsoft.graph.temporaryAccessPassAuthenticationMethod': return new TemporaryAccessPassAuthenticationMethod();
                 case '#microsoft.graph.temporaryAccessPassAuthenticationMethodConfiguration': return new TemporaryAccessPassAuthenticationMethodConfiguration();
-                case '#microsoft.graph.tenantAdmin.settings': return new Settings();
-                case '#microsoft.graph.tenantAdmin.sharepoint': return new Sharepoint();
                 case '#microsoft.graph.tenantAppManagementPolicy': return new TenantAppManagementPolicy();
                 case '#microsoft.graph.tenantAttachRBAC': return new TenantAttachRBAC();
-                case '#microsoft.graph.tenantRelationship': return new TenantRelationship();
                 case '#microsoft.graph.tenantRelationshipAccessPolicyBase': return new TenantRelationshipAccessPolicyBase();
                 case '#microsoft.graph.tenantSetupInfo': return new TenantSetupInfo();
                 case '#microsoft.graph.termsAndConditions': return new TermsAndConditions();
@@ -1427,9 +1543,12 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.todoTaskList': return new TodoTaskList();
                 case '#microsoft.graph.tokenIssuancePolicy': return new TokenIssuancePolicy();
                 case '#microsoft.graph.tokenLifetimePolicy': return new TokenLifetimePolicy();
+                case '#microsoft.graph.tooManyGlobalAdminsAssignedToTenantAlertConfiguration': return new TooManyGlobalAdminsAssignedToTenantAlertConfiguration();
+                case '#microsoft.graph.tooManyGlobalAdminsAssignedToTenantAlertIncident': return new TooManyGlobalAdminsAssignedToTenantAlertIncident();
                 case '#microsoft.graph.trending': return new Trending();
                 case '#microsoft.graph.trustFrameworkKeySet': return new TrustFrameworkKeySet();
                 case '#microsoft.graph.trustFrameworkPolicy': return new TrustFrameworkPolicy();
+                case '#microsoft.graph.unifiedRbacApplication': return new UnifiedRbacApplication();
                 case '#microsoft.graph.unifiedRbacResourceAction': return new UnifiedRbacResourceAction();
                 case '#microsoft.graph.unifiedRbacResourceNamespace': return new UnifiedRbacResourceNamespace();
                 case '#microsoft.graph.unifiedRbacResourceScope': return new UnifiedRbacResourceScope();
@@ -1442,6 +1561,10 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.unifiedRoleEligibilitySchedule': return new UnifiedRoleEligibilitySchedule();
                 case '#microsoft.graph.unifiedRoleEligibilityScheduleInstance': return new UnifiedRoleEligibilityScheduleInstance();
                 case '#microsoft.graph.unifiedRoleEligibilityScheduleRequest': return new UnifiedRoleEligibilityScheduleRequest();
+                case '#microsoft.graph.unifiedRoleManagementAlert': return new UnifiedRoleManagementAlert();
+                case '#microsoft.graph.unifiedRoleManagementAlertConfiguration': return new UnifiedRoleManagementAlertConfiguration();
+                case '#microsoft.graph.unifiedRoleManagementAlertDefinition': return new UnifiedRoleManagementAlertDefinition();
+                case '#microsoft.graph.unifiedRoleManagementAlertIncident': return new UnifiedRoleManagementAlertIncident();
                 case '#microsoft.graph.unifiedRoleManagementPolicy': return new UnifiedRoleManagementPolicy();
                 case '#microsoft.graph.unifiedRoleManagementPolicyApprovalRule': return new UnifiedRoleManagementPolicyApprovalRule();
                 case '#microsoft.graph.unifiedRoleManagementPolicyAssignment': return new UnifiedRoleManagementPolicyAssignment();
@@ -1496,6 +1619,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.userExperienceAnalyticsDeviceStartupHistory': return new UserExperienceAnalyticsDeviceStartupHistory();
                 case '#microsoft.graph.userExperienceAnalyticsDeviceStartupProcess': return new UserExperienceAnalyticsDeviceStartupProcess();
                 case '#microsoft.graph.userExperienceAnalyticsDeviceStartupProcessPerformance': return new UserExperienceAnalyticsDeviceStartupProcessPerformance();
+                case '#microsoft.graph.userExperienceAnalyticsDeviceTimelineEvent': return new UserExperienceAnalyticsDeviceTimelineEvent();
                 case '#microsoft.graph.userExperienceAnalyticsDeviceWithoutCloudIdentity': return new UserExperienceAnalyticsDeviceWithoutCloudIdentity();
                 case '#microsoft.graph.userExperienceAnalyticsImpactingProcess': return new UserExperienceAnalyticsImpactingProcess();
                 case '#microsoft.graph.userExperienceAnalyticsMetric': return new UserExperienceAnalyticsMetric();
@@ -1525,6 +1649,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.verticalSection': return new VerticalSection();
                 case '#microsoft.graph.virtualAppointment': return new VirtualAppointment();
                 case '#microsoft.graph.virtualEndpoint': return new VirtualEndpoint();
+                case '#microsoft.graph.voiceAuthenticationMethodConfiguration': return new VoiceAuthenticationMethodConfiguration();
+                case '#microsoft.graph.voiceAuthenticationMethodTarget': return new VoiceAuthenticationMethodTarget();
                 case '#microsoft.graph.vpnConfiguration': return new VpnConfiguration();
                 case '#microsoft.graph.vppToken': return new VppToken();
                 case '#microsoft.graph.vulnerableManagedDevice': return new VulnerableManagedDevice();
@@ -1604,8 +1730,6 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.windowsManagementAppHealthSummary': return new WindowsManagementAppHealthSummary();
                 case '#microsoft.graph.windowsMicrosoftEdgeApp': return new WindowsMicrosoftEdgeApp();
                 case '#microsoft.graph.windowsMobileMSI': return new WindowsMobileMSI();
-                case '#microsoft.graph.windowsOfficeClientConfiguration': return new WindowsOfficeClientConfiguration();
-                case '#microsoft.graph.windowsOfficeClientSecurityConfiguration': return new WindowsOfficeClientSecurityConfiguration();
                 case '#microsoft.graph.windowsPhone81AppX': return new WindowsPhone81AppX();
                 case '#microsoft.graph.windowsPhone81AppXBundle': return new WindowsPhone81AppXBundle();
                 case '#microsoft.graph.windowsPhone81CertificateProfileBase': return new WindowsPhone81CertificateProfileBase();
@@ -1632,8 +1756,11 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.windowsUpdates.azureADDevice': return new AzureADDevice();
                 case '#microsoft.graph.windowsUpdates.catalog': return new Catalog();
                 case '#microsoft.graph.windowsUpdates.catalogEntry': return new CatalogEntry();
+                case '#microsoft.graph.windowsUpdates.complianceChange': return new ComplianceChange();
+                case '#microsoft.graph.windowsUpdates.contentApproval': return new ContentApproval();
                 case '#microsoft.graph.windowsUpdates.deployment': return new Deployment();
                 case '#microsoft.graph.windowsUpdates.deploymentAudience': return new DeploymentAudience();
+                case '#microsoft.graph.windowsUpdates.driverUpdateCatalogEntry': return new DriverUpdateCatalogEntry();
                 case '#microsoft.graph.windowsUpdates.featureUpdateCatalogEntry': return new FeatureUpdateCatalogEntry();
                 case '#microsoft.graph.windowsUpdates.operationalInsightsConnection': return new OperationalInsightsConnection();
                 case '#microsoft.graph.windowsUpdates.qualityUpdateCatalogEntry': return new QualityUpdateCatalogEntry();
@@ -1641,8 +1768,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.windowsUpdates.softwareUpdateCatalogEntry': return new SoftwareUpdateCatalogEntry();
                 case '#microsoft.graph.windowsUpdates.updatableAsset': return new UpdatableAsset();
                 case '#microsoft.graph.windowsUpdates.updatableAssetGroup': return new UpdatableAssetGroup();
-                case '#microsoft.graph.windowsUpdates.updates': return new Updates();
-                case '#microsoft.graph.windowsUpdates.windows': return new Windows();
+                case '#microsoft.graph.windowsUpdates.updatePolicy': return new UpdatePolicy();
                 case '#microsoft.graph.windowsUpdateState': return new WindowsUpdateState();
                 case '#microsoft.graph.windowsVpnConfiguration': return new WindowsVpnConfiguration();
                 case '#microsoft.graph.windowsWebApp': return new WindowsWebApp();
@@ -1710,7 +1836,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -1764,7 +1890,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -1772,7 +1898,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -1780,7 +1906,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the id property value. The unique identifier for an entity. Read-only.
-     *  @param string|null $value Value to set for the id property.
+     * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
         $this->getBackingStore()->set('id', $value);
@@ -1788,7 +1914,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

@@ -7,27 +7,21 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Onenote;
-use Microsoft\Graph\Beta\Generated\Users\Item\Onenote\Notebooks\Item\NotebookItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Onenote\Notebooks\NotebooksRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Onenote\Operations\Item\OnenoteOperationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Onenote\Operations\OperationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Onenote\Pages\Item\OnenotePageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Onenote\Pages\PagesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Onenote\Resources\Item\OnenoteResourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Onenote\Resources\ResourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Onenote\SectionGroups\Item\SectionGroupItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Onenote\SectionGroups\SectionGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Onenote\Sections\Item\OnenoteSectionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Onenote\Sections\SectionsRequestBuilder;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
-class OnenoteRequestBuilder 
+/**
+ * Provides operations to manage the onenote property of the microsoft.graph.user entity.
+*/
+class OnenoteRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to manage the notebooks property of the microsoft.graph.onenote entity.
@@ -51,16 +45,6 @@ class OnenoteRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
      * Provides operations to manage the resources property of the microsoft.graph.onenote entity.
     */
     public function resources(): ResourcesRequestBuilder {
@@ -82,35 +66,32 @@ class OnenoteRequestBuilder
     }
     
     /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
      * Instantiates a new OnenoteRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/users/{user%2Did}/onenote{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
+        parent::__construct($requestAdapter, [], '{+baseurl}/users/{user%2Did}/onenote{?%24select,%24expand}');
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
      * Delete navigation property onenote for users
      * @param OnenoteRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?OnenoteRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?OnenoteRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -119,106 +100,38 @@ class OnenoteRequestBuilder
     /**
      * Get onenote from users
      * @param OnenoteRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?OnenoteRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?OnenoteRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Onenote::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Onenote::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the notebooks property of the microsoft.graph.onenote entity.
-     * @param string $id Unique identifier of the item
-     * @return NotebookItemRequestBuilder
-    */
-    public function notebooksById(string $id): NotebookItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['notebook%2Did'] = $id;
-        return new NotebookItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the operations property of the microsoft.graph.onenote entity.
-     * @param string $id Unique identifier of the item
-     * @return OnenoteOperationItemRequestBuilder
-    */
-    public function operationsById(string $id): OnenoteOperationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['onenoteOperation%2Did'] = $id;
-        return new OnenoteOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the pages property of the microsoft.graph.onenote entity.
-     * @param string $id Unique identifier of the item
-     * @return OnenotePageItemRequestBuilder
-    */
-    public function pagesById(string $id): OnenotePageItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['onenotePage%2Did'] = $id;
-        return new OnenotePageItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Update the navigation property onenote in users
      * @param Onenote $body The request body
      * @param OnenoteRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(Onenote $body, ?OnenoteRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(Onenote $body, ?OnenoteRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Onenote::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Onenote::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to manage the resources property of the microsoft.graph.onenote entity.
-     * @param string $id Unique identifier of the item
-     * @return OnenoteResourceItemRequestBuilder
-    */
-    public function resourcesById(string $id): OnenoteResourceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['onenoteResource%2Did'] = $id;
-        return new OnenoteResourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the sectionGroups property of the microsoft.graph.onenote entity.
-     * @param string $id Unique identifier of the item
-     * @return SectionGroupItemRequestBuilder
-    */
-    public function sectionGroupsById(string $id): SectionGroupItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['sectionGroup%2Did'] = $id;
-        return new SectionGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the sections property of the microsoft.graph.onenote entity.
-     * @param string $id Unique identifier of the item
-     * @return OnenoteSectionItemRequestBuilder
-    */
-    public function sectionsById(string $id): OnenoteSectionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['onenoteSection%2Did'] = $id;
-        return new OnenoteSectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -232,12 +145,8 @@ class OnenoteRequestBuilder
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -252,17 +161,13 @@ class OnenoteRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -278,14 +183,10 @@ class OnenoteRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

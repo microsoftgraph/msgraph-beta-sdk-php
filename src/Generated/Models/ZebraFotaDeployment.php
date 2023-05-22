@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ZebraFotaDeployment extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new zebraFotaDeployment and sets the default values.
+     * Instantiates a new ZebraFotaDeployment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -76,7 +76,16 @@ class ZebraFotaDeployment extends Entity implements Parsable
             'deploymentStatus' => fn(ParseNode $n) => $o->setDeploymentStatus($n->getObjectValue([ZebraFotaDeploymentStatus::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
         ]);
+    }
+
+    /**
+     * Gets the roleScopeTagIds property value. List of Scope Tags for this Entity instance
+     * @return array<string>|null
+    */
+    public function getRoleScopeTagIds(): ?array {
+        return $this->getBackingStore()->get('roleScopeTagIds');
     }
 
     /**
@@ -90,11 +99,12 @@ class ZebraFotaDeployment extends Entity implements Parsable
         $writer->writeObjectValue('deploymentStatus', $this->getDeploymentStatus());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
     }
 
     /**
      * Sets the deploymentAssignments property value. Collection of Android FOTA Assignment
-     *  @param array<AndroidFotaDeploymentAssignment>|null $value Value to set for the deploymentAssignments property.
+     * @param array<AndroidFotaDeploymentAssignment>|null $value Value to set for the deploymentAssignments property.
     */
     public function setDeploymentAssignments(?array $value): void {
         $this->getBackingStore()->set('deploymentAssignments', $value);
@@ -102,7 +112,7 @@ class ZebraFotaDeployment extends Entity implements Parsable
 
     /**
      * Sets the deploymentSettings property value. The Zebra FOTA deployment complex type that describes the settings required to create a FOTA deployment.
-     *  @param ZebraFotaDeploymentSettings|null $value Value to set for the deploymentSettings property.
+     * @param ZebraFotaDeploymentSettings|null $value Value to set for the deploymentSettings property.
     */
     public function setDeploymentSettings(?ZebraFotaDeploymentSettings $value): void {
         $this->getBackingStore()->set('deploymentSettings', $value);
@@ -110,7 +120,7 @@ class ZebraFotaDeployment extends Entity implements Parsable
 
     /**
      * Sets the deploymentStatus property value. Represents the deployment status from Zebra. The status is a high level status of the deployment as opposed being a detailed status per device.
-     *  @param ZebraFotaDeploymentStatus|null $value Value to set for the deploymentStatus property.
+     * @param ZebraFotaDeploymentStatus|null $value Value to set for the deploymentStatus property.
     */
     public function setDeploymentStatus(?ZebraFotaDeploymentStatus $value): void {
         $this->getBackingStore()->set('deploymentStatus', $value);
@@ -118,7 +128,7 @@ class ZebraFotaDeployment extends Entity implements Parsable
 
     /**
      * Sets the description property value. A human readable description of the deployment.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -126,10 +136,18 @@ class ZebraFotaDeployment extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. A human readable name of the deployment.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the roleScopeTagIds property value. List of Scope Tags for this Entity instance
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
+    */
+    public function setRoleScopeTagIds(?array $value): void {
+        $this->getBackingStore()->set('roleScopeTagIds', $value);
     }
 
 }

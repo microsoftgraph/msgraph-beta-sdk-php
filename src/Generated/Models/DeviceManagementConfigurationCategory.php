@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Device Management Configuration Policy
+*/
 class DeviceManagementConfigurationCategory extends Entity implements Parsable 
 {
     /**
@@ -25,7 +28,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     }
 
     /**
-     * Gets the categoryDescription property value. Description of the category header
+     * Gets the categoryDescription property value. Description of the category header in policy summary.
      * @return string|null
     */
     public function getCategoryDescription(): ?string {
@@ -41,7 +44,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. Description of the item
+     * Gets the description property value. Description of the category. For example: Display
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -49,7 +52,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. Display name of the item
+     * Gets the displayName property value. Name of the category. For example: Device Lock
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -78,7 +81,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     }
 
     /**
-     * Gets the helpText property value. Help text of the item
+     * Gets the helpText property value. Help text of the category. Give more details of the category.
      * @return string|null
     */
     public function getHelpText(): ?string {
@@ -94,7 +97,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     }
 
     /**
-     * Gets the parentCategoryId property value. Parent id of the category.
+     * Gets the parentCategoryId property value. Direct parent id of the category. If the category is the root, the parent id is same as its id.
      * @return string|null
     */
     public function getParentCategoryId(): ?string {
@@ -153,8 +156,8 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     }
 
     /**
-     * Sets the categoryDescription property value. Description of the category header
-     *  @param string|null $value Value to set for the categoryDescription property.
+     * Sets the categoryDescription property value. Description of the category header in policy summary.
+     * @param string|null $value Value to set for the categoryDescription property.
     */
     public function setCategoryDescription(?string $value): void {
         $this->getBackingStore()->set('categoryDescription', $value);
@@ -162,31 +165,31 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
 
     /**
      * Sets the childCategoryIds property value. List of child ids of the category.
-     *  @param array<string>|null $value Value to set for the childCategoryIds property.
+     * @param array<string>|null $value Value to set for the childCategoryIds property.
     */
     public function setChildCategoryIds(?array $value): void {
         $this->getBackingStore()->set('childCategoryIds', $value);
     }
 
     /**
-     * Sets the description property value. Description of the item
-     *  @param string|null $value Value to set for the description property.
+     * Sets the description property value. Description of the category. For example: Display
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
     }
 
     /**
-     * Sets the displayName property value. Display name of the item
-     *  @param string|null $value Value to set for the displayName property.
+     * Sets the displayName property value. Name of the category. For example: Device Lock
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
-     * Sets the helpText property value. Help text of the item
-     *  @param string|null $value Value to set for the helpText property.
+     * Sets the helpText property value. Help text of the category. Give more details of the category.
+     * @param string|null $value Value to set for the helpText property.
     */
     public function setHelpText(?string $value): void {
         $this->getBackingStore()->set('helpText', $value);
@@ -194,15 +197,15 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
 
     /**
      * Sets the name property value. Name of the item
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
     }
 
     /**
-     * Sets the parentCategoryId property value. Parent id of the category.
-     *  @param string|null $value Value to set for the parentCategoryId property.
+     * Sets the parentCategoryId property value. Direct parent id of the category. If the category is the root, the parent id is same as its id.
+     * @param string|null $value Value to set for the parentCategoryId property.
     */
     public function setParentCategoryId(?string $value): void {
         $this->getBackingStore()->set('parentCategoryId', $value);
@@ -210,7 +213,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
 
     /**
      * Sets the platforms property value. Supported platform types.
-     *  @param DeviceManagementConfigurationPlatforms|null $value Value to set for the platforms property.
+     * @param DeviceManagementConfigurationPlatforms|null $value Value to set for the platforms property.
     */
     public function setPlatforms(?DeviceManagementConfigurationPlatforms $value): void {
         $this->getBackingStore()->set('platforms', $value);
@@ -218,7 +221,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
 
     /**
      * Sets the rootCategoryId property value. Root id of the category.
-     *  @param string|null $value Value to set for the rootCategoryId property.
+     * @param string|null $value Value to set for the rootCategoryId property.
     */
     public function setRootCategoryId(?string $value): void {
         $this->getBackingStore()->set('rootCategoryId', $value);
@@ -226,7 +229,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
 
     /**
      * Sets the settingUsage property value. Supported setting types
-     *  @param DeviceManagementConfigurationSettingUsage|null $value Value to set for the settingUsage property.
+     * @param DeviceManagementConfigurationSettingUsage|null $value Value to set for the settingUsage property.
     */
     public function setSettingUsage(?DeviceManagementConfigurationSettingUsage $value): void {
         $this->getBackingStore()->set('settingUsage', $value);
@@ -234,7 +237,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
 
     /**
      * Sets the technologies property value. Describes which technology this setting can be deployed with
-     *  @param DeviceManagementConfigurationTechnologies|null $value Value to set for the technologies property.
+     * @param DeviceManagementConfigurationTechnologies|null $value Value to set for the technologies property.
     */
     public function setTechnologies(?DeviceManagementConfigurationTechnologies $value): void {
         $this->getBackingStore()->set('technologies', $value);

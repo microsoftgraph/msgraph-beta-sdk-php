@@ -34,6 +34,14 @@ class TeamsAppDefinition extends Entity implements Parsable
     }
 
     /**
+     * Gets the authorization property value. Authorization requirements specified in the Teams app manifest.
+     * @return TeamsAppAuthorization|null
+    */
+    public function getAuthorization(): ?TeamsAppAuthorization {
+        return $this->getBackingStore()->get('authorization');
+    }
+
+    /**
      * Gets the azureADAppId property value. The WebApplicationInfo.Id from the Teams app manifest.
      * @return string|null
     */
@@ -89,6 +97,7 @@ class TeamsAppDefinition extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'allowedInstallationScopes' => fn(ParseNode $n) => $o->setAllowedInstallationScopes($n->getEnumValue(TeamsAppInstallationScopes::class)),
+            'authorization' => fn(ParseNode $n) => $o->setAuthorization($n->getObjectValue([TeamsAppAuthorization::class, 'createFromDiscriminatorValue'])),
             'azureADAppId' => fn(ParseNode $n) => $o->setAzureADAppId($n->getStringValue()),
             'bot' => fn(ParseNode $n) => $o->setBot($n->getObjectValue([TeamworkBot::class, 'createFromDiscriminatorValue'])),
             'colorIcon' => fn(ParseNode $n) => $o->setColorIcon($n->getObjectValue([TeamsAppIcon::class, 'createFromDiscriminatorValue'])),
@@ -159,6 +168,7 @@ class TeamsAppDefinition extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('allowedInstallationScopes', $this->getAllowedInstallationScopes());
+        $writer->writeObjectValue('authorization', $this->getAuthorization());
         $writer->writeStringValue('azureADAppId', $this->getAzureADAppId());
         $writer->writeObjectValue('bot', $this->getBot());
         $writer->writeObjectValue('colorIcon', $this->getColorIcon());
@@ -175,15 +185,23 @@ class TeamsAppDefinition extends Entity implements Parsable
 
     /**
      * Sets the allowedInstallationScopes property value. A collection of scopes where the Teams app can be installed. Possible values are:team — Indicates that the Teams app can be installed within a team and is authorized to access that team's data. groupChat  — Indicates that the Teams app can be installed within a group chat and is authorized to access that group chat's data.  personal — Indicates that the Teams app can be installed in the personal scope of a user and is authorized to access that user's data.
-     *  @param TeamsAppInstallationScopes|null $value Value to set for the allowedInstallationScopes property.
+     * @param TeamsAppInstallationScopes|null $value Value to set for the allowedInstallationScopes property.
     */
     public function setAllowedInstallationScopes(?TeamsAppInstallationScopes $value): void {
         $this->getBackingStore()->set('allowedInstallationScopes', $value);
     }
 
     /**
+     * Sets the authorization property value. Authorization requirements specified in the Teams app manifest.
+     * @param TeamsAppAuthorization|null $value Value to set for the authorization property.
+    */
+    public function setAuthorization(?TeamsAppAuthorization $value): void {
+        $this->getBackingStore()->set('authorization', $value);
+    }
+
+    /**
      * Sets the azureADAppId property value. The WebApplicationInfo.Id from the Teams app manifest.
-     *  @param string|null $value Value to set for the azureADAppId property.
+     * @param string|null $value Value to set for the azureADAppId property.
     */
     public function setAzureADAppId(?string $value): void {
         $this->getBackingStore()->set('azureADAppId', $value);
@@ -191,7 +209,7 @@ class TeamsAppDefinition extends Entity implements Parsable
 
     /**
      * Sets the bot property value. The details of the bot specified in the Teams app manifest.
-     *  @param TeamworkBot|null $value Value to set for the bot property.
+     * @param TeamworkBot|null $value Value to set for the bot property.
     */
     public function setBot(?TeamworkBot $value): void {
         $this->getBackingStore()->set('bot', $value);
@@ -199,7 +217,7 @@ class TeamsAppDefinition extends Entity implements Parsable
 
     /**
      * Sets the colorIcon property value. The color version of the Teams app's icon.
-     *  @param TeamsAppIcon|null $value Value to set for the colorIcon property.
+     * @param TeamsAppIcon|null $value Value to set for the colorIcon property.
     */
     public function setColorIcon(?TeamsAppIcon $value): void {
         $this->getBackingStore()->set('colorIcon', $value);
@@ -207,7 +225,7 @@ class TeamsAppDefinition extends Entity implements Parsable
 
     /**
      * Sets the createdBy property value. The createdBy property
-     *  @param IdentitySet|null $value Value to set for the createdBy property.
+     * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('createdBy', $value);
@@ -215,7 +233,7 @@ class TeamsAppDefinition extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description property
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -223,7 +241,7 @@ class TeamsAppDefinition extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The name of the app provided by the app developer.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -231,7 +249,7 @@ class TeamsAppDefinition extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -239,7 +257,7 @@ class TeamsAppDefinition extends Entity implements Parsable
 
     /**
      * Sets the outlineIcon property value. The outline version of the Teams app's icon.
-     *  @param TeamsAppIcon|null $value Value to set for the outlineIcon property.
+     * @param TeamsAppIcon|null $value Value to set for the outlineIcon property.
     */
     public function setOutlineIcon(?TeamsAppIcon $value): void {
         $this->getBackingStore()->set('outlineIcon', $value);
@@ -247,7 +265,7 @@ class TeamsAppDefinition extends Entity implements Parsable
 
     /**
      * Sets the publishingState property value. The published status of a specific version of a Teams app. Possible values are:submitted — The specific version of the Teams app has been submitted and is under review. published  — The request to publish the specific version of the Teams app has been approved by the admin and the app is published.  rejected — The request to publish the specific version of the Teams app was rejected by the admin.
-     *  @param TeamsAppPublishingState|null $value Value to set for the publishingState property.
+     * @param TeamsAppPublishingState|null $value Value to set for the publishingState property.
     */
     public function setPublishingState(?TeamsAppPublishingState $value): void {
         $this->getBackingStore()->set('publishingState', $value);
@@ -255,7 +273,7 @@ class TeamsAppDefinition extends Entity implements Parsable
 
     /**
      * Sets the shortdescription property value. The shortdescription property
-     *  @param string|null $value Value to set for the shortdescription property.
+     * @param string|null $value Value to set for the shortdescription property.
     */
     public function setShortdescription(?string $value): void {
         $this->getBackingStore()->set('shortdescription', $value);
@@ -263,7 +281,7 @@ class TeamsAppDefinition extends Entity implements Parsable
 
     /**
      * Sets the teamsAppId property value. The ID from the Teams app manifest.
-     *  @param string|null $value Value to set for the teamsAppId property.
+     * @param string|null $value Value to set for the teamsAppId property.
     */
     public function setTeamsAppId(?string $value): void {
         $this->getBackingStore()->set('teamsAppId', $value);
@@ -271,7 +289,7 @@ class TeamsAppDefinition extends Entity implements Parsable
 
     /**
      * Sets the version property value. The version number of the application.
-     *  @param string|null $value Value to set for the version property.
+     * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {
         $this->getBackingStore()->set('version', $value);

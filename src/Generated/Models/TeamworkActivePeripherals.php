@@ -36,7 +36,7 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -130,7 +130,7 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -138,7 +138,7 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -146,7 +146,7 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the communicationSpeaker property value. The communicationSpeaker property
-     *  @param TeamworkPeripheral|null $value Value to set for the communicationSpeaker property.
+     * @param TeamworkPeripheral|null $value Value to set for the communicationSpeaker property.
     */
     public function setCommunicationSpeaker(?TeamworkPeripheral $value): void {
         $this->getBackingStore()->set('communicationSpeaker', $value);
@@ -154,7 +154,7 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the contentCamera property value. The contentCamera property
-     *  @param TeamworkPeripheral|null $value Value to set for the contentCamera property.
+     * @param TeamworkPeripheral|null $value Value to set for the contentCamera property.
     */
     public function setContentCamera(?TeamworkPeripheral $value): void {
         $this->getBackingStore()->set('contentCamera', $value);
@@ -162,7 +162,7 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the microphone property value. The microphone property
-     *  @param TeamworkPeripheral|null $value Value to set for the microphone property.
+     * @param TeamworkPeripheral|null $value Value to set for the microphone property.
     */
     public function setMicrophone(?TeamworkPeripheral $value): void {
         $this->getBackingStore()->set('microphone', $value);
@@ -170,7 +170,7 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -178,7 +178,7 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the roomCamera property value. The roomCamera property
-     *  @param TeamworkPeripheral|null $value Value to set for the roomCamera property.
+     * @param TeamworkPeripheral|null $value Value to set for the roomCamera property.
     */
     public function setRoomCamera(?TeamworkPeripheral $value): void {
         $this->getBackingStore()->set('roomCamera', $value);
@@ -186,7 +186,7 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the speaker property value. The speaker property
-     *  @param TeamworkPeripheral|null $value Value to set for the speaker property.
+     * @param TeamworkPeripheral|null $value Value to set for the speaker property.
     */
     public function setSpeaker(?TeamworkPeripheral $value): void {
         $this->getBackingStore()->set('speaker', $value);

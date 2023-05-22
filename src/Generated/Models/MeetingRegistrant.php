@@ -106,7 +106,7 @@ class MeetingRegistrant extends MeetingRegistrantBase implements Parsable
 
     /**
      * Sets the customQuestionAnswers property value. The registrant's answer to custom questions.
-     *  @param array<CustomQuestionAnswer>|null $value Value to set for the customQuestionAnswers property.
+     * @param array<CustomQuestionAnswer>|null $value Value to set for the customQuestionAnswers property.
     */
     public function setCustomQuestionAnswers(?array $value): void {
         $this->getBackingStore()->set('customQuestionAnswers', $value);
@@ -114,7 +114,7 @@ class MeetingRegistrant extends MeetingRegistrantBase implements Parsable
 
     /**
      * Sets the email property value. The email address of the registrant.
-     *  @param string|null $value Value to set for the email property.
+     * @param string|null $value Value to set for the email property.
     */
     public function setEmail(?string $value): void {
         $this->getBackingStore()->set('email', $value);
@@ -122,7 +122,7 @@ class MeetingRegistrant extends MeetingRegistrantBase implements Parsable
 
     /**
      * Sets the firstName property value. The first name of the registrant.
-     *  @param string|null $value Value to set for the firstName property.
+     * @param string|null $value Value to set for the firstName property.
     */
     public function setFirstName(?string $value): void {
         $this->getBackingStore()->set('firstName', $value);
@@ -130,7 +130,7 @@ class MeetingRegistrant extends MeetingRegistrantBase implements Parsable
 
     /**
      * Sets the lastName property value. The last name of the registrant.
-     *  @param string|null $value Value to set for the lastName property.
+     * @param string|null $value Value to set for the lastName property.
     */
     public function setLastName(?string $value): void {
         $this->getBackingStore()->set('lastName', $value);
@@ -138,7 +138,7 @@ class MeetingRegistrant extends MeetingRegistrantBase implements Parsable
 
     /**
      * Sets the registrationDateTime property value. Time in UTC when the registrant registers for the meeting. Read-only.
-     *  @param DateTime|null $value Value to set for the registrationDateTime property.
+     * @param DateTime|null $value Value to set for the registrationDateTime property.
     */
     public function setRegistrationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('registrationDateTime', $value);
@@ -146,7 +146,7 @@ class MeetingRegistrant extends MeetingRegistrantBase implements Parsable
 
     /**
      * Sets the status property value. The registration status of the registrant. Read-only.
-     *  @param MeetingRegistrantStatus|null $value Value to set for the status property.
+     * @param MeetingRegistrantStatus|null $value Value to set for the status property.
     */
     public function setStatus(?MeetingRegistrantStatus $value): void {
         $this->getBackingStore()->set('status', $value);

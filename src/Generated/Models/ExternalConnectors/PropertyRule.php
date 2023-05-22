@@ -37,7 +37,7 @@ class PropertyRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -121,7 +121,7 @@ class PropertyRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -129,7 +129,7 @@ class PropertyRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -137,7 +137,7 @@ class PropertyRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -145,7 +145,7 @@ class PropertyRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the operation property value. The operation property
-     *  @param RuleOperation|null $value Value to set for the operation property.
+     * @param RuleOperation|null $value Value to set for the operation property.
     */
     public function setOperation(?RuleOperation $value): void {
         $this->getBackingStore()->set('operation', $value);
@@ -153,7 +153,7 @@ class PropertyRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the property property value. The property from the externalItem schema. Required.
-     *  @param string|null $value Value to set for the property property.
+     * @param string|null $value Value to set for the property property.
     */
     public function setProperty(?string $value): void {
         $this->getBackingStore()->set('property', $value);
@@ -161,7 +161,7 @@ class PropertyRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the values property value. A collection with one or many strings. The specified string(s) will be matched with the specified property using the specified operation. Required.
-     *  @param array<string>|null $value Value to set for the values property.
+     * @param array<string>|null $value Value to set for the values property.
     */
     public function setValues(?array $value): void {
         $this->getBackingStore()->set('values', $value);
@@ -169,7 +169,7 @@ class PropertyRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the valuesJoinedBy property value. The valuesJoinedBy property
-     *  @param BinaryOperator|null $value Value to set for the valuesJoinedBy property.
+     * @param BinaryOperator|null $value Value to set for the valuesJoinedBy property.
     */
     public function setValuesJoinedBy(?BinaryOperator $value): void {
         $this->getBackingStore()->set('valuesJoinedBy', $value);

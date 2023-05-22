@@ -5,28 +5,35 @@ namespace Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Activate\ActivateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Categories\CategoriesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Categories\Item\EducationCategoryItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Deactivate\DeactivateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\GradingCategory\GradingCategoryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Publish\PublishRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Resources\Item\EducationAssignmentResourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Resources\ResourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Rubric\RubricRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\SetUpFeedbackResourcesFolder\SetUpFeedbackResourcesFolderRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\SetUpResourcesFolder\SetUpResourcesFolderRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Submissions\Item\EducationSubmissionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Submissions\SubmissionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EducationAssignment;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
-class EducationAssignmentItemRequestBuilder 
+/**
+ * Provides operations to manage the assignments property of the microsoft.graph.educationClass entity.
+*/
+class EducationAssignmentItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to call the activate method.
+    */
+    public function activate(): ActivateRequestBuilder {
+        return new ActivateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the categories property of the microsoft.graph.educationAssignment entity.
     */
@@ -35,9 +42,18 @@ class EducationAssignmentItemRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
+     * Provides operations to call the deactivate method.
     */
-    private array $pathParameters;
+    public function deactivate(): DeactivateRequestBuilder {
+        return new DeactivateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the gradingCategory property of the microsoft.graph.educationAssignment entity.
+    */
+    public function gradingCategory(): GradingCategoryRequestBuilder {
+        return new GradingCategoryRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
     
     /**
      * Provides operations to call the publish method.
@@ -45,11 +61,6 @@ class EducationAssignmentItemRequestBuilder
     public function publish(): PublishRequestBuilder {
         return new PublishRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
     
     /**
      * Provides operations to manage the resources property of the microsoft.graph.educationAssignment entity.
@@ -87,114 +98,79 @@ class EducationAssignmentItemRequestBuilder
     }
     
     /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.education.classes.item.assignments.item.categories.item collection
-     * @param string $id Unique identifier of the item
-     * @return EducationCategoryItemRequestBuilder
-    */
-    public function categoriesById(string $id): EducationCategoryItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['educationCategory%2Did'] = $id;
-        return new EducationCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new EducationAssignmentItemRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/education/classes/{educationClass%2Did}/assignments/{educationAssignment%2Did}{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
+        parent::__construct($requestAdapter, [], '{+baseurl}/education/classes/{educationClass%2Did}/assignments/{educationAssignment%2Did}{?%24select,%24expand}');
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
-     * Delete navigation property assignments for education
+     * Delete an existing assignment. Only teachers within a class can delete assignments.
      * @param EducationAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/educationassignment-delete?view=graph-rest-1.0 Find more info here
     */
-    public function delete(?EducationAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?EducationAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * All assignments associated with this class. Nullable.
+     * Get the properties and relationships of an assignment. Only teachers, students, and applications with application permissions can perform this operation. Students can only see assignments assigned to them; teachers and applications with application permissions can see all assignments in a class. You can use the `Prefer` header in your request to get the `inactive` status in case the assignment is deactivated; otherwise, you will get an `unknownFutureValue` value in the response.
      * @param EducationAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/educationassignment-get?view=graph-rest-1.0 Find more info here
     */
-    public function get(?EducationAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?EducationAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [EducationAssignment::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [EducationAssignment::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Update the navigation property assignments in education
+     * Update an educationAssignment object.  Only teachers in the class can do this. Note that you can't use a PATCH request to change the status of an **assignment**. Use the publish action to change the **assignment** status.
      * @param EducationAssignment $body The request body
      * @param EducationAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/educationassignment-update?view=graph-rest-1.0 Find more info here
     */
-    public function patch(EducationAssignment $body, ?EducationAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(EducationAssignment $body, ?EducationAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [EducationAssignment::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [EducationAssignment::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Provides operations to manage the resources property of the microsoft.graph.educationAssignment entity.
-     * @param string $id Unique identifier of the item
-     * @return EducationAssignmentResourceItemRequestBuilder
-    */
-    public function resourcesById(string $id): EducationAssignmentResourceItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['educationAssignmentResource%2Did'] = $id;
-        return new EducationAssignmentResourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the submissions property of the microsoft.graph.educationAssignment entity.
-     * @param string $id Unique identifier of the item
-     * @return EducationSubmissionItemRequestBuilder
-    */
-    public function submissionsById(string $id): EducationSubmissionItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['educationSubmission%2Did'] = $id;
-        return new EducationSubmissionItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Delete navigation property assignments for education
+     * Delete an existing assignment. Only teachers within a class can delete assignments.
      * @param EducationAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -204,18 +180,14 @@ class EducationAssignmentItemRequestBuilder
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
 
     /**
-     * All assignments associated with this class. Nullable.
+     * Get the properties and relationships of an assignment. Only teachers, students, and applications with application permissions can perform this operation. Students can only see assignments assigned to them; teachers and applications with application permissions can see all assignments in a class. You can use the `Prefer` header in your request to get the `inactive` status in case the assignment is deactivated; otherwise, you will get an `unknownFutureValue` value in the response.
      * @param EducationAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -224,23 +196,19 @@ class EducationAssignmentItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
 
     /**
-     * Update the navigation property assignments in education
+     * Update an educationAssignment object.  Only teachers in the class can do this. Note that you can't use a PATCH request to change the status of an **assignment**. Use the publish action to change the **assignment** status.
      * @param EducationAssignment $body The request body
      * @param EducationAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -250,14 +218,10 @@ class EducationAssignmentItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

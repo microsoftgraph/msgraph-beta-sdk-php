@@ -75,7 +75,7 @@ class GroupPolicyPresentationMultiTextBox extends GroupPolicyUploadedPresentatio
 
     /**
      * Sets the maxLength property value. An unsigned integer that specifies the maximum number of text characters. Default value is 1023.
-     *  @param int|null $value Value to set for the maxLength property.
+     * @param int|null $value Value to set for the maxLength property.
     */
     public function setMaxLength(?int $value): void {
         $this->getBackingStore()->set('maxLength', $value);
@@ -83,7 +83,7 @@ class GroupPolicyPresentationMultiTextBox extends GroupPolicyUploadedPresentatio
 
     /**
      * Sets the maxStrings property value. An unsigned integer that specifies the maximum number of strings. Default value is 0.
-     *  @param int|null $value Value to set for the maxStrings property.
+     * @param int|null $value Value to set for the maxStrings property.
     */
     public function setMaxStrings(?int $value): void {
         $this->getBackingStore()->set('maxStrings', $value);
@@ -91,7 +91,7 @@ class GroupPolicyPresentationMultiTextBox extends GroupPolicyUploadedPresentatio
 
     /**
      * Sets the required property value. Requirement to enter a value in the text box. Default value is false.
-     *  @param bool|null $value Value to set for the required property.
+     * @param bool|null $value Value to set for the required property.
     */
     public function setRequired(?bool $value): void {
         $this->getBackingStore()->set('required', $value);

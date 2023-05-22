@@ -51,7 +51,7 @@ class WindowsAppX extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the identityName property value. The Identity Name.
+     * Gets the identityName property value. The identity name of the uploaded app package. For example: 'Contoso.DemoApp'.
      * @return string|null
     */
     public function getIdentityName(): ?string {
@@ -59,7 +59,7 @@ class WindowsAppX extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the identityPublisherHash property value. The Identity Publisher Hash.
+     * Gets the identityPublisherHash property value. The identity publisher hash of the uploaded app package. This is the hash of the publisher from the manifest. For example: 'AB82CD0XYZ'.
      * @return string|null
     */
     public function getIdentityPublisherHash(): ?string {
@@ -67,7 +67,7 @@ class WindowsAppX extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the identityResourceIdentifier property value. The Identity Resource Identifier.
+     * Gets the identityResourceIdentifier property value. The identity resource identifier of the uploaded app package. For example: 'TestResourceId'.
      * @return string|null
     */
     public function getIdentityResourceIdentifier(): ?string {
@@ -75,7 +75,7 @@ class WindowsAppX extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the identityVersion property value. The identity version.
+     * Gets the identityVersion property value. The identity version of the uploaded app package. For example: '1.0.0.0'.
      * @return string|null
     */
     public function getIdentityVersion(): ?string {
@@ -83,7 +83,7 @@ class WindowsAppX extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the isBundle property value. Whether or not the app is a bundle.
+     * Gets the isBundle property value. When TRUE, indicates that the app is a bundle. When FALSE, indicates that the app is not a bundle. By default, property is set to FALSE.
      * @return bool|null
     */
     public function getIsBundle(): ?bool {
@@ -115,47 +115,47 @@ class WindowsAppX extends MobileLobApp implements Parsable
 
     /**
      * Sets the applicableArchitectures property value. Contains properties for Windows architecture.
-     *  @param WindowsArchitecture|null $value Value to set for the applicableArchitectures property.
+     * @param WindowsArchitecture|null $value Value to set for the applicableArchitectures property.
     */
     public function setApplicableArchitectures(?WindowsArchitecture $value): void {
         $this->getBackingStore()->set('applicableArchitectures', $value);
     }
 
     /**
-     * Sets the identityName property value. The Identity Name.
-     *  @param string|null $value Value to set for the identityName property.
+     * Sets the identityName property value. The identity name of the uploaded app package. For example: 'Contoso.DemoApp'.
+     * @param string|null $value Value to set for the identityName property.
     */
     public function setIdentityName(?string $value): void {
         $this->getBackingStore()->set('identityName', $value);
     }
 
     /**
-     * Sets the identityPublisherHash property value. The Identity Publisher Hash.
-     *  @param string|null $value Value to set for the identityPublisherHash property.
+     * Sets the identityPublisherHash property value. The identity publisher hash of the uploaded app package. This is the hash of the publisher from the manifest. For example: 'AB82CD0XYZ'.
+     * @param string|null $value Value to set for the identityPublisherHash property.
     */
     public function setIdentityPublisherHash(?string $value): void {
         $this->getBackingStore()->set('identityPublisherHash', $value);
     }
 
     /**
-     * Sets the identityResourceIdentifier property value. The Identity Resource Identifier.
-     *  @param string|null $value Value to set for the identityResourceIdentifier property.
+     * Sets the identityResourceIdentifier property value. The identity resource identifier of the uploaded app package. For example: 'TestResourceId'.
+     * @param string|null $value Value to set for the identityResourceIdentifier property.
     */
     public function setIdentityResourceIdentifier(?string $value): void {
         $this->getBackingStore()->set('identityResourceIdentifier', $value);
     }
 
     /**
-     * Sets the identityVersion property value. The identity version.
-     *  @param string|null $value Value to set for the identityVersion property.
+     * Sets the identityVersion property value. The identity version of the uploaded app package. For example: '1.0.0.0'.
+     * @param string|null $value Value to set for the identityVersion property.
     */
     public function setIdentityVersion(?string $value): void {
         $this->getBackingStore()->set('identityVersion', $value);
     }
 
     /**
-     * Sets the isBundle property value. Whether or not the app is a bundle.
-     *  @param bool|null $value Value to set for the isBundle property.
+     * Sets the isBundle property value. When TRUE, indicates that the app is a bundle. When FALSE, indicates that the app is not a bundle. By default, property is set to FALSE.
+     * @param bool|null $value Value to set for the isBundle property.
     */
     public function setIsBundle(?bool $value): void {
         $this->getBackingStore()->set('isBundle', $value);
@@ -163,7 +163,7 @@ class WindowsAppX extends MobileLobApp implements Parsable
 
     /**
      * Sets the minimumSupportedOperatingSystem property value. The minimum operating system required for a Windows mobile app.
-     *  @param WindowsMinimumOperatingSystem|null $value Value to set for the minimumSupportedOperatingSystem property.
+     * @param WindowsMinimumOperatingSystem|null $value Value to set for the minimumSupportedOperatingSystem property.
     */
     public function setMinimumSupportedOperatingSystem(?WindowsMinimumOperatingSystem $value): void {
         $this->getBackingStore()->set('minimumSupportedOperatingSystem', $value);

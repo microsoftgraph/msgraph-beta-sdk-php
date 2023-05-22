@@ -135,7 +135,7 @@ class IosVppEBook extends ManagedEBook implements Parsable
 
     /**
      * Sets the appleId property value. The Apple ID associated with Vpp token.
-     *  @param string|null $value Value to set for the appleId property.
+     * @param string|null $value Value to set for the appleId property.
     */
     public function setAppleId(?string $value): void {
         $this->getBackingStore()->set('appleId', $value);
@@ -143,7 +143,7 @@ class IosVppEBook extends ManagedEBook implements Parsable
 
     /**
      * Sets the genres property value. Genres.
-     *  @param array<string>|null $value Value to set for the genres property.
+     * @param array<string>|null $value Value to set for the genres property.
     */
     public function setGenres(?array $value): void {
         $this->getBackingStore()->set('genres', $value);
@@ -151,7 +151,7 @@ class IosVppEBook extends ManagedEBook implements Parsable
 
     /**
      * Sets the language property value. Language.
-     *  @param string|null $value Value to set for the language property.
+     * @param string|null $value Value to set for the language property.
     */
     public function setLanguage(?string $value): void {
         $this->getBackingStore()->set('language', $value);
@@ -159,7 +159,7 @@ class IosVppEBook extends ManagedEBook implements Parsable
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tags for this Entity instance.
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);
@@ -167,7 +167,7 @@ class IosVppEBook extends ManagedEBook implements Parsable
 
     /**
      * Sets the seller property value. Seller.
-     *  @param string|null $value Value to set for the seller property.
+     * @param string|null $value Value to set for the seller property.
     */
     public function setSeller(?string $value): void {
         $this->getBackingStore()->set('seller', $value);
@@ -175,7 +175,7 @@ class IosVppEBook extends ManagedEBook implements Parsable
 
     /**
      * Sets the totalLicenseCount property value. Total license count.
-     *  @param int|null $value Value to set for the totalLicenseCount property.
+     * @param int|null $value Value to set for the totalLicenseCount property.
     */
     public function setTotalLicenseCount(?int $value): void {
         $this->getBackingStore()->set('totalLicenseCount', $value);
@@ -183,7 +183,7 @@ class IosVppEBook extends ManagedEBook implements Parsable
 
     /**
      * Sets the usedLicenseCount property value. Used license count.
-     *  @param int|null $value Value to set for the usedLicenseCount property.
+     * @param int|null $value Value to set for the usedLicenseCount property.
     */
     public function setUsedLicenseCount(?int $value): void {
         $this->getBackingStore()->set('usedLicenseCount', $value);
@@ -191,7 +191,7 @@ class IosVppEBook extends ManagedEBook implements Parsable
 
     /**
      * Sets the vppOrganizationName property value. The Vpp token's organization name.
-     *  @param string|null $value Value to set for the vppOrganizationName property.
+     * @param string|null $value Value to set for the vppOrganizationName property.
     */
     public function setVppOrganizationName(?string $value): void {
         $this->getBackingStore()->set('vppOrganizationName', $value);
@@ -199,7 +199,7 @@ class IosVppEBook extends ManagedEBook implements Parsable
 
     /**
      * Sets the vppTokenId property value. The Vpp token ID.
-     *  @param string|null $value Value to set for the vppTokenId property.
+     * @param string|null $value Value to set for the vppTokenId property.
     */
     public function setVppTokenId(?string $value): void {
         $this->getBackingStore()->set('vppTokenId', $value);

@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * OMA Settings definition.
+*/
 class OmaSetting implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -49,7 +52,7 @@ class OmaSetting implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -141,7 +144,7 @@ class OmaSetting implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -149,7 +152,7 @@ class OmaSetting implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -157,7 +160,7 @@ class OmaSetting implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the description property value. Description.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -165,7 +168,7 @@ class OmaSetting implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the displayName property value. Display Name.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -173,7 +176,7 @@ class OmaSetting implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isEncrypted property value. Indicates whether the value field is encrypted. This property is read-only.
-     *  @param bool|null $value Value to set for the isEncrypted property.
+     * @param bool|null $value Value to set for the isEncrypted property.
     */
     public function setIsEncrypted(?bool $value): void {
         $this->getBackingStore()->set('isEncrypted', $value);
@@ -181,7 +184,7 @@ class OmaSetting implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -189,7 +192,7 @@ class OmaSetting implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the omaUri property value. OMA.
-     *  @param string|null $value Value to set for the omaUri property.
+     * @param string|null $value Value to set for the omaUri property.
     */
     public function setOmaUri(?string $value): void {
         $this->getBackingStore()->set('omaUri', $value);
@@ -197,7 +200,7 @@ class OmaSetting implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the secretReferenceValueId property value. ReferenceId for looking up secret for decryption. This property is read-only.
-     *  @param string|null $value Value to set for the secretReferenceValueId property.
+     * @param string|null $value Value to set for the secretReferenceValueId property.
     */
     public function setSecretReferenceValueId(?string $value): void {
         $this->getBackingStore()->set('secretReferenceValueId', $value);

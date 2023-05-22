@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Chat extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new chat and sets the default values.
+     * Instantiates a new Chat and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -205,7 +205,7 @@ class Chat extends Entity implements Parsable
 
     /**
      * Sets the chatType property value. The chatType property
-     *  @param ChatType|null $value Value to set for the chatType property.
+     * @param ChatType|null $value Value to set for the chatType property.
     */
     public function setChatType(?ChatType $value): void {
         $this->getBackingStore()->set('chatType', $value);
@@ -213,7 +213,7 @@ class Chat extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. Date and time at which the chat was created. Read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -221,7 +221,7 @@ class Chat extends Entity implements Parsable
 
     /**
      * Sets the installedApps property value. A collection of all the apps in the chat. Nullable.
-     *  @param array<TeamsAppInstallation>|null $value Value to set for the installedApps property.
+     * @param array<TeamsAppInstallation>|null $value Value to set for the installedApps property.
     */
     public function setInstalledApps(?array $value): void {
         $this->getBackingStore()->set('installedApps', $value);
@@ -229,7 +229,7 @@ class Chat extends Entity implements Parsable
 
     /**
      * Sets the lastMessagePreview property value. Preview of the last message sent in the chat. Null if no messages have been sent in the chat. Currently, only the list chats operation supports this property.
-     *  @param ChatMessageInfo|null $value Value to set for the lastMessagePreview property.
+     * @param ChatMessageInfo|null $value Value to set for the lastMessagePreview property.
     */
     public function setLastMessagePreview(?ChatMessageInfo $value): void {
         $this->getBackingStore()->set('lastMessagePreview', $value);
@@ -237,7 +237,7 @@ class Chat extends Entity implements Parsable
 
     /**
      * Sets the lastUpdatedDateTime property value. Date and time at which the chat was renamed or list of members were last changed. Read-only.
-     *  @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
+     * @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastUpdatedDateTime', $value);
@@ -245,7 +245,7 @@ class Chat extends Entity implements Parsable
 
     /**
      * Sets the members property value. A collection of all the members in the chat. Nullable.
-     *  @param array<ConversationMember>|null $value Value to set for the members property.
+     * @param array<ConversationMember>|null $value Value to set for the members property.
     */
     public function setMembers(?array $value): void {
         $this->getBackingStore()->set('members', $value);
@@ -253,7 +253,7 @@ class Chat extends Entity implements Parsable
 
     /**
      * Sets the messages property value. A collection of all the messages in the chat. Nullable.
-     *  @param array<ChatMessage>|null $value Value to set for the messages property.
+     * @param array<ChatMessage>|null $value Value to set for the messages property.
     */
     public function setMessages(?array $value): void {
         $this->getBackingStore()->set('messages', $value);
@@ -261,7 +261,7 @@ class Chat extends Entity implements Parsable
 
     /**
      * Sets the onlineMeetingInfo property value. Represents details about an online meeting. If the chat isn't associated with an online meeting, the property is empty. Read-only.
-     *  @param TeamworkOnlineMeetingInfo|null $value Value to set for the onlineMeetingInfo property.
+     * @param TeamworkOnlineMeetingInfo|null $value Value to set for the onlineMeetingInfo property.
     */
     public function setOnlineMeetingInfo(?TeamworkOnlineMeetingInfo $value): void {
         $this->getBackingStore()->set('onlineMeetingInfo', $value);
@@ -269,7 +269,7 @@ class Chat extends Entity implements Parsable
 
     /**
      * Sets the operations property value. A collection of all the Teams async operations that ran or are running on the chat. Nullable.
-     *  @param array<TeamsAsyncOperation>|null $value Value to set for the operations property.
+     * @param array<TeamsAsyncOperation>|null $value Value to set for the operations property.
     */
     public function setOperations(?array $value): void {
         $this->getBackingStore()->set('operations', $value);
@@ -277,7 +277,7 @@ class Chat extends Entity implements Parsable
 
     /**
      * Sets the permissionGrants property value. A collection of permissions granted to apps for the chat.
-     *  @param array<ResourceSpecificPermissionGrant>|null $value Value to set for the permissionGrants property.
+     * @param array<ResourceSpecificPermissionGrant>|null $value Value to set for the permissionGrants property.
     */
     public function setPermissionGrants(?array $value): void {
         $this->getBackingStore()->set('permissionGrants', $value);
@@ -285,7 +285,7 @@ class Chat extends Entity implements Parsable
 
     /**
      * Sets the pinnedMessages property value. A collection of all the pinned messages in the chat. Nullable.
-     *  @param array<PinnedChatMessageInfo>|null $value Value to set for the pinnedMessages property.
+     * @param array<PinnedChatMessageInfo>|null $value Value to set for the pinnedMessages property.
     */
     public function setPinnedMessages(?array $value): void {
         $this->getBackingStore()->set('pinnedMessages', $value);
@@ -293,7 +293,7 @@ class Chat extends Entity implements Parsable
 
     /**
      * Sets the tabs property value. A collection of all the tabs in the chat. Nullable.
-     *  @param array<TeamsTab>|null $value Value to set for the tabs property.
+     * @param array<TeamsTab>|null $value Value to set for the tabs property.
     */
     public function setTabs(?array $value): void {
         $this->getBackingStore()->set('tabs', $value);
@@ -301,7 +301,7 @@ class Chat extends Entity implements Parsable
 
     /**
      * Sets the tenantId property value. The identifier of the tenant in which the chat was created. Read-only.
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);
@@ -309,7 +309,7 @@ class Chat extends Entity implements Parsable
 
     /**
      * Sets the topic property value. (Optional) Subject or topic for the chat. Only available for group chats.
-     *  @param string|null $value Value to set for the topic property.
+     * @param string|null $value Value to set for the topic property.
     */
     public function setTopic(?string $value): void {
         $this->getBackingStore()->set('topic', $value);
@@ -317,7 +317,7 @@ class Chat extends Entity implements Parsable
 
     /**
      * Sets the viewpoint property value. Represents caller-specific information about the chat, such as last message read date and time. This property is populated only when the request is made in a delegated context.
-     *  @param ChatViewpoint|null $value Value to set for the viewpoint property.
+     * @param ChatViewpoint|null $value Value to set for the viewpoint property.
     */
     public function setViewpoint(?ChatViewpoint $value): void {
         $this->getBackingStore()->set('viewpoint', $value);
@@ -325,7 +325,7 @@ class Chat extends Entity implements Parsable
 
     /**
      * Sets the webUrl property value. The URL for the chat in Microsoft Teams. The URL should be treated as an opaque blob, and not parsed. Read-only.
-     *  @param string|null $value Value to set for the webUrl property.
+     * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {
         $this->getBackingStore()->set('webUrl', $value);

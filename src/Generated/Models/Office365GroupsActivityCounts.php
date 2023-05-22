@@ -77,7 +77,7 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
     }
 
     /**
-     * Gets the teamsChannelMessages property value. The teamsChannelMessages property
+     * Gets the teamsChannelMessages property value. The number of channel messages in Teams team.
      * @return int|null
     */
     public function getTeamsChannelMessages(): ?int {
@@ -85,7 +85,7 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
     }
 
     /**
-     * Gets the teamsMeetingsOrganized property value. The teamsMeetingsOrganized property
+     * Gets the teamsMeetingsOrganized property value. The number of meetings organized in Teams team.
      * @return int|null
     */
     public function getTeamsMeetingsOrganized(): ?int {
@@ -135,7 +135,7 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
 
     /**
      * Sets the exchangeEmailsReceived property value. The number of emails received by Group mailboxes.
-     *  @param int|null $value Value to set for the exchangeEmailsReceived property.
+     * @param int|null $value Value to set for the exchangeEmailsReceived property.
     */
     public function setExchangeEmailsReceived(?int $value): void {
         $this->getBackingStore()->set('exchangeEmailsReceived', $value);
@@ -143,7 +143,7 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
 
     /**
      * Sets the reportDate property value. The date on which a number of emails were sent to a group mailbox or a number of messages were posted, read, or liked in a Yammer group
-     *  @param Date|null $value Value to set for the reportDate property.
+     * @param Date|null $value Value to set for the reportDate property.
     */
     public function setReportDate(?Date $value): void {
         $this->getBackingStore()->set('reportDate', $value);
@@ -151,7 +151,7 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
 
     /**
      * Sets the reportPeriod property value. The number of days the report covers.
-     *  @param string|null $value Value to set for the reportPeriod property.
+     * @param string|null $value Value to set for the reportPeriod property.
     */
     public function setReportPeriod(?string $value): void {
         $this->getBackingStore()->set('reportPeriod', $value);
@@ -159,23 +159,23 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
 
     /**
      * Sets the reportRefreshDate property value. The latest date of the content.
-     *  @param Date|null $value Value to set for the reportRefreshDate property.
+     * @param Date|null $value Value to set for the reportRefreshDate property.
     */
     public function setReportRefreshDate(?Date $value): void {
         $this->getBackingStore()->set('reportRefreshDate', $value);
     }
 
     /**
-     * Sets the teamsChannelMessages property value. The teamsChannelMessages property
-     *  @param int|null $value Value to set for the teamsChannelMessages property.
+     * Sets the teamsChannelMessages property value. The number of channel messages in Teams team.
+     * @param int|null $value Value to set for the teamsChannelMessages property.
     */
     public function setTeamsChannelMessages(?int $value): void {
         $this->getBackingStore()->set('teamsChannelMessages', $value);
     }
 
     /**
-     * Sets the teamsMeetingsOrganized property value. The teamsMeetingsOrganized property
-     *  @param int|null $value Value to set for the teamsMeetingsOrganized property.
+     * Sets the teamsMeetingsOrganized property value. The number of meetings organized in Teams team.
+     * @param int|null $value Value to set for the teamsMeetingsOrganized property.
     */
     public function setTeamsMeetingsOrganized(?int $value): void {
         $this->getBackingStore()->set('teamsMeetingsOrganized', $value);
@@ -183,7 +183,7 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
 
     /**
      * Sets the yammerMessagesLiked property value. The number of messages liked in Yammer groups.
-     *  @param int|null $value Value to set for the yammerMessagesLiked property.
+     * @param int|null $value Value to set for the yammerMessagesLiked property.
     */
     public function setYammerMessagesLiked(?int $value): void {
         $this->getBackingStore()->set('yammerMessagesLiked', $value);
@@ -191,7 +191,7 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
 
     /**
      * Sets the yammerMessagesPosted property value. The number of messages posted to Yammer groups.
-     *  @param int|null $value Value to set for the yammerMessagesPosted property.
+     * @param int|null $value Value to set for the yammerMessagesPosted property.
     */
     public function setYammerMessagesPosted(?int $value): void {
         $this->getBackingStore()->set('yammerMessagesPosted', $value);
@@ -199,7 +199,7 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
 
     /**
      * Sets the yammerMessagesRead property value. The number of messages read in Yammer groups.
-     *  @param int|null $value Value to set for the yammerMessagesRead property.
+     * @param int|null $value Value to set for the yammerMessagesRead property.
     */
     public function setYammerMessagesRead(?int $value): void {
         $this->getBackingStore()->set('yammerMessagesRead', $value);

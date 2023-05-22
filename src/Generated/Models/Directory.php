@@ -85,7 +85,7 @@ class Directory extends Entity implements Parsable
             'deletedItems' => fn(ParseNode $n) => $o->setDeletedItems($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'featureRolloutPolicies' => fn(ParseNode $n) => $o->setFeatureRolloutPolicies($n->getCollectionOfObjectValues([FeatureRolloutPolicy::class, 'createFromDiscriminatorValue'])),
             'federationConfigurations' => fn(ParseNode $n) => $o->setFederationConfigurations($n->getCollectionOfObjectValues([IdentityProviderBase::class, 'createFromDiscriminatorValue'])),
-            'impactedResources' => fn(ParseNode $n) => $o->setImpactedResources($n->getCollectionOfObjectValues([RecommendationResource::class, 'createFromDiscriminatorValue'])),
+            'impactedResources' => fn(ParseNode $n) => $o->setImpactedResources($n->getCollectionOfObjectValues([ImpactedResource::class, 'createFromDiscriminatorValue'])),
             'inboundSharedUserProfiles' => fn(ParseNode $n) => $o->setInboundSharedUserProfiles($n->getCollectionOfObjectValues([InboundSharedUserProfile::class, 'createFromDiscriminatorValue'])),
             'onPremisesSynchronization' => fn(ParseNode $n) => $o->setOnPremisesSynchronization($n->getCollectionOfObjectValues([OnPremisesDirectorySynchronization::class, 'createFromDiscriminatorValue'])),
             'outboundSharedUserProfiles' => fn(ParseNode $n) => $o->setOutboundSharedUserProfiles($n->getCollectionOfObjectValues([OutboundSharedUserProfile::class, 'createFromDiscriminatorValue'])),
@@ -96,14 +96,14 @@ class Directory extends Entity implements Parsable
 
     /**
      * Gets the impactedResources property value. The impactedResources property
-     * @return array<RecommendationResource>|null
+     * @return array<ImpactedResource>|null
     */
     public function getImpactedResources(): ?array {
         return $this->getBackingStore()->get('impactedResources');
     }
 
     /**
-     * Gets the inboundSharedUserProfiles property value. The inboundSharedUserProfiles property
+     * Gets the inboundSharedUserProfiles property value. A collection of external Azure AD users whose profile data has been shared with the Azure AD tenant. Nullable.
      * @return array<InboundSharedUserProfile>|null
     */
     public function getInboundSharedUserProfiles(): ?array {
@@ -127,7 +127,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Gets the recommendations property value. The recommendations property
+     * Gets the recommendations property value. List of recommended improvements to improve tenant posture.
      * @return array<Recommendation>|null
     */
     public function getRecommendations(): ?array {
@@ -164,7 +164,7 @@ class Directory extends Entity implements Parsable
 
     /**
      * Sets the administrativeUnits property value. Conceptual container for user and group directory objects.
-     *  @param array<AdministrativeUnit>|null $value Value to set for the administrativeUnits property.
+     * @param array<AdministrativeUnit>|null $value Value to set for the administrativeUnits property.
     */
     public function setAdministrativeUnits(?array $value): void {
         $this->getBackingStore()->set('administrativeUnits', $value);
@@ -172,7 +172,7 @@ class Directory extends Entity implements Parsable
 
     /**
      * Sets the attributeSets property value. Group of related custom security attribute definitions.
-     *  @param array<AttributeSet>|null $value Value to set for the attributeSets property.
+     * @param array<AttributeSet>|null $value Value to set for the attributeSets property.
     */
     public function setAttributeSets(?array $value): void {
         $this->getBackingStore()->set('attributeSets', $value);
@@ -180,7 +180,7 @@ class Directory extends Entity implements Parsable
 
     /**
      * Sets the customSecurityAttributeDefinitions property value. Schema of a custom security attributes (key-value pairs).
-     *  @param array<CustomSecurityAttributeDefinition>|null $value Value to set for the customSecurityAttributeDefinitions property.
+     * @param array<CustomSecurityAttributeDefinition>|null $value Value to set for the customSecurityAttributeDefinitions property.
     */
     public function setCustomSecurityAttributeDefinitions(?array $value): void {
         $this->getBackingStore()->set('customSecurityAttributeDefinitions', $value);
@@ -188,7 +188,7 @@ class Directory extends Entity implements Parsable
 
     /**
      * Sets the deletedItems property value. The deletedItems property
-     *  @param array<DirectoryObject>|null $value Value to set for the deletedItems property.
+     * @param array<DirectoryObject>|null $value Value to set for the deletedItems property.
     */
     public function setDeletedItems(?array $value): void {
         $this->getBackingStore()->set('deletedItems', $value);
@@ -196,7 +196,7 @@ class Directory extends Entity implements Parsable
 
     /**
      * Sets the featureRolloutPolicies property value. The featureRolloutPolicies property
-     *  @param array<FeatureRolloutPolicy>|null $value Value to set for the featureRolloutPolicies property.
+     * @param array<FeatureRolloutPolicy>|null $value Value to set for the featureRolloutPolicies property.
     */
     public function setFeatureRolloutPolicies(?array $value): void {
         $this->getBackingStore()->set('featureRolloutPolicies', $value);
@@ -204,7 +204,7 @@ class Directory extends Entity implements Parsable
 
     /**
      * Sets the federationConfigurations property value. Configure domain federation with organizations whose identity provider (IdP) supports either the SAML or WS-Fed protocol.
-     *  @param array<IdentityProviderBase>|null $value Value to set for the federationConfigurations property.
+     * @param array<IdentityProviderBase>|null $value Value to set for the federationConfigurations property.
     */
     public function setFederationConfigurations(?array $value): void {
         $this->getBackingStore()->set('federationConfigurations', $value);
@@ -212,15 +212,15 @@ class Directory extends Entity implements Parsable
 
     /**
      * Sets the impactedResources property value. The impactedResources property
-     *  @param array<RecommendationResource>|null $value Value to set for the impactedResources property.
+     * @param array<ImpactedResource>|null $value Value to set for the impactedResources property.
     */
     public function setImpactedResources(?array $value): void {
         $this->getBackingStore()->set('impactedResources', $value);
     }
 
     /**
-     * Sets the inboundSharedUserProfiles property value. The inboundSharedUserProfiles property
-     *  @param array<InboundSharedUserProfile>|null $value Value to set for the inboundSharedUserProfiles property.
+     * Sets the inboundSharedUserProfiles property value. A collection of external Azure AD users whose profile data has been shared with the Azure AD tenant. Nullable.
+     * @param array<InboundSharedUserProfile>|null $value Value to set for the inboundSharedUserProfiles property.
     */
     public function setInboundSharedUserProfiles(?array $value): void {
         $this->getBackingStore()->set('inboundSharedUserProfiles', $value);
@@ -228,7 +228,7 @@ class Directory extends Entity implements Parsable
 
     /**
      * Sets the onPremisesSynchronization property value. A container for on-premises directory synchronization functionalities that are available for the organization.
-     *  @param array<OnPremisesDirectorySynchronization>|null $value Value to set for the onPremisesSynchronization property.
+     * @param array<OnPremisesDirectorySynchronization>|null $value Value to set for the onPremisesSynchronization property.
     */
     public function setOnPremisesSynchronization(?array $value): void {
         $this->getBackingStore()->set('onPremisesSynchronization', $value);
@@ -236,15 +236,15 @@ class Directory extends Entity implements Parsable
 
     /**
      * Sets the outboundSharedUserProfiles property value. The outboundSharedUserProfiles property
-     *  @param array<OutboundSharedUserProfile>|null $value Value to set for the outboundSharedUserProfiles property.
+     * @param array<OutboundSharedUserProfile>|null $value Value to set for the outboundSharedUserProfiles property.
     */
     public function setOutboundSharedUserProfiles(?array $value): void {
         $this->getBackingStore()->set('outboundSharedUserProfiles', $value);
     }
 
     /**
-     * Sets the recommendations property value. The recommendations property
-     *  @param array<Recommendation>|null $value Value to set for the recommendations property.
+     * Sets the recommendations property value. List of recommended improvements to improve tenant posture.
+     * @param array<Recommendation>|null $value Value to set for the recommendations property.
     */
     public function setRecommendations(?array $value): void {
         $this->getBackingStore()->set('recommendations', $value);
@@ -252,7 +252,7 @@ class Directory extends Entity implements Parsable
 
     /**
      * Sets the sharedEmailDomains property value. The sharedEmailDomains property
-     *  @param array<SharedEmailDomain>|null $value Value to set for the sharedEmailDomains property.
+     * @param array<SharedEmailDomain>|null $value Value to set for the sharedEmailDomains property.
     */
     public function setSharedEmailDomains(?array $value): void {
         $this->getBackingStore()->set('sharedEmailDomains', $value);

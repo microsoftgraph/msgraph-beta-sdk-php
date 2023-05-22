@@ -2,23 +2,38 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceEnrollmentConfigurations\Item;
 
+use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;
 
-class DeviceEnrollmentConfigurationItemRequestBuilderGetRequestConfiguration 
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
+class DeviceEnrollmentConfigurationItemRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration 
 {
-    /**
-     * @var array<string, string>|null $headers Request headers
-    */
-    public ?array $headers = null;
-    
-    /**
-     * @var array<string, RequestOption>|null $options Request options
-    */
-    public ?array $options = null;
-    
     /**
      * @var DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
     */
     public ?DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new DeviceEnrollmentConfigurationItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
+     * @param DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        parent::__construct($headers ?? [], $options ?? []);
+        $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters {
+        return new DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
 }

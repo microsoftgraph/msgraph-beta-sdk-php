@@ -36,7 +36,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -160,7 +160,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -168,7 +168,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the aliases property value. The aliases property
-     *  @param array<string>|null $value Value to set for the aliases property.
+     * @param array<string>|null $value Value to set for the aliases property.
     */
     public function setAliases(?array $value): void {
         $this->getBackingStore()->set('aliases', $value);
@@ -176,7 +176,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -184,7 +184,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isQueryable property value. The isQueryable property
-     *  @param bool|null $value Value to set for the isQueryable property.
+     * @param bool|null $value Value to set for the isQueryable property.
     */
     public function setIsQueryable(?bool $value): void {
         $this->getBackingStore()->set('isQueryable', $value);
@@ -192,7 +192,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isRefinable property value. The isRefinable property
-     *  @param bool|null $value Value to set for the isRefinable property.
+     * @param bool|null $value Value to set for the isRefinable property.
     */
     public function setIsRefinable(?bool $value): void {
         $this->getBackingStore()->set('isRefinable', $value);
@@ -200,7 +200,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isRetrievable property value. The isRetrievable property
-     *  @param bool|null $value Value to set for the isRetrievable property.
+     * @param bool|null $value Value to set for the isRetrievable property.
     */
     public function setIsRetrievable(?bool $value): void {
         $this->getBackingStore()->set('isRetrievable', $value);
@@ -208,7 +208,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isSearchable property value. The isSearchable property
-     *  @param bool|null $value Value to set for the isSearchable property.
+     * @param bool|null $value Value to set for the isSearchable property.
     */
     public function setIsSearchable(?bool $value): void {
         $this->getBackingStore()->set('isSearchable', $value);
@@ -216,7 +216,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the labels property value. The labels property
-     *  @param array<Label>|null $value Value to set for the labels property.
+     * @param array<Label>|null $value Value to set for the labels property.
     */
     public function setLabels(?array $value): void {
         $this->getBackingStore()->set('labels', $value);
@@ -224,7 +224,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the name property value. The name property
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -232,7 +232,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -240,7 +240,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the type property value. The type property
-     *  @param PropertyType|null $value Value to set for the type property.
+     * @param PropertyType|null $value Value to set for the type property.
     */
     public function setType(?PropertyType $value): void {
         $this->getBackingStore()->set('type', $value);

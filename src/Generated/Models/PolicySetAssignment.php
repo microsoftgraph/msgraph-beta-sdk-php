@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A class containing the properties used for PolicySet Assignment.
+*/
 class PolicySetAssignment extends Entity implements Parsable 
 {
     /**
@@ -65,7 +68,7 @@ class PolicySetAssignment extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. Last modified time of the PolicySetAssignment.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -73,7 +76,7 @@ class PolicySetAssignment extends Entity implements Parsable
 
     /**
      * Sets the target property value. The target group of PolicySetAssignment
-     *  @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the target property.
+     * @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the target property.
     */
     public function setTarget(?DeviceAndAppManagementAssignmentTarget $value): void {
         $this->getBackingStore()->set('target', $value);

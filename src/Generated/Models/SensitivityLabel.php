@@ -174,7 +174,7 @@ class SensitivityLabel extends Entity implements Parsable
 
     /**
      * Sets the applicableTo property value. The applicableTo property
-     *  @param SensitivityLabelTarget|null $value Value to set for the applicableTo property.
+     * @param SensitivityLabelTarget|null $value Value to set for the applicableTo property.
     */
     public function setApplicableTo(?SensitivityLabelTarget $value): void {
         $this->getBackingStore()->set('applicableTo', $value);
@@ -182,7 +182,7 @@ class SensitivityLabel extends Entity implements Parsable
 
     /**
      * Sets the applicationMode property value. The applicationMode property
-     *  @param ApplicationMode|null $value Value to set for the applicationMode property.
+     * @param ApplicationMode|null $value Value to set for the applicationMode property.
     */
     public function setApplicationMode(?ApplicationMode $value): void {
         $this->getBackingStore()->set('applicationMode', $value);
@@ -190,7 +190,7 @@ class SensitivityLabel extends Entity implements Parsable
 
     /**
      * Sets the assignedPolicies property value. The assignedPolicies property
-     *  @param array<LabelPolicy>|null $value Value to set for the assignedPolicies property.
+     * @param array<LabelPolicy>|null $value Value to set for the assignedPolicies property.
     */
     public function setAssignedPolicies(?array $value): void {
         $this->getBackingStore()->set('assignedPolicies', $value);
@@ -198,7 +198,7 @@ class SensitivityLabel extends Entity implements Parsable
 
     /**
      * Sets the autoLabeling property value. The autoLabeling property
-     *  @param AutoLabeling|null $value Value to set for the autoLabeling property.
+     * @param AutoLabeling|null $value Value to set for the autoLabeling property.
     */
     public function setAutoLabeling(?AutoLabeling $value): void {
         $this->getBackingStore()->set('autoLabeling', $value);
@@ -206,7 +206,7 @@ class SensitivityLabel extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description property
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -214,7 +214,7 @@ class SensitivityLabel extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -222,7 +222,7 @@ class SensitivityLabel extends Entity implements Parsable
 
     /**
      * Sets the isDefault property value. The isDefault property
-     *  @param bool|null $value Value to set for the isDefault property.
+     * @param bool|null $value Value to set for the isDefault property.
     */
     public function setIsDefault(?bool $value): void {
         $this->getBackingStore()->set('isDefault', $value);
@@ -230,7 +230,7 @@ class SensitivityLabel extends Entity implements Parsable
 
     /**
      * Sets the isEndpointProtectionEnabled property value. The isEndpointProtectionEnabled property
-     *  @param bool|null $value Value to set for the isEndpointProtectionEnabled property.
+     * @param bool|null $value Value to set for the isEndpointProtectionEnabled property.
     */
     public function setIsEndpointProtectionEnabled(?bool $value): void {
         $this->getBackingStore()->set('isEndpointProtectionEnabled', $value);
@@ -238,7 +238,7 @@ class SensitivityLabel extends Entity implements Parsable
 
     /**
      * Sets the labelActions property value. The labelActions property
-     *  @param array<LabelActionBase>|null $value Value to set for the labelActions property.
+     * @param array<LabelActionBase>|null $value Value to set for the labelActions property.
     */
     public function setLabelActions(?array $value): void {
         $this->getBackingStore()->set('labelActions', $value);
@@ -246,7 +246,7 @@ class SensitivityLabel extends Entity implements Parsable
 
     /**
      * Sets the name property value. The name property
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -254,7 +254,7 @@ class SensitivityLabel extends Entity implements Parsable
 
     /**
      * Sets the priority property value. The priority property
-     *  @param int|null $value Value to set for the priority property.
+     * @param int|null $value Value to set for the priority property.
     */
     public function setPriority(?int $value): void {
         $this->getBackingStore()->set('priority', $value);
@@ -262,7 +262,7 @@ class SensitivityLabel extends Entity implements Parsable
 
     /**
      * Sets the sublabels property value. The sublabels property
-     *  @param array<SensitivityLabel>|null $value Value to set for the sublabels property.
+     * @param array<SensitivityLabel>|null $value Value to set for the sublabels property.
     */
     public function setSublabels(?array $value): void {
         $this->getBackingStore()->set('sublabels', $value);
@@ -270,7 +270,7 @@ class SensitivityLabel extends Entity implements Parsable
 
     /**
      * Sets the toolTip property value. The toolTip property
-     *  @param string|null $value Value to set for the toolTip property.
+     * @param string|null $value Value to set for the toolTip property.
     */
     public function setToolTip(?string $value): void {
         $this->getBackingStore()->set('toolTip', $value);

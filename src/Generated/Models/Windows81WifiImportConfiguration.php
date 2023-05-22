@@ -76,7 +76,7 @@ class Windows81WifiImportConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the payload property value. Payload. (UTF8 encoded byte array). This is the XML file saved on the device you used to connect to the Wi-Fi endpoint.
-     *  @param StreamInterface|null $value Value to set for the payload property.
+     * @param StreamInterface|null $value Value to set for the payload property.
     */
     public function setPayload(?StreamInterface $value): void {
         $this->getBackingStore()->set('payload', $value);
@@ -84,7 +84,7 @@ class Windows81WifiImportConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the payloadFileName property value. Payload file name (.xml).
-     *  @param string|null $value Value to set for the payloadFileName property.
+     * @param string|null $value Value to set for the payloadFileName property.
     */
     public function setPayloadFileName(?string $value): void {
         $this->getBackingStore()->set('payloadFileName', $value);
@@ -92,7 +92,7 @@ class Windows81WifiImportConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the profileName property value. Profile name displayed in the UI.
-     *  @param string|null $value Value to set for the profileName property.
+     * @param string|null $value Value to set for the profileName property.
     */
     public function setProfileName(?string $value): void {
         $this->getBackingStore()->set('profileName', $value);

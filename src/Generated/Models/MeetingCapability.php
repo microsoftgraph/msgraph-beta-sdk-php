@@ -36,7 +36,7 @@ class MeetingCapability implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class MeetingCapability implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class MeetingCapability implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the allowAnonymousUsersToDialOut property value. Indicates whether anonymous users dialout is allowed in a meeting.
-     *  @param bool|null $value Value to set for the allowAnonymousUsersToDialOut property.
+     * @param bool|null $value Value to set for the allowAnonymousUsersToDialOut property.
     */
     public function setAllowAnonymousUsersToDialOut(?bool $value): void {
         $this->getBackingStore()->set('allowAnonymousUsersToDialOut', $value);
@@ -126,7 +126,7 @@ class MeetingCapability implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the allowAnonymousUsersToStartMeeting property value. Indicates whether anonymous users are allowed to start a meeting.
-     *  @param bool|null $value Value to set for the allowAnonymousUsersToStartMeeting property.
+     * @param bool|null $value Value to set for the allowAnonymousUsersToStartMeeting property.
     */
     public function setAllowAnonymousUsersToStartMeeting(?bool $value): void {
         $this->getBackingStore()->set('allowAnonymousUsersToStartMeeting', $value);
@@ -134,7 +134,7 @@ class MeetingCapability implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the autoAdmittedUsers property value. The autoAdmittedUsers property
-     *  @param AutoAdmittedUsersType|null $value Value to set for the autoAdmittedUsers property.
+     * @param AutoAdmittedUsersType|null $value Value to set for the autoAdmittedUsers property.
     */
     public function setAutoAdmittedUsers(?AutoAdmittedUsersType $value): void {
         $this->getBackingStore()->set('autoAdmittedUsers', $value);
@@ -142,7 +142,7 @@ class MeetingCapability implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -150,7 +150,7 @@ class MeetingCapability implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

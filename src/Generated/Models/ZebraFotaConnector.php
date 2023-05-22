@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ZebraFotaConnector extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new zebraFotaConnector and sets the default values.
+     * Instantiates a new ZebraFotaConnector and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -95,7 +95,7 @@ class ZebraFotaConnector extends Entity implements Parsable
 
     /**
      * Sets the enrollmentAuthorizationUrl property value. Complete account enrollment authorization URL. This corresponds to verification_uri_complete in the Zebra API documentations.
-     *  @param string|null $value Value to set for the enrollmentAuthorizationUrl property.
+     * @param string|null $value Value to set for the enrollmentAuthorizationUrl property.
     */
     public function setEnrollmentAuthorizationUrl(?string $value): void {
         $this->getBackingStore()->set('enrollmentAuthorizationUrl', $value);
@@ -103,7 +103,7 @@ class ZebraFotaConnector extends Entity implements Parsable
 
     /**
      * Sets the enrollmentToken property value. Tenant enrollment token from Zebra. The token is used to enroll Zebra devices in the FOTA Service via app config.
-     *  @param string|null $value Value to set for the enrollmentToken property.
+     * @param string|null $value Value to set for the enrollmentToken property.
     */
     public function setEnrollmentToken(?string $value): void {
         $this->getBackingStore()->set('enrollmentToken', $value);
@@ -111,7 +111,7 @@ class ZebraFotaConnector extends Entity implements Parsable
 
     /**
      * Sets the fotaAppsApproved property value. Flag indicating if required Firmware Over-the-Air (FOTA) Apps have been approved.
-     *  @param bool|null $value Value to set for the fotaAppsApproved property.
+     * @param bool|null $value Value to set for the fotaAppsApproved property.
     */
     public function setFotaAppsApproved(?bool $value): void {
         $this->getBackingStore()->set('fotaAppsApproved', $value);
@@ -119,7 +119,7 @@ class ZebraFotaConnector extends Entity implements Parsable
 
     /**
      * Sets the lastSyncDateTime property value. Date and time when the account was last synched with Zebra
-     *  @param DateTime|null $value Value to set for the lastSyncDateTime property.
+     * @param DateTime|null $value Value to set for the lastSyncDateTime property.
     */
     public function setLastSyncDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSyncDateTime', $value);
@@ -127,7 +127,7 @@ class ZebraFotaConnector extends Entity implements Parsable
 
     /**
      * Sets the state property value. Represents various states for Zebra FOTA connector.
-     *  @param ZebraFotaConnectorState|null $value Value to set for the state property.
+     * @param ZebraFotaConnectorState|null $value Value to set for the state property.
     */
     public function setState(?ZebraFotaConnectorState $value): void {
         $this->getBackingStore()->set('state', $value);

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupPolicyConfiguration extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new groupPolicyConfiguration and sets the default values.
+     * Instantiates a new GroupPolicyConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -125,7 +125,7 @@ class GroupPolicyConfiguration extends Entity implements Parsable
 
     /**
      * Sets the assignments property value. The list of group assignments for the configuration.
-     *  @param array<GroupPolicyConfigurationAssignment>|null $value Value to set for the assignments property.
+     * @param array<GroupPolicyConfigurationAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -133,7 +133,7 @@ class GroupPolicyConfiguration extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date and time the object was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -141,7 +141,7 @@ class GroupPolicyConfiguration extends Entity implements Parsable
 
     /**
      * Sets the definitionValues property value. The list of enabled or disabled group policy definition values for the configuration.
-     *  @param array<GroupPolicyDefinitionValue>|null $value Value to set for the definitionValues property.
+     * @param array<GroupPolicyDefinitionValue>|null $value Value to set for the definitionValues property.
     */
     public function setDefinitionValues(?array $value): void {
         $this->getBackingStore()->set('definitionValues', $value);
@@ -149,7 +149,7 @@ class GroupPolicyConfiguration extends Entity implements Parsable
 
     /**
      * Sets the description property value. User provided description for the resource object.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -157,7 +157,7 @@ class GroupPolicyConfiguration extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. User provided name for the resource object.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -165,7 +165,7 @@ class GroupPolicyConfiguration extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time the entity was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -173,7 +173,7 @@ class GroupPolicyConfiguration extends Entity implements Parsable
 
     /**
      * Sets the policyConfigurationIngestionType property value. Group Policy Configuration Ingestion Type
-     *  @param GroupPolicyConfigurationIngestionType|null $value Value to set for the policyConfigurationIngestionType property.
+     * @param GroupPolicyConfigurationIngestionType|null $value Value to set for the policyConfigurationIngestionType property.
     */
     public function setPolicyConfigurationIngestionType(?GroupPolicyConfigurationIngestionType $value): void {
         $this->getBackingStore()->set('policyConfigurationIngestionType', $value);
@@ -181,7 +181,7 @@ class GroupPolicyConfiguration extends Entity implements Parsable
 
     /**
      * Sets the roleScopeTagIds property value. The list of scope tags for the configuration.
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);

@@ -36,7 +36,7 @@ class OutboundSharedUserProfile implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -72,7 +72,7 @@ class OutboundSharedUserProfile implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the tenants property value. The tenants property
+     * Gets the tenants property value. The collection of external Azure AD tenants that the user has shared profile data with. Read-only.
      * @return array<TenantReference>|null
     */
     public function getTenants(): ?array {
@@ -80,7 +80,7 @@ class OutboundSharedUserProfile implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the userId property value. The userId property
+     * Gets the userId property value. The object id of the external user. Read-only.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -100,7 +100,7 @@ class OutboundSharedUserProfile implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,7 +108,7 @@ class OutboundSharedUserProfile implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -116,23 +116,23 @@ class OutboundSharedUserProfile implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
-     * Sets the tenants property value. The tenants property
-     *  @param array<TenantReference>|null $value Value to set for the tenants property.
+     * Sets the tenants property value. The collection of external Azure AD tenants that the user has shared profile data with. Read-only.
+     * @param array<TenantReference>|null $value Value to set for the tenants property.
     */
     public function setTenants(?array $value): void {
         $this->getBackingStore()->set('tenants', $value);
     }
 
     /**
-     * Sets the userId property value. The userId property
-     *  @param string|null $value Value to set for the userId property.
+     * Sets the userId property value. The object id of the external user. Read-only.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);

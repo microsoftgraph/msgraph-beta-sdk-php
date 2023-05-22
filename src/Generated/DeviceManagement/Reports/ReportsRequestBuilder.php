@@ -6,9 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\CachedReportConfigurations\CachedReportConfigurationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\CachedReportConfigurations\Item\DeviceManagementCachedReportConfigurationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\ExportJobs\ExportJobsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\ExportJobs\Item\DeviceManagementExportJobItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetActiveMalwareReport\GetActiveMalwareReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetActiveMalwareSummaryReport\GetActiveMalwareSummaryReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetAllCertificatesReport\GetAllCertificatesReportRequestBuilder;
@@ -40,6 +38,15 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceInstallStat
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceManagementIntentPerSettingContributingProfiles\GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceManagementIntentSettingsReport\GetDeviceManagementIntentSettingsReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceNonComplianceReport\GetDeviceNonComplianceReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDevicePoliciesComplianceReport\GetDevicePoliciesComplianceReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDevicePolicySettingsComplianceReport\GetDevicePolicySettingsComplianceReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDevicesStatusByPolicyPlatformComplianceReport\GetDevicesStatusByPolicyPlatformComplianceReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDevicesStatusBySettingReport\GetDevicesStatusBySettingReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceStatusByCompliacePolicyReport\GetDeviceStatusByCompliacePolicyReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceStatusByCompliancePolicySettingReport\GetDeviceStatusByCompliancePolicySettingReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceStatusSummaryByCompliacePolicyReport\GetDeviceStatusSummaryByCompliacePolicyReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceStatusSummaryByCompliancePolicySettingsReport\GetDeviceStatusSummaryByCompliancePolicySettingsReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDevicesWithoutCompliancePolicyReport\GetDevicesWithoutCompliancePolicyReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetEncryptionReportForDevices\GetEncryptionReportForDevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetEnrollmentConfigurationPoliciesByDevice\GetEnrollmentConfigurationPoliciesByDeviceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetFailedMobileAppsReport\GetFailedMobileAppsReportRequestBuilder;
@@ -70,15 +77,15 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsUpdateAler
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetZebraFotaDeploymentReport\GetZebraFotaDeploymentReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementReports;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
-use Microsoft\Kiota\Abstractions\ResponseHandler;
-use Microsoft\Kiota\Abstractions\Serialization\Parsable;
-use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
-class ReportsRequestBuilder 
+/**
+ * Provides operations to manage the reports property of the microsoft.graph.deviceManagement entity.
+*/
+class ReportsRequestBuilder extends BaseRequestBuilder 
 {
     /**
      * Provides operations to manage the cachedReportConfigurations property of the microsoft.graph.deviceManagementReports entity.
@@ -312,6 +319,69 @@ class ReportsRequestBuilder
     }
     
     /**
+     * Provides operations to call the getDevicePoliciesComplianceReport method.
+    */
+    public function getDevicePoliciesComplianceReport(): GetDevicePoliciesComplianceReportRequestBuilder {
+        return new GetDevicePoliciesComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getDevicePolicySettingsComplianceReport method.
+    */
+    public function getDevicePolicySettingsComplianceReport(): GetDevicePolicySettingsComplianceReportRequestBuilder {
+        return new GetDevicePolicySettingsComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getDevicesStatusByPolicyPlatformComplianceReport method.
+    */
+    public function getDevicesStatusByPolicyPlatformComplianceReport(): GetDevicesStatusByPolicyPlatformComplianceReportRequestBuilder {
+        return new GetDevicesStatusByPolicyPlatformComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getDevicesStatusBySettingReport method.
+    */
+    public function getDevicesStatusBySettingReport(): GetDevicesStatusBySettingReportRequestBuilder {
+        return new GetDevicesStatusBySettingReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getDeviceStatusByCompliacePolicyReport method.
+    */
+    public function getDeviceStatusByCompliacePolicyReport(): GetDeviceStatusByCompliacePolicyReportRequestBuilder {
+        return new GetDeviceStatusByCompliacePolicyReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getDeviceStatusByCompliancePolicySettingReport method.
+    */
+    public function getDeviceStatusByCompliancePolicySettingReport(): GetDeviceStatusByCompliancePolicySettingReportRequestBuilder {
+        return new GetDeviceStatusByCompliancePolicySettingReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getDeviceStatusSummaryByCompliacePolicyReport method.
+    */
+    public function getDeviceStatusSummaryByCompliacePolicyReport(): GetDeviceStatusSummaryByCompliacePolicyReportRequestBuilder {
+        return new GetDeviceStatusSummaryByCompliacePolicyReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getDeviceStatusSummaryByCompliancePolicySettingsReport method.
+    */
+    public function getDeviceStatusSummaryByCompliancePolicySettingsReport(): GetDeviceStatusSummaryByCompliancePolicySettingsReportRequestBuilder {
+        return new GetDeviceStatusSummaryByCompliancePolicySettingsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getDevicesWithoutCompliancePolicyReport method.
+    */
+    public function getDevicesWithoutCompliancePolicyReport(): GetDevicesWithoutCompliancePolicyReportRequestBuilder {
+        return new GetDevicesWithoutCompliancePolicyReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the getEncryptionReportForDevices method.
     */
     public function getEncryptionReportForDevices(): GetEncryptionReportForDevicesRequestBuilder {
@@ -508,86 +578,50 @@ class ReportsRequestBuilder
     }
     
     /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
-    private array $pathParameters;
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
-    private RequestAdapter $requestAdapter;
-    
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
-    private string $urlTemplate;
-    
-    /**
-     * Provides operations to manage the cachedReportConfigurations property of the microsoft.graph.deviceManagementReports entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceManagementCachedReportConfigurationItemRequestBuilder
-    */
-    public function cachedReportConfigurationsById(string $id): DeviceManagementCachedReportConfigurationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceManagementCachedReportConfiguration%2Did'] = $id;
-        return new DeviceManagementCachedReportConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Instantiates a new ReportsRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/deviceManagement/reports{?%24select,%24expand}';
-        $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/reports{?%24select,%24expand}');
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
      * Delete navigation property reports for deviceManagement
      * @param ReportsRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?ReportsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?ReportsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Provides operations to manage the exportJobs property of the microsoft.graph.deviceManagementReports entity.
-     * @param string $id Unique identifier of the item
-     * @return DeviceManagementExportJobItemRequestBuilder
-    */
-    public function exportJobsById(string $id): DeviceManagementExportJobItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceManagementExportJob%2Did'] = $id;
-        return new DeviceManagementExportJobItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
      * Reports singleton
      * @param ReportsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?ReportsRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?ReportsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagementReports::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagementReports::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -597,17 +631,16 @@ class ReportsRequestBuilder
      * Update the navigation property reports in deviceManagement
      * @param DeviceManagementReports $body The request body
      * @param ReportsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(DeviceManagementReports $body, ?ReportsRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(DeviceManagementReports $body, ?ReportsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagementReports::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagementReports::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -624,12 +657,8 @@ class ReportsRequestBuilder
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -644,17 +673,13 @@ class ReportsRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         return $requestInfo;
     }
@@ -670,14 +695,10 @@ class ReportsRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;

@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SharedDriveItem extends BaseItem implements Parsable 
 {
     /**
-     * @var EscapedList|null $escapedList Used to access the underlying list
-    */
-    public ?EscapedList $escapedList = null;
-    
-    /**
      * Instantiates a new SharedDriveItem and sets the default values.
     */
     public function __construct() {
@@ -130,7 +125,7 @@ class SharedDriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the driveItem property value. Used to access the underlying driveItem
-     *  @param DriveItem|null $value Value to set for the driveItem property.
+     * @param DriveItem|null $value Value to set for the driveItem property.
     */
     public function setDriveItem(?DriveItem $value): void {
         $this->getBackingStore()->set('driveItem', $value);
@@ -138,7 +133,7 @@ class SharedDriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the items property value. All driveItems contained in the sharing root. This collection cannot be enumerated.
-     *  @param array<DriveItem>|null $value Value to set for the items property.
+     * @param array<DriveItem>|null $value Value to set for the items property.
     */
     public function setItems(?array $value): void {
         $this->getBackingStore()->set('items', $value);
@@ -146,7 +141,7 @@ class SharedDriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the list property value. Used to access the underlying list
-     *  @param EscapedList|null $value Value to set for the EscapedList property.
+     * @param EscapedList|null $value Value to set for the EscapedList property.
     */
     public function setList(?EscapedList $value): void {
         $this->getBackingStore()->set('escapedList', $value);
@@ -154,7 +149,7 @@ class SharedDriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the listItem property value. Used to access the underlying listItem
-     *  @param ListItem|null $value Value to set for the listItem property.
+     * @param ListItem|null $value Value to set for the listItem property.
     */
     public function setListItem(?ListItem $value): void {
         $this->getBackingStore()->set('listItem', $value);
@@ -162,7 +157,7 @@ class SharedDriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the owner property value. Information about the owner of the shared item being referenced.
-     *  @param IdentitySet|null $value Value to set for the owner property.
+     * @param IdentitySet|null $value Value to set for the owner property.
     */
     public function setOwner(?IdentitySet $value): void {
         $this->getBackingStore()->set('owner', $value);
@@ -170,7 +165,7 @@ class SharedDriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the permission property value. Used to access the permission representing the underlying sharing link
-     *  @param Permission|null $value Value to set for the permission property.
+     * @param Permission|null $value Value to set for the permission property.
     */
     public function setPermission(?Permission $value): void {
         $this->getBackingStore()->set('permission', $value);
@@ -178,7 +173,7 @@ class SharedDriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the root property value. The root property
-     *  @param DriveItem|null $value Value to set for the root property.
+     * @param DriveItem|null $value Value to set for the root property.
     */
     public function setRoot(?DriveItem $value): void {
         $this->getBackingStore()->set('root', $value);
@@ -186,7 +181,7 @@ class SharedDriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the site property value. Used to access the underlying site
-     *  @param Site|null $value Value to set for the site property.
+     * @param Site|null $value Value to set for the site property.
     */
     public function setSite(?Site $value): void {
         $this->getBackingStore()->set('site', $value);

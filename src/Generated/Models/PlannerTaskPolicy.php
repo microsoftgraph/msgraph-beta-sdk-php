@@ -36,7 +36,7 @@ class PlannerTaskPolicy implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -71,7 +71,7 @@ class PlannerTaskPolicy implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the rules property value. The rules property
+     * Gets the rules property value. The rules that should be enforced on the tasks when they are being changed outside of the scenario, based on the role of the caller.
      * @return array<PlannerTaskRoleBasedRule>|null
     */
     public function getRules(): ?array {
@@ -90,7 +90,7 @@ class PlannerTaskPolicy implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -98,7 +98,7 @@ class PlannerTaskPolicy implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -106,15 +106,15 @@ class PlannerTaskPolicy implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
-     * Sets the rules property value. The rules property
-     *  @param array<PlannerTaskRoleBasedRule>|null $value Value to set for the rules property.
+     * Sets the rules property value. The rules that should be enforced on the tasks when they are being changed outside of the scenario, based on the role of the caller.
+     * @param array<PlannerTaskRoleBasedRule>|null $value Value to set for the rules property.
     */
     public function setRules(?array $value): void {
         $this->getBackingStore()->set('rules', $value);

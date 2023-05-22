@@ -75,7 +75,7 @@ class WindowsKioskUWPApp extends WindowsKioskAppBase implements Parsable
 
     /**
      * Sets the appId property value. This references an Intune App that will be target to the same assignments as Kiosk configuration
-     *  @param string|null $value Value to set for the appId property.
+     * @param string|null $value Value to set for the appId property.
     */
     public function setAppId(?string $value): void {
         $this->getBackingStore()->set('appId', $value);
@@ -83,7 +83,7 @@ class WindowsKioskUWPApp extends WindowsKioskAppBase implements Parsable
 
     /**
      * Sets the appUserModelId property value. This is the only Application User Model ID (AUMID) that will be available to launch use while in Kiosk Mode
-     *  @param string|null $value Value to set for the appUserModelId property.
+     * @param string|null $value Value to set for the appUserModelId property.
     */
     public function setAppUserModelId(?string $value): void {
         $this->getBackingStore()->set('appUserModelId', $value);
@@ -91,7 +91,7 @@ class WindowsKioskUWPApp extends WindowsKioskAppBase implements Parsable
 
     /**
      * Sets the containedAppId property value. This references an contained App from an Intune App
-     *  @param string|null $value Value to set for the containedAppId property.
+     * @param string|null $value Value to set for the containedAppId property.
     */
     public function setContainedAppId(?string $value): void {
         $this->getBackingStore()->set('containedAppId', $value);

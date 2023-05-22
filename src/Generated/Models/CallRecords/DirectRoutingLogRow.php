@@ -37,7 +37,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -52,7 +52,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the calleeNumber property value. Number of the user or bot who received the call. E.164 format, but may include additional data.
+     * Gets the calleeNumber property value. Number of the user or bot who received the call (E.164 format, but may include additional data).
      * @return string|null
     */
     public function getCalleeNumber(): ?string {
@@ -68,7 +68,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the callerNumber property value. Number of the user or bot who made the call. E.164 format, but may include additional data.
+     * Gets the callerNumber property value. Number of the user or bot who made the call (E.164 format, but may include additional data).
      * @return string|null
     */
     public function getCallerNumber(): ?string {
@@ -84,7 +84,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the correlationId property value. Identifier for the call that you can use when calling Microsoft Support. GUID.
+     * Gets the correlationId property value. Identifier (GUID) for the call that you can use when calling Microsoft Support.
      * @return string|null
     */
     public function getCorrelationId(): ?string {
@@ -137,10 +137,12 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
             'mediaBypassEnabled' => fn(ParseNode $n) => $o->setMediaBypassEnabled($n->getBooleanValue()),
             'mediaPathLocation' => fn(ParseNode $n) => $o->setMediaPathLocation($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'otherPartyCountryCode' => fn(ParseNode $n) => $o->setOtherPartyCountryCode($n->getStringValue()),
             'signalingLocation' => fn(ParseNode $n) => $o->setSignalingLocation($n->getStringValue()),
             'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
             'successfulCall' => fn(ParseNode $n) => $o->setSuccessfulCall($n->getBooleanValue()),
             'trunkFullyQualifiedDomainName' => fn(ParseNode $n) => $o->setTrunkFullyQualifiedDomainName($n->getStringValue()),
+            'userCountryCode' => fn(ParseNode $n) => $o->setUserCountryCode($n->getStringValue()),
             'userDisplayName' => fn(ParseNode $n) => $o->setUserDisplayName($n->getStringValue()),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
@@ -148,7 +150,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the finalSipCode property value. The code with which the call ended, RFC 3261.
+     * Gets the finalSipCode property value. The code with which the call ended (RFC 3261).
      * @return int|null
     */
     public function getFinalSipCode(): ?int {
@@ -164,7 +166,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the id property value. Unique call identifier. GUID.
+     * Gets the id property value. Unique call identifier (GUID).
      * @return string|null
     */
     public function getId(): ?string {
@@ -188,7 +190,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the mediaPathLocation property value. The datacenter used for media path in non-bypass call.
+     * Gets the mediaPathLocation property value. The data center used for media path in non-bypass call.
      * @return string|null
     */
     public function getMediaPathLocation(): ?string {
@@ -204,7 +206,15 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the signalingLocation property value. The datacenter used for signaling for both bypass and non-bypass calls.
+     * Gets the otherPartyCountryCode property value. Country code of the caller in case of an incoming call, or callee in case of an outgoing call. For details, see ISO 3166-1 alpha-2.
+     * @return string|null
+    */
+    public function getOtherPartyCountryCode(): ?string {
+        return $this->getBackingStore()->get('otherPartyCountryCode');
+    }
+
+    /**
+     * Gets the signalingLocation property value. The data center used for signaling for both bypass and non-bypass calls.
      * @return string|null
     */
     public function getSignalingLocation(): ?string {
@@ -236,6 +246,14 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the userCountryCode property value. Country code of the user. For details, see ISO 3166-1 alpha-2.
+     * @return string|null
+    */
+    public function getUserCountryCode(): ?string {
+        return $this->getBackingStore()->get('userCountryCode');
+    }
+
+    /**
      * Gets the userDisplayName property value. Display name of the user.
      * @return string|null
     */
@@ -244,7 +262,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userId property value. Calling user's ID in Graph. This and other user info will be null/empty for bot call types. GUID.
+     * Gets the userId property value. The unique identifier (GUID) of the user in Azure Active Directory. This and other user info will be null/empty for bot call types.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -252,7 +270,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userPrincipalName property value. UserPrincipalName (sign-in name) in Azure Active Directory. This is usually the same as user's SIP Address, and can be same as user's e-mail address.
+     * Gets the userPrincipalName property value. The user principal name (sign-in name) in Azure Active Directory. This is usually the same as the user's SIP address, and can be same as the user's e-mail address.
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
@@ -279,10 +297,12 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeBooleanValue('mediaBypassEnabled', $this->getMediaBypassEnabled());
         $writer->writeStringValue('mediaPathLocation', $this->getMediaPathLocation());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('otherPartyCountryCode', $this->getOtherPartyCountryCode());
         $writer->writeStringValue('signalingLocation', $this->getSignalingLocation());
         $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
         $writer->writeBooleanValue('successfulCall', $this->getSuccessfulCall());
         $writer->writeStringValue('trunkFullyQualifiedDomainName', $this->getTrunkFullyQualifiedDomainName());
+        $writer->writeStringValue('userCountryCode', $this->getUserCountryCode());
         $writer->writeStringValue('userDisplayName', $this->getUserDisplayName());
         $writer->writeStringValue('userId', $this->getUserId());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
@@ -291,7 +311,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -299,15 +319,15 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
-     * Sets the calleeNumber property value. Number of the user or bot who received the call. E.164 format, but may include additional data.
-     *  @param string|null $value Value to set for the calleeNumber property.
+     * Sets the calleeNumber property value. Number of the user or bot who received the call (E.164 format, but may include additional data).
+     * @param string|null $value Value to set for the calleeNumber property.
     */
     public function setCalleeNumber(?string $value): void {
         $this->getBackingStore()->set('calleeNumber', $value);
@@ -315,15 +335,15 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the callEndSubReason property value. In addition to the SIP codes, Microsoft has own subcodes that indicate the specific issue.
-     *  @param int|null $value Value to set for the callEndSubReason property.
+     * @param int|null $value Value to set for the callEndSubReason property.
     */
     public function setCallEndSubReason(?int $value): void {
         $this->getBackingStore()->set('callEndSubReason', $value);
     }
 
     /**
-     * Sets the callerNumber property value. Number of the user or bot who made the call. E.164 format, but may include additional data.
-     *  @param string|null $value Value to set for the callerNumber property.
+     * Sets the callerNumber property value. Number of the user or bot who made the call (E.164 format, but may include additional data).
+     * @param string|null $value Value to set for the callerNumber property.
     */
     public function setCallerNumber(?string $value): void {
         $this->getBackingStore()->set('callerNumber', $value);
@@ -331,15 +351,15 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the callType property value. Call type and direction.
-     *  @param string|null $value Value to set for the callType property.
+     * @param string|null $value Value to set for the callType property.
     */
     public function setCallType(?string $value): void {
         $this->getBackingStore()->set('callType', $value);
     }
 
     /**
-     * Sets the correlationId property value. Identifier for the call that you can use when calling Microsoft Support. GUID.
-     *  @param string|null $value Value to set for the correlationId property.
+     * Sets the correlationId property value. Identifier (GUID) for the call that you can use when calling Microsoft Support.
+     * @param string|null $value Value to set for the correlationId property.
     */
     public function setCorrelationId(?string $value): void {
         $this->getBackingStore()->set('correlationId', $value);
@@ -347,7 +367,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the duration property value. Duration of the call in seconds.
-     *  @param int|null $value Value to set for the duration property.
+     * @param int|null $value Value to set for the duration property.
     */
     public function setDuration(?int $value): void {
         $this->getBackingStore()->set('duration', $value);
@@ -355,7 +375,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the endDateTime property value. Only exists for successful (fully established) calls. Time when call ended.
-     *  @param DateTime|null $value Value to set for the endDateTime property.
+     * @param DateTime|null $value Value to set for the endDateTime property.
     */
     public function setEndDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('endDateTime', $value);
@@ -363,15 +383,15 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the failureDateTime property value. Only exists for failed (not fully established) calls.
-     *  @param DateTime|null $value Value to set for the failureDateTime property.
+     * @param DateTime|null $value Value to set for the failureDateTime property.
     */
     public function setFailureDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('failureDateTime', $value);
     }
 
     /**
-     * Sets the finalSipCode property value. The code with which the call ended, RFC 3261.
-     *  @param int|null $value Value to set for the finalSipCode property.
+     * Sets the finalSipCode property value. The code with which the call ended (RFC 3261).
+     * @param int|null $value Value to set for the finalSipCode property.
     */
     public function setFinalSipCode(?int $value): void {
         $this->getBackingStore()->set('finalSipCode', $value);
@@ -379,15 +399,15 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the finalSipCodePhrase property value. Description of the SIP code and Microsoft subcode.
-     *  @param string|null $value Value to set for the finalSipCodePhrase property.
+     * @param string|null $value Value to set for the finalSipCodePhrase property.
     */
     public function setFinalSipCodePhrase(?string $value): void {
         $this->getBackingStore()->set('finalSipCodePhrase', $value);
     }
 
     /**
-     * Sets the id property value. Unique call identifier. GUID.
-     *  @param string|null $value Value to set for the id property.
+     * Sets the id property value. Unique call identifier (GUID).
+     * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
         $this->getBackingStore()->set('id', $value);
@@ -395,7 +415,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the inviteDateTime property value. When the initial invite was sent.
-     *  @param DateTime|null $value Value to set for the inviteDateTime property.
+     * @param DateTime|null $value Value to set for the inviteDateTime property.
     */
     public function setInviteDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('inviteDateTime', $value);
@@ -403,15 +423,15 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the mediaBypassEnabled property value. Indicates if the trunk was enabled for media bypass or not.
-     *  @param bool|null $value Value to set for the mediaBypassEnabled property.
+     * @param bool|null $value Value to set for the mediaBypassEnabled property.
     */
     public function setMediaBypassEnabled(?bool $value): void {
         $this->getBackingStore()->set('mediaBypassEnabled', $value);
     }
 
     /**
-     * Sets the mediaPathLocation property value. The datacenter used for media path in non-bypass call.
-     *  @param string|null $value Value to set for the mediaPathLocation property.
+     * Sets the mediaPathLocation property value. The data center used for media path in non-bypass call.
+     * @param string|null $value Value to set for the mediaPathLocation property.
     */
     public function setMediaPathLocation(?string $value): void {
         $this->getBackingStore()->set('mediaPathLocation', $value);
@@ -419,15 +439,23 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
-     * Sets the signalingLocation property value. The datacenter used for signaling for both bypass and non-bypass calls.
-     *  @param string|null $value Value to set for the signalingLocation property.
+     * Sets the otherPartyCountryCode property value. Country code of the caller in case of an incoming call, or callee in case of an outgoing call. For details, see ISO 3166-1 alpha-2.
+     * @param string|null $value Value to set for the otherPartyCountryCode property.
+    */
+    public function setOtherPartyCountryCode(?string $value): void {
+        $this->getBackingStore()->set('otherPartyCountryCode', $value);
+    }
+
+    /**
+     * Sets the signalingLocation property value. The data center used for signaling for both bypass and non-bypass calls.
+     * @param string|null $value Value to set for the signalingLocation property.
     */
     public function setSignalingLocation(?string $value): void {
         $this->getBackingStore()->set('signalingLocation', $value);
@@ -435,7 +463,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the startDateTime property value. Call start time.For failed and unanswered calls, this can be equal to invite or failure time.
-     *  @param DateTime|null $value Value to set for the startDateTime property.
+     * @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('startDateTime', $value);
@@ -443,7 +471,7 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the successfulCall property value. Success or attempt.
-     *  @param bool|null $value Value to set for the successfulCall property.
+     * @param bool|null $value Value to set for the successfulCall property.
     */
     public function setSuccessfulCall(?bool $value): void {
         $this->getBackingStore()->set('successfulCall', $value);
@@ -451,31 +479,39 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the trunkFullyQualifiedDomainName property value. Fully qualified domain name of the session border controller.
-     *  @param string|null $value Value to set for the trunkFullyQualifiedDomainName property.
+     * @param string|null $value Value to set for the trunkFullyQualifiedDomainName property.
     */
     public function setTrunkFullyQualifiedDomainName(?string $value): void {
         $this->getBackingStore()->set('trunkFullyQualifiedDomainName', $value);
     }
 
     /**
+     * Sets the userCountryCode property value. Country code of the user. For details, see ISO 3166-1 alpha-2.
+     * @param string|null $value Value to set for the userCountryCode property.
+    */
+    public function setUserCountryCode(?string $value): void {
+        $this->getBackingStore()->set('userCountryCode', $value);
+    }
+
+    /**
      * Sets the userDisplayName property value. Display name of the user.
-     *  @param string|null $value Value to set for the userDisplayName property.
+     * @param string|null $value Value to set for the userDisplayName property.
     */
     public function setUserDisplayName(?string $value): void {
         $this->getBackingStore()->set('userDisplayName', $value);
     }
 
     /**
-     * Sets the userId property value. Calling user's ID in Graph. This and other user info will be null/empty for bot call types. GUID.
-     *  @param string|null $value Value to set for the userId property.
+     * Sets the userId property value. The unique identifier (GUID) of the user in Azure Active Directory. This and other user info will be null/empty for bot call types.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);
     }
 
     /**
-     * Sets the userPrincipalName property value. UserPrincipalName (sign-in name) in Azure Active Directory. This is usually the same as user's SIP Address, and can be same as user's e-mail address.
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * Sets the userPrincipalName property value. The user principal name (sign-in name) in Azure Active Directory. This is usually the same as the user's SIP address, and can be same as the user's e-mail address.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);

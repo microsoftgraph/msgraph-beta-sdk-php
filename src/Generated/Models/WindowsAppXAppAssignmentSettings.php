@@ -37,7 +37,7 @@ class WindowsAppXAppAssignmentSettings extends MobileAppAssignmentSettings imple
     }
 
     /**
-     * Gets the useDeviceContext property value. Whether or not to use device execution context for Windows AppX mobile app.
+     * Gets the useDeviceContext property value. When TRUE, indicates that device execution context will be used for the AppX mobile app. When FALSE, indicates that user context will be used for the AppX mobile app. By default, this property is set to FALSE. Once this property has been set to TRUE it cannot be changed.
      * @return bool|null
     */
     public function getUseDeviceContext(): ?bool {
@@ -54,8 +54,8 @@ class WindowsAppXAppAssignmentSettings extends MobileAppAssignmentSettings imple
     }
 
     /**
-     * Sets the useDeviceContext property value. Whether or not to use device execution context for Windows AppX mobile app.
-     *  @param bool|null $value Value to set for the useDeviceContext property.
+     * Sets the useDeviceContext property value. When TRUE, indicates that device execution context will be used for the AppX mobile app. When FALSE, indicates that user context will be used for the AppX mobile app. By default, this property is set to FALSE. Once this property has been set to TRUE it cannot be changed.
+     * @param bool|null $value Value to set for the useDeviceContext property.
     */
     public function setUseDeviceContext(?bool $value): void {
         $this->getBackingStore()->set('useDeviceContext', $value);

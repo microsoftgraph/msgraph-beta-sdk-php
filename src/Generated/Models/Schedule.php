@@ -80,7 +80,7 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
-     * Gets the openShiftChangeRequests property value. The openShiftChangeRequests property
+     * Gets the openShiftChangeRequests property value. The open shift requests in the schedule.
      * @return array<OpenShiftChangeRequest>|null
     */
     public function getOpenShiftChangeRequests(): ?array {
@@ -88,7 +88,7 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
-     * Gets the openShifts property value. The openShifts property
+     * Gets the openShifts property value. The set of open shifts in a scheduling group in the schedule.
      * @return array<OpenShift>|null
     */
     public function getOpenShifts(): ?array {
@@ -136,7 +136,7 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
-     * Gets the swapShiftsChangeRequests property value. The swapShiftsChangeRequests property
+     * Gets the swapShiftsChangeRequests property value. The swap requests for shifts in the schedule.
      * @return array<SwapShiftsChangeRequest>|null
     */
     public function getSwapShiftsChangeRequests(): ?array {
@@ -184,7 +184,7 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
-     * Gets the timeOffRequests property value. The timeOffRequests property
+     * Gets the timeOffRequests property value. The time off requests in the schedule.
      * @return array<TimeOffRequest>|null
     */
     public function getTimeOffRequests(): ?array {
@@ -252,7 +252,7 @@ class Schedule extends Entity implements Parsable
 
     /**
      * Sets the enabled property value. Indicates whether the schedule is enabled for the team. Required.
-     *  @param bool|null $value Value to set for the enabled property.
+     * @param bool|null $value Value to set for the enabled property.
     */
     public function setEnabled(?bool $value): void {
         $this->getBackingStore()->set('enabled', $value);
@@ -260,7 +260,7 @@ class Schedule extends Entity implements Parsable
 
     /**
      * Sets the offerShiftRequests property value. The offerShiftRequests property
-     *  @param array<OfferShiftRequest>|null $value Value to set for the offerShiftRequests property.
+     * @param array<OfferShiftRequest>|null $value Value to set for the offerShiftRequests property.
     */
     public function setOfferShiftRequests(?array $value): void {
         $this->getBackingStore()->set('offerShiftRequests', $value);
@@ -268,23 +268,23 @@ class Schedule extends Entity implements Parsable
 
     /**
      * Sets the offerShiftRequestsEnabled property value. Indicates whether offer shift requests are enabled for the schedule.
-     *  @param bool|null $value Value to set for the offerShiftRequestsEnabled property.
+     * @param bool|null $value Value to set for the offerShiftRequestsEnabled property.
     */
     public function setOfferShiftRequestsEnabled(?bool $value): void {
         $this->getBackingStore()->set('offerShiftRequestsEnabled', $value);
     }
 
     /**
-     * Sets the openShiftChangeRequests property value. The openShiftChangeRequests property
-     *  @param array<OpenShiftChangeRequest>|null $value Value to set for the openShiftChangeRequests property.
+     * Sets the openShiftChangeRequests property value. The open shift requests in the schedule.
+     * @param array<OpenShiftChangeRequest>|null $value Value to set for the openShiftChangeRequests property.
     */
     public function setOpenShiftChangeRequests(?array $value): void {
         $this->getBackingStore()->set('openShiftChangeRequests', $value);
     }
 
     /**
-     * Sets the openShifts property value. The openShifts property
-     *  @param array<OpenShift>|null $value Value to set for the openShifts property.
+     * Sets the openShifts property value. The set of open shifts in a scheduling group in the schedule.
+     * @param array<OpenShift>|null $value Value to set for the openShifts property.
     */
     public function setOpenShifts(?array $value): void {
         $this->getBackingStore()->set('openShifts', $value);
@@ -292,7 +292,7 @@ class Schedule extends Entity implements Parsable
 
     /**
      * Sets the openShiftsEnabled property value. Indicates whether open shifts are enabled for the schedule.
-     *  @param bool|null $value Value to set for the openShiftsEnabled property.
+     * @param bool|null $value Value to set for the openShiftsEnabled property.
     */
     public function setOpenShiftsEnabled(?bool $value): void {
         $this->getBackingStore()->set('openShiftsEnabled', $value);
@@ -300,7 +300,7 @@ class Schedule extends Entity implements Parsable
 
     /**
      * Sets the provisionStatus property value. The status of the schedule provisioning. The possible values are notStarted, running, completed, failed.
-     *  @param OperationStatus|null $value Value to set for the provisionStatus property.
+     * @param OperationStatus|null $value Value to set for the provisionStatus property.
     */
     public function setProvisionStatus(?OperationStatus $value): void {
         $this->getBackingStore()->set('provisionStatus', $value);
@@ -308,7 +308,7 @@ class Schedule extends Entity implements Parsable
 
     /**
      * Sets the provisionStatusCode property value. Additional information about why schedule provisioning failed.
-     *  @param string|null $value Value to set for the provisionStatusCode property.
+     * @param string|null $value Value to set for the provisionStatusCode property.
     */
     public function setProvisionStatusCode(?string $value): void {
         $this->getBackingStore()->set('provisionStatusCode', $value);
@@ -316,7 +316,7 @@ class Schedule extends Entity implements Parsable
 
     /**
      * Sets the schedulingGroups property value. The logical grouping of users in the schedule (usually by role).
-     *  @param array<SchedulingGroup>|null $value Value to set for the schedulingGroups property.
+     * @param array<SchedulingGroup>|null $value Value to set for the schedulingGroups property.
     */
     public function setSchedulingGroups(?array $value): void {
         $this->getBackingStore()->set('schedulingGroups', $value);
@@ -324,15 +324,15 @@ class Schedule extends Entity implements Parsable
 
     /**
      * Sets the shifts property value. The shifts in the schedule.
-     *  @param array<Shift>|null $value Value to set for the shifts property.
+     * @param array<Shift>|null $value Value to set for the shifts property.
     */
     public function setShifts(?array $value): void {
         $this->getBackingStore()->set('shifts', $value);
     }
 
     /**
-     * Sets the swapShiftsChangeRequests property value. The swapShiftsChangeRequests property
-     *  @param array<SwapShiftsChangeRequest>|null $value Value to set for the swapShiftsChangeRequests property.
+     * Sets the swapShiftsChangeRequests property value. The swap requests for shifts in the schedule.
+     * @param array<SwapShiftsChangeRequest>|null $value Value to set for the swapShiftsChangeRequests property.
     */
     public function setSwapShiftsChangeRequests(?array $value): void {
         $this->getBackingStore()->set('swapShiftsChangeRequests', $value);
@@ -340,7 +340,7 @@ class Schedule extends Entity implements Parsable
 
     /**
      * Sets the swapShiftsRequestsEnabled property value. Indicates whether swap shifts requests are enabled for the schedule.
-     *  @param bool|null $value Value to set for the swapShiftsRequestsEnabled property.
+     * @param bool|null $value Value to set for the swapShiftsRequestsEnabled property.
     */
     public function setSwapShiftsRequestsEnabled(?bool $value): void {
         $this->getBackingStore()->set('swapShiftsRequestsEnabled', $value);
@@ -348,7 +348,7 @@ class Schedule extends Entity implements Parsable
 
     /**
      * Sets the timeCards property value. The timeCards property
-     *  @param array<TimeCard>|null $value Value to set for the timeCards property.
+     * @param array<TimeCard>|null $value Value to set for the timeCards property.
     */
     public function setTimeCards(?array $value): void {
         $this->getBackingStore()->set('timeCards', $value);
@@ -356,7 +356,7 @@ class Schedule extends Entity implements Parsable
 
     /**
      * Sets the timeClockEnabled property value. Indicates whether time clock is enabled for the schedule.
-     *  @param bool|null $value Value to set for the timeClockEnabled property.
+     * @param bool|null $value Value to set for the timeClockEnabled property.
     */
     public function setTimeClockEnabled(?bool $value): void {
         $this->getBackingStore()->set('timeClockEnabled', $value);
@@ -364,7 +364,7 @@ class Schedule extends Entity implements Parsable
 
     /**
      * Sets the timeClockSettings property value. The timeClockSettings property
-     *  @param TimeClockSettings|null $value Value to set for the timeClockSettings property.
+     * @param TimeClockSettings|null $value Value to set for the timeClockSettings property.
     */
     public function setTimeClockSettings(?TimeClockSettings $value): void {
         $this->getBackingStore()->set('timeClockSettings', $value);
@@ -372,15 +372,15 @@ class Schedule extends Entity implements Parsable
 
     /**
      * Sets the timeOffReasons property value. The set of reasons for a time off in the schedule.
-     *  @param array<TimeOffReason>|null $value Value to set for the timeOffReasons property.
+     * @param array<TimeOffReason>|null $value Value to set for the timeOffReasons property.
     */
     public function setTimeOffReasons(?array $value): void {
         $this->getBackingStore()->set('timeOffReasons', $value);
     }
 
     /**
-     * Sets the timeOffRequests property value. The timeOffRequests property
-     *  @param array<TimeOffRequest>|null $value Value to set for the timeOffRequests property.
+     * Sets the timeOffRequests property value. The time off requests in the schedule.
+     * @param array<TimeOffRequest>|null $value Value to set for the timeOffRequests property.
     */
     public function setTimeOffRequests(?array $value): void {
         $this->getBackingStore()->set('timeOffRequests', $value);
@@ -388,7 +388,7 @@ class Schedule extends Entity implements Parsable
 
     /**
      * Sets the timeOffRequestsEnabled property value. Indicates whether time off requests are enabled for the schedule.
-     *  @param bool|null $value Value to set for the timeOffRequestsEnabled property.
+     * @param bool|null $value Value to set for the timeOffRequestsEnabled property.
     */
     public function setTimeOffRequestsEnabled(?bool $value): void {
         $this->getBackingStore()->set('timeOffRequestsEnabled', $value);
@@ -396,7 +396,7 @@ class Schedule extends Entity implements Parsable
 
     /**
      * Sets the timesOff property value. The instances of times off in the schedule.
-     *  @param array<TimeOff>|null $value Value to set for the timesOff property.
+     * @param array<TimeOff>|null $value Value to set for the timesOff property.
     */
     public function setTimesOff(?array $value): void {
         $this->getBackingStore()->set('timesOff', $value);
@@ -404,7 +404,7 @@ class Schedule extends Entity implements Parsable
 
     /**
      * Sets the timeZone property value. Indicates the time zone of the schedule team using tz database format. Required.
-     *  @param string|null $value Value to set for the timeZone property.
+     * @param string|null $value Value to set for the timeZone property.
     */
     public function setTimeZone(?string $value): void {
         $this->getBackingStore()->set('timeZone', $value);
@@ -412,7 +412,7 @@ class Schedule extends Entity implements Parsable
 
     /**
      * Sets the workforceIntegrationIds property value. The workforceIntegrationIds property
-     *  @param array<string>|null $value Value to set for the workforceIntegrationIds property.
+     * @param array<string>|null $value Value to set for the workforceIntegrationIds property.
     */
     public function setWorkforceIntegrationIds(?array $value): void {
         $this->getBackingStore()->set('workforceIntegrationIds', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Organization\Item\Settings\ProfileCardP
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve the properties and relationships of a profileCardProperty entity, which contains the profile card customizations that exist in your Microsoft 365 organization for a given field. The profileCardProperty is identified by its **directoryPropertyName** property.
+*/
 class ProfileCardPropertyItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class ProfileCardPropertyItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new ProfileCardPropertyItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

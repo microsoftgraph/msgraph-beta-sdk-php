@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Events;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a list of event objects from the user's default calendar orfrom a specified calendar. The list contains single instance meetings and series masters. To get expanded event instances, you can get the calendar view, orget the instances of an event. There are two scenarios where an app can get events in another user's calendar:
+*/
 class EventsRequestBuilderGetQueryParameters 
 {
     /**
@@ -11,6 +14,12 @@ class EventsRequestBuilderGetQueryParameters
      * @var bool|null $count Include count of items
     */
     public ?bool $count = null;
+    
+    /**
+     * @QueryParameter("%24expand")
+     * @var array<string>|null $expand Expand related entities
+    */
+    public ?array $expand = null;
     
     /**
      * @QueryParameter("%24filter")
@@ -42,4 +51,24 @@ class EventsRequestBuilderGetQueryParameters
     */
     public ?int $top = null;
     
+    /**
+     * Instantiates a new eventsRequestBuilderGetQueryParameters and sets the default values.
+     * @param bool|null $count Include count of items
+     * @param array<string>|null $expand Expand related entities
+     * @param string|null $filter Filter items by property values
+     * @param array<string>|null $orderby Order items by property values
+     * @param array<string>|null $select Select properties to be returned
+     * @param int|null $skip Skip the first n items
+     * @param int|null $top Show only the first n items
+    */
+    public function __construct(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?array $select = null, ?int $skip = null, ?int $top = null) {
+        $this->count = $count;
+        $this->expand = $expand;
+        $this->filter = $filter;
+        $this->orderby = $orderby;
+        $this->select = $select;
+        $this->skip = $skip;
+        $this->top = $top;
+    }
+
 }

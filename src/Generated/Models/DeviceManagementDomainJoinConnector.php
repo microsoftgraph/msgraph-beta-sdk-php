@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A Domain Join Connector is a connector that is responsible to allocate (and delete) machine account blobs
+*/
 class DeviceManagementDomainJoinConnector extends Entity implements Parsable 
 {
     /**
@@ -85,7 +88,7 @@ class DeviceManagementDomainJoinConnector extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The connector display name.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -93,7 +96,7 @@ class DeviceManagementDomainJoinConnector extends Entity implements Parsable
 
     /**
      * Sets the lastConnectionDateTime property value. Last time connector contacted Intune.
-     *  @param DateTime|null $value Value to set for the lastConnectionDateTime property.
+     * @param DateTime|null $value Value to set for the lastConnectionDateTime property.
     */
     public function setLastConnectionDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastConnectionDateTime', $value);
@@ -101,7 +104,7 @@ class DeviceManagementDomainJoinConnector extends Entity implements Parsable
 
     /**
      * Sets the state property value. The ODJ request states.
-     *  @param DeviceManagementDomainJoinConnectorState|null $value Value to set for the state property.
+     * @param DeviceManagementDomainJoinConnectorState|null $value Value to set for the state property.
     */
     public function setState(?DeviceManagementDomainJoinConnectorState $value): void {
         $this->getBackingStore()->set('state', $value);
@@ -109,7 +112,7 @@ class DeviceManagementDomainJoinConnector extends Entity implements Parsable
 
     /**
      * Sets the version property value. The version of the connector.
-     *  @param string|null $value Value to set for the version property.
+     * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {
         $this->getBackingStore()->set('version', $value);

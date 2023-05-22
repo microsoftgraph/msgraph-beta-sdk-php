@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TiIndicator extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new tiIndicator and sets the default values.
+     * Instantiates a new TiIndicator and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -625,7 +625,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the action property value. The action to apply if the indicator is matched from within the targetProduct security tool. Possible values are: unknown, allow, block, alert. Required.
-     *  @param TiAction|null $value Value to set for the action property.
+     * @param TiAction|null $value Value to set for the action property.
     */
     public function setAction(?TiAction $value): void {
         $this->getBackingStore()->set('action', $value);
@@ -633,7 +633,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the activityGroupNames property value. The cyber threat intelligence name(s) for the parties responsible for the malicious activity covered by the threat indicator.
-     *  @param array<string>|null $value Value to set for the activityGroupNames property.
+     * @param array<string>|null $value Value to set for the activityGroupNames property.
     */
     public function setActivityGroupNames(?array $value): void {
         $this->getBackingStore()->set('activityGroupNames', $value);
@@ -641,7 +641,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the additionalInformation property value. A catchall area into which extra data from the indicator not covered by the other tiIndicator properties may be placed. Data placed into additionalInformation will typically not be utilized by the targetProduct security tool.
-     *  @param string|null $value Value to set for the additionalInformation property.
+     * @param string|null $value Value to set for the additionalInformation property.
     */
     public function setAdditionalInformation(?string $value): void {
         $this->getBackingStore()->set('additionalInformation', $value);
@@ -649,7 +649,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the azureTenantId property value. Stamped by the system when the indicator is ingested. The Azure Active Directory tenant id of submitting client. Required.
-     *  @param string|null $value Value to set for the azureTenantId property.
+     * @param string|null $value Value to set for the azureTenantId property.
     */
     public function setAzureTenantId(?string $value): void {
         $this->getBackingStore()->set('azureTenantId', $value);
@@ -657,7 +657,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the confidence property value. An integer representing the confidence the data within the indicator accurately identifies malicious behavior. Acceptable values are 0 – 100 with 100 being the highest.
-     *  @param int|null $value Value to set for the confidence property.
+     * @param int|null $value Value to set for the confidence property.
     */
     public function setConfidence(?int $value): void {
         $this->getBackingStore()->set('confidence', $value);
@@ -665,7 +665,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the description property value. Brief description (100 characters or less) of the threat represented by the indicator. Required.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -673,7 +673,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the diamondModel property value. The area of the Diamond Model in which this indicator exists. Possible values are: unknown, adversary, capability, infrastructure, victim.
-     *  @param DiamondModel|null $value Value to set for the diamondModel property.
+     * @param DiamondModel|null $value Value to set for the diamondModel property.
     */
     public function setDiamondModel(?DiamondModel $value): void {
         $this->getBackingStore()->set('diamondModel', $value);
@@ -681,7 +681,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the domainName property value. The domainName property
-     *  @param string|null $value Value to set for the domainName property.
+     * @param string|null $value Value to set for the domainName property.
     */
     public function setDomainName(?string $value): void {
         $this->getBackingStore()->set('domainName', $value);
@@ -689,7 +689,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the emailEncoding property value. The emailEncoding property
-     *  @param string|null $value Value to set for the emailEncoding property.
+     * @param string|null $value Value to set for the emailEncoding property.
     */
     public function setEmailEncoding(?string $value): void {
         $this->getBackingStore()->set('emailEncoding', $value);
@@ -697,7 +697,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the emailLanguage property value. The emailLanguage property
-     *  @param string|null $value Value to set for the emailLanguage property.
+     * @param string|null $value Value to set for the emailLanguage property.
     */
     public function setEmailLanguage(?string $value): void {
         $this->getBackingStore()->set('emailLanguage', $value);
@@ -705,7 +705,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the emailRecipient property value. The emailRecipient property
-     *  @param string|null $value Value to set for the emailRecipient property.
+     * @param string|null $value Value to set for the emailRecipient property.
     */
     public function setEmailRecipient(?string $value): void {
         $this->getBackingStore()->set('emailRecipient', $value);
@@ -713,7 +713,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the emailSenderAddress property value. The emailSenderAddress property
-     *  @param string|null $value Value to set for the emailSenderAddress property.
+     * @param string|null $value Value to set for the emailSenderAddress property.
     */
     public function setEmailSenderAddress(?string $value): void {
         $this->getBackingStore()->set('emailSenderAddress', $value);
@@ -721,7 +721,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the emailSenderName property value. The emailSenderName property
-     *  @param string|null $value Value to set for the emailSenderName property.
+     * @param string|null $value Value to set for the emailSenderName property.
     */
     public function setEmailSenderName(?string $value): void {
         $this->getBackingStore()->set('emailSenderName', $value);
@@ -729,7 +729,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the emailSourceDomain property value. The emailSourceDomain property
-     *  @param string|null $value Value to set for the emailSourceDomain property.
+     * @param string|null $value Value to set for the emailSourceDomain property.
     */
     public function setEmailSourceDomain(?string $value): void {
         $this->getBackingStore()->set('emailSourceDomain', $value);
@@ -737,7 +737,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the emailSourceIpAddress property value. The emailSourceIpAddress property
-     *  @param string|null $value Value to set for the emailSourceIpAddress property.
+     * @param string|null $value Value to set for the emailSourceIpAddress property.
     */
     public function setEmailSourceIpAddress(?string $value): void {
         $this->getBackingStore()->set('emailSourceIpAddress', $value);
@@ -745,7 +745,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the emailSubject property value. The emailSubject property
-     *  @param string|null $value Value to set for the emailSubject property.
+     * @param string|null $value Value to set for the emailSubject property.
     */
     public function setEmailSubject(?string $value): void {
         $this->getBackingStore()->set('emailSubject', $value);
@@ -753,7 +753,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the emailXMailer property value. The emailXMailer property
-     *  @param string|null $value Value to set for the emailXMailer property.
+     * @param string|null $value Value to set for the emailXMailer property.
     */
     public function setEmailXMailer(?string $value): void {
         $this->getBackingStore()->set('emailXMailer', $value);
@@ -761,7 +761,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the expirationDateTime property value. DateTime string indicating when the Indicator expires. All indicators must have an expiration date to avoid stale indicators persisting in the system. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Required.
-     *  @param DateTime|null $value Value to set for the expirationDateTime property.
+     * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('expirationDateTime', $value);
@@ -769,7 +769,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the externalId property value. An identification number that ties the indicator back to the indicator provider’s system (e.g. a foreign key).
-     *  @param string|null $value Value to set for the externalId property.
+     * @param string|null $value Value to set for the externalId property.
     */
     public function setExternalId(?string $value): void {
         $this->getBackingStore()->set('externalId', $value);
@@ -777,7 +777,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the fileCompileDateTime property value. The fileCompileDateTime property
-     *  @param DateTime|null $value Value to set for the fileCompileDateTime property.
+     * @param DateTime|null $value Value to set for the fileCompileDateTime property.
     */
     public function setFileCompileDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('fileCompileDateTime', $value);
@@ -785,7 +785,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the fileCreatedDateTime property value. The fileCreatedDateTime property
-     *  @param DateTime|null $value Value to set for the fileCreatedDateTime property.
+     * @param DateTime|null $value Value to set for the fileCreatedDateTime property.
     */
     public function setFileCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('fileCreatedDateTime', $value);
@@ -793,7 +793,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the fileHashType property value. The fileHashType property
-     *  @param FileHashType|null $value Value to set for the fileHashType property.
+     * @param FileHashType|null $value Value to set for the fileHashType property.
     */
     public function setFileHashType(?FileHashType $value): void {
         $this->getBackingStore()->set('fileHashType', $value);
@@ -801,7 +801,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the fileHashValue property value. The fileHashValue property
-     *  @param string|null $value Value to set for the fileHashValue property.
+     * @param string|null $value Value to set for the fileHashValue property.
     */
     public function setFileHashValue(?string $value): void {
         $this->getBackingStore()->set('fileHashValue', $value);
@@ -809,7 +809,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the fileMutexName property value. The fileMutexName property
-     *  @param string|null $value Value to set for the fileMutexName property.
+     * @param string|null $value Value to set for the fileMutexName property.
     */
     public function setFileMutexName(?string $value): void {
         $this->getBackingStore()->set('fileMutexName', $value);
@@ -817,7 +817,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the fileName property value. The fileName property
-     *  @param string|null $value Value to set for the fileName property.
+     * @param string|null $value Value to set for the fileName property.
     */
     public function setFileName(?string $value): void {
         $this->getBackingStore()->set('fileName', $value);
@@ -825,7 +825,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the filePacker property value. The filePacker property
-     *  @param string|null $value Value to set for the filePacker property.
+     * @param string|null $value Value to set for the filePacker property.
     */
     public function setFilePacker(?string $value): void {
         $this->getBackingStore()->set('filePacker', $value);
@@ -833,7 +833,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the filePath property value. The filePath property
-     *  @param string|null $value Value to set for the filePath property.
+     * @param string|null $value Value to set for the filePath property.
     */
     public function setFilePath(?string $value): void {
         $this->getBackingStore()->set('filePath', $value);
@@ -841,7 +841,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the fileSize property value. The fileSize property
-     *  @param int|null $value Value to set for the fileSize property.
+     * @param int|null $value Value to set for the fileSize property.
     */
     public function setFileSize(?int $value): void {
         $this->getBackingStore()->set('fileSize', $value);
@@ -849,7 +849,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the fileType property value. The fileType property
-     *  @param string|null $value Value to set for the fileType property.
+     * @param string|null $value Value to set for the fileType property.
     */
     public function setFileType(?string $value): void {
         $this->getBackingStore()->set('fileType', $value);
@@ -857,7 +857,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the ingestedDateTime property value. Stamped by the system when the indicator is ingested. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the ingestedDateTime property.
+     * @param DateTime|null $value Value to set for the ingestedDateTime property.
     */
     public function setIngestedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('ingestedDateTime', $value);
@@ -865,7 +865,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the isActive property value. Used to deactivate indicators within system. By default, any indicator submitted is set as active. However, providers may submit existing indicators with this set to ‘False’ to deactivate indicators in the system.
-     *  @param bool|null $value Value to set for the isActive property.
+     * @param bool|null $value Value to set for the isActive property.
     */
     public function setIsActive(?bool $value): void {
         $this->getBackingStore()->set('isActive', $value);
@@ -873,7 +873,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the killChain property value. A JSON array of strings that describes which point or points on the Kill Chain this indicator targets. See ‘killChain values’ below for exact values.
-     *  @param array<string>|null $value Value to set for the killChain property.
+     * @param array<string>|null $value Value to set for the killChain property.
     */
     public function setKillChain(?array $value): void {
         $this->getBackingStore()->set('killChain', $value);
@@ -881,7 +881,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the knownFalsePositives property value. Scenarios in which the indicator may cause false positives. This should be human-readable text.
-     *  @param string|null $value Value to set for the knownFalsePositives property.
+     * @param string|null $value Value to set for the knownFalsePositives property.
     */
     public function setKnownFalsePositives(?string $value): void {
         $this->getBackingStore()->set('knownFalsePositives', $value);
@@ -889,7 +889,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the lastReportedDateTime property value. The last time the indicator was seen. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the lastReportedDateTime property.
+     * @param DateTime|null $value Value to set for the lastReportedDateTime property.
     */
     public function setLastReportedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastReportedDateTime', $value);
@@ -897,7 +897,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the malwareFamilyNames property value. The malware family name associated with an indicator if it exists. Microsoft prefers the Microsoft malware family name if at all possible which can be found via the Windows Defender Security Intelligence threat encyclopedia.
-     *  @param array<string>|null $value Value to set for the malwareFamilyNames property.
+     * @param array<string>|null $value Value to set for the malwareFamilyNames property.
     */
     public function setMalwareFamilyNames(?array $value): void {
         $this->getBackingStore()->set('malwareFamilyNames', $value);
@@ -905,7 +905,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the networkCidrBlock property value. The networkCidrBlock property
-     *  @param string|null $value Value to set for the networkCidrBlock property.
+     * @param string|null $value Value to set for the networkCidrBlock property.
     */
     public function setNetworkCidrBlock(?string $value): void {
         $this->getBackingStore()->set('networkCidrBlock', $value);
@@ -913,7 +913,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the networkDestinationAsn property value. The networkDestinationAsn property
-     *  @param int|null $value Value to set for the networkDestinationAsn property.
+     * @param int|null $value Value to set for the networkDestinationAsn property.
     */
     public function setNetworkDestinationAsn(?int $value): void {
         $this->getBackingStore()->set('networkDestinationAsn', $value);
@@ -921,7 +921,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the networkDestinationCidrBlock property value. The networkDestinationCidrBlock property
-     *  @param string|null $value Value to set for the networkDestinationCidrBlock property.
+     * @param string|null $value Value to set for the networkDestinationCidrBlock property.
     */
     public function setNetworkDestinationCidrBlock(?string $value): void {
         $this->getBackingStore()->set('networkDestinationCidrBlock', $value);
@@ -929,7 +929,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the networkDestinationIPv4 property value. The networkDestinationIPv4 property
-     *  @param string|null $value Value to set for the networkDestinationIPv4 property.
+     * @param string|null $value Value to set for the networkDestinationIPv4 property.
     */
     public function setNetworkDestinationIPv4(?string $value): void {
         $this->getBackingStore()->set('networkDestinationIPv4', $value);
@@ -937,7 +937,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the networkDestinationIPv6 property value. The networkDestinationIPv6 property
-     *  @param string|null $value Value to set for the networkDestinationIPv6 property.
+     * @param string|null $value Value to set for the networkDestinationIPv6 property.
     */
     public function setNetworkDestinationIPv6(?string $value): void {
         $this->getBackingStore()->set('networkDestinationIPv6', $value);
@@ -945,7 +945,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the networkDestinationPort property value. The networkDestinationPort property
-     *  @param int|null $value Value to set for the networkDestinationPort property.
+     * @param int|null $value Value to set for the networkDestinationPort property.
     */
     public function setNetworkDestinationPort(?int $value): void {
         $this->getBackingStore()->set('networkDestinationPort', $value);
@@ -953,7 +953,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the networkIPv4 property value. The networkIPv4 property
-     *  @param string|null $value Value to set for the networkIPv4 property.
+     * @param string|null $value Value to set for the networkIPv4 property.
     */
     public function setNetworkIPv4(?string $value): void {
         $this->getBackingStore()->set('networkIPv4', $value);
@@ -961,7 +961,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the networkIPv6 property value. The networkIPv6 property
-     *  @param string|null $value Value to set for the networkIPv6 property.
+     * @param string|null $value Value to set for the networkIPv6 property.
     */
     public function setNetworkIPv6(?string $value): void {
         $this->getBackingStore()->set('networkIPv6', $value);
@@ -969,7 +969,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the networkPort property value. The networkPort property
-     *  @param int|null $value Value to set for the networkPort property.
+     * @param int|null $value Value to set for the networkPort property.
     */
     public function setNetworkPort(?int $value): void {
         $this->getBackingStore()->set('networkPort', $value);
@@ -977,7 +977,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the networkProtocol property value. The networkProtocol property
-     *  @param int|null $value Value to set for the networkProtocol property.
+     * @param int|null $value Value to set for the networkProtocol property.
     */
     public function setNetworkProtocol(?int $value): void {
         $this->getBackingStore()->set('networkProtocol', $value);
@@ -985,7 +985,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the networkSourceAsn property value. The networkSourceAsn property
-     *  @param int|null $value Value to set for the networkSourceAsn property.
+     * @param int|null $value Value to set for the networkSourceAsn property.
     */
     public function setNetworkSourceAsn(?int $value): void {
         $this->getBackingStore()->set('networkSourceAsn', $value);
@@ -993,7 +993,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the networkSourceCidrBlock property value. The networkSourceCidrBlock property
-     *  @param string|null $value Value to set for the networkSourceCidrBlock property.
+     * @param string|null $value Value to set for the networkSourceCidrBlock property.
     */
     public function setNetworkSourceCidrBlock(?string $value): void {
         $this->getBackingStore()->set('networkSourceCidrBlock', $value);
@@ -1001,7 +1001,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the networkSourceIPv4 property value. The networkSourceIPv4 property
-     *  @param string|null $value Value to set for the networkSourceIPv4 property.
+     * @param string|null $value Value to set for the networkSourceIPv4 property.
     */
     public function setNetworkSourceIPv4(?string $value): void {
         $this->getBackingStore()->set('networkSourceIPv4', $value);
@@ -1009,7 +1009,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the networkSourceIPv6 property value. The networkSourceIPv6 property
-     *  @param string|null $value Value to set for the networkSourceIPv6 property.
+     * @param string|null $value Value to set for the networkSourceIPv6 property.
     */
     public function setNetworkSourceIPv6(?string $value): void {
         $this->getBackingStore()->set('networkSourceIPv6', $value);
@@ -1017,7 +1017,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the networkSourcePort property value. The networkSourcePort property
-     *  @param int|null $value Value to set for the networkSourcePort property.
+     * @param int|null $value Value to set for the networkSourcePort property.
     */
     public function setNetworkSourcePort(?int $value): void {
         $this->getBackingStore()->set('networkSourcePort', $value);
@@ -1025,7 +1025,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the passiveOnly property value. Determines if the indicator should trigger an event that is visible to an end-user. When set to ‘true,’ security tools will not notify the end user that a ‘hit’ has occurred. This is most often treated as audit or silent mode by security products where they will simply log that a match occurred but will not perform the action. Default value is false.
-     *  @param bool|null $value Value to set for the passiveOnly property.
+     * @param bool|null $value Value to set for the passiveOnly property.
     */
     public function setPassiveOnly(?bool $value): void {
         $this->getBackingStore()->set('passiveOnly', $value);
@@ -1033,7 +1033,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the severity property value. An integer representing the severity of the malicious behavior identified by the data within the indicator. Acceptable values are 0 – 5 where 5 is the most severe and zero is not severe at all. Default value is 3.
-     *  @param int|null $value Value to set for the severity property.
+     * @param int|null $value Value to set for the severity property.
     */
     public function setSeverity(?int $value): void {
         $this->getBackingStore()->set('severity', $value);
@@ -1041,7 +1041,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the tags property value. A JSON array of strings that stores arbitrary tags/keywords.
-     *  @param array<string>|null $value Value to set for the tags property.
+     * @param array<string>|null $value Value to set for the tags property.
     */
     public function setTags(?array $value): void {
         $this->getBackingStore()->set('tags', $value);
@@ -1049,7 +1049,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the targetProduct property value. A string value representing a single security product to which the indicator should be applied. Acceptable values are: Azure Sentinel, Microsoft Defender ATP. Required
-     *  @param string|null $value Value to set for the targetProduct property.
+     * @param string|null $value Value to set for the targetProduct property.
     */
     public function setTargetProduct(?string $value): void {
         $this->getBackingStore()->set('targetProduct', $value);
@@ -1057,7 +1057,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the threatType property value. Each indicator must have a valid Indicator Threat Type. Possible values are: Botnet, C2, CryptoMining, Darknet, DDoS, MaliciousUrl, Malware, Phishing, Proxy, PUA, WatchList. Required.
-     *  @param string|null $value Value to set for the threatType property.
+     * @param string|null $value Value to set for the threatType property.
     */
     public function setThreatType(?string $value): void {
         $this->getBackingStore()->set('threatType', $value);
@@ -1065,7 +1065,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the tlpLevel property value. Traffic Light Protocol value for the indicator. Possible values are: unknown, white, green, amber, red. Required.
-     *  @param TlpLevel|null $value Value to set for the tlpLevel property.
+     * @param TlpLevel|null $value Value to set for the tlpLevel property.
     */
     public function setTlpLevel(?TlpLevel $value): void {
         $this->getBackingStore()->set('tlpLevel', $value);
@@ -1073,7 +1073,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the url property value. The url property
-     *  @param string|null $value Value to set for the url property.
+     * @param string|null $value Value to set for the url property.
     */
     public function setUrl(?string $value): void {
         $this->getBackingStore()->set('url', $value);
@@ -1081,7 +1081,7 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the userAgent property value. The userAgent property
-     *  @param string|null $value Value to set for the userAgent property.
+     * @param string|null $value Value to set for the userAgent property.
     */
     public function setUserAgent(?string $value): void {
         $this->getBackingStore()->set('userAgent', $value);

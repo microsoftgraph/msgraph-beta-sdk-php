@@ -26,6 +26,14 @@ class AccessPackageCatalog extends Entity implements Parsable
     }
 
     /**
+     * Gets the accessPackageCustomWorkflowExtensions property value. The attributes of a logic app, which can be called at various stages of an access package request and assignment cycle.
+     * @return array<CustomCalloutExtension>|null
+    */
+    public function getAccessPackageCustomWorkflowExtensions(): ?array {
+        return $this->getBackingStore()->get('accessPackageCustomWorkflowExtensions');
+    }
+
+    /**
      * Gets the accessPackageResourceRoles property value. The roles in each resource in a catalog. Read-only.
      * @return array<AccessPackageResourceRole>|null
     */
@@ -120,6 +128,7 @@ class AccessPackageCatalog extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'accessPackageCustomWorkflowExtensions' => fn(ParseNode $n) => $o->setAccessPackageCustomWorkflowExtensions($n->getCollectionOfObjectValues([CustomCalloutExtension::class, 'createFromDiscriminatorValue'])),
             'accessPackageResourceRoles' => fn(ParseNode $n) => $o->setAccessPackageResourceRoles($n->getCollectionOfObjectValues([AccessPackageResourceRole::class, 'createFromDiscriminatorValue'])),
             'accessPackageResources' => fn(ParseNode $n) => $o->setAccessPackageResources($n->getCollectionOfObjectValues([AccessPackageResource::class, 'createFromDiscriminatorValue'])),
             'accessPackageResourceScopes' => fn(ParseNode $n) => $o->setAccessPackageResourceScopes($n->getCollectionOfObjectValues([AccessPackageResourceScope::class, 'createFromDiscriminatorValue'])),
@@ -167,6 +176,7 @@ class AccessPackageCatalog extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('accessPackageCustomWorkflowExtensions', $this->getAccessPackageCustomWorkflowExtensions());
         $writer->writeCollectionOfObjectValues('accessPackageResourceRoles', $this->getAccessPackageResourceRoles());
         $writer->writeCollectionOfObjectValues('accessPackageResources', $this->getAccessPackageResources());
         $writer->writeCollectionOfObjectValues('accessPackageResourceScopes', $this->getAccessPackageResourceScopes());
@@ -184,8 +194,16 @@ class AccessPackageCatalog extends Entity implements Parsable
     }
 
     /**
+     * Sets the accessPackageCustomWorkflowExtensions property value. The attributes of a logic app, which can be called at various stages of an access package request and assignment cycle.
+     * @param array<CustomCalloutExtension>|null $value Value to set for the accessPackageCustomWorkflowExtensions property.
+    */
+    public function setAccessPackageCustomWorkflowExtensions(?array $value): void {
+        $this->getBackingStore()->set('accessPackageCustomWorkflowExtensions', $value);
+    }
+
+    /**
      * Sets the accessPackageResourceRoles property value. The roles in each resource in a catalog. Read-only.
-     *  @param array<AccessPackageResourceRole>|null $value Value to set for the accessPackageResourceRoles property.
+     * @param array<AccessPackageResourceRole>|null $value Value to set for the accessPackageResourceRoles property.
     */
     public function setAccessPackageResourceRoles(?array $value): void {
         $this->getBackingStore()->set('accessPackageResourceRoles', $value);
@@ -193,7 +211,7 @@ class AccessPackageCatalog extends Entity implements Parsable
 
     /**
      * Sets the accessPackageResources property value. The accessPackageResources property
-     *  @param array<AccessPackageResource>|null $value Value to set for the accessPackageResources property.
+     * @param array<AccessPackageResource>|null $value Value to set for the accessPackageResources property.
     */
     public function setAccessPackageResources(?array $value): void {
         $this->getBackingStore()->set('accessPackageResources', $value);
@@ -201,7 +219,7 @@ class AccessPackageCatalog extends Entity implements Parsable
 
     /**
      * Sets the accessPackageResourceScopes property value. The accessPackageResourceScopes property
-     *  @param array<AccessPackageResourceScope>|null $value Value to set for the accessPackageResourceScopes property.
+     * @param array<AccessPackageResourceScope>|null $value Value to set for the accessPackageResourceScopes property.
     */
     public function setAccessPackageResourceScopes(?array $value): void {
         $this->getBackingStore()->set('accessPackageResourceScopes', $value);
@@ -209,7 +227,7 @@ class AccessPackageCatalog extends Entity implements Parsable
 
     /**
      * Sets the accessPackages property value. The access packages in this catalog. Read-only. Nullable. Supports $expand.
-     *  @param array<AccessPackage>|null $value Value to set for the accessPackages property.
+     * @param array<AccessPackage>|null $value Value to set for the accessPackages property.
     */
     public function setAccessPackages(?array $value): void {
         $this->getBackingStore()->set('accessPackages', $value);
@@ -217,7 +235,7 @@ class AccessPackageCatalog extends Entity implements Parsable
 
     /**
      * Sets the catalogStatus property value. Has the value Published if the access packages are available for management.
-     *  @param string|null $value Value to set for the catalogStatus property.
+     * @param string|null $value Value to set for the catalogStatus property.
     */
     public function setCatalogStatus(?string $value): void {
         $this->getBackingStore()->set('catalogStatus', $value);
@@ -225,7 +243,7 @@ class AccessPackageCatalog extends Entity implements Parsable
 
     /**
      * Sets the catalogType property value. One of UserManaged or ServiceDefault.
-     *  @param string|null $value Value to set for the catalogType property.
+     * @param string|null $value Value to set for the catalogType property.
     */
     public function setCatalogType(?string $value): void {
         $this->getBackingStore()->set('catalogType', $value);
@@ -233,7 +251,7 @@ class AccessPackageCatalog extends Entity implements Parsable
 
     /**
      * Sets the createdBy property value. UPN of the user who created this resource. Read-only.
-     *  @param string|null $value Value to set for the createdBy property.
+     * @param string|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?string $value): void {
         $this->getBackingStore()->set('createdBy', $value);
@@ -241,7 +259,7 @@ class AccessPackageCatalog extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -249,7 +267,7 @@ class AccessPackageCatalog extends Entity implements Parsable
 
     /**
      * Sets the customAccessPackageWorkflowExtensions property value. The customAccessPackageWorkflowExtensions property
-     *  @param array<CustomAccessPackageWorkflowExtension>|null $value Value to set for the customAccessPackageWorkflowExtensions property.
+     * @param array<CustomAccessPackageWorkflowExtension>|null $value Value to set for the customAccessPackageWorkflowExtensions property.
     */
     public function setCustomAccessPackageWorkflowExtensions(?array $value): void {
         $this->getBackingStore()->set('customAccessPackageWorkflowExtensions', $value);
@@ -257,7 +275,7 @@ class AccessPackageCatalog extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description of the access package catalog.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -265,7 +283,7 @@ class AccessPackageCatalog extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name of the access package catalog. Supports $filter (eq, contains).
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -273,7 +291,7 @@ class AccessPackageCatalog extends Entity implements Parsable
 
     /**
      * Sets the isExternallyVisible property value. Whether the access packages in this catalog can be requested by users outside of the tenant.
-     *  @param bool|null $value Value to set for the isExternallyVisible property.
+     * @param bool|null $value Value to set for the isExternallyVisible property.
     */
     public function setIsExternallyVisible(?bool $value): void {
         $this->getBackingStore()->set('isExternallyVisible', $value);
@@ -281,7 +299,7 @@ class AccessPackageCatalog extends Entity implements Parsable
 
     /**
      * Sets the modifiedBy property value. The UPN of the user who last modified this resource. Read-only.
-     *  @param string|null $value Value to set for the modifiedBy property.
+     * @param string|null $value Value to set for the modifiedBy property.
     */
     public function setModifiedBy(?string $value): void {
         $this->getBackingStore()->set('modifiedBy', $value);
@@ -289,7 +307,7 @@ class AccessPackageCatalog extends Entity implements Parsable
 
     /**
      * Sets the modifiedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-     *  @param DateTime|null $value Value to set for the modifiedDateTime property.
+     * @param DateTime|null $value Value to set for the modifiedDateTime property.
     */
     public function setModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('modifiedDateTime', $value);

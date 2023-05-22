@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagedTenant extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new managedTenant and sets the default values.
+     * Instantiates a new ManagedTenant and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -31,6 +31,14 @@ class ManagedTenant extends Entity implements Parsable
     */
     public function getAggregatedPolicyCompliances(): ?array {
         return $this->getBackingStore()->get('aggregatedPolicyCompliances');
+    }
+
+    /**
+     * Gets the appPerformances property value. The appPerformances property
+     * @return array<AppPerformance>|null
+    */
+    public function getAppPerformances(): ?array {
+        return $this->getBackingStore()->get('appPerformances');
     }
 
     /**
@@ -82,11 +90,27 @@ class ManagedTenant extends Entity implements Parsable
     }
 
     /**
+     * Gets the deviceAppPerformances property value. The deviceAppPerformances property
+     * @return array<DeviceAppPerformance>|null
+    */
+    public function getDeviceAppPerformances(): ?array {
+        return $this->getBackingStore()->get('deviceAppPerformances');
+    }
+
+    /**
      * Gets the deviceCompliancePolicySettingStateSummaries property value. Summary information for device compliance policy setting states across managed tenants.
      * @return array<DeviceCompliancePolicySettingStateSummary>|null
     */
     public function getDeviceCompliancePolicySettingStateSummaries(): ?array {
         return $this->getBackingStore()->get('deviceCompliancePolicySettingStateSummaries');
+    }
+
+    /**
+     * Gets the deviceHealthStatuses property value. The deviceHealthStatuses property
+     * @return array<DeviceHealthStatus>|null
+    */
+    public function getDeviceHealthStatuses(): ?array {
+        return $this->getBackingStore()->get('deviceHealthStatuses');
     }
 
     /**
@@ -97,13 +121,16 @@ class ManagedTenant extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'aggregatedPolicyCompliances' => fn(ParseNode $n) => $o->setAggregatedPolicyCompliances($n->getCollectionOfObjectValues([AggregatedPolicyCompliance::class, 'createFromDiscriminatorValue'])),
+            'appPerformances' => fn(ParseNode $n) => $o->setAppPerformances($n->getCollectionOfObjectValues([AppPerformance::class, 'createFromDiscriminatorValue'])),
             'auditEvents' => fn(ParseNode $n) => $o->setAuditEvents($n->getCollectionOfObjectValues([AuditEvent::class, 'createFromDiscriminatorValue'])),
             'cloudPcConnections' => fn(ParseNode $n) => $o->setCloudPcConnections($n->getCollectionOfObjectValues([CloudPcConnection::class, 'createFromDiscriminatorValue'])),
             'cloudPcDevices' => fn(ParseNode $n) => $o->setCloudPcDevices($n->getCollectionOfObjectValues([CloudPcDevice::class, 'createFromDiscriminatorValue'])),
             'cloudPcsOverview' => fn(ParseNode $n) => $o->setCloudPcsOverview($n->getCollectionOfObjectValues([CloudPcOverview::class, 'createFromDiscriminatorValue'])),
             'conditionalAccessPolicyCoverages' => fn(ParseNode $n) => $o->setConditionalAccessPolicyCoverages($n->getCollectionOfObjectValues([ConditionalAccessPolicyCoverage::class, 'createFromDiscriminatorValue'])),
             'credentialUserRegistrationsSummaries' => fn(ParseNode $n) => $o->setCredentialUserRegistrationsSummaries($n->getCollectionOfObjectValues([CredentialUserRegistrationsSummary::class, 'createFromDiscriminatorValue'])),
+            'deviceAppPerformances' => fn(ParseNode $n) => $o->setDeviceAppPerformances($n->getCollectionOfObjectValues([DeviceAppPerformance::class, 'createFromDiscriminatorValue'])),
             'deviceCompliancePolicySettingStateSummaries' => fn(ParseNode $n) => $o->setDeviceCompliancePolicySettingStateSummaries($n->getCollectionOfObjectValues([DeviceCompliancePolicySettingStateSummary::class, 'createFromDiscriminatorValue'])),
+            'deviceHealthStatuses' => fn(ParseNode $n) => $o->setDeviceHealthStatuses($n->getCollectionOfObjectValues([DeviceHealthStatus::class, 'createFromDiscriminatorValue'])),
             'managedDeviceCompliances' => fn(ParseNode $n) => $o->setManagedDeviceCompliances($n->getCollectionOfObjectValues([ManagedDeviceCompliance::class, 'createFromDiscriminatorValue'])),
             'managedDeviceComplianceTrends' => fn(ParseNode $n) => $o->setManagedDeviceComplianceTrends($n->getCollectionOfObjectValues([ManagedDeviceComplianceTrend::class, 'createFromDiscriminatorValue'])),
             'managedTenantAlertLogs' => fn(ParseNode $n) => $o->setManagedTenantAlertLogs($n->getCollectionOfObjectValues([ManagedTenantAlertLog::class, 'createFromDiscriminatorValue'])),
@@ -348,13 +375,16 @@ class ManagedTenant extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('aggregatedPolicyCompliances', $this->getAggregatedPolicyCompliances());
+        $writer->writeCollectionOfObjectValues('appPerformances', $this->getAppPerformances());
         $writer->writeCollectionOfObjectValues('auditEvents', $this->getAuditEvents());
         $writer->writeCollectionOfObjectValues('cloudPcConnections', $this->getCloudPcConnections());
         $writer->writeCollectionOfObjectValues('cloudPcDevices', $this->getCloudPcDevices());
         $writer->writeCollectionOfObjectValues('cloudPcsOverview', $this->getCloudPcsOverview());
         $writer->writeCollectionOfObjectValues('conditionalAccessPolicyCoverages', $this->getConditionalAccessPolicyCoverages());
         $writer->writeCollectionOfObjectValues('credentialUserRegistrationsSummaries', $this->getCredentialUserRegistrationsSummaries());
+        $writer->writeCollectionOfObjectValues('deviceAppPerformances', $this->getDeviceAppPerformances());
         $writer->writeCollectionOfObjectValues('deviceCompliancePolicySettingStateSummaries', $this->getDeviceCompliancePolicySettingStateSummaries());
+        $writer->writeCollectionOfObjectValues('deviceHealthStatuses', $this->getDeviceHealthStatuses());
         $writer->writeCollectionOfObjectValues('managedDeviceCompliances', $this->getManagedDeviceCompliances());
         $writer->writeCollectionOfObjectValues('managedDeviceComplianceTrends', $this->getManagedDeviceComplianceTrends());
         $writer->writeCollectionOfObjectValues('managedTenantAlertLogs', $this->getManagedTenantAlertLogs());
@@ -385,15 +415,23 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the aggregatedPolicyCompliances property value. Aggregate view of device compliance policies across managed tenants.
-     *  @param array<AggregatedPolicyCompliance>|null $value Value to set for the aggregatedPolicyCompliances property.
+     * @param array<AggregatedPolicyCompliance>|null $value Value to set for the aggregatedPolicyCompliances property.
     */
     public function setAggregatedPolicyCompliances(?array $value): void {
         $this->getBackingStore()->set('aggregatedPolicyCompliances', $value);
     }
 
     /**
+     * Sets the appPerformances property value. The appPerformances property
+     * @param array<AppPerformance>|null $value Value to set for the appPerformances property.
+    */
+    public function setAppPerformances(?array $value): void {
+        $this->getBackingStore()->set('appPerformances', $value);
+    }
+
+    /**
      * Sets the auditEvents property value. The collection of audit events across managed tenants.
-     *  @param array<AuditEvent>|null $value Value to set for the auditEvents property.
+     * @param array<AuditEvent>|null $value Value to set for the auditEvents property.
     */
     public function setAuditEvents(?array $value): void {
         $this->getBackingStore()->set('auditEvents', $value);
@@ -401,7 +439,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the cloudPcConnections property value. The collection of cloud PC connections across managed tenants.
-     *  @param array<CloudPcConnection>|null $value Value to set for the cloudPcConnections property.
+     * @param array<CloudPcConnection>|null $value Value to set for the cloudPcConnections property.
     */
     public function setCloudPcConnections(?array $value): void {
         $this->getBackingStore()->set('cloudPcConnections', $value);
@@ -409,7 +447,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the cloudPcDevices property value. The collection of cloud PC devices across managed tenants.
-     *  @param array<CloudPcDevice>|null $value Value to set for the cloudPcDevices property.
+     * @param array<CloudPcDevice>|null $value Value to set for the cloudPcDevices property.
     */
     public function setCloudPcDevices(?array $value): void {
         $this->getBackingStore()->set('cloudPcDevices', $value);
@@ -417,7 +455,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the cloudPcsOverview property value. Overview of cloud PC information across managed tenants.
-     *  @param array<CloudPcOverview>|null $value Value to set for the cloudPcsOverview property.
+     * @param array<CloudPcOverview>|null $value Value to set for the cloudPcsOverview property.
     */
     public function setCloudPcsOverview(?array $value): void {
         $this->getBackingStore()->set('cloudPcsOverview', $value);
@@ -425,7 +463,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the conditionalAccessPolicyCoverages property value. Aggregate view of conditional access policy coverage across managed tenants.
-     *  @param array<ConditionalAccessPolicyCoverage>|null $value Value to set for the conditionalAccessPolicyCoverages property.
+     * @param array<ConditionalAccessPolicyCoverage>|null $value Value to set for the conditionalAccessPolicyCoverages property.
     */
     public function setConditionalAccessPolicyCoverages(?array $value): void {
         $this->getBackingStore()->set('conditionalAccessPolicyCoverages', $value);
@@ -433,23 +471,39 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the credentialUserRegistrationsSummaries property value. Summary information for user registration for multi-factor authentication and self service password reset across managed tenants.
-     *  @param array<CredentialUserRegistrationsSummary>|null $value Value to set for the credentialUserRegistrationsSummaries property.
+     * @param array<CredentialUserRegistrationsSummary>|null $value Value to set for the credentialUserRegistrationsSummaries property.
     */
     public function setCredentialUserRegistrationsSummaries(?array $value): void {
         $this->getBackingStore()->set('credentialUserRegistrationsSummaries', $value);
     }
 
     /**
+     * Sets the deviceAppPerformances property value. The deviceAppPerformances property
+     * @param array<DeviceAppPerformance>|null $value Value to set for the deviceAppPerformances property.
+    */
+    public function setDeviceAppPerformances(?array $value): void {
+        $this->getBackingStore()->set('deviceAppPerformances', $value);
+    }
+
+    /**
      * Sets the deviceCompliancePolicySettingStateSummaries property value. Summary information for device compliance policy setting states across managed tenants.
-     *  @param array<DeviceCompliancePolicySettingStateSummary>|null $value Value to set for the deviceCompliancePolicySettingStateSummaries property.
+     * @param array<DeviceCompliancePolicySettingStateSummary>|null $value Value to set for the deviceCompliancePolicySettingStateSummaries property.
     */
     public function setDeviceCompliancePolicySettingStateSummaries(?array $value): void {
         $this->getBackingStore()->set('deviceCompliancePolicySettingStateSummaries', $value);
     }
 
     /**
+     * Sets the deviceHealthStatuses property value. The deviceHealthStatuses property
+     * @param array<DeviceHealthStatus>|null $value Value to set for the deviceHealthStatuses property.
+    */
+    public function setDeviceHealthStatuses(?array $value): void {
+        $this->getBackingStore()->set('deviceHealthStatuses', $value);
+    }
+
+    /**
      * Sets the managedDeviceCompliances property value. The collection of compliance for managed devices across managed tenants.
-     *  @param array<ManagedDeviceCompliance>|null $value Value to set for the managedDeviceCompliances property.
+     * @param array<ManagedDeviceCompliance>|null $value Value to set for the managedDeviceCompliances property.
     */
     public function setManagedDeviceCompliances(?array $value): void {
         $this->getBackingStore()->set('managedDeviceCompliances', $value);
@@ -457,7 +511,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the managedDeviceComplianceTrends property value. Trend insights for device compliance across managed tenants.
-     *  @param array<ManagedDeviceComplianceTrend>|null $value Value to set for the managedDeviceComplianceTrends property.
+     * @param array<ManagedDeviceComplianceTrend>|null $value Value to set for the managedDeviceComplianceTrends property.
     */
     public function setManagedDeviceComplianceTrends(?array $value): void {
         $this->getBackingStore()->set('managedDeviceComplianceTrends', $value);
@@ -465,7 +519,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the managedTenantAlertLogs property value. The managedTenantAlertLogs property
-     *  @param array<ManagedTenantAlertLog>|null $value Value to set for the managedTenantAlertLogs property.
+     * @param array<ManagedTenantAlertLog>|null $value Value to set for the managedTenantAlertLogs property.
     */
     public function setManagedTenantAlertLogs(?array $value): void {
         $this->getBackingStore()->set('managedTenantAlertLogs', $value);
@@ -473,7 +527,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the managedTenantAlertRuleDefinitions property value. The managedTenantAlertRuleDefinitions property
-     *  @param array<ManagedTenantAlertRuleDefinition>|null $value Value to set for the managedTenantAlertRuleDefinitions property.
+     * @param array<ManagedTenantAlertRuleDefinition>|null $value Value to set for the managedTenantAlertRuleDefinitions property.
     */
     public function setManagedTenantAlertRuleDefinitions(?array $value): void {
         $this->getBackingStore()->set('managedTenantAlertRuleDefinitions', $value);
@@ -481,7 +535,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the managedTenantAlertRules property value. The managedTenantAlertRules property
-     *  @param array<ManagedTenantAlertRule>|null $value Value to set for the managedTenantAlertRules property.
+     * @param array<ManagedTenantAlertRule>|null $value Value to set for the managedTenantAlertRules property.
     */
     public function setManagedTenantAlertRules(?array $value): void {
         $this->getBackingStore()->set('managedTenantAlertRules', $value);
@@ -489,7 +543,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the managedTenantAlerts property value. The managedTenantAlerts property
-     *  @param array<ManagedTenantAlert>|null $value Value to set for the managedTenantAlerts property.
+     * @param array<ManagedTenantAlert>|null $value Value to set for the managedTenantAlerts property.
     */
     public function setManagedTenantAlerts(?array $value): void {
         $this->getBackingStore()->set('managedTenantAlerts', $value);
@@ -497,7 +551,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the managedTenantApiNotifications property value. The managedTenantApiNotifications property
-     *  @param array<ManagedTenantApiNotification>|null $value Value to set for the managedTenantApiNotifications property.
+     * @param array<ManagedTenantApiNotification>|null $value Value to set for the managedTenantApiNotifications property.
     */
     public function setManagedTenantApiNotifications(?array $value): void {
         $this->getBackingStore()->set('managedTenantApiNotifications', $value);
@@ -505,7 +559,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the managedTenantEmailNotifications property value. The managedTenantEmailNotifications property
-     *  @param array<ManagedTenantEmailNotification>|null $value Value to set for the managedTenantEmailNotifications property.
+     * @param array<ManagedTenantEmailNotification>|null $value Value to set for the managedTenantEmailNotifications property.
     */
     public function setManagedTenantEmailNotifications(?array $value): void {
         $this->getBackingStore()->set('managedTenantEmailNotifications', $value);
@@ -513,7 +567,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the managedTenantTicketingEndpoints property value. The managedTenantTicketingEndpoints property
-     *  @param array<ManagedTenantTicketingEndpoint>|null $value Value to set for the managedTenantTicketingEndpoints property.
+     * @param array<ManagedTenantTicketingEndpoint>|null $value Value to set for the managedTenantTicketingEndpoints property.
     */
     public function setManagedTenantTicketingEndpoints(?array $value): void {
         $this->getBackingStore()->set('managedTenantTicketingEndpoints', $value);
@@ -521,7 +575,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the managementActions property value. The collection of baseline management actions across managed tenants.
-     *  @param array<ManagementAction>|null $value Value to set for the managementActions property.
+     * @param array<ManagementAction>|null $value Value to set for the managementActions property.
     */
     public function setManagementActions(?array $value): void {
         $this->getBackingStore()->set('managementActions', $value);
@@ -529,7 +583,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the managementActionTenantDeploymentStatuses property value. The tenant level status of management actions across managed tenants.
-     *  @param array<ManagementActionTenantDeploymentStatus>|null $value Value to set for the managementActionTenantDeploymentStatuses property.
+     * @param array<ManagementActionTenantDeploymentStatus>|null $value Value to set for the managementActionTenantDeploymentStatuses property.
     */
     public function setManagementActionTenantDeploymentStatuses(?array $value): void {
         $this->getBackingStore()->set('managementActionTenantDeploymentStatuses', $value);
@@ -537,7 +591,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the managementIntents property value. The collection of baseline management intents across managed tenants.
-     *  @param array<ManagementIntent>|null $value Value to set for the managementIntents property.
+     * @param array<ManagementIntent>|null $value Value to set for the managementIntents property.
     */
     public function setManagementIntents(?array $value): void {
         $this->getBackingStore()->set('managementIntents', $value);
@@ -545,7 +599,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the managementTemplateCollections property value. The managementTemplateCollections property
-     *  @param array<ManagementTemplateCollection>|null $value Value to set for the managementTemplateCollections property.
+     * @param array<ManagementTemplateCollection>|null $value Value to set for the managementTemplateCollections property.
     */
     public function setManagementTemplateCollections(?array $value): void {
         $this->getBackingStore()->set('managementTemplateCollections', $value);
@@ -553,7 +607,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the managementTemplateCollectionTenantSummaries property value. The managementTemplateCollectionTenantSummaries property
-     *  @param array<ManagementTemplateCollectionTenantSummary>|null $value Value to set for the managementTemplateCollectionTenantSummaries property.
+     * @param array<ManagementTemplateCollectionTenantSummary>|null $value Value to set for the managementTemplateCollectionTenantSummaries property.
     */
     public function setManagementTemplateCollectionTenantSummaries(?array $value): void {
         $this->getBackingStore()->set('managementTemplateCollectionTenantSummaries', $value);
@@ -561,7 +615,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the managementTemplates property value. The collection of baseline management templates across managed tenants.
-     *  @param array<ManagementTemplate>|null $value Value to set for the managementTemplates property.
+     * @param array<ManagementTemplate>|null $value Value to set for the managementTemplates property.
     */
     public function setManagementTemplates(?array $value): void {
         $this->getBackingStore()->set('managementTemplates', $value);
@@ -569,7 +623,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the managementTemplateSteps property value. The managementTemplateSteps property
-     *  @param array<ManagementTemplateStep>|null $value Value to set for the managementTemplateSteps property.
+     * @param array<ManagementTemplateStep>|null $value Value to set for the managementTemplateSteps property.
     */
     public function setManagementTemplateSteps(?array $value): void {
         $this->getBackingStore()->set('managementTemplateSteps', $value);
@@ -577,7 +631,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the managementTemplateStepTenantSummaries property value. The managementTemplateStepTenantSummaries property
-     *  @param array<ManagementTemplateStepTenantSummary>|null $value Value to set for the managementTemplateStepTenantSummaries property.
+     * @param array<ManagementTemplateStepTenantSummary>|null $value Value to set for the managementTemplateStepTenantSummaries property.
     */
     public function setManagementTemplateStepTenantSummaries(?array $value): void {
         $this->getBackingStore()->set('managementTemplateStepTenantSummaries', $value);
@@ -585,7 +639,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the managementTemplateStepVersions property value. The managementTemplateStepVersions property
-     *  @param array<ManagementTemplateStepVersion>|null $value Value to set for the managementTemplateStepVersions property.
+     * @param array<ManagementTemplateStepVersion>|null $value Value to set for the managementTemplateStepVersions property.
     */
     public function setManagementTemplateStepVersions(?array $value): void {
         $this->getBackingStore()->set('managementTemplateStepVersions', $value);
@@ -593,7 +647,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the myRoles property value. The collection of role assignments to a signed-in user for a managed tenant.
-     *  @param array<MyRole>|null $value Value to set for the myRoles property.
+     * @param array<MyRole>|null $value Value to set for the myRoles property.
     */
     public function setMyRoles(?array $value): void {
         $this->getBackingStore()->set('myRoles', $value);
@@ -601,7 +655,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the tenantGroups property value. The collection of a logical grouping of managed tenants used by the multi-tenant management platform.
-     *  @param array<TenantGroup>|null $value Value to set for the tenantGroups property.
+     * @param array<TenantGroup>|null $value Value to set for the tenantGroups property.
     */
     public function setTenantGroups(?array $value): void {
         $this->getBackingStore()->set('tenantGroups', $value);
@@ -609,7 +663,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the tenants property value. The collection of tenants associated with the managing entity.
-     *  @param array<Tenant>|null $value Value to set for the tenants property.
+     * @param array<Tenant>|null $value Value to set for the tenants property.
     */
     public function setTenants(?array $value): void {
         $this->getBackingStore()->set('tenants', $value);
@@ -617,7 +671,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the tenantsCustomizedInformation property value. The collection of tenant level customized information across managed tenants.
-     *  @param array<TenantCustomizedInformation>|null $value Value to set for the tenantsCustomizedInformation property.
+     * @param array<TenantCustomizedInformation>|null $value Value to set for the tenantsCustomizedInformation property.
     */
     public function setTenantsCustomizedInformation(?array $value): void {
         $this->getBackingStore()->set('tenantsCustomizedInformation', $value);
@@ -625,7 +679,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the tenantsDetailedInformation property value. The collection tenant level detailed information across managed tenants.
-     *  @param array<TenantDetailedInformation>|null $value Value to set for the tenantsDetailedInformation property.
+     * @param array<TenantDetailedInformation>|null $value Value to set for the tenantsDetailedInformation property.
     */
     public function setTenantsDetailedInformation(?array $value): void {
         $this->getBackingStore()->set('tenantsDetailedInformation', $value);
@@ -633,7 +687,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the tenantTags property value. The collection of tenant tags across managed tenants.
-     *  @param array<TenantTag>|null $value Value to set for the tenantTags property.
+     * @param array<TenantTag>|null $value Value to set for the tenantTags property.
     */
     public function setTenantTags(?array $value): void {
         $this->getBackingStore()->set('tenantTags', $value);
@@ -641,7 +695,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the windowsDeviceMalwareStates property value. The state of malware for Windows devices, registered with Microsoft Endpoint Manager, across managed tenants.
-     *  @param array<WindowsDeviceMalwareState>|null $value Value to set for the windowsDeviceMalwareStates property.
+     * @param array<WindowsDeviceMalwareState>|null $value Value to set for the windowsDeviceMalwareStates property.
     */
     public function setWindowsDeviceMalwareStates(?array $value): void {
         $this->getBackingStore()->set('windowsDeviceMalwareStates', $value);
@@ -649,7 +703,7 @@ class ManagedTenant extends Entity implements Parsable
 
     /**
      * Sets the windowsProtectionStates property value. The protection state for Windows devices, registered with Microsoft Endpoint Manager, across managed tenants.
-     *  @param array<WindowsProtectionState>|null $value Value to set for the windowsProtectionStates property.
+     * @param array<WindowsProtectionState>|null $value Value to set for the windowsProtectionStates property.
     */
     public function setWindowsProtectionStates(?array $value): void {
         $this->getBackingStore()->set('windowsProtectionStates', $value);

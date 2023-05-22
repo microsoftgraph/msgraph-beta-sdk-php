@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Policy status detail item contained by an autopilot event.
+*/
 class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Parsable 
 {
     /**
@@ -105,7 +108,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
 
     /**
      * Sets the complianceStatus property value. The complianceStatus property
-     *  @param DeviceManagementAutopilotPolicyComplianceStatus|null $value Value to set for the complianceStatus property.
+     * @param DeviceManagementAutopilotPolicyComplianceStatus|null $value Value to set for the complianceStatus property.
     */
     public function setComplianceStatus(?DeviceManagementAutopilotPolicyComplianceStatus $value): void {
         $this->getBackingStore()->set('complianceStatus', $value);
@@ -113,7 +116,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
 
     /**
      * Sets the displayName property value. The friendly name of the policy.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -121,7 +124,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
 
     /**
      * Sets the errorCode property value. The errorode associated with the compliance or enforcement status of the policy. Error code for enforcement status takes precedence if it exists.
-     *  @param int|null $value Value to set for the errorCode property.
+     * @param int|null $value Value to set for the errorCode property.
     */
     public function setErrorCode(?int $value): void {
         $this->getBackingStore()->set('errorCode', $value);
@@ -129,7 +132,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
 
     /**
      * Sets the lastReportedDateTime property value. Timestamp of the reported policy status
-     *  @param DateTime|null $value Value to set for the lastReportedDateTime property.
+     * @param DateTime|null $value Value to set for the lastReportedDateTime property.
     */
     public function setLastReportedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastReportedDateTime', $value);
@@ -137,7 +140,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
 
     /**
      * Sets the policyType property value. The policyType property
-     *  @param DeviceManagementAutopilotPolicyType|null $value Value to set for the policyType property.
+     * @param DeviceManagementAutopilotPolicyType|null $value Value to set for the policyType property.
     */
     public function setPolicyType(?DeviceManagementAutopilotPolicyType $value): void {
         $this->getBackingStore()->set('policyType', $value);
@@ -145,7 +148,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
 
     /**
      * Sets the trackedOnEnrollmentStatus property value. Indicates if this prolicy was tracked as part of the autopilot bootstrap enrollment sync session
-     *  @param bool|null $value Value to set for the trackedOnEnrollmentStatus property.
+     * @param bool|null $value Value to set for the trackedOnEnrollmentStatus property.
     */
     public function setTrackedOnEnrollmentStatus(?bool $value): void {
         $this->getBackingStore()->set('trackedOnEnrollmentStatus', $value);

@@ -36,7 +36,7 @@ class AuthenticationStrength implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -48,6 +48,14 @@ class AuthenticationStrength implements AdditionalDataHolder, BackedModel, Parsa
     */
     public function getAuthenticationStrengthId(): ?string {
         return $this->getBackingStore()->get('authenticationStrengthId');
+    }
+
+    /**
+     * Gets the authenticationStrengthResult property value. The result of the authentication strength. The possible values are: notSet, skippedForProofUp, satisfied, singleChallengeRequired, multipleChallengesRequired, singleRegistrationRequired, multipleRegistrationsRequired, cannotSatisfyDueToCombinationConfiguration, cannotSatisfy, unknownFutureValue.
+     * @return AuthenticationStrengthResult|null
+    */
+    public function getAuthenticationStrengthResult(): ?AuthenticationStrengthResult {
+        return $this->getBackingStore()->get('authenticationStrengthResult');
     }
 
     /**
@@ -74,6 +82,7 @@ class AuthenticationStrength implements AdditionalDataHolder, BackedModel, Parsa
         $o = $this;
         return  [
             'authenticationStrengthId' => fn(ParseNode $n) => $o->setAuthenticationStrengthId($n->getStringValue()),
+            'authenticationStrengthResult' => fn(ParseNode $n) => $o->setAuthenticationStrengthResult($n->getEnumValue(AuthenticationStrengthResult::class)),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
@@ -93,6 +102,7 @@ class AuthenticationStrength implements AdditionalDataHolder, BackedModel, Parsa
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('authenticationStrengthId', $this->getAuthenticationStrengthId());
+        $writer->writeEnumValue('authenticationStrengthResult', $this->getAuthenticationStrengthResult());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -100,7 +110,7 @@ class AuthenticationStrength implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,15 +118,23 @@ class AuthenticationStrength implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the authenticationStrengthId property value. Identifier of the authentication strength.
-     *  @param string|null $value Value to set for the authenticationStrengthId property.
+     * @param string|null $value Value to set for the authenticationStrengthId property.
     */
     public function setAuthenticationStrengthId(?string $value): void {
         $this->getBackingStore()->set('authenticationStrengthId', $value);
     }
 
     /**
+     * Sets the authenticationStrengthResult property value. The result of the authentication strength. The possible values are: notSet, skippedForProofUp, satisfied, singleChallengeRequired, multipleChallengesRequired, singleRegistrationRequired, multipleRegistrationsRequired, cannotSatisfyDueToCombinationConfiguration, cannotSatisfy, unknownFutureValue.
+     * @param AuthenticationStrengthResult|null $value Value to set for the authenticationStrengthResult property.
+    */
+    public function setAuthenticationStrengthResult(?AuthenticationStrengthResult $value): void {
+        $this->getBackingStore()->set('authenticationStrengthResult', $value);
+    }
+
+    /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -124,7 +142,7 @@ class AuthenticationStrength implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the displayName property value. The name of the authentication strength.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -132,7 +150,7 @@ class AuthenticationStrength implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

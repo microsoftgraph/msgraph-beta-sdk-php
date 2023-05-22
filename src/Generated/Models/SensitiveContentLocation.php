@@ -36,7 +36,7 @@ class SensitiveContentLocation implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -130,7 +130,7 @@ class SensitiveContentLocation implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -138,7 +138,7 @@ class SensitiveContentLocation implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -146,7 +146,7 @@ class SensitiveContentLocation implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the confidence property value. The confidence property
-     *  @param int|null $value Value to set for the confidence property.
+     * @param int|null $value Value to set for the confidence property.
     */
     public function setConfidence(?int $value): void {
         $this->getBackingStore()->set('confidence', $value);
@@ -154,7 +154,7 @@ class SensitiveContentLocation implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the evidences property value. The evidences property
-     *  @param array<SensitiveContentEvidence>|null $value Value to set for the evidences property.
+     * @param array<SensitiveContentEvidence>|null $value Value to set for the evidences property.
     */
     public function setEvidences(?array $value): void {
         $this->getBackingStore()->set('evidences', $value);
@@ -162,7 +162,7 @@ class SensitiveContentLocation implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the idMatch property value. The idMatch property
-     *  @param string|null $value Value to set for the idMatch property.
+     * @param string|null $value Value to set for the idMatch property.
     */
     public function setIdMatch(?string $value): void {
         $this->getBackingStore()->set('idMatch', $value);
@@ -170,7 +170,7 @@ class SensitiveContentLocation implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the length property value. The length property
-     *  @param int|null $value Value to set for the length property.
+     * @param int|null $value Value to set for the length property.
     */
     public function setLength(?int $value): void {
         $this->getBackingStore()->set('length', $value);
@@ -178,7 +178,7 @@ class SensitiveContentLocation implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -186,7 +186,7 @@ class SensitiveContentLocation implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the offset property value. The offset property
-     *  @param int|null $value Value to set for the offset property.
+     * @param int|null $value Value to set for the offset property.
     */
     public function setOffset(?int $value): void {
         $this->getBackingStore()->set('offset', $value);

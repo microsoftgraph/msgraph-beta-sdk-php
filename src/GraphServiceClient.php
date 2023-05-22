@@ -8,6 +8,7 @@
 
 namespace Microsoft\Graph\Beta;
 
+use Microsoft\Graph\Beta\Generated\Users\Item\UserItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
 /**
@@ -26,5 +27,15 @@ class GraphServiceClient extends Generated\BaseGraphClient
     public function __construct(RequestAdapter $requestAdapter)
     {
         parent::__construct($requestAdapter);
+    }
+
+    /**
+     * A method that abstracts the /me endpoint and users /users/{{user-id}} under
+     * the hood.
+     */
+    public function me(): UserItemRequestBuilder {
+        $urlTplParameters = $this->pathParameters;
+        $urlTplParameters['user%2Did'] = 'me-token-to-replace';
+        return new UserItemRequestBuilder($urlTplParameters, $this->requestAdapter);
     }
 }

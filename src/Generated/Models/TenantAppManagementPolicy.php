@@ -75,7 +75,7 @@ class TenantAppManagementPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the applicationRestrictions property value. Restrictions that apply as default to all application objects in the tenant.
-     *  @param AppManagementConfiguration|null $value Value to set for the applicationRestrictions property.
+     * @param AppManagementConfiguration|null $value Value to set for the applicationRestrictions property.
     */
     public function setApplicationRestrictions(?AppManagementConfiguration $value): void {
         $this->getBackingStore()->set('applicationRestrictions', $value);
@@ -83,7 +83,7 @@ class TenantAppManagementPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the isEnabled property value. Denotes whether the policy is enabled. Default value is false.
-     *  @param bool|null $value Value to set for the isEnabled property.
+     * @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value): void {
         $this->getBackingStore()->set('isEnabled', $value);
@@ -91,7 +91,7 @@ class TenantAppManagementPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the servicePrincipalRestrictions property value. Restrictions that apply as default to all service principal objects in the tenant.
-     *  @param AppManagementConfiguration|null $value Value to set for the servicePrincipalRestrictions property.
+     * @param AppManagementConfiguration|null $value Value to set for the servicePrincipalRestrictions property.
     */
     public function setServicePrincipalRestrictions(?AppManagementConfiguration $value): void {
         $this->getBackingStore()->set('servicePrincipalRestrictions', $value);

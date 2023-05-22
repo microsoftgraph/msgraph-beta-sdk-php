@@ -217,7 +217,7 @@ class EscapedCase extends Entity implements Parsable
 
     /**
      * Sets the closedBy property value. The user who closed the case.
-     *  @param IdentitySet|null $value Value to set for the closedBy property.
+     * @param IdentitySet|null $value Value to set for the closedBy property.
     */
     public function setClosedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('closedBy', $value);
@@ -225,7 +225,7 @@ class EscapedCase extends Entity implements Parsable
 
     /**
      * Sets the closedDateTime property value. The date and time when the case was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the closedDateTime property.
+     * @param DateTime|null $value Value to set for the closedDateTime property.
     */
     public function setClosedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('closedDateTime', $value);
@@ -233,7 +233,7 @@ class EscapedCase extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date and time when the entity was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -241,7 +241,7 @@ class EscapedCase extends Entity implements Parsable
 
     /**
      * Sets the custodians property value. Returns a list of case custodian objects for this case.  Nullable.
-     *  @param array<Custodian>|null $value Value to set for the custodians property.
+     * @param array<Custodian>|null $value Value to set for the custodians property.
     */
     public function setCustodians(?array $value): void {
         $this->getBackingStore()->set('custodians', $value);
@@ -249,7 +249,7 @@ class EscapedCase extends Entity implements Parsable
 
     /**
      * Sets the description property value. The case description.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -257,7 +257,7 @@ class EscapedCase extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The case name.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -265,7 +265,7 @@ class EscapedCase extends Entity implements Parsable
 
     /**
      * Sets the externalId property value. The external case number for customer reference.
-     *  @param string|null $value Value to set for the externalId property.
+     * @param string|null $value Value to set for the externalId property.
     */
     public function setExternalId(?string $value): void {
         $this->getBackingStore()->set('externalId', $value);
@@ -273,7 +273,7 @@ class EscapedCase extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedBy property value. The last user who modified the entity.
-     *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
+     * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('lastModifiedBy', $value);
@@ -281,7 +281,7 @@ class EscapedCase extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The latest date and time when the case was modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -289,7 +289,7 @@ class EscapedCase extends Entity implements Parsable
 
     /**
      * Sets the legalHolds property value. Returns a list of case legalHold objects for this case.  Nullable.
-     *  @param array<LegalHold>|null $value Value to set for the legalHolds property.
+     * @param array<LegalHold>|null $value Value to set for the legalHolds property.
     */
     public function setLegalHolds(?array $value): void {
         $this->getBackingStore()->set('legalHolds', $value);
@@ -297,7 +297,7 @@ class EscapedCase extends Entity implements Parsable
 
     /**
      * Sets the noncustodialDataSources property value. Returns a list of case noncustodialDataSource objects for this case.  Nullable.
-     *  @param array<NoncustodialDataSource>|null $value Value to set for the noncustodialDataSources property.
+     * @param array<NoncustodialDataSource>|null $value Value to set for the noncustodialDataSources property.
     */
     public function setNoncustodialDataSources(?array $value): void {
         $this->getBackingStore()->set('noncustodialDataSources', $value);
@@ -305,7 +305,7 @@ class EscapedCase extends Entity implements Parsable
 
     /**
      * Sets the operations property value. Returns a list of case operation objects for this case. Nullable.
-     *  @param array<CaseOperation>|null $value Value to set for the operations property.
+     * @param array<CaseOperation>|null $value Value to set for the operations property.
     */
     public function setOperations(?array $value): void {
         $this->getBackingStore()->set('operations', $value);
@@ -313,7 +313,7 @@ class EscapedCase extends Entity implements Parsable
 
     /**
      * Sets the reviewSets property value. Returns a list of reviewSet objects in the case. Read-only. Nullable.
-     *  @param array<ReviewSet>|null $value Value to set for the reviewSets property.
+     * @param array<ReviewSet>|null $value Value to set for the reviewSets property.
     */
     public function setReviewSets(?array $value): void {
         $this->getBackingStore()->set('reviewSets', $value);
@@ -321,7 +321,7 @@ class EscapedCase extends Entity implements Parsable
 
     /**
      * Sets the settings property value. The settings property
-     *  @param CaseSettings|null $value Value to set for the settings property.
+     * @param CaseSettings|null $value Value to set for the settings property.
     */
     public function setSettings(?CaseSettings $value): void {
         $this->getBackingStore()->set('settings', $value);
@@ -329,7 +329,7 @@ class EscapedCase extends Entity implements Parsable
 
     /**
      * Sets the sourceCollections property value. Returns a list of sourceCollection objects associated with this case.
-     *  @param array<SourceCollection>|null $value Value to set for the sourceCollections property.
+     * @param array<SourceCollection>|null $value Value to set for the sourceCollections property.
     */
     public function setSourceCollections(?array $value): void {
         $this->getBackingStore()->set('sourceCollections', $value);
@@ -337,7 +337,7 @@ class EscapedCase extends Entity implements Parsable
 
     /**
      * Sets the status property value. The case status. Possible values are unknown, active, pendingDelete, closing, closed, and closedWithError. For details, see the following table.
-     *  @param CaseStatus|null $value Value to set for the status property.
+     * @param CaseStatus|null $value Value to set for the status property.
     */
     public function setStatus(?CaseStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -345,7 +345,7 @@ class EscapedCase extends Entity implements Parsable
 
     /**
      * Sets the tags property value. Returns a list of tag objects associated to this case.
-     *  @param array<Tag>|null $value Value to set for the tags property.
+     * @param array<Tag>|null $value Value to set for the tags property.
     */
     public function setTags(?array $value): void {
         $this->getBackingStore()->set('tags', $value);

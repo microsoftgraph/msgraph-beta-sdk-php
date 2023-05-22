@@ -95,7 +95,7 @@ class IosCredentialSingleSignOnExtension extends IosSingleSignOnExtension implem
 
     /**
      * Sets the configurations property value. Gets or sets a list of typed key-value pairs used to configure Credential-type profiles. This collection can contain a maximum of 500 elements.
-     *  @param array<KeyTypedValuePair>|null $value Value to set for the configurations property.
+     * @param array<KeyTypedValuePair>|null $value Value to set for the configurations property.
     */
     public function setConfigurations(?array $value): void {
         $this->getBackingStore()->set('configurations', $value);
@@ -103,7 +103,7 @@ class IosCredentialSingleSignOnExtension extends IosSingleSignOnExtension implem
 
     /**
      * Sets the domains property value. Gets or sets a list of hosts or domain names for which the app extension performs SSO.
-     *  @param array<string>|null $value Value to set for the domains property.
+     * @param array<string>|null $value Value to set for the domains property.
     */
     public function setDomains(?array $value): void {
         $this->getBackingStore()->set('domains', $value);
@@ -111,7 +111,7 @@ class IosCredentialSingleSignOnExtension extends IosSingleSignOnExtension implem
 
     /**
      * Sets the extensionIdentifier property value. Gets or sets the bundle ID of the app extension that performs SSO for the specified URLs.
-     *  @param string|null $value Value to set for the extensionIdentifier property.
+     * @param string|null $value Value to set for the extensionIdentifier property.
     */
     public function setExtensionIdentifier(?string $value): void {
         $this->getBackingStore()->set('extensionIdentifier', $value);
@@ -119,7 +119,7 @@ class IosCredentialSingleSignOnExtension extends IosSingleSignOnExtension implem
 
     /**
      * Sets the realm property value. Gets or sets the case-sensitive realm name for this profile.
-     *  @param string|null $value Value to set for the realm property.
+     * @param string|null $value Value to set for the realm property.
     */
     public function setRealm(?string $value): void {
         $this->getBackingStore()->set('realm', $value);
@@ -127,7 +127,7 @@ class IosCredentialSingleSignOnExtension extends IosSingleSignOnExtension implem
 
     /**
      * Sets the teamIdentifier property value. Gets or sets the team ID of the app extension that performs SSO for the specified URLs.
-     *  @param string|null $value Value to set for the teamIdentifier property.
+     * @param string|null $value Value to set for the teamIdentifier property.
     */
     public function setTeamIdentifier(?string $value): void {
         $this->getBackingStore()->set('teamIdentifier', $value);

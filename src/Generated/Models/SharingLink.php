@@ -36,7 +36,7 @@ class SharingLink implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -150,7 +150,7 @@ class SharingLink implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -158,7 +158,7 @@ class SharingLink implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the application property value. The app the link is associated with.
-     *  @param Identity|null $value Value to set for the application property.
+     * @param Identity|null $value Value to set for the application property.
     */
     public function setApplication(?Identity $value): void {
         $this->getBackingStore()->set('application', $value);
@@ -166,7 +166,7 @@ class SharingLink implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -174,7 +174,7 @@ class SharingLink implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the configuratorUrl property value. The configuratorUrl property
-     *  @param string|null $value Value to set for the configuratorUrl property.
+     * @param string|null $value Value to set for the configuratorUrl property.
     */
     public function setConfiguratorUrl(?string $value): void {
         $this->getBackingStore()->set('configuratorUrl', $value);
@@ -182,7 +182,7 @@ class SharingLink implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -190,7 +190,7 @@ class SharingLink implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the preventsDownload property value. If true then the user can only use this link to view the item on the web, and cannot use it to download the contents of the item. Only for OneDrive for Business and SharePoint.
-     *  @param bool|null $value Value to set for the preventsDownload property.
+     * @param bool|null $value Value to set for the preventsDownload property.
     */
     public function setPreventsDownload(?bool $value): void {
         $this->getBackingStore()->set('preventsDownload', $value);
@@ -198,7 +198,7 @@ class SharingLink implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the scope property value. The scope of the link represented by this permission. Value anonymous indicates the link is usable by anyone, organization indicates the link is only usable for users signed into the same tenant.
-     *  @param string|null $value Value to set for the scope property.
+     * @param string|null $value Value to set for the scope property.
     */
     public function setScope(?string $value): void {
         $this->getBackingStore()->set('scope', $value);
@@ -206,7 +206,7 @@ class SharingLink implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the type property value. The type of the link created.
-     *  @param string|null $value Value to set for the type property.
+     * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {
         $this->getBackingStore()->set('type', $value);
@@ -214,7 +214,7 @@ class SharingLink implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the webHtml property value. For embed links, this property contains the HTML code for an <iframe> element that will embed the item in a webpage.
-     *  @param string|null $value Value to set for the webHtml property.
+     * @param string|null $value Value to set for the webHtml property.
     */
     public function setWebHtml(?string $value): void {
         $this->getBackingStore()->set('webHtml', $value);
@@ -222,7 +222,7 @@ class SharingLink implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the webUrl property value. A URL that opens the item in the browser on the OneDrive website.
-     *  @param string|null $value Value to set for the webUrl property.
+     * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {
         $this->getBackingStore()->set('webUrl', $value);

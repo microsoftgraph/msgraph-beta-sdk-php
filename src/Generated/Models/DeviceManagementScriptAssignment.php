@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties used to assign a device management script to a group.
+*/
 class DeviceManagementScriptAssignment extends Entity implements Parsable 
 {
     /**
@@ -54,7 +57,7 @@ class DeviceManagementScriptAssignment extends Entity implements Parsable
 
     /**
      * Sets the target property value. The Id of the Azure Active Directory group we are targeting the script to.
-     *  @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the target property.
+     * @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the target property.
     */
     public function setTarget(?DeviceAndAppManagementAssignmentTarget $value): void {
         $this->getBackingStore()->set('target', $value);

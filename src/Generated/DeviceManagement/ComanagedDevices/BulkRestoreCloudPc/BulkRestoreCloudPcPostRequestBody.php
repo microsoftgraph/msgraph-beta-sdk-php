@@ -38,7 +38,7 @@ class BulkRestoreCloudPcPostRequestBody implements AdditionalDataHolder, BackedM
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -102,7 +102,7 @@ class BulkRestoreCloudPcPostRequestBody implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -110,7 +110,7 @@ class BulkRestoreCloudPcPostRequestBody implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -118,7 +118,7 @@ class BulkRestoreCloudPcPostRequestBody implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the managedDeviceIds property value. The managedDeviceIds property
-     *  @param array<string>|null $value Value to set for the managedDeviceIds property.
+     * @param array<string>|null $value Value to set for the managedDeviceIds property.
     */
     public function setManagedDeviceIds(?array $value): void {
         $this->getBackingStore()->set('managedDeviceIds', $value);
@@ -126,7 +126,7 @@ class BulkRestoreCloudPcPostRequestBody implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the restorePointDateTime property value. The restorePointDateTime property
-     *  @param DateTime|null $value Value to set for the restorePointDateTime property.
+     * @param DateTime|null $value Value to set for the restorePointDateTime property.
     */
     public function setRestorePointDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('restorePointDateTime', $value);
@@ -134,7 +134,7 @@ class BulkRestoreCloudPcPostRequestBody implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the timeRange property value. The timeRange property
-     *  @param RestoreTimeRange|null $value Value to set for the timeRange property.
+     * @param RestoreTimeRange|null $value Value to set for the timeRange property.
     */
     public function setTimeRange(?RestoreTimeRange $value): void {
         $this->getBackingStore()->set('timeRange', $value);

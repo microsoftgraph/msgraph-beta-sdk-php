@@ -35,14 +35,6 @@ class PasswordAuthenticationMethod extends AuthenticationMethod implements Parsa
     }
 
     /**
-     * Gets the creationDateTime property value. The creationDateTime property
-     * @return DateTime|null
-    */
-    public function getCreationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('creationDateTime');
-    }
-
-    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
@@ -50,7 +42,6 @@ class PasswordAuthenticationMethod extends AuthenticationMethod implements Parsa
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
-            'creationDateTime' => fn(ParseNode $n) => $o->setCreationDateTime($n->getDateTimeValue()),
             'password' => fn(ParseNode $n) => $o->setPassword($n->getStringValue()),
         ]);
     }
@@ -70,29 +61,20 @@ class PasswordAuthenticationMethod extends AuthenticationMethod implements Parsa
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
-        $writer->writeDateTimeValue('creationDateTime', $this->getCreationDateTime());
         $writer->writeStringValue('password', $this->getPassword());
     }
 
     /**
      * Sets the createdDateTime property value. The date and time when this password was last updated. This property is currently not populated. Read-only. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
-     * Sets the creationDateTime property value. The creationDateTime property
-     *  @param DateTime|null $value Value to set for the creationDateTime property.
-    */
-    public function setCreationDateTime(?DateTime $value): void {
-        $this->getBackingStore()->set('creationDateTime', $value);
-    }
-
-    /**
      * Sets the password property value. For security, the password is always returned as null from a LIST or GET operation.
-     *  @param string|null $value Value to set for the password property.
+     * @param string|null $value Value to set for the password property.
     */
     public function setPassword(?string $value): void {
         $this->getBackingStore()->set('password', $value);

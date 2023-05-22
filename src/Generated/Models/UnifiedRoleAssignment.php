@@ -154,7 +154,7 @@ class UnifiedRoleAssignment extends Entity implements Parsable
 
     /**
      * Sets the appScope property value. Details of the app specific scope when the assignment scope is app specific. Containment entity.
-     *  @param AppScope|null $value Value to set for the appScope property.
+     * @param AppScope|null $value Value to set for the appScope property.
     */
     public function setAppScope(?AppScope $value): void {
         $this->getBackingStore()->set('appScope', $value);
@@ -162,7 +162,7 @@ class UnifiedRoleAssignment extends Entity implements Parsable
 
     /**
      * Sets the appScopeId property value. Identifier of the app specific scope when the assignment scope is app specific. The scope of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. App scopes are scopes that are defined and understood by this application only.  For the entitlement management provider, use app scopes to specify a catalog, for example /AccessPackageCatalog/beedadfe-01d5-4025-910b-84abb9369997.
-     *  @param string|null $value Value to set for the appScopeId property.
+     * @param string|null $value Value to set for the appScopeId property.
     */
     public function setAppScopeId(?string $value): void {
         $this->getBackingStore()->set('appScopeId', $value);
@@ -170,7 +170,7 @@ class UnifiedRoleAssignment extends Entity implements Parsable
 
     /**
      * Sets the condition property value. The condition property
-     *  @param string|null $value Value to set for the condition property.
+     * @param string|null $value Value to set for the condition property.
     */
     public function setCondition(?string $value): void {
         $this->getBackingStore()->set('condition', $value);
@@ -178,7 +178,7 @@ class UnifiedRoleAssignment extends Entity implements Parsable
 
     /**
      * Sets the directoryScope property value. The directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
-     *  @param DirectoryObject|null $value Value to set for the directoryScope property.
+     * @param DirectoryObject|null $value Value to set for the directoryScope property.
     */
     public function setDirectoryScope(?DirectoryObject $value): void {
         $this->getBackingStore()->set('directoryScope', $value);
@@ -186,7 +186,7 @@ class UnifiedRoleAssignment extends Entity implements Parsable
 
     /**
      * Sets the directoryScopeId property value. Identifier of the directory object representing the scope of the assignment. The scope of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. App scopes are scopes that are defined and understood by this application only.
-     *  @param string|null $value Value to set for the directoryScopeId property.
+     * @param string|null $value Value to set for the directoryScopeId property.
     */
     public function setDirectoryScopeId(?string $value): void {
         $this->getBackingStore()->set('directoryScopeId', $value);
@@ -194,7 +194,7 @@ class UnifiedRoleAssignment extends Entity implements Parsable
 
     /**
      * Sets the principal property value. The assigned principal. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
-     *  @param DirectoryObject|null $value Value to set for the principal property.
+     * @param DirectoryObject|null $value Value to set for the principal property.
     */
     public function setPrincipal(?DirectoryObject $value): void {
         $this->getBackingStore()->set('principal', $value);
@@ -202,7 +202,7 @@ class UnifiedRoleAssignment extends Entity implements Parsable
 
     /**
      * Sets the principalId property value. Identifier of the principal to which the assignment is granted. Supports $filter (eq operator only).
-     *  @param string|null $value Value to set for the principalId property.
+     * @param string|null $value Value to set for the principalId property.
     */
     public function setPrincipalId(?string $value): void {
         $this->getBackingStore()->set('principalId', $value);
@@ -210,7 +210,7 @@ class UnifiedRoleAssignment extends Entity implements Parsable
 
     /**
      * Sets the principalOrganizationId property value. The principalOrganizationId property
-     *  @param string|null $value Value to set for the principalOrganizationId property.
+     * @param string|null $value Value to set for the principalOrganizationId property.
     */
     public function setPrincipalOrganizationId(?string $value): void {
         $this->getBackingStore()->set('principalOrganizationId', $value);
@@ -218,7 +218,7 @@ class UnifiedRoleAssignment extends Entity implements Parsable
 
     /**
      * Sets the resourceScope property value. The scope at which the unifiedRoleAssignment applies. This is / for service-wide. DO NOT USE. This property will be deprecated soon.
-     *  @param string|null $value Value to set for the resourceScope property.
+     * @param string|null $value Value to set for the resourceScope property.
     */
     public function setResourceScope(?string $value): void {
         $this->getBackingStore()->set('resourceScope', $value);
@@ -226,7 +226,7 @@ class UnifiedRoleAssignment extends Entity implements Parsable
 
     /**
      * Sets the roleDefinition property value. The roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.id will be auto expanded. Supports $expand.
-     *  @param UnifiedRoleDefinition|null $value Value to set for the roleDefinition property.
+     * @param UnifiedRoleDefinition|null $value Value to set for the roleDefinition property.
     */
     public function setRoleDefinition(?UnifiedRoleDefinition $value): void {
         $this->getBackingStore()->set('roleDefinition', $value);
@@ -234,7 +234,7 @@ class UnifiedRoleAssignment extends Entity implements Parsable
 
     /**
      * Sets the roleDefinitionId property value. Identifier of the unifiedRoleDefinition the assignment is for. Read-only. Supports $filter (eq operator only).
-     *  @param string|null $value Value to set for the roleDefinitionId property.
+     * @param string|null $value Value to set for the roleDefinitionId property.
     */
     public function setRoleDefinitionId(?string $value): void {
         $this->getBackingStore()->set('roleDefinitionId', $value);

@@ -95,7 +95,7 @@ class Office365GroupsActivityGroupCounts extends Entity implements Parsable
 
     /**
      * Sets the active property value. The number of active groups. A group is considered active if any of the following occurred: group mailbox received email; user viewed, edited, shared, or synced files in SharePoint document library; user viewed SharePoint pages; user posted, read, or liked messages in Yammer groups.
-     *  @param int|null $value Value to set for the active property.
+     * @param int|null $value Value to set for the active property.
     */
     public function setActive(?int $value): void {
         $this->getBackingStore()->set('active', $value);
@@ -103,7 +103,7 @@ class Office365GroupsActivityGroupCounts extends Entity implements Parsable
 
     /**
      * Sets the reportDate property value. The date on which a number of groups were active.
-     *  @param Date|null $value Value to set for the reportDate property.
+     * @param Date|null $value Value to set for the reportDate property.
     */
     public function setReportDate(?Date $value): void {
         $this->getBackingStore()->set('reportDate', $value);
@@ -111,7 +111,7 @@ class Office365GroupsActivityGroupCounts extends Entity implements Parsable
 
     /**
      * Sets the reportPeriod property value. The number of days the report covers.
-     *  @param string|null $value Value to set for the reportPeriod property.
+     * @param string|null $value Value to set for the reportPeriod property.
     */
     public function setReportPeriod(?string $value): void {
         $this->getBackingStore()->set('reportPeriod', $value);
@@ -119,7 +119,7 @@ class Office365GroupsActivityGroupCounts extends Entity implements Parsable
 
     /**
      * Sets the reportRefreshDate property value. The latest date of the content.
-     *  @param Date|null $value Value to set for the reportRefreshDate property.
+     * @param Date|null $value Value to set for the reportRefreshDate property.
     */
     public function setReportRefreshDate(?Date $value): void {
         $this->getBackingStore()->set('reportRefreshDate', $value);
@@ -127,7 +127,7 @@ class Office365GroupsActivityGroupCounts extends Entity implements Parsable
 
     /**
      * Sets the total property value. The total number of groups.
-     *  @param int|null $value Value to set for the total property.
+     * @param int|null $value Value to set for the total property.
     */
     public function setTotal(?int $value): void {
         $this->getBackingStore()->set('total', $value);

@@ -124,7 +124,7 @@ class MobilityManagementPolicy extends Entity implements Parsable
 
     /**
      * Sets the appliesTo property value. Indicates the user scope of the mobility management policy. Possible values are: none, all, selected.
-     *  @param PolicyScope|null $value Value to set for the appliesTo property.
+     * @param PolicyScope|null $value Value to set for the appliesTo property.
     */
     public function setAppliesTo(?PolicyScope $value): void {
         $this->getBackingStore()->set('appliesTo', $value);
@@ -132,7 +132,7 @@ class MobilityManagementPolicy extends Entity implements Parsable
 
     /**
      * Sets the complianceUrl property value. Compliance URL of the mobility management application.
-     *  @param string|null $value Value to set for the complianceUrl property.
+     * @param string|null $value Value to set for the complianceUrl property.
     */
     public function setComplianceUrl(?string $value): void {
         $this->getBackingStore()->set('complianceUrl', $value);
@@ -140,7 +140,7 @@ class MobilityManagementPolicy extends Entity implements Parsable
 
     /**
      * Sets the description property value. Description of the mobility management application.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -148,7 +148,7 @@ class MobilityManagementPolicy extends Entity implements Parsable
 
     /**
      * Sets the discoveryUrl property value. Discovery URL of the mobility management application.
-     *  @param string|null $value Value to set for the discoveryUrl property.
+     * @param string|null $value Value to set for the discoveryUrl property.
     */
     public function setDiscoveryUrl(?string $value): void {
         $this->getBackingStore()->set('discoveryUrl', $value);
@@ -156,7 +156,7 @@ class MobilityManagementPolicy extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Display name of the mobility management application.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -164,7 +164,7 @@ class MobilityManagementPolicy extends Entity implements Parsable
 
     /**
      * Sets the includedGroups property value. Azure AD groups under the scope of the mobility management application if appliesTo is selected
-     *  @param array<Group>|null $value Value to set for the includedGroups property.
+     * @param array<Group>|null $value Value to set for the includedGroups property.
     */
     public function setIncludedGroups(?array $value): void {
         $this->getBackingStore()->set('includedGroups', $value);
@@ -172,7 +172,7 @@ class MobilityManagementPolicy extends Entity implements Parsable
 
     /**
      * Sets the isValid property value. Whether policy is valid. Invalid policies may not be updated and should be deleted.
-     *  @param bool|null $value Value to set for the isValid property.
+     * @param bool|null $value Value to set for the isValid property.
     */
     public function setIsValid(?bool $value): void {
         $this->getBackingStore()->set('isValid', $value);
@@ -180,7 +180,7 @@ class MobilityManagementPolicy extends Entity implements Parsable
 
     /**
      * Sets the termsOfUseUrl property value. Terms of Use URL of the mobility management application.
-     *  @param string|null $value Value to set for the termsOfUseUrl property.
+     * @param string|null $value Value to set for the termsOfUseUrl property.
     */
     public function setTermsOfUseUrl(?string $value): void {
         $this->getBackingStore()->set('termsOfUseUrl', $value);

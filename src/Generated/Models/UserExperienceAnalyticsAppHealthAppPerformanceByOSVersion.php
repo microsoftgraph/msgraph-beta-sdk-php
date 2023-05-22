@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsAppHealthAppPerformanceByOSVersion and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -134,7 +134,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
 
     /**
      * Sets the activeDeviceCount property value. The number of devices where the app has been active. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the activeDeviceCount property.
+     * @param int|null $value Value to set for the activeDeviceCount property.
     */
     public function setActiveDeviceCount(?int $value): void {
         $this->getBackingStore()->set('activeDeviceCount', $value);
@@ -142,7 +142,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
 
     /**
      * Sets the appCrashCount property value. The number of crashes for the app. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the appCrashCount property.
+     * @param int|null $value Value to set for the appCrashCount property.
     */
     public function setAppCrashCount(?int $value): void {
         $this->getBackingStore()->set('appCrashCount', $value);
@@ -150,7 +150,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
 
     /**
      * Sets the appDisplayName property value. The friendly name of the application.
-     *  @param string|null $value Value to set for the appDisplayName property.
+     * @param string|null $value Value to set for the appDisplayName property.
     */
     public function setAppDisplayName(?string $value): void {
         $this->getBackingStore()->set('appDisplayName', $value);
@@ -158,7 +158,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
 
     /**
      * Sets the appName property value. The name of the application.
-     *  @param string|null $value Value to set for the appName property.
+     * @param string|null $value Value to set for the appName property.
     */
     public function setAppName(?string $value): void {
         $this->getBackingStore()->set('appName', $value);
@@ -166,7 +166,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
 
     /**
      * Sets the appPublisher property value. The publisher of the application.
-     *  @param string|null $value Value to set for the appPublisher property.
+     * @param string|null $value Value to set for the appPublisher property.
     */
     public function setAppPublisher(?string $value): void {
         $this->getBackingStore()->set('appPublisher', $value);
@@ -174,7 +174,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
 
     /**
      * Sets the appUsageDuration property value. The total usage time of the application in minutes. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the appUsageDuration property.
+     * @param int|null $value Value to set for the appUsageDuration property.
     */
     public function setAppUsageDuration(?int $value): void {
         $this->getBackingStore()->set('appUsageDuration', $value);
@@ -182,7 +182,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
 
     /**
      * Sets the meanTimeToFailureInMinutes property value. The mean time to failure for the app in minutes. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the meanTimeToFailureInMinutes property.
+     * @param int|null $value Value to set for the meanTimeToFailureInMinutes property.
     */
     public function setMeanTimeToFailureInMinutes(?int $value): void {
         $this->getBackingStore()->set('meanTimeToFailureInMinutes', $value);
@@ -190,7 +190,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
 
     /**
      * Sets the osBuildNumber property value. The os build number of the application.
-     *  @param string|null $value Value to set for the osBuildNumber property.
+     * @param string|null $value Value to set for the osBuildNumber property.
     */
     public function setOsBuildNumber(?string $value): void {
         $this->getBackingStore()->set('osBuildNumber', $value);
@@ -198,7 +198,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
 
     /**
      * Sets the osVersion property value. The os version of the application.
-     *  @param string|null $value Value to set for the osVersion property.
+     * @param string|null $value Value to set for the osVersion property.
     */
     public function setOsVersion(?string $value): void {
         $this->getBackingStore()->set('osVersion', $value);

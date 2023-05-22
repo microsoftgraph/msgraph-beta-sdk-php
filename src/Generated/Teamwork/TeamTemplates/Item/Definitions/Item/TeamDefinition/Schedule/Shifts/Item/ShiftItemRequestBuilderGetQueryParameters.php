@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve the properties and relationships of a shift object by ID.
+*/
 class ShiftItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -12,4 +15,12 @@ class ShiftItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new ShiftItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $select = null) {
+        $this->select = $select;
+    }
+
 }

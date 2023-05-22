@@ -2,23 +2,44 @@
 
 namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices;
 
+use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;
 
-class PurchaseInvoicesRequestBuilderGetRequestConfiguration 
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
+class PurchaseInvoicesRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration 
 {
-    /**
-     * @var array<string, string>|null $headers Request headers
-    */
-    public ?array $headers = null;
-    
-    /**
-     * @var array<string, RequestOption>|null $options Request options
-    */
-    public ?array $options = null;
-    
     /**
      * @var PurchaseInvoicesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
     */
     public ?PurchaseInvoicesRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new purchaseInvoicesRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
+     * @param PurchaseInvoicesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?PurchaseInvoicesRequestBuilderGetQueryParameters $queryParameters = null) {
+        parent::__construct($headers ?? [], $options ?? []);
+        $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new purchaseInvoicesRequestBuilderGetQueryParameters.
+     * @param bool|null $count Include count of items
+     * @param array<string>|null $expand Expand related entities
+     * @param string|null $filter Filter items by property values
+     * @param array<string>|null $orderby Order items by property values
+     * @param string|null $search Search items by search phrases
+     * @param array<string>|null $select Select properties to be returned
+     * @param int|null $skip Skip the first n items
+     * @param int|null $top Show only the first n items
+     * @return PurchaseInvoicesRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): PurchaseInvoicesRequestBuilderGetQueryParameters {
+        return new PurchaseInvoicesRequestBuilderGetQueryParameters($count, $expand, $filter, $orderby, $search, $select, $skip, $top);
+    }
+
 }

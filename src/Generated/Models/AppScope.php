@@ -21,6 +21,13 @@ class AppScope extends Entity implements Parsable
      * @return AppScope
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AppScope {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.customAppScope': return new CustomAppScope();
+            }
+        }
         return new AppScope();
     }
 
@@ -64,7 +71,7 @@ class AppScope extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Provides the display name of the app-specific resource represented by the app scope. Provided for display purposes since appScopeId is often an immutable, non-human-readable id. This property is read only.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -72,7 +79,7 @@ class AppScope extends Entity implements Parsable
 
     /**
      * Sets the type property value. Describes the type of app-specific resource represented by the app scope. Provided for display purposes, so a user interface can convey to the user the kind of app specific resource represented by the app scope. This property is read only.
-     *  @param string|null $value Value to set for the type property.
+     * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {
         $this->getBackingStore()->set('type', $value);

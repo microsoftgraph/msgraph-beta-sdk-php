@@ -84,7 +84,7 @@ class DeviceManagementScriptRunSummary extends Entity implements Parsable
 
     /**
      * Sets the errorDeviceCount property value. Error device count.
-     *  @param int|null $value Value to set for the errorDeviceCount property.
+     * @param int|null $value Value to set for the errorDeviceCount property.
     */
     public function setErrorDeviceCount(?int $value): void {
         $this->getBackingStore()->set('errorDeviceCount', $value);
@@ -92,7 +92,7 @@ class DeviceManagementScriptRunSummary extends Entity implements Parsable
 
     /**
      * Sets the errorUserCount property value. Error user count.
-     *  @param int|null $value Value to set for the errorUserCount property.
+     * @param int|null $value Value to set for the errorUserCount property.
     */
     public function setErrorUserCount(?int $value): void {
         $this->getBackingStore()->set('errorUserCount', $value);
@@ -100,7 +100,7 @@ class DeviceManagementScriptRunSummary extends Entity implements Parsable
 
     /**
      * Sets the successDeviceCount property value. Success device count.
-     *  @param int|null $value Value to set for the successDeviceCount property.
+     * @param int|null $value Value to set for the successDeviceCount property.
     */
     public function setSuccessDeviceCount(?int $value): void {
         $this->getBackingStore()->set('successDeviceCount', $value);
@@ -108,7 +108,7 @@ class DeviceManagementScriptRunSummary extends Entity implements Parsable
 
     /**
      * Sets the successUserCount property value. Success user count.
-     *  @param int|null $value Value to set for the successUserCount property.
+     * @param int|null $value Value to set for the successUserCount property.
     */
     public function setSuccessUserCount(?int $value): void {
         $this->getBackingStore()->set('successUserCount', $value);

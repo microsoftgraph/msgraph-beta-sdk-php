@@ -15,4 +15,7 @@ class DevicePlatformType extends Enum {
     public const ANDROID_WORK_PROFILE = 'androidWorkProfile';
     public const UNKNOWN = 'unknown';
     public const ANDROID_A_O_S_P = 'androidAOSP';
+    public const ANDROID_MOBILE_APPLICATION_MANAGEMENT = 'androidMobileApplicationManagement';
+    public const I_O_S_MOBILE_APPLICATION_MANAGEMENT = 'iOSMobileApplicationManagement';
+    public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
 }

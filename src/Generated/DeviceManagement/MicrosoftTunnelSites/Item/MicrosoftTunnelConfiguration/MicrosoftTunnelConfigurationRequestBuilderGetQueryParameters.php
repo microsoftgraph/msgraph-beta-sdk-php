@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelSites\I
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The MicrosoftTunnelConfiguration that has been applied to this MicrosoftTunnelSite
+*/
 class MicrosoftTunnelConfigurationRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class MicrosoftTunnelConfigurationRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new microsoftTunnelConfigurationRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

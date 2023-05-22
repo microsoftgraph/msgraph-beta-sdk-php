@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OrgContact extends DirectoryObject implements Parsable 
 {
     /**
-     * Instantiates a new orgContact and sets the default values.
+     * Instantiates a new OrgContact and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -89,6 +89,7 @@ class OrgContact extends DirectoryObject implements Parsable
             'onPremisesSyncEnabled' => fn(ParseNode $n) => $o->setOnPremisesSyncEnabled($n->getBooleanValue()),
             'phones' => fn(ParseNode $n) => $o->setPhones($n->getCollectionOfObjectValues([Phone::class, 'createFromDiscriminatorValue'])),
             'proxyAddresses' => fn(ParseNode $n) => $o->setProxyAddresses($n->getCollectionOfPrimitiveValues()),
+            'serviceProvisioningErrors' => fn(ParseNode $n) => $o->setServiceProvisioningErrors($n->getCollectionOfObjectValues([ServiceProvisioningError::class, 'createFromDiscriminatorValue'])),
             'surname' => fn(ParseNode $n) => $o->setSurname($n->getStringValue()),
             'transitiveMemberOf' => fn(ParseNode $n) => $o->setTransitiveMemberOf($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'transitiveReports' => fn(ParseNode $n) => $o->setTransitiveReports($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
@@ -184,6 +185,14 @@ class OrgContact extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the serviceProvisioningErrors property value. Errors published by a federated service describing a non-transient, service-specific error regarding the properties or link from an orgContact object .  Supports $filter (eq, not, for isResolved and serviceInstance).
+     * @return array<ServiceProvisioningError>|null
+    */
+    public function getServiceProvisioningErrors(): ?array {
+        return $this->getBackingStore()->get('serviceProvisioningErrors');
+    }
+
+    /**
      * Gets the surname property value. Last name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values)
      * @return string|null
     */
@@ -229,6 +238,7 @@ class OrgContact extends DirectoryObject implements Parsable
         $writer->writeBooleanValue('onPremisesSyncEnabled', $this->getOnPremisesSyncEnabled());
         $writer->writeCollectionOfObjectValues('phones', $this->getPhones());
         $writer->writeCollectionOfPrimitiveValues('proxyAddresses', $this->getProxyAddresses());
+        $writer->writeCollectionOfObjectValues('serviceProvisioningErrors', $this->getServiceProvisioningErrors());
         $writer->writeStringValue('surname', $this->getSurname());
         $writer->writeCollectionOfObjectValues('transitiveMemberOf', $this->getTransitiveMemberOf());
         $writer->writeCollectionOfObjectValues('transitiveReports', $this->getTransitiveReports());
@@ -236,7 +246,7 @@ class OrgContact extends DirectoryObject implements Parsable
 
     /**
      * Sets the addresses property value. Postal addresses for this organizational contact. For now a contact can only have one physical address.
-     *  @param array<PhysicalOfficeAddress>|null $value Value to set for the addresses property.
+     * @param array<PhysicalOfficeAddress>|null $value Value to set for the addresses property.
     */
     public function setAddresses(?array $value): void {
         $this->getBackingStore()->set('addresses', $value);
@@ -244,7 +254,7 @@ class OrgContact extends DirectoryObject implements Parsable
 
     /**
      * Sets the companyName property value. Name of the company that this organizational contact belong to. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
-     *  @param string|null $value Value to set for the companyName property.
+     * @param string|null $value Value to set for the companyName property.
     */
     public function setCompanyName(?string $value): void {
         $this->getBackingStore()->set('companyName', $value);
@@ -252,7 +262,7 @@ class OrgContact extends DirectoryObject implements Parsable
 
     /**
      * Sets the department property value. The name for the department in which the contact works. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
-     *  @param string|null $value Value to set for the department property.
+     * @param string|null $value Value to set for the department property.
     */
     public function setDepartment(?string $value): void {
         $this->getBackingStore()->set('department', $value);
@@ -260,7 +270,7 @@ class OrgContact extends DirectoryObject implements Parsable
 
     /**
      * Sets the directReports property value. The contact's direct reports. (The users and contacts that have their manager property set to this contact.) Read-only. Nullable. Supports $expand.
-     *  @param array<DirectoryObject>|null $value Value to set for the directReports property.
+     * @param array<DirectoryObject>|null $value Value to set for the directReports property.
     */
     public function setDirectReports(?array $value): void {
         $this->getBackingStore()->set('directReports', $value);
@@ -268,7 +278,7 @@ class OrgContact extends DirectoryObject implements Parsable
 
     /**
      * Sets the displayName property value. Display name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values), $search, and $orderBy.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -276,7 +286,7 @@ class OrgContact extends DirectoryObject implements Parsable
 
     /**
      * Sets the givenName property value. First name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
-     *  @param string|null $value Value to set for the givenName property.
+     * @param string|null $value Value to set for the givenName property.
     */
     public function setGivenName(?string $value): void {
         $this->getBackingStore()->set('givenName', $value);
@@ -284,7 +294,7 @@ class OrgContact extends DirectoryObject implements Parsable
 
     /**
      * Sets the jobTitle property value. Job title for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
-     *  @param string|null $value Value to set for the jobTitle property.
+     * @param string|null $value Value to set for the jobTitle property.
     */
     public function setJobTitle(?string $value): void {
         $this->getBackingStore()->set('jobTitle', $value);
@@ -292,7 +302,7 @@ class OrgContact extends DirectoryObject implements Parsable
 
     /**
      * Sets the mail property value. The SMTP address for the contact, for example, 'jeff@contoso.onmicrosoft.com'. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
-     *  @param string|null $value Value to set for the mail property.
+     * @param string|null $value Value to set for the mail property.
     */
     public function setMail(?string $value): void {
         $this->getBackingStore()->set('mail', $value);
@@ -300,7 +310,7 @@ class OrgContact extends DirectoryObject implements Parsable
 
     /**
      * Sets the mailNickname property value. Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
-     *  @param string|null $value Value to set for the mailNickname property.
+     * @param string|null $value Value to set for the mailNickname property.
     */
     public function setMailNickname(?string $value): void {
         $this->getBackingStore()->set('mailNickname', $value);
@@ -308,7 +318,7 @@ class OrgContact extends DirectoryObject implements Parsable
 
     /**
      * Sets the manager property value. The user or contact that is this contact's manager. Read-only. Supports $expand and $filter (eq) by id.
-     *  @param DirectoryObject|null $value Value to set for the manager property.
+     * @param DirectoryObject|null $value Value to set for the manager property.
     */
     public function setManager(?DirectoryObject $value): void {
         $this->getBackingStore()->set('manager', $value);
@@ -316,7 +326,7 @@ class OrgContact extends DirectoryObject implements Parsable
 
     /**
      * Sets the memberOf property value. Groups that this contact is a member of. Read-only. Nullable. Supports $expand.
-     *  @param array<DirectoryObject>|null $value Value to set for the memberOf property.
+     * @param array<DirectoryObject>|null $value Value to set for the memberOf property.
     */
     public function setMemberOf(?array $value): void {
         $this->getBackingStore()->set('memberOf', $value);
@@ -324,7 +334,7 @@ class OrgContact extends DirectoryObject implements Parsable
 
     /**
      * Sets the onPremisesLastSyncDateTime property value. Date and time when this organizational contact was last synchronized from on-premises AD. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, not, ge, le, in).
-     *  @param DateTime|null $value Value to set for the onPremisesLastSyncDateTime property.
+     * @param DateTime|null $value Value to set for the onPremisesLastSyncDateTime property.
     */
     public function setOnPremisesLastSyncDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('onPremisesLastSyncDateTime', $value);
@@ -332,7 +342,7 @@ class OrgContact extends DirectoryObject implements Parsable
 
     /**
      * Sets the onPremisesProvisioningErrors property value. List of any synchronization provisioning errors for this organizational contact. Supports $filter (eq, not for category and propertyCausingError), /$count eq 0, /$count ne 0.
-     *  @param array<OnPremisesProvisioningError>|null $value Value to set for the onPremisesProvisioningErrors property.
+     * @param array<OnPremisesProvisioningError>|null $value Value to set for the onPremisesProvisioningErrors property.
     */
     public function setOnPremisesProvisioningErrors(?array $value): void {
         $this->getBackingStore()->set('onPremisesProvisioningErrors', $value);
@@ -340,7 +350,7 @@ class OrgContact extends DirectoryObject implements Parsable
 
     /**
      * Sets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced and now mastered in Exchange; null if this object has never been synced from an on-premises directory (default).  Supports $filter (eq, ne, not, in, and eq for null values).
-     *  @param bool|null $value Value to set for the onPremisesSyncEnabled property.
+     * @param bool|null $value Value to set for the onPremisesSyncEnabled property.
     */
     public function setOnPremisesSyncEnabled(?bool $value): void {
         $this->getBackingStore()->set('onPremisesSyncEnabled', $value);
@@ -348,7 +358,7 @@ class OrgContact extends DirectoryObject implements Parsable
 
     /**
      * Sets the phones property value. List of phones for this organizational contact. Phone types can be mobile, business, and businessFax. Only one of each type can ever be present in the collection. Supports $filter (eq, ne, not, in).
-     *  @param array<Phone>|null $value Value to set for the phones property.
+     * @param array<Phone>|null $value Value to set for the phones property.
     */
     public function setPhones(?array $value): void {
         $this->getBackingStore()->set('phones', $value);
@@ -356,15 +366,23 @@ class OrgContact extends DirectoryObject implements Parsable
 
     /**
      * Sets the proxyAddresses property value. For example: 'SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com'. The any operator is required for filter expressions on multi-valued properties. Supports $filter (eq, not, ge, le, startsWith, /$count eq 0, /$count ne 0).
-     *  @param array<string>|null $value Value to set for the proxyAddresses property.
+     * @param array<string>|null $value Value to set for the proxyAddresses property.
     */
     public function setProxyAddresses(?array $value): void {
         $this->getBackingStore()->set('proxyAddresses', $value);
     }
 
     /**
+     * Sets the serviceProvisioningErrors property value. Errors published by a federated service describing a non-transient, service-specific error regarding the properties or link from an orgContact object .  Supports $filter (eq, not, for isResolved and serviceInstance).
+     * @param array<ServiceProvisioningError>|null $value Value to set for the serviceProvisioningErrors property.
+    */
+    public function setServiceProvisioningErrors(?array $value): void {
+        $this->getBackingStore()->set('serviceProvisioningErrors', $value);
+    }
+
+    /**
      * Sets the surname property value. Last name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values)
-     *  @param string|null $value Value to set for the surname property.
+     * @param string|null $value Value to set for the surname property.
     */
     public function setSurname(?string $value): void {
         $this->getBackingStore()->set('surname', $value);
@@ -372,7 +390,7 @@ class OrgContact extends DirectoryObject implements Parsable
 
     /**
      * Sets the transitiveMemberOf property value. The transitiveMemberOf property
-     *  @param array<DirectoryObject>|null $value Value to set for the transitiveMemberOf property.
+     * @param array<DirectoryObject>|null $value Value to set for the transitiveMemberOf property.
     */
     public function setTransitiveMemberOf(?array $value): void {
         $this->getBackingStore()->set('transitiveMemberOf', $value);
@@ -380,7 +398,7 @@ class OrgContact extends DirectoryObject implements Parsable
 
     /**
      * Sets the transitiveReports property value. The transitive reports for a contact. Read-only.
-     *  @param array<DirectoryObject>|null $value Value to set for the transitiveReports property.
+     * @param array<DirectoryObject>|null $value Value to set for the transitiveReports property.
     */
     public function setTransitiveReports(?array $value): void {
         $this->getBackingStore()->set('transitiveReports', $value);

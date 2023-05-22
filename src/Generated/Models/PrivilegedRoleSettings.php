@@ -26,7 +26,7 @@ class PrivilegedRoleSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the approvalOnElevation property value. true if the approval is required when activate the role. false if the approval is not required when activate the role.
+     * Gets the approvalOnElevation property value. The approvalOnElevation property
      * @return bool|null
     */
     public function getApprovalOnElevation(): ?bool {
@@ -34,7 +34,7 @@ class PrivilegedRoleSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the approverIds property value. List of Approval ids, if approval is required for activation.
+     * Gets the approverIds property value. The approverIds property
      * @return array<string>|null
     */
     public function getApproverIds(): ?array {
@@ -42,7 +42,7 @@ class PrivilegedRoleSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the elevationDuration property value. The duration when the role is activated.
+     * Gets the elevationDuration property value. The elevationDuration property
      * @return DateInterval|null
     */
     public function getElevationDuration(): ?DateInterval {
@@ -70,7 +70,7 @@ class PrivilegedRoleSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the isMfaOnElevationConfigurable property value. true if mfaOnElevation is configurable. false if mfaOnElevation is not configurable.
+     * Gets the isMfaOnElevationConfigurable property value. The isMfaOnElevationConfigurable property
      * @return bool|null
     */
     public function getIsMfaOnElevationConfigurable(): ?bool {
@@ -78,7 +78,7 @@ class PrivilegedRoleSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastGlobalAdmin property value. Internal used only.
+     * Gets the lastGlobalAdmin property value. The lastGlobalAdmin property
      * @return bool|null
     */
     public function getLastGlobalAdmin(): ?bool {
@@ -86,7 +86,7 @@ class PrivilegedRoleSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the maxElavationDuration property value. Maximal duration for the activated role.
+     * Gets the maxElavationDuration property value. The maxElavationDuration property
      * @return DateInterval|null
     */
     public function getMaxElavationDuration(): ?DateInterval {
@@ -94,7 +94,7 @@ class PrivilegedRoleSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the mfaOnElevation property value. true if MFA is required to activate the role. false if MFA is not required to activate the role.
+     * Gets the mfaOnElevation property value. The mfaOnElevation property
      * @return bool|null
     */
     public function getMfaOnElevation(): ?bool {
@@ -102,7 +102,7 @@ class PrivilegedRoleSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the minElevationDuration property value. Minimal duration for the activated role.
+     * Gets the minElevationDuration property value. The minElevationDuration property
      * @return DateInterval|null
     */
     public function getMinElevationDuration(): ?DateInterval {
@@ -110,7 +110,7 @@ class PrivilegedRoleSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the notificationToUserOnElevation property value. true if send notification to the end user when the role is activated. false if do not send notification when the role is activated.
+     * Gets the notificationToUserOnElevation property value. The notificationToUserOnElevation property
      * @return bool|null
     */
     public function getNotificationToUserOnElevation(): ?bool {
@@ -118,7 +118,7 @@ class PrivilegedRoleSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the ticketingInfoOnElevation property value. true if the ticketing information is required when activate the role. false if the ticketing information is not required when activate the role.
+     * Gets the ticketingInfoOnElevation property value. The ticketingInfoOnElevation property
      * @return bool|null
     */
     public function getTicketingInfoOnElevation(): ?bool {
@@ -144,80 +144,80 @@ class PrivilegedRoleSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the approvalOnElevation property value. true if the approval is required when activate the role. false if the approval is not required when activate the role.
-     *  @param bool|null $value Value to set for the approvalOnElevation property.
+     * Sets the approvalOnElevation property value. The approvalOnElevation property
+     * @param bool|null $value Value to set for the approvalOnElevation property.
     */
     public function setApprovalOnElevation(?bool $value): void {
         $this->getBackingStore()->set('approvalOnElevation', $value);
     }
 
     /**
-     * Sets the approverIds property value. List of Approval ids, if approval is required for activation.
-     *  @param array<string>|null $value Value to set for the approverIds property.
+     * Sets the approverIds property value. The approverIds property
+     * @param array<string>|null $value Value to set for the approverIds property.
     */
     public function setApproverIds(?array $value): void {
         $this->getBackingStore()->set('approverIds', $value);
     }
 
     /**
-     * Sets the elevationDuration property value. The duration when the role is activated.
-     *  @param DateInterval|null $value Value to set for the elevationDuration property.
+     * Sets the elevationDuration property value. The elevationDuration property
+     * @param DateInterval|null $value Value to set for the elevationDuration property.
     */
     public function setElevationDuration(?DateInterval $value): void {
         $this->getBackingStore()->set('elevationDuration', $value);
     }
 
     /**
-     * Sets the isMfaOnElevationConfigurable property value. true if mfaOnElevation is configurable. false if mfaOnElevation is not configurable.
-     *  @param bool|null $value Value to set for the isMfaOnElevationConfigurable property.
+     * Sets the isMfaOnElevationConfigurable property value. The isMfaOnElevationConfigurable property
+     * @param bool|null $value Value to set for the isMfaOnElevationConfigurable property.
     */
     public function setIsMfaOnElevationConfigurable(?bool $value): void {
         $this->getBackingStore()->set('isMfaOnElevationConfigurable', $value);
     }
 
     /**
-     * Sets the lastGlobalAdmin property value. Internal used only.
-     *  @param bool|null $value Value to set for the lastGlobalAdmin property.
+     * Sets the lastGlobalAdmin property value. The lastGlobalAdmin property
+     * @param bool|null $value Value to set for the lastGlobalAdmin property.
     */
     public function setLastGlobalAdmin(?bool $value): void {
         $this->getBackingStore()->set('lastGlobalAdmin', $value);
     }
 
     /**
-     * Sets the maxElavationDuration property value. Maximal duration for the activated role.
-     *  @param DateInterval|null $value Value to set for the maxElavationDuration property.
+     * Sets the maxElavationDuration property value. The maxElavationDuration property
+     * @param DateInterval|null $value Value to set for the maxElavationDuration property.
     */
     public function setMaxElavationDuration(?DateInterval $value): void {
         $this->getBackingStore()->set('maxElavationDuration', $value);
     }
 
     /**
-     * Sets the mfaOnElevation property value. true if MFA is required to activate the role. false if MFA is not required to activate the role.
-     *  @param bool|null $value Value to set for the mfaOnElevation property.
+     * Sets the mfaOnElevation property value. The mfaOnElevation property
+     * @param bool|null $value Value to set for the mfaOnElevation property.
     */
     public function setMfaOnElevation(?bool $value): void {
         $this->getBackingStore()->set('mfaOnElevation', $value);
     }
 
     /**
-     * Sets the minElevationDuration property value. Minimal duration for the activated role.
-     *  @param DateInterval|null $value Value to set for the minElevationDuration property.
+     * Sets the minElevationDuration property value. The minElevationDuration property
+     * @param DateInterval|null $value Value to set for the minElevationDuration property.
     */
     public function setMinElevationDuration(?DateInterval $value): void {
         $this->getBackingStore()->set('minElevationDuration', $value);
     }
 
     /**
-     * Sets the notificationToUserOnElevation property value. true if send notification to the end user when the role is activated. false if do not send notification when the role is activated.
-     *  @param bool|null $value Value to set for the notificationToUserOnElevation property.
+     * Sets the notificationToUserOnElevation property value. The notificationToUserOnElevation property
+     * @param bool|null $value Value to set for the notificationToUserOnElevation property.
     */
     public function setNotificationToUserOnElevation(?bool $value): void {
         $this->getBackingStore()->set('notificationToUserOnElevation', $value);
     }
 
     /**
-     * Sets the ticketingInfoOnElevation property value. true if the ticketing information is required when activate the role. false if the ticketing information is not required when activate the role.
-     *  @param bool|null $value Value to set for the ticketingInfoOnElevation property.
+     * Sets the ticketingInfoOnElevation property value. The ticketingInfoOnElevation property
+     * @param bool|null $value Value to set for the ticketingInfoOnElevation property.
     */
     public function setTicketingInfoOnElevation(?bool $value): void {
         $this->getBackingStore()->set('ticketingInfoOnElevation', $value);

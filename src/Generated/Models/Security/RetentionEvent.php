@@ -167,7 +167,7 @@ class RetentionEvent extends Entity implements Parsable
 
     /**
      * Sets the createdBy property value. The user who created the retentionEvent.
-     *  @param IdentitySet|null $value Value to set for the createdBy property.
+     * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('createdBy', $value);
@@ -175,7 +175,7 @@ class RetentionEvent extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date time when the retentionEvent was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -183,7 +183,7 @@ class RetentionEvent extends Entity implements Parsable
 
     /**
      * Sets the description property value. Optional information about the event.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -191,7 +191,7 @@ class RetentionEvent extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Name of the event.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -199,7 +199,7 @@ class RetentionEvent extends Entity implements Parsable
 
     /**
      * Sets the eventPropagationResults property value. The eventPropagationResults property
-     *  @param array<EventPropagationResult>|null $value Value to set for the eventPropagationResults property.
+     * @param array<EventPropagationResult>|null $value Value to set for the eventPropagationResults property.
     */
     public function setEventPropagationResults(?array $value): void {
         $this->getBackingStore()->set('eventPropagationResults', $value);
@@ -207,7 +207,7 @@ class RetentionEvent extends Entity implements Parsable
 
     /**
      * Sets the eventQueries property value. Represents the workload (SharePoint Online, OneDrive for Business, Exchange Online) and identification information associated with a retention event.
-     *  @param array<EventQuery>|null $value Value to set for the eventQueries property.
+     * @param array<EventQuery>|null $value Value to set for the eventQueries property.
     */
     public function setEventQueries(?array $value): void {
         $this->getBackingStore()->set('eventQueries', $value);
@@ -215,7 +215,7 @@ class RetentionEvent extends Entity implements Parsable
 
     /**
      * Sets the eventStatus property value. The eventStatus property
-     *  @param RetentionEventStatus|null $value Value to set for the eventStatus property.
+     * @param RetentionEventStatus|null $value Value to set for the eventStatus property.
     */
     public function setEventStatus(?RetentionEventStatus $value): void {
         $this->getBackingStore()->set('eventStatus', $value);
@@ -223,7 +223,7 @@ class RetentionEvent extends Entity implements Parsable
 
     /**
      * Sets the eventTriggerDateTime property value. Optional time when the event should be triggered.
-     *  @param DateTime|null $value Value to set for the eventTriggerDateTime property.
+     * @param DateTime|null $value Value to set for the eventTriggerDateTime property.
     */
     public function setEventTriggerDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('eventTriggerDateTime', $value);
@@ -231,7 +231,7 @@ class RetentionEvent extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedBy property value. The user who last modified the retentionEvent.
-     *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
+     * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('lastModifiedBy', $value);
@@ -239,7 +239,7 @@ class RetentionEvent extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The latest date time when the retentionEvent was modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -247,7 +247,7 @@ class RetentionEvent extends Entity implements Parsable
 
     /**
      * Sets the lastStatusUpdateDateTime property value. Last time the status of the event was updated.
-     *  @param DateTime|null $value Value to set for the lastStatusUpdateDateTime property.
+     * @param DateTime|null $value Value to set for the lastStatusUpdateDateTime property.
     */
     public function setLastStatusUpdateDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastStatusUpdateDateTime', $value);
@@ -255,7 +255,7 @@ class RetentionEvent extends Entity implements Parsable
 
     /**
      * Sets the retentionEventType property value. Specifies the event that will start the retention period for labels that use this event type when an event is created.
-     *  @param RetentionEventType|null $value Value to set for the retentionEventType property.
+     * @param RetentionEventType|null $value Value to set for the retentionEventType property.
     */
     public function setRetentionEventType(?RetentionEventType $value): void {
         $this->getBackingStore()->set('retentionEventType', $value);

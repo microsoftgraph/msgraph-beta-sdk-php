@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagementTemplateCollectionTenantSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new managementTemplateCollectionTenantSummary and sets the default values.
+     * Instantiates a new ManagementTemplateCollectionTenantSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -104,7 +104,10 @@ class ManagementTemplateCollectionTenantSummary extends Entity implements Parsab
             'lastActionDateTime' => fn(ParseNode $n) => $o->setLastActionDateTime($n->getDateTimeValue()),
             'managementTemplateCollectionDisplayName' => fn(ParseNode $n) => $o->setManagementTemplateCollectionDisplayName($n->getStringValue()),
             'managementTemplateCollectionId' => fn(ParseNode $n) => $o->setManagementTemplateCollectionId($n->getStringValue()),
+            'regressedStepsCount' => fn(ParseNode $n) => $o->setRegressedStepsCount($n->getIntegerValue()),
+            'regressedUsersCount' => fn(ParseNode $n) => $o->setRegressedUsersCount($n->getIntegerValue()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
+            'unlicensedUsersCount' => fn(ParseNode $n) => $o->setUnlicensedUsersCount($n->getIntegerValue()),
         ]);
     }
 
@@ -173,11 +176,35 @@ class ManagementTemplateCollectionTenantSummary extends Entity implements Parsab
     }
 
     /**
+     * Gets the regressedStepsCount property value. The regressedStepsCount property
+     * @return int|null
+    */
+    public function getRegressedStepsCount(): ?int {
+        return $this->getBackingStore()->get('regressedStepsCount');
+    }
+
+    /**
+     * Gets the regressedUsersCount property value. The regressedUsersCount property
+     * @return int|null
+    */
+    public function getRegressedUsersCount(): ?int {
+        return $this->getBackingStore()->get('regressedUsersCount');
+    }
+
+    /**
      * Gets the tenantId property value. The tenantId property
      * @return string|null
     */
     public function getTenantId(): ?string {
         return $this->getBackingStore()->get('tenantId');
+    }
+
+    /**
+     * Gets the unlicensedUsersCount property value. The unlicensedUsersCount property
+     * @return int|null
+    */
+    public function getUnlicensedUsersCount(): ?int {
+        return $this->getBackingStore()->get('unlicensedUsersCount');
     }
 
     /**
@@ -201,12 +228,15 @@ class ManagementTemplateCollectionTenantSummary extends Entity implements Parsab
         $writer->writeDateTimeValue('lastActionDateTime', $this->getLastActionDateTime());
         $writer->writeStringValue('managementTemplateCollectionDisplayName', $this->getManagementTemplateCollectionDisplayName());
         $writer->writeStringValue('managementTemplateCollectionId', $this->getManagementTemplateCollectionId());
+        $writer->writeIntegerValue('regressedStepsCount', $this->getRegressedStepsCount());
+        $writer->writeIntegerValue('regressedUsersCount', $this->getRegressedUsersCount());
         $writer->writeStringValue('tenantId', $this->getTenantId());
+        $writer->writeIntegerValue('unlicensedUsersCount', $this->getUnlicensedUsersCount());
     }
 
     /**
      * Sets the completeStepsCount property value. The completeStepsCount property
-     *  @param int|null $value Value to set for the completeStepsCount property.
+     * @param int|null $value Value to set for the completeStepsCount property.
     */
     public function setCompleteStepsCount(?int $value): void {
         $this->getBackingStore()->set('completeStepsCount', $value);
@@ -214,7 +244,7 @@ class ManagementTemplateCollectionTenantSummary extends Entity implements Parsab
 
     /**
      * Sets the completeUsersCount property value. The completeUsersCount property
-     *  @param int|null $value Value to set for the completeUsersCount property.
+     * @param int|null $value Value to set for the completeUsersCount property.
     */
     public function setCompleteUsersCount(?int $value): void {
         $this->getBackingStore()->set('completeUsersCount', $value);
@@ -222,7 +252,7 @@ class ManagementTemplateCollectionTenantSummary extends Entity implements Parsab
 
     /**
      * Sets the createdByUserId property value. The createdByUserId property
-     *  @param string|null $value Value to set for the createdByUserId property.
+     * @param string|null $value Value to set for the createdByUserId property.
     */
     public function setCreatedByUserId(?string $value): void {
         $this->getBackingStore()->set('createdByUserId', $value);
@@ -230,7 +260,7 @@ class ManagementTemplateCollectionTenantSummary extends Entity implements Parsab
 
     /**
      * Sets the createdDateTime property value. The createdDateTime property
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -238,7 +268,7 @@ class ManagementTemplateCollectionTenantSummary extends Entity implements Parsab
 
     /**
      * Sets the dismissedStepsCount property value. The dismissedStepsCount property
-     *  @param int|null $value Value to set for the dismissedStepsCount property.
+     * @param int|null $value Value to set for the dismissedStepsCount property.
     */
     public function setDismissedStepsCount(?int $value): void {
         $this->getBackingStore()->set('dismissedStepsCount', $value);
@@ -246,7 +276,7 @@ class ManagementTemplateCollectionTenantSummary extends Entity implements Parsab
 
     /**
      * Sets the excludedUsersCount property value. The excludedUsersCount property
-     *  @param int|null $value Value to set for the excludedUsersCount property.
+     * @param int|null $value Value to set for the excludedUsersCount property.
     */
     public function setExcludedUsersCount(?int $value): void {
         $this->getBackingStore()->set('excludedUsersCount', $value);
@@ -254,7 +284,7 @@ class ManagementTemplateCollectionTenantSummary extends Entity implements Parsab
 
     /**
      * Sets the excludedUsersDistinctCount property value. The excludedUsersDistinctCount property
-     *  @param int|null $value Value to set for the excludedUsersDistinctCount property.
+     * @param int|null $value Value to set for the excludedUsersDistinctCount property.
     */
     public function setExcludedUsersDistinctCount(?int $value): void {
         $this->getBackingStore()->set('excludedUsersDistinctCount', $value);
@@ -262,7 +292,7 @@ class ManagementTemplateCollectionTenantSummary extends Entity implements Parsab
 
     /**
      * Sets the incompleteStepsCount property value. The incompleteStepsCount property
-     *  @param int|null $value Value to set for the incompleteStepsCount property.
+     * @param int|null $value Value to set for the incompleteStepsCount property.
     */
     public function setIncompleteStepsCount(?int $value): void {
         $this->getBackingStore()->set('incompleteStepsCount', $value);
@@ -270,7 +300,7 @@ class ManagementTemplateCollectionTenantSummary extends Entity implements Parsab
 
     /**
      * Sets the incompleteUsersCount property value. The incompleteUsersCount property
-     *  @param int|null $value Value to set for the incompleteUsersCount property.
+     * @param int|null $value Value to set for the incompleteUsersCount property.
     */
     public function setIncompleteUsersCount(?int $value): void {
         $this->getBackingStore()->set('incompleteUsersCount', $value);
@@ -278,7 +308,7 @@ class ManagementTemplateCollectionTenantSummary extends Entity implements Parsab
 
     /**
      * Sets the ineligibleStepsCount property value. The ineligibleStepsCount property
-     *  @param int|null $value Value to set for the ineligibleStepsCount property.
+     * @param int|null $value Value to set for the ineligibleStepsCount property.
     */
     public function setIneligibleStepsCount(?int $value): void {
         $this->getBackingStore()->set('ineligibleStepsCount', $value);
@@ -286,7 +316,7 @@ class ManagementTemplateCollectionTenantSummary extends Entity implements Parsab
 
     /**
      * Sets the isComplete property value. The isComplete property
-     *  @param bool|null $value Value to set for the isComplete property.
+     * @param bool|null $value Value to set for the isComplete property.
     */
     public function setIsComplete(?bool $value): void {
         $this->getBackingStore()->set('isComplete', $value);
@@ -294,7 +324,7 @@ class ManagementTemplateCollectionTenantSummary extends Entity implements Parsab
 
     /**
      * Sets the lastActionByUserId property value. The lastActionByUserId property
-     *  @param string|null $value Value to set for the lastActionByUserId property.
+     * @param string|null $value Value to set for the lastActionByUserId property.
     */
     public function setLastActionByUserId(?string $value): void {
         $this->getBackingStore()->set('lastActionByUserId', $value);
@@ -302,7 +332,7 @@ class ManagementTemplateCollectionTenantSummary extends Entity implements Parsab
 
     /**
      * Sets the lastActionDateTime property value. The lastActionDateTime property
-     *  @param DateTime|null $value Value to set for the lastActionDateTime property.
+     * @param DateTime|null $value Value to set for the lastActionDateTime property.
     */
     public function setLastActionDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastActionDateTime', $value);
@@ -310,7 +340,7 @@ class ManagementTemplateCollectionTenantSummary extends Entity implements Parsab
 
     /**
      * Sets the managementTemplateCollectionDisplayName property value. The managementTemplateCollectionDisplayName property
-     *  @param string|null $value Value to set for the managementTemplateCollectionDisplayName property.
+     * @param string|null $value Value to set for the managementTemplateCollectionDisplayName property.
     */
     public function setManagementTemplateCollectionDisplayName(?string $value): void {
         $this->getBackingStore()->set('managementTemplateCollectionDisplayName', $value);
@@ -318,18 +348,42 @@ class ManagementTemplateCollectionTenantSummary extends Entity implements Parsab
 
     /**
      * Sets the managementTemplateCollectionId property value. The managementTemplateCollectionId property
-     *  @param string|null $value Value to set for the managementTemplateCollectionId property.
+     * @param string|null $value Value to set for the managementTemplateCollectionId property.
     */
     public function setManagementTemplateCollectionId(?string $value): void {
         $this->getBackingStore()->set('managementTemplateCollectionId', $value);
     }
 
     /**
+     * Sets the regressedStepsCount property value. The regressedStepsCount property
+     * @param int|null $value Value to set for the regressedStepsCount property.
+    */
+    public function setRegressedStepsCount(?int $value): void {
+        $this->getBackingStore()->set('regressedStepsCount', $value);
+    }
+
+    /**
+     * Sets the regressedUsersCount property value. The regressedUsersCount property
+     * @param int|null $value Value to set for the regressedUsersCount property.
+    */
+    public function setRegressedUsersCount(?int $value): void {
+        $this->getBackingStore()->set('regressedUsersCount', $value);
+    }
+
+    /**
      * Sets the tenantId property value. The tenantId property
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);
+    }
+
+    /**
+     * Sets the unlicensedUsersCount property value. The unlicensedUsersCount property
+     * @param int|null $value Value to set for the unlicensedUsersCount property.
+    */
+    public function setUnlicensedUsersCount(?int $value): void {
+        $this->getBackingStore()->set('unlicensedUsersCount', $value);
     }
 
 }

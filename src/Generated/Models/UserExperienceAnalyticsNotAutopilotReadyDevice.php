@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics Device not windows autopilot ready.
+*/
 class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements Parsable 
 {
     /**
@@ -134,7 +137,7 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements P
 
     /**
      * Sets the autoPilotProfileAssigned property value. The intune device's autopilotProfileAssigned.
-     *  @param bool|null $value Value to set for the autoPilotProfileAssigned property.
+     * @param bool|null $value Value to set for the autoPilotProfileAssigned property.
     */
     public function setAutoPilotProfileAssigned(?bool $value): void {
         $this->getBackingStore()->set('autoPilotProfileAssigned', $value);
@@ -142,7 +145,7 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements P
 
     /**
      * Sets the autoPilotRegistered property value. The intune device's autopilotRegistered.
-     *  @param bool|null $value Value to set for the autoPilotRegistered property.
+     * @param bool|null $value Value to set for the autoPilotRegistered property.
     */
     public function setAutoPilotRegistered(?bool $value): void {
         $this->getBackingStore()->set('autoPilotRegistered', $value);
@@ -150,7 +153,7 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements P
 
     /**
      * Sets the azureAdJoinType property value. The intune device's azure Ad joinType.
-     *  @param string|null $value Value to set for the azureAdJoinType property.
+     * @param string|null $value Value to set for the azureAdJoinType property.
     */
     public function setAzureAdJoinType(?string $value): void {
         $this->getBackingStore()->set('azureAdJoinType', $value);
@@ -158,7 +161,7 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements P
 
     /**
      * Sets the azureAdRegistered property value. The intune device's azureAdRegistered.
-     *  @param bool|null $value Value to set for the azureAdRegistered property.
+     * @param bool|null $value Value to set for the azureAdRegistered property.
     */
     public function setAzureAdRegistered(?bool $value): void {
         $this->getBackingStore()->set('azureAdRegistered', $value);
@@ -166,7 +169,7 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements P
 
     /**
      * Sets the deviceName property value. The intune device's name.
-     *  @param string|null $value Value to set for the deviceName property.
+     * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
         $this->getBackingStore()->set('deviceName', $value);
@@ -174,7 +177,7 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements P
 
     /**
      * Sets the managedBy property value. The intune device's managed by.
-     *  @param string|null $value Value to set for the managedBy property.
+     * @param string|null $value Value to set for the managedBy property.
     */
     public function setManagedBy(?string $value): void {
         $this->getBackingStore()->set('managedBy', $value);
@@ -182,7 +185,7 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements P
 
     /**
      * Sets the manufacturer property value. The intune device's manufacturer.
-     *  @param string|null $value Value to set for the manufacturer property.
+     * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
         $this->getBackingStore()->set('manufacturer', $value);
@@ -190,7 +193,7 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements P
 
     /**
      * Sets the model property value. The intune device's model.
-     *  @param string|null $value Value to set for the model property.
+     * @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value): void {
         $this->getBackingStore()->set('model', $value);
@@ -198,7 +201,7 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements P
 
     /**
      * Sets the serialNumber property value. The intune device's serial number.
-     *  @param string|null $value Value to set for the serialNumber property.
+     * @param string|null $value Value to set for the serialNumber property.
     */
     public function setSerialNumber(?string $value): void {
         $this->getBackingStore()->set('serialNumber', $value);

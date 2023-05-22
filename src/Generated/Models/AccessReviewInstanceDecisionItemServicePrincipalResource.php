@@ -26,7 +26,7 @@ class AccessReviewInstanceDecisionItemServicePrincipalResource extends AccessRev
     }
 
     /**
-     * Gets the appId property value. The appId property
+     * Gets the appId property value. The globally unique identifier of the application to which access has been granted.
      * @return string|null
     */
     public function getAppId(): ?string {
@@ -54,8 +54,8 @@ class AccessReviewInstanceDecisionItemServicePrincipalResource extends AccessRev
     }
 
     /**
-     * Sets the appId property value. The appId property
-     *  @param string|null $value Value to set for the appId property.
+     * Sets the appId property value. The globally unique identifier of the application to which access has been granted.
+     * @param string|null $value Value to set for the appId property.
     */
     public function setAppId(?string $value): void {
         $this->getBackingStore()->set('appId', $value);

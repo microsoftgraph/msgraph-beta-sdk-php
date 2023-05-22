@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\TimeCards\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the properties and relationships of a timeCard object by ID.
+*/
 class TimeCardItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class TimeCardItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new TimeCardItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

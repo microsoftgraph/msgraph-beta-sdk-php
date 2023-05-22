@@ -51,7 +51,7 @@ class LearningContent extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The date when the learning content was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.
+     * Gets the createdDateTime property value. The date and time when the learning content was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -119,7 +119,7 @@ class LearningContent extends Entity implements Parsable
     }
 
     /**
-     * Gets the isActive property value. Indicates whether the content is active or not. Inactive content will not show up in the UI. The default value is true. Optional.
+     * Gets the isActive property value. Indicates whether the content is active or not. Inactive content doesn't show up in the UI. The default value is true. Optional.
      * @return bool|null
     */
     public function getIsActive(): ?bool {
@@ -151,7 +151,7 @@ class LearningContent extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The date when the learning content was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.
+     * Gets the lastModifiedDateTime property value. The date and time when the learning content was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -226,7 +226,7 @@ class LearningContent extends Entity implements Parsable
 
     /**
      * Sets the additionalTags property value. Keywords, topics, and other tags associated with the learning content. Optional.
-     *  @param array<string>|null $value Value to set for the additionalTags property.
+     * @param array<string>|null $value Value to set for the additionalTags property.
     */
     public function setAdditionalTags(?array $value): void {
         $this->getBackingStore()->set('additionalTags', $value);
@@ -234,7 +234,7 @@ class LearningContent extends Entity implements Parsable
 
     /**
      * Sets the contentWebUrl property value. The content web URL for the learning content. Required.
-     *  @param string|null $value Value to set for the contentWebUrl property.
+     * @param string|null $value Value to set for the contentWebUrl property.
     */
     public function setContentWebUrl(?string $value): void {
         $this->getBackingStore()->set('contentWebUrl', $value);
@@ -242,15 +242,15 @@ class LearningContent extends Entity implements Parsable
 
     /**
      * Sets the contributors property value. The authors, creators, or contributors of the learning content. Optional.
-     *  @param array<string>|null $value Value to set for the contributors property.
+     * @param array<string>|null $value Value to set for the contributors property.
     */
     public function setContributors(?array $value): void {
         $this->getBackingStore()->set('contributors', $value);
     }
 
     /**
-     * Sets the createdDateTime property value. The date when the learning content was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * Sets the createdDateTime property value. The date and time when the learning content was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -258,7 +258,7 @@ class LearningContent extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description or summary for the learning content. Optional.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -266,7 +266,7 @@ class LearningContent extends Entity implements Parsable
 
     /**
      * Sets the duration property value. The duration of the learning content in seconds. The value is represented in ISO 8601 format for durations. Optional.
-     *  @param DateInterval|null $value Value to set for the duration property.
+     * @param DateInterval|null $value Value to set for the duration property.
     */
     public function setDuration(?DateInterval $value): void {
         $this->getBackingStore()->set('duration', $value);
@@ -274,7 +274,7 @@ class LearningContent extends Entity implements Parsable
 
     /**
      * Sets the externalId property value. Unique external content ID for the learning content. Required.
-     *  @param string|null $value Value to set for the externalId property.
+     * @param string|null $value Value to set for the externalId property.
     */
     public function setExternalId(?string $value): void {
         $this->getBackingStore()->set('externalId', $value);
@@ -282,15 +282,15 @@ class LearningContent extends Entity implements Parsable
 
     /**
      * Sets the format property value. The format of the learning content. For example, Course, Video, Book, Book Summary, Audiobook Summary. Optional.
-     *  @param string|null $value Value to set for the format property.
+     * @param string|null $value Value to set for the format property.
     */
     public function setFormat(?string $value): void {
         $this->getBackingStore()->set('format', $value);
     }
 
     /**
-     * Sets the isActive property value. Indicates whether the content is active or not. Inactive content will not show up in the UI. The default value is true. Optional.
-     *  @param bool|null $value Value to set for the isActive property.
+     * Sets the isActive property value. Indicates whether the content is active or not. Inactive content doesn't show up in the UI. The default value is true. Optional.
+     * @param bool|null $value Value to set for the isActive property.
     */
     public function setIsActive(?bool $value): void {
         $this->getBackingStore()->set('isActive', $value);
@@ -298,7 +298,7 @@ class LearningContent extends Entity implements Parsable
 
     /**
      * Sets the isPremium property value. Indicates whether the learning content requires the user to sign-in on the learning provider platform or not. The default value is false. Optional.
-     *  @param bool|null $value Value to set for the isPremium property.
+     * @param bool|null $value Value to set for the isPremium property.
     */
     public function setIsPremium(?bool $value): void {
         $this->getBackingStore()->set('isPremium', $value);
@@ -306,7 +306,7 @@ class LearningContent extends Entity implements Parsable
 
     /**
      * Sets the isSearchable property value. Indicates whether the learning content is searchable or not. The default value is true. Optional.
-     *  @param bool|null $value Value to set for the isSearchable property.
+     * @param bool|null $value Value to set for the isSearchable property.
     */
     public function setIsSearchable(?bool $value): void {
         $this->getBackingStore()->set('isSearchable', $value);
@@ -314,15 +314,15 @@ class LearningContent extends Entity implements Parsable
 
     /**
      * Sets the languageTag property value. The language of the learning content, for example, en-us or fr-fr. Required.
-     *  @param string|null $value Value to set for the languageTag property.
+     * @param string|null $value Value to set for the languageTag property.
     */
     public function setLanguageTag(?string $value): void {
         $this->getBackingStore()->set('languageTag', $value);
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The date when the learning content was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * Sets the lastModifiedDateTime property value. The date and time when the learning content was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -330,7 +330,7 @@ class LearningContent extends Entity implements Parsable
 
     /**
      * Sets the numberOfPages property value. The number of pages of the learning content, for example, 9. Optional.
-     *  @param int|null $value Value to set for the numberOfPages property.
+     * @param int|null $value Value to set for the numberOfPages property.
     */
     public function setNumberOfPages(?int $value): void {
         $this->getBackingStore()->set('numberOfPages', $value);
@@ -338,7 +338,7 @@ class LearningContent extends Entity implements Parsable
 
     /**
      * Sets the skillTags property value. The skills tags associated with the learning content. Optional.
-     *  @param array<string>|null $value Value to set for the skillTags property.
+     * @param array<string>|null $value Value to set for the skillTags property.
     */
     public function setSkillTags(?array $value): void {
         $this->getBackingStore()->set('skillTags', $value);
@@ -346,7 +346,7 @@ class LearningContent extends Entity implements Parsable
 
     /**
      * Sets the sourceName property value. The source name of the learning content, such as LinkedIn Learning or Coursera. Optional.
-     *  @param string|null $value Value to set for the sourceName property.
+     * @param string|null $value Value to set for the sourceName property.
     */
     public function setSourceName(?string $value): void {
         $this->getBackingStore()->set('sourceName', $value);
@@ -354,7 +354,7 @@ class LearningContent extends Entity implements Parsable
 
     /**
      * Sets the thumbnailWebUrl property value. The URL of learning content thumbnail image. Optional.
-     *  @param string|null $value Value to set for the thumbnailWebUrl property.
+     * @param string|null $value Value to set for the thumbnailWebUrl property.
     */
     public function setThumbnailWebUrl(?string $value): void {
         $this->getBackingStore()->set('thumbnailWebUrl', $value);
@@ -362,7 +362,7 @@ class LearningContent extends Entity implements Parsable
 
     /**
      * Sets the title property value. The title of the learning content. Required.
-     *  @param string|null $value Value to set for the title property.
+     * @param string|null $value Value to set for the title property.
     */
     public function setTitle(?string $value): void {
         $this->getBackingStore()->set('title', $value);

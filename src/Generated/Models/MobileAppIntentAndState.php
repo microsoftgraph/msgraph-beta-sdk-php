@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * MobileApp Intent and Install State for a given device.
+*/
 class MobileAppIntentAndState extends Entity implements Parsable 
 {
     /**
@@ -74,7 +77,7 @@ class MobileAppIntentAndState extends Entity implements Parsable
 
     /**
      * Sets the managedDeviceIdentifier property value. Device identifier created or collected by Intune.
-     *  @param string|null $value Value to set for the managedDeviceIdentifier property.
+     * @param string|null $value Value to set for the managedDeviceIdentifier property.
     */
     public function setManagedDeviceIdentifier(?string $value): void {
         $this->getBackingStore()->set('managedDeviceIdentifier', $value);
@@ -82,7 +85,7 @@ class MobileAppIntentAndState extends Entity implements Parsable
 
     /**
      * Sets the mobileAppList property value. The list of payload intents and states for the tenant.
-     *  @param array<MobileAppIntentAndStateDetail>|null $value Value to set for the mobileAppList property.
+     * @param array<MobileAppIntentAndStateDetail>|null $value Value to set for the mobileAppList property.
     */
     public function setMobileAppList(?array $value): void {
         $this->getBackingStore()->set('mobileAppList', $value);
@@ -90,7 +93,7 @@ class MobileAppIntentAndState extends Entity implements Parsable
 
     /**
      * Sets the userId property value. Identifier for the user that tried to enroll the device.
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);

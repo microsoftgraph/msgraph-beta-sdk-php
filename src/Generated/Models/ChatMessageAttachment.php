@@ -36,7 +36,7 @@ class ChatMessageAttachment implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -150,7 +150,7 @@ class ChatMessageAttachment implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -158,7 +158,7 @@ class ChatMessageAttachment implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -166,7 +166,7 @@ class ChatMessageAttachment implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the content property value. The content of the attachment. If the attachment is a rich card, set the property to the rich card object. This property and contentUrl are mutually exclusive.
-     *  @param string|null $value Value to set for the content property.
+     * @param string|null $value Value to set for the content property.
     */
     public function setContent(?string $value): void {
         $this->getBackingStore()->set('content', $value);
@@ -174,7 +174,7 @@ class ChatMessageAttachment implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the contentType property value. The media type of the content attachment. It can have the following values: reference: Attachment is a link to another file. Populate the contentURL with the link to the object.Any contentTypes supported by the Bot Framework's Attachment objectapplication/vnd.microsoft.card.codesnippet: A code snippet. application/vnd.microsoft.card.announcement: An announcement header.
-     *  @param string|null $value Value to set for the contentType property.
+     * @param string|null $value Value to set for the contentType property.
     */
     public function setContentType(?string $value): void {
         $this->getBackingStore()->set('contentType', $value);
@@ -182,7 +182,7 @@ class ChatMessageAttachment implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the contentUrl property value. URL for the content of the attachment. Supported protocols: http, https, file and data.
-     *  @param string|null $value Value to set for the contentUrl property.
+     * @param string|null $value Value to set for the contentUrl property.
     */
     public function setContentUrl(?string $value): void {
         $this->getBackingStore()->set('contentUrl', $value);
@@ -190,7 +190,7 @@ class ChatMessageAttachment implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the id property value. Read-only. Unique id of the attachment.
-     *  @param string|null $value Value to set for the id property.
+     * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
         $this->getBackingStore()->set('id', $value);
@@ -198,7 +198,7 @@ class ChatMessageAttachment implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the name property value. Name of the attachment.
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -206,7 +206,7 @@ class ChatMessageAttachment implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -214,7 +214,7 @@ class ChatMessageAttachment implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the teamsAppId property value. The ID of the Teams app that is associated with the attachment. The property is specifically used to attribute a Teams message card to the specified app.
-     *  @param string|null $value Value to set for the teamsAppId property.
+     * @param string|null $value Value to set for the teamsAppId property.
     */
     public function setTeamsAppId(?string $value): void {
         $this->getBackingStore()->set('teamsAppId', $value);
@@ -222,7 +222,7 @@ class ChatMessageAttachment implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the thumbnailUrl property value. URL to a thumbnail image that the channel can use if it supports using an alternative, smaller form of content or contentUrl. For example, if you set contentType to application/word and set contentUrl to the location of the Word document, you might include a thumbnail image that represents the document. The channel could display the thumbnail image instead of the document. When the user clicks the image, the channel would open the document.
-     *  @param string|null $value Value to set for the thumbnailUrl property.
+     * @param string|null $value Value to set for the thumbnailUrl property.
     */
     public function setThumbnailUrl(?string $value): void {
         $this->getBackingStore()->set('thumbnailUrl', $value);

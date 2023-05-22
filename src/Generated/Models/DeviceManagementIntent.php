@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementIntent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementIntent and sets the default values.
+     * Instantiates a new DeviceManagementIntent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -96,6 +96,7 @@ class DeviceManagementIntent extends Entity implements Parsable
             'deviceStateSummary' => fn(ParseNode $n) => $o->setDeviceStateSummary($n->getObjectValue([DeviceManagementIntentDeviceStateSummary::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'isAssigned' => fn(ParseNode $n) => $o->setIsAssigned($n->getBooleanValue()),
+            'isMigratingToConfigurationPolicy' => fn(ParseNode $n) => $o->setIsMigratingToConfigurationPolicy($n->getBooleanValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getCollectionOfObjectValues([DeviceManagementSettingInstance::class, 'createFromDiscriminatorValue'])),
@@ -111,6 +112,14 @@ class DeviceManagementIntent extends Entity implements Parsable
     */
     public function getIsAssigned(): ?bool {
         return $this->getBackingStore()->get('isAssigned');
+    }
+
+    /**
+     * Gets the isMigratingToConfigurationPolicy property value. Signifies whether or not the intent is being migrated to the configurationPolicies endpoint
+     * @return bool|null
+    */
+    public function getIsMigratingToConfigurationPolicy(): ?bool {
+        return $this->getBackingStore()->get('isMigratingToConfigurationPolicy');
     }
 
     /**
@@ -175,6 +184,7 @@ class DeviceManagementIntent extends Entity implements Parsable
         $writer->writeObjectValue('deviceStateSummary', $this->getDeviceStateSummary());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeBooleanValue('isAssigned', $this->getIsAssigned());
+        $writer->writeBooleanValue('isMigratingToConfigurationPolicy', $this->getIsMigratingToConfigurationPolicy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
         $writer->writeCollectionOfObjectValues('settings', $this->getSettings());
@@ -185,7 +195,7 @@ class DeviceManagementIntent extends Entity implements Parsable
 
     /**
      * Sets the assignments property value. Collection of assignments
-     *  @param array<DeviceManagementIntentAssignment>|null $value Value to set for the assignments property.
+     * @param array<DeviceManagementIntentAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -193,7 +203,7 @@ class DeviceManagementIntent extends Entity implements Parsable
 
     /**
      * Sets the categories property value. Collection of setting categories within the intent
-     *  @param array<DeviceManagementIntentSettingCategory>|null $value Value to set for the categories property.
+     * @param array<DeviceManagementIntentSettingCategory>|null $value Value to set for the categories property.
     */
     public function setCategories(?array $value): void {
         $this->getBackingStore()->set('categories', $value);
@@ -201,7 +211,7 @@ class DeviceManagementIntent extends Entity implements Parsable
 
     /**
      * Sets the description property value. The user given description
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -209,7 +219,7 @@ class DeviceManagementIntent extends Entity implements Parsable
 
     /**
      * Sets the deviceSettingStateSummaries property value. Collection of settings and their states and counts of devices that belong to corresponding state for all settings within the intent
-     *  @param array<DeviceManagementIntentDeviceSettingStateSummary>|null $value Value to set for the deviceSettingStateSummaries property.
+     * @param array<DeviceManagementIntentDeviceSettingStateSummary>|null $value Value to set for the deviceSettingStateSummaries property.
     */
     public function setDeviceSettingStateSummaries(?array $value): void {
         $this->getBackingStore()->set('deviceSettingStateSummaries', $value);
@@ -217,7 +227,7 @@ class DeviceManagementIntent extends Entity implements Parsable
 
     /**
      * Sets the deviceStates property value. Collection of states of all devices that the intent is applied to
-     *  @param array<DeviceManagementIntentDeviceState>|null $value Value to set for the deviceStates property.
+     * @param array<DeviceManagementIntentDeviceState>|null $value Value to set for the deviceStates property.
     */
     public function setDeviceStates(?array $value): void {
         $this->getBackingStore()->set('deviceStates', $value);
@@ -225,7 +235,7 @@ class DeviceManagementIntent extends Entity implements Parsable
 
     /**
      * Sets the deviceStateSummary property value. A summary of device states and counts of devices that belong to corresponding state for all devices that the intent is applied to
-     *  @param DeviceManagementIntentDeviceStateSummary|null $value Value to set for the deviceStateSummary property.
+     * @param DeviceManagementIntentDeviceStateSummary|null $value Value to set for the deviceStateSummary property.
     */
     public function setDeviceStateSummary(?DeviceManagementIntentDeviceStateSummary $value): void {
         $this->getBackingStore()->set('deviceStateSummary', $value);
@@ -233,7 +243,7 @@ class DeviceManagementIntent extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The user given display name
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -241,15 +251,23 @@ class DeviceManagementIntent extends Entity implements Parsable
 
     /**
      * Sets the isAssigned property value. Signifies whether or not the intent is assigned to users
-     *  @param bool|null $value Value to set for the isAssigned property.
+     * @param bool|null $value Value to set for the isAssigned property.
     */
     public function setIsAssigned(?bool $value): void {
         $this->getBackingStore()->set('isAssigned', $value);
     }
 
     /**
+     * Sets the isMigratingToConfigurationPolicy property value. Signifies whether or not the intent is being migrated to the configurationPolicies endpoint
+     * @param bool|null $value Value to set for the isMigratingToConfigurationPolicy property.
+    */
+    public function setIsMigratingToConfigurationPolicy(?bool $value): void {
+        $this->getBackingStore()->set('isMigratingToConfigurationPolicy', $value);
+    }
+
+    /**
      * Sets the lastModifiedDateTime property value. When the intent was last modified
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -257,7 +275,7 @@ class DeviceManagementIntent extends Entity implements Parsable
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tags for this Entity instance.
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);
@@ -265,7 +283,7 @@ class DeviceManagementIntent extends Entity implements Parsable
 
     /**
      * Sets the settings property value. Collection of all settings to be applied
-     *  @param array<DeviceManagementSettingInstance>|null $value Value to set for the settings property.
+     * @param array<DeviceManagementSettingInstance>|null $value Value to set for the settings property.
     */
     public function setSettings(?array $value): void {
         $this->getBackingStore()->set('settings', $value);
@@ -273,7 +291,7 @@ class DeviceManagementIntent extends Entity implements Parsable
 
     /**
      * Sets the templateId property value. The ID of the template this intent was created from (if any)
-     *  @param string|null $value Value to set for the templateId property.
+     * @param string|null $value Value to set for the templateId property.
     */
     public function setTemplateId(?string $value): void {
         $this->getBackingStore()->set('templateId', $value);
@@ -281,7 +299,7 @@ class DeviceManagementIntent extends Entity implements Parsable
 
     /**
      * Sets the userStates property value. Collection of states of all users that the intent is applied to
-     *  @param array<DeviceManagementIntentUserState>|null $value Value to set for the userStates property.
+     * @param array<DeviceManagementIntentUserState>|null $value Value to set for the userStates property.
     */
     public function setUserStates(?array $value): void {
         $this->getBackingStore()->set('userStates', $value);
@@ -289,7 +307,7 @@ class DeviceManagementIntent extends Entity implements Parsable
 
     /**
      * Sets the userStateSummary property value. A summary of user states and counts of users that belong to corresponding state for all users that the intent is applied to
-     *  @param DeviceManagementIntentUserStateSummary|null $value Value to set for the userStateSummary property.
+     * @param DeviceManagementIntentUserStateSummary|null $value Value to set for the userStateSummary property.
     */
     public function setUserStateSummary(?DeviceManagementIntentUserStateSummary $value): void {
         $this->getBackingStore()->set('userStateSummary', $value);

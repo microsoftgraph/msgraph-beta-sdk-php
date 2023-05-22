@@ -36,7 +36,7 @@ class GetWebPartsByPositionPostRequestBody implements AdditionalDataHolder, Back
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class GetWebPartsByPositionPostRequestBody implements AdditionalDataHolder, Back
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class GetWebPartsByPositionPostRequestBody implements AdditionalDataHolder, Back
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class GetWebPartsByPositionPostRequestBody implements AdditionalDataHolder, Back
 
     /**
      * Sets the columnId property value. The columnId property
-     *  @param float|null $value Value to set for the columnId property.
+     * @param float|null $value Value to set for the columnId property.
     */
     public function setColumnId(?float $value): void {
         $this->getBackingStore()->set('columnId', $value);
@@ -134,7 +134,7 @@ class GetWebPartsByPositionPostRequestBody implements AdditionalDataHolder, Back
 
     /**
      * Sets the horizontalSectionId property value. The horizontalSectionId property
-     *  @param float|null $value Value to set for the horizontalSectionId property.
+     * @param float|null $value Value to set for the horizontalSectionId property.
     */
     public function setHorizontalSectionId(?float $value): void {
         $this->getBackingStore()->set('horizontalSectionId', $value);
@@ -142,7 +142,7 @@ class GetWebPartsByPositionPostRequestBody implements AdditionalDataHolder, Back
 
     /**
      * Sets the isInVerticalSection property value. The isInVerticalSection property
-     *  @param bool|null $value Value to set for the isInVerticalSection property.
+     * @param bool|null $value Value to set for the isInVerticalSection property.
     */
     public function setIsInVerticalSection(?bool $value): void {
         $this->getBackingStore()->set('isInVerticalSection', $value);
@@ -150,7 +150,7 @@ class GetWebPartsByPositionPostRequestBody implements AdditionalDataHolder, Back
 
     /**
      * Sets the webPartIndex property value. The webPartIndex property
-     *  @param float|null $value Value to set for the webPartIndex property.
+     * @param float|null $value Value to set for the webPartIndex property.
     */
     public function setWebPartIndex(?float $value): void {
         $this->getBackingStore()->set('webPartIndex', $value);

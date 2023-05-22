@@ -25,12 +25,21 @@ class TeamsAppSettings extends Entity implements Parsable
     }
 
     /**
+     * Gets the allowUserRequestsForAppAccess property value. Indicates whether users are allowed to request access to the unavailable Teams apps.
+     * @return bool|null
+    */
+    public function getAllowUserRequestsForAppAccess(): ?bool {
+        return $this->getBackingStore()->get('allowUserRequestsForAppAccess');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'allowUserRequestsForAppAccess' => fn(ParseNode $n) => $o->setAllowUserRequestsForAppAccess($n->getBooleanValue()),
             'isChatResourceSpecificConsentEnabled' => fn(ParseNode $n) => $o->setIsChatResourceSpecificConsentEnabled($n->getBooleanValue()),
         ]);
     }
@@ -49,12 +58,21 @@ class TeamsAppSettings extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeBooleanValue('allowUserRequestsForAppAccess', $this->getAllowUserRequestsForAppAccess());
         $writer->writeBooleanValue('isChatResourceSpecificConsentEnabled', $this->getIsChatResourceSpecificConsentEnabled());
     }
 
     /**
+     * Sets the allowUserRequestsForAppAccess property value. Indicates whether users are allowed to request access to the unavailable Teams apps.
+     * @param bool|null $value Value to set for the allowUserRequestsForAppAccess property.
+    */
+    public function setAllowUserRequestsForAppAccess(?bool $value): void {
+        $this->getBackingStore()->set('allowUserRequestsForAppAccess', $value);
+    }
+
+    /**
      * Sets the isChatResourceSpecificConsentEnabled property value. Indicates whether resource-specific consent for chats/meetings has been enabled for the tenant. If true, Teams apps that are allowed in the tenant and require resource-specific permissions can be installed inside chats and meetings. If false, the installation of any Teams app that requires resource-specific permissions in a chat or a meeting will be blocked.
-     *  @param bool|null $value Value to set for the isChatResourceSpecificConsentEnabled property.
+     * @param bool|null $value Value to set for the isChatResourceSpecificConsentEnabled property.
     */
     public function setIsChatResourceSpecificConsentEnabled(?bool $value): void {
         $this->getBackingStore()->set('isChatResourceSpecificConsentEnabled', $value);

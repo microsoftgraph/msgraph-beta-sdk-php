@@ -56,7 +56,7 @@ class UserSignInInsight extends GovernanceInsight implements Parsable
 
     /**
      * Sets the lastSignInDateTime property value. Indicates when the user last signed in
-     *  @param DateTime|null $value Value to set for the lastSignInDateTime property.
+     * @param DateTime|null $value Value to set for the lastSignInDateTime property.
     */
     public function setLastSignInDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSignInDateTime', $value);

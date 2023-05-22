@@ -43,7 +43,7 @@ class DeviceComplianceScriptError implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -117,7 +117,7 @@ class DeviceComplianceScriptError implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -125,7 +125,7 @@ class DeviceComplianceScriptError implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -133,7 +133,7 @@ class DeviceComplianceScriptError implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the code property value. Error code for rule validation.
-     *  @param Code|null $value Value to set for the code property.
+     * @param Code|null $value Value to set for the code property.
     */
     public function setCode(?Code $value): void {
         $this->getBackingStore()->set('code', $value);
@@ -141,7 +141,7 @@ class DeviceComplianceScriptError implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the deviceComplianceScriptRulesValidationError property value. Error code for rule validation.
-     *  @param DeviceComplianceScriptRulesValidationError|null $value Value to set for the deviceComplianceScriptRulesValidationError property.
+     * @param DeviceComplianceScriptRulesValidationError|null $value Value to set for the deviceComplianceScriptRulesValidationError property.
     */
     public function setDeviceComplianceScriptRulesValidationError(?DeviceComplianceScriptRulesValidationError $value): void {
         $this->getBackingStore()->set('deviceComplianceScriptRulesValidationError', $value);
@@ -149,7 +149,7 @@ class DeviceComplianceScriptError implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the message property value. Error message.
-     *  @param string|null $value Value to set for the message property.
+     * @param string|null $value Value to set for the message property.
     */
     public function setMessage(?string $value): void {
         $this->getBackingStore()->set('message', $value);
@@ -157,7 +157,7 @@ class DeviceComplianceScriptError implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

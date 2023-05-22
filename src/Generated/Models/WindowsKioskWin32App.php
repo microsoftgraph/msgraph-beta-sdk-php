@@ -95,7 +95,7 @@ class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable
 
     /**
      * Sets the classicAppPath property value. This is the classicapppath to be used by v4 Win32 app while in Kiosk Mode
-     *  @param string|null $value Value to set for the classicAppPath property.
+     * @param string|null $value Value to set for the classicAppPath property.
     */
     public function setClassicAppPath(?string $value): void {
         $this->getBackingStore()->set('classicAppPath', $value);
@@ -103,7 +103,7 @@ class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable
 
     /**
      * Sets the edgeKiosk property value. Edge kiosk (url) for Edge kiosk mode
-     *  @param string|null $value Value to set for the edgeKiosk property.
+     * @param string|null $value Value to set for the edgeKiosk property.
     */
     public function setEdgeKiosk(?string $value): void {
         $this->getBackingStore()->set('edgeKiosk', $value);
@@ -111,7 +111,7 @@ class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable
 
     /**
      * Sets the edgeKioskIdleTimeoutMinutes property value. Edge kiosk idle timeout in minutes for Edge kiosk mode. Valid values 0 to 1440
-     *  @param int|null $value Value to set for the edgeKioskIdleTimeoutMinutes property.
+     * @param int|null $value Value to set for the edgeKioskIdleTimeoutMinutes property.
     */
     public function setEdgeKioskIdleTimeoutMinutes(?int $value): void {
         $this->getBackingStore()->set('edgeKioskIdleTimeoutMinutes', $value);
@@ -119,7 +119,7 @@ class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable
 
     /**
      * Sets the edgeKioskType property value. Edge kiosk type
-     *  @param WindowsEdgeKioskType|null $value Value to set for the edgeKioskType property.
+     * @param WindowsEdgeKioskType|null $value Value to set for the edgeKioskType property.
     */
     public function setEdgeKioskType(?WindowsEdgeKioskType $value): void {
         $this->getBackingStore()->set('edgeKioskType', $value);
@@ -127,7 +127,7 @@ class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable
 
     /**
      * Sets the edgeNoFirstRun property value. Edge first run flag for Edge kiosk mode
-     *  @param bool|null $value Value to set for the edgeNoFirstRun property.
+     * @param bool|null $value Value to set for the edgeNoFirstRun property.
     */
     public function setEdgeNoFirstRun(?bool $value): void {
         $this->getBackingStore()->set('edgeNoFirstRun', $value);

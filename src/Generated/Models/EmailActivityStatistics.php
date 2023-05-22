@@ -76,7 +76,7 @@ class EmailActivityStatistics extends ActivityStatistics implements Parsable
 
     /**
      * Sets the afterHours property value. Total hours spent on email outside of working hours, which is based on the user's Outlook calendar setting for work hours. The value is represented in ISO 8601 format for durations.
-     *  @param DateInterval|null $value Value to set for the afterHours property.
+     * @param DateInterval|null $value Value to set for the afterHours property.
     */
     public function setAfterHours(?DateInterval $value): void {
         $this->getBackingStore()->set('afterHours', $value);
@@ -84,7 +84,7 @@ class EmailActivityStatistics extends ActivityStatistics implements Parsable
 
     /**
      * Sets the readEmail property value. Total hours spent reading email. The value is represented in ISO 8601 format for durations.
-     *  @param DateInterval|null $value Value to set for the readEmail property.
+     * @param DateInterval|null $value Value to set for the readEmail property.
     */
     public function setReadEmail(?DateInterval $value): void {
         $this->getBackingStore()->set('readEmail', $value);
@@ -92,7 +92,7 @@ class EmailActivityStatistics extends ActivityStatistics implements Parsable
 
     /**
      * Sets the sentEmail property value. Total hours spent writing and sending email. The value is represented in ISO 8601 format for durations.
-     *  @param DateInterval|null $value Value to set for the sentEmail property.
+     * @param DateInterval|null $value Value to set for the sentEmail property.
     */
     public function setSentEmail(?DateInterval $value): void {
         $this->getBackingStore()->set('sentEmail', $value);

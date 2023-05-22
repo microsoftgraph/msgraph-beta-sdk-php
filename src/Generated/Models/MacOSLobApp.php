@@ -59,7 +59,6 @@ class MacOSLobApp extends MobileLobApp implements Parsable
             'buildNumber' => fn(ParseNode $n) => $o->setBuildNumber($n->getStringValue()),
             'bundleId' => fn(ParseNode $n) => $o->setBundleId($n->getStringValue()),
             'childApps' => fn(ParseNode $n) => $o->setChildApps($n->getCollectionOfObjectValues([MacOSLobChildApp::class, 'createFromDiscriminatorValue'])),
-            'identityVersion' => fn(ParseNode $n) => $o->setIdentityVersion($n->getStringValue()),
             'ignoreVersionDetection' => fn(ParseNode $n) => $o->setIgnoreVersionDetection($n->getBooleanValue()),
             'installAsManaged' => fn(ParseNode $n) => $o->setInstallAsManaged($n->getBooleanValue()),
             'md5Hash' => fn(ParseNode $n) => $o->setMd5Hash($n->getCollectionOfPrimitiveValues()),
@@ -67,14 +66,6 @@ class MacOSLobApp extends MobileLobApp implements Parsable
             'minimumSupportedOperatingSystem' => fn(ParseNode $n) => $o->setMinimumSupportedOperatingSystem($n->getObjectValue([MacOSMinimumOperatingSystem::class, 'createFromDiscriminatorValue'])),
             'versionNumber' => fn(ParseNode $n) => $o->setVersionNumber($n->getStringValue()),
         ]);
-    }
-
-    /**
-     * Gets the identityVersion property value. The identity version. This property is being deprecated in 2211(November 2022).
-     * @return string|null
-    */
-    public function getIdentityVersion(): ?string {
-        return $this->getBackingStore()->get('identityVersion');
     }
 
     /**
@@ -134,7 +125,6 @@ class MacOSLobApp extends MobileLobApp implements Parsable
         $writer->writeStringValue('buildNumber', $this->getBuildNumber());
         $writer->writeStringValue('bundleId', $this->getBundleId());
         $writer->writeCollectionOfObjectValues('childApps', $this->getChildApps());
-        $writer->writeStringValue('identityVersion', $this->getIdentityVersion());
         $writer->writeBooleanValue('ignoreVersionDetection', $this->getIgnoreVersionDetection());
         $writer->writeBooleanValue('installAsManaged', $this->getInstallAsManaged());
         $writer->writeCollectionOfPrimitiveValues('md5Hash', $this->getMd5Hash());
@@ -145,7 +135,7 @@ class MacOSLobApp extends MobileLobApp implements Parsable
 
     /**
      * Sets the buildNumber property value. The build number of the package. This should match the package CFBundleShortVersionString of the .pkg file.
-     *  @param string|null $value Value to set for the buildNumber property.
+     * @param string|null $value Value to set for the buildNumber property.
     */
     public function setBuildNumber(?string $value): void {
         $this->getBackingStore()->set('buildNumber', $value);
@@ -153,7 +143,7 @@ class MacOSLobApp extends MobileLobApp implements Parsable
 
     /**
      * Sets the bundleId property value. The primary bundleId of the package.
-     *  @param string|null $value Value to set for the bundleId property.
+     * @param string|null $value Value to set for the bundleId property.
     */
     public function setBundleId(?string $value): void {
         $this->getBackingStore()->set('bundleId', $value);
@@ -161,23 +151,15 @@ class MacOSLobApp extends MobileLobApp implements Parsable
 
     /**
      * Sets the childApps property value. List of ComplexType macOSLobChildApp objects. Represents the apps expected to be installed by the package.
-     *  @param array<MacOSLobChildApp>|null $value Value to set for the childApps property.
+     * @param array<MacOSLobChildApp>|null $value Value to set for the childApps property.
     */
     public function setChildApps(?array $value): void {
         $this->getBackingStore()->set('childApps', $value);
     }
 
     /**
-     * Sets the identityVersion property value. The identity version. This property is being deprecated in 2211(November 2022).
-     *  @param string|null $value Value to set for the identityVersion property.
-    */
-    public function setIdentityVersion(?string $value): void {
-        $this->getBackingStore()->set('identityVersion', $value);
-    }
-
-    /**
      * Sets the ignoreVersionDetection property value. When TRUE, indicates that the app's version will NOT be used to detect if the app is installed on a device. When FALSE, indicates that the app's version will be used to detect if the app is installed on a device. Set this to true for apps that use a self update feature.
-     *  @param bool|null $value Value to set for the ignoreVersionDetection property.
+     * @param bool|null $value Value to set for the ignoreVersionDetection property.
     */
     public function setIgnoreVersionDetection(?bool $value): void {
         $this->getBackingStore()->set('ignoreVersionDetection', $value);
@@ -185,7 +167,7 @@ class MacOSLobApp extends MobileLobApp implements Parsable
 
     /**
      * Sets the installAsManaged property value. When TRUE, indicates that the app will be installed as managed (requires macOS 11.0 and other managed package restrictions). When FALSE, indicates that the app will be installed as unmanaged.
-     *  @param bool|null $value Value to set for the installAsManaged property.
+     * @param bool|null $value Value to set for the installAsManaged property.
     */
     public function setInstallAsManaged(?bool $value): void {
         $this->getBackingStore()->set('installAsManaged', $value);
@@ -193,7 +175,7 @@ class MacOSLobApp extends MobileLobApp implements Parsable
 
     /**
      * Sets the md5Hash property value. The MD5 hash codes. This is empty if the package was uploaded directly. If the Intune App Wrapping Tool is used to create a .intunemac, this value can be found inside the Detection.xml file.
-     *  @param array<string>|null $value Value to set for the md5Hash property.
+     * @param array<string>|null $value Value to set for the md5Hash property.
     */
     public function setMd5Hash(?array $value): void {
         $this->getBackingStore()->set('md5Hash', $value);
@@ -201,7 +183,7 @@ class MacOSLobApp extends MobileLobApp implements Parsable
 
     /**
      * Sets the md5HashChunkSize property value. The chunk size for MD5 hash. This is '0' or empty if the package was uploaded directly. If the Intune App Wrapping Tool is used to create a .intunemac, this value can be found inside the Detection.xml file.
-     *  @param int|null $value Value to set for the md5HashChunkSize property.
+     * @param int|null $value Value to set for the md5HashChunkSize property.
     */
     public function setMd5HashChunkSize(?int $value): void {
         $this->getBackingStore()->set('md5HashChunkSize', $value);
@@ -209,7 +191,7 @@ class MacOSLobApp extends MobileLobApp implements Parsable
 
     /**
      * Sets the minimumSupportedOperatingSystem property value. ComplexType macOSMinimumOperatingSystem that indicates the minimum operating system applicable for the application.
-     *  @param MacOSMinimumOperatingSystem|null $value Value to set for the minimumSupportedOperatingSystem property.
+     * @param MacOSMinimumOperatingSystem|null $value Value to set for the minimumSupportedOperatingSystem property.
     */
     public function setMinimumSupportedOperatingSystem(?MacOSMinimumOperatingSystem $value): void {
         $this->getBackingStore()->set('minimumSupportedOperatingSystem', $value);
@@ -217,7 +199,7 @@ class MacOSLobApp extends MobileLobApp implements Parsable
 
     /**
      * Sets the versionNumber property value. The version number of the package. This should match the package CFBundleVersion in the packageinfo file.
-     *  @param string|null $value Value to set for the versionNumber property.
+     * @param string|null $value Value to set for the versionNumber property.
     */
     public function setVersionNumber(?string $value): void {
         $this->getBackingStore()->set('versionNumber', $value);

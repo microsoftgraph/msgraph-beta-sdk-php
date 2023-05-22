@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Describes deployment security group to assign a deployment to. The backend will expand the security Group ID to extract device serial numbers prior sending a create deployment request to Zebra.
+*/
 class AndroidFotaDeploymentAssignment implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,10 +39,18 @@ class AndroidFotaDeploymentAssignment implements AdditionalDataHolder, BackedMod
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the assignmentTarget property value. The Azure Active Directory (Azure AD) we are deploying firmware updates to (e.g.: d93c8f48-bd42-4514-ba40-bc6b84780930). NOTE: Use this property moving forward because the existing property, target, is deprecated.
+     * @return DeviceAndAppManagementAssignmentTarget|null
+    */
+    public function getAssignmentTarget(): ?DeviceAndAppManagementAssignmentTarget {
+        return $this->getBackingStore()->get('assignmentTarget');
     }
 
     /**
@@ -65,6 +76,7 @@ class AndroidFotaDeploymentAssignment implements AdditionalDataHolder, BackedMod
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'assignmentTarget' => fn(ParseNode $n) => $o->setAssignmentTarget($n->getObjectValue([DeviceAndAppManagementAssignmentTarget::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -101,6 +113,7 @@ class AndroidFotaDeploymentAssignment implements AdditionalDataHolder, BackedMod
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeObjectValue('assignmentTarget', $this->getAssignmentTarget());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('id', $this->getId());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -110,15 +123,23 @@ class AndroidFotaDeploymentAssignment implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
+     * Sets the assignmentTarget property value. The Azure Active Directory (Azure AD) we are deploying firmware updates to (e.g.: d93c8f48-bd42-4514-ba40-bc6b84780930). NOTE: Use this property moving forward because the existing property, target, is deprecated.
+     * @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the assignmentTarget property.
+    */
+    public function setAssignmentTarget(?DeviceAndAppManagementAssignmentTarget $value): void {
+        $this->getBackingStore()->set('assignmentTarget', $value);
+    }
+
+    /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +147,7 @@ class AndroidFotaDeploymentAssignment implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the displayName property value. The display name of the Azure AD security group used for the assignment.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -134,7 +155,7 @@ class AndroidFotaDeploymentAssignment implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the id property value. A unique identifier assigned to each Android FOTA Assignment entity
-     *  @param string|null $value Value to set for the id property.
+     * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
         $this->getBackingStore()->set('id', $value);
@@ -142,7 +163,7 @@ class AndroidFotaDeploymentAssignment implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -150,7 +171,7 @@ class AndroidFotaDeploymentAssignment implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the target property value. The AAD Group we are deploying firmware updates to
-     *  @param AndroidFotaDeploymentAssignmentTarget|null $value Value to set for the target property.
+     * @param AndroidFotaDeploymentAssignmentTarget|null $value Value to set for the target property.
     */
     public function setTarget(?AndroidFotaDeploymentAssignmentTarget $value): void {
         $this->getBackingStore()->set('target', $value);

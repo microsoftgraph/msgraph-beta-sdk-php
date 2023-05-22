@@ -184,7 +184,7 @@ class EducationSubmission extends Entity implements Parsable
 
     /**
      * Sets the outcomes property value. The outcomes property
-     *  @param array<EducationOutcome>|null $value Value to set for the outcomes property.
+     * @param array<EducationOutcome>|null $value Value to set for the outcomes property.
     */
     public function setOutcomes(?array $value): void {
         $this->getBackingStore()->set('outcomes', $value);
@@ -192,7 +192,7 @@ class EducationSubmission extends Entity implements Parsable
 
     /**
      * Sets the reassignedBy property value. User who moved the status of this submission to reassigned.
-     *  @param IdentitySet|null $value Value to set for the reassignedBy property.
+     * @param IdentitySet|null $value Value to set for the reassignedBy property.
     */
     public function setReassignedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('reassignedBy', $value);
@@ -200,7 +200,7 @@ class EducationSubmission extends Entity implements Parsable
 
     /**
      * Sets the reassignedDateTime property value. Moment in time when the submission was reassigned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the reassignedDateTime property.
+     * @param DateTime|null $value Value to set for the reassignedDateTime property.
     */
     public function setReassignedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('reassignedDateTime', $value);
@@ -208,7 +208,7 @@ class EducationSubmission extends Entity implements Parsable
 
     /**
      * Sets the recipient property value. Who this submission is assigned to.
-     *  @param EducationSubmissionRecipient|null $value Value to set for the recipient property.
+     * @param EducationSubmissionRecipient|null $value Value to set for the recipient property.
     */
     public function setRecipient(?EducationSubmissionRecipient $value): void {
         $this->getBackingStore()->set('recipient', $value);
@@ -216,7 +216,7 @@ class EducationSubmission extends Entity implements Parsable
 
     /**
      * Sets the resources property value. The resources property
-     *  @param array<EducationSubmissionResource>|null $value Value to set for the resources property.
+     * @param array<EducationSubmissionResource>|null $value Value to set for the resources property.
     */
     public function setResources(?array $value): void {
         $this->getBackingStore()->set('resources', $value);
@@ -224,7 +224,7 @@ class EducationSubmission extends Entity implements Parsable
 
     /**
      * Sets the resourcesFolderUrl property value. Folder where all file resources for this submission need to be stored.
-     *  @param string|null $value Value to set for the resourcesFolderUrl property.
+     * @param string|null $value Value to set for the resourcesFolderUrl property.
     */
     public function setResourcesFolderUrl(?string $value): void {
         $this->getBackingStore()->set('resourcesFolderUrl', $value);
@@ -232,7 +232,7 @@ class EducationSubmission extends Entity implements Parsable
 
     /**
      * Sets the returnedBy property value. User who moved the status of this submission to returned.
-     *  @param IdentitySet|null $value Value to set for the returnedBy property.
+     * @param IdentitySet|null $value Value to set for the returnedBy property.
     */
     public function setReturnedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('returnedBy', $value);
@@ -240,7 +240,7 @@ class EducationSubmission extends Entity implements Parsable
 
     /**
      * Sets the returnedDateTime property value. Moment in time when the submission was returned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the returnedDateTime property.
+     * @param DateTime|null $value Value to set for the returnedDateTime property.
     */
     public function setReturnedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('returnedDateTime', $value);
@@ -248,7 +248,7 @@ class EducationSubmission extends Entity implements Parsable
 
     /**
      * Sets the status property value. Read-only. Possible values are: working, submitted, released, returned, unknownFutureValue and reassigned. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reassigned.
-     *  @param EducationSubmissionStatus|null $value Value to set for the status property.
+     * @param EducationSubmissionStatus|null $value Value to set for the status property.
     */
     public function setStatus(?EducationSubmissionStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -256,7 +256,7 @@ class EducationSubmission extends Entity implements Parsable
 
     /**
      * Sets the submittedBy property value. User who moved the resource into the submitted state.
-     *  @param IdentitySet|null $value Value to set for the submittedBy property.
+     * @param IdentitySet|null $value Value to set for the submittedBy property.
     */
     public function setSubmittedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('submittedBy', $value);
@@ -264,7 +264,7 @@ class EducationSubmission extends Entity implements Parsable
 
     /**
      * Sets the submittedDateTime property value. Moment in time when the submission was moved into the submitted state. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the submittedDateTime property.
+     * @param DateTime|null $value Value to set for the submittedDateTime property.
     */
     public function setSubmittedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('submittedDateTime', $value);
@@ -272,7 +272,7 @@ class EducationSubmission extends Entity implements Parsable
 
     /**
      * Sets the submittedResources property value. The submittedResources property
-     *  @param array<EducationSubmissionResource>|null $value Value to set for the submittedResources property.
+     * @param array<EducationSubmissionResource>|null $value Value to set for the submittedResources property.
     */
     public function setSubmittedResources(?array $value): void {
         $this->getBackingStore()->set('submittedResources', $value);
@@ -280,7 +280,7 @@ class EducationSubmission extends Entity implements Parsable
 
     /**
      * Sets the unsubmittedBy property value. User who moved the resource from submitted into the working state.
-     *  @param IdentitySet|null $value Value to set for the unsubmittedBy property.
+     * @param IdentitySet|null $value Value to set for the unsubmittedBy property.
     */
     public function setUnsubmittedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('unsubmittedBy', $value);
@@ -288,7 +288,7 @@ class EducationSubmission extends Entity implements Parsable
 
     /**
      * Sets the unsubmittedDateTime property value. Moment in time when the submission was moved from submitted into the working state. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the unsubmittedDateTime property.
+     * @param DateTime|null $value Value to set for the unsubmittedDateTime property.
     */
     public function setUnsubmittedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('unsubmittedDateTime', $value);
@@ -296,7 +296,7 @@ class EducationSubmission extends Entity implements Parsable
 
     /**
      * Sets the webUrl property value. The deep link URL for the given submission.
-     *  @param string|null $value Value to set for the webUrl property.
+     * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {
         $this->getBackingStore()->set('webUrl', $value);

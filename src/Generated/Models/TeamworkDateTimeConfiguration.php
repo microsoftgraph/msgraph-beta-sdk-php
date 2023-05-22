@@ -37,7 +37,7 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -131,7 +131,7 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -139,7 +139,7 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -147,7 +147,7 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the dateFormat property value. The date format for the device.
-     *  @param string|null $value Value to set for the dateFormat property.
+     * @param string|null $value Value to set for the dateFormat property.
     */
     public function setDateFormat(?string $value): void {
         $this->getBackingStore()->set('dateFormat', $value);
@@ -155,7 +155,7 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -163,7 +163,7 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the officeHoursEndTime property value. The time of the day when the device is turned off.
-     *  @param Time|null $value Value to set for the officeHoursEndTime property.
+     * @param Time|null $value Value to set for the officeHoursEndTime property.
     */
     public function setOfficeHoursEndTime(?Time $value): void {
         $this->getBackingStore()->set('officeHoursEndTime', $value);
@@ -171,7 +171,7 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the officeHoursStartTime property value. The time of the day when the device is turned on.
-     *  @param Time|null $value Value to set for the officeHoursStartTime property.
+     * @param Time|null $value Value to set for the officeHoursStartTime property.
     */
     public function setOfficeHoursStartTime(?Time $value): void {
         $this->getBackingStore()->set('officeHoursStartTime', $value);
@@ -179,7 +179,7 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the timeFormat property value. The time format for the device.
-     *  @param string|null $value Value to set for the timeFormat property.
+     * @param string|null $value Value to set for the timeFormat property.
     */
     public function setTimeFormat(?string $value): void {
         $this->getBackingStore()->set('timeFormat', $value);
@@ -187,7 +187,7 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the timeZone property value. The time zone to which the office hours apply.
-     *  @param string|null $value Value to set for the timeZone property.
+     * @param string|null $value Value to set for the timeZone property.
     */
     public function setTimeZone(?string $value): void {
         $this->getBackingStore()->set('timeZone', $value);

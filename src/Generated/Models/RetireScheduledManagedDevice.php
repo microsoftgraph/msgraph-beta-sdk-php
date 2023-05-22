@@ -11,6 +11,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * ManagedDevices that are scheduled for retire
+*/
 class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -37,7 +40,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -191,7 +194,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -199,7 +202,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -207,7 +210,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the complianceState property value. The complianceState property
-     *  @param ComplianceStatus|null $value Value to set for the complianceState property.
+     * @param ComplianceStatus|null $value Value to set for the complianceState property.
     */
     public function setComplianceState(?ComplianceStatus $value): void {
         $this->getBackingStore()->set('complianceState', $value);
@@ -215,7 +218,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the deviceCompliancePolicyId property value. Device Compliance PolicyId
-     *  @param string|null $value Value to set for the deviceCompliancePolicyId property.
+     * @param string|null $value Value to set for the deviceCompliancePolicyId property.
     */
     public function setDeviceCompliancePolicyId(?string $value): void {
         $this->getBackingStore()->set('deviceCompliancePolicyId', $value);
@@ -223,7 +226,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the deviceCompliancePolicyName property value. Device Compliance Policy Name
-     *  @param string|null $value Value to set for the deviceCompliancePolicyName property.
+     * @param string|null $value Value to set for the deviceCompliancePolicyName property.
     */
     public function setDeviceCompliancePolicyName(?string $value): void {
         $this->getBackingStore()->set('deviceCompliancePolicyName', $value);
@@ -231,7 +234,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the deviceType property value. Device type.
-     *  @param DeviceType|null $value Value to set for the deviceType property.
+     * @param DeviceType|null $value Value to set for the deviceType property.
     */
     public function setDeviceType(?DeviceType $value): void {
         $this->getBackingStore()->set('deviceType', $value);
@@ -239,7 +242,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the id property value. Key of the entity.
-     *  @param string|null $value Value to set for the id property.
+     * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
         $this->getBackingStore()->set('id', $value);
@@ -247,7 +250,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the managedDeviceId property value. Managed DeviceId
-     *  @param string|null $value Value to set for the managedDeviceId property.
+     * @param string|null $value Value to set for the managedDeviceId property.
     */
     public function setManagedDeviceId(?string $value): void {
         $this->getBackingStore()->set('managedDeviceId', $value);
@@ -255,7 +258,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the managedDeviceName property value. Managed Device Name
-     *  @param string|null $value Value to set for the managedDeviceName property.
+     * @param string|null $value Value to set for the managedDeviceName property.
     */
     public function setManagedDeviceName(?string $value): void {
         $this->getBackingStore()->set('managedDeviceName', $value);
@@ -263,7 +266,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the managementAgent property value. Management agent type.
-     *  @param ManagementAgentType|null $value Value to set for the managementAgent property.
+     * @param ManagementAgentType|null $value Value to set for the managementAgent property.
     */
     public function setManagementAgent(?ManagementAgentType $value): void {
         $this->getBackingStore()->set('managementAgent', $value);
@@ -271,7 +274,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -279,7 +282,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the ownerType property value. Owner type of device.
-     *  @param ManagedDeviceOwnerType|null $value Value to set for the ownerType property.
+     * @param ManagedDeviceOwnerType|null $value Value to set for the ownerType property.
     */
     public function setOwnerType(?ManagedDeviceOwnerType $value): void {
         $this->getBackingStore()->set('ownerType', $value);
@@ -287,7 +290,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the retireAfterDateTime property value. Managed Device Retire After DateTime
-     *  @param DateTime|null $value Value to set for the retireAfterDateTime property.
+     * @param DateTime|null $value Value to set for the retireAfterDateTime property.
     */
     public function setRetireAfterDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('retireAfterDateTime', $value);
@@ -295,7 +298,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tags for this Entity instance.
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);

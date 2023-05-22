@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Base type for assignment targets.
+*/
 class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -37,6 +40,7 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Ba
             switch ($mappingValue) {
                 case '#microsoft.graph.allDevicesAssignmentTarget': return new AllDevicesAssignmentTarget();
                 case '#microsoft.graph.allLicensedUsersAssignmentTarget': return new AllLicensedUsersAssignmentTarget();
+                case '#microsoft.graph.androidFotaDeploymentAssignmentTarget': return new AndroidFotaDeploymentAssignmentTarget();
                 case '#microsoft.graph.configurationManagerCollectionAssignmentTarget': return new ConfigurationManagerCollectionAssignmentTarget();
                 case '#microsoft.graph.exclusionGroupAssignmentTarget': return new ExclusionGroupAssignmentTarget();
                 case '#microsoft.graph.groupAssignmentTarget': return new GroupAssignmentTarget();
@@ -47,7 +51,7 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Ba
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -111,7 +115,7 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Ba
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -119,7 +123,7 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Ba
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -127,7 +131,7 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Ba
 
     /**
      * Sets the deviceAndAppManagementAssignmentFilterId property value. The Id of the filter for the target assignment.
-     *  @param string|null $value Value to set for the deviceAndAppManagementAssignmentFilterId property.
+     * @param string|null $value Value to set for the deviceAndAppManagementAssignmentFilterId property.
     */
     public function setDeviceAndAppManagementAssignmentFilterId(?string $value): void {
         $this->getBackingStore()->set('deviceAndAppManagementAssignmentFilterId', $value);
@@ -135,7 +139,7 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Ba
 
     /**
      * Sets the deviceAndAppManagementAssignmentFilterType property value. Represents type of the assignment filter.
-     *  @param DeviceAndAppManagementAssignmentFilterType|null $value Value to set for the deviceAndAppManagementAssignmentFilterType property.
+     * @param DeviceAndAppManagementAssignmentFilterType|null $value Value to set for the deviceAndAppManagementAssignmentFilterType property.
     */
     public function setDeviceAndAppManagementAssignmentFilterType(?DeviceAndAppManagementAssignmentFilterType $value): void {
         $this->getBackingStore()->set('deviceAndAppManagementAssignmentFilterType', $value);
@@ -143,7 +147,7 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Ba
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

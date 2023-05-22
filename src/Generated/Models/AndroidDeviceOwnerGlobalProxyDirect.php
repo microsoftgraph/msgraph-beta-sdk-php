@@ -75,7 +75,7 @@ class AndroidDeviceOwnerGlobalProxyDirect extends AndroidDeviceOwnerGlobalProxy 
 
     /**
      * Sets the excludedHosts property value. The excluded hosts
-     *  @param array<string>|null $value Value to set for the excludedHosts property.
+     * @param array<string>|null $value Value to set for the excludedHosts property.
     */
     public function setExcludedHosts(?array $value): void {
         $this->getBackingStore()->set('excludedHosts', $value);
@@ -83,7 +83,7 @@ class AndroidDeviceOwnerGlobalProxyDirect extends AndroidDeviceOwnerGlobalProxy 
 
     /**
      * Sets the host property value. The host name
-     *  @param string|null $value Value to set for the host property.
+     * @param string|null $value Value to set for the host property.
     */
     public function setHost(?string $value): void {
         $this->getBackingStore()->set('host', $value);
@@ -91,7 +91,7 @@ class AndroidDeviceOwnerGlobalProxyDirect extends AndroidDeviceOwnerGlobalProxy 
 
     /**
      * Sets the port property value. The port
-     *  @param int|null $value Value to set for the port property.
+     * @param int|null $value Value to set for the port property.
     */
     public function setPort(?int $value): void {
         $this->getBackingStore()->set('port', $value);

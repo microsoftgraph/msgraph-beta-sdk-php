@@ -165,7 +165,7 @@ class BrowserSharedCookie extends Entity implements Parsable
 
     /**
      * Sets the comment property value. The comment for the shared cookie.
-     *  @param string|null $value Value to set for the comment property.
+     * @param string|null $value Value to set for the comment property.
     */
     public function setComment(?string $value): void {
         $this->getBackingStore()->set('comment', $value);
@@ -173,7 +173,7 @@ class BrowserSharedCookie extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date and time when the shared cookie was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -181,7 +181,7 @@ class BrowserSharedCookie extends Entity implements Parsable
 
     /**
      * Sets the deletedDateTime property value. The date and time when the shared cookie was deleted.
-     *  @param DateTime|null $value Value to set for the deletedDateTime property.
+     * @param DateTime|null $value Value to set for the deletedDateTime property.
     */
     public function setDeletedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('deletedDateTime', $value);
@@ -189,7 +189,7 @@ class BrowserSharedCookie extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The name of the cookie.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -197,7 +197,7 @@ class BrowserSharedCookie extends Entity implements Parsable
 
     /**
      * Sets the history property value. The history of modifications applied to the cookie.
-     *  @param array<BrowserSharedCookieHistory>|null $value Value to set for the history property.
+     * @param array<BrowserSharedCookieHistory>|null $value Value to set for the history property.
     */
     public function setHistory(?array $value): void {
         $this->getBackingStore()->set('history', $value);
@@ -205,7 +205,7 @@ class BrowserSharedCookie extends Entity implements Parsable
 
     /**
      * Sets the hostOnly property value. Controls whether a cookie is a host-only or domain cookie.
-     *  @param bool|null $value Value to set for the hostOnly property.
+     * @param bool|null $value Value to set for the hostOnly property.
     */
     public function setHostOnly(?bool $value): void {
         $this->getBackingStore()->set('hostOnly', $value);
@@ -213,7 +213,7 @@ class BrowserSharedCookie extends Entity implements Parsable
 
     /**
      * Sets the hostOrDomain property value. The URL of the cookie.
-     *  @param string|null $value Value to set for the hostOrDomain property.
+     * @param string|null $value Value to set for the hostOrDomain property.
     */
     public function setHostOrDomain(?string $value): void {
         $this->getBackingStore()->set('hostOrDomain', $value);
@@ -221,7 +221,7 @@ class BrowserSharedCookie extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedBy property value. The user who last modified the cookie.
-     *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
+     * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('lastModifiedBy', $value);
@@ -229,7 +229,7 @@ class BrowserSharedCookie extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time when the cookie was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -237,7 +237,7 @@ class BrowserSharedCookie extends Entity implements Parsable
 
     /**
      * Sets the path property value. The path of the cookie.
-     *  @param string|null $value Value to set for the path property.
+     * @param string|null $value Value to set for the path property.
     */
     public function setPath(?string $value): void {
         $this->getBackingStore()->set('path', $value);
@@ -245,7 +245,7 @@ class BrowserSharedCookie extends Entity implements Parsable
 
     /**
      * Sets the sourceEnvironment property value. The sourceEnvironment property
-     *  @param BrowserSharedCookieSourceEnvironment|null $value Value to set for the sourceEnvironment property.
+     * @param BrowserSharedCookieSourceEnvironment|null $value Value to set for the sourceEnvironment property.
     */
     public function setSourceEnvironment(?BrowserSharedCookieSourceEnvironment $value): void {
         $this->getBackingStore()->set('sourceEnvironment', $value);
@@ -253,7 +253,7 @@ class BrowserSharedCookie extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status property
-     *  @param BrowserSharedCookieStatus|null $value Value to set for the status property.
+     * @param BrowserSharedCookieStatus|null $value Value to set for the status property.
     */
     public function setStatus(?BrowserSharedCookieStatus $value): void {
         $this->getBackingStore()->set('status', $value);

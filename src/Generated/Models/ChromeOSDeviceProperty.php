@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Represents a property of the ChromeOS device.
+*/
 class ChromeOSDeviceProperty implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class ChromeOSDeviceProperty implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +123,7 @@ class ChromeOSDeviceProperty implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +131,7 @@ class ChromeOSDeviceProperty implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +139,7 @@ class ChromeOSDeviceProperty implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the name property value. Name of the property
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -144,7 +147,7 @@ class ChromeOSDeviceProperty implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -152,7 +155,7 @@ class ChromeOSDeviceProperty implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the updatable property value. Whether this property is updatable
-     *  @param bool|null $value Value to set for the updatable property.
+     * @param bool|null $value Value to set for the updatable property.
     */
     public function setUpdatable(?bool $value): void {
         $this->getBackingStore()->set('updatable', $value);
@@ -160,7 +163,7 @@ class ChromeOSDeviceProperty implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the value property value. Value of the property
-     *  @param string|null $value Value to set for the value property.
+     * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {
         $this->getBackingStore()->set('value', $value);
@@ -168,7 +171,7 @@ class ChromeOSDeviceProperty implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the valueType property value. Type of the value
-     *  @param string|null $value Value to set for the valueType property.
+     * @param string|null $value Value to set for the valueType property.
     */
     public function setValueType(?string $value): void {
         $this->getBackingStore()->set('valueType', $value);

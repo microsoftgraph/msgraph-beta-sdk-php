@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleDefinition
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles support this attribute.
+*/
 class UnifiedRoleDefinitionItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class UnifiedRoleDefinitionItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new UnifiedRoleDefinitionItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

@@ -36,7 +36,7 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -56,6 +56,14 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, BackedModel, P
     */
     public function getAllowedToCreateSecurityGroups(): ?bool {
         return $this->getBackingStore()->get('allowedToCreateSecurityGroups');
+    }
+
+    /**
+     * Gets the allowedToCreateTenants property value. Indicates whether the default user role can create tenants.
+     * @return bool|null
+    */
+    public function getAllowedToCreateTenants(): ?bool {
+        return $this->getBackingStore()->get('allowedToCreateTenants');
     }
 
     /**
@@ -91,6 +99,7 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, BackedModel, P
         return  [
             'allowedToCreateApps' => fn(ParseNode $n) => $o->setAllowedToCreateApps($n->getBooleanValue()),
             'allowedToCreateSecurityGroups' => fn(ParseNode $n) => $o->setAllowedToCreateSecurityGroups($n->getBooleanValue()),
+            'allowedToCreateTenants' => fn(ParseNode $n) => $o->setAllowedToCreateTenants($n->getBooleanValue()),
             'allowedToReadBitlockerKeysForOwnedDevice' => fn(ParseNode $n) => $o->setAllowedToReadBitlockerKeysForOwnedDevice($n->getBooleanValue()),
             'allowedToReadOtherUsers' => fn(ParseNode $n) => $o->setAllowedToReadOtherUsers($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -112,6 +121,7 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, BackedModel, P
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('allowedToCreateApps', $this->getAllowedToCreateApps());
         $writer->writeBooleanValue('allowedToCreateSecurityGroups', $this->getAllowedToCreateSecurityGroups());
+        $writer->writeBooleanValue('allowedToCreateTenants', $this->getAllowedToCreateTenants());
         $writer->writeBooleanValue('allowedToReadBitlockerKeysForOwnedDevice', $this->getAllowedToReadBitlockerKeysForOwnedDevice());
         $writer->writeBooleanValue('allowedToReadOtherUsers', $this->getAllowedToReadOtherUsers());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -120,7 +130,7 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +138,7 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the allowedToCreateApps property value. Indicates whether the default user role can create applications.
-     *  @param bool|null $value Value to set for the allowedToCreateApps property.
+     * @param bool|null $value Value to set for the allowedToCreateApps property.
     */
     public function setAllowedToCreateApps(?bool $value): void {
         $this->getBackingStore()->set('allowedToCreateApps', $value);
@@ -136,15 +146,23 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the allowedToCreateSecurityGroups property value. Indicates whether the default user role can create security groups.
-     *  @param bool|null $value Value to set for the allowedToCreateSecurityGroups property.
+     * @param bool|null $value Value to set for the allowedToCreateSecurityGroups property.
     */
     public function setAllowedToCreateSecurityGroups(?bool $value): void {
         $this->getBackingStore()->set('allowedToCreateSecurityGroups', $value);
     }
 
     /**
+     * Sets the allowedToCreateTenants property value. Indicates whether the default user role can create tenants.
+     * @param bool|null $value Value to set for the allowedToCreateTenants property.
+    */
+    public function setAllowedToCreateTenants(?bool $value): void {
+        $this->getBackingStore()->set('allowedToCreateTenants', $value);
+    }
+
+    /**
      * Sets the allowedToReadBitlockerKeysForOwnedDevice property value. Indicates whether the registered owners of a device can read their own BitLocker recovery keys with default user role.
-     *  @param bool|null $value Value to set for the allowedToReadBitlockerKeysForOwnedDevice property.
+     * @param bool|null $value Value to set for the allowedToReadBitlockerKeysForOwnedDevice property.
     */
     public function setAllowedToReadBitlockerKeysForOwnedDevice(?bool $value): void {
         $this->getBackingStore()->set('allowedToReadBitlockerKeysForOwnedDevice', $value);
@@ -152,7 +170,7 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the allowedToReadOtherUsers property value. Indicates whether the default user role can read other users.
-     *  @param bool|null $value Value to set for the allowedToReadOtherUsers property.
+     * @param bool|null $value Value to set for the allowedToReadOtherUsers property.
     */
     public function setAllowedToReadOtherUsers(?bool $value): void {
         $this->getBackingStore()->set('allowedToReadOtherUsers', $value);
@@ -160,7 +178,7 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -168,7 +186,7 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

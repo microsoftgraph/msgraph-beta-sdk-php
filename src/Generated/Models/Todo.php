@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Todo extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new todo and sets the default values.
+     * Instantiates a new Todo and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -54,7 +54,7 @@ class Todo extends Entity implements Parsable
 
     /**
      * Sets the lists property value. The task lists in the users mailbox.
-     *  @param array<TodoTaskList>|null $value Value to set for the lists property.
+     * @param array<TodoTaskList>|null $value Value to set for the lists property.
     */
     public function setLists(?array $value): void {
         $this->getBackingStore()->set('lists', $value);

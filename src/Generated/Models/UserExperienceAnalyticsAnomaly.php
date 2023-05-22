@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsAnomaly extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsAnomaly and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsAnomaly and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -175,7 +175,7 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
 
     /**
      * Sets the anomalyFirstOccurrenceDateTime property value. Indicates the first occurrence date and time for the anomaly.
-     *  @param DateTime|null $value Value to set for the anomalyFirstOccurrenceDateTime property.
+     * @param DateTime|null $value Value to set for the anomalyFirstOccurrenceDateTime property.
     */
     public function setAnomalyFirstOccurrenceDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('anomalyFirstOccurrenceDateTime', $value);
@@ -183,7 +183,7 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
 
     /**
      * Sets the anomalyId property value. The unique identifier of the anomaly.
-     *  @param string|null $value Value to set for the anomalyId property.
+     * @param string|null $value Value to set for the anomalyId property.
     */
     public function setAnomalyId(?string $value): void {
         $this->getBackingStore()->set('anomalyId', $value);
@@ -191,7 +191,7 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
 
     /**
      * Sets the anomalyLatestOccurrenceDateTime property value. Indicates the latest occurrence date and time for the anomaly.
-     *  @param DateTime|null $value Value to set for the anomalyLatestOccurrenceDateTime property.
+     * @param DateTime|null $value Value to set for the anomalyLatestOccurrenceDateTime property.
     */
     public function setAnomalyLatestOccurrenceDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('anomalyLatestOccurrenceDateTime', $value);
@@ -199,7 +199,7 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
 
     /**
      * Sets the anomalyName property value. The name of the anomaly.
-     *  @param string|null $value Value to set for the anomalyName property.
+     * @param string|null $value Value to set for the anomalyName property.
     */
     public function setAnomalyName(?string $value): void {
         $this->getBackingStore()->set('anomalyName', $value);
@@ -207,7 +207,7 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
 
     /**
      * Sets the anomalyType property value. Indicates the category of the anomaly. Eg: anomaly type can be device, application, stop error, driver or other.
-     *  @param UserExperienceAnalyticsAnomalyType|null $value Value to set for the anomalyType property.
+     * @param UserExperienceAnalyticsAnomalyType|null $value Value to set for the anomalyType property.
     */
     public function setAnomalyType(?UserExperienceAnalyticsAnomalyType $value): void {
         $this->getBackingStore()->set('anomalyType', $value);
@@ -215,7 +215,7 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
 
     /**
      * Sets the assetName property value. The name of the application or module that caused the anomaly.
-     *  @param string|null $value Value to set for the assetName property.
+     * @param string|null $value Value to set for the assetName property.
     */
     public function setAssetName(?string $value): void {
         $this->getBackingStore()->set('assetName', $value);
@@ -223,7 +223,7 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
 
     /**
      * Sets the assetPublisher property value. The publisher of the application or module that caused the anomaly.
-     *  @param string|null $value Value to set for the assetPublisher property.
+     * @param string|null $value Value to set for the assetPublisher property.
     */
     public function setAssetPublisher(?string $value): void {
         $this->getBackingStore()->set('assetPublisher', $value);
@@ -231,7 +231,7 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
 
     /**
      * Sets the assetVersion property value. The version of the application or module that caused the anomaly.
-     *  @param string|null $value Value to set for the assetVersion property.
+     * @param string|null $value Value to set for the assetVersion property.
     */
     public function setAssetVersion(?string $value): void {
         $this->getBackingStore()->set('assetVersion', $value);
@@ -239,7 +239,7 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
 
     /**
      * Sets the detectionModelId property value. The unique identifier of the anomaly detection model.
-     *  @param string|null $value Value to set for the detectionModelId property.
+     * @param string|null $value Value to set for the detectionModelId property.
     */
     public function setDetectionModelId(?string $value): void {
         $this->getBackingStore()->set('detectionModelId', $value);
@@ -247,7 +247,7 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
 
     /**
      * Sets the deviceImpactedCount property value. The number of devices impacted by the anomaly. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the deviceImpactedCount property.
+     * @param int|null $value Value to set for the deviceImpactedCount property.
     */
     public function setDeviceImpactedCount(?int $value): void {
         $this->getBackingStore()->set('deviceImpactedCount', $value);
@@ -255,7 +255,7 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
 
     /**
      * Sets the issueId property value. The unique identifier of the anomaly detection model.
-     *  @param string|null $value Value to set for the issueId property.
+     * @param string|null $value Value to set for the issueId property.
     */
     public function setIssueId(?string $value): void {
         $this->getBackingStore()->set('issueId', $value);
@@ -263,7 +263,7 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
 
     /**
      * Sets the severity property value. Indicates the severity of the anomaly. Eg: anomaly severity can be high, medium, low, informational or other.
-     *  @param UserExperienceAnalyticsAnomalySeverity|null $value Value to set for the severity property.
+     * @param UserExperienceAnalyticsAnomalySeverity|null $value Value to set for the severity property.
     */
     public function setSeverity(?UserExperienceAnalyticsAnomalySeverity $value): void {
         $this->getBackingStore()->set('severity', $value);
@@ -271,7 +271,7 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
 
     /**
      * Sets the state property value. Indicates the state of the anomaly. Eg: anomaly severity can be new, active, disabled, removed or other.
-     *  @param UserExperienceAnalyticsAnomalyState|null $value Value to set for the state property.
+     * @param UserExperienceAnalyticsAnomalyState|null $value Value to set for the state property.
     */
     public function setState(?UserExperienceAnalyticsAnomalyState $value): void {
         $this->getBackingStore()->set('state', $value);

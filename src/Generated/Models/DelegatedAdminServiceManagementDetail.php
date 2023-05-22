@@ -64,7 +64,7 @@ class DelegatedAdminServiceManagementDetail extends Entity implements Parsable
 
     /**
      * Sets the serviceManagementUrl property value. The URL of the management portal for the managed service. Read-only.
-     *  @param string|null $value Value to set for the serviceManagementUrl property.
+     * @param string|null $value Value to set for the serviceManagementUrl property.
     */
     public function setServiceManagementUrl(?string $value): void {
         $this->getBackingStore()->set('serviceManagementUrl', $value);
@@ -72,7 +72,7 @@ class DelegatedAdminServiceManagementDetail extends Entity implements Parsable
 
     /**
      * Sets the serviceName property value. The name of a managed service. Read-only.
-     *  @param string|null $value Value to set for the serviceName property.
+     * @param string|null $value Value to set for the serviceName property.
     */
     public function setServiceName(?string $value): void {
         $this->getBackingStore()->set('serviceName', $value);

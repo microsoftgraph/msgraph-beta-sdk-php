@@ -75,7 +75,7 @@ class DeviceComanagementAuthorityConfiguration extends DeviceEnrollmentConfigura
 
     /**
      * Sets the configurationManagerAgentCommandLineArgument property value. CoManagement Authority configuration ConfigurationManagerAgentCommandLineArgument
-     *  @param string|null $value Value to set for the configurationManagerAgentCommandLineArgument property.
+     * @param string|null $value Value to set for the configurationManagerAgentCommandLineArgument property.
     */
     public function setConfigurationManagerAgentCommandLineArgument(?string $value): void {
         $this->getBackingStore()->set('configurationManagerAgentCommandLineArgument', $value);
@@ -83,7 +83,7 @@ class DeviceComanagementAuthorityConfiguration extends DeviceEnrollmentConfigura
 
     /**
      * Sets the installConfigurationManagerAgent property value. CoManagement Authority configuration InstallConfigurationManagerAgent
-     *  @param bool|null $value Value to set for the installConfigurationManagerAgent property.
+     * @param bool|null $value Value to set for the installConfigurationManagerAgent property.
     */
     public function setInstallConfigurationManagerAgent(?bool $value): void {
         $this->getBackingStore()->set('installConfigurationManagerAgent', $value);
@@ -91,7 +91,7 @@ class DeviceComanagementAuthorityConfiguration extends DeviceEnrollmentConfigura
 
     /**
      * Sets the managedDeviceAuthority property value. CoManagement Authority configuration ManagedDeviceAuthority
-     *  @param int|null $value Value to set for the managedDeviceAuthority property.
+     * @param int|null $value Value to set for the managedDeviceAuthority property.
     */
     public function setManagedDeviceAuthority(?int $value): void {
         $this->getBackingStore()->set('managedDeviceAuthority', $value);

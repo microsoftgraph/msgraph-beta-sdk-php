@@ -11,6 +11,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Describes the status for a single FOTA deployment.
+*/
 class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -37,7 +40,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -68,6 +71,14 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
+     * Gets the errorCode property value. An error code indicating the failure reason, when the deployment state is createFailed. Possible values: See zebraFotaErrorCode enum.
+     * @return ZebraFotaErrorCode|null
+    */
+    public function getErrorCode(): ?ZebraFotaErrorCode {
+        return $this->getBackingStore()->get('errorCode');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
@@ -76,6 +87,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
         return  [
             'cancelRequested' => fn(ParseNode $n) => $o->setCancelRequested($n->getBooleanValue()),
             'completeOrCanceledDateTime' => fn(ParseNode $n) => $o->setCompleteOrCanceledDateTime($n->getDateTimeValue()),
+            'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getEnumValue(ZebraFotaErrorCode::class)),
             'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(ZebraFotaDeploymentState::class)),
@@ -203,6 +215,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('cancelRequested', $this->getCancelRequested());
         $writer->writeDateTimeValue('completeOrCanceledDateTime', $this->getCompleteOrCanceledDateTime());
+        $writer->writeEnumValue('errorCode', $this->getErrorCode());
         $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('state', $this->getState());
@@ -221,7 +234,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -229,7 +242,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -237,7 +250,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the cancelRequested property value. A boolean that indicates if a cancellation was requested on the deployment. NOTE: A cancellation request does not guarantee that the deployment was canceled.
-     *  @param bool|null $value Value to set for the cancelRequested property.
+     * @param bool|null $value Value to set for the cancelRequested property.
     */
     public function setCancelRequested(?bool $value): void {
         $this->getBackingStore()->set('cancelRequested', $value);
@@ -245,15 +258,23 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the completeOrCanceledDateTime property value. The date and time when this deployment was completed or canceled. The actual date time is determined by the value of state. If the state is canceled, this property holds the cancellation date/time. If the the state is completed, this property holds the completion date/time. If the deployment is not completed before the deployment end date, then completed date/time and end date/time are the same. This is always in the deployment timezone. Note: An installation that is in progress can continue past the deployment end date.
-     *  @param DateTime|null $value Value to set for the completeOrCanceledDateTime property.
+     * @param DateTime|null $value Value to set for the completeOrCanceledDateTime property.
     */
     public function setCompleteOrCanceledDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('completeOrCanceledDateTime', $value);
     }
 
     /**
+     * Sets the errorCode property value. An error code indicating the failure reason, when the deployment state is createFailed. Possible values: See zebraFotaErrorCode enum.
+     * @param ZebraFotaErrorCode|null $value Value to set for the errorCode property.
+    */
+    public function setErrorCode(?ZebraFotaErrorCode $value): void {
+        $this->getBackingStore()->set('errorCode', $value);
+    }
+
+    /**
      * Sets the lastUpdatedDateTime property value. Date and time when the deployment status was updated from Zebra
-     *  @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
+     * @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastUpdatedDateTime', $value);
@@ -261,7 +282,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -269,7 +290,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the state property value. Represents the state of Zebra FOTA deployment.
-     *  @param ZebraFotaDeploymentState|null $value Value to set for the state property.
+     * @param ZebraFotaDeploymentState|null $value Value to set for the state property.
     */
     public function setState(?ZebraFotaDeploymentState $value): void {
         $this->getBackingStore()->set('state', $value);
@@ -277,7 +298,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the totalAwaitingInstall property value. An integer that indicates the total number of devices where installation was successful.
-     *  @param int|null $value Value to set for the totalAwaitingInstall property.
+     * @param int|null $value Value to set for the totalAwaitingInstall property.
     */
     public function setTotalAwaitingInstall(?int $value): void {
         $this->getBackingStore()->set('totalAwaitingInstall', $value);
@@ -285,7 +306,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the totalCanceled property value. An integer that indicates the total number of devices where installation was canceled.
-     *  @param int|null $value Value to set for the totalCanceled property.
+     * @param int|null $value Value to set for the totalCanceled property.
     */
     public function setTotalCanceled(?int $value): void {
         $this->getBackingStore()->set('totalCanceled', $value);
@@ -293,7 +314,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the totalCreated property value. An integer that indicates the total number of devices that have a job in the CREATED state. Typically indicates jobs that did not reach the devices.
-     *  @param int|null $value Value to set for the totalCreated property.
+     * @param int|null $value Value to set for the totalCreated property.
     */
     public function setTotalCreated(?int $value): void {
         $this->getBackingStore()->set('totalCreated', $value);
@@ -301,7 +322,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the totalDevices property value. An integer that indicates the total number of devices in the deployment.
-     *  @param int|null $value Value to set for the totalDevices property.
+     * @param int|null $value Value to set for the totalDevices property.
     */
     public function setTotalDevices(?int $value): void {
         $this->getBackingStore()->set('totalDevices', $value);
@@ -309,7 +330,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the totalDownloading property value. An integer that indicates the total number of devices where installation was successful.
-     *  @param int|null $value Value to set for the totalDownloading property.
+     * @param int|null $value Value to set for the totalDownloading property.
     */
     public function setTotalDownloading(?int $value): void {
         $this->getBackingStore()->set('totalDownloading', $value);
@@ -317,7 +338,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the totalFailedDownload property value. An integer that indicates the total number of devices that have failed to download the new OS file.
-     *  @param int|null $value Value to set for the totalFailedDownload property.
+     * @param int|null $value Value to set for the totalFailedDownload property.
     */
     public function setTotalFailedDownload(?int $value): void {
         $this->getBackingStore()->set('totalFailedDownload', $value);
@@ -325,7 +346,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the totalFailedInstall property value. An integer that indicates the total number of devices that have failed to install the new OS file.
-     *  @param int|null $value Value to set for the totalFailedInstall property.
+     * @param int|null $value Value to set for the totalFailedInstall property.
     */
     public function setTotalFailedInstall(?int $value): void {
         $this->getBackingStore()->set('totalFailedInstall', $value);
@@ -333,7 +354,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the totalScheduled property value. An integer that indicates the total number of devices that received the json and are scheduled.
-     *  @param int|null $value Value to set for the totalScheduled property.
+     * @param int|null $value Value to set for the totalScheduled property.
     */
     public function setTotalScheduled(?int $value): void {
         $this->getBackingStore()->set('totalScheduled', $value);
@@ -341,7 +362,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the totalSucceededInstall property value. An integer that indicates the total number of devices where installation was successful.
-     *  @param int|null $value Value to set for the totalSucceededInstall property.
+     * @param int|null $value Value to set for the totalSucceededInstall property.
     */
     public function setTotalSucceededInstall(?int $value): void {
         $this->getBackingStore()->set('totalSucceededInstall', $value);
@@ -349,7 +370,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the totalUnknown property value. An integer that indicates the total number of devices where no deployment status or end state has not received, even after the scheduled end date was reached.
-     *  @param int|null $value Value to set for the totalUnknown property.
+     * @param int|null $value Value to set for the totalUnknown property.
     */
     public function setTotalUnknown(?int $value): void {
         $this->getBackingStore()->set('totalUnknown', $value);

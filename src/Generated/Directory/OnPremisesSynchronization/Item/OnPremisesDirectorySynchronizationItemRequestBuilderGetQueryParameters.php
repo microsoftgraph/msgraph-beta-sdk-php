@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Directory\OnPremisesSynchronization\Ite
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read the properties and relationships of an onPremisesDirectorySynchronization object.
+*/
 class OnPremisesDirectorySynchronizationItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class OnPremisesDirectorySynchronizationItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new OnPremisesDirectorySynchronizationItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Setting instance within policy
+*/
 class DeviceManagementConfigurationSetting extends Entity implements Parsable 
 {
     /**
@@ -64,7 +67,7 @@ class DeviceManagementConfigurationSetting extends Entity implements Parsable
 
     /**
      * Sets the settingDefinitions property value. List of related Setting Definitions. This property is read-only.
-     *  @param array<DeviceManagementConfigurationSettingDefinition>|null $value Value to set for the settingDefinitions property.
+     * @param array<DeviceManagementConfigurationSettingDefinition>|null $value Value to set for the settingDefinitions property.
     */
     public function setSettingDefinitions(?array $value): void {
         $this->getBackingStore()->set('settingDefinitions', $value);
@@ -72,7 +75,7 @@ class DeviceManagementConfigurationSetting extends Entity implements Parsable
 
     /**
      * Sets the settingInstance property value. Setting instance within policy
-     *  @param DeviceManagementConfigurationSettingInstance|null $value Value to set for the settingInstance property.
+     * @param DeviceManagementConfigurationSettingInstance|null $value Value to set for the settingInstance property.
     */
     public function setSettingInstance(?DeviceManagementConfigurationSettingInstance $value): void {
         $this->getBackingStore()->set('settingInstance', $value);

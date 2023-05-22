@@ -36,7 +36,7 @@ class ExpressionEvaluationDetails implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class ExpressionEvaluationDetails implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class ExpressionEvaluationDetails implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +136,7 @@ class ExpressionEvaluationDetails implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the expression property value. Represents expression which has been evaluated.
-     *  @param string|null $value Value to set for the expression property.
+     * @param string|null $value Value to set for the expression property.
     */
     public function setExpression(?string $value): void {
         $this->getBackingStore()->set('expression', $value);
@@ -144,7 +144,7 @@ class ExpressionEvaluationDetails implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the expressionEvaluationDetails property value. Represents the details of the evaluation of the expression.
-     *  @param array<ExpressionEvaluationDetails>|null $value Value to set for the expressionEvaluationDetails property.
+     * @param array<ExpressionEvaluationDetails>|null $value Value to set for the expressionEvaluationDetails property.
     */
     public function setExpressionEvaluationDetails(?array $value): void {
         $this->getBackingStore()->set('expressionEvaluationDetails', $value);
@@ -152,7 +152,7 @@ class ExpressionEvaluationDetails implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the expressionResult property value. Represents the value of the result of the current expression.
-     *  @param bool|null $value Value to set for the expressionResult property.
+     * @param bool|null $value Value to set for the expressionResult property.
     */
     public function setExpressionResult(?bool $value): void {
         $this->getBackingStore()->set('expressionResult', $value);
@@ -160,7 +160,7 @@ class ExpressionEvaluationDetails implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -168,7 +168,7 @@ class ExpressionEvaluationDetails implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the propertyToEvaluate property value. Defines the name of the property and the value of that property.
-     *  @param PropertyToEvaluate|null $value Value to set for the propertyToEvaluate property.
+     * @param PropertyToEvaluate|null $value Value to set for the propertyToEvaluate property.
     */
     public function setPropertyToEvaluate(?PropertyToEvaluate $value): void {
         $this->getBackingStore()->set('propertyToEvaluate', $value);

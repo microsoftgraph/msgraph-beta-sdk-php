@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Shares\Item\Permission;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Used to access the permission representing the underlying sharing link
+*/
 class PermissionRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class PermissionRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new permissionRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

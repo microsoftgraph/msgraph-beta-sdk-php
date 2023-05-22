@@ -94,7 +94,7 @@ class DeviceManagementIntentUserStateSummary extends Entity implements Parsable
 
     /**
      * Sets the conflictCount property value. Number of users in conflict
-     *  @param int|null $value Value to set for the conflictCount property.
+     * @param int|null $value Value to set for the conflictCount property.
     */
     public function setConflictCount(?int $value): void {
         $this->getBackingStore()->set('conflictCount', $value);
@@ -102,7 +102,7 @@ class DeviceManagementIntentUserStateSummary extends Entity implements Parsable
 
     /**
      * Sets the errorCount property value. Number of error users
-     *  @param int|null $value Value to set for the errorCount property.
+     * @param int|null $value Value to set for the errorCount property.
     */
     public function setErrorCount(?int $value): void {
         $this->getBackingStore()->set('errorCount', $value);
@@ -110,7 +110,7 @@ class DeviceManagementIntentUserStateSummary extends Entity implements Parsable
 
     /**
      * Sets the failedCount property value. Number of failed users
-     *  @param int|null $value Value to set for the failedCount property.
+     * @param int|null $value Value to set for the failedCount property.
     */
     public function setFailedCount(?int $value): void {
         $this->getBackingStore()->set('failedCount', $value);
@@ -118,7 +118,7 @@ class DeviceManagementIntentUserStateSummary extends Entity implements Parsable
 
     /**
      * Sets the notApplicableCount property value. Number of not applicable users
-     *  @param int|null $value Value to set for the notApplicableCount property.
+     * @param int|null $value Value to set for the notApplicableCount property.
     */
     public function setNotApplicableCount(?int $value): void {
         $this->getBackingStore()->set('notApplicableCount', $value);
@@ -126,7 +126,7 @@ class DeviceManagementIntentUserStateSummary extends Entity implements Parsable
 
     /**
      * Sets the successCount property value. Number of succeeded users
-     *  @param int|null $value Value to set for the successCount property.
+     * @param int|null $value Value to set for the successCount property.
     */
     public function setSuccessCount(?int $value): void {
         $this->getBackingStore()->set('successCount', $value);

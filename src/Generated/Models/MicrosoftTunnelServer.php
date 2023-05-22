@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity that represents a single Microsoft Tunnel server
+*/
 class MicrosoftTunnelServer extends Entity implements Parsable 
 {
     /**
@@ -95,7 +98,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
 
     /**
      * Sets the agentImageDigest property value. The digest of the current agent image running on this server
-     *  @param string|null $value Value to set for the agentImageDigest property.
+     * @param string|null $value Value to set for the agentImageDigest property.
     */
     public function setAgentImageDigest(?string $value): void {
         $this->getBackingStore()->set('agentImageDigest', $value);
@@ -103,7 +106,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name for the server. This property is required when a server is created and cannot be cleared during updates.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -111,7 +114,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
 
     /**
      * Sets the lastCheckinDateTime property value. Indicates when the server last checked in
-     *  @param DateTime|null $value Value to set for the lastCheckinDateTime property.
+     * @param DateTime|null $value Value to set for the lastCheckinDateTime property.
     */
     public function setLastCheckinDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastCheckinDateTime', $value);
@@ -119,7 +122,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
 
     /**
      * Sets the serverImageDigest property value. The digest of the current server image running on this server
-     *  @param string|null $value Value to set for the serverImageDigest property.
+     * @param string|null $value Value to set for the serverImageDigest property.
     */
     public function setServerImageDigest(?string $value): void {
         $this->getBackingStore()->set('serverImageDigest', $value);
@@ -127,7 +130,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
 
     /**
      * Sets the tunnelServerHealthStatus property value. Enum of possible MicrosoftTunnelServer health status types
-     *  @param MicrosoftTunnelServerHealthStatus|null $value Value to set for the tunnelServerHealthStatus property.
+     * @param MicrosoftTunnelServerHealthStatus|null $value Value to set for the tunnelServerHealthStatus property.
     */
     public function setTunnelServerHealthStatus(?MicrosoftTunnelServerHealthStatus $value): void {
         $this->getBackingStore()->set('tunnelServerHealthStatus', $value);

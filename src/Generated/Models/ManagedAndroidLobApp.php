@@ -42,7 +42,7 @@ class ManagedAndroidLobApp extends ManagedMobileLobApp implements Parsable
     }
 
     /**
-     * Gets the identityName property value. The Identity Name.
+     * Gets the identityName property value. The Identity Name. This property is being deprecated in 2302(February 2023).
      * @return string|null
     */
     public function getIdentityName(): ?string {
@@ -50,7 +50,7 @@ class ManagedAndroidLobApp extends ManagedMobileLobApp implements Parsable
     }
 
     /**
-     * Gets the identityVersion property value. The identity version.
+     * Gets the identityVersion property value. The identity version. This property is being deprecated in 2302(February 2023).
      * @return string|null
     */
     public function getIdentityVersion(): ?string {
@@ -104,16 +104,16 @@ class ManagedAndroidLobApp extends ManagedMobileLobApp implements Parsable
     }
 
     /**
-     * Sets the identityName property value. The Identity Name.
-     *  @param string|null $value Value to set for the identityName property.
+     * Sets the identityName property value. The Identity Name. This property is being deprecated in 2302(February 2023).
+     * @param string|null $value Value to set for the identityName property.
     */
     public function setIdentityName(?string $value): void {
         $this->getBackingStore()->set('identityName', $value);
     }
 
     /**
-     * Sets the identityVersion property value. The identity version.
-     *  @param string|null $value Value to set for the identityVersion property.
+     * Sets the identityVersion property value. The identity version. This property is being deprecated in 2302(February 2023).
+     * @param string|null $value Value to set for the identityVersion property.
     */
     public function setIdentityVersion(?string $value): void {
         $this->getBackingStore()->set('identityVersion', $value);
@@ -121,7 +121,7 @@ class ManagedAndroidLobApp extends ManagedMobileLobApp implements Parsable
 
     /**
      * Sets the minimumSupportedOperatingSystem property value. The value for the minimum applicable operating system.
-     *  @param AndroidMinimumOperatingSystem|null $value Value to set for the minimumSupportedOperatingSystem property.
+     * @param AndroidMinimumOperatingSystem|null $value Value to set for the minimumSupportedOperatingSystem property.
     */
     public function setMinimumSupportedOperatingSystem(?AndroidMinimumOperatingSystem $value): void {
         $this->getBackingStore()->set('minimumSupportedOperatingSystem', $value);
@@ -129,7 +129,7 @@ class ManagedAndroidLobApp extends ManagedMobileLobApp implements Parsable
 
     /**
      * Sets the packageId property value. The package identifier.
-     *  @param string|null $value Value to set for the packageId property.
+     * @param string|null $value Value to set for the packageId property.
     */
     public function setPackageId(?string $value): void {
         $this->getBackingStore()->set('packageId', $value);
@@ -137,7 +137,7 @@ class ManagedAndroidLobApp extends ManagedMobileLobApp implements Parsable
 
     /**
      * Sets the versionCode property value. The version code of managed Android Line of Business (LoB) app.
-     *  @param string|null $value Value to set for the versionCode property.
+     * @param string|null $value Value to set for the versionCode property.
     */
     public function setVersionCode(?string $value): void {
         $this->getBackingStore()->set('versionCode', $value);
@@ -145,7 +145,7 @@ class ManagedAndroidLobApp extends ManagedMobileLobApp implements Parsable
 
     /**
      * Sets the versionName property value. The version name of managed Android Line of Business (LoB) app.
-     *  @param string|null $value Value to set for the versionName property.
+     * @param string|null $value Value to set for the versionName property.
     */
     public function setVersionName(?string $value): void {
         $this->getBackingStore()->set('versionName', $value);

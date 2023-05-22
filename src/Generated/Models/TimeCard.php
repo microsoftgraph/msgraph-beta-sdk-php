@@ -50,7 +50,7 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the confirmedBy property value. Indicate if this timeCard entry is confirmed. Possible values are none, user, manager, unknownFutureValue.
+     * Gets the confirmedBy property value. Indicates whether this timeCard entry is confirmed. Possible values are none, user, manager, unknownFutureValue.
      * @return ConfirmedBy|null
     */
     public function getConfirmedBy(): ?ConfirmedBy {
@@ -125,7 +125,7 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
 
     /**
      * Sets the breaks property value. The list of breaks associated with the timeCard.
-     *  @param array<TimeCardBreak>|null $value Value to set for the breaks property.
+     * @param array<TimeCardBreak>|null $value Value to set for the breaks property.
     */
     public function setBreaks(?array $value): void {
         $this->getBackingStore()->set('breaks', $value);
@@ -133,7 +133,7 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
 
     /**
      * Sets the clockInEvent property value. The clock-in event of the timeCard.
-     *  @param TimeCardEvent|null $value Value to set for the clockInEvent property.
+     * @param TimeCardEvent|null $value Value to set for the clockInEvent property.
     */
     public function setClockInEvent(?TimeCardEvent $value): void {
         $this->getBackingStore()->set('clockInEvent', $value);
@@ -141,15 +141,15 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
 
     /**
      * Sets the clockOutEvent property value. The clock-out event of the timeCard.
-     *  @param TimeCardEvent|null $value Value to set for the clockOutEvent property.
+     * @param TimeCardEvent|null $value Value to set for the clockOutEvent property.
     */
     public function setClockOutEvent(?TimeCardEvent $value): void {
         $this->getBackingStore()->set('clockOutEvent', $value);
     }
 
     /**
-     * Sets the confirmedBy property value. Indicate if this timeCard entry is confirmed. Possible values are none, user, manager, unknownFutureValue.
-     *  @param ConfirmedBy|null $value Value to set for the confirmedBy property.
+     * Sets the confirmedBy property value. Indicates whether this timeCard entry is confirmed. Possible values are none, user, manager, unknownFutureValue.
+     * @param ConfirmedBy|null $value Value to set for the confirmedBy property.
     */
     public function setConfirmedBy(?ConfirmedBy $value): void {
         $this->getBackingStore()->set('confirmedBy', $value);
@@ -157,7 +157,7 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
 
     /**
      * Sets the notes property value. Notes about the timeCard.
-     *  @param ItemBody|null $value Value to set for the notes property.
+     * @param ItemBody|null $value Value to set for the notes property.
     */
     public function setNotes(?ItemBody $value): void {
         $this->getBackingStore()->set('notes', $value);
@@ -165,7 +165,7 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
 
     /**
      * Sets the originalEntry property value. The original timeCardEntry of the timeCard, before user edits.
-     *  @param TimeCardEntry|null $value Value to set for the originalEntry property.
+     * @param TimeCardEntry|null $value Value to set for the originalEntry property.
     */
     public function setOriginalEntry(?TimeCardEntry $value): void {
         $this->getBackingStore()->set('originalEntry', $value);
@@ -173,7 +173,7 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
 
     /**
      * Sets the state property value. The current state of the timeCard during its life cycle.Possible values are: clockedIn, onBreak, clockedOut, unknownFutureValue.
-     *  @param TimeCardState|null $value Value to set for the state property.
+     * @param TimeCardState|null $value Value to set for the state property.
     */
     public function setState(?TimeCardState $value): void {
         $this->getBackingStore()->set('state', $value);
@@ -181,7 +181,7 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
 
     /**
      * Sets the userId property value. User ID to which  the timeCard belongs.
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);

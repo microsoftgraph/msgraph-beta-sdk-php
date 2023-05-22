@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Base type for a setting instance
+*/
 class DeviceManagementSettingInstance extends Entity implements Parsable 
 {
     /**
@@ -76,7 +79,7 @@ class DeviceManagementSettingInstance extends Entity implements Parsable
 
     /**
      * Sets the definitionId property value. The ID of the setting definition for this instance
-     *  @param string|null $value Value to set for the definitionId property.
+     * @param string|null $value Value to set for the definitionId property.
     */
     public function setDefinitionId(?string $value): void {
         $this->getBackingStore()->set('definitionId', $value);
@@ -84,7 +87,7 @@ class DeviceManagementSettingInstance extends Entity implements Parsable
 
     /**
      * Sets the valueJson property value. JSON representation of the value
-     *  @param string|null $value Value to set for the valueJson property.
+     * @param string|null $value Value to set for the valueJson property.
     */
     public function setValueJson(?string $value): void {
         $this->getBackingStore()->set('valueJson', $value);

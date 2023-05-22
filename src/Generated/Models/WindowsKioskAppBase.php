@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * The base class for a type of apps
+*/
 class WindowsKioskAppBase implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -45,7 +48,7 @@ class WindowsKioskAppBase implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -129,7 +132,7 @@ class WindowsKioskAppBase implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -137,7 +140,7 @@ class WindowsKioskAppBase implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the appType property value. The type of Windows kiosk app.
-     *  @param WindowsKioskAppType|null $value Value to set for the appType property.
+     * @param WindowsKioskAppType|null $value Value to set for the appType property.
     */
     public function setAppType(?WindowsKioskAppType $value): void {
         $this->getBackingStore()->set('appType', $value);
@@ -145,7 +148,7 @@ class WindowsKioskAppBase implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the autoLaunch property value. Allow the app to be auto-launched in multi-app kiosk mode
-     *  @param bool|null $value Value to set for the autoLaunch property.
+     * @param bool|null $value Value to set for the autoLaunch property.
     */
     public function setAutoLaunch(?bool $value): void {
         $this->getBackingStore()->set('autoLaunch', $value);
@@ -153,7 +156,7 @@ class WindowsKioskAppBase implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -161,7 +164,7 @@ class WindowsKioskAppBase implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the name property value. Represents the friendly name of an app
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -169,7 +172,7 @@ class WindowsKioskAppBase implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -177,7 +180,7 @@ class WindowsKioskAppBase implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the startLayoutTileSize property value. The tile size of Windows app in the start layout.
-     *  @param WindowsAppStartLayoutTileSize|null $value Value to set for the startLayoutTileSize property.
+     * @param WindowsAppStartLayoutTileSize|null $value Value to set for the startLayoutTileSize property.
     */
     public function setStartLayoutTileSize(?WindowsAppStartLayoutTileSize $value): void {
         $this->getBackingStore()->set('startLayoutTileSize', $value);

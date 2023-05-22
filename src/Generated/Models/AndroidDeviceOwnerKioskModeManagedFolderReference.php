@@ -65,7 +65,7 @@ class AndroidDeviceOwnerKioskModeManagedFolderReference extends AndroidDeviceOwn
 
     /**
      * Sets the folderIdentifier property value. Unique identifier for the folder
-     *  @param string|null $value Value to set for the folderIdentifier property.
+     * @param string|null $value Value to set for the folderIdentifier property.
     */
     public function setFolderIdentifier(?string $value): void {
         $this->getBackingStore()->set('folderIdentifier', $value);
@@ -73,7 +73,7 @@ class AndroidDeviceOwnerKioskModeManagedFolderReference extends AndroidDeviceOwn
 
     /**
      * Sets the folderName property value. Name of the folder
-     *  @param string|null $value Value to set for the folderName property.
+     * @param string|null $value Value to set for the folderName property.
     */
     public function setFolderName(?string $value): void {
         $this->getBackingStore()->set('folderName', $value);

@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Single configuration item inside an Android application's custom configuration schema.
+*/
 class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -190,7 +193,7 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -198,7 +201,7 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -206,7 +209,7 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
 
     /**
      * Sets the dataType property value. Data type for a configuration item inside an Android application's custom configuration schema
-     *  @param AndroidManagedStoreAppConfigurationSchemaItemDataType|null $value Value to set for the dataType property.
+     * @param AndroidManagedStoreAppConfigurationSchemaItemDataType|null $value Value to set for the dataType property.
     */
     public function setDataType(?AndroidManagedStoreAppConfigurationSchemaItemDataType $value): void {
         $this->getBackingStore()->set('dataType', $value);
@@ -214,7 +217,7 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
 
     /**
      * Sets the defaultBoolValue property value. Default value for boolean type items, if specified by the app developer
-     *  @param bool|null $value Value to set for the defaultBoolValue property.
+     * @param bool|null $value Value to set for the defaultBoolValue property.
     */
     public function setDefaultBoolValue(?bool $value): void {
         $this->getBackingStore()->set('defaultBoolValue', $value);
@@ -222,7 +225,7 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
 
     /**
      * Sets the defaultIntValue property value. Default value for integer type items, if specified by the app developer
-     *  @param int|null $value Value to set for the defaultIntValue property.
+     * @param int|null $value Value to set for the defaultIntValue property.
     */
     public function setDefaultIntValue(?int $value): void {
         $this->getBackingStore()->set('defaultIntValue', $value);
@@ -230,7 +233,7 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
 
     /**
      * Sets the defaultStringArrayValue property value. Default value for string array type items, if specified by the app developer
-     *  @param array<string>|null $value Value to set for the defaultStringArrayValue property.
+     * @param array<string>|null $value Value to set for the defaultStringArrayValue property.
     */
     public function setDefaultStringArrayValue(?array $value): void {
         $this->getBackingStore()->set('defaultStringArrayValue', $value);
@@ -238,7 +241,7 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
 
     /**
      * Sets the defaultStringValue property value. Default value for string type items, if specified by the app developer
-     *  @param string|null $value Value to set for the defaultStringValue property.
+     * @param string|null $value Value to set for the defaultStringValue property.
     */
     public function setDefaultStringValue(?string $value): void {
         $this->getBackingStore()->set('defaultStringValue', $value);
@@ -246,7 +249,7 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
 
     /**
      * Sets the description property value. Description of what the item controls within the application
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -254,7 +257,7 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
 
     /**
      * Sets the displayName property value. Human readable name
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -262,7 +265,7 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
 
     /**
      * Sets the index property value. Unique index the application uses to maintain nested schema items
-     *  @param int|null $value Value to set for the index property.
+     * @param int|null $value Value to set for the index property.
     */
     public function setIndex(?int $value): void {
         $this->getBackingStore()->set('index', $value);
@@ -270,7 +273,7 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -278,7 +281,7 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
 
     /**
      * Sets the parentIndex property value. Index of parent schema item to track nested schema items
-     *  @param int|null $value Value to set for the parentIndex property.
+     * @param int|null $value Value to set for the parentIndex property.
     */
     public function setParentIndex(?int $value): void {
         $this->getBackingStore()->set('parentIndex', $value);
@@ -286,7 +289,7 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
 
     /**
      * Sets the schemaItemKey property value. Unique key the application uses to identify the item
-     *  @param string|null $value Value to set for the schemaItemKey property.
+     * @param string|null $value Value to set for the schemaItemKey property.
     */
     public function setSchemaItemKey(?string $value): void {
         $this->getBackingStore()->set('schemaItemKey', $value);
@@ -294,7 +297,7 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
 
     /**
      * Sets the selections property value. List of human readable name/value pairs for the valid values that can be set for this item (Choice and Multiselect items only)
-     *  @param array<KeyValuePair>|null $value Value to set for the selections property.
+     * @param array<KeyValuePair>|null $value Value to set for the selections property.
     */
     public function setSelections(?array $value): void {
         $this->getBackingStore()->set('selections', $value);

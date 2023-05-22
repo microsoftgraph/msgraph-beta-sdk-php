@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TenantGroup extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new tenantGroup and sets the default values.
+     * Instantiates a new TenantGroup and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -95,7 +95,7 @@ class TenantGroup extends Entity implements Parsable
 
     /**
      * Sets the allTenantsIncluded property value. A flag indicating whether all managed tenant are included in the tenant group. Required. Read-only.
-     *  @param bool|null $value Value to set for the allTenantsIncluded property.
+     * @param bool|null $value Value to set for the allTenantsIncluded property.
     */
     public function setAllTenantsIncluded(?bool $value): void {
         $this->getBackingStore()->set('allTenantsIncluded', $value);
@@ -103,7 +103,7 @@ class TenantGroup extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name for the tenant group. Optional. Read-only.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -111,7 +111,7 @@ class TenantGroup extends Entity implements Parsable
 
     /**
      * Sets the managementActions property value. The collection of management action associated with the tenant group. Optional. Read-only.
-     *  @param array<ManagementActionInfo>|null $value Value to set for the managementActions property.
+     * @param array<ManagementActionInfo>|null $value Value to set for the managementActions property.
     */
     public function setManagementActions(?array $value): void {
         $this->getBackingStore()->set('managementActions', $value);
@@ -119,7 +119,7 @@ class TenantGroup extends Entity implements Parsable
 
     /**
      * Sets the managementIntents property value. The collection of management intents associated with the tenant group. Optional. Read-only.
-     *  @param array<ManagementIntentInfo>|null $value Value to set for the managementIntents property.
+     * @param array<ManagementIntentInfo>|null $value Value to set for the managementIntents property.
     */
     public function setManagementIntents(?array $value): void {
         $this->getBackingStore()->set('managementIntents', $value);
@@ -127,7 +127,7 @@ class TenantGroup extends Entity implements Parsable
 
     /**
      * Sets the tenantIds property value. The collection of managed tenant identifiers include in the tenant group. Optional. Read-only.
-     *  @param array<string>|null $value Value to set for the tenantIds property.
+     * @param array<string>|null $value Value to set for the tenantIds property.
     */
     public function setTenantIds(?array $value): void {
         $this->getBackingStore()->set('tenantIds', $value);
