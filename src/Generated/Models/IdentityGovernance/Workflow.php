@@ -3,7 +3,6 @@
 namespace Microsoft\Graph\Beta\Generated\Models\IdentityGovernance;
 
 use DateTime;
-use Microsoft\Graph\Beta\Generated\Models\User;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -37,7 +36,7 @@ class Workflow extends WorkflowBase implements Parsable
 
     /**
      * Gets the executionScope property value. The unique identifier of the Azure AD identity that last modified the workflow object.
-     * @return array<User>|null
+     * @return array<UserProcessingResult>|null
     */
     public function getExecutionScope(): ?array {
         return $this->getBackingStore()->get('executionScope');
@@ -51,7 +50,7 @@ class Workflow extends WorkflowBase implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'deletedDateTime' => fn(ParseNode $n) => $o->setDeletedDateTime($n->getDateTimeValue()),
-            'executionScope' => fn(ParseNode $n) => $o->setExecutionScope($n->getCollectionOfObjectValues([User::class, 'createFromDiscriminatorValue'])),
+            'executionScope' => fn(ParseNode $n) => $o->setExecutionScope($n->getCollectionOfObjectValues([UserProcessingResult::class, 'createFromDiscriminatorValue'])),
             'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
             'nextScheduleRunDateTime' => fn(ParseNode $n) => $o->setNextScheduleRunDateTime($n->getDateTimeValue()),
             'runs' => fn(ParseNode $n) => $o->setRuns($n->getCollectionOfObjectValues([Run::class, 'createFromDiscriminatorValue'])),
@@ -145,7 +144,7 @@ class Workflow extends WorkflowBase implements Parsable
 
     /**
      * Sets the executionScope property value. The unique identifier of the Azure AD identity that last modified the workflow object.
-     * @param array<User>|null $value Value to set for the executionScope property.
+     * @param array<UserProcessingResult>|null $value Value to set for the executionScope property.
     */
     public function setExecutionScope(?array $value): void {
         $this->getBackingStore()->set('executionScope', $value);

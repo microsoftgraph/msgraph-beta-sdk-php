@@ -192,6 +192,7 @@ class PlannerTask extends PlannerDelta implements Parsable
             'progressTaskBoardFormat' => fn(ParseNode $n) => $o->setProgressTaskBoardFormat($n->getObjectValue([PlannerProgressTaskBoardTaskFormat::class, 'createFromDiscriminatorValue'])),
             'recurrence' => fn(ParseNode $n) => $o->setRecurrence($n->getObjectValue([PlannerTaskRecurrence::class, 'createFromDiscriminatorValue'])),
             'referenceCount' => fn(ParseNode $n) => $o->setReferenceCount($n->getIntegerValue()),
+            'specifiedCompletionRequirements' => fn(ParseNode $n) => $o->setSpecifiedCompletionRequirements($n->getEnumValue(PlannerTaskCompletionRequirements::class)),
             'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
             'title' => fn(ParseNode $n) => $o->setTitle($n->getStringValue()),
         ]);
@@ -270,6 +271,14 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
+     * Gets the specifiedCompletionRequirements property value. The specifiedCompletionRequirements property
+     * @return PlannerTaskCompletionRequirements|null
+    */
+    public function getSpecifiedCompletionRequirements(): ?PlannerTaskCompletionRequirements {
+        return $this->getBackingStore()->get('specifiedCompletionRequirements');
+    }
+
+    /**
      * Gets the startDateTime property value. Date and time at which the task starts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @return DateTime|null
     */
@@ -316,6 +325,7 @@ class PlannerTask extends PlannerDelta implements Parsable
         $writer->writeObjectValue('progressTaskBoardFormat', $this->getProgressTaskBoardFormat());
         $writer->writeObjectValue('recurrence', $this->getRecurrence());
         $writer->writeIntegerValue('referenceCount', $this->getReferenceCount());
+        $writer->writeEnumValue('specifiedCompletionRequirements', $this->getSpecifiedCompletionRequirements());
         $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
         $writer->writeStringValue('title', $this->getTitle());
     }
@@ -518,6 +528,14 @@ class PlannerTask extends PlannerDelta implements Parsable
     */
     public function setReferenceCount(?int $value): void {
         $this->getBackingStore()->set('referenceCount', $value);
+    }
+
+    /**
+     * Sets the specifiedCompletionRequirements property value. The specifiedCompletionRequirements property
+     * @param PlannerTaskCompletionRequirements|null $value Value to set for the specifiedCompletionRequirements property.
+    */
+    public function setSpecifiedCompletionRequirements(?PlannerTaskCompletionRequirements $value): void {
+        $this->getBackingStore()->set('specifiedCompletionRequirements', $value);
     }
 
     /**

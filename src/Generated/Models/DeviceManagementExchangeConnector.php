@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity which represents a connection to an Exchange environment.
+*/
 class DeviceManagementExchangeConnector extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementExchangeConnector and sets the default values.
+     * Instantiates a new deviceManagementExchangeConnector and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -10,7 +10,6 @@ use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\P
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\Restart\RestartRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\Schema\SchemaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\Start\StartRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\Stop\StopRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\ValidateCredentials\ValidateCredentialsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SynchronizationJob;
@@ -57,13 +56,6 @@ class SynchronizationJobItemRequestBuilder extends BaseRequestBuilder
     */
     public function start(): StartRequestBuilder {
         return new StartRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the stop method.
-    */
-    public function stop(): StopRequestBuilder {
-        return new StopRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

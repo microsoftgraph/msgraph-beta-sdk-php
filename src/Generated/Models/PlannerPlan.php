@@ -111,7 +111,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the sharedWithContainers property value. The sharedWithContainers property
+     * Gets the sharedWithContainers property value. List of containers the plan is shared with.
      * @return array<PlannerSharedWithContainer>|null
     */
     public function getSharedWithContainers(): ?array {
@@ -218,7 +218,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the sharedWithContainers property value. The sharedWithContainers property
+     * Sets the sharedWithContainers property value. List of containers the plan is shared with.
      * @param array<PlannerSharedWithContainer>|null $value Value to set for the sharedWithContainers property.
     */
     public function setSharedWithContainers(?array $value): void {

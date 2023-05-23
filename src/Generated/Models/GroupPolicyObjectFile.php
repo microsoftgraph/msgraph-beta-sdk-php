@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The Group Policy Object file uploaded by admin.
+*/
 class GroupPolicyObjectFile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new GroupPolicyObjectFile and sets the default values.
+     * Instantiates a new groupPolicyObjectFile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

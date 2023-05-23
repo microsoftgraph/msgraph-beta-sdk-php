@@ -42,6 +42,14 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
     }
 
     /**
+     * Gets the appActionIfAccountIsClockedOut property value. Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time).
+     * @return ManagedAppRemediationAction|null
+    */
+    public function getAppActionIfAccountIsClockedOut(): ?ManagedAppRemediationAction {
+        return $this->getBackingStore()->get('appActionIfAccountIsClockedOut');
+    }
+
+    /**
      * Gets the appActionIfAndroidDeviceManufacturerNotAllowed property value. An admin initiated action to be applied on a managed app.
      * @return ManagedAppRemediationAction|null
     */
@@ -234,6 +242,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
         return array_merge(parent::getFieldDeserializers(), [
             'allowedAndroidDeviceManufacturers' => fn(ParseNode $n) => $o->setAllowedAndroidDeviceManufacturers($n->getStringValue()),
             'allowedAndroidDeviceModels' => fn(ParseNode $n) => $o->setAllowedAndroidDeviceModels($n->getCollectionOfPrimitiveValues()),
+            'appActionIfAccountIsClockedOut' => fn(ParseNode $n) => $o->setAppActionIfAccountIsClockedOut($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appActionIfAndroidDeviceManufacturerNotAllowed' => fn(ParseNode $n) => $o->setAppActionIfAndroidDeviceManufacturerNotAllowed($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appActionIfAndroidDeviceModelNotAllowed' => fn(ParseNode $n) => $o->setAppActionIfAndroidDeviceModelNotAllowed($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appActionIfAndroidSafetyNetAppsVerificationFailed' => fn(ParseNode $n) => $o->setAppActionIfAndroidSafetyNetAppsVerificationFailed($n->getEnumValue(ManagedAppRemediationAction::class)),
@@ -412,6 +421,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
         parent::serialize($writer);
         $writer->writeStringValue('allowedAndroidDeviceManufacturers', $this->getAllowedAndroidDeviceManufacturers());
         $writer->writeCollectionOfPrimitiveValues('allowedAndroidDeviceModels', $this->getAllowedAndroidDeviceModels());
+        $writer->writeEnumValue('appActionIfAccountIsClockedOut', $this->getAppActionIfAccountIsClockedOut());
         $writer->writeEnumValue('appActionIfAndroidDeviceManufacturerNotAllowed', $this->getAppActionIfAndroidDeviceManufacturerNotAllowed());
         $writer->writeEnumValue('appActionIfAndroidDeviceModelNotAllowed', $this->getAppActionIfAndroidDeviceModelNotAllowed());
         $writer->writeEnumValue('appActionIfAndroidSafetyNetAppsVerificationFailed', $this->getAppActionIfAndroidSafetyNetAppsVerificationFailed());
@@ -467,6 +477,14 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
     */
     public function setAllowedAndroidDeviceModels(?array $value): void {
         $this->getBackingStore()->set('allowedAndroidDeviceModels', $value);
+    }
+
+    /**
+     * Sets the appActionIfAccountIsClockedOut property value. Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time).
+     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfAccountIsClockedOut property.
+    */
+    public function setAppActionIfAccountIsClockedOut(?ManagedAppRemediationAction $value): void {
+        $this->getBackingStore()->set('appActionIfAccountIsClockedOut', $value);
     }
 
     /**

@@ -50,6 +50,14 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
+     * Gets the completionRequirements property value. The completionRequirements property
+     * @return array<string>|null
+    */
+    public function getCompletionRequirements(): ?array {
+        return $this->getBackingStore()->get('completionRequirements');
+    }
+
+    /**
      * Gets the delete property value. Rules and restrictions for deleting the task. Accepted values are allow and block.
      * @return array<string>|null
     */
@@ -75,6 +83,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
             'appliedCategories' => fn(ParseNode $n) => $o->setAppliedCategories($n->getObjectValue([PlannerFieldRules::class, 'createFromDiscriminatorValue'])),
             'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getObjectValue([PlannerFieldRules::class, 'createFromDiscriminatorValue'])),
             'checkLists' => fn(ParseNode $n) => $o->setCheckLists($n->getObjectValue([PlannerFieldRules::class, 'createFromDiscriminatorValue'])),
+            'completionRequirements' => fn(ParseNode $n) => $o->setCompletionRequirements($n->getCollectionOfPrimitiveValues()),
             'delete' => fn(ParseNode $n) => $o->setDelete($n->getCollectionOfPrimitiveValues()),
             'dueDate' => fn(ParseNode $n) => $o->setDueDate($n->getCollectionOfPrimitiveValues()),
             'move' => fn(ParseNode $n) => $o->setMove($n->getCollectionOfPrimitiveValues()),
@@ -170,6 +179,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
         $writer->writeObjectValue('appliedCategories', $this->getAppliedCategories());
         $writer->writeObjectValue('assignments', $this->getAssignments());
         $writer->writeObjectValue('checkLists', $this->getCheckLists());
+        $writer->writeCollectionOfPrimitiveValues('completionRequirements', $this->getCompletionRequirements());
         $writer->writeCollectionOfPrimitiveValues('delete', $this->getDelete());
         $writer->writeCollectionOfPrimitiveValues('dueDate', $this->getDueDate());
         $writer->writeCollectionOfPrimitiveValues('move', $this->getMove());
@@ -205,6 +215,14 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     */
     public function setCheckLists(?PlannerFieldRules $value): void {
         $this->getBackingStore()->set('checkLists', $value);
+    }
+
+    /**
+     * Sets the completionRequirements property value. The completionRequirements property
+     * @param array<string>|null $value Value to set for the completionRequirements property.
+    */
+    public function setCompletionRequirements(?array $value): void {
+        $this->getBackingStore()->set('completionRequirements', $value);
     }
 
     /**

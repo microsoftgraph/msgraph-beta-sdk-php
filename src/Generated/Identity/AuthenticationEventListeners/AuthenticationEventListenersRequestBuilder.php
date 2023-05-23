@@ -53,7 +53,7 @@ class AuthenticationEventListenersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the authenticationEventListener objects and their properties. Only the onTokenIssuanceStartListener type is supported.
+     * Get a list of the authenticationEventListener objects and their properties. The following derived types are supported:
      * @param AuthenticationEventListenersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/identitycontainer-list-authenticationeventlisteners?view=graph-rest-1.0 Find more info here
@@ -72,7 +72,7 @@ class AuthenticationEventListenersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new authenticationEventListener object. Only the onTokenIssuanceStartListener type is supported.
+     * Create a new authenticationEventListener object. You can create one of the following subtypes that are derived from **authenticationEventListener**.
      * @param AuthenticationEventListener $body The request body
      * @param AuthenticationEventListenersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -92,7 +92,7 @@ class AuthenticationEventListenersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the authenticationEventListener objects and their properties. Only the onTokenIssuanceStartListener type is supported.
+     * Get a list of the authenticationEventListener objects and their properties. The following derived types are supported:
      * @param AuthenticationEventListenersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +113,7 @@ class AuthenticationEventListenersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new authenticationEventListener object. Only the onTokenIssuanceStartListener type is supported.
+     * Create a new authenticationEventListener object. You can create one of the following subtypes that are derived from **authenticationEventListener**.
      * @param AuthenticationEventListener $body The request body
      * @param AuthenticationEventListenersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

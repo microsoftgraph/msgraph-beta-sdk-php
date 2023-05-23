@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics anomaly entity contains device details.
+*/
 class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsAnomalyDevice and sets the default values.
+     * Instantiates a new userExperienceAnalyticsAnomalyDevice and sets the default values.
     */
     public function __construct() {
         parent::__construct();

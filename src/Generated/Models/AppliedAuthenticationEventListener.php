@@ -51,7 +51,7 @@ class AppliedAuthenticationEventListener implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the eventType property value. The type of authentication event that triggered the custom extension request. The possible values are: tokenIssuanceStart, pageRenderStart, unknownFutureValue.
+     * Gets the eventType property value. The type of authentication event that triggered the custom authentication extension request. The possible values are: tokenIssuanceStart, pageRenderStart, unknownFutureValue.
      * @return AuthenticationEventType|null
     */
     public function getEventType(): ?AuthenticationEventType {
@@ -59,7 +59,7 @@ class AppliedAuthenticationEventListener implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the executedListenerId property value. ID of the Event Listener that was executed.
+     * Gets the executedListenerId property value. ID of the authentication event listener that was executed.
      * @return string|null
     */
     public function getExecutedListenerId(): ?string {
@@ -125,7 +125,7 @@ class AppliedAuthenticationEventListener implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Sets the eventType property value. The type of authentication event that triggered the custom extension request. The possible values are: tokenIssuanceStart, pageRenderStart, unknownFutureValue.
+     * Sets the eventType property value. The type of authentication event that triggered the custom authentication extension request. The possible values are: tokenIssuanceStart, pageRenderStart, unknownFutureValue.
      * @param AuthenticationEventType|null $value Value to set for the eventType property.
     */
     public function setEventType(?AuthenticationEventType $value): void {
@@ -133,7 +133,7 @@ class AppliedAuthenticationEventListener implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Sets the executedListenerId property value. ID of the Event Listener that was executed.
+     * Sets the executedListenerId property value. ID of the authentication event listener that was executed.
      * @param string|null $value Value to set for the executedListenerId property.
     */
     public function setExecutedListenerId(?string $value): void {

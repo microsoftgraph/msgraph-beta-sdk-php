@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OnPremisesPublishingProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new onPremisesPublishingProfile and sets the default values.
+     * Instantiates a new OnPremisesPublishingProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
