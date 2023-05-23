@@ -32,7 +32,7 @@ Register your application to use the Microsoft Graph API using [Microsoft Azure 
 
 A Token Request Context contains the credentials used to authenticate requests. The SDK supports various contexts that align with OAuth 2.0 flows: `client_credentials`, `authorization_code` and `on_behalf_of` with support for secret-based and certificate-based client authentication.
 
-Under the hood, the Token Request Context is passed to an authentication provider which fetches, caches and refreshes access tokens ensuring all requests are authenticated against the Microsoft Identity platform.
+The Token Request Context is passed to an authentication provider which fetches, caches and refreshes access tokens ensuring all requests are authenticated against the Microsoft Identity platform.
 
 The following sample creates a TokenRequestContext that [gets access without a user](https://docs.microsoft.com/en-us/graph/auth-v2-service?context=graph%2Fapi%2F1.0&view=graph-rest-1.0):
 
