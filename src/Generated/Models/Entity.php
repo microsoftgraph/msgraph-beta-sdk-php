@@ -443,6 +443,9 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.cancelMediaProcessingOperation': return new CancelMediaProcessingOperation();
                 case '#microsoft.graph.canvasLayout': return new CanvasLayout();
                 case '#microsoft.graph.cartToClassAssociation': return new CartToClassAssociation();
+                case '#microsoft.graph.certificateAuthorityAsEntity': return new CertificateAuthorityAsEntity();
+                case '#microsoft.graph.certificateAuthorityPath': return new CertificateAuthorityPath();
+                case '#microsoft.graph.certificateBasedApplicationConfiguration': return new CertificateBasedApplicationConfiguration();
                 case '#microsoft.graph.certificateBasedAuthConfiguration': return new CertificateBasedAuthConfiguration();
                 case '#microsoft.graph.certificateConnectorDetails': return new CertificateConnectorDetails();
                 case '#microsoft.graph.changeTrackedEntity': return new ChangeTrackedEntity();
@@ -1546,6 +1549,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.tooManyGlobalAdminsAssignedToTenantAlertConfiguration': return new TooManyGlobalAdminsAssignedToTenantAlertConfiguration();
                 case '#microsoft.graph.tooManyGlobalAdminsAssignedToTenantAlertIncident': return new TooManyGlobalAdminsAssignedToTenantAlertIncident();
                 case '#microsoft.graph.trending': return new Trending();
+                case '#microsoft.graph.trustedCertificateAuthorityAsEntityBase': return new TrustedCertificateAuthorityAsEntityBase();
                 case '#microsoft.graph.trustFrameworkKeySet': return new TrustFrameworkKeySet();
                 case '#microsoft.graph.trustFrameworkPolicy': return new TrustFrameworkPolicy();
                 case '#microsoft.graph.unifiedRbacApplication': return new UnifiedRbacApplication();
@@ -1649,6 +1653,14 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.verticalSection': return new VerticalSection();
                 case '#microsoft.graph.virtualAppointment': return new VirtualAppointment();
                 case '#microsoft.graph.virtualEndpoint': return new VirtualEndpoint();
+                case '#microsoft.graph.virtualEvent': return new VirtualEvent();
+                case '#microsoft.graph.virtualEventPresenter': return new VirtualEventPresenter();
+                case '#microsoft.graph.virtualEventRegistrant': return new VirtualEventRegistrant();
+                case '#microsoft.graph.virtualEventRegistration': return new VirtualEventRegistration();
+                case '#microsoft.graph.virtualEventRegistrationQuestion': return new VirtualEventRegistrationQuestion();
+                case '#microsoft.graph.virtualEventSession': return new VirtualEventSession();
+                case '#microsoft.graph.virtualEventsRoot': return new VirtualEventsRoot();
+                case '#microsoft.graph.virtualEventWebinar': return new VirtualEventWebinar();
                 case '#microsoft.graph.voiceAuthenticationMethodConfiguration': return new VoiceAuthenticationMethodConfiguration();
                 case '#microsoft.graph.voiceAuthenticationMethodTarget': return new VoiceAuthenticationMethodTarget();
                 case '#microsoft.graph.vpnConfiguration': return new VpnConfiguration();

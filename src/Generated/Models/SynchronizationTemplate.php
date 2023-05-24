@@ -76,14 +76,14 @@ class SynchronizationTemplate extends Entity implements Parsable
             'discoverable' => fn(ParseNode $n) => $o->setDiscoverable($n->getBooleanValue()),
             'default' => fn(ParseNode $n) => $o->setDefault($n->getBooleanValue()),
             'factoryTag' => fn(ParseNode $n) => $o->setFactoryTag($n->getStringValue()),
-            'metadata' => fn(ParseNode $n) => $o->setMetadata($n->getCollectionOfObjectValues([MetadataEntry::class, 'createFromDiscriminatorValue'])),
+            'metadata' => fn(ParseNode $n) => $o->setMetadata($n->getCollectionOfObjectValues([SynchronizationMetadataEntry::class, 'createFromDiscriminatorValue'])),
             'schema' => fn(ParseNode $n) => $o->setSchema($n->getObjectValue([SynchronizationSchema::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
      * Gets the metadata property value. Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
-     * @return array<MetadataEntry>|null
+     * @return array<SynchronizationMetadataEntry>|null
     */
     public function getMetadata(): ?array {
         return $this->getBackingStore()->get('metadata');
@@ -154,7 +154,7 @@ class SynchronizationTemplate extends Entity implements Parsable
 
     /**
      * Sets the metadata property value. Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
-     * @param array<MetadataEntry>|null $value Value to set for the metadata property.
+     * @param array<SynchronizationMetadataEntry>|null $value Value to set for the metadata property.
     */
     public function setMetadata(?array $value): void {
         $this->getBackingStore()->set('metadata', $value);

@@ -60,6 +60,14 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the authenticationBehaviors property value. The authenticationBehaviors property
+     * @return AuthenticationBehaviors|null
+    */
+    public function getAuthenticationBehaviors(): ?AuthenticationBehaviors {
+        return $this->getBackingStore()->get('authenticationBehaviors');
+    }
+
+    /**
      * Gets the certification property value. Specifies the certification status of the application.
      * @return Certification|null
     */
@@ -150,6 +158,7 @@ class Application extends DirectoryObject implements Parsable
             'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
             'appManagementPolicies' => fn(ParseNode $n) => $o->setAppManagementPolicies($n->getCollectionOfObjectValues([AppManagementPolicy::class, 'createFromDiscriminatorValue'])),
             'appRoles' => fn(ParseNode $n) => $o->setAppRoles($n->getCollectionOfObjectValues([AppRole::class, 'createFromDiscriminatorValue'])),
+            'authenticationBehaviors' => fn(ParseNode $n) => $o->setAuthenticationBehaviors($n->getObjectValue([AuthenticationBehaviors::class, 'createFromDiscriminatorValue'])),
             'certification' => fn(ParseNode $n) => $o->setCertification($n->getObjectValue([Certification::class, 'createFromDiscriminatorValue'])),
             'connectorGroup' => fn(ParseNode $n) => $o->setConnectorGroup($n->getObjectValue([ConnectorGroup::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
@@ -461,6 +470,7 @@ class Application extends DirectoryObject implements Parsable
         $writer->writeStringValue('appId', $this->getAppId());
         $writer->writeCollectionOfObjectValues('appManagementPolicies', $this->getAppManagementPolicies());
         $writer->writeCollectionOfObjectValues('appRoles', $this->getAppRoles());
+        $writer->writeObjectValue('authenticationBehaviors', $this->getAuthenticationBehaviors());
         $writer->writeObjectValue('certification', $this->getCertification());
         $writer->writeObjectValue('connectorGroup', $this->getConnectorGroup());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
@@ -535,6 +545,14 @@ class Application extends DirectoryObject implements Parsable
     */
     public function setAppRoles(?array $value): void {
         $this->getBackingStore()->set('appRoles', $value);
+    }
+
+    /**
+     * Sets the authenticationBehaviors property value. The authenticationBehaviors property
+     * @param AuthenticationBehaviors|null $value Value to set for the authenticationBehaviors property.
+    */
+    public function setAuthenticationBehaviors(?AuthenticationBehaviors $value): void {
+        $this->getBackingStore()->set('authenticationBehaviors', $value);
     }
 
     /**

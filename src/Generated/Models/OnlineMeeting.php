@@ -23,6 +23,13 @@ class OnlineMeeting extends Entity implements Parsable
      * @return OnlineMeeting
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): OnlineMeeting {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.virtualEventSession': return new VirtualEventSession();
+            }
+        }
         return new OnlineMeeting();
     }
 

@@ -76,7 +76,7 @@ class ObjectMapping implements AdditionalDataHolder, BackedModel, Parsable
             'attributeMappings' => fn(ParseNode $n) => $o->setAttributeMappings($n->getCollectionOfObjectValues([AttributeMapping::class, 'createFromDiscriminatorValue'])),
             'enabled' => fn(ParseNode $n) => $o->setEnabled($n->getBooleanValue()),
             'flowTypes' => fn(ParseNode $n) => $o->setFlowTypes($n->getEnumValue(ObjectFlowTypes::class)),
-            'metadata' => fn(ParseNode $n) => $o->setMetadata($n->getCollectionOfObjectValues([MetadataEntry::class, 'createFromDiscriminatorValue'])),
+            'metadata' => fn(ParseNode $n) => $o->setMetadata($n->getCollectionOfObjectValues([ObjectMappingMetadataEntry::class, 'createFromDiscriminatorValue'])),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'scope' => fn(ParseNode $n) => $o->setScope($n->getObjectValue([Filter::class, 'createFromDiscriminatorValue'])),
@@ -95,7 +95,7 @@ class ObjectMapping implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the metadata property value. Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
-     * @return array<MetadataEntry>|null
+     * @return array<ObjectMappingMetadataEntry>|null
     */
     public function getMetadata(): ?array {
         return $this->getBackingStore()->get('metadata');
@@ -200,7 +200,7 @@ class ObjectMapping implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the metadata property value. Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
-     * @param array<MetadataEntry>|null $value Value to set for the metadata property.
+     * @param array<ObjectMappingMetadataEntry>|null $value Value to set for the metadata property.
     */
     public function setMetadata(?array $value): void {
         $this->getBackingStore()->set('metadata', $value);

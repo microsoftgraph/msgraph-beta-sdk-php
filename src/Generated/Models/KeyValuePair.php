@@ -64,7 +64,7 @@ class KeyValuePair implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the name property value. Name for this key-value pair. For more information about possible names for each resource type that uses this configuration, see keyValuePair names and values.
+     * Gets the name property value. Name for this key-value pair
      * @return string|null
     */
     public function getName(): ?string {
@@ -80,7 +80,7 @@ class KeyValuePair implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the value property value. Value for this key-value pair. For more information about possible values for each resource type that uses this configuration, see keyValuePair names and values.
+     * Gets the value property value. Value for this key-value pair
      * @return string|null
     */
     public function getValue(): ?string {
@@ -115,7 +115,7 @@ class KeyValuePair implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the name property value. Name for this key-value pair. For more information about possible names for each resource type that uses this configuration, see keyValuePair names and values.
+     * Sets the name property value. Name for this key-value pair
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
@@ -131,7 +131,7 @@ class KeyValuePair implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the value property value. Value for this key-value pair. For more information about possible values for each resource type that uses this configuration, see keyValuePair names and values.
+     * Sets the value property value. Value for this key-value pair
      * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {

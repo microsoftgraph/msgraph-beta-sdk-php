@@ -41,6 +41,14 @@ class Directory extends Entity implements Parsable
     }
 
     /**
+     * Gets the certificateAuthorities property value. The certificateAuthorities property
+     * @return CertificateAuthorityPath|null
+    */
+    public function getCertificateAuthorities(): ?CertificateAuthorityPath {
+        return $this->getBackingStore()->get('certificateAuthorities');
+    }
+
+    /**
      * Gets the customSecurityAttributeDefinitions property value. Schema of a custom security attributes (key-value pairs).
      * @return array<CustomSecurityAttributeDefinition>|null
     */
@@ -81,6 +89,7 @@ class Directory extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'administrativeUnits' => fn(ParseNode $n) => $o->setAdministrativeUnits($n->getCollectionOfObjectValues([AdministrativeUnit::class, 'createFromDiscriminatorValue'])),
             'attributeSets' => fn(ParseNode $n) => $o->setAttributeSets($n->getCollectionOfObjectValues([AttributeSet::class, 'createFromDiscriminatorValue'])),
+            'certificateAuthorities' => fn(ParseNode $n) => $o->setCertificateAuthorities($n->getObjectValue([CertificateAuthorityPath::class, 'createFromDiscriminatorValue'])),
             'customSecurityAttributeDefinitions' => fn(ParseNode $n) => $o->setCustomSecurityAttributeDefinitions($n->getCollectionOfObjectValues([CustomSecurityAttributeDefinition::class, 'createFromDiscriminatorValue'])),
             'deletedItems' => fn(ParseNode $n) => $o->setDeletedItems($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'featureRolloutPolicies' => fn(ParseNode $n) => $o->setFeatureRolloutPolicies($n->getCollectionOfObjectValues([FeatureRolloutPolicy::class, 'createFromDiscriminatorValue'])),
@@ -150,6 +159,7 @@ class Directory extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('administrativeUnits', $this->getAdministrativeUnits());
         $writer->writeCollectionOfObjectValues('attributeSets', $this->getAttributeSets());
+        $writer->writeObjectValue('certificateAuthorities', $this->getCertificateAuthorities());
         $writer->writeCollectionOfObjectValues('customSecurityAttributeDefinitions', $this->getCustomSecurityAttributeDefinitions());
         $writer->writeCollectionOfObjectValues('deletedItems', $this->getDeletedItems());
         $writer->writeCollectionOfObjectValues('featureRolloutPolicies', $this->getFeatureRolloutPolicies());
@@ -176,6 +186,14 @@ class Directory extends Entity implements Parsable
     */
     public function setAttributeSets(?array $value): void {
         $this->getBackingStore()->set('attributeSets', $value);
+    }
+
+    /**
+     * Sets the certificateAuthorities property value. The certificateAuthorities property
+     * @param CertificateAuthorityPath|null $value Value to set for the certificateAuthorities property.
+    */
+    public function setCertificateAuthorities(?CertificateAuthorityPath $value): void {
+        $this->getBackingStore()->set('certificateAuthorities', $value);
     }
 
     /**

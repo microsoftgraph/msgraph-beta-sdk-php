@@ -66,7 +66,7 @@ class ObjectDefinition implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             'attributes' => fn(ParseNode $n) => $o->setAttributes($n->getCollectionOfObjectValues([AttributeDefinition::class, 'createFromDiscriminatorValue'])),
-            'metadata' => fn(ParseNode $n) => $o->setMetadata($n->getCollectionOfObjectValues([MetadataEntry::class, 'createFromDiscriminatorValue'])),
+            'metadata' => fn(ParseNode $n) => $o->setMetadata($n->getCollectionOfObjectValues([ObjectDefinitionMetadataEntry::class, 'createFromDiscriminatorValue'])),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'supportedApis' => fn(ParseNode $n) => $o->setSupportedApis($n->getCollectionOfPrimitiveValues()),
@@ -75,7 +75,7 @@ class ObjectDefinition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the metadata property value. The metadata property
-     * @return array<MetadataEntry>|null
+     * @return array<ObjectDefinitionMetadataEntry>|null
     */
     public function getMetadata(): ?array {
         return $this->getBackingStore()->get('metadata');
@@ -144,7 +144,7 @@ class ObjectDefinition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the metadata property value. The metadata property
-     * @param array<MetadataEntry>|null $value Value to set for the metadata property.
+     * @param array<ObjectDefinitionMetadataEntry>|null $value Value to set for the metadata property.
     */
     public function setMetadata(?array $value): void {
         $this->getBackingStore()->set('metadata', $value);
