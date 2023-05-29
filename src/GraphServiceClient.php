@@ -10,6 +10,7 @@ namespace Microsoft\Graph\Beta;
 
 use Microsoft\Graph\Beta\Generated\Users\Item\UserItemRequestBuilder;
 use Microsoft\Graph\Core\Authentication\GraphPhpLeagueAuthenticationProvider;
+use Microsoft\Graph\Core\NationalCloud;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Authentication\Oauth\ClientCredentialContext;
 use Microsoft\Kiota\Authentication\Oauth\TokenRequestContext;
@@ -26,12 +27,15 @@ class GraphServiceClient extends Generated\BaseGraphClient
 {
     /**
      * @param TokenRequestContext $tokenRequestContext
-     * @param array $scopes
+     * @param array $scopes Defaults to "https://[graph national cloud host]/.default" scope
+     * @param string $nationalCloud Defaults to https://graph.microsoft.com. See
+     * https://learn.microsoft.com/en-us/graph/deployments
      * @param RequestAdapter|null $requestAdapter Use createWithRequestAdapter() to set the request adapter.
      */
     public function __construct(
         TokenRequestContext $tokenRequestContext,
         array $scopes = [],
+        string $nationalCloud = NationalCloud::GLOBAL,
         ?RequestAdapter $requestAdapter = null
     )
     {
@@ -40,19 +44,25 @@ class GraphServiceClient extends Generated\BaseGraphClient
             return;
         }
         parent::__construct(new GraphRequestAdapter(
-            new GraphPhpLeagueAuthenticationProvider($tokenRequestContext, $scopes)
+            new GraphPhpLeagueAuthenticationProvider($tokenRequestContext, $scopes, $nationalCloud)
         ));
     }
 
     /**
      * Get an instance of GraphServiceClient that uses $requestAdapter
      * @param RequestAdapter $requestAdapter
+     * @param string $nationalCloud Defaults to https://graph.microsoft.com. See
+     * https://learn.microsoft.com/en-us/graph/deployments
      * @return GraphServiceClient
      */
-    public static function createWithRequestAdapter(RequestAdapter $requestAdapter): GraphServiceClient
+    public static function createWithRequestAdapter(
+        RequestAdapter $requestAdapter,
+        string $nationalCloud = NationalCloud::GLOBAL
+    ): GraphServiceClient
     {
+        $requestAdapter->setBaseUrl($nationalCloud);
         $placeholder = new ClientCredentialContext('tenant', 'client', 'secret');
-        return new GraphServiceClient($placeholder, [], $requestAdapter);
+        return new GraphServiceClient($placeholder, [], $nationalCloud, $requestAdapter);
     }
 
     /**
