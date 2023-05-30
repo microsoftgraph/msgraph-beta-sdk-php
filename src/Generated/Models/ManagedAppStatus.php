@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Represents app protection and configuration status for the organization.
+*/
 class ManagedAppStatus extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ManagedAppStatus and sets the default values.
+     * Instantiates a new managedAppStatus and sets the default values.
     */
     public function __construct() {
         parent::__construct();

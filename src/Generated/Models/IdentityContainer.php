@@ -59,6 +59,14 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the authenticationEventsFlows property value. Represents the entry point for self-service sign up and sign in user flows in both Azure AD workforce and customer tenants.
+     * @return array<AuthenticationEventsFlow>|null
+    */
+    public function getAuthenticationEventsFlows(): ?array {
+        return $this->getBackingStore()->get('authenticationEventsFlows');
+    }
+
+    /**
      * Gets the b2cUserFlows property value. Represents entry point for B2C identity userflows.
      * @return array<B2cIdentityUserFlow>|null
     */
@@ -115,6 +123,7 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
         return  [
             'apiConnectors' => fn(ParseNode $n) => $o->setApiConnectors($n->getCollectionOfObjectValues([IdentityApiConnector::class, 'createFromDiscriminatorValue'])),
             'authenticationEventListeners' => fn(ParseNode $n) => $o->setAuthenticationEventListeners($n->getCollectionOfObjectValues([AuthenticationEventListener::class, 'createFromDiscriminatorValue'])),
+            'authenticationEventsFlows' => fn(ParseNode $n) => $o->setAuthenticationEventsFlows($n->getCollectionOfObjectValues([AuthenticationEventsFlow::class, 'createFromDiscriminatorValue'])),
             'b2cUserFlows' => fn(ParseNode $n) => $o->setB2cUserFlows($n->getCollectionOfObjectValues([B2cIdentityUserFlow::class, 'createFromDiscriminatorValue'])),
             'b2xUserFlows' => fn(ParseNode $n) => $o->setB2xUserFlows($n->getCollectionOfObjectValues([B2xIdentityUserFlow::class, 'createFromDiscriminatorValue'])),
             'conditionalAccess' => fn(ParseNode $n) => $o->setConditionalAccess($n->getObjectValue([ConditionalAccessRoot::class, 'createFromDiscriminatorValue'])),
@@ -166,6 +175,7 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfObjectValues('apiConnectors', $this->getApiConnectors());
         $writer->writeCollectionOfObjectValues('authenticationEventListeners', $this->getAuthenticationEventListeners());
+        $writer->writeCollectionOfObjectValues('authenticationEventsFlows', $this->getAuthenticationEventsFlows());
         $writer->writeCollectionOfObjectValues('b2cUserFlows', $this->getB2cUserFlows());
         $writer->writeCollectionOfObjectValues('b2xUserFlows', $this->getB2xUserFlows());
         $writer->writeObjectValue('conditionalAccess', $this->getConditionalAccess());
@@ -200,6 +210,14 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setAuthenticationEventListeners(?array $value): void {
         $this->getBackingStore()->set('authenticationEventListeners', $value);
+    }
+
+    /**
+     * Sets the authenticationEventsFlows property value. Represents the entry point for self-service sign up and sign in user flows in both Azure AD workforce and customer tenants.
+     * @param array<AuthenticationEventsFlow>|null $value Value to set for the authenticationEventsFlows property.
+    */
+    public function setAuthenticationEventsFlows(?array $value): void {
+        $this->getBackingStore()->set('authenticationEventsFlows', $value);
     }
 
     /**

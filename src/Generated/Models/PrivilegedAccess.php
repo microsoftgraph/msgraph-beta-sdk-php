@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrivilegedAccess extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new PrivilegedAccess and sets the default values.
+     * Instantiates a new privilegedAccess and sets the default values.
     */
     public function __construct() {
         parent::__construct();

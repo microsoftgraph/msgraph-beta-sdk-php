@@ -21,7 +21,6 @@ use Microsoft\Graph\Beta\Generated\AuthenticationMethodConfigurations\Authentica
 use Microsoft\Graph\Beta\Generated\AuthenticationMethodsPolicy\AuthenticationMethodsPolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\BookingBusinesses\BookingBusinessesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\BookingCurrencies\BookingCurrenciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Branding\BrandingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\BusinessFlowTemplates\BusinessFlowTemplatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\CertificateBasedAuthConfiguration\CertificateBasedAuthConfigurationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Chats\ChatsRequestBuilder;
@@ -260,13 +259,6 @@ class BaseGraphClient extends BaseRequestBuilder
     */
     public function bookingCurrencies(): BookingCurrenciesRequestBuilder {
         return new BookingCurrenciesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the organizationalBranding singleton.
-    */
-    public function branding(): BrandingRequestBuilder {
-        return new BrandingRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

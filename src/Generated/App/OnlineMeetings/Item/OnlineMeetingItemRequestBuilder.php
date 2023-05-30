@@ -8,9 +8,11 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\AlternativeRecording\AlternativeRecordingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\AttendanceReports\AttendanceReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\AttendeeReport\AttendeeReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\BroadcastRecording\BroadcastRecordingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\GetVirtualAppointmentJoinWebUrl\GetVirtualAppointmentJoinWebUrlRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\MeetingAttendanceReport\MeetingAttendanceReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\Recording\RecordingRequestBuilder;
+use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\Recordings\RecordingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\Registration\RegistrationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\Transcripts\TranscriptsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\VirtualAppointment\VirtualAppointmentRequestBuilder;
@@ -48,6 +50,13 @@ class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the media for the commsApplication entity.
+    */
+    public function broadcastRecording(): BroadcastRecordingRequestBuilder {
+        return new BroadcastRecordingRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the getVirtualAppointmentJoinWebUrl method.
     */
     public function getVirtualAppointmentJoinWebUrl(): GetVirtualAppointmentJoinWebUrlRequestBuilder {
@@ -66,6 +75,13 @@ class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder
     */
     public function recording(): RecordingRequestBuilder {
         return new RecordingRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the recordings property of the microsoft.graph.onlineMeeting entity.
+    */
+    public function recordings(): RecordingsRequestBuilder {
+        return new RecordingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

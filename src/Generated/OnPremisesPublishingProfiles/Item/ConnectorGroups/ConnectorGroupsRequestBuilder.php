@@ -72,11 +72,11 @@ class ConnectorGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new connectorGroup.
+     * Create a connectorGroup object.
      * @param ConnectorGroup $body The request body
      * @param ConnectorGroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/connectorgroup-post-connectorgroups?view=graph-rest-1.0 Find more info here
+     * @link https://docs.microsoft.com/graph/api/connectorgroup-post?view=graph-rest-1.0 Find more info here
     */
     public function post(ConnectorGroup $body, ?ConnectorGroupsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -113,7 +113,7 @@ class ConnectorGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new connectorGroup.
+     * Create a connectorGroup object.
      * @param ConnectorGroup $body The request body
      * @param ConnectorGroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

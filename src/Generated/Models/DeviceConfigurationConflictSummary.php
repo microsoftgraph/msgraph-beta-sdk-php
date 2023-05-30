@@ -6,13 +6,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * Conflict summary for a set of device configuration policies.
-*/
 class DeviceConfigurationConflictSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceConfigurationConflictSummary and sets the default values.
+     * Instantiates a new DeviceConfigurationConflictSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();

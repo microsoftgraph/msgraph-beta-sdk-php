@@ -11,7 +11,7 @@ use Psr\Http\Message\StreamInterface;
 class OnlineMeeting extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new OnlineMeeting and sets the default values.
+     * Instantiates a new onlineMeeting and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -138,6 +138,14 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
+     * Gets the broadcastRecording property value. The broadcastRecording property
+     * @return StreamInterface|null
+    */
+    public function getBroadcastRecording(): ?StreamInterface {
+        return $this->getBackingStore()->get('broadcastRecording');
+    }
+
+    /**
      * Gets the broadcastSettings property value. Settings related to a live event.
      * @return BroadcastMeetingSettings|null
     */
@@ -205,6 +213,7 @@ class OnlineMeeting extends Entity implements Parsable
             'attendanceReports' => fn(ParseNode $n) => $o->setAttendanceReports($n->getCollectionOfObjectValues([MeetingAttendanceReport::class, 'createFromDiscriminatorValue'])),
             'attendeeReport' => fn(ParseNode $n) => $o->setAttendeeReport($n->getBinaryContent()),
             'audioConferencing' => fn(ParseNode $n) => $o->setAudioConferencing($n->getObjectValue([AudioConferencing::class, 'createFromDiscriminatorValue'])),
+            'broadcastRecording' => fn(ParseNode $n) => $o->setBroadcastRecording($n->getBinaryContent()),
             'broadcastSettings' => fn(ParseNode $n) => $o->setBroadcastSettings($n->getObjectValue([BroadcastMeetingSettings::class, 'createFromDiscriminatorValue'])),
             'capabilities' => fn(ParseNode $n) => $o->setCapabilities($n->getCollectionOfEnumValues(MeetingCapabilities::class)),
             'chatInfo' => fn(ParseNode $n) => $o->setChatInfo($n->getObjectValue([ChatInfo::class, 'createFromDiscriminatorValue'])),
@@ -222,6 +231,7 @@ class OnlineMeeting extends Entity implements Parsable
             'participants' => fn(ParseNode $n) => $o->setParticipants($n->getObjectValue([MeetingParticipants::class, 'createFromDiscriminatorValue'])),
             'recordAutomatically' => fn(ParseNode $n) => $o->setRecordAutomatically($n->getBooleanValue()),
             'recording' => fn(ParseNode $n) => $o->setRecording($n->getBinaryContent()),
+            'recordings' => fn(ParseNode $n) => $o->setRecordings($n->getCollectionOfObjectValues([CallRecording::class, 'createFromDiscriminatorValue'])),
             'registration' => fn(ParseNode $n) => $o->setRegistration($n->getObjectValue([MeetingRegistration::class, 'createFromDiscriminatorValue'])),
             'shareMeetingChatHistoryDefault' => fn(ParseNode $n) => $o->setShareMeetingChatHistoryDefault($n->getEnumValue(MeetingChatHistoryDefaultMode::class)),
             'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
@@ -322,6 +332,14 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
+     * Gets the recordings property value. The recordings property
+     * @return array<CallRecording>|null
+    */
+    public function getRecordings(): ?array {
+        return $this->getBackingStore()->get('recordings');
+    }
+
+    /**
      * Gets the registration property value. The registration that has been enabled for an online meeting. One online meeting can only have one registration enabled.
      * @return MeetingRegistration|null
     */
@@ -404,6 +422,7 @@ class OnlineMeeting extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('attendanceReports', $this->getAttendanceReports());
         $writer->writeBinaryContent('attendeeReport', $this->getAttendeeReport());
         $writer->writeObjectValue('audioConferencing', $this->getAudioConferencing());
+        $writer->writeBinaryContent('broadcastRecording', $this->getBroadcastRecording());
         $writer->writeObjectValue('broadcastSettings', $this->getBroadcastSettings());
         $writer->writeCollectionOfEnumValues('capabilities', $this->getCapabilities());
         $writer->writeObjectValue('chatInfo', $this->getChatInfo());
@@ -421,6 +440,7 @@ class OnlineMeeting extends Entity implements Parsable
         $writer->writeObjectValue('participants', $this->getParticipants());
         $writer->writeBooleanValue('recordAutomatically', $this->getRecordAutomatically());
         $writer->writeBinaryContent('recording', $this->getRecording());
+        $writer->writeCollectionOfObjectValues('recordings', $this->getRecordings());
         $writer->writeObjectValue('registration', $this->getRegistration());
         $writer->writeEnumValue('shareMeetingChatHistoryDefault', $this->getShareMeetingChatHistoryDefault());
         $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
@@ -533,6 +553,14 @@ class OnlineMeeting extends Entity implements Parsable
     */
     public function setAudioConferencing(?AudioConferencing $value): void {
         $this->getBackingStore()->set('audioConferencing', $value);
+    }
+
+    /**
+     * Sets the broadcastRecording property value. The broadcastRecording property
+     * @param StreamInterface|null $value Value to set for the broadcastRecording property.
+    */
+    public function setBroadcastRecording(?StreamInterface $value): void {
+        $this->getBackingStore()->set('broadcastRecording', $value);
     }
 
     /**
@@ -669,6 +697,14 @@ class OnlineMeeting extends Entity implements Parsable
     */
     public function setRecording(?StreamInterface $value): void {
         $this->getBackingStore()->set('recording', $value);
+    }
+
+    /**
+     * Sets the recordings property value. The recordings property
+     * @param array<CallRecording>|null $value Value to set for the recordings property.
+    */
+    public function setRecordings(?array $value): void {
+        $this->getBackingStore()->set('recordings', $value);
     }
 
     /**

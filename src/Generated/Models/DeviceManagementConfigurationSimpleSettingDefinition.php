@@ -32,7 +32,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Gets the defaultValue property value. Default setting value for this setting
+     * Gets the defaultValue property value. Default setting value for this setting.
      * @return DeviceManagementConfigurationSettingValue|null
     */
     public function getDefaultValue(): ?DeviceManagementConfigurationSettingValue {
@@ -40,7 +40,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Gets the dependedOnBy property value. list of child settings that depend on this setting
+     * Gets the dependedOnBy property value. list of child settings that depend on this setting.
      * @return array<DeviceManagementConfigurationSettingDependedOnBy>|null
     */
     public function getDependedOnBy(): ?array {
@@ -48,7 +48,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Gets the dependentOn property value. list of parent settings this setting is dependent on
+     * Gets the dependentOn property value. list of parent settings this setting is dependent on.
      * @return array<DeviceManagementConfigurationDependentOn>|null
     */
     public function getDependentOn(): ?array {
@@ -70,7 +70,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Gets the valueDefinition property value. Definition of the value for this setting
+     * Gets the valueDefinition property value. Definition of the value for this setting.
      * @return DeviceManagementConfigurationSettingValueDefinition|null
     */
     public function getValueDefinition(): ?DeviceManagementConfigurationSettingValueDefinition {
@@ -90,7 +90,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Sets the defaultValue property value. Default setting value for this setting
+     * Sets the defaultValue property value. Default setting value for this setting.
      * @param DeviceManagementConfigurationSettingValue|null $value Value to set for the defaultValue property.
     */
     public function setDefaultValue(?DeviceManagementConfigurationSettingValue $value): void {
@@ -98,7 +98,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Sets the dependedOnBy property value. list of child settings that depend on this setting
+     * Sets the dependedOnBy property value. list of child settings that depend on this setting.
      * @param array<DeviceManagementConfigurationSettingDependedOnBy>|null $value Value to set for the dependedOnBy property.
     */
     public function setDependedOnBy(?array $value): void {
@@ -106,7 +106,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Sets the dependentOn property value. list of parent settings this setting is dependent on
+     * Sets the dependentOn property value. list of parent settings this setting is dependent on.
      * @param array<DeviceManagementConfigurationDependentOn>|null $value Value to set for the dependentOn property.
     */
     public function setDependentOn(?array $value): void {
@@ -114,7 +114,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Sets the valueDefinition property value. Definition of the value for this setting
+     * Sets the valueDefinition property value. Definition of the value for this setting.
      * @param DeviceManagementConfigurationSettingValueDefinition|null $value Value to set for the valueDefinition property.
     */
     public function setValueDefinition(?DeviceManagementConfigurationSettingValueDefinition $value): void {

@@ -10,8 +10,10 @@ use Microsoft\Graph\Beta\Generated\Models\VirtualEventSession;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Sessions\Item\AlternativeRecording\AlternativeRecordingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Sessions\Item\AttendanceReports\AttendanceReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Sessions\Item\AttendeeReport\AttendeeReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Sessions\Item\BroadcastRecording\BroadcastRecordingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Sessions\Item\MeetingAttendanceReport\MeetingAttendanceReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Sessions\Item\Recording\RecordingRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Sessions\Item\Recordings\RecordingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Sessions\Item\Registration\RegistrationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Sessions\Item\Transcripts\TranscriptsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Sessions\Item\VirtualAppointment\VirtualAppointmentRequestBuilder;
@@ -47,6 +49,13 @@ class VirtualEventSessionItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the media for the solutionsRoot entity.
+    */
+    public function broadcastRecording(): BroadcastRecordingRequestBuilder {
+        return new BroadcastRecordingRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the meetingAttendanceReport property of the microsoft.graph.onlineMeeting entity.
     */
     public function meetingAttendanceReport(): MeetingAttendanceReportRequestBuilder {
@@ -58,6 +67,13 @@ class VirtualEventSessionItemRequestBuilder extends BaseRequestBuilder
     */
     public function recording(): RecordingRequestBuilder {
         return new RecordingRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the recordings property of the microsoft.graph.onlineMeeting entity.
+    */
+    public function recordings(): RecordingsRequestBuilder {
+        return new RecordingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

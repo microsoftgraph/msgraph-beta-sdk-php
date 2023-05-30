@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class Employee extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new employee and sets the default values.
+     * Instantiates a new Employee and sets the default values.
     */
     public function __construct() {
         parent::__construct();

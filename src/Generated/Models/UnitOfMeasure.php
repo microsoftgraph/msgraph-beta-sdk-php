@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UnitOfMeasure extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new unitOfMeasure and sets the default values.
+     * Instantiates a new UnitOfMeasure and sets the default values.
     */
     public function __construct() {
         parent::__construct();

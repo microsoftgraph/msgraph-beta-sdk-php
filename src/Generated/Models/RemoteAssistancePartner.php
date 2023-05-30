@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * RemoteAssistPartner resources represent the metadata and status of a given Remote Assistance partner service.
+*/
 class RemoteAssistancePartner extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new RemoteAssistancePartner and sets the default values.
+     * Instantiates a new remoteAssistancePartner and sets the default values.
     */
     public function __construct() {
         parent::__construct();

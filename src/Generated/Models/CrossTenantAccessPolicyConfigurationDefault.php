@@ -99,7 +99,7 @@ class CrossTenantAccessPolicyConfigurationDefault extends Entity implements Pars
     }
 
     /**
-     * Gets the tenantRestrictions property value. The tenantRestrictions property
+     * Gets the tenantRestrictions property value. Defines the default tenant restrictions configuration for your organization users accessing an external organization on your network or devices.
      * @return CrossTenantAccessPolicyTenantRestrictions|null
     */
     public function getTenantRestrictions(): ?CrossTenantAccessPolicyTenantRestrictions {
@@ -179,7 +179,7 @@ class CrossTenantAccessPolicyConfigurationDefault extends Entity implements Pars
     }
 
     /**
-     * Sets the tenantRestrictions property value. The tenantRestrictions property
+     * Sets the tenantRestrictions property value. Defines the default tenant restrictions configuration for your organization users accessing an external organization on your network or devices.
      * @param CrossTenantAccessPolicyTenantRestrictions|null $value Value to set for the tenantRestrictions property.
     */
     public function setTenantRestrictions(?CrossTenantAccessPolicyTenantRestrictions $value): void {

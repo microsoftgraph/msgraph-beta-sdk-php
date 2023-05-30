@@ -152,7 +152,7 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
     }
 
     /**
-     * Gets the tenantRestrictions property value. The tenantRestrictions property
+     * Gets the tenantRestrictions property value. Defines the partner-specific tenant restrictions configuration for your organization users accessing a partner organization using partner supplied idenities on your network or devices.
      * @return CrossTenantAccessPolicyTenantRestrictions|null
     */
     public function getTenantRestrictions(): ?CrossTenantAccessPolicyTenantRestrictions {
@@ -275,7 +275,7 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
     }
 
     /**
-     * Sets the tenantRestrictions property value. The tenantRestrictions property
+     * Sets the tenantRestrictions property value. Defines the partner-specific tenant restrictions configuration for your organization users accessing a partner organization using partner supplied idenities on your network or devices.
      * @param CrossTenantAccessPolicyTenantRestrictions|null $value Value to set for the tenantRestrictions property.
     */
     public function setTenantRestrictions(?CrossTenantAccessPolicyTenantRestrictions $value): void {
