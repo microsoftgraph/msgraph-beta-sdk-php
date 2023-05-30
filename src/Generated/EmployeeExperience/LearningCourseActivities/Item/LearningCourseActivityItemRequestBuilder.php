@@ -69,11 +69,10 @@ class LearningCourseActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a learningCourseActivity object. 
+     * Update the navigation property learningCourseActivities in employeeExperience
      * @param LearningCourseActivity $body The request body
      * @param LearningCourseActivityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/learningcourseactivity-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(LearningCourseActivity $body, ?LearningCourseActivityItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -127,7 +126,7 @@ class LearningCourseActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a learningCourseActivity object. 
+     * Update the navigation property learningCourseActivities in employeeExperience
      * @param LearningCourseActivity $body The request body
      * @param LearningCourseActivityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

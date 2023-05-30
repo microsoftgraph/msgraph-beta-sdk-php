@@ -32,7 +32,7 @@ class DeviceManagementConfigurationSettingGroupDefinition extends DeviceManageme
     }
 
     /**
-     * Gets the childIds property value. Dependent child settings to this group of settings
+     * Gets the childIds property value. Dependent child settings to this group of settings.
      * @return array<string>|null
     */
     public function getChildIds(): ?array {
@@ -80,7 +80,7 @@ class DeviceManagementConfigurationSettingGroupDefinition extends DeviceManageme
     }
 
     /**
-     * Sets the childIds property value. Dependent child settings to this group of settings
+     * Sets the childIds property value. Dependent child settings to this group of settings.
      * @param array<string>|null $value Value to set for the childIds property.
     */
     public function setChildIds(?array $value): void {

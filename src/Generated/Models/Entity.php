@@ -389,6 +389,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.authenticationCombinationConfiguration': return new AuthenticationCombinationConfiguration();
                 case '#microsoft.graph.authenticationContextClassReference': return new AuthenticationContextClassReference();
                 case '#microsoft.graph.authenticationEventListener': return new AuthenticationEventListener();
+                case '#microsoft.graph.authenticationEventsFlow': return new AuthenticationEventsFlow();
                 case '#microsoft.graph.authenticationEventsPolicy': return new AuthenticationEventsPolicy();
                 case '#microsoft.graph.authenticationFlowsPolicy': return new AuthenticationFlowsPolicy();
                 case '#microsoft.graph.authenticationListener': return new AuthenticationListener();
@@ -436,6 +437,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.calendarSharingMessage': return new CalendarSharingMessage();
                 case '#microsoft.graph.call': return new Call();
                 case '#microsoft.graph.callActivityStatistics': return new CallActivityStatistics();
+                case '#microsoft.graph.callRecording': return new CallRecording();
                 case '#microsoft.graph.callRecords.callRecord': return new CallRecord();
                 case '#microsoft.graph.callRecords.segment': return new Segment();
                 case '#microsoft.graph.callRecords.session': return new Session();
@@ -792,6 +794,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.externalItem': return new ExternalItem();
                 case '#microsoft.graph.externalMeetingRegistrant': return new ExternalMeetingRegistrant();
                 case '#microsoft.graph.externalMeetingRegistration': return new ExternalMeetingRegistration();
+                case '#microsoft.graph.externalUsersSelfServiceSignUpEventsFlow': return new ExternalUsersSelfServiceSignUpEventsFlow();
                 case '#microsoft.graph.featureRolloutPolicy': return new FeatureRolloutPolicy();
                 case '#microsoft.graph.federatedIdentityCredential': return new FederatedIdentityCredential();
                 case '#microsoft.graph.fido2AuthenticationMethod': return new Fido2AuthenticationMethod();
@@ -1149,6 +1152,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.office365ServicesUserCounts': return new Office365ServicesUserCounts();
                 case '#microsoft.graph.officeGraphInsights': return new OfficeGraphInsights();
                 case '#microsoft.graph.officeSuiteApp': return new OfficeSuiteApp();
+                case '#microsoft.graph.onAttributeCollectionListener': return new OnAttributeCollectionListener();
+                case '#microsoft.graph.onAuthenticationMethodLoadStartListener': return new OnAuthenticationMethodLoadStartListener();
                 case '#microsoft.graph.onenote': return new Onenote();
                 case '#microsoft.graph.onenoteEntityBaseModel': return new OnenoteEntityBaseModel();
                 case '#microsoft.graph.onenoteEntityHierarchyModel': return new OnenoteEntityHierarchyModel();
@@ -1157,6 +1162,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.onenotePage': return new OnenotePage();
                 case '#microsoft.graph.onenoteResource': return new OnenoteResource();
                 case '#microsoft.graph.onenoteSection': return new OnenoteSection();
+                case '#microsoft.graph.onInteractiveAuthFlowStartListener': return new OnInteractiveAuthFlowStartListener();
                 case '#microsoft.graph.onlineMeeting': return new OnlineMeeting();
                 case '#microsoft.graph.onPremisesAgent': return new OnPremisesAgent();
                 case '#microsoft.graph.onPremisesAgentGroup': return new OnPremisesAgentGroup();
@@ -1165,6 +1171,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.onPremisesPublishingProfile': return new OnPremisesPublishingProfile();
                 case '#microsoft.graph.onTokenIssuanceStartCustomExtension': return new OnTokenIssuanceStartCustomExtension();
                 case '#microsoft.graph.onTokenIssuanceStartListener': return new OnTokenIssuanceStartListener();
+                case '#microsoft.graph.onUserCreateStartListener': return new OnUserCreateStartListener();
                 case '#microsoft.graph.openIdConnectIdentityProvider': return new OpenIdConnectIdentityProvider();
                 case '#microsoft.graph.openIdConnectProvider': return new OpenIdConnectProvider();
                 case '#microsoft.graph.openShift': return new OpenShift();

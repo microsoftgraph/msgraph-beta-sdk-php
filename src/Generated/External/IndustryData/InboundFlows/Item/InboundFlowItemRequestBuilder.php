@@ -48,10 +48,10 @@ class InboundFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an inboundFileFlow object.
+     * Delete an inboundFlow object.
      * @param InboundFlowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/industrydata-inboundfileflow-delete?view=graph-rest-1.0 Find more info here
+     * @link https://docs.microsoft.com/graph/api/industrydata-inboundflow-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?InboundFlowItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -106,7 +106,7 @@ class InboundFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an inboundFileFlow object.
+     * Delete an inboundFlow object.
      * @param InboundFlowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

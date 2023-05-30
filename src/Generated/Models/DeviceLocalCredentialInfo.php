@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceLocalCredentialInfo extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceLocalCredentialInfo and sets the default values.
+     * Instantiates a new deviceLocalCredentialInfo and sets the default values.
     */
     public function __construct() {
         parent::__construct();

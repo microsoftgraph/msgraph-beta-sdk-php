@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AuthenticationEventListener extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AuthenticationEventListener and sets the default values.
+     * Instantiates a new authenticationEventListener and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -25,7 +25,11 @@ class AuthenticationEventListener extends Entity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.onAttributeCollectionListener': return new OnAttributeCollectionListener();
+                case '#microsoft.graph.onAuthenticationMethodLoadStartListener': return new OnAuthenticationMethodLoadStartListener();
+                case '#microsoft.graph.onInteractiveAuthFlowStartListener': return new OnInteractiveAuthFlowStartListener();
                 case '#microsoft.graph.onTokenIssuanceStartListener': return new OnTokenIssuanceStartListener();
+                case '#microsoft.graph.onUserCreateStartListener': return new OnUserCreateStartListener();
             }
         }
         return new AuthenticationEventListener();

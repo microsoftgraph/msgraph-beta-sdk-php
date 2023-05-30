@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Identity\ApiConnectors\ApiConnectorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventListeners\AuthenticationEventListenersRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventsFlows\AuthenticationEventsFlowsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\B2cUserFlowsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\B2xUserFlowsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\ConditionalAccessRequestBuilder;
@@ -39,6 +40,13 @@ class IdentityRequestBuilder extends BaseRequestBuilder
     */
     public function authenticationEventListeners(): AuthenticationEventListenersRequestBuilder {
         return new AuthenticationEventListenersRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the authenticationEventsFlows property of the microsoft.graph.identityContainer entity.
+    */
+    public function authenticationEventsFlows(): AuthenticationEventsFlowsRequestBuilder {
+        return new AuthenticationEventsFlowsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
