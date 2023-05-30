@@ -191,7 +191,7 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the size property value. The size of the page to be retrieved. Optional.
+     * Gets the size property value. The size of the page to be retrieved. The maximum value is 500. Optional.
      * @return int|null
     */
     public function getSize(): ?int {
@@ -377,7 +377,7 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the size property value. The size of the page to be retrieved. Optional.
+     * Sets the size property value. The size of the page to be retrieved. The maximum value is 500. Optional.
      * @param int|null $value Value to set for the size property.
     */
     public function setSize(?int $value): void {

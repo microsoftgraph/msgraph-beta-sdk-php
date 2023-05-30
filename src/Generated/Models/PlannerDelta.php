@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PlannerDelta extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new PlannerDelta and sets the default values.
+     * Instantiates a new plannerDelta and sets the default values.
     */
     public function __construct() {
         parent::__construct();

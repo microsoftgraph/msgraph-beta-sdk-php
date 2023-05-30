@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TenantCustomizedInformation extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new TenantCustomizedInformation and sets the default values.
+     * Instantiates a new tenantCustomizedInformation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

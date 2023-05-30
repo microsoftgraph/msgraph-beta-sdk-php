@@ -43,7 +43,7 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the allowedToCreateApps property value. Indicates whether the default user role can create applications.
+     * Gets the allowedToCreateApps property value. Indicates whether the default user role can create applications. This setting corresponds to the Users can register applications setting in the User settings menu in the Azure portal.
      * @return bool|null
     */
     public function getAllowedToCreateApps(): ?bool {
@@ -51,7 +51,7 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the allowedToCreateSecurityGroups property value. Indicates whether the default user role can create security groups.
+     * Gets the allowedToCreateSecurityGroups property value. Indicates whether the default user role can create security groups. This setting corresponds to the following menus in the Azure portal:  The Users can create security groups in Azure portals, API or PowerShell setting in the Group settings menu.  Users can create security groups setting in the User settings menu.
      * @return bool|null
     */
     public function getAllowedToCreateSecurityGroups(): ?bool {
@@ -59,7 +59,7 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the allowedToCreateTenants property value. Indicates whether the default user role can create tenants.
+     * Gets the allowedToCreateTenants property value. Indicates whether the default user role can create tenants. This setting corresponds to the Restrict non-admin users from creating tenants setting in the User settings menu in the Azure portal. When this setting is false, users assigned the Tenant Creator role can still create tenants.
      * @return bool|null
     */
     public function getAllowedToCreateTenants(): ?bool {
@@ -137,7 +137,7 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the allowedToCreateApps property value. Indicates whether the default user role can create applications.
+     * Sets the allowedToCreateApps property value. Indicates whether the default user role can create applications. This setting corresponds to the Users can register applications setting in the User settings menu in the Azure portal.
      * @param bool|null $value Value to set for the allowedToCreateApps property.
     */
     public function setAllowedToCreateApps(?bool $value): void {
@@ -145,7 +145,7 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the allowedToCreateSecurityGroups property value. Indicates whether the default user role can create security groups.
+     * Sets the allowedToCreateSecurityGroups property value. Indicates whether the default user role can create security groups. This setting corresponds to the following menus in the Azure portal:  The Users can create security groups in Azure portals, API or PowerShell setting in the Group settings menu.  Users can create security groups setting in the User settings menu.
      * @param bool|null $value Value to set for the allowedToCreateSecurityGroups property.
     */
     public function setAllowedToCreateSecurityGroups(?bool $value): void {
@@ -153,7 +153,7 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the allowedToCreateTenants property value. Indicates whether the default user role can create tenants.
+     * Sets the allowedToCreateTenants property value. Indicates whether the default user role can create tenants. This setting corresponds to the Restrict non-admin users from creating tenants setting in the User settings menu in the Azure portal. When this setting is false, users assigned the Tenant Creator role can still create tenants.
      * @param bool|null $value Value to set for the allowedToCreateTenants property.
     */
     public function setAllowedToCreateTenants(?bool $value): void {

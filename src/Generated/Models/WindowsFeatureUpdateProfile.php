@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Windows Feature Update Profile
+*/
 class WindowsFeatureUpdateProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new WindowsFeatureUpdateProfile and sets the default values.
+     * Instantiates a new windowsFeatureUpdateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
