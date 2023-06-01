@@ -9,7 +9,10 @@
 namespace Microsoft\Graph\Beta;
 
 use Microsoft\Graph\Beta\Generated\Users\Item\UserItemRequestBuilder;
+use Microsoft\Graph\Core\Authentication\GraphPhpLeagueAuthenticationProvider;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
+use Microsoft\Kiota\Authentication\Oauth\ClientCredentialContext;
+use Microsoft\Kiota\Authentication\Oauth\TokenRequestContext;
 
 /**
  * Class GraphServiceClient
@@ -22,11 +25,44 @@ use Microsoft\Kiota\Abstractions\RequestAdapter;
 class GraphServiceClient extends Generated\BaseGraphClient
 {
     /**
-     * @param RequestAdapter $requestAdapter
+     * @param TokenRequestContext $tokenRequestContext
+     * @param array $scopes
+     * @param RequestAdapter|null $requestAdapter Use createWithRequestAdapter() to set the request adapter.
      */
-    public function __construct(RequestAdapter $requestAdapter)
+    public function __construct(
+        TokenRequestContext $tokenRequestContext,
+        array $scopes = [],
+        ?RequestAdapter $requestAdapter = null
+    )
     {
-        parent::__construct($requestAdapter);
+        if ($requestAdapter) {
+            parent::__construct($requestAdapter);
+            return;
+        }
+        parent::__construct(new GraphRequestAdapter(
+            new GraphPhpLeagueAuthenticationProvider($tokenRequestContext, $scopes)
+        ));
+    }
+
+    /**
+     * Get an instance of GraphServiceClient that uses $requestAdapter
+     * @param RequestAdapter $requestAdapter
+     * @return GraphServiceClient
+     */
+    public static function createWithRequestAdapter(RequestAdapter $requestAdapter): GraphServiceClient
+    {
+        $placeholder = new ClientCredentialContext('tenant', 'client', 'secret');
+        return new GraphServiceClient($placeholder, [], $requestAdapter);
+    }
+
+    /**
+     * Returns the request adapter instance in use
+     *
+     * @return RequestAdapter
+     */
+    public function getRequestAdapter(): RequestAdapter
+    {
+        return $this->requestAdapter;
     }
 
     /**
