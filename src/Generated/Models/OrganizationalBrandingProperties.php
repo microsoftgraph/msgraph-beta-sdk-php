@@ -82,6 +82,14 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     }
 
     /**
+     * Gets the contentCustomization property value. The contentCustomization property
+     * @return ContentCustomization|null
+    */
+    public function getContentCustomization(): ?ContentCustomization {
+        return $this->getBackingStore()->get('contentCustomization');
+    }
+
+    /**
      * Gets the customAccountResetCredentialsUrl property value. A custom URL for resetting account credentials. This URL must be in ASCII format or non-ASCII characters must be URL encoded, and not exceed 128 characters.
      * @return string|null
     */
@@ -198,6 +206,7 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
             'bannerLogo' => fn(ParseNode $n) => $o->setBannerLogo($n->getBinaryContent()),
             'bannerLogoRelativeUrl' => fn(ParseNode $n) => $o->setBannerLogoRelativeUrl($n->getStringValue()),
             'cdnList' => fn(ParseNode $n) => $o->setCdnList($n->getCollectionOfPrimitiveValues()),
+            'contentCustomization' => fn(ParseNode $n) => $o->setContentCustomization($n->getObjectValue([ContentCustomization::class, 'createFromDiscriminatorValue'])),
             'customAccountResetCredentialsUrl' => fn(ParseNode $n) => $o->setCustomAccountResetCredentialsUrl($n->getStringValue()),
             'customCannotAccessYourAccountText' => fn(ParseNode $n) => $o->setCustomCannotAccessYourAccountText($n->getStringValue()),
             'customCannotAccessYourAccountUrl' => fn(ParseNode $n) => $o->setCustomCannotAccessYourAccountUrl($n->getStringValue()),
@@ -325,6 +334,7 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
         $writer->writeBinaryContent('bannerLogo', $this->getBannerLogo());
         $writer->writeStringValue('bannerLogoRelativeUrl', $this->getBannerLogoRelativeUrl());
         $writer->writeCollectionOfPrimitiveValues('cdnList', $this->getCdnList());
+        $writer->writeObjectValue('contentCustomization', $this->getContentCustomization());
         $writer->writeStringValue('customAccountResetCredentialsUrl', $this->getCustomAccountResetCredentialsUrl());
         $writer->writeStringValue('customCannotAccessYourAccountText', $this->getCustomCannotAccessYourAccountText());
         $writer->writeStringValue('customCannotAccessYourAccountUrl', $this->getCustomCannotAccessYourAccountUrl());
@@ -397,6 +407,14 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     */
     public function setCdnList(?array $value): void {
         $this->getBackingStore()->set('cdnList', $value);
+    }
+
+    /**
+     * Sets the contentCustomization property value. The contentCustomization property
+     * @param ContentCustomization|null $value Value to set for the contentCustomization property.
+    */
+    public function setContentCustomization(?ContentCustomization $value): void {
+        $this->getBackingStore()->set('contentCustomization', $value);
     }
 
     /**

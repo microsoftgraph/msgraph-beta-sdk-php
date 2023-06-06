@@ -32,9 +32,10 @@ class CompleteRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action complete
+     * Complete an impactedResource object and update its **status** to `completedByUser`.
      * @param CompleteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/impactedresource-complete?view=graph-rest-1.0 Find more info here
     */
     public function post(?CompleteRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class CompleteRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action complete
+     * Complete an impactedResource object and update its **status** to `completedByUser`.
      * @param CompleteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

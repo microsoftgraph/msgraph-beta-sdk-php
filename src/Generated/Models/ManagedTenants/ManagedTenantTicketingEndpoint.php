@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagedTenantTicketingEndpoint extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new managedTenantTicketingEndpoint and sets the default values.
+     * Instantiates a new ManagedTenantTicketingEndpoint and sets the default values.
     */
     public function __construct() {
         parent::__construct();

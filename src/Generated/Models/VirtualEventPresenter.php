@@ -25,7 +25,7 @@ class VirtualEventPresenter extends Entity implements Parsable
     }
 
     /**
-     * Gets the email property value. The email property
+     * Gets the email property value. Email address of the presenter.
      * @return string|null
     */
     public function getEmail(): ?string {
@@ -46,7 +46,7 @@ class VirtualEventPresenter extends Entity implements Parsable
     }
 
     /**
-     * Gets the identity property value. The identity property
+     * Gets the identity property value. Identity information of the presenter.
      * @return CommunicationsUserIdentity|null
     */
     public function getIdentity(): ?CommunicationsUserIdentity {
@@ -54,7 +54,7 @@ class VirtualEventPresenter extends Entity implements Parsable
     }
 
     /**
-     * Gets the presenterDetails property value. The presenterDetails property
+     * Gets the presenterDetails property value. Other detail information of the presenter.
      * @return VirtualEventPresenterDetails|null
     */
     public function getPresenterDetails(): ?VirtualEventPresenterDetails {
@@ -73,7 +73,7 @@ class VirtualEventPresenter extends Entity implements Parsable
     }
 
     /**
-     * Sets the email property value. The email property
+     * Sets the email property value. Email address of the presenter.
      * @param string|null $value Value to set for the email property.
     */
     public function setEmail(?string $value): void {
@@ -81,7 +81,7 @@ class VirtualEventPresenter extends Entity implements Parsable
     }
 
     /**
-     * Sets the identity property value. The identity property
+     * Sets the identity property value. Identity information of the presenter.
      * @param CommunicationsUserIdentity|null $value Value to set for the identity property.
     */
     public function setIdentity(?CommunicationsUserIdentity $value): void {
@@ -89,7 +89,7 @@ class VirtualEventPresenter extends Entity implements Parsable
     }
 
     /**
-     * Sets the presenterDetails property value. The presenterDetails property
+     * Sets the presenterDetails property value. Other detail information of the presenter.
      * @param VirtualEventPresenterDetails|null $value Value to set for the presenterDetails property.
     */
     public function setPresenterDetails(?VirtualEventPresenterDetails $value): void {

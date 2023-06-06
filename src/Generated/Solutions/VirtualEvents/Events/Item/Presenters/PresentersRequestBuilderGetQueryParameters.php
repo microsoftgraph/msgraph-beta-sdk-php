@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Pre
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get presenters from solutions
+ * Presenters' information of the virtual event.
 */
 class PresentersRequestBuilderGetQueryParameters 
 {

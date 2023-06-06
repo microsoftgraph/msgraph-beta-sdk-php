@@ -114,7 +114,7 @@ class AttributeDefinition implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the metadata property value. Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
+     * Gets the metadata property value. Metadata for the given object.
      * @return array<AttributeDefinitionMetadataEntry>|null
     */
     public function getMetadata(): ?array {
@@ -255,7 +255,7 @@ class AttributeDefinition implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the metadata property value. Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
+     * Sets the metadata property value. Metadata for the given object.
      * @param array<AttributeDefinitionMetadataEntry>|null $value Value to set for the metadata property.
     */
     public function setMetadata(?array $value): void {

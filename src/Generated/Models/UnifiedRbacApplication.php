@@ -25,7 +25,7 @@ class UnifiedRbacApplication extends Entity implements Parsable
     }
 
     /**
-     * Gets the customAppScopes property value. The customAppScopes property
+     * Gets the customAppScopes property value. Workload-specific scope object that represents the resources for which the principal has been granted access.
      * @return array<CustomAppScope>|null
     */
     public function getCustomAppScopes(): ?array {
@@ -93,7 +93,7 @@ class UnifiedRbacApplication extends Entity implements Parsable
     }
 
     /**
-     * Sets the customAppScopes property value. The customAppScopes property
+     * Sets the customAppScopes property value. Workload-specific scope object that represents the resources for which the principal has been granted access.
      * @param array<CustomAppScope>|null $value Value to set for the customAppScopes property.
     */
     public function setCustomAppScopes(?array $value): void {

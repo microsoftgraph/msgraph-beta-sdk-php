@@ -50,7 +50,7 @@ class VirtualEventPresenterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get presenters from solutions
+     * Presenters' information of the virtual event.
      * @param VirtualEventPresenterItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -104,7 +104,7 @@ class VirtualEventPresenterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get presenters from solutions
+     * Presenters' information of the virtual event.
      * @param VirtualEventPresenterItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

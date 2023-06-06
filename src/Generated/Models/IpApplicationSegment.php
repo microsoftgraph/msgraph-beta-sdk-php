@@ -42,6 +42,7 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'destinationHost' => fn(ParseNode $n) => $o->setDestinationHost($n->getStringValue()),
             'port' => fn(ParseNode $n) => $o->setPort($n->getIntegerValue()),
+            'ports' => fn(ParseNode $n) => $o->setPorts($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 
@@ -54,6 +55,14 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
     }
 
     /**
+     * Gets the ports property value. The ports property
+     * @return array<string>|null
+    */
+    public function getPorts(): ?array {
+        return $this->getBackingStore()->get('ports');
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -61,6 +70,7 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('destinationHost', $this->getDestinationHost());
         $writer->writeIntegerValue('port', $this->getPort());
+        $writer->writeCollectionOfPrimitiveValues('ports', $this->getPorts());
     }
 
     /**
@@ -77,6 +87,14 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
     */
     public function setPort(?int $value): void {
         $this->getBackingStore()->set('port', $value);
+    }
+
+    /**
+     * Sets the ports property value. The ports property
+     * @param array<string>|null $value Value to set for the ports property.
+    */
+    public function setPorts(?array $value): void {
+        $this->getBackingStore()->set('ports', $value);
     }
 
 }

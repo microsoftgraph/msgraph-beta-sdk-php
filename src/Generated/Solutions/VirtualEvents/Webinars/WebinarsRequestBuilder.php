@@ -53,7 +53,7 @@ class WebinarsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get webinars from solutions
+     * Read the properties and relationships of a virtualEventWebinar object.
      * @param WebinarsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -90,7 +90,7 @@ class WebinarsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get webinars from solutions
+     * Read the properties and relationships of a virtualEventWebinar object.
      * @param WebinarsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

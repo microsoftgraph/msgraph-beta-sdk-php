@@ -32,10 +32,11 @@ class PostponeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action postpone
+     * Postpone action on a recommendation object to a specified future date and time by marking its **status** as `postponed`. On the date and time provided, Azure AD will automatically update the **status** of the **recommendation** object to `active` again.
      * @param PostponePostRequestBody $body The request body
      * @param PostponeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/recommendation-postpone?view=graph-rest-1.0 Find more info here
     */
     public function post(PostponePostRequestBody $body, ?PostponeRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -51,7 +52,7 @@ class PostponeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action postpone
+     * Postpone action on a recommendation object to a specified future date and time by marking its **status** as `postponed`. On the date and time provided, Azure AD will automatically update the **status** of the **recommendation** object to `active` again.
      * @param PostponePostRequestBody $body The request body
      * @param PostponeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

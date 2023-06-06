@@ -43,6 +43,7 @@ class Connector extends Entity implements Parsable
             'machineName' => fn(ParseNode $n) => $o->setMachineName($n->getStringValue()),
             'memberOf' => fn(ParseNode $n) => $o->setMemberOf($n->getCollectionOfObjectValues([ConnectorGroup::class, 'createFromDiscriminatorValue'])),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(ConnectorStatus::class)),
+            'version' => fn(ParseNode $n) => $o->setVersion($n->getStringValue()),
         ]);
     }
 
@@ -71,6 +72,14 @@ class Connector extends Entity implements Parsable
     }
 
     /**
+     * Gets the version property value. The version property
+     * @return string|null
+    */
+    public function getVersion(): ?string {
+        return $this->getBackingStore()->get('version');
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -80,6 +89,7 @@ class Connector extends Entity implements Parsable
         $writer->writeStringValue('machineName', $this->getMachineName());
         $writer->writeCollectionOfObjectValues('memberOf', $this->getMemberOf());
         $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeStringValue('version', $this->getVersion());
     }
 
     /**
@@ -112,6 +122,14 @@ class Connector extends Entity implements Parsable
     */
     public function setStatus(?ConnectorStatus $value): void {
         $this->getBackingStore()->set('status', $value);
+    }
+
+    /**
+     * Sets the version property value. The version property
+     * @param string|null $value Value to set for the version property.
+    */
+    public function setVersion(?string $value): void {
+        $this->getBackingStore()->set('version', $value);
     }
 
 }

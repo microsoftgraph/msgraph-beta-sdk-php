@@ -51,7 +51,7 @@ class VirtualEventPresenterDetails implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Gets the bio property value. The bio property
+     * Gets the bio property value. Bio of the presenter.
      * @return ItemBody|null
     */
     public function getBio(): ?ItemBody {
@@ -59,7 +59,7 @@ class VirtualEventPresenterDetails implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Gets the company property value. The company property
+     * Gets the company property value. The presenter's company name.
      * @return string|null
     */
     public function getCompany(): ?string {
@@ -84,7 +84,7 @@ class VirtualEventPresenterDetails implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Gets the jobTitle property value. The jobTitle property
+     * Gets the jobTitle property value. The presenter's job title.
      * @return string|null
     */
     public function getJobTitle(): ?string {
@@ -92,7 +92,7 @@ class VirtualEventPresenterDetails implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Gets the linkedInProfileWebUrl property value. The linkedInProfileWebUrl property
+     * Gets the linkedInProfileWebUrl property value. The presenter's LinkedIn profile URL.
      * @return string|null
     */
     public function getLinkedInProfileWebUrl(): ?string {
@@ -108,7 +108,7 @@ class VirtualEventPresenterDetails implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Gets the personalSiteWebUrl property value. The personalSiteWebUrl property
+     * Gets the personalSiteWebUrl property value. The presenter's personal website URL.
      * @return string|null
     */
     public function getPersonalSiteWebUrl(): ?string {
@@ -116,7 +116,7 @@ class VirtualEventPresenterDetails implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Gets the twitterProfileWebUrl property value. The twitterProfileWebUrl property
+     * Gets the twitterProfileWebUrl property value. The presenter's Twitter profile URL.
      * @return string|null
     */
     public function getTwitterProfileWebUrl(): ?string {
@@ -155,7 +155,7 @@ class VirtualEventPresenterDetails implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Sets the bio property value. The bio property
+     * Sets the bio property value. Bio of the presenter.
      * @param ItemBody|null $value Value to set for the bio property.
     */
     public function setBio(?ItemBody $value): void {
@@ -163,7 +163,7 @@ class VirtualEventPresenterDetails implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Sets the company property value. The company property
+     * Sets the company property value. The presenter's company name.
      * @param string|null $value Value to set for the company property.
     */
     public function setCompany(?string $value): void {
@@ -171,7 +171,7 @@ class VirtualEventPresenterDetails implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Sets the jobTitle property value. The jobTitle property
+     * Sets the jobTitle property value. The presenter's job title.
      * @param string|null $value Value to set for the jobTitle property.
     */
     public function setJobTitle(?string $value): void {
@@ -179,7 +179,7 @@ class VirtualEventPresenterDetails implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Sets the linkedInProfileWebUrl property value. The linkedInProfileWebUrl property
+     * Sets the linkedInProfileWebUrl property value. The presenter's LinkedIn profile URL.
      * @param string|null $value Value to set for the linkedInProfileWebUrl property.
     */
     public function setLinkedInProfileWebUrl(?string $value): void {
@@ -195,7 +195,7 @@ class VirtualEventPresenterDetails implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Sets the personalSiteWebUrl property value. The personalSiteWebUrl property
+     * Sets the personalSiteWebUrl property value. The presenter's personal website URL.
      * @param string|null $value Value to set for the personalSiteWebUrl property.
     */
     public function setPersonalSiteWebUrl(?string $value): void {
@@ -203,7 +203,7 @@ class VirtualEventPresenterDetails implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Sets the twitterProfileWebUrl property value. The twitterProfileWebUrl property
+     * Sets the twitterProfileWebUrl property value. The presenter's Twitter profile URL.
      * @param string|null $value Value to set for the twitterProfileWebUrl property.
     */
     public function setTwitterProfileWebUrl(?string $value): void {

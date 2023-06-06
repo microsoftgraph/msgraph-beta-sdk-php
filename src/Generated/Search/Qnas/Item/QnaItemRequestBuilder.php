@@ -70,10 +70,11 @@ class QnaItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property qnas in search
+     * Update the properties of a qna object.
      * @param Qna $body The request body
      * @param QnaItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/search-qna-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(Qna $body, ?QnaItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -127,7 +128,7 @@ class QnaItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property qnas in search
+     * Update the properties of a qna object.
      * @param Qna $body The request body
      * @param QnaItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

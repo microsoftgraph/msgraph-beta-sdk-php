@@ -25,7 +25,7 @@ class VirtualEventRegistration extends Entity implements Parsable
     }
 
     /**
-     * Gets the capacity property value. The capacity property
+     * Gets the capacity property value. Total capacity of the virtual event.
      * @return int|null
     */
     public function getCapacity(): ?int {
@@ -47,7 +47,7 @@ class VirtualEventRegistration extends Entity implements Parsable
     }
 
     /**
-     * Gets the questions property value. The questions property
+     * Gets the questions property value. Registration questions.
      * @return array<VirtualEventRegistrationQuestion>|null
     */
     public function getQuestions(): ?array {
@@ -55,7 +55,7 @@ class VirtualEventRegistration extends Entity implements Parsable
     }
 
     /**
-     * Gets the registrants property value. The registrants property
+     * Gets the registrants property value. Information of attendees who have registered for the virtual event.
      * @return array<VirtualEventRegistrant>|null
     */
     public function getRegistrants(): ?array {
@@ -63,7 +63,7 @@ class VirtualEventRegistration extends Entity implements Parsable
     }
 
     /**
-     * Gets the registrationWebUrl property value. The registrationWebUrl property
+     * Gets the registrationWebUrl property value. Registration URL of the virtual event.
      * @return string|null
     */
     public function getRegistrationWebUrl(): ?string {
@@ -83,7 +83,7 @@ class VirtualEventRegistration extends Entity implements Parsable
     }
 
     /**
-     * Sets the capacity property value. The capacity property
+     * Sets the capacity property value. Total capacity of the virtual event.
      * @param int|null $value Value to set for the capacity property.
     */
     public function setCapacity(?int $value): void {
@@ -91,7 +91,7 @@ class VirtualEventRegistration extends Entity implements Parsable
     }
 
     /**
-     * Sets the questions property value. The questions property
+     * Sets the questions property value. Registration questions.
      * @param array<VirtualEventRegistrationQuestion>|null $value Value to set for the questions property.
     */
     public function setQuestions(?array $value): void {
@@ -99,7 +99,7 @@ class VirtualEventRegistration extends Entity implements Parsable
     }
 
     /**
-     * Sets the registrants property value. The registrants property
+     * Sets the registrants property value. Information of attendees who have registered for the virtual event.
      * @param array<VirtualEventRegistrant>|null $value Value to set for the registrants property.
     */
     public function setRegistrants(?array $value): void {
@@ -107,7 +107,7 @@ class VirtualEventRegistration extends Entity implements Parsable
     }
 
     /**
-     * Sets the registrationWebUrl property value. The registrationWebUrl property
+     * Sets the registrationWebUrl property value. Registration URL of the virtual event.
      * @param string|null $value Value to set for the registrationWebUrl property.
     */
     public function setRegistrationWebUrl(?string $value): void {
