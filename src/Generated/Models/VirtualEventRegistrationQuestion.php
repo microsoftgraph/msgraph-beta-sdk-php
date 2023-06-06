@@ -25,7 +25,7 @@ class VirtualEventRegistrationQuestion extends Entity implements Parsable
     }
 
     /**
-     * Gets the answerChoices property value. The answerChoices property
+     * Gets the answerChoices property value. Answer choices when answerInputType is singleChoice or multiChoice.
      * @return array<string>|null
     */
     public function getAnswerChoices(): ?array {
@@ -33,7 +33,7 @@ class VirtualEventRegistrationQuestion extends Entity implements Parsable
     }
 
     /**
-     * Gets the answerInputType property value. The answerInputType property
+     * Gets the answerInputType property value. Input type of the registration question answer.
      * @return VirtualEventRegistrationQuestionAnswerInputType|null
     */
     public function getAnswerInputType(): ?VirtualEventRegistrationQuestionAnswerInputType {
@@ -41,7 +41,7 @@ class VirtualEventRegistrationQuestion extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. Display name of the registration question.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -63,7 +63,7 @@ class VirtualEventRegistrationQuestion extends Entity implements Parsable
     }
 
     /**
-     * Gets the isRequired property value. The isRequired property
+     * Gets the isRequired property value. Indicates whether the question is required to answer. Default value is false.
      * @return bool|null
     */
     public function getIsRequired(): ?bool {
@@ -83,7 +83,7 @@ class VirtualEventRegistrationQuestion extends Entity implements Parsable
     }
 
     /**
-     * Sets the answerChoices property value. The answerChoices property
+     * Sets the answerChoices property value. Answer choices when answerInputType is singleChoice or multiChoice.
      * @param array<string>|null $value Value to set for the answerChoices property.
     */
     public function setAnswerChoices(?array $value): void {
@@ -91,7 +91,7 @@ class VirtualEventRegistrationQuestion extends Entity implements Parsable
     }
 
     /**
-     * Sets the answerInputType property value. The answerInputType property
+     * Sets the answerInputType property value. Input type of the registration question answer.
      * @param VirtualEventRegistrationQuestionAnswerInputType|null $value Value to set for the answerInputType property.
     */
     public function setAnswerInputType(?VirtualEventRegistrationQuestionAnswerInputType $value): void {
@@ -99,7 +99,7 @@ class VirtualEventRegistrationQuestion extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. Display name of the registration question.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -107,7 +107,7 @@ class VirtualEventRegistrationQuestion extends Entity implements Parsable
     }
 
     /**
-     * Sets the isRequired property value. The isRequired property
+     * Sets the isRequired property value. Indicates whether the question is required to answer. Default value is false.
      * @param bool|null $value Value to set for the isRequired property.
     */
     public function setIsRequired(?bool $value): void {

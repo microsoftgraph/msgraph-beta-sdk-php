@@ -50,7 +50,7 @@ class RegionalAndLanguageSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties of a regionalAndLanguageSettings object.
+     * Retrieve the properties of a user's regionalAndLanguageSettings.
      * @param RegionalAndLanguageSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/regionalandlanguagesettings-get?view=graph-rest-1.0 Find more info here
@@ -106,7 +106,7 @@ class RegionalAndLanguageSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties of a regionalAndLanguageSettings object.
+     * Retrieve the properties of a user's regionalAndLanguageSettings.
      * @param RegionalAndLanguageSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

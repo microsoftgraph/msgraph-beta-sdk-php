@@ -7,13 +7,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * Entity used to retrieve information about Intune Certificate Connectors.
-*/
 class CertificateConnectorDetails extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new certificateConnectorDetails and sets the default values.
+     * Instantiates a new CertificateConnectorDetails and sets the default values.
     */
     public function __construct() {
         parent::__construct();

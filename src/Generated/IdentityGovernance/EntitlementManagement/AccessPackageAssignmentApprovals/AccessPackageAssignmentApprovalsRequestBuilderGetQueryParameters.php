@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * In Azure AD entitlement management, retrieves the properties of an approval object.  This call can be made by an approver, providing the identifier of the access package assignment request.
+ * Retrieve the properties of an approval object. This API request is made by an approver in the following scenarios:
 */
 class AccessPackageAssignmentApprovalsRequestBuilderGetQueryParameters 
 {

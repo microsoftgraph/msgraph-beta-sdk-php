@@ -26,7 +26,7 @@ class VirtualEventRegistrant extends Entity implements Parsable
     }
 
     /**
-     * Gets the cancelationDateTime property value. The cancelationDateTime property
+     * Gets the cancelationDateTime property value. Time in UTC when the registrant cancels their registration for the virtual event. Only appears when applicable.
      * @return DateTime|null
     */
     public function getCancelationDateTime(): ?DateTime {
@@ -34,7 +34,7 @@ class VirtualEventRegistrant extends Entity implements Parsable
     }
 
     /**
-     * Gets the email property value. The email property
+     * Gets the email property value. Email address of the registrant.
      * @return string|null
     */
     public function getEmail(): ?string {
@@ -60,7 +60,7 @@ class VirtualEventRegistrant extends Entity implements Parsable
     }
 
     /**
-     * Gets the firstName property value. The firstName property
+     * Gets the firstName property value. First name of the registrant.
      * @return string|null
     */
     public function getFirstName(): ?string {
@@ -68,7 +68,7 @@ class VirtualEventRegistrant extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastName property value. The lastName property
+     * Gets the lastName property value. Last name of the registrant.
      * @return string|null
     */
     public function getLastName(): ?string {
@@ -76,7 +76,7 @@ class VirtualEventRegistrant extends Entity implements Parsable
     }
 
     /**
-     * Gets the registrationDateTime property value. The registrationDateTime property
+     * Gets the registrationDateTime property value. Time in UTC when the registrant registers for the virtual event.
      * @return DateTime|null
     */
     public function getRegistrationDateTime(): ?DateTime {
@@ -84,7 +84,7 @@ class VirtualEventRegistrant extends Entity implements Parsable
     }
 
     /**
-     * Gets the registrationQuestionAnswers property value. The registrationQuestionAnswers property
+     * Gets the registrationQuestionAnswers property value. The registrant's answer to the registration questions.
      * @return array<VirtualEventRegistrationQuestionAnswer>|null
     */
     public function getRegistrationQuestionAnswers(): ?array {
@@ -92,7 +92,7 @@ class VirtualEventRegistrant extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. Registration status of the registrant. Read-only.
      * @return VirtualEventAttendeeRegistrationStatus|null
     */
     public function getStatus(): ?VirtualEventAttendeeRegistrationStatus {
@@ -100,7 +100,7 @@ class VirtualEventRegistrant extends Entity implements Parsable
     }
 
     /**
-     * Gets the userId property value. The userId property
+     * Gets the userId property value. The registrant's AAD user ID. Only appears when the registrant is registered in AAD.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -124,7 +124,7 @@ class VirtualEventRegistrant extends Entity implements Parsable
     }
 
     /**
-     * Sets the cancelationDateTime property value. The cancelationDateTime property
+     * Sets the cancelationDateTime property value. Time in UTC when the registrant cancels their registration for the virtual event. Only appears when applicable.
      * @param DateTime|null $value Value to set for the cancelationDateTime property.
     */
     public function setCancelationDateTime(?DateTime $value): void {
@@ -132,7 +132,7 @@ class VirtualEventRegistrant extends Entity implements Parsable
     }
 
     /**
-     * Sets the email property value. The email property
+     * Sets the email property value. Email address of the registrant.
      * @param string|null $value Value to set for the email property.
     */
     public function setEmail(?string $value): void {
@@ -140,7 +140,7 @@ class VirtualEventRegistrant extends Entity implements Parsable
     }
 
     /**
-     * Sets the firstName property value. The firstName property
+     * Sets the firstName property value. First name of the registrant.
      * @param string|null $value Value to set for the firstName property.
     */
     public function setFirstName(?string $value): void {
@@ -148,7 +148,7 @@ class VirtualEventRegistrant extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastName property value. The lastName property
+     * Sets the lastName property value. Last name of the registrant.
      * @param string|null $value Value to set for the lastName property.
     */
     public function setLastName(?string $value): void {
@@ -156,7 +156,7 @@ class VirtualEventRegistrant extends Entity implements Parsable
     }
 
     /**
-     * Sets the registrationDateTime property value. The registrationDateTime property
+     * Sets the registrationDateTime property value. Time in UTC when the registrant registers for the virtual event.
      * @param DateTime|null $value Value to set for the registrationDateTime property.
     */
     public function setRegistrationDateTime(?DateTime $value): void {
@@ -164,7 +164,7 @@ class VirtualEventRegistrant extends Entity implements Parsable
     }
 
     /**
-     * Sets the registrationQuestionAnswers property value. The registrationQuestionAnswers property
+     * Sets the registrationQuestionAnswers property value. The registrant's answer to the registration questions.
      * @param array<VirtualEventRegistrationQuestionAnswer>|null $value Value to set for the registrationQuestionAnswers property.
     */
     public function setRegistrationQuestionAnswers(?array $value): void {
@@ -172,7 +172,7 @@ class VirtualEventRegistrant extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. Registration status of the registrant. Read-only.
      * @param VirtualEventAttendeeRegistrationStatus|null $value Value to set for the status property.
     */
     public function setStatus(?VirtualEventAttendeeRegistrationStatus $value): void {
@@ -180,7 +180,7 @@ class VirtualEventRegistrant extends Entity implements Parsable
     }
 
     /**
-     * Sets the userId property value. The userId property
+     * Sets the userId property value. The registrant's AAD user ID. Only appears when the registrant is registered in AAD.
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {

@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * This entity provides descriptions of the declared methods, properties and relationships exposed by the kiosk resource.
+*/
 class WindowsKioskConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new WindowsKioskConfiguration and sets the default values.
+     * Instantiates a new windowsKioskConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

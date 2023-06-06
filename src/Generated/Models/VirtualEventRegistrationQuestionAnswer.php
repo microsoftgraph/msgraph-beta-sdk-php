@@ -51,7 +51,7 @@ class VirtualEventRegistrationQuestionAnswer implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Gets the booleanValue property value. The booleanValue property
+     * Gets the booleanValue property value. Boolean answer of the virtualEventRegistrationQuestion. Only appears when answerInputType is boolean.
      * @return bool|null
     */
     public function getBooleanValue(): ?bool {
@@ -59,7 +59,7 @@ class VirtualEventRegistrationQuestionAnswer implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. Display name of the registration question.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -83,7 +83,7 @@ class VirtualEventRegistrationQuestionAnswer implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Gets the multiChoiceValues property value. The multiChoiceValues property
+     * Gets the multiChoiceValues property value. Collection of text answer of the virtualEventRegistrationQuestion. Only appears when answerInputType is multiChoice.
      * @return array<string>|null
     */
     public function getMultiChoiceValues(): ?array {
@@ -99,7 +99,7 @@ class VirtualEventRegistrationQuestionAnswer implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Gets the questionId property value. The questionId property
+     * Gets the questionId property value. id of the virtualEventRegistrationQuestion.
      * @return string|null
     */
     public function getQuestionId(): ?string {
@@ -107,7 +107,7 @@ class VirtualEventRegistrationQuestionAnswer implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. Text answer of the virtualEventRegistrationQuestion. Appears when answerInputType is text, multilineText or singleChoice.
      * @return string|null
     */
     public function getValue(): ?string {
@@ -145,7 +145,7 @@ class VirtualEventRegistrationQuestionAnswer implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Sets the booleanValue property value. The booleanValue property
+     * Sets the booleanValue property value. Boolean answer of the virtualEventRegistrationQuestion. Only appears when answerInputType is boolean.
      * @param bool|null $value Value to set for the booleanValue property.
     */
     public function setBooleanValue(?bool $value): void {
@@ -153,7 +153,7 @@ class VirtualEventRegistrationQuestionAnswer implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. Display name of the registration question.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -161,7 +161,7 @@ class VirtualEventRegistrationQuestionAnswer implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Sets the multiChoiceValues property value. The multiChoiceValues property
+     * Sets the multiChoiceValues property value. Collection of text answer of the virtualEventRegistrationQuestion. Only appears when answerInputType is multiChoice.
      * @param array<string>|null $value Value to set for the multiChoiceValues property.
     */
     public function setMultiChoiceValues(?array $value): void {
@@ -177,7 +177,7 @@ class VirtualEventRegistrationQuestionAnswer implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Sets the questionId property value. The questionId property
+     * Sets the questionId property value. id of the virtualEventRegistrationQuestion.
      * @param string|null $value Value to set for the questionId property.
     */
     public function setQuestionId(?string $value): void {
@@ -185,7 +185,7 @@ class VirtualEventRegistrationQuestionAnswer implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. Text answer of the virtualEventRegistrationQuestion. Appears when answerInputType is text, multilineText or singleChoice.
      * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {

@@ -103,6 +103,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
             'externalAuthenticationType' => fn(ParseNode $n) => $o->setExternalAuthenticationType($n->getEnumValue(ExternalAuthenticationType::class)),
             'externalUrl' => fn(ParseNode $n) => $o->setExternalUrl($n->getStringValue()),
             'internalUrl' => fn(ParseNode $n) => $o->setInternalUrl($n->getStringValue()),
+            'isAccessibleViaZTNAClient' => fn(ParseNode $n) => $o->setIsAccessibleViaZTNAClient($n->getBooleanValue()),
             'isBackendCertificateValidationEnabled' => fn(ParseNode $n) => $o->setIsBackendCertificateValidationEnabled($n->getBooleanValue()),
             'isHttpOnlyCookieEnabled' => fn(ParseNode $n) => $o->setIsHttpOnlyCookieEnabled($n->getBooleanValue()),
             'isOnPremPublishingEnabled' => fn(ParseNode $n) => $o->setIsOnPremPublishingEnabled($n->getBooleanValue()),
@@ -128,6 +129,14 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function getInternalUrl(): ?string {
         return $this->getBackingStore()->get('internalUrl');
+    }
+
+    /**
+     * Gets the isAccessibleViaZTNAClient property value. The isAccessibleViaZTNAClient property
+     * @return bool|null
+    */
+    public function getIsAccessibleViaZTNAClient(): ?bool {
+        return $this->getBackingStore()->get('isAccessibleViaZTNAClient');
     }
 
     /**
@@ -269,6 +278,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeEnumValue('externalAuthenticationType', $this->getExternalAuthenticationType());
         $writer->writeStringValue('externalUrl', $this->getExternalUrl());
         $writer->writeStringValue('internalUrl', $this->getInternalUrl());
+        $writer->writeBooleanValue('isAccessibleViaZTNAClient', $this->getIsAccessibleViaZTNAClient());
         $writer->writeBooleanValue('isBackendCertificateValidationEnabled', $this->getIsBackendCertificateValidationEnabled());
         $writer->writeBooleanValue('isHttpOnlyCookieEnabled', $this->getIsHttpOnlyCookieEnabled());
         $writer->writeBooleanValue('isOnPremPublishingEnabled', $this->getIsOnPremPublishingEnabled());
@@ -350,6 +360,14 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function setInternalUrl(?string $value): void {
         $this->getBackingStore()->set('internalUrl', $value);
+    }
+
+    /**
+     * Sets the isAccessibleViaZTNAClient property value. The isAccessibleViaZTNAClient property
+     * @param bool|null $value Value to set for the isAccessibleViaZTNAClient property.
+    */
+    public function setIsAccessibleViaZTNAClient(?bool $value): void {
+        $this->getBackingStore()->set('isAccessibleViaZTNAClient', $value);
     }
 
     /**

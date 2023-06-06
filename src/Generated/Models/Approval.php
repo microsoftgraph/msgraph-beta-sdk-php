@@ -36,7 +36,7 @@ class Approval extends Entity implements Parsable
     }
 
     /**
-     * Gets the steps property value. The steps property
+     * Gets the steps property value. Used to represent the decision associated with a single step in the approval process configured in approvalStage.
      * @return array<ApprovalStep>|null
     */
     public function getSteps(): ?array {
@@ -53,7 +53,7 @@ class Approval extends Entity implements Parsable
     }
 
     /**
-     * Sets the steps property value. The steps property
+     * Sets the steps property value. Used to represent the decision associated with a single step in the approval process configured in approvalStage.
      * @param array<ApprovalStep>|null $value Value to set for the steps property.
     */
     public function setSteps(?array $value): void {
