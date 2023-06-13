@@ -51,7 +51,7 @@ class PlannerTaskCompletionRequirementDetails implements AdditionalDataHolder, B
     }
 
     /**
-     * Gets the checklistRequirement property value. The checklistRequirement property
+     * Gets the checklistRequirement property value. Information about the requirements for completing the checklist.
      * @return PlannerChecklistRequirement|null
     */
     public function getChecklistRequirement(): ?PlannerChecklistRequirement {
@@ -105,7 +105,7 @@ class PlannerTaskCompletionRequirementDetails implements AdditionalDataHolder, B
     }
 
     /**
-     * Sets the checklistRequirement property value. The checklistRequirement property
+     * Sets the checklistRequirement property value. Information about the requirements for completing the checklist.
      * @param PlannerChecklistRequirement|null $value Value to set for the checklistRequirement property.
     */
     public function setChecklistRequirement(?PlannerChecklistRequirement $value): void {

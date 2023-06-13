@@ -697,7 +697,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the isManagementRestricted property value. The isManagementRestricted property
+     * Gets the isManagementRestricted property value. true if the user is a member of a restricted management administrative unit, in which case it requires a role scoped to the restricted administrative unit to manage. Default value is false. Read-only.
      * @return bool|null
     */
     public function getIsManagementRestricted(): ?bool {
@@ -857,7 +857,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the mobilePhone property value. The primary cellular telephone number for the user. Read-only for users synced from on-premises directory.  Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * Gets the mobilePhone property value. The primary cellular telephone number for the user. Read-only for users synced from on-premises directory.  Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values) and $search.
      * @return string|null
     */
     public function getMobilePhone(): ?string {
@@ -2028,7 +2028,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the isManagementRestricted property value. The isManagementRestricted property
+     * Sets the isManagementRestricted property value. true if the user is a member of a restricted management administrative unit, in which case it requires a role scoped to the restricted administrative unit to manage. Default value is false. Read-only.
      * @param bool|null $value Value to set for the isManagementRestricted property.
     */
     public function setIsManagementRestricted(?bool $value): void {
@@ -2188,7 +2188,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the mobilePhone property value. The primary cellular telephone number for the user. Read-only for users synced from on-premises directory.  Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * Sets the mobilePhone property value. The primary cellular telephone number for the user. Read-only for users synced from on-premises directory.  Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values) and $search.
      * @param string|null $value Value to set for the mobilePhone property.
     */
     public function setMobilePhone(?string $value): void {

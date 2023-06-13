@@ -58,10 +58,9 @@ class UnifiedRoleManagementPolicyAssignmentItemRequestBuilder extends BaseReques
     }
 
     /**
-     * Get the details of a role management policy assignment including the policy and rules associated with the Azure AD role.
+     * Represents the role management policy assignments.
      * @param UnifiedRoleManagementPolicyAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/unifiedrolemanagementpolicyassignment-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?UnifiedRoleManagementPolicyAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -113,7 +112,7 @@ class UnifiedRoleManagementPolicyAssignmentItemRequestBuilder extends BaseReques
     }
 
     /**
-     * Get the details of a role management policy assignment including the policy and rules associated with the Azure AD role.
+     * Represents the role management policy assignments.
      * @param UnifiedRoleManagementPolicyAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

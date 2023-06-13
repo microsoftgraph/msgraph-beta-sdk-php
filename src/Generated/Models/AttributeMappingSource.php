@@ -51,7 +51,7 @@ class AttributeMappingSource implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the expression property value. The expression property
+     * Gets the expression property value. Equivalent expression representation of this attributeMappingSource object.
      * @return string|null
     */
     public function getExpression(): ?string {
@@ -74,7 +74,7 @@ class AttributeMappingSource implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. Name parameter of the mapping source. Depending on the type property value, this can be the name of the function, the name of the source attribute, or a constant value to be used.
      * @return string|null
     */
     public function getName(): ?string {
@@ -90,7 +90,7 @@ class AttributeMappingSource implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the parameters property value. The parameters property
+     * Gets the parameters property value. If this object represents a function, lists function parameters. Parameters consist of attributeMappingSource objects themselves, allowing for complex expressions. If type is not Function, this property will be null/empty array.
      * @return array<StringKeyAttributeMappingSourceValuePair>|null
     */
     public function getParameters(): ?array {
@@ -135,7 +135,7 @@ class AttributeMappingSource implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the expression property value. The expression property
+     * Sets the expression property value. Equivalent expression representation of this attributeMappingSource object.
      * @param string|null $value Value to set for the expression property.
     */
     public function setExpression(?string $value): void {
@@ -143,7 +143,7 @@ class AttributeMappingSource implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. Name parameter of the mapping source. Depending on the type property value, this can be the name of the function, the name of the source attribute, or a constant value to be used.
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
@@ -159,7 +159,7 @@ class AttributeMappingSource implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the parameters property value. The parameters property
+     * Sets the parameters property value. If this object represents a function, lists function parameters. Parameters consist of attributeMappingSource objects themselves, allowing for complex expressions. If type is not Function, this property will be null/empty array.
      * @param array<StringKeyAttributeMappingSourceValuePair>|null $value Value to set for the parameters property.
     */
     public function setParameters(?array $value): void {

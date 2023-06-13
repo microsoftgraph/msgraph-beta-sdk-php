@@ -43,7 +43,7 @@ class ObjectDefinition implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the attributes property value. The attributes property
+     * Gets the attributes property value. Defines attributes of the object.
      * @return array<AttributeDefinition>|null
     */
     public function getAttributes(): ?array {
@@ -74,7 +74,7 @@ class ObjectDefinition implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the metadata property value. The metadata property
+     * Gets the metadata property value. Metadata for the given object.
      * @return array<ObjectDefinitionMetadataEntry>|null
     */
     public function getMetadata(): ?array {
@@ -82,7 +82,7 @@ class ObjectDefinition implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. Name of the object. Must be unique within a directory definition. Not nullable.
      * @return string|null
     */
     public function getName(): ?string {
@@ -98,7 +98,7 @@ class ObjectDefinition implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the supportedApis property value. The supportedApis property
+     * Gets the supportedApis property value. The API that the provisioning service queries to retrieve data for synchronization.
      * @return array<string>|null
     */
     public function getSupportedApis(): ?array {
@@ -127,7 +127,7 @@ class ObjectDefinition implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the attributes property value. The attributes property
+     * Sets the attributes property value. Defines attributes of the object.
      * @param array<AttributeDefinition>|null $value Value to set for the attributes property.
     */
     public function setAttributes(?array $value): void {
@@ -143,7 +143,7 @@ class ObjectDefinition implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the metadata property value. The metadata property
+     * Sets the metadata property value. Metadata for the given object.
      * @param array<ObjectDefinitionMetadataEntry>|null $value Value to set for the metadata property.
     */
     public function setMetadata(?array $value): void {
@@ -151,7 +151,7 @@ class ObjectDefinition implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. Name of the object. Must be unique within a directory definition. Not nullable.
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
@@ -167,7 +167,7 @@ class ObjectDefinition implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the supportedApis property value. The supportedApis property
+     * Sets the supportedApis property value. The API that the provisioning service queries to retrieve data for synchronization.
      * @param array<string>|null $value Value to set for the supportedApis property.
     */
     public function setSupportedApis(?array $value): void {

@@ -63,6 +63,14 @@ class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, 
     }
 
     /**
+     * Gets the detectFailedDeviceCount property value. The number of devices for which the detection script found an issue.
+     * @return int|null
+    */
+    public function getDetectFailedDeviceCount(): ?int {
+        return $this->getBackingStore()->get('detectFailedDeviceCount');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
@@ -70,6 +78,7 @@ class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, 
         $o = $this;
         return  [
             'date' => fn(ParseNode $n) => $o->setDate($n->getDateValue()),
+            'detectFailedDeviceCount' => fn(ParseNode $n) => $o->setDetectFailedDeviceCount($n->getIntegerValue()),
             'noIssueDeviceCount' => fn(ParseNode $n) => $o->setNoIssueDeviceCount($n->getIntegerValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'remediatedDeviceCount' => fn(ParseNode $n) => $o->setRemediatedDeviceCount($n->getIntegerValue()),
@@ -106,6 +115,7 @@ class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, 
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeDateValue('date', $this->getDate());
+        $writer->writeIntegerValue('detectFailedDeviceCount', $this->getDetectFailedDeviceCount());
         $writer->writeIntegerValue('noIssueDeviceCount', $this->getNoIssueDeviceCount());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('remediatedDeviceCount', $this->getRemediatedDeviceCount());
@@ -134,6 +144,14 @@ class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, 
     */
     public function setDate(?Date $value): void {
         $this->getBackingStore()->set('date', $value);
+    }
+
+    /**
+     * Sets the detectFailedDeviceCount property value. The number of devices for which the detection script found an issue.
+     * @param int|null $value Value to set for the detectFailedDeviceCount property.
+    */
+    public function setDetectFailedDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('detectFailedDeviceCount', $value);
     }
 
     /**

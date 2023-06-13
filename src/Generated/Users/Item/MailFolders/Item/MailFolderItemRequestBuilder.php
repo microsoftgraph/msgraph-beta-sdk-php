@@ -118,11 +118,11 @@ class MailFolderItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the writable properties of a mailSearchFolder object.
+     * Update the properties of mailFolder object.
      * @param MailFolder $body The request body
      * @param MailFolderItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/mailsearchfolder-update?view=graph-rest-1.0 Find more info here
+     * @link https://docs.microsoft.com/graph/api/mailfolder-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(MailFolder $body, ?MailFolderItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -176,7 +176,7 @@ class MailFolderItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the writable properties of a mailSearchFolder object.
+     * Update the properties of mailFolder object.
      * @param MailFolder $body The request body
      * @param MailFolderItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

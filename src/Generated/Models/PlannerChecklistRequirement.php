@@ -71,7 +71,7 @@ class PlannerChecklistRequirement implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the requiredChecklistItemIds property value. The requiredChecklistItemIds property
+     * Gets the requiredChecklistItemIds property value. A collection of required plannerChecklistItems identifiers to complete the plannerTask.
      * @return array<string>|null
     */
     public function getRequiredChecklistItemIds(): ?array {
@@ -113,7 +113,7 @@ class PlannerChecklistRequirement implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the requiredChecklistItemIds property value. The requiredChecklistItemIds property
+     * Sets the requiredChecklistItemIds property value. A collection of required plannerChecklistItems identifiers to complete the plannerTask.
      * @param array<string>|null $value Value to set for the requiredChecklistItemIds property.
     */
     public function setRequiredChecklistItemIds(?array $value): void {

@@ -112,6 +112,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
             'primaryAccountFullName' => fn(ParseNode $n) => $o->setPrimaryAccountFullName($n->getStringValue()),
             'primaryAccountUserName' => fn(ParseNode $n) => $o->setPrimaryAccountUserName($n->getStringValue()),
             'registrationDisabled' => fn(ParseNode $n) => $o->setRegistrationDisabled($n->getBooleanValue()),
+            'requestRequiresNetworkTether' => fn(ParseNode $n) => $o->setRequestRequiresNetworkTether($n->getBooleanValue()),
             'setPrimarySetupAccountAsRegularUser' => fn(ParseNode $n) => $o->setSetPrimarySetupAccountAsRegularUser($n->getBooleanValue()),
             'skipPrimarySetupAccountCreation' => fn(ParseNode $n) => $o->setSkipPrimarySetupAccountCreation($n->getBooleanValue()),
             'zoomDisabled' => fn(ParseNode $n) => $o->setZoomDisabled($n->getBooleanValue()),
@@ -183,6 +184,14 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
     }
 
     /**
+     * Gets the requestRequiresNetworkTether property value. Indicates if the device is network-tethered to run the command
+     * @return bool|null
+    */
+    public function getRequestRequiresNetworkTether(): ?bool {
+        return $this->getBackingStore()->get('requestRequiresNetworkTether');
+    }
+
+    /**
      * Gets the setPrimarySetupAccountAsRegularUser property value. Indicates whether Setup Assistant will set the account as a regular user
      * @return bool|null
     */
@@ -228,6 +237,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
         $writer->writeStringValue('primaryAccountFullName', $this->getPrimaryAccountFullName());
         $writer->writeStringValue('primaryAccountUserName', $this->getPrimaryAccountUserName());
         $writer->writeBooleanValue('registrationDisabled', $this->getRegistrationDisabled());
+        $writer->writeBooleanValue('requestRequiresNetworkTether', $this->getRequestRequiresNetworkTether());
         $writer->writeBooleanValue('setPrimarySetupAccountAsRegularUser', $this->getSetPrimarySetupAccountAsRegularUser());
         $writer->writeBooleanValue('skipPrimarySetupAccountCreation', $this->getSkipPrimarySetupAccountCreation());
         $writer->writeBooleanValue('zoomDisabled', $this->getZoomDisabled());
@@ -359,6 +369,14 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
     */
     public function setRegistrationDisabled(?bool $value): void {
         $this->getBackingStore()->set('registrationDisabled', $value);
+    }
+
+    /**
+     * Sets the requestRequiresNetworkTether property value. Indicates if the device is network-tethered to run the command
+     * @param bool|null $value Value to set for the requestRequiresNetworkTether property.
+    */
+    public function setRequestRequiresNetworkTether(?bool $value): void {
+        $this->getBackingStore()->set('requestRequiresNetworkTether', $value);
     }
 
     /**

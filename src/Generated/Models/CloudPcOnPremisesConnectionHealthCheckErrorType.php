@@ -56,6 +56,8 @@ class CloudPcOnPremisesConnectionHealthCheckErrorType extends Enum {
     public const PERMISSION_CHECK_NO_RESOURCE_GROUP_OWNER_ROLE = 'permissionCheckNoResourceGroupOwnerRole';
     public const PERMISSION_CHECK_NO_V_NET_CONTRIBUTOR_ROLE = 'permissionCheckNoVNetContributorRole';
     public const PERMISSION_CHECK_NO_RESOURCE_GROUP_NETWORK_CONTRIBUTOR_ROLE = 'permissionCheckNoResourceGroupNetworkContributorRole';
+    public const PERMISSION_CHECK_NO_WINDOWS365_NETWORK_USER_ROLE = 'permissionCheckNoWindows365NetworkUserRole';
+    public const PERMISSION_CHECK_NO_WINDOWS365_NETWORK_INTERFACE_CONTRIBUTOR_ROLE = 'permissionCheckNoWindows365NetworkInterfaceContributorRole';
     public const PERMISSION_CHECK_TRANSIENT_SERVICE_ERROR = 'permissionCheckTransientServiceError';
     public const PERMISSION_CHECK_UNKNOWN_ERROR = 'permissionCheckUnknownError';
     public const UDP_CONNECTIVITY_CHECK_STUN_URL_NOT_ALLOW_LISTED = 'udpConnectivityCheckStunUrlNotAllowListed';

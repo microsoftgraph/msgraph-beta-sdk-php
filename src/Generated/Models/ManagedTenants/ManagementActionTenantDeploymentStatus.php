@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagementActionTenantDeploymentStatus extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ManagementActionTenantDeploymentStatus and sets the default values.
+     * Instantiates a new managementActionTenantDeploymentStatus and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -64,7 +64,6 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
             'healthStatus' => fn(ParseNode $n) => $o->setHealthStatus($n->getEnumValue(UserExperienceAnalyticsHealthState::class)),
             'meanTimeToFailureInMinutes' => fn(ParseNode $n) => $o->setMeanTimeToFailureInMinutes($n->getIntegerValue()),
             'modelAppHealthScore' => fn(ParseNode $n) => $o->setModelAppHealthScore($n->getFloatValue()),
-            'modelAppHealthStatus' => fn(ParseNode $n) => $o->setModelAppHealthStatus($n->getStringValue()),
         ]);
     }
 
@@ -93,14 +92,6 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
     }
 
     /**
-     * Gets the modelAppHealthStatus property value. The overall app health status of the device model.
-     * @return string|null
-    */
-    public function getModelAppHealthStatus(): ?string {
-        return $this->getBackingStore()->get('modelAppHealthStatus');
-    }
-
-    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -112,7 +103,6 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
         $writer->writeEnumValue('healthStatus', $this->getHealthStatus());
         $writer->writeIntegerValue('meanTimeToFailureInMinutes', $this->getMeanTimeToFailureInMinutes());
         $writer->writeFloatValue('modelAppHealthScore', $this->getModelAppHealthScore());
-        $writer->writeStringValue('modelAppHealthStatus', $this->getModelAppHealthStatus());
     }
 
     /**
@@ -161,14 +151,6 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
     */
     public function setModelAppHealthScore(?float $value): void {
         $this->getBackingStore()->set('modelAppHealthScore', $value);
-    }
-
-    /**
-     * Sets the modelAppHealthStatus property value. The overall app health status of the device model.
-     * @param string|null $value Value to set for the modelAppHealthStatus property.
-    */
-    public function setModelAppHealthStatus(?string $value): void {
-        $this->getBackingStore()->set('modelAppHealthStatus', $value);
     }
 
 }

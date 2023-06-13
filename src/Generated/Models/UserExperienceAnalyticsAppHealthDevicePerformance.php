@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics device performance entity contains device performance details.
+*/
 class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsAppHealthDevicePerformance and sets the default values.
+     * Instantiates a new userExperienceAnalyticsAppHealthDevicePerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -58,14 +61,6 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Gets the deviceAppHealthStatus property value. The overall app health status of the device.
-     * @return string|null
-    */
-    public function getDeviceAppHealthStatus(): ?string {
-        return $this->getBackingStore()->get('deviceAppHealthStatus');
-    }
-
-    /**
      * Gets the deviceDisplayName property value. The name of the device.
      * @return string|null
     */
@@ -108,7 +103,6 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
             'appHangCount' => fn(ParseNode $n) => $o->setAppHangCount($n->getIntegerValue()),
             'crashedAppCount' => fn(ParseNode $n) => $o->setCrashedAppCount($n->getIntegerValue()),
             'deviceAppHealthScore' => fn(ParseNode $n) => $o->setDeviceAppHealthScore($n->getFloatValue()),
-            'deviceAppHealthStatus' => fn(ParseNode $n) => $o->setDeviceAppHealthStatus($n->getStringValue()),
             'deviceDisplayName' => fn(ParseNode $n) => $o->setDeviceDisplayName($n->getStringValue()),
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
             'deviceManufacturer' => fn(ParseNode $n) => $o->setDeviceManufacturer($n->getStringValue()),
@@ -153,7 +147,6 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
         $writer->writeIntegerValue('appHangCount', $this->getAppHangCount());
         $writer->writeIntegerValue('crashedAppCount', $this->getCrashedAppCount());
         $writer->writeFloatValue('deviceAppHealthScore', $this->getDeviceAppHealthScore());
-        $writer->writeStringValue('deviceAppHealthStatus', $this->getDeviceAppHealthStatus());
         $writer->writeStringValue('deviceDisplayName', $this->getDeviceDisplayName());
         $writer->writeStringValue('deviceId', $this->getDeviceId());
         $writer->writeStringValue('deviceManufacturer', $this->getDeviceManufacturer());
@@ -193,14 +186,6 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     */
     public function setDeviceAppHealthScore(?float $value): void {
         $this->getBackingStore()->set('deviceAppHealthScore', $value);
-    }
-
-    /**
-     * Sets the deviceAppHealthStatus property value. The overall app health status of the device.
-     * @param string|null $value Value to set for the deviceAppHealthStatus property.
-    */
-    public function setDeviceAppHealthStatus(?string $value): void {
-        $this->getBackingStore()->set('deviceAppHealthStatus', $value);
     }
 
     /**

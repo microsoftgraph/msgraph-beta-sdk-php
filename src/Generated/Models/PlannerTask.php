@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PlannerTask extends PlannerDelta implements Parsable 
 {
     /**
-     * Instantiates a new PlannerTask and sets the default values.
+     * Instantiates a new plannerTask and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -271,7 +271,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the specifiedCompletionRequirements property value. The specifiedCompletionRequirements property
+     * Gets the specifiedCompletionRequirements property value. Indicates all the requirements specified on the plannerTask. Possible values are: none, checklistCompletion, unknownFutureValue. Read-only. The plannerTaskCompletionRequirementDetails in plannerTaskDetails has details of the requirements specified, if any.
      * @return PlannerTaskCompletionRequirements|null
     */
     public function getSpecifiedCompletionRequirements(): ?PlannerTaskCompletionRequirements {
@@ -531,7 +531,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the specifiedCompletionRequirements property value. The specifiedCompletionRequirements property
+     * Sets the specifiedCompletionRequirements property value. Indicates all the requirements specified on the plannerTask. Possible values are: none, checklistCompletion, unknownFutureValue. Read-only. The plannerTaskCompletionRequirementDetails in plannerTaskDetails has details of the requirements specified, if any.
      * @param PlannerTaskCompletionRequirements|null $value Value to set for the specifiedCompletionRequirements property.
     */
     public function setSpecifiedCompletionRequirements(?PlannerTaskCompletionRequirements $value): void {

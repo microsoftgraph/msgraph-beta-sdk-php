@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DomainSecurityProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new domainSecurityProfile and sets the default values.
+     * Instantiates a new DomainSecurityProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

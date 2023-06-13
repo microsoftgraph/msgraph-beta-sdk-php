@@ -8,14 +8,10 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\Assignments\AssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\Categories\CategoriesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\DeviceStatuses\DeviceStatusesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GetRelatedAppStatesWithUserPrincipalNameWithDeviceId\GetRelatedAppStatesWithUserPrincipalNameWithDeviceIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphManagedMobileLobApp\GraphManagedMobileLobAppRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphMobileLobApp\GraphMobileLobAppRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\InstallSummary\InstallSummaryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\Relationships\RelationshipsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\UpdateRelationships\UpdateRelationshipsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\UserStatuses\UserStatusesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MobileApp;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -50,13 +46,6 @@ class MobileAppItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to manage the deviceStatuses property of the microsoft.graph.mobileApp entity.
-    */
-    public function deviceStatuses(): DeviceStatusesRequestBuilder {
-        return new DeviceStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Casts the previous resource to managedMobileLobApp.
     */
     public function graphManagedMobileLobApp(): GraphManagedMobileLobAppRequestBuilder {
@@ -71,13 +60,6 @@ class MobileAppItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to manage the installSummary property of the microsoft.graph.mobileApp entity.
-    */
-    public function installSummary(): InstallSummaryRequestBuilder {
-        return new InstallSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the relationships property of the microsoft.graph.mobileApp entity.
     */
     public function relationships(): RelationshipsRequestBuilder {
@@ -89,13 +71,6 @@ class MobileAppItemRequestBuilder extends BaseRequestBuilder
     */
     public function updateRelationships(): UpdateRelationshipsRequestBuilder {
         return new UpdateRelationshipsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the userStatuses property of the microsoft.graph.mobileApp entity.
-    */
-    public function userStatuses(): UserStatusesRequestBuilder {
-        return new UserStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -146,16 +121,6 @@ class MobileAppItemRequestBuilder extends BaseRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to call the getRelatedAppStates method.
-     * @param string $deviceId Usage: deviceId='{deviceId}'
-     * @param string $userPrincipalName Usage: userPrincipalName='{userPrincipalName}'
-     * @return GetRelatedAppStatesWithUserPrincipalNameWithDeviceIdRequestBuilder
-    */
-    public function getRelatedAppStatesWithUserPrincipalNameWithDeviceId(string $deviceId, string $userPrincipalName): GetRelatedAppStatesWithUserPrincipalNameWithDeviceIdRequestBuilder {
-        return new GetRelatedAppStatesWithUserPrincipalNameWithDeviceIdRequestBuilder($this->pathParameters, $this->requestAdapter, $deviceId, $userPrincipalName);
     }
 
     /**

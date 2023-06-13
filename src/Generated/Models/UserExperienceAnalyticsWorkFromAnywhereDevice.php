@@ -7,7 +7,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 /**
- * The user experience analytics Device for work from anywhere report
+ * The user experience analytics device for work from anywhere report.
 */
 class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Parsable 
 {
@@ -320,7 +320,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the upgradeEligibility property value. Work From Anywhere windows device upgrade eligibility status
+     * Gets the upgradeEligibility property value. Work From Anywhere windows device upgrade eligibility status.
      * @return OperatingSystemUpgradeEligibility|null
     */
     public function getUpgradeEligibility(): ?OperatingSystemUpgradeEligibility {
@@ -634,7 +634,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the upgradeEligibility property value. Work From Anywhere windows device upgrade eligibility status
+     * Sets the upgradeEligibility property value. Work From Anywhere windows device upgrade eligibility status.
      * @param OperatingSystemUpgradeEligibility|null $value Value to set for the upgradeEligibility property.
     */
     public function setUpgradeEligibility(?OperatingSystemUpgradeEligibility $value): void {

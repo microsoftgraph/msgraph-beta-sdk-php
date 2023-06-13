@@ -50,7 +50,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Gets the completionRequirements property value. The completionRequirements property
+     * Gets the completionRequirements property value. Rules and restrictions for completion requirements of the task. Accepted values are allow, add, remove, edit, and block.
      * @return array<string>|null
     */
     public function getCompletionRequirements(): ?array {
@@ -123,7 +123,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Gets the percentComplete property value. Rules and restrictions for changing the completion percentage of the task. Accepted values are allow, setToComplete, setToNotStarted, setToInProgress, and block.
+     * Gets the percentComplete property value. Rules and restrictions for changing the completion percentage of the task. Accepted values are allow, setToComplete, overrideRequirements, setToNotStarted, setToInProgress, and block.
      * @return array<string>|null
     */
     public function getPercentComplete(): ?array {
@@ -218,7 +218,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Sets the completionRequirements property value. The completionRequirements property
+     * Sets the completionRequirements property value. Rules and restrictions for completion requirements of the task. Accepted values are allow, add, remove, edit, and block.
      * @param array<string>|null $value Value to set for the completionRequirements property.
     */
     public function setCompletionRequirements(?array $value): void {
@@ -266,7 +266,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Sets the percentComplete property value. Rules and restrictions for changing the completion percentage of the task. Accepted values are allow, setToComplete, setToNotStarted, setToInProgress, and block.
+     * Sets the percentComplete property value. Rules and restrictions for changing the completion percentage of the task. Accepted values are allow, setToComplete, overrideRequirements, setToNotStarted, setToInProgress, and block.
      * @param array<string>|null $value Value to set for the percentComplete property.
     */
     public function setPercentComplete(?array $value): void {

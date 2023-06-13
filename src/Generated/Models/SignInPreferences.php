@@ -80,7 +80,7 @@ class SignInPreferences implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userPreferredMethodForSecondaryAuthentication property value. The userPreferredMethodForSecondaryAuthentication property
+     * Gets the userPreferredMethodForSecondaryAuthentication property value. The default second-factor method used by the user when signing in. If a user is enabled for system-preferred authentication, then this value is ignored except for a few scenarios where a user is authenticating via NPS extension or ADFS adapter. Possible values are push, oath, voiceMobile, voiceAlternateMobile, voiceOffice, sms, and unknownFutureValue
      * @return UserDefaultAuthenticationMethodType|null
     */
     public function getUserPreferredMethodForSecondaryAuthentication(): ?UserDefaultAuthenticationMethodType {
@@ -131,7 +131,7 @@ class SignInPreferences implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the userPreferredMethodForSecondaryAuthentication property value. The userPreferredMethodForSecondaryAuthentication property
+     * Sets the userPreferredMethodForSecondaryAuthentication property value. The default second-factor method used by the user when signing in. If a user is enabled for system-preferred authentication, then this value is ignored except for a few scenarios where a user is authenticating via NPS extension or ADFS adapter. Possible values are push, oath, voiceMobile, voiceAlternateMobile, voiceOffice, sms, and unknownFutureValue
      * @param UserDefaultAuthenticationMethodType|null $value Value to set for the userPreferredMethodForSecondaryAuthentication property.
     */
     public function setUserPreferredMethodForSecondaryAuthentication(?UserDefaultAuthenticationMethodType $value): void {

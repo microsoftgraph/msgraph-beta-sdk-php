@@ -210,7 +210,7 @@ class TeamItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get entity from teams by key
+     * Retrieve the properties and relationships of the specified team.
      * @param TeamItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/team-get?view=graph-rest-1.0 Find more info here
@@ -266,7 +266,7 @@ class TeamItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get entity from teams by key
+     * Retrieve the properties and relationships of the specified team.
      * @param TeamItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

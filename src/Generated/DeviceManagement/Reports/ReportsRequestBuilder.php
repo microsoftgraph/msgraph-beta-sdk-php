@@ -70,6 +70,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetUnhealthyDefender
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetUnhealthyFirewallReport\GetUnhealthyFirewallReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetUnhealthyFirewallSummaryReport\GetUnhealthyFirewallSummaryReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetUserInstallStatusReport\GetUserInstallStatusReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsDriverUpdateAlertsPerPolicyPerDeviceReport\GetWindowsDriverUpdateAlertsPerPolicyPerDeviceReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsDriverUpdateAlertSummaryReport\GetWindowsDriverUpdateAlertSummaryReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReport\GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsQualityUpdateAlertSummaryReport\GetWindowsQualityUpdateAlertSummaryReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsUpdateAlertsPerPolicyPerDeviceReport\GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBuilder;
@@ -540,6 +542,20 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function getUserInstallStatusReport(): GetUserInstallStatusReportRequestBuilder {
         return new GetUserInstallStatusReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getWindowsDriverUpdateAlertsPerPolicyPerDeviceReport method.
+    */
+    public function getWindowsDriverUpdateAlertsPerPolicyPerDeviceReport(): GetWindowsDriverUpdateAlertsPerPolicyPerDeviceReportRequestBuilder {
+        return new GetWindowsDriverUpdateAlertsPerPolicyPerDeviceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getWindowsDriverUpdateAlertSummaryReport method.
+    */
+    public function getWindowsDriverUpdateAlertSummaryReport(): GetWindowsDriverUpdateAlertSummaryReportRequestBuilder {
+        return new GetWindowsDriverUpdateAlertSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

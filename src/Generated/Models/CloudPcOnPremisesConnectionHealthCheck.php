@@ -60,6 +60,14 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
     }
 
     /**
+     * Gets the correlationId property value. The unique identifier of the health check item-related activities. This identifier can be useful in troubleshooting.
+     * @return string|null
+    */
+    public function getCorrelationId(): ?string {
+        return $this->getBackingStore()->get('correlationId');
+    }
+
+    /**
      * Gets the displayName property value. The display name for this health check item.
      * @return string|null
     */
@@ -91,6 +99,7 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
         $o = $this;
         return  [
             'additionalDetails' => fn(ParseNode $n) => $o->setAdditionalDetails($n->getStringValue()),
+            'correlationId' => fn(ParseNode $n) => $o->setCorrelationId($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
             'errorType' => fn(ParseNode $n) => $o->setErrorType($n->getEnumValue(CloudPcOnPremisesConnectionHealthCheckErrorType::class)),
@@ -139,6 +148,7 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('additionalDetails', $this->getAdditionalDetails());
+        $writer->writeStringValue('correlationId', $this->getCorrelationId());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
         $writer->writeEnumValue('errorType', $this->getErrorType());
@@ -171,6 +181,14 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the correlationId property value. The unique identifier of the health check item-related activities. This identifier can be useful in troubleshooting.
+     * @param string|null $value Value to set for the correlationId property.
+    */
+    public function setCorrelationId(?string $value): void {
+        $this->getBackingStore()->set('correlationId', $value);
     }
 
     /**
