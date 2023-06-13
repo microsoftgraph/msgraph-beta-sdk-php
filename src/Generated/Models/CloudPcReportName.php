@@ -11,4 +11,5 @@ class CloudPcReportName extends Enum {
     public const SHARED_USE_LICENSE_USAGE_REPORT = 'sharedUseLicenseUsageReport';
     public const SHARED_USE_LICENSE_USAGE_REAL_TIME_REPORT = 'sharedUseLicenseUsageRealTimeReport';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
+    public const NO_LICENSE_AVAILABLE_CONNECTIVITY_FAILURE_REPORT = 'noLicenseAvailableConnectivityFailureReport';
 }

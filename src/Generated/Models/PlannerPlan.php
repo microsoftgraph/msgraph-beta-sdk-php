@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PlannerPlan extends PlannerDelta implements Parsable 
 {
     /**
-     * Instantiates a new PlannerPlan and sets the default values.
+     * Instantiates a new plannerPlan and sets the default values.
     */
     public function __construct() {
         parent::__construct();

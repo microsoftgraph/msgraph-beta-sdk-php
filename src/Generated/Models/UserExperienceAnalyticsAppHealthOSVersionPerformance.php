@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics device OS version performance entity contains OS version performance details.
+*/
 class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsAppHealthOSVersionPerformance and sets the default values.
+     * Instantiates a new userExperienceAnalyticsAppHealthOSVersionPerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -44,7 +47,6 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implem
             'osBuildNumber' => fn(ParseNode $n) => $o->setOsBuildNumber($n->getStringValue()),
             'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
             'osVersionAppHealthScore' => fn(ParseNode $n) => $o->setOsVersionAppHealthScore($n->getFloatValue()),
-            'osVersionAppHealthStatus' => fn(ParseNode $n) => $o->setOsVersionAppHealthStatus($n->getStringValue()),
         ]);
     }
 
@@ -81,14 +83,6 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implem
     }
 
     /**
-     * Gets the osVersionAppHealthStatus property value. The overall app health status of the OS version.
-     * @return string|null
-    */
-    public function getOsVersionAppHealthStatus(): ?string {
-        return $this->getBackingStore()->get('osVersionAppHealthStatus');
-    }
-
-    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -99,7 +93,6 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implem
         $writer->writeStringValue('osBuildNumber', $this->getOsBuildNumber());
         $writer->writeStringValue('osVersion', $this->getOsVersion());
         $writer->writeFloatValue('osVersionAppHealthScore', $this->getOsVersionAppHealthScore());
-        $writer->writeStringValue('osVersionAppHealthStatus', $this->getOsVersionAppHealthStatus());
     }
 
     /**
@@ -140,14 +133,6 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implem
     */
     public function setOsVersionAppHealthScore(?float $value): void {
         $this->getBackingStore()->set('osVersionAppHealthScore', $value);
-    }
-
-    /**
-     * Sets the osVersionAppHealthStatus property value. The overall app health status of the OS version.
-     * @param string|null $value Value to set for the osVersionAppHealthStatus property.
-    */
-    public function setOsVersionAppHealthStatus(?string $value): void {
-        $this->getBackingStore()->set('osVersionAppHealthStatus', $value);
     }
 
 }

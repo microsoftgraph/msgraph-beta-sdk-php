@@ -66,8 +66,17 @@ class Financials implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             'companies' => fn(ParseNode $n) => $o->setCompanies($n->getCollectionOfObjectValues([Company::class, 'createFromDiscriminatorValue'])),
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
+    }
+
+    /**
+     * Gets the id property value. The id property
+     * @return string|null
+    */
+    public function getId(): ?string {
+        return $this->getBackingStore()->get('id');
     }
 
     /**
@@ -84,6 +93,7 @@ class Financials implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfObjectValues('companies', $this->getCompanies());
+        $writer->writeStringValue('id', $this->getId());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -110,6 +120,14 @@ class Financials implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setCompanies(?array $value): void {
         $this->getBackingStore()->set('companies', $value);
+    }
+
+    /**
+     * Sets the id property value. The id property
+     * @param string|null $value Value to set for the id property.
+    */
+    public function setId(?string $value): void {
+        $this->getBackingStore()->set('id', $value);
     }
 
     /**

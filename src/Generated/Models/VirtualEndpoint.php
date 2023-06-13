@@ -33,6 +33,14 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
+     * Gets the bulkActions property value. The bulkActions property
+     * @return array<CloudPcBulkAction>|null
+    */
+    public function getBulkActions(): ?array {
+        return $this->getBackingStore()->get('bulkActions');
+    }
+
+    /**
      * Gets the cloudPCs property value. Cloud managed virtual desktops.
      * @return array<CloudPC>|null
     */
@@ -72,6 +80,7 @@ class VirtualEndpoint extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'auditEvents' => fn(ParseNode $n) => $o->setAuditEvents($n->getCollectionOfObjectValues([CloudPcAuditEvent::class, 'createFromDiscriminatorValue'])),
+            'bulkActions' => fn(ParseNode $n) => $o->setBulkActions($n->getCollectionOfObjectValues([CloudPcBulkAction::class, 'createFromDiscriminatorValue'])),
             'cloudPCs' => fn(ParseNode $n) => $o->setCloudPCs($n->getCollectionOfObjectValues([CloudPC::class, 'createFromDiscriminatorValue'])),
             'crossCloudGovernmentOrganizationMapping' => fn(ParseNode $n) => $o->setCrossCloudGovernmentOrganizationMapping($n->getObjectValue([CloudPcCrossCloudGovernmentOrganizationMapping::class, 'createFromDiscriminatorValue'])),
             'deviceImages' => fn(ParseNode $n) => $o->setDeviceImages($n->getCollectionOfObjectValues([CloudPcDeviceImage::class, 'createFromDiscriminatorValue'])),
@@ -176,6 +185,7 @@ class VirtualEndpoint extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('auditEvents', $this->getAuditEvents());
+        $writer->writeCollectionOfObjectValues('bulkActions', $this->getBulkActions());
         $writer->writeCollectionOfObjectValues('cloudPCs', $this->getCloudPCs());
         $writer->writeObjectValue('crossCloudGovernmentOrganizationMapping', $this->getCrossCloudGovernmentOrganizationMapping());
         $writer->writeCollectionOfObjectValues('deviceImages', $this->getDeviceImages());
@@ -198,6 +208,14 @@ class VirtualEndpoint extends Entity implements Parsable
     */
     public function setAuditEvents(?array $value): void {
         $this->getBackingStore()->set('auditEvents', $value);
+    }
+
+    /**
+     * Sets the bulkActions property value. The bulkActions property
+     * @param array<CloudPcBulkAction>|null $value Value to set for the bulkActions property.
+    */
+    public function setBulkActions(?array $value): void {
+        $this->getBackingStore()->set('bulkActions', $value);
     }
 
     /**

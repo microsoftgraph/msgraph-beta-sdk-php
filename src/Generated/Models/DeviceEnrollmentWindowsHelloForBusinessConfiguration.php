@@ -34,6 +34,14 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
     }
 
     /**
+     * Gets the enhancedSignInSecurity property value. Setting to configure Enahcned sign-in security. Default is enabled on one secure modality (face or fingerprint)
+     * @return int|null
+    */
+    public function getEnhancedSignInSecurity(): ?int {
+        return $this->getBackingStore()->get('enhancedSignInSecurity');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
@@ -41,6 +49,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'enhancedBiometricsState' => fn(ParseNode $n) => $o->setEnhancedBiometricsState($n->getEnumValue(Enablement::class)),
+            'enhancedSignInSecurity' => fn(ParseNode $n) => $o->setEnhancedSignInSecurity($n->getIntegerValue()),
             'pinExpirationInDays' => fn(ParseNode $n) => $o->setPinExpirationInDays($n->getIntegerValue()),
             'pinLowercaseCharactersUsage' => fn(ParseNode $n) => $o->setPinLowercaseCharactersUsage($n->getEnumValue(WindowsHelloForBusinessPinUsage::class)),
             'pinMaximumLength' => fn(ParseNode $n) => $o->setPinMaximumLength($n->getIntegerValue()),
@@ -159,6 +168,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('enhancedBiometricsState', $this->getEnhancedBiometricsState());
+        $writer->writeIntegerValue('enhancedSignInSecurity', $this->getEnhancedSignInSecurity());
         $writer->writeIntegerValue('pinExpirationInDays', $this->getPinExpirationInDays());
         $writer->writeEnumValue('pinLowercaseCharactersUsage', $this->getPinLowercaseCharactersUsage());
         $writer->writeIntegerValue('pinMaximumLength', $this->getPinMaximumLength());
@@ -179,6 +189,14 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
     */
     public function setEnhancedBiometricsState(?Enablement $value): void {
         $this->getBackingStore()->set('enhancedBiometricsState', $value);
+    }
+
+    /**
+     * Sets the enhancedSignInSecurity property value. Setting to configure Enahcned sign-in security. Default is enabled on one secure modality (face or fingerprint)
+     * @param int|null $value Value to set for the enhancedSignInSecurity property.
+    */
+    public function setEnhancedSignInSecurity(?int $value): void {
+        $this->getBackingStore()->set('enhancedSignInSecurity', $value);
     }
 
     /**

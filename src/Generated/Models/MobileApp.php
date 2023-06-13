@@ -44,6 +44,7 @@ class MobileApp extends Entity implements Parsable
                 case '#microsoft.graph.macOSMicrosoftDefenderApp': return new MacOSMicrosoftDefenderApp();
                 case '#microsoft.graph.macOSMicrosoftEdgeApp': return new MacOSMicrosoftEdgeApp();
                 case '#microsoft.graph.macOSOfficeSuiteApp': return new MacOSOfficeSuiteApp();
+                case '#microsoft.graph.macOSPkgApp': return new MacOSPkgApp();
                 case '#microsoft.graph.macOsVppApp': return new MacOsVppApp();
                 case '#microsoft.graph.managedAndroidLobApp': return new ManagedAndroidLobApp();
                 case '#microsoft.graph.managedAndroidStoreApp': return new ManagedAndroidStoreApp();
@@ -121,14 +122,6 @@ class MobileApp extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceStatuses property value. The list of installation states for this mobile app.
-     * @return array<MobileAppInstallStatus>|null
-    */
-    public function getDeviceStatuses(): ?array {
-        return $this->getBackingStore()->get('deviceStatuses');
-    }
-
-    /**
      * Gets the displayName property value. The admin provided or imported title of the app.
      * @return string|null
     */
@@ -149,10 +142,8 @@ class MobileApp extends Entity implements Parsable
             'dependentAppCount' => fn(ParseNode $n) => $o->setDependentAppCount($n->getIntegerValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'developer' => fn(ParseNode $n) => $o->setDeveloper($n->getStringValue()),
-            'deviceStatuses' => fn(ParseNode $n) => $o->setDeviceStatuses($n->getCollectionOfObjectValues([MobileAppInstallStatus::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'informationUrl' => fn(ParseNode $n) => $o->setInformationUrl($n->getStringValue()),
-            'installSummary' => fn(ParseNode $n) => $o->setInstallSummary($n->getObjectValue([MobileAppInstallSummary::class, 'createFromDiscriminatorValue'])),
             'isAssigned' => fn(ParseNode $n) => $o->setIsAssigned($n->getBooleanValue()),
             'isFeatured' => fn(ParseNode $n) => $o->setIsFeatured($n->getBooleanValue()),
             'largeIcon' => fn(ParseNode $n) => $o->setLargeIcon($n->getObjectValue([MimeContent::class, 'createFromDiscriminatorValue'])),
@@ -167,7 +158,6 @@ class MobileApp extends Entity implements Parsable
             'supersededAppCount' => fn(ParseNode $n) => $o->setSupersededAppCount($n->getIntegerValue()),
             'supersedingAppCount' => fn(ParseNode $n) => $o->setSupersedingAppCount($n->getIntegerValue()),
             'uploadState' => fn(ParseNode $n) => $o->setUploadState($n->getIntegerValue()),
-            'userStatuses' => fn(ParseNode $n) => $o->setUserStatuses($n->getCollectionOfObjectValues([UserAppInstallStatus::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -177,14 +167,6 @@ class MobileApp extends Entity implements Parsable
     */
     public function getInformationUrl(): ?string {
         return $this->getBackingStore()->get('informationUrl');
-    }
-
-    /**
-     * Gets the installSummary property value. Mobile App Install Summary.
-     * @return MobileAppInstallSummary|null
-    */
-    public function getInstallSummary(): ?MobileAppInstallSummary {
-        return $this->getBackingStore()->get('installSummary');
     }
 
     /**
@@ -300,14 +282,6 @@ class MobileApp extends Entity implements Parsable
     }
 
     /**
-     * Gets the userStatuses property value. The list of installation states for this mobile app.
-     * @return array<UserAppInstallStatus>|null
-    */
-    public function getUserStatuses(): ?array {
-        return $this->getBackingStore()->get('userStatuses');
-    }
-
-    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -319,10 +293,8 @@ class MobileApp extends Entity implements Parsable
         $writer->writeIntegerValue('dependentAppCount', $this->getDependentAppCount());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('developer', $this->getDeveloper());
-        $writer->writeCollectionOfObjectValues('deviceStatuses', $this->getDeviceStatuses());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('informationUrl', $this->getInformationUrl());
-        $writer->writeObjectValue('installSummary', $this->getInstallSummary());
         $writer->writeBooleanValue('isAssigned', $this->getIsAssigned());
         $writer->writeBooleanValue('isFeatured', $this->getIsFeatured());
         $writer->writeObjectValue('largeIcon', $this->getLargeIcon());
@@ -337,7 +309,6 @@ class MobileApp extends Entity implements Parsable
         $writer->writeIntegerValue('supersededAppCount', $this->getSupersededAppCount());
         $writer->writeIntegerValue('supersedingAppCount', $this->getSupersedingAppCount());
         $writer->writeIntegerValue('uploadState', $this->getUploadState());
-        $writer->writeCollectionOfObjectValues('userStatuses', $this->getUserStatuses());
     }
 
     /**
@@ -389,14 +360,6 @@ class MobileApp extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceStatuses property value. The list of installation states for this mobile app.
-     * @param array<MobileAppInstallStatus>|null $value Value to set for the deviceStatuses property.
-    */
-    public function setDeviceStatuses(?array $value): void {
-        $this->getBackingStore()->set('deviceStatuses', $value);
-    }
-
-    /**
      * Sets the displayName property value. The admin provided or imported title of the app.
      * @param string|null $value Value to set for the displayName property.
     */
@@ -410,14 +373,6 @@ class MobileApp extends Entity implements Parsable
     */
     public function setInformationUrl(?string $value): void {
         $this->getBackingStore()->set('informationUrl', $value);
-    }
-
-    /**
-     * Sets the installSummary property value. Mobile App Install Summary.
-     * @param MobileAppInstallSummary|null $value Value to set for the installSummary property.
-    */
-    public function setInstallSummary(?MobileAppInstallSummary $value): void {
-        $this->getBackingStore()->set('installSummary', $value);
     }
 
     /**
@@ -530,14 +485,6 @@ class MobileApp extends Entity implements Parsable
     */
     public function setUploadState(?int $value): void {
         $this->getBackingStore()->set('uploadState', $value);
-    }
-
-    /**
-     * Sets the userStatuses property value. The list of installation states for this mobile app.
-     * @param array<UserAppInstallStatus>|null $value Value to set for the userStatuses property.
-    */
-    public function setUserStatuses(?array $value): void {
-        $this->getBackingStore()->set('userStatuses', $value);
     }
 
 }

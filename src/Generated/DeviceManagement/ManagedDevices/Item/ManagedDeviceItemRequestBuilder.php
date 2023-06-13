@@ -25,7 +25,6 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\GetCloud
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\GetCloudPcReviewStatus\GetCloudPcReviewStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\GetFileVaultKey\GetFileVaultKeyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\GetNonCompliantSettings\GetNonCompliantSettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\GetOemWarranty\GetOemWarrantyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\InitiateMobileDeviceManagementKeyRecovery\InitiateMobileDeviceManagementKeyRecoveryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\InitiateOnDemandProactiveRemediation\InitiateOnDemandProactiveRemediationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\LocateDevice\LocateDeviceRequestBuilder;
@@ -212,13 +211,6 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
     */
     public function getNonCompliantSettings(): GetNonCompliantSettingsRequestBuilder {
         return new GetNonCompliantSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the getOemWarranty method.
-    */
-    public function getOemWarranty(): GetOemWarrantyRequestBuilder {
-        return new GetOemWarrantyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -364,7 +364,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the isManagementRestricted property value. The isManagementRestricted property
+     * Gets the isManagementRestricted property value. Indicates whether the group is a member of a restricted management administrative unit, in which case it requires a role scoped to the restricted administrative unit to manage. Default value is false. Read-only.
      * @return bool|null
     */
     public function getIsManagementRestricted(): ?bool {
@@ -1083,7 +1083,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the isManagementRestricted property value. The isManagementRestricted property
+     * Sets the isManagementRestricted property value. Indicates whether the group is a member of a restricted management administrative unit, in which case it requires a role scoped to the restricted administrative unit to manage. Default value is false. Read-only.
      * @param bool|null $value Value to set for the isManagementRestricted property.
     */
     public function setIsManagementRestricted(?bool $value): void {

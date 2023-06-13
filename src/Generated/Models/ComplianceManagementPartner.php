@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Compliance management partner for all platforms
+*/
 class ComplianceManagementPartner extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ComplianceManagementPartner and sets the default values.
+     * Instantiates a new complianceManagementPartner and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -3,18 +3,28 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class JournalLine extends Entity implements Parsable 
+class JournalLine implements AdditionalDataHolder, BackedModel, Parsable 
 {
+    /**
+     * @var BackingStore $backingStore Stores model information.
+    */
+    private BackingStore $backingStore;
+    
     /**
      * Instantiates a new journalLine and sets the default values.
     */
     public function __construct() {
-        parent::__construct();
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
+        $this->setAdditionalData([]);
     }
 
     /**
@@ -51,11 +61,27 @@ class JournalLine extends Entity implements Parsable
     }
 
     /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>|null
+    */
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
      * Gets the amount property value. The amount property
      * @return string|null
     */
     public function getAmount(): ?string {
         return $this->getBackingStore()->get('amount');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -96,7 +122,7 @@ class JournalLine extends Entity implements Parsable
     */
     public function getFieldDeserializers(): array {
         $o = $this;
-        return array_merge(parent::getFieldDeserializers(), [
+        return  [
             'account' => fn(ParseNode $n) => $o->setAccount($n->getObjectValue([Account::class, 'createFromDiscriminatorValue'])),
             'accountId' => fn(ParseNode $n) => $o->setAccountId($n->getStringValue()),
             'accountNumber' => fn(ParseNode $n) => $o->setAccountNumber($n->getStringValue()),
@@ -105,11 +131,21 @@ class JournalLine extends Entity implements Parsable
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'documentNumber' => fn(ParseNode $n) => $o->setDocumentNumber($n->getStringValue()),
             'externalDocumentNumber' => fn(ParseNode $n) => $o->setExternalDocumentNumber($n->getStringValue()),
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
             'journalDisplayName' => fn(ParseNode $n) => $o->setJournalDisplayName($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'lineNumber' => fn(ParseNode $n) => $o->setLineNumber($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'postingDate' => fn(ParseNode $n) => $o->setPostingDate($n->getDateValue()),
-        ]);
+        ];
+    }
+
+    /**
+     * Gets the id property value. The id property
+     * @return string|null
+    */
+    public function getId(): ?string {
+        return $this->getBackingStore()->get('id');
     }
 
     /**
@@ -137,6 +173,14 @@ class JournalLine extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->getBackingStore()->get('odataType');
+    }
+
+    /**
      * Gets the postingDate property value. The postingDate property
      * @return Date|null
     */
@@ -149,7 +193,6 @@ class JournalLine extends Entity implements Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        parent::serialize($writer);
         $writer->writeObjectValue('account', $this->getAccount());
         $writer->writeStringValue('accountId', $this->getAccountId());
         $writer->writeStringValue('accountNumber', $this->getAccountNumber());
@@ -158,10 +201,13 @@ class JournalLine extends Entity implements Parsable
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('documentNumber', $this->getDocumentNumber());
         $writer->writeStringValue('externalDocumentNumber', $this->getExternalDocumentNumber());
+        $writer->writeStringValue('id', $this->getId());
         $writer->writeStringValue('journalDisplayName', $this->getJournalDisplayName());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeIntegerValue('lineNumber', $this->getLineNumber());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateValue('postingDate', $this->getPostingDate());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
@@ -189,11 +235,27 @@ class JournalLine extends Entity implements Parsable
     }
 
     /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
      * Sets the amount property value. The amount property
      * @param string|null $value Value to set for the amount property.
     */
     public function setAmount(?string $value): void {
         $this->getBackingStore()->set('amount', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
@@ -229,6 +291,14 @@ class JournalLine extends Entity implements Parsable
     }
 
     /**
+     * Sets the id property value. The id property
+     * @param string|null $value Value to set for the id property.
+    */
+    public function setId(?string $value): void {
+        $this->getBackingStore()->set('id', $value);
+    }
+
+    /**
      * Sets the journalDisplayName property value. The journalDisplayName property
      * @param string|null $value Value to set for the journalDisplayName property.
     */
@@ -250,6 +320,14 @@ class JournalLine extends Entity implements Parsable
     */
     public function setLineNumber(?int $value): void {
         $this->getBackingStore()->set('lineNumber', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

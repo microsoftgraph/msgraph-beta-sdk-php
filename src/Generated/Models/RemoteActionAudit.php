@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Report of remote actions initiated on the devices belonging to a certain tenant.
+*/
 class RemoteActionAudit extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new RemoteActionAudit and sets the default values.
+     * Instantiates a new remoteActionAudit and sets the default values.
     */
     public function __construct() {
         parent::__construct();

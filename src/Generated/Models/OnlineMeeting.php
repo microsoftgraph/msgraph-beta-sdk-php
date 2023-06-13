@@ -11,7 +11,7 @@ use Psr\Http\Message\StreamInterface;
 class OnlineMeeting extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new OnlineMeeting and sets the default values.
+     * Instantiates a new onlineMeeting and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -74,7 +74,7 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Gets the allowRecording property value. The allowRecording property
+     * Gets the allowRecording property value. Indicates whether recording is enabled for the meeting.
      * @return bool|null
     */
     public function getAllowRecording(): ?bool {
@@ -90,7 +90,7 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Gets the allowTranscription property value. The allowTranscription property
+     * Gets the allowTranscription property value. Indicates whether transcription is enabled for the meeting.
      * @return bool|null
     */
     public function getAllowTranscription(): ?bool {
@@ -492,7 +492,7 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Sets the allowRecording property value. The allowRecording property
+     * Sets the allowRecording property value. Indicates whether recording is enabled for the meeting.
      * @param bool|null $value Value to set for the allowRecording property.
     */
     public function setAllowRecording(?bool $value): void {
@@ -508,7 +508,7 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Sets the allowTranscription property value. The allowTranscription property
+     * Sets the allowTranscription property value. Indicates whether transcription is enabled for the meeting.
      * @param bool|null $value Value to set for the allowTranscription property.
     */
     public function setAllowTranscription(?bool $value): void {

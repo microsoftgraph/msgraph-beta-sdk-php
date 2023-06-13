@@ -85,7 +85,7 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the severity property value. The severity property
+     * Gets the severity property value. Indicates severity of insights. Possible values are: None, Informational, Warning, Error.
      * @return UserExperienceAnalyticsInsightSeverity|null
     */
     public function getSeverity(): ?UserExperienceAnalyticsInsightSeverity {
@@ -154,7 +154,7 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the severity property value. The severity property
+     * Sets the severity property value. Indicates severity of insights. Possible values are: None, Informational, Warning, Error.
      * @param UserExperienceAnalyticsInsightSeverity|null $value Value to set for the severity property.
     */
     public function setSeverity(?UserExperienceAnalyticsInsightSeverity $value): void {

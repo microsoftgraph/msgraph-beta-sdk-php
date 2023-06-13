@@ -109,7 +109,7 @@ class UnifiedRoleManagementPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the scopeType property value. The type of the scope where the policy is created. One of Directory, DirectoryRole. Required.
+     * Gets the scopeType property value. The type of the scope where the policy is created. One of Directory, DirectoryRole, Group. Required.
      * @return string|null
     */
     public function getScopeType(): ?string {
@@ -198,7 +198,7 @@ class UnifiedRoleManagementPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the scopeType property value. The type of the scope where the policy is created. One of Directory, DirectoryRole. Required.
+     * Sets the scopeType property value. The type of the scope where the policy is created. One of Directory, DirectoryRole, Group. Required.
      * @param string|null $value Value to set for the scopeType property.
     */
     public function setScopeType(?string $value): void {

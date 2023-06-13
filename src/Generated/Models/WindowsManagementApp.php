@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsManagementApp extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new windowsManagementApp and sets the default values.
+     * Instantiates a new WindowsManagementApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();

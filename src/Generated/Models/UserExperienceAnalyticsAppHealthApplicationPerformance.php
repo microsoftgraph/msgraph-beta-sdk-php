@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics application performance entity contains application performance details.
+*/
 class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsAppHealthApplicationPerformance and sets the default values.
+     * Instantiates a new userExperienceAnalyticsAppHealthApplicationPerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -65,14 +68,6 @@ class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity impl
     }
 
     /**
-     * Gets the appHealthStatus property value. The overall health status of the app.
-     * @return string|null
-    */
-    public function getAppHealthStatus(): ?string {
-        return $this->getBackingStore()->get('appHealthStatus');
-    }
-
-    /**
      * Gets the appName property value. The name of the application.
      * @return string|null
     */
@@ -108,7 +103,6 @@ class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity impl
             'appDisplayName' => fn(ParseNode $n) => $o->setAppDisplayName($n->getStringValue()),
             'appHangCount' => fn(ParseNode $n) => $o->setAppHangCount($n->getIntegerValue()),
             'appHealthScore' => fn(ParseNode $n) => $o->setAppHealthScore($n->getFloatValue()),
-            'appHealthStatus' => fn(ParseNode $n) => $o->setAppHealthStatus($n->getStringValue()),
             'appName' => fn(ParseNode $n) => $o->setAppName($n->getStringValue()),
             'appPublisher' => fn(ParseNode $n) => $o->setAppPublisher($n->getStringValue()),
             'appUsageDuration' => fn(ParseNode $n) => $o->setAppUsageDuration($n->getIntegerValue()),
@@ -135,7 +129,6 @@ class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity impl
         $writer->writeStringValue('appDisplayName', $this->getAppDisplayName());
         $writer->writeIntegerValue('appHangCount', $this->getAppHangCount());
         $writer->writeFloatValue('appHealthScore', $this->getAppHealthScore());
-        $writer->writeStringValue('appHealthStatus', $this->getAppHealthStatus());
         $writer->writeStringValue('appName', $this->getAppName());
         $writer->writeStringValue('appPublisher', $this->getAppPublisher());
         $writer->writeIntegerValue('appUsageDuration', $this->getAppUsageDuration());
@@ -180,14 +173,6 @@ class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity impl
     */
     public function setAppHealthScore(?float $value): void {
         $this->getBackingStore()->set('appHealthScore', $value);
-    }
-
-    /**
-     * Sets the appHealthStatus property value. The overall health status of the app.
-     * @param string|null $value Value to set for the appHealthStatus property.
-    */
-    public function setAppHealthStatus(?string $value): void {
-        $this->getBackingStore()->set('appHealthStatus', $value);
     }
 
     /**

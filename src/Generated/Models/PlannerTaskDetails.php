@@ -33,7 +33,7 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the completionRequirements property value. The completionRequirements property
+     * Gets the completionRequirements property value. Contains detailed information about requirements on the task.
      * @return PlannerTaskCompletionRequirementDetails|null
     */
     public function getCompletionRequirements(): ?PlannerTaskCompletionRequirementDetails {
@@ -111,7 +111,7 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the completionRequirements property value. The completionRequirements property
+     * Sets the completionRequirements property value. Contains detailed information about requirements on the task.
      * @param PlannerTaskCompletionRequirementDetails|null $value Value to set for the completionRequirements property.
     */
     public function setCompletionRequirements(?PlannerTaskCompletionRequirementDetails $value): void {

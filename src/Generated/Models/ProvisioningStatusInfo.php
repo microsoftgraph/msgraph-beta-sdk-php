@@ -51,7 +51,7 @@ class ProvisioningStatusInfo implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the errorInformation property value. The errorInformation property
+     * Gets the errorInformation property value. If status is not success/ skipped details for the error are contained in this.
      * @return ProvisioningErrorInfo|null
     */
     public function getErrorInformation(): ?ProvisioningErrorInfo {
@@ -80,7 +80,7 @@ class ProvisioningStatusInfo implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the status property value. Possible values are: success, warning, failure, skipped, unknownFutureValue.
+     * Gets the status property value. Possible values are: success, failure, skipped, warning, unknownFutureValue.
      * @return ProvisioningResult|null
     */
     public function getStatus(): ?ProvisioningResult {
@@ -115,7 +115,7 @@ class ProvisioningStatusInfo implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the errorInformation property value. The errorInformation property
+     * Sets the errorInformation property value. If status is not success/ skipped details for the error are contained in this.
      * @param ProvisioningErrorInfo|null $value Value to set for the errorInformation property.
     */
     public function setErrorInformation(?ProvisioningErrorInfo $value): void {
@@ -131,7 +131,7 @@ class ProvisioningStatusInfo implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the status property value. Possible values are: success, warning, failure, skipped, unknownFutureValue.
+     * Sets the status property value. Possible values are: success, failure, skipped, warning, unknownFutureValue.
      * @param ProvisioningResult|null $value Value to set for the status property.
     */
     public function setStatus(?ProvisioningResult $value): void {
