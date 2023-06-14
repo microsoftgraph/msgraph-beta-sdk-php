@@ -90,7 +90,7 @@ class AttackSimulationUser implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the outOfOfficeDays property value. The outOfOfficeDays property
+     * Gets the outOfOfficeDays property value. Number of days the user is OOF during a simulation journey/course of a campaign.
      * @return int|null
     */
     public function getOutOfOfficeDays(): ?int {
@@ -98,7 +98,7 @@ class AttackSimulationUser implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the userId property value. id property value of the user resource that represents the user in the Azure Active Directory tenant.
+     * Gets the userId property value. The id property value of the user resource that represents the user in the Azure Active Directory tenant.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -159,7 +159,7 @@ class AttackSimulationUser implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the outOfOfficeDays property value. The outOfOfficeDays property
+     * Sets the outOfOfficeDays property value. Number of days the user is OOF during a simulation journey/course of a campaign.
      * @param int|null $value Value to set for the outOfOfficeDays property.
     */
     public function setOutOfOfficeDays(?int $value): void {
@@ -167,7 +167,7 @@ class AttackSimulationUser implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the userId property value. id property value of the user resource that represents the user in the Azure Active Directory tenant.
+     * Sets the userId property value. The id property value of the user resource that represents the user in the Azure Active Directory tenant.
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {

@@ -53,9 +53,10 @@ class CustomAppScopesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get customAppScopes from roleManagement
+     * Get a list of customAppScope objects for an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
      * @param CustomAppScopesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/unifiedrbacapplication-list-customappscopes?view=graph-rest-1.0 Find more info here
     */
     public function get(?CustomAppScopesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -71,10 +72,11 @@ class CustomAppScopesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to customAppScopes for roleManagement
+     * Create a new customAppScope object for an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
      * @param CustomAppScope $body The request body
      * @param CustomAppScopesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/unifiedrbacapplication-post-customappscope?view=graph-rest-1.0 Find more info here
     */
     public function post(CustomAppScope $body, ?CustomAppScopesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -90,7 +92,7 @@ class CustomAppScopesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get customAppScopes from roleManagement
+     * Get a list of customAppScope objects for an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
      * @param CustomAppScopesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +113,7 @@ class CustomAppScopesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to customAppScopes for roleManagement
+     * Create a new customAppScope object for an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
      * @param CustomAppScope $body The request body
      * @param CustomAppScopesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

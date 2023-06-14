@@ -53,12 +53,21 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
+     * Gets the certificateBasedApplicationConfigurationIds property value. The certificateBasedApplicationConfigurationIds property
+     * @return array<string>|null
+    */
+    public function getCertificateBasedApplicationConfigurationIds(): ?array {
+        return $this->getBackingStore()->get('certificateBasedApplicationConfigurationIds');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'certificateBasedApplicationConfigurationIds' => fn(ParseNode $n) => $o->setCertificateBasedApplicationConfigurationIds($n->getCollectionOfPrimitiveValues()),
             'maxLifetime' => fn(ParseNode $n) => $o->setMaxLifetime($n->getDateIntervalValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'restrictForAppsCreatedAfterDateTime' => fn(ParseNode $n) => $o->setRestrictForAppsCreatedAfterDateTime($n->getDateTimeValue()),
@@ -103,6 +112,7 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, BackedModel, P
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeCollectionOfPrimitiveValues('certificateBasedApplicationConfigurationIds', $this->getCertificateBasedApplicationConfigurationIds());
         $writer->writeDateIntervalValue('maxLifetime', $this->getMaxLifetime());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('restrictForAppsCreatedAfterDateTime', $this->getRestrictForAppsCreatedAfterDateTime());
@@ -124,6 +134,14 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, BackedModel, P
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the certificateBasedApplicationConfigurationIds property value. The certificateBasedApplicationConfigurationIds property
+     * @param array<string>|null $value Value to set for the certificateBasedApplicationConfigurationIds property.
+    */
+    public function setCertificateBasedApplicationConfigurationIds(?array $value): void {
+        $this->getBackingStore()->set('certificateBasedApplicationConfigurationIds', $value);
     }
 
     /**

@@ -7,7 +7,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 /**
- * The user experience analytics metric for work from anywhere report
+ * The user experience analytics metric for work from anywhere report.
 */
 class UserExperienceAnalyticsWorkFromAnywhereMetric extends Entity implements Parsable 
 {

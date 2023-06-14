@@ -98,6 +98,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\MobileThreatDefenseConnector
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\MonitoringRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\NdesConnectors\NdesConnectorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\NotificationMessageTemplates\NotificationMessageTemplatesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\PrivilegeManagementElevations\PrivilegeManagementElevationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteActionAudits\RemoteActionAuditsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteAssistancePartners\RemoteAssistancePartnersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteAssistanceSettings\RemoteAssistanceSettingsRequestBuilder;
@@ -122,6 +123,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\TenantAttachRBAC\TenantAttac
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\TermsAndConditionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TroubleshootingEvents\TroubleshootingEventsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAnomaly\UserExperienceAnalyticsAnomalyRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAnomalyCorrelationGroupOverview\UserExperienceAnalyticsAnomalyCorrelationGroupOverviewRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAnomalyDevice\UserExperienceAnalyticsAnomalyDeviceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthApplicationPerformance\UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion\UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionRequestBuilder;
@@ -818,6 +820,13 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the privilegeManagementElevations property of the microsoft.graph.deviceManagement entity.
+    */
+    public function privilegeManagementElevations(): PrivilegeManagementElevationsRequestBuilder {
+        return new PrivilegeManagementElevationsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the remoteActionAudits property of the microsoft.graph.deviceManagement entity.
     */
     public function remoteActionAudits(): RemoteActionAuditsRequestBuilder {
@@ -976,6 +985,13 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     */
     public function userExperienceAnalyticsAnomaly(): UserExperienceAnalyticsAnomalyRequestBuilder {
         return new UserExperienceAnalyticsAnomalyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the userExperienceAnalyticsAnomalyCorrelationGroupOverview property of the microsoft.graph.deviceManagement entity.
+    */
+    public function userExperienceAnalyticsAnomalyCorrelationGroupOverview(): UserExperienceAnalyticsAnomalyCorrelationGroupOverviewRequestBuilder {
+        return new UserExperienceAnalyticsAnomalyCorrelationGroupOverviewRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -67,6 +67,7 @@ class SolutionsRoot implements AdditionalDataHolder, BackedModel, Parsable
         return  [
             'businessScenarios' => fn(ParseNode $n) => $o->setBusinessScenarios($n->getCollectionOfObjectValues([BusinessScenario::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'virtualEvents' => fn(ParseNode $n) => $o->setVirtualEvents($n->getObjectValue([VirtualEventsRoot::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
@@ -79,12 +80,21 @@ class SolutionsRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the virtualEvents property value. The virtualEvents property
+     * @return VirtualEventsRoot|null
+    */
+    public function getVirtualEvents(): ?VirtualEventsRoot {
+        return $this->getBackingStore()->get('virtualEvents');
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfObjectValues('businessScenarios', $this->getBusinessScenarios());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('virtualEvents', $this->getVirtualEvents());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -118,6 +128,14 @@ class SolutionsRoot implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the virtualEvents property value. The virtualEvents property
+     * @param VirtualEventsRoot|null $value Value to set for the virtualEvents property.
+    */
+    public function setVirtualEvents(?VirtualEventsRoot $value): void {
+        $this->getBackingStore()->set('virtualEvents', $value);
     }
 
 }

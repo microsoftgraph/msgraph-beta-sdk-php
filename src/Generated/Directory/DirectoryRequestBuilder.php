@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\AdministrativeUnitsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\AttributeSets\AttributeSetsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\CertificateAuthorities\CertificateAuthoritiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\CustomSecurityAttributeDefinitions\CustomSecurityAttributeDefinitionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\DeletedItemsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\FeatureRolloutPolicies\FeatureRolloutPoliciesRequestBuilder;
@@ -41,6 +42,13 @@ class DirectoryRequestBuilder extends BaseRequestBuilder
     */
     public function attributeSets(): AttributeSetsRequestBuilder {
         return new AttributeSetsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the certificateAuthorities property of the microsoft.graph.directory entity.
+    */
+    public function certificateAuthorities(): CertificateAuthoritiesRequestBuilder {
+        return new CertificateAuthoritiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

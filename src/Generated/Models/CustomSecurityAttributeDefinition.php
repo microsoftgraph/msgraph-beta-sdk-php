@@ -25,7 +25,7 @@ class CustomSecurityAttributeDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the allowedValues property value. Values that are predefined for this custom security attribute.This navigation property is not returned by default and must be specified in an $expand query. For example, /directory/customSecurityAttributeDefinitions?$expand=allowedValues.
+     * Gets the allowedValues property value. Values that are predefined for this custom security attribute. This navigation property is not returned by default and must be specified in an $expand query. For example, /directory/customSecurityAttributeDefinitions?$expand=allowedValues.
      * @return array<AllowedValue>|null
     */
     public function getAllowedValues(): ?array {
@@ -76,7 +76,7 @@ class CustomSecurityAttributeDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the isSearchable property value. Indicates whether custom security attribute values will be indexed for searching on objects that are assigned attribute values. Cannot be changed later.
+     * Gets the isSearchable property value. Indicates whether custom security attribute values are indexed for searching on objects that are assigned attribute values. Cannot be changed later.
      * @return bool|null
     */
     public function getIsSearchable(): ?bool {
@@ -92,7 +92,7 @@ class CustomSecurityAttributeDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Specifies whether the custom security attribute is active or deactivated. Acceptable values are Available and Deprecated. Can be changed later.
+     * Gets the status property value. Specifies whether the custom security attribute is active or deactivated. Acceptable values are: Available and Deprecated. Can be changed later.
      * @return string|null
     */
     public function getStatus(): ?string {
@@ -100,7 +100,7 @@ class CustomSecurityAttributeDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the type property value. Data type for the custom security attribute values. Supported types are Boolean, Integer, and String. Cannot be changed later.
+     * Gets the type property value. Data type for the custom security attribute values. Supported types are: Boolean, Integer, and String. Cannot be changed later.
      * @return string|null
     */
     public function getType(): ?string {
@@ -133,7 +133,7 @@ class CustomSecurityAttributeDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the allowedValues property value. Values that are predefined for this custom security attribute.This navigation property is not returned by default and must be specified in an $expand query. For example, /directory/customSecurityAttributeDefinitions?$expand=allowedValues.
+     * Sets the allowedValues property value. Values that are predefined for this custom security attribute. This navigation property is not returned by default and must be specified in an $expand query. For example, /directory/customSecurityAttributeDefinitions?$expand=allowedValues.
      * @param array<AllowedValue>|null $value Value to set for the allowedValues property.
     */
     public function setAllowedValues(?array $value): void {
@@ -165,7 +165,7 @@ class CustomSecurityAttributeDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the isSearchable property value. Indicates whether custom security attribute values will be indexed for searching on objects that are assigned attribute values. Cannot be changed later.
+     * Sets the isSearchable property value. Indicates whether custom security attribute values are indexed for searching on objects that are assigned attribute values. Cannot be changed later.
      * @param bool|null $value Value to set for the isSearchable property.
     */
     public function setIsSearchable(?bool $value): void {
@@ -181,7 +181,7 @@ class CustomSecurityAttributeDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Specifies whether the custom security attribute is active or deactivated. Acceptable values are Available and Deprecated. Can be changed later.
+     * Sets the status property value. Specifies whether the custom security attribute is active or deactivated. Acceptable values are: Available and Deprecated. Can be changed later.
      * @param string|null $value Value to set for the status property.
     */
     public function setStatus(?string $value): void {
@@ -189,7 +189,7 @@ class CustomSecurityAttributeDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the type property value. Data type for the custom security attribute values. Supported types are Boolean, Integer, and String. Cannot be changed later.
+     * Sets the type property value. Data type for the custom security attribute values. Supported types are: Boolean, Integer, and String. Cannot be changed later.
      * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {

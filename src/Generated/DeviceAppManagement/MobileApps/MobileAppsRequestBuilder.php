@@ -6,8 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\GetMobileAppCountWithStatus\GetMobileAppCountWithStatusRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\GetTopMobileAppsWithStatusWithCount\GetTopMobileAppsWithStatusWithCountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\GraphManagedMobileLobApp\GraphManagedMobileLobAppRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\GraphMobileLobApp\GraphMobileLobAppRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\HasPayloadLinks\HasPayloadLinksRequestBuilder;
@@ -102,25 +100,6 @@ class MobileAppsRequestBuilder extends BaseRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to call the getMobileAppCount method.
-     * @param string $status Usage: status='{status}'
-     * @return GetMobileAppCountWithStatusRequestBuilder
-    */
-    public function getMobileAppCountWithStatus(string $status): GetMobileAppCountWithStatusRequestBuilder {
-        return new GetMobileAppCountWithStatusRequestBuilder($this->pathParameters, $this->requestAdapter, $status);
-    }
-
-    /**
-     * Provides operations to call the getTopMobileApps method.
-     * @param int $count Usage: count={count}
-     * @param string $status Usage: status='{status}'
-     * @return GetTopMobileAppsWithStatusWithCountRequestBuilder
-    */
-    public function getTopMobileAppsWithStatusWithCount(int $count, string $status): GetTopMobileAppsWithStatusWithCountRequestBuilder {
-        return new GetTopMobileAppsWithStatusWithCountRequestBuilder($this->pathParameters, $this->requestAdapter, $count, $status);
     }
 
     /**

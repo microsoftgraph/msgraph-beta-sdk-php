@@ -31,6 +31,7 @@ class DirectoryObject extends Entity implements Parsable
                 case '#microsoft.graph.application': return new Application();
                 case '#microsoft.graph.appManagementPolicy': return new AppManagementPolicy();
                 case '#microsoft.graph.authorizationPolicy': return new AuthorizationPolicy();
+                case '#microsoft.graph.certificateBasedApplicationConfiguration': return new CertificateBasedApplicationConfiguration();
                 case '#microsoft.graph.claimsMappingPolicy': return new ClaimsMappingPolicy();
                 case '#microsoft.graph.contract': return new Contract();
                 case '#microsoft.graph.crossTenantAccessPolicy': return new CrossTenantAccessPolicy();
@@ -57,6 +58,7 @@ class DirectoryObject extends Entity implements Parsable
                 case '#microsoft.graph.tenantRelationshipAccessPolicyBase': return new TenantRelationshipAccessPolicyBase();
                 case '#microsoft.graph.tokenIssuancePolicy': return new TokenIssuancePolicy();
                 case '#microsoft.graph.tokenLifetimePolicy': return new TokenLifetimePolicy();
+                case '#microsoft.graph.trustedCertificateAuthorityAsEntityBase': return new TrustedCertificateAuthorityAsEntityBase();
                 case '#microsoft.graph.user': return new User();
             }
         }

@@ -6,9 +6,9 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\ExecutionScope\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\ExecutionScope\Item\UserItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\ExecutionScope\Item\UserProcessingResultItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\UserProcessingResultCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UserCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -28,13 +28,13 @@ class ExecutionScopeRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the executionScope property of the microsoft.graph.identityGovernance.workflow entity.
-     * @param string $userId Unique identifier of the item
-     * @return UserItemRequestBuilder
+     * @param string $userProcessingResultId Unique identifier of the item
+     * @return UserProcessingResultItemRequestBuilder
     */
-    public function byUserId(string $userId): UserItemRequestBuilder {
+    public function byUserProcessingResultId(string $userProcessingResultId): UserProcessingResultItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['user%2Did'] = $userId;
-        return new UserItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        $urlTplParams['userProcessingResult%2Did'] = $userProcessingResultId;
+        return new UserProcessingResultItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -63,7 +63,7 @@ class ExecutionScopeRequestBuilder extends BaseRequestBuilder
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [UserCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [UserProcessingResultCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

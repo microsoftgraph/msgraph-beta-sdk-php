@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Intune will provide customer the ability to run their Powershell Health scripts (remediation + detection) on the enrolled windows 10 Azure Active Directory joined devices.
+*/
 class DeviceHealthScript extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceHealthScript and sets the default values.
+     * Instantiates a new deviceHealthScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -67,6 +70,14 @@ class DeviceHealthScript extends Entity implements Parsable
     }
 
     /**
+     * Gets the deviceHealthScriptType property value. Indicates the type of device script.
+     * @return DeviceHealthScriptType|null
+    */
+    public function getDeviceHealthScriptType(): ?DeviceHealthScriptType {
+        return $this->getBackingStore()->get('deviceHealthScriptType');
+    }
+
+    /**
      * Gets the deviceRunStates property value. List of run states for the device health script across all devices
      * @return array<DeviceHealthScriptDeviceState>|null
     */
@@ -102,6 +113,7 @@ class DeviceHealthScript extends Entity implements Parsable
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'detectionScriptContent' => fn(ParseNode $n) => $o->setDetectionScriptContent($n->getBinaryContent()),
             'detectionScriptParameters' => fn(ParseNode $n) => $o->setDetectionScriptParameters($n->getCollectionOfObjectValues([DeviceHealthScriptParameter::class, 'createFromDiscriminatorValue'])),
+            'deviceHealthScriptType' => fn(ParseNode $n) => $o->setDeviceHealthScriptType($n->getEnumValue(DeviceHealthScriptType::class)),
             'deviceRunStates' => fn(ParseNode $n) => $o->setDeviceRunStates($n->getCollectionOfObjectValues([DeviceHealthScriptDeviceState::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'enforceSignatureCheck' => fn(ParseNode $n) => $o->setEnforceSignatureCheck($n->getBooleanValue()),
@@ -217,6 +229,7 @@ class DeviceHealthScript extends Entity implements Parsable
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeBinaryContent('detectionScriptContent', $this->getDetectionScriptContent());
         $writer->writeCollectionOfObjectValues('detectionScriptParameters', $this->getDetectionScriptParameters());
+        $writer->writeEnumValue('deviceHealthScriptType', $this->getDeviceHealthScriptType());
         $writer->writeCollectionOfObjectValues('deviceRunStates', $this->getDeviceRunStates());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeBooleanValue('enforceSignatureCheck', $this->getEnforceSignatureCheck());
@@ -270,6 +283,14 @@ class DeviceHealthScript extends Entity implements Parsable
     */
     public function setDetectionScriptParameters(?array $value): void {
         $this->getBackingStore()->set('detectionScriptParameters', $value);
+    }
+
+    /**
+     * Sets the deviceHealthScriptType property value. Indicates the type of device script.
+     * @param DeviceHealthScriptType|null $value Value to set for the deviceHealthScriptType property.
+    */
+    public function setDeviceHealthScriptType(?DeviceHealthScriptType $value): void {
+        $this->getBackingStore()->set('deviceHealthScriptType', $value);
     }
 
     /**

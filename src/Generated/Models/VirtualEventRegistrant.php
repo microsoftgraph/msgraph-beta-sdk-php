@@ -1,0 +1,190 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Models;
+
+use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\Parsable;
+use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
+use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+
+class VirtualEventRegistrant extends Entity implements Parsable 
+{
+    /**
+     * Instantiates a new virtualEventRegistrant and sets the default values.
+    */
+    public function __construct() {
+        parent::__construct();
+    }
+
+    /**
+     * Creates a new instance of the appropriate class based on discriminator value
+     * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
+     * @return VirtualEventRegistrant
+    */
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): VirtualEventRegistrant {
+        return new VirtualEventRegistrant();
+    }
+
+    /**
+     * Gets the cancelationDateTime property value. Time in UTC when the registrant cancels their registration for the virtual event. Only appears when applicable.
+     * @return DateTime|null
+    */
+    public function getCancelationDateTime(): ?DateTime {
+        return $this->getBackingStore()->get('cancelationDateTime');
+    }
+
+    /**
+     * Gets the email property value. Email address of the registrant.
+     * @return string|null
+    */
+    public function getEmail(): ?string {
+        return $this->getBackingStore()->get('email');
+    }
+
+    /**
+     * The deserialization information for the current model
+     * @return array<string, callable>
+    */
+    public function getFieldDeserializers(): array {
+        $o = $this;
+        return array_merge(parent::getFieldDeserializers(), [
+            'cancelationDateTime' => fn(ParseNode $n) => $o->setCancelationDateTime($n->getDateTimeValue()),
+            'email' => fn(ParseNode $n) => $o->setEmail($n->getStringValue()),
+            'firstName' => fn(ParseNode $n) => $o->setFirstName($n->getStringValue()),
+            'lastName' => fn(ParseNode $n) => $o->setLastName($n->getStringValue()),
+            'registrationDateTime' => fn(ParseNode $n) => $o->setRegistrationDateTime($n->getDateTimeValue()),
+            'registrationQuestionAnswers' => fn(ParseNode $n) => $o->setRegistrationQuestionAnswers($n->getCollectionOfObjectValues([VirtualEventRegistrationQuestionAnswer::class, 'createFromDiscriminatorValue'])),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(VirtualEventAttendeeRegistrationStatus::class)),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
+        ]);
+    }
+
+    /**
+     * Gets the firstName property value. First name of the registrant.
+     * @return string|null
+    */
+    public function getFirstName(): ?string {
+        return $this->getBackingStore()->get('firstName');
+    }
+
+    /**
+     * Gets the lastName property value. Last name of the registrant.
+     * @return string|null
+    */
+    public function getLastName(): ?string {
+        return $this->getBackingStore()->get('lastName');
+    }
+
+    /**
+     * Gets the registrationDateTime property value. Time in UTC when the registrant registers for the virtual event.
+     * @return DateTime|null
+    */
+    public function getRegistrationDateTime(): ?DateTime {
+        return $this->getBackingStore()->get('registrationDateTime');
+    }
+
+    /**
+     * Gets the registrationQuestionAnswers property value. The registrant's answer to the registration questions.
+     * @return array<VirtualEventRegistrationQuestionAnswer>|null
+    */
+    public function getRegistrationQuestionAnswers(): ?array {
+        return $this->getBackingStore()->get('registrationQuestionAnswers');
+    }
+
+    /**
+     * Gets the status property value. Registration status of the registrant. Read-only.
+     * @return VirtualEventAttendeeRegistrationStatus|null
+    */
+    public function getStatus(): ?VirtualEventAttendeeRegistrationStatus {
+        return $this->getBackingStore()->get('status');
+    }
+
+    /**
+     * Gets the userId property value. The registrant's AAD user ID. Only appears when the registrant is registered in AAD.
+     * @return string|null
+    */
+    public function getUserId(): ?string {
+        return $this->getBackingStore()->get('userId');
+    }
+
+    /**
+     * Serializes information the current object
+     * @param SerializationWriter $writer Serialization writer to use to serialize this model
+    */
+    public function serialize(SerializationWriter $writer): void {
+        parent::serialize($writer);
+        $writer->writeDateTimeValue('cancelationDateTime', $this->getCancelationDateTime());
+        $writer->writeStringValue('email', $this->getEmail());
+        $writer->writeStringValue('firstName', $this->getFirstName());
+        $writer->writeStringValue('lastName', $this->getLastName());
+        $writer->writeDateTimeValue('registrationDateTime', $this->getRegistrationDateTime());
+        $writer->writeCollectionOfObjectValues('registrationQuestionAnswers', $this->getRegistrationQuestionAnswers());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeStringValue('userId', $this->getUserId());
+    }
+
+    /**
+     * Sets the cancelationDateTime property value. Time in UTC when the registrant cancels their registration for the virtual event. Only appears when applicable.
+     * @param DateTime|null $value Value to set for the cancelationDateTime property.
+    */
+    public function setCancelationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('cancelationDateTime', $value);
+    }
+
+    /**
+     * Sets the email property value. Email address of the registrant.
+     * @param string|null $value Value to set for the email property.
+    */
+    public function setEmail(?string $value): void {
+        $this->getBackingStore()->set('email', $value);
+    }
+
+    /**
+     * Sets the firstName property value. First name of the registrant.
+     * @param string|null $value Value to set for the firstName property.
+    */
+    public function setFirstName(?string $value): void {
+        $this->getBackingStore()->set('firstName', $value);
+    }
+
+    /**
+     * Sets the lastName property value. Last name of the registrant.
+     * @param string|null $value Value to set for the lastName property.
+    */
+    public function setLastName(?string $value): void {
+        $this->getBackingStore()->set('lastName', $value);
+    }
+
+    /**
+     * Sets the registrationDateTime property value. Time in UTC when the registrant registers for the virtual event.
+     * @param DateTime|null $value Value to set for the registrationDateTime property.
+    */
+    public function setRegistrationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('registrationDateTime', $value);
+    }
+
+    /**
+     * Sets the registrationQuestionAnswers property value. The registrant's answer to the registration questions.
+     * @param array<VirtualEventRegistrationQuestionAnswer>|null $value Value to set for the registrationQuestionAnswers property.
+    */
+    public function setRegistrationQuestionAnswers(?array $value): void {
+        $this->getBackingStore()->set('registrationQuestionAnswers', $value);
+    }
+
+    /**
+     * Sets the status property value. Registration status of the registrant. Read-only.
+     * @param VirtualEventAttendeeRegistrationStatus|null $value Value to set for the status property.
+    */
+    public function setStatus(?VirtualEventAttendeeRegistrationStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
+    }
+
+    /**
+     * Sets the userId property value. The registrant's AAD user ID. Only appears when the registrant is registered in AAD.
+     * @param string|null $value Value to set for the userId property.
+    */
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
+    }
+
+}

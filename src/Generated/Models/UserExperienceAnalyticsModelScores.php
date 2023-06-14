@@ -7,7 +7,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 /**
- * The user experience analytics model scores entity consolidates the various endpoint analytics scores.
+ * The user experience analytics model scores entity consolidates the various Endpoint Analytics scores.
 */
 class UserExperienceAnalyticsModelScores extends Entity implements Parsable 
 {

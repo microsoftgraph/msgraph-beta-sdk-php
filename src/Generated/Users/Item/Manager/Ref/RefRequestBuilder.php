@@ -70,7 +70,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to assign a user's manager.
+     * Assign a user's manager.
      * @param ReferenceUpdate $body The request body
      * @param RefRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -125,7 +125,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to assign a user's manager.
+     * Assign a user's manager.
      * @param ReferenceUpdate $body The request body
      * @param RefRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

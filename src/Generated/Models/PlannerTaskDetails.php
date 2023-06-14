@@ -33,6 +33,14 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
     }
 
     /**
+     * Gets the completionRequirements property value. Contains detailed information about requirements on the task.
+     * @return PlannerTaskCompletionRequirementDetails|null
+    */
+    public function getCompletionRequirements(): ?PlannerTaskCompletionRequirementDetails {
+        return $this->getBackingStore()->get('completionRequirements');
+    }
+
+    /**
      * Gets the description property value. Description of the task.
      * @return string|null
     */
@@ -48,6 +56,7 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'checklist' => fn(ParseNode $n) => $o->setChecklist($n->getObjectValue([PlannerChecklistItems::class, 'createFromDiscriminatorValue'])),
+            'completionRequirements' => fn(ParseNode $n) => $o->setCompletionRequirements($n->getObjectValue([PlannerTaskCompletionRequirementDetails::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'notes' => fn(ParseNode $n) => $o->setNotes($n->getObjectValue([ItemBody::class, 'createFromDiscriminatorValue'])),
             'previewType' => fn(ParseNode $n) => $o->setPreviewType($n->getEnumValue(PlannerPreviewType::class)),
@@ -86,6 +95,7 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('checklist', $this->getChecklist());
+        $writer->writeObjectValue('completionRequirements', $this->getCompletionRequirements());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeObjectValue('notes', $this->getNotes());
         $writer->writeEnumValue('previewType', $this->getPreviewType());
@@ -98,6 +108,14 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
     */
     public function setChecklist(?PlannerChecklistItems $value): void {
         $this->getBackingStore()->set('checklist', $value);
+    }
+
+    /**
+     * Sets the completionRequirements property value. Contains detailed information about requirements on the task.
+     * @param PlannerTaskCompletionRequirementDetails|null $value Value to set for the completionRequirements property.
+    */
+    public function setCompletionRequirements(?PlannerTaskCompletionRequirementDetails $value): void {
+        $this->getBackingStore()->set('completionRequirements', $value);
     }
 
     /**

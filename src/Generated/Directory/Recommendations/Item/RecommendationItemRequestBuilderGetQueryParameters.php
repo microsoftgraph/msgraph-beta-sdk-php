@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List of recommended improvements to improve tenant posture.
+ * Read the properties and relationships of a recommendation object.
 */
 class RecommendationItemRequestBuilderGetQueryParameters 
 {

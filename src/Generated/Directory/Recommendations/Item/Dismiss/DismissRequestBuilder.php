@@ -32,10 +32,11 @@ class DismissRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action dismiss
+     * Dismiss a recommendation object that you consider to be inapplicable to your tenant and update its **status** to `dismissed` .
      * @param DismissPostRequestBody $body The request body
      * @param DismissRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/recommendation-dismiss?view=graph-rest-1.0 Find more info here
     */
     public function post(DismissPostRequestBody $body, ?DismissRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -51,7 +52,7 @@ class DismissRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action dismiss
+     * Dismiss a recommendation object that you consider to be inapplicable to your tenant and update its **status** to `dismissed` .
      * @param DismissPostRequestBody $body The request body
      * @param DismissRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

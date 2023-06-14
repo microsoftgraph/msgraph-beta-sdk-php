@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics anomaly entity contains device details.
+*/
 class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsAnomalyDevice and sets the default values.
+     * Instantiates a new userExperienceAnalyticsAnomalyDevice and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -50,6 +53,14 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
     }
 
     /**
+     * Gets the correlationGroupId property value. The unique identifier of the correlation group.
+     * @return string|null
+    */
+    public function getCorrelationGroupId(): ?string {
+        return $this->getBackingStore()->get('correlationGroupId');
+    }
+
+    /**
      * Gets the deviceId property value. The unique identifier of the device.
      * @return string|null
     */
@@ -82,6 +93,14 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
     }
 
     /**
+     * Gets the deviceStatus property value. Indicates the status of the device in the correlation group. Eg: Device status can be anomalous, affected, at risk.
+     * @return UserExperienceAnalyticsDeviceStatus|null
+    */
+    public function getDeviceStatus(): ?UserExperienceAnalyticsDeviceStatus {
+        return $this->getBackingStore()->get('deviceStatus');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
@@ -91,10 +110,12 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
             'anomalyId' => fn(ParseNode $n) => $o->setAnomalyId($n->getStringValue()),
             'anomalyOnDeviceFirstOccurrenceDateTime' => fn(ParseNode $n) => $o->setAnomalyOnDeviceFirstOccurrenceDateTime($n->getDateTimeValue()),
             'anomalyOnDeviceLatestOccurrenceDateTime' => fn(ParseNode $n) => $o->setAnomalyOnDeviceLatestOccurrenceDateTime($n->getDateTimeValue()),
+            'correlationGroupId' => fn(ParseNode $n) => $o->setCorrelationGroupId($n->getStringValue()),
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
             'deviceManufacturer' => fn(ParseNode $n) => $o->setDeviceManufacturer($n->getStringValue()),
             'deviceModel' => fn(ParseNode $n) => $o->setDeviceModel($n->getStringValue()),
             'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
+            'deviceStatus' => fn(ParseNode $n) => $o->setDeviceStatus($n->getEnumValue(UserExperienceAnalyticsDeviceStatus::class)),
             'osName' => fn(ParseNode $n) => $o->setOsName($n->getStringValue()),
             'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
         ]);
@@ -125,10 +146,12 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
         $writer->writeStringValue('anomalyId', $this->getAnomalyId());
         $writer->writeDateTimeValue('anomalyOnDeviceFirstOccurrenceDateTime', $this->getAnomalyOnDeviceFirstOccurrenceDateTime());
         $writer->writeDateTimeValue('anomalyOnDeviceLatestOccurrenceDateTime', $this->getAnomalyOnDeviceLatestOccurrenceDateTime());
+        $writer->writeStringValue('correlationGroupId', $this->getCorrelationGroupId());
         $writer->writeStringValue('deviceId', $this->getDeviceId());
         $writer->writeStringValue('deviceManufacturer', $this->getDeviceManufacturer());
         $writer->writeStringValue('deviceModel', $this->getDeviceModel());
         $writer->writeStringValue('deviceName', $this->getDeviceName());
+        $writer->writeEnumValue('deviceStatus', $this->getDeviceStatus());
         $writer->writeStringValue('osName', $this->getOsName());
         $writer->writeStringValue('osVersion', $this->getOsVersion());
     }
@@ -155,6 +178,14 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
     */
     public function setAnomalyOnDeviceLatestOccurrenceDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('anomalyOnDeviceLatestOccurrenceDateTime', $value);
+    }
+
+    /**
+     * Sets the correlationGroupId property value. The unique identifier of the correlation group.
+     * @param string|null $value Value to set for the correlationGroupId property.
+    */
+    public function setCorrelationGroupId(?string $value): void {
+        $this->getBackingStore()->set('correlationGroupId', $value);
     }
 
     /**
@@ -187,6 +218,14 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
     */
     public function setDeviceName(?string $value): void {
         $this->getBackingStore()->set('deviceName', $value);
+    }
+
+    /**
+     * Sets the deviceStatus property value. Indicates the status of the device in the correlation group. Eg: Device status can be anomalous, affected, at risk.
+     * @param UserExperienceAnalyticsDeviceStatus|null $value Value to set for the deviceStatus property.
+    */
+    public function setDeviceStatus(?UserExperienceAnalyticsDeviceStatus $value): void {
+        $this->getBackingStore()->set('deviceStatus', $value);
     }
 
     /**

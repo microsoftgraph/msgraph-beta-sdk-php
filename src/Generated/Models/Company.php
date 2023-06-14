@@ -2,17 +2,27 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class Company extends Entity implements Parsable 
+class Company implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * Instantiates a new Company and sets the default values.
+     * @var BackingStore $backingStore Stores model information.
+    */
+    private BackingStore $backingStore;
+    
+    /**
+     * Instantiates a new company and sets the default values.
     */
     public function __construct() {
-        parent::__construct();
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
+        $this->setAdditionalData([]);
     }
 
     /**
@@ -33,6 +43,14 @@ class Company extends Entity implements Parsable
     }
 
     /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>|null
+    */
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
      * Gets the agedAccountsPayable property value. The agedAccountsPayable property
      * @return array<AgedAccountsPayable>|null
     */
@@ -46,6 +64,14 @@ class Company extends Entity implements Parsable
     */
     public function getAgedAccountsReceivable(): ?array {
         return $this->getBackingStore()->get('agedAccountsReceivable');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -142,7 +168,7 @@ class Company extends Entity implements Parsable
     */
     public function getFieldDeserializers(): array {
         $o = $this;
-        return array_merge(parent::getFieldDeserializers(), [
+        return  [
             'accounts' => fn(ParseNode $n) => $o->setAccounts($n->getCollectionOfObjectValues([Account::class, 'createFromDiscriminatorValue'])),
             'agedAccountsPayable' => fn(ParseNode $n) => $o->setAgedAccountsPayable($n->getCollectionOfObjectValues([AgedAccountsPayable::class, 'createFromDiscriminatorValue'])),
             'agedAccountsReceivable' => fn(ParseNode $n) => $o->setAgedAccountsReceivable($n->getCollectionOfObjectValues([AgedAccountsReceivable::class, 'createFromDiscriminatorValue'])),
@@ -158,11 +184,13 @@ class Company extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'employees' => fn(ParseNode $n) => $o->setEmployees($n->getCollectionOfObjectValues([Employee::class, 'createFromDiscriminatorValue'])),
             'generalLedgerEntries' => fn(ParseNode $n) => $o->setGeneralLedgerEntries($n->getCollectionOfObjectValues([GeneralLedgerEntry::class, 'createFromDiscriminatorValue'])),
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
             'itemCategories' => fn(ParseNode $n) => $o->setItemCategories($n->getCollectionOfObjectValues([ItemCategory::class, 'createFromDiscriminatorValue'])),
             'items' => fn(ParseNode $n) => $o->setItems($n->getCollectionOfObjectValues([Item::class, 'createFromDiscriminatorValue'])),
             'journalLines' => fn(ParseNode $n) => $o->setJournalLines($n->getCollectionOfObjectValues([JournalLine::class, 'createFromDiscriminatorValue'])),
             'journals' => fn(ParseNode $n) => $o->setJournals($n->getCollectionOfObjectValues([Journal::class, 'createFromDiscriminatorValue'])),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'paymentMethods' => fn(ParseNode $n) => $o->setPaymentMethods($n->getCollectionOfObjectValues([PaymentMethod::class, 'createFromDiscriminatorValue'])),
             'paymentTerms' => fn(ParseNode $n) => $o->setPaymentTerms($n->getCollectionOfObjectValues([PaymentTerm::class, 'createFromDiscriminatorValue'])),
             'picture' => fn(ParseNode $n) => $o->setPicture($n->getCollectionOfObjectValues([Picture::class, 'createFromDiscriminatorValue'])),
@@ -182,7 +210,7 @@ class Company extends Entity implements Parsable
             'taxGroups' => fn(ParseNode $n) => $o->setTaxGroups($n->getCollectionOfObjectValues([TaxGroup::class, 'createFromDiscriminatorValue'])),
             'unitsOfMeasure' => fn(ParseNode $n) => $o->setUnitsOfMeasure($n->getCollectionOfObjectValues([UnitOfMeasure::class, 'createFromDiscriminatorValue'])),
             'vendors' => fn(ParseNode $n) => $o->setVendors($n->getCollectionOfObjectValues([Vendor::class, 'createFromDiscriminatorValue'])),
-        ]);
+        ];
     }
 
     /**
@@ -191,6 +219,14 @@ class Company extends Entity implements Parsable
     */
     public function getGeneralLedgerEntries(): ?array {
         return $this->getBackingStore()->get('generalLedgerEntries');
+    }
+
+    /**
+     * Gets the id property value. The id property
+     * @return string|null
+    */
+    public function getId(): ?string {
+        return $this->getBackingStore()->get('id');
     }
 
     /**
@@ -231,6 +267,14 @@ class Company extends Entity implements Parsable
     */
     public function getName(): ?string {
         return $this->getBackingStore()->get('name');
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -390,7 +434,6 @@ class Company extends Entity implements Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('accounts', $this->getAccounts());
         $writer->writeCollectionOfObjectValues('agedAccountsPayable', $this->getAgedAccountsPayable());
         $writer->writeCollectionOfObjectValues('agedAccountsReceivable', $this->getAgedAccountsReceivable());
@@ -406,11 +449,13 @@ class Company extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeCollectionOfObjectValues('employees', $this->getEmployees());
         $writer->writeCollectionOfObjectValues('generalLedgerEntries', $this->getGeneralLedgerEntries());
+        $writer->writeStringValue('id', $this->getId());
         $writer->writeCollectionOfObjectValues('itemCategories', $this->getItemCategories());
         $writer->writeCollectionOfObjectValues('items', $this->getItems());
         $writer->writeCollectionOfObjectValues('journalLines', $this->getJournalLines());
         $writer->writeCollectionOfObjectValues('journals', $this->getJournals());
         $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('paymentMethods', $this->getPaymentMethods());
         $writer->writeCollectionOfObjectValues('paymentTerms', $this->getPaymentTerms());
         $writer->writeCollectionOfObjectValues('picture', $this->getPicture());
@@ -430,6 +475,7 @@ class Company extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('taxGroups', $this->getTaxGroups());
         $writer->writeCollectionOfObjectValues('unitsOfMeasure', $this->getUnitsOfMeasure());
         $writer->writeCollectionOfObjectValues('vendors', $this->getVendors());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
@@ -438,6 +484,14 @@ class Company extends Entity implements Parsable
     */
     public function setAccounts(?array $value): void {
         $this->getBackingStore()->set('accounts', $value);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
@@ -454,6 +508,14 @@ class Company extends Entity implements Parsable
     */
     public function setAgedAccountsReceivable(?array $value): void {
         $this->getBackingStore()->set('agedAccountsReceivable', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
@@ -553,6 +615,14 @@ class Company extends Entity implements Parsable
     }
 
     /**
+     * Sets the id property value. The id property
+     * @param string|null $value Value to set for the id property.
+    */
+    public function setId(?string $value): void {
+        $this->getBackingStore()->set('id', $value);
+    }
+
+    /**
      * Sets the itemCategories property value. The itemCategories property
      * @param array<ItemCategory>|null $value Value to set for the itemCategories property.
     */
@@ -590,6 +660,14 @@ class Company extends Entity implements Parsable
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

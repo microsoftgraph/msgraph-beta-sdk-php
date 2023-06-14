@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SolutionsRoot;
 use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\BusinessScenariosRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\VirtualEventsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -23,6 +24,13 @@ class SolutionsRequestBuilder extends BaseRequestBuilder
     */
     public function businessScenarios(): BusinessScenariosRequestBuilder {
         return new BusinessScenariosRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the virtualEvents property of the microsoft.graph.solutionsRoot entity.
+    */
+    public function virtualEvents(): VirtualEventsRequestBuilder {
+        return new VirtualEventsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

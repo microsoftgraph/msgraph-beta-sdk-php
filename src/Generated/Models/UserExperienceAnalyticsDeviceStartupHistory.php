@@ -135,7 +135,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Gets the restartCategory property value. Operating System restart category
+     * Gets the restartCategory property value. Operating System restart category.
      * @return UserExperienceAnalyticsOperatingSystemRestartCategory|null
     */
     public function getRestartCategory(): ?UserExperienceAnalyticsOperatingSystemRestartCategory {
@@ -287,7 +287,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Sets the restartCategory property value. Operating System restart category
+     * Sets the restartCategory property value. Operating System restart category.
      * @param UserExperienceAnalyticsOperatingSystemRestartCategory|null $value Value to set for the restartCategory property.
     */
     public function setRestartCategory(?UserExperienceAnalyticsOperatingSystemRestartCategory $value): void {

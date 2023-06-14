@@ -96,6 +96,7 @@ use Microsoft\Graph\Beta\Generated\Models\MobileThreatDefenseConnector;
 use Microsoft\Graph\Beta\Generated\Models\NdesConnector;
 use Microsoft\Graph\Beta\Generated\Models\NotificationMessageTemplate;
 use Microsoft\Graph\Beta\Generated\Models\OnPremisesConditionalAccessSettings;
+use Microsoft\Graph\Beta\Generated\Models\PrivilegeManagementElevation;
 use Microsoft\Graph\Beta\Generated\Models\RemoteActionAudit;
 use Microsoft\Graph\Beta\Generated\Models\RemoteAssistancePartner;
 use Microsoft\Graph\Beta\Generated\Models\RemoteAssistanceSettings;
@@ -109,6 +110,7 @@ use Microsoft\Graph\Beta\Generated\Models\TelecomExpenseManagementPartner;
 use Microsoft\Graph\Beta\Generated\Models\TenantAttachRBAC;
 use Microsoft\Graph\Beta\Generated\Models\TermsAndConditions;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAnomaly;
+use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAnomalyCorrelationGroupOverview;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAnomalyDevice;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAnomalySeverityOverview;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAppHealthApplicationPerformance;
@@ -775,6 +777,7 @@ class DeviceManagement extends Entity implements Parsable
             'monitoring' => fn(ParseNode $n) => $o->setMonitoring($n->getObjectValue([Monitoring::class, 'createFromDiscriminatorValue'])),
             'ndesConnectors' => fn(ParseNode $n) => $o->setNdesConnectors($n->getCollectionOfObjectValues([NdesConnector::class, 'createFromDiscriminatorValue'])),
             'notificationMessageTemplates' => fn(ParseNode $n) => $o->setNotificationMessageTemplates($n->getCollectionOfObjectValues([NotificationMessageTemplate::class, 'createFromDiscriminatorValue'])),
+            'privilegeManagementElevations' => fn(ParseNode $n) => $o->setPrivilegeManagementElevations($n->getCollectionOfObjectValues([PrivilegeManagementElevation::class, 'createFromDiscriminatorValue'])),
             'remoteActionAudits' => fn(ParseNode $n) => $o->setRemoteActionAudits($n->getCollectionOfObjectValues([RemoteActionAudit::class, 'createFromDiscriminatorValue'])),
             'remoteAssistancePartners' => fn(ParseNode $n) => $o->setRemoteAssistancePartners($n->getCollectionOfObjectValues([RemoteAssistancePartner::class, 'createFromDiscriminatorValue'])),
             'remoteAssistanceSettings' => fn(ParseNode $n) => $o->setRemoteAssistanceSettings($n->getObjectValue([RemoteAssistanceSettings::class, 'createFromDiscriminatorValue'])),
@@ -801,6 +804,7 @@ class DeviceManagement extends Entity implements Parsable
             'troubleshootingEvents' => fn(ParseNode $n) => $o->setTroubleshootingEvents($n->getCollectionOfObjectValues([DeviceManagementTroubleshootingEvent::class, 'createFromDiscriminatorValue'])),
             'unlicensedAdminstratorsEnabled' => fn(ParseNode $n) => $o->setUnlicensedAdminstratorsEnabled($n->getBooleanValue()),
             'userExperienceAnalyticsAnomaly' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsAnomaly($n->getCollectionOfObjectValues([UserExperienceAnalyticsAnomaly::class, 'createFromDiscriminatorValue'])),
+            'userExperienceAnalyticsAnomalyCorrelationGroupOverview' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsAnomalyCorrelationGroupOverview($n->getCollectionOfObjectValues([UserExperienceAnalyticsAnomalyCorrelationGroupOverview::class, 'createFromDiscriminatorValue'])),
             'userExperienceAnalyticsAnomalyDevice' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsAnomalyDevice($n->getCollectionOfObjectValues([UserExperienceAnalyticsAnomalyDevice::class, 'createFromDiscriminatorValue'])),
             'userExperienceAnalyticsAnomalySeverityOverview' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsAnomalySeverityOverview($n->getObjectValue([UserExperienceAnalyticsAnomalySeverityOverview::class, 'createFromDiscriminatorValue'])),
             'userExperienceAnalyticsAppHealthApplicationPerformance' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsAppHealthApplicationPerformance($n->getCollectionOfObjectValues([UserExperienceAnalyticsAppHealthApplicationPerformance::class, 'createFromDiscriminatorValue'])),
@@ -1113,6 +1117,14 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
+     * Gets the privilegeManagementElevations property value. The endpoint privilege management elevation event entity contains elevation details.
+     * @return array<PrivilegeManagementElevation>|null
+    */
+    public function getPrivilegeManagementElevations(): ?array {
+        return $this->getBackingStore()->get('privilegeManagementElevations');
+    }
+
+    /**
      * Gets the remoteActionAudits property value. The list of device remote action audits with the tenant.
      * @return array<RemoteActionAudit>|null
     */
@@ -1318,6 +1330,14 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function getUserExperienceAnalyticsAnomaly(): ?array {
         return $this->getBackingStore()->get('userExperienceAnalyticsAnomaly');
+    }
+
+    /**
+     * Gets the userExperienceAnalyticsAnomalyCorrelationGroupOverview property value. The user experience analytics anomaly correlation group overview entity contains the information for each correlation group of an anomaly.
+     * @return array<UserExperienceAnalyticsAnomalyCorrelationGroupOverview>|null
+    */
+    public function getUserExperienceAnalyticsAnomalyCorrelationGroupOverview(): ?array {
+        return $this->getBackingStore()->get('userExperienceAnalyticsAnomalyCorrelationGroupOverview');
     }
 
     /**
@@ -1895,6 +1915,7 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeObjectValue('monitoring', $this->getMonitoring());
         $writer->writeCollectionOfObjectValues('ndesConnectors', $this->getNdesConnectors());
         $writer->writeCollectionOfObjectValues('notificationMessageTemplates', $this->getNotificationMessageTemplates());
+        $writer->writeCollectionOfObjectValues('privilegeManagementElevations', $this->getPrivilegeManagementElevations());
         $writer->writeCollectionOfObjectValues('remoteActionAudits', $this->getRemoteActionAudits());
         $writer->writeCollectionOfObjectValues('remoteAssistancePartners', $this->getRemoteAssistancePartners());
         $writer->writeObjectValue('remoteAssistanceSettings', $this->getRemoteAssistanceSettings());
@@ -1920,6 +1941,7 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('termsAndConditions', $this->getTermsAndConditions());
         $writer->writeCollectionOfObjectValues('troubleshootingEvents', $this->getTroubleshootingEvents());
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAnomaly', $this->getUserExperienceAnalyticsAnomaly());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAnomalyCorrelationGroupOverview', $this->getUserExperienceAnalyticsAnomalyCorrelationGroupOverview());
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAnomalyDevice', $this->getUserExperienceAnalyticsAnomalyDevice());
         $writer->writeObjectValue('userExperienceAnalyticsAnomalySeverityOverview', $this->getUserExperienceAnalyticsAnomalySeverityOverview());
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthApplicationPerformance', $this->getUserExperienceAnalyticsAppHealthApplicationPerformance());
@@ -2719,6 +2741,14 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
+     * Sets the privilegeManagementElevations property value. The endpoint privilege management elevation event entity contains elevation details.
+     * @param array<PrivilegeManagementElevation>|null $value Value to set for the privilegeManagementElevations property.
+    */
+    public function setPrivilegeManagementElevations(?array $value): void {
+        $this->getBackingStore()->set('privilegeManagementElevations', $value);
+    }
+
+    /**
      * Sets the remoteActionAudits property value. The list of device remote action audits with the tenant.
      * @param array<RemoteActionAudit>|null $value Value to set for the remoteActionAudits property.
     */
@@ -2924,6 +2954,14 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function setUserExperienceAnalyticsAnomaly(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsAnomaly', $value);
+    }
+
+    /**
+     * Sets the userExperienceAnalyticsAnomalyCorrelationGroupOverview property value. The user experience analytics anomaly correlation group overview entity contains the information for each correlation group of an anomaly.
+     * @param array<UserExperienceAnalyticsAnomalyCorrelationGroupOverview>|null $value Value to set for the userExperienceAnalyticsAnomalyCorrelationGroupOverview property.
+    */
+    public function setUserExperienceAnalyticsAnomalyCorrelationGroupOverview(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsAnomalyCorrelationGroupOverview', $value);
     }
 
     /**

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EmployeeExperienceUser extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new EmployeeExperienceUser and sets the default values.
+     * Instantiates a new employeeExperienceUser and sets the default values.
     */
     public function __construct() {
         parent::__construct();

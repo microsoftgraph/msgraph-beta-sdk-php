@@ -3,18 +3,28 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class SalesInvoice extends Entity implements Parsable 
+class SalesInvoice implements AdditionalDataHolder, BackedModel, Parsable 
 {
+    /**
+     * @var BackingStore $backingStore Stores model information.
+    */
+    private BackingStore $backingStore;
+    
     /**
      * Instantiates a new salesInvoice and sets the default values.
     */
     public function __construct() {
-        parent::__construct();
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
+        $this->setAdditionalData([]);
     }
 
     /**
@@ -24,6 +34,22 @@ class SalesInvoice extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): SalesInvoice {
         return new SalesInvoice();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>|null
+    */
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -168,7 +194,7 @@ class SalesInvoice extends Entity implements Parsable
     */
     public function getFieldDeserializers(): array {
         $o = $this;
-        return array_merge(parent::getFieldDeserializers(), [
+        return  [
             'billingPostalAddress' => fn(ParseNode $n) => $o->setBillingPostalAddress($n->getObjectValue([PostalAddressType::class, 'createFromDiscriminatorValue'])),
             'billToCustomerId' => fn(ParseNode $n) => $o->setBillToCustomerId($n->getStringValue()),
             'billToCustomerNumber' => fn(ParseNode $n) => $o->setBillToCustomerNumber($n->getStringValue()),
@@ -186,9 +212,11 @@ class SalesInvoice extends Entity implements Parsable
             'dueDate' => fn(ParseNode $n) => $o->setDueDate($n->getDateValue()),
             'email' => fn(ParseNode $n) => $o->setEmail($n->getStringValue()),
             'externalDocumentNumber' => fn(ParseNode $n) => $o->setExternalDocumentNumber($n->getStringValue()),
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
             'invoiceDate' => fn(ParseNode $n) => $o->setInvoiceDate($n->getDateValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'number' => fn(ParseNode $n) => $o->setNumber($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'orderId' => fn(ParseNode $n) => $o->setOrderId($n->getStringValue()),
             'orderNumber' => fn(ParseNode $n) => $o->setOrderNumber($n->getStringValue()),
             'paymentTerm' => fn(ParseNode $n) => $o->setPaymentTerm($n->getObjectValue([PaymentTerm::class, 'createFromDiscriminatorValue'])),
@@ -207,7 +235,15 @@ class SalesInvoice extends Entity implements Parsable
             'totalAmountExcludingTax' => fn(ParseNode $n) => $o->setTotalAmountExcludingTax($n->getStringValue()),
             'totalAmountIncludingTax' => fn(ParseNode $n) => $o->setTotalAmountIncludingTax($n->getStringValue()),
             'totalTaxAmount' => fn(ParseNode $n) => $o->setTotalTaxAmount($n->getStringValue()),
-        ]);
+        ];
+    }
+
+    /**
+     * Gets the id property value. The id property
+     * @return string|null
+    */
+    public function getId(): ?string {
+        return $this->getBackingStore()->get('id');
     }
 
     /**
@@ -232,6 +268,14 @@ class SalesInvoice extends Entity implements Parsable
     */
     public function getNumber(): ?string {
         return $this->getBackingStore()->get('number');
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -383,7 +427,6 @@ class SalesInvoice extends Entity implements Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        parent::serialize($writer);
         $writer->writeObjectValue('billingPostalAddress', $this->getBillingPostalAddress());
         $writer->writeStringValue('billToCustomerId', $this->getBillToCustomerId());
         $writer->writeStringValue('billToCustomerNumber', $this->getBillToCustomerNumber());
@@ -401,9 +444,11 @@ class SalesInvoice extends Entity implements Parsable
         $writer->writeDateValue('dueDate', $this->getDueDate());
         $writer->writeStringValue('email', $this->getEmail());
         $writer->writeStringValue('externalDocumentNumber', $this->getExternalDocumentNumber());
+        $writer->writeStringValue('id', $this->getId());
         $writer->writeDateValue('invoiceDate', $this->getInvoiceDate());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeStringValue('number', $this->getNumber());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('orderId', $this->getOrderId());
         $writer->writeStringValue('orderNumber', $this->getOrderNumber());
         $writer->writeObjectValue('paymentTerm', $this->getPaymentTerm());
@@ -422,6 +467,23 @@ class SalesInvoice extends Entity implements Parsable
         $writer->writeStringValue('totalAmountExcludingTax', $this->getTotalAmountExcludingTax());
         $writer->writeStringValue('totalAmountIncludingTax', $this->getTotalAmountIncludingTax());
         $writer->writeStringValue('totalTaxAmount', $this->getTotalTaxAmount());
+        $writer->writeAdditionalData($this->getAdditionalData());
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
@@ -561,6 +623,14 @@ class SalesInvoice extends Entity implements Parsable
     }
 
     /**
+     * Sets the id property value. The id property
+     * @param string|null $value Value to set for the id property.
+    */
+    public function setId(?string $value): void {
+        $this->getBackingStore()->set('id', $value);
+    }
+
+    /**
      * Sets the invoiceDate property value. The invoiceDate property
      * @param Date|null $value Value to set for the invoiceDate property.
     */
@@ -582,6 +652,14 @@ class SalesInvoice extends Entity implements Parsable
     */
     public function setNumber(?string $value): void {
         $this->getBackingStore()->set('number', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

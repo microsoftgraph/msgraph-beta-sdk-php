@@ -94,7 +94,7 @@ class AttributeDefinition implements AdditionalDataHolder, BackedModel, Parsable
             'caseExact' => fn(ParseNode $n) => $o->setCaseExact($n->getBooleanValue()),
             'defaultValue' => fn(ParseNode $n) => $o->setDefaultValue($n->getStringValue()),
             'flowNullValues' => fn(ParseNode $n) => $o->setFlowNullValues($n->getBooleanValue()),
-            'metadata' => fn(ParseNode $n) => $o->setMetadata($n->getCollectionOfObjectValues([MetadataEntry::class, 'createFromDiscriminatorValue'])),
+            'metadata' => fn(ParseNode $n) => $o->setMetadata($n->getCollectionOfObjectValues([AttributeDefinitionMetadataEntry::class, 'createFromDiscriminatorValue'])),
             'multivalued' => fn(ParseNode $n) => $o->setMultivalued($n->getBooleanValue()),
             'mutability' => fn(ParseNode $n) => $o->setMutability($n->getEnumValue(Mutability::class)),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
@@ -114,8 +114,8 @@ class AttributeDefinition implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the metadata property value. Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
-     * @return array<MetadataEntry>|null
+     * Gets the metadata property value. Metadata for the given object.
+     * @return array<AttributeDefinitionMetadataEntry>|null
     */
     public function getMetadata(): ?array {
         return $this->getBackingStore()->get('metadata');
@@ -255,8 +255,8 @@ class AttributeDefinition implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the metadata property value. Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
-     * @param array<MetadataEntry>|null $value Value to set for the metadata property.
+     * Sets the metadata property value. Metadata for the given object.
+     * @param array<AttributeDefinitionMetadataEntry>|null $value Value to set for the metadata property.
     */
     public function setMetadata(?array $value): void {
         $this->getBackingStore()->set('metadata', $value);
