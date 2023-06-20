@@ -68,6 +68,7 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
             'authenticationContextId' => fn(ParseNode $n) => $o->setAuthenticationContextId($n->getStringValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'isAuthenticationContextSettable' => fn(ParseNode $n) => $o->setIsAuthenticationContextSettable($n->getBooleanValue()),
+            'isPrivileged' => fn(ParseNode $n) => $o->setIsPrivileged($n->getBooleanValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'resourceScope' => fn(ParseNode $n) => $o->setResourceScope($n->getObjectValue([UnifiedRbacResourceScope::class, 'createFromDiscriminatorValue'])),
             'resourceScopeId' => fn(ParseNode $n) => $o->setResourceScopeId($n->getStringValue()),
@@ -80,6 +81,14 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
     */
     public function getIsAuthenticationContextSettable(): ?bool {
         return $this->getBackingStore()->get('isAuthenticationContextSettable');
+    }
+
+    /**
+     * Gets the isPrivileged property value. The isPrivileged property
+     * @return bool|null
+    */
+    public function getIsPrivileged(): ?bool {
+        return $this->getBackingStore()->get('isPrivileged');
     }
 
     /**
@@ -117,6 +126,7 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
         $writer->writeStringValue('authenticationContextId', $this->getAuthenticationContextId());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeBooleanValue('isAuthenticationContextSettable', $this->getIsAuthenticationContextSettable());
+        $writer->writeBooleanValue('isPrivileged', $this->getIsPrivileged());
         $writer->writeStringValue('name', $this->getName());
         $writer->writeObjectValue('resourceScope', $this->getResourceScope());
         $writer->writeStringValue('resourceScopeId', $this->getResourceScopeId());
@@ -160,6 +170,14 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
     */
     public function setIsAuthenticationContextSettable(?bool $value): void {
         $this->getBackingStore()->set('isAuthenticationContextSettable', $value);
+    }
+
+    /**
+     * Sets the isPrivileged property value. The isPrivileged property
+     * @param bool|null $value Value to set for the isPrivileged property.
+    */
+    public function setIsPrivileged(?bool $value): void {
+        $this->getBackingStore()->set('isPrivileged', $value);
     }
 
     /**

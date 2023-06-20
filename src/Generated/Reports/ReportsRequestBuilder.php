@@ -8,6 +8,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\ReportRoot;
+use Microsoft\Graph\Beta\Generated\Reports\AppCredentialSignInActivities\AppCredentialSignInActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\ApplicationSignInDetailedSummary\ApplicationSignInDetailedSummaryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\AuthenticationMethodsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\CredentialUserRegistrationDetails\CredentialUserRegistrationDetailsRequestBuilder;
@@ -146,6 +147,7 @@ use Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageByUser\MonthlyPrintU
 use Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageSummariesByPrinter\MonthlyPrintUsageSummariesByPrinterRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageSummariesByUser\MonthlyPrintUsageSummariesByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\Security\SecurityRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\ServicePrincipalSignInActivities\ServicePrincipalSignInActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\UserCredentialUsageDetails\UserCredentialUsageDetailsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -158,6 +160,13 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 */
 class ReportsRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the appCredentialSignInActivities property of the microsoft.graph.reportRoot entity.
+    */
+    public function appCredentialSignInActivities(): AppCredentialSignInActivitiesRequestBuilder {
+        return new AppCredentialSignInActivitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the applicationSignInDetailedSummary property of the microsoft.graph.reportRoot entity.
     */
@@ -331,6 +340,13 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function security(): SecurityRequestBuilder {
         return new SecurityRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the servicePrincipalSignInActivities property of the microsoft.graph.reportRoot entity.
+    */
+    public function servicePrincipalSignInActivities(): ServicePrincipalSignInActivitiesRequestBuilder {
+        return new ServicePrincipalSignInActivitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

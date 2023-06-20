@@ -82,7 +82,7 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     }
 
     /**
-     * Gets the contentCustomization property value. The contentCustomization property
+     * Gets the contentCustomization property value. Represents the various content options to be customized throughout the authentication flow for a tenant. NOTE: Supported by Azure Active Directory for customers tenants only.
      * @return ContentCustomization|null
     */
     public function getContentCustomization(): ?ContentCustomization {
@@ -410,7 +410,7 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     }
 
     /**
-     * Sets the contentCustomization property value. The contentCustomization property
+     * Sets the contentCustomization property value. Represents the various content options to be customized throughout the authentication flow for a tenant. NOTE: Supported by Azure Active Directory for customers tenants only.
      * @param ContentCustomization|null $value Value to set for the contentCustomization property.
     */
     public function setContentCustomization(?ContentCustomization $value): void {

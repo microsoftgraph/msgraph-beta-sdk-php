@@ -6,13 +6,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * The user experience analytics metric for work from anywhere report.
-*/
 class UserExperienceAnalyticsWorkFromAnywhereMetric extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsWorkFromAnywhereMetric and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsWorkFromAnywhereMetric and sets the default values.
     */
     public function __construct() {
         parent::__construct();

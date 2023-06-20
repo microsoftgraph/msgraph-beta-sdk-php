@@ -21,7 +21,7 @@ class AssignmentFilterTypeAndEvaluationResult implements AdditionalDataHolder, B
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new assignmentFilterTypeAndEvaluationResult and sets the default values.
+     * Instantiates a new AssignmentFilterTypeAndEvaluationResult and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

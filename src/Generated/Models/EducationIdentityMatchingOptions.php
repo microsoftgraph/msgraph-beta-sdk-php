@@ -18,7 +18,7 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, BackedMo
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new educationIdentityMatchingOptions and sets the default values.
+     * Instantiates a new EducationIdentityMatchingOptions and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

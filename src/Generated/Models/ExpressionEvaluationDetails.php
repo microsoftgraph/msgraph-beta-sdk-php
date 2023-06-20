@@ -18,7 +18,7 @@ class ExpressionEvaluationDetails implements AdditionalDataHolder, BackedModel, 
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new expressionEvaluationDetails and sets the default values.
+     * Instantiates a new ExpressionEvaluationDetails and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

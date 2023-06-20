@@ -60,7 +60,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the authenticationBehaviors property value. The authenticationBehaviors property
+     * Gets the authenticationBehaviors property value. The collection of authentication behaviors set for the application. Authentication behaviors are unset by default and must be explicitly enabled (or disabled). Returned only on $select.
      * @return AuthenticationBehaviors|null
     */
     public function getAuthenticationBehaviors(): ?AuthenticationBehaviors {
@@ -548,7 +548,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the authenticationBehaviors property value. The authenticationBehaviors property
+     * Sets the authenticationBehaviors property value. The collection of authentication behaviors set for the application. Authentication behaviors are unset by default and must be explicitly enabled (or disabled). Returned only on $select.
      * @param AuthenticationBehaviors|null $value Value to set for the authenticationBehaviors property.
     */
     public function setAuthenticationBehaviors(?AuthenticationBehaviors $value): void {

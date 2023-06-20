@@ -66,7 +66,7 @@ class ChannelSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the guestsCount property value. The guestsCount property
+     * Gets the guestsCount property value. Count of guests in a channel.
      * @return int|null
     */
     public function getGuestsCount(): ?int {
@@ -74,7 +74,7 @@ class ChannelSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the hasMembersFromOtherTenants property value. The hasMembersFromOtherTenants property
+     * Gets the hasMembersFromOtherTenants property value. Indicates whether external members are included on the channel.
      * @return bool|null
     */
     public function getHasMembersFromOtherTenants(): ?bool {
@@ -82,7 +82,7 @@ class ChannelSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the membersCount property value. The membersCount property
+     * Gets the membersCount property value. Count of members in a channel.
      * @return int|null
     */
     public function getMembersCount(): ?int {
@@ -98,7 +98,7 @@ class ChannelSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the ownersCount property value. The ownersCount property
+     * Gets the ownersCount property value. Count of owners in a channel.
      * @return int|null
     */
     public function getOwnersCount(): ?int {
@@ -135,7 +135,7 @@ class ChannelSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the guestsCount property value. The guestsCount property
+     * Sets the guestsCount property value. Count of guests in a channel.
      * @param int|null $value Value to set for the guestsCount property.
     */
     public function setGuestsCount(?int $value): void {
@@ -143,7 +143,7 @@ class ChannelSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the hasMembersFromOtherTenants property value. The hasMembersFromOtherTenants property
+     * Sets the hasMembersFromOtherTenants property value. Indicates whether external members are included on the channel.
      * @param bool|null $value Value to set for the hasMembersFromOtherTenants property.
     */
     public function setHasMembersFromOtherTenants(?bool $value): void {
@@ -151,7 +151,7 @@ class ChannelSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the membersCount property value. The membersCount property
+     * Sets the membersCount property value. Count of members in a channel.
      * @param int|null $value Value to set for the membersCount property.
     */
     public function setMembersCount(?int $value): void {
@@ -167,7 +167,7 @@ class ChannelSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the ownersCount property value. The ownersCount property
+     * Sets the ownersCount property value. Count of owners in a channel.
      * @param int|null $value Value to set for the ownersCount property.
     */
     public function setOwnersCount(?int $value): void {

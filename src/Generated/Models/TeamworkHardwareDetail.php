@@ -18,7 +18,7 @@ class TeamworkHardwareDetail implements AdditionalDataHolder, BackedModel, Parsa
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new teamworkHardwareDetail and sets the default values.
+     * Instantiates a new TeamworkHardwareDetail and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

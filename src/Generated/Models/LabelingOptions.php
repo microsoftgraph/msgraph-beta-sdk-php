@@ -18,7 +18,7 @@ class LabelingOptions implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new labelingOptions and sets the default values.
+     * Instantiates a new LabelingOptions and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -100,6 +100,7 @@ class Directory extends Entity implements Parsable
             'outboundSharedUserProfiles' => fn(ParseNode $n) => $o->setOutboundSharedUserProfiles($n->getCollectionOfObjectValues([OutboundSharedUserProfile::class, 'createFromDiscriminatorValue'])),
             'recommendations' => fn(ParseNode $n) => $o->setRecommendations($n->getCollectionOfObjectValues([Recommendation::class, 'createFromDiscriminatorValue'])),
             'sharedEmailDomains' => fn(ParseNode $n) => $o->setSharedEmailDomains($n->getCollectionOfObjectValues([SharedEmailDomain::class, 'createFromDiscriminatorValue'])),
+            'subscriptions' => fn(ParseNode $n) => $o->setSubscriptions($n->getCollectionOfObjectValues([CompanySubscription::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -152,6 +153,14 @@ class Directory extends Entity implements Parsable
     }
 
     /**
+     * Gets the subscriptions property value. The subscriptions property
+     * @return array<CompanySubscription>|null
+    */
+    public function getSubscriptions(): ?array {
+        return $this->getBackingStore()->get('subscriptions');
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -170,6 +179,7 @@ class Directory extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('outboundSharedUserProfiles', $this->getOutboundSharedUserProfiles());
         $writer->writeCollectionOfObjectValues('recommendations', $this->getRecommendations());
         $writer->writeCollectionOfObjectValues('sharedEmailDomains', $this->getSharedEmailDomains());
+        $writer->writeCollectionOfObjectValues('subscriptions', $this->getSubscriptions());
     }
 
     /**
@@ -274,6 +284,14 @@ class Directory extends Entity implements Parsable
     */
     public function setSharedEmailDomains(?array $value): void {
         $this->getBackingStore()->set('sharedEmailDomains', $value);
+    }
+
+    /**
+     * Sets the subscriptions property value. The subscriptions property
+     * @param array<CompanySubscription>|null $value Value to set for the subscriptions property.
+    */
+    public function setSubscriptions(?array $value): void {
+        $this->getBackingStore()->set('subscriptions', $value);
     }
 
 }
