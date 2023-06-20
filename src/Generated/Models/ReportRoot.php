@@ -25,6 +25,14 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
+     * Gets the appCredentialSignInActivities property value. Represents a collection of sign-in activities of application credentials.
+     * @return array<AppCredentialSignInActivity>|null
+    */
+    public function getAppCredentialSignInActivities(): ?array {
+        return $this->getBackingStore()->get('appCredentialSignInActivities');
+    }
+
+    /**
      * Gets the applicationSignInDetailedSummary property value. Represents a detailed summary of an application sign-in.
      * @return array<ApplicationSignInDetailedSummary>|null
     */
@@ -95,6 +103,7 @@ class ReportRoot extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'appCredentialSignInActivities' => fn(ParseNode $n) => $o->setAppCredentialSignInActivities($n->getCollectionOfObjectValues([AppCredentialSignInActivity::class, 'createFromDiscriminatorValue'])),
             'applicationSignInDetailedSummary' => fn(ParseNode $n) => $o->setApplicationSignInDetailedSummary($n->getCollectionOfObjectValues([ApplicationSignInDetailedSummary::class, 'createFromDiscriminatorValue'])),
             'authenticationMethods' => fn(ParseNode $n) => $o->setAuthenticationMethods($n->getObjectValue([AuthenticationMethodsRoot::class, 'createFromDiscriminatorValue'])),
             'credentialUserRegistrationDetails' => fn(ParseNode $n) => $o->setCredentialUserRegistrationDetails($n->getCollectionOfObjectValues([CredentialUserRegistrationDetails::class, 'createFromDiscriminatorValue'])),
@@ -108,6 +117,7 @@ class ReportRoot extends Entity implements Parsable
             'monthlyPrintUsageSummariesByPrinter' => fn(ParseNode $n) => $o->setMonthlyPrintUsageSummariesByPrinter($n->getCollectionOfObjectValues([PrintUsageByPrinter::class, 'createFromDiscriminatorValue'])),
             'monthlyPrintUsageSummariesByUser' => fn(ParseNode $n) => $o->setMonthlyPrintUsageSummariesByUser($n->getCollectionOfObjectValues([PrintUsageByUser::class, 'createFromDiscriminatorValue'])),
             'security' => fn(ParseNode $n) => $o->setSecurity($n->getObjectValue([SecurityReportsRoot::class, 'createFromDiscriminatorValue'])),
+            'servicePrincipalSignInActivities' => fn(ParseNode $n) => $o->setServicePrincipalSignInActivities($n->getCollectionOfObjectValues([ServicePrincipalSignInActivity::class, 'createFromDiscriminatorValue'])),
             'userCredentialUsageDetails' => fn(ParseNode $n) => $o->setUserCredentialUsageDetails($n->getCollectionOfObjectValues([UserCredentialUsageDetails::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -153,6 +163,14 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
+     * Gets the servicePrincipalSignInActivities property value. Represents a collection of sign-in activities of service principals.
+     * @return array<ServicePrincipalSignInActivity>|null
+    */
+    public function getServicePrincipalSignInActivities(): ?array {
+        return $this->getBackingStore()->get('servicePrincipalSignInActivities');
+    }
+
+    /**
      * Gets the userCredentialUsageDetails property value. Represents the self-service password reset (SSPR) usage for a given tenant.
      * @return array<UserCredentialUsageDetails>|null
     */
@@ -166,6 +184,7 @@ class ReportRoot extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('appCredentialSignInActivities', $this->getAppCredentialSignInActivities());
         $writer->writeCollectionOfObjectValues('applicationSignInDetailedSummary', $this->getApplicationSignInDetailedSummary());
         $writer->writeObjectValue('authenticationMethods', $this->getAuthenticationMethods());
         $writer->writeCollectionOfObjectValues('credentialUserRegistrationDetails', $this->getCredentialUserRegistrationDetails());
@@ -179,7 +198,16 @@ class ReportRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('monthlyPrintUsageSummariesByPrinter', $this->getMonthlyPrintUsageSummariesByPrinter());
         $writer->writeCollectionOfObjectValues('monthlyPrintUsageSummariesByUser', $this->getMonthlyPrintUsageSummariesByUser());
         $writer->writeObjectValue('security', $this->getSecurity());
+        $writer->writeCollectionOfObjectValues('servicePrincipalSignInActivities', $this->getServicePrincipalSignInActivities());
         $writer->writeCollectionOfObjectValues('userCredentialUsageDetails', $this->getUserCredentialUsageDetails());
+    }
+
+    /**
+     * Sets the appCredentialSignInActivities property value. Represents a collection of sign-in activities of application credentials.
+     * @param array<AppCredentialSignInActivity>|null $value Value to set for the appCredentialSignInActivities property.
+    */
+    public function setAppCredentialSignInActivities(?array $value): void {
+        $this->getBackingStore()->set('appCredentialSignInActivities', $value);
     }
 
     /**
@@ -284,6 +312,14 @@ class ReportRoot extends Entity implements Parsable
     */
     public function setSecurity(?SecurityReportsRoot $value): void {
         $this->getBackingStore()->set('security', $value);
+    }
+
+    /**
+     * Sets the servicePrincipalSignInActivities property value. Represents a collection of sign-in activities of service principals.
+     * @param array<ServicePrincipalSignInActivity>|null $value Value to set for the servicePrincipalSignInActivities property.
+    */
+    public function setServicePrincipalSignInActivities(?array $value): void {
+        $this->getBackingStore()->set('servicePrincipalSignInActivities', $value);
     }
 
     /**

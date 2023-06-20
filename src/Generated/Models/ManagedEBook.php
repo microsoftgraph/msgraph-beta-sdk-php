@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * An abstract class containing the base properties for Managed eBook.
+*/
 class ManagedEBook extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ManagedEBook and sets the default values.
+     * Instantiates a new managedEBook and sets the default values.
     */
     public function __construct() {
         parent::__construct();

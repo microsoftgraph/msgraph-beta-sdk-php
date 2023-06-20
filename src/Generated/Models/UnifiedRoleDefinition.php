@@ -61,6 +61,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
             'inheritsPermissionsFrom' => fn(ParseNode $n) => $o->setInheritsPermissionsFrom($n->getCollectionOfObjectValues([UnifiedRoleDefinition::class, 'createFromDiscriminatorValue'])),
             'isBuiltIn' => fn(ParseNode $n) => $o->setIsBuiltIn($n->getBooleanValue()),
             'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
+            'isPrivileged' => fn(ParseNode $n) => $o->setIsPrivileged($n->getBooleanValue()),
             'resourceScopes' => fn(ParseNode $n) => $o->setResourceScopes($n->getCollectionOfPrimitiveValues()),
             'rolePermissions' => fn(ParseNode $n) => $o->setRolePermissions($n->getCollectionOfObjectValues([UnifiedRolePermission::class, 'createFromDiscriminatorValue'])),
             'templateId' => fn(ParseNode $n) => $o->setTemplateId($n->getStringValue()),
@@ -90,6 +91,14 @@ class UnifiedRoleDefinition extends Entity implements Parsable
     */
     public function getIsEnabled(): ?bool {
         return $this->getBackingStore()->get('isEnabled');
+    }
+
+    /**
+     * Gets the isPrivileged property value. The isPrivileged property
+     * @return bool|null
+    */
+    public function getIsPrivileged(): ?bool {
+        return $this->getBackingStore()->get('isPrivileged');
     }
 
     /**
@@ -136,6 +145,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('inheritsPermissionsFrom', $this->getInheritsPermissionsFrom());
         $writer->writeBooleanValue('isBuiltIn', $this->getIsBuiltIn());
         $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
+        $writer->writeBooleanValue('isPrivileged', $this->getIsPrivileged());
         $writer->writeCollectionOfPrimitiveValues('resourceScopes', $this->getResourceScopes());
         $writer->writeCollectionOfObjectValues('rolePermissions', $this->getRolePermissions());
         $writer->writeStringValue('templateId', $this->getTemplateId());
@@ -188,6 +198,14 @@ class UnifiedRoleDefinition extends Entity implements Parsable
     */
     public function setIsEnabled(?bool $value): void {
         $this->getBackingStore()->set('isEnabled', $value);
+    }
+
+    /**
+     * Sets the isPrivileged property value. The isPrivileged property
+     * @param bool|null $value Value to set for the isPrivileged property.
+    */
+    public function setIsPrivileged(?bool $value): void {
+        $this->getBackingStore()->set('isPrivileged', $value);
     }
 
     /**

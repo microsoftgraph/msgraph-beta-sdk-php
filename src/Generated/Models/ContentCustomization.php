@@ -43,7 +43,7 @@ class ContentCustomization implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the attributeCollection property value. The attributeCollection property
+     * Gets the attributeCollection property value. Represents the content options of External Identities to be customized throughout the authentication flow for a tenant.
      * @return array<KeyValue>|null
     */
     public function getAttributeCollection(): ?array {
@@ -51,7 +51,7 @@ class ContentCustomization implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the attributeCollectionRelativeUrl property value. The attributeCollectionRelativeUrl property
+     * Gets the attributeCollectionRelativeUrl property value. A relative URL for the content options of External Identities to be customized throughout the authentication flow for a tenant.
      * @return string|null
     */
     public function getAttributeCollectionRelativeUrl(): ?string {
@@ -107,7 +107,7 @@ class ContentCustomization implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the attributeCollection property value. The attributeCollection property
+     * Sets the attributeCollection property value. Represents the content options of External Identities to be customized throughout the authentication flow for a tenant.
      * @param array<KeyValue>|null $value Value to set for the attributeCollection property.
     */
     public function setAttributeCollection(?array $value): void {
@@ -115,7 +115,7 @@ class ContentCustomization implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the attributeCollectionRelativeUrl property value. The attributeCollectionRelativeUrl property
+     * Sets the attributeCollectionRelativeUrl property value. A relative URL for the content options of External Identities to be customized throughout the authentication flow for a tenant.
      * @param string|null $value Value to set for the attributeCollectionRelativeUrl property.
     */
     public function setAttributeCollectionRelativeUrl(?string $value): void {

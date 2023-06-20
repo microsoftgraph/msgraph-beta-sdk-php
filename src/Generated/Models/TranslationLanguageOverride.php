@@ -18,7 +18,7 @@ class TranslationLanguageOverride implements AdditionalDataHolder, BackedModel, 
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new translationLanguageOverride and sets the default values.
+     * Instantiates a new TranslationLanguageOverride and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

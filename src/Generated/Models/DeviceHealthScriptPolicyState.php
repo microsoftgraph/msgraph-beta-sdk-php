@@ -22,7 +22,7 @@ class DeviceHealthScriptPolicyState implements AdditionalDataHolder, BackedModel
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deviceHealthScriptPolicyState and sets the default values.
+     * Instantiates a new DeviceHealthScriptPolicyState and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

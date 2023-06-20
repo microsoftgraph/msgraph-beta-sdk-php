@@ -7,13 +7,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * The endpoint privilege management elevation result entity representing a single elevation action on a client device.
-*/
 class PrivilegeManagementElevation extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new privilegeManagementElevation and sets the default values.
+     * Instantiates a new PrivilegeManagementElevation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

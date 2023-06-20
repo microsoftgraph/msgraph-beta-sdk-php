@@ -64,6 +64,7 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
             'policyVersion' => fn(ParseNode $n) => $o->setPolicyVersion($n->getStringValue()),
             'reconfirmationInDays' => fn(ParseNode $n) => $o->setReconfirmationInDays($n->getIntegerValue()),
             'registrationEnforcement' => fn(ParseNode $n) => $o->setRegistrationEnforcement($n->getObjectValue([RegistrationEnforcement::class, 'createFromDiscriminatorValue'])),
+            'reportSuspiciousActivitySettings' => fn(ParseNode $n) => $o->setReportSuspiciousActivitySettings($n->getObjectValue([ReportSuspiciousActivitySettings::class, 'createFromDiscriminatorValue'])),
             'systemCredentialPreferences' => fn(ParseNode $n) => $o->setSystemCredentialPreferences($n->getObjectValue([SystemCredentialPreferences::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -109,6 +110,14 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
     }
 
     /**
+     * Gets the reportSuspiciousActivitySettings property value. Enable users to report unexpected voice call or phone app notification multi-factor authentication prompts as suspicious.
+     * @return ReportSuspiciousActivitySettings|null
+    */
+    public function getReportSuspiciousActivitySettings(): ?ReportSuspiciousActivitySettings {
+        return $this->getBackingStore()->get('reportSuspiciousActivitySettings');
+    }
+
+    /**
      * Gets the systemCredentialPreferences property value. Prompt users with their most-preferred credential for multifactor authentication.
      * @return SystemCredentialPreferences|null
     */
@@ -130,6 +139,7 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
         $writer->writeStringValue('policyVersion', $this->getPolicyVersion());
         $writer->writeIntegerValue('reconfirmationInDays', $this->getReconfirmationInDays());
         $writer->writeObjectValue('registrationEnforcement', $this->getRegistrationEnforcement());
+        $writer->writeObjectValue('reportSuspiciousActivitySettings', $this->getReportSuspiciousActivitySettings());
         $writer->writeObjectValue('systemCredentialPreferences', $this->getSystemCredentialPreferences());
     }
 
@@ -195,6 +205,14 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
     */
     public function setRegistrationEnforcement(?RegistrationEnforcement $value): void {
         $this->getBackingStore()->set('registrationEnforcement', $value);
+    }
+
+    /**
+     * Sets the reportSuspiciousActivitySettings property value. Enable users to report unexpected voice call or phone app notification multi-factor authentication prompts as suspicious.
+     * @param ReportSuspiciousActivitySettings|null $value Value to set for the reportSuspiciousActivitySettings property.
+    */
+    public function setReportSuspiciousActivitySettings(?ReportSuspiciousActivitySettings $value): void {
+        $this->getBackingStore()->set('reportSuspiciousActivitySettings', $value);
     }
 
     /**

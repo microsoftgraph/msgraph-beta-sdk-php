@@ -153,6 +153,7 @@ class Organization extends DirectoryObject implements Parsable
             'isMultipleDataLocationsForServicesEnabled' => fn(ParseNode $n) => $o->setIsMultipleDataLocationsForServicesEnabled($n->getBooleanValue()),
             'marketingNotificationEmails' => fn(ParseNode $n) => $o->setMarketingNotificationEmails($n->getCollectionOfPrimitiveValues()),
             'mobileDeviceManagementAuthority' => fn(ParseNode $n) => $o->setMobileDeviceManagementAuthority($n->getEnumValue(MdmAuthority::class)),
+            'onPremisesLastPasswordSyncDateTime' => fn(ParseNode $n) => $o->setOnPremisesLastPasswordSyncDateTime($n->getDateTimeValue()),
             'onPremisesLastSyncDateTime' => fn(ParseNode $n) => $o->setOnPremisesLastSyncDateTime($n->getDateTimeValue()),
             'onPremisesSyncEnabled' => fn(ParseNode $n) => $o->setOnPremisesSyncEnabled($n->getBooleanValue()),
             'partnerInformation' => fn(ParseNode $n) => $o->setPartnerInformation($n->getObjectValue([PartnerInformation::class, 'createFromDiscriminatorValue'])),
@@ -193,6 +194,14 @@ class Organization extends DirectoryObject implements Parsable
     */
     public function getMobileDeviceManagementAuthority(): ?MdmAuthority {
         return $this->getBackingStore()->get('mobileDeviceManagementAuthority');
+    }
+
+    /**
+     * Gets the onPremisesLastPasswordSyncDateTime property value. The last time a password sync request was received for the tenant.
+     * @return DateTime|null
+    */
+    public function getOnPremisesLastPasswordSyncDateTime(): ?DateTime {
+        return $this->getBackingStore()->get('onPremisesLastPasswordSyncDateTime');
     }
 
     /**
@@ -337,6 +346,7 @@ class Organization extends DirectoryObject implements Parsable
         $writer->writeBooleanValue('isMultipleDataLocationsForServicesEnabled', $this->getIsMultipleDataLocationsForServicesEnabled());
         $writer->writeCollectionOfPrimitiveValues('marketingNotificationEmails', $this->getMarketingNotificationEmails());
         $writer->writeEnumValue('mobileDeviceManagementAuthority', $this->getMobileDeviceManagementAuthority());
+        $writer->writeDateTimeValue('onPremisesLastPasswordSyncDateTime', $this->getOnPremisesLastPasswordSyncDateTime());
         $writer->writeDateTimeValue('onPremisesLastSyncDateTime', $this->getOnPremisesLastSyncDateTime());
         $writer->writeBooleanValue('onPremisesSyncEnabled', $this->getOnPremisesSyncEnabled());
         $writer->writeObjectValue('partnerInformation', $this->getPartnerInformation());
@@ -480,6 +490,14 @@ class Organization extends DirectoryObject implements Parsable
     */
     public function setMobileDeviceManagementAuthority(?MdmAuthority $value): void {
         $this->getBackingStore()->set('mobileDeviceManagementAuthority', $value);
+    }
+
+    /**
+     * Sets the onPremisesLastPasswordSyncDateTime property value. The last time a password sync request was received for the tenant.
+     * @param DateTime|null $value Value to set for the onPremisesLastPasswordSyncDateTime property.
+    */
+    public function setOnPremisesLastPasswordSyncDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('onPremisesLastPasswordSyncDateTime', $value);
     }
 
     /**

@@ -6,13 +6,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * The user experience analytics battery health device performance entity contains device level battery information.
-*/
 class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsBatteryHealthDevicePerformance and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsBatteryHealthDevicePerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();

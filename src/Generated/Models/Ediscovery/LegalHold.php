@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class LegalHold extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new legalHold and sets the default values.
+     * Instantiates a new LegalHold and sets the default values.
     */
     public function __construct() {
         parent::__construct();

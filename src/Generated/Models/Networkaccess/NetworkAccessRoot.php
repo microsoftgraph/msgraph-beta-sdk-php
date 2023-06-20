@@ -26,13 +26,76 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
+     * Gets the connectivity property value. The connectivity property
+     * @return Connectivity|null
+    */
+    public function getConnectivity(): ?Connectivity {
+        return $this->getBackingStore()->get('connectivity');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'connectivity' => fn(ParseNode $n) => $o->setConnectivity($n->getObjectValue([Connectivity::class, 'createFromDiscriminatorValue'])),
+            'forwardingPolicies' => fn(ParseNode $n) => $o->setForwardingPolicies($n->getCollectionOfObjectValues([ForwardingPolicy::class, 'createFromDiscriminatorValue'])),
+            'forwardingProfiles' => fn(ParseNode $n) => $o->setForwardingProfiles($n->getCollectionOfObjectValues([ForwardingProfile::class, 'createFromDiscriminatorValue'])),
+            'logs' => fn(ParseNode $n) => $o->setLogs($n->getObjectValue([Logs::class, 'createFromDiscriminatorValue'])),
+            'reports' => fn(ParseNode $n) => $o->setReports($n->getObjectValue([Reports::class, 'createFromDiscriminatorValue'])),
+            'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([Settings::class, 'createFromDiscriminatorValue'])),
+            'tenantStatus' => fn(ParseNode $n) => $o->setTenantStatus($n->getObjectValue([TenantStatus::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the forwardingPolicies property value. The forwardingPolicies property
+     * @return array<ForwardingPolicy>|null
+    */
+    public function getForwardingPolicies(): ?array {
+        return $this->getBackingStore()->get('forwardingPolicies');
+    }
+
+    /**
+     * Gets the forwardingProfiles property value. The forwardingProfiles property
+     * @return array<ForwardingProfile>|null
+    */
+    public function getForwardingProfiles(): ?array {
+        return $this->getBackingStore()->get('forwardingProfiles');
+    }
+
+    /**
+     * Gets the logs property value. The logs property
+     * @return Logs|null
+    */
+    public function getLogs(): ?Logs {
+        return $this->getBackingStore()->get('logs');
+    }
+
+    /**
+     * Gets the reports property value. The reports property
+     * @return Reports|null
+    */
+    public function getReports(): ?Reports {
+        return $this->getBackingStore()->get('reports');
+    }
+
+    /**
+     * Gets the settings property value. The settings property
+     * @return Settings|null
+    */
+    public function getSettings(): ?Settings {
+        return $this->getBackingStore()->get('settings');
+    }
+
+    /**
+     * Gets the tenantStatus property value. The tenantStatus property
+     * @return TenantStatus|null
+    */
+    public function getTenantStatus(): ?TenantStatus {
+        return $this->getBackingStore()->get('tenantStatus');
     }
 
     /**
@@ -41,6 +104,69 @@ class NetworkAccessRoot extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('connectivity', $this->getConnectivity());
+        $writer->writeCollectionOfObjectValues('forwardingPolicies', $this->getForwardingPolicies());
+        $writer->writeCollectionOfObjectValues('forwardingProfiles', $this->getForwardingProfiles());
+        $writer->writeObjectValue('logs', $this->getLogs());
+        $writer->writeObjectValue('reports', $this->getReports());
+        $writer->writeObjectValue('settings', $this->getSettings());
+        $writer->writeObjectValue('tenantStatus', $this->getTenantStatus());
+    }
+
+    /**
+     * Sets the connectivity property value. The connectivity property
+     * @param Connectivity|null $value Value to set for the connectivity property.
+    */
+    public function setConnectivity(?Connectivity $value): void {
+        $this->getBackingStore()->set('connectivity', $value);
+    }
+
+    /**
+     * Sets the forwardingPolicies property value. The forwardingPolicies property
+     * @param array<ForwardingPolicy>|null $value Value to set for the forwardingPolicies property.
+    */
+    public function setForwardingPolicies(?array $value): void {
+        $this->getBackingStore()->set('forwardingPolicies', $value);
+    }
+
+    /**
+     * Sets the forwardingProfiles property value. The forwardingProfiles property
+     * @param array<ForwardingProfile>|null $value Value to set for the forwardingProfiles property.
+    */
+    public function setForwardingProfiles(?array $value): void {
+        $this->getBackingStore()->set('forwardingProfiles', $value);
+    }
+
+    /**
+     * Sets the logs property value. The logs property
+     * @param Logs|null $value Value to set for the logs property.
+    */
+    public function setLogs(?Logs $value): void {
+        $this->getBackingStore()->set('logs', $value);
+    }
+
+    /**
+     * Sets the reports property value. The reports property
+     * @param Reports|null $value Value to set for the reports property.
+    */
+    public function setReports(?Reports $value): void {
+        $this->getBackingStore()->set('reports', $value);
+    }
+
+    /**
+     * Sets the settings property value. The settings property
+     * @param Settings|null $value Value to set for the settings property.
+    */
+    public function setSettings(?Settings $value): void {
+        $this->getBackingStore()->set('settings', $value);
+    }
+
+    /**
+     * Sets the tenantStatus property value. The tenantStatus property
+     * @param TenantStatus|null $value Value to set for the tenantStatus property.
+    */
+    public function setTenantStatus(?TenantStatus $value): void {
+        $this->getBackingStore()->set('tenantStatus', $value);
     }
 
 }
