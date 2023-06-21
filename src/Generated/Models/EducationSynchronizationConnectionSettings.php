@@ -18,7 +18,7 @@ class EducationSynchronizationConnectionSettings implements AdditionalDataHolder
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new educationSynchronizationConnectionSettings and sets the default values.
+     * Instantiates a new EducationSynchronizationConnectionSettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

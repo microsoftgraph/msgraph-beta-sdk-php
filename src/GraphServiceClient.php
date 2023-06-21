@@ -51,8 +51,8 @@ class GraphServiceClient extends Generated\BaseGraphClient
     /**
      * Get an instance of GraphServiceClient that uses $requestAdapter
      * @param RequestAdapter $requestAdapter
-     * @param string $nationalCloud Defaults to https://graph.microsoft.com. See
-     * https://learn.microsoft.com/en-us/graph/deployments
+     * @param string $nationalCloud Sets $requestAdapter baseURL if none has already been set
+     * Defaults to https://graph.microsoft.com. See https://learn.microsoft.com/en-us/graph/deployments
      * @return GraphServiceClient
      */
     public static function createWithRequestAdapter(
@@ -60,9 +60,11 @@ class GraphServiceClient extends Generated\BaseGraphClient
         string $nationalCloud = NationalCloud::GLOBAL
     ): GraphServiceClient
     {
-        $requestAdapter->setBaseUrl($nationalCloud);
+        if (!$requestAdapter->getBaseUrl()) {
+            $requestAdapter->setBaseUrl("$nationalCloud/beta");
+        }
         $placeholder = new ClientCredentialContext('tenant', 'client', 'secret');
-        return new GraphServiceClient($placeholder, [], $nationalCloud, $requestAdapter);
+        return new GraphServiceClient($placeholder, [], 'placeholder', $requestAdapter);
     }
 
     /**

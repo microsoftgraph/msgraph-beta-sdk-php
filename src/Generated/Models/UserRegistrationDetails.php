@@ -48,9 +48,12 @@ class UserRegistrationDetails extends Entity implements Parsable
             'isSsprCapable' => fn(ParseNode $n) => $o->setIsSsprCapable($n->getBooleanValue()),
             'isSsprEnabled' => fn(ParseNode $n) => $o->setIsSsprEnabled($n->getBooleanValue()),
             'isSsprRegistered' => fn(ParseNode $n) => $o->setIsSsprRegistered($n->getBooleanValue()),
+            'isSystemPreferredAuthenticationMethodEnabled' => fn(ParseNode $n) => $o->setIsSystemPreferredAuthenticationMethodEnabled($n->getBooleanValue()),
             'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
             'methodsRegistered' => fn(ParseNode $n) => $o->setMethodsRegistered($n->getCollectionOfPrimitiveValues()),
+            'systemPreferredAuthenticationMethods' => fn(ParseNode $n) => $o->setSystemPreferredAuthenticationMethods($n->getCollectionOfPrimitiveValues()),
             'userDisplayName' => fn(ParseNode $n) => $o->setUserDisplayName($n->getStringValue()),
+            'userPreferredMethodForSecondaryAuthentication' => fn(ParseNode $n) => $o->setUserPreferredMethodForSecondaryAuthentication($n->getEnumValue(UserDefaultAuthenticationMethod::class)),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
             'userType' => fn(ParseNode $n) => $o->setUserType($n->getEnumValue(SignInUserType::class)),
         ]);
@@ -113,6 +116,14 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
+     * Gets the isSystemPreferredAuthenticationMethodEnabled property value. The isSystemPreferredAuthenticationMethodEnabled property
+     * @return bool|null
+    */
+    public function getIsSystemPreferredAuthenticationMethodEnabled(): ?bool {
+        return $this->getBackingStore()->get('isSystemPreferredAuthenticationMethodEnabled');
+    }
+
+    /**
      * Gets the lastUpdatedDateTime property value. The date and time (UTC) when the record was last updated. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
@@ -129,11 +140,27 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
+     * Gets the systemPreferredAuthenticationMethods property value. The systemPreferredAuthenticationMethods property
+     * @return array<string>|null
+    */
+    public function getSystemPreferredAuthenticationMethods(): ?array {
+        return $this->getBackingStore()->get('systemPreferredAuthenticationMethods');
+    }
+
+    /**
      * Gets the userDisplayName property value. The user display name, such as Adele Vance. Supports $filter (eq, startsWith) and $orderBy.
      * @return string|null
     */
     public function getUserDisplayName(): ?string {
         return $this->getBackingStore()->get('userDisplayName');
+    }
+
+    /**
+     * Gets the userPreferredMethodForSecondaryAuthentication property value. The userPreferredMethodForSecondaryAuthentication property
+     * @return UserDefaultAuthenticationMethod|null
+    */
+    public function getUserPreferredMethodForSecondaryAuthentication(): ?UserDefaultAuthenticationMethod {
+        return $this->getBackingStore()->get('userPreferredMethodForSecondaryAuthentication');
     }
 
     /**
@@ -166,9 +193,12 @@ class UserRegistrationDetails extends Entity implements Parsable
         $writer->writeBooleanValue('isSsprCapable', $this->getIsSsprCapable());
         $writer->writeBooleanValue('isSsprEnabled', $this->getIsSsprEnabled());
         $writer->writeBooleanValue('isSsprRegistered', $this->getIsSsprRegistered());
+        $writer->writeBooleanValue('isSystemPreferredAuthenticationMethodEnabled', $this->getIsSystemPreferredAuthenticationMethodEnabled());
         $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
         $writer->writeCollectionOfPrimitiveValues('methodsRegistered', $this->getMethodsRegistered());
+        $writer->writeCollectionOfPrimitiveValues('systemPreferredAuthenticationMethods', $this->getSystemPreferredAuthenticationMethods());
         $writer->writeStringValue('userDisplayName', $this->getUserDisplayName());
+        $writer->writeEnumValue('userPreferredMethodForSecondaryAuthentication', $this->getUserPreferredMethodForSecondaryAuthentication());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
         $writer->writeEnumValue('userType', $this->getUserType());
     }
@@ -238,6 +268,14 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
+     * Sets the isSystemPreferredAuthenticationMethodEnabled property value. The isSystemPreferredAuthenticationMethodEnabled property
+     * @param bool|null $value Value to set for the isSystemPreferredAuthenticationMethodEnabled property.
+    */
+    public function setIsSystemPreferredAuthenticationMethodEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isSystemPreferredAuthenticationMethodEnabled', $value);
+    }
+
+    /**
      * Sets the lastUpdatedDateTime property value. The date and time (UTC) when the record was last updated. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
@@ -254,11 +292,27 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
+     * Sets the systemPreferredAuthenticationMethods property value. The systemPreferredAuthenticationMethods property
+     * @param array<string>|null $value Value to set for the systemPreferredAuthenticationMethods property.
+    */
+    public function setSystemPreferredAuthenticationMethods(?array $value): void {
+        $this->getBackingStore()->set('systemPreferredAuthenticationMethods', $value);
+    }
+
+    /**
      * Sets the userDisplayName property value. The user display name, such as Adele Vance. Supports $filter (eq, startsWith) and $orderBy.
      * @param string|null $value Value to set for the userDisplayName property.
     */
     public function setUserDisplayName(?string $value): void {
         $this->getBackingStore()->set('userDisplayName', $value);
+    }
+
+    /**
+     * Sets the userPreferredMethodForSecondaryAuthentication property value. The userPreferredMethodForSecondaryAuthentication property
+     * @param UserDefaultAuthenticationMethod|null $value Value to set for the userPreferredMethodForSecondaryAuthentication property.
+    */
+    public function setUserPreferredMethodForSecondaryAuthentication(?UserDefaultAuthenticationMethod $value): void {
+        $this->getBackingStore()->set('userPreferredMethodForSecondaryAuthentication', $value);
     }
 
     /**

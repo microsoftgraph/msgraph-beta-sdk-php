@@ -18,6 +18,7 @@ use Microsoft\Graph\Beta\Generated\Directory\OnPremisesSynchronization\OnPremise
 use Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\OutboundSharedUserProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Recommendations\RecommendationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\SharedEmailDomains\SharedEmailDomainsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\Subscriptions\SubscriptionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Directory;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -119,6 +120,13 @@ class DirectoryRequestBuilder extends BaseRequestBuilder
     */
     public function sharedEmailDomains(): SharedEmailDomainsRequestBuilder {
         return new SharedEmailDomainsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the subscriptions property of the microsoft.graph.directory entity.
+    */
+    public function subscriptions(): SubscriptionsRequestBuilder {
+        return new SubscriptionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

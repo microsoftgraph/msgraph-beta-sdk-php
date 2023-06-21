@@ -1,0 +1,119 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Models\Networkaccess;
+
+use DateTime;
+use Microsoft\Graph\Beta\Generated\Models\Entity;
+use Microsoft\Kiota\Abstractions\Serialization\Parsable;
+use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
+use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+
+class ConditionalAccessPolicy extends Entity implements Parsable 
+{
+    /**
+     * Instantiates a new ConditionalAccessPolicy and sets the default values.
+    */
+    public function __construct() {
+        parent::__construct();
+    }
+
+    /**
+     * Creates a new instance of the appropriate class based on discriminator value
+     * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
+     * @return ConditionalAccessPolicy
+    */
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ConditionalAccessPolicy {
+        return new ConditionalAccessPolicy();
+    }
+
+    /**
+     * Gets the createdDateTime property value. The createdDateTime property
+     * @return DateTime|null
+    */
+    public function getCreatedDateTime(): ?DateTime {
+        return $this->getBackingStore()->get('createdDateTime');
+    }
+
+    /**
+     * Gets the description property value. The description property
+     * @return string|null
+    */
+    public function getDescription(): ?string {
+        return $this->getBackingStore()->get('description');
+    }
+
+    /**
+     * Gets the displayName property value. The displayName property
+     * @return string|null
+    */
+    public function getDisplayName(): ?string {
+        return $this->getBackingStore()->get('displayName');
+    }
+
+    /**
+     * The deserialization information for the current model
+     * @return array<string, callable>
+    */
+    public function getFieldDeserializers(): array {
+        $o = $this;
+        return array_merge(parent::getFieldDeserializers(), [
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'modifiedDateTime' => fn(ParseNode $n) => $o->setModifiedDateTime($n->getDateTimeValue()),
+        ]);
+    }
+
+    /**
+     * Gets the modifiedDateTime property value. The modifiedDateTime property
+     * @return DateTime|null
+    */
+    public function getModifiedDateTime(): ?DateTime {
+        return $this->getBackingStore()->get('modifiedDateTime');
+    }
+
+    /**
+     * Serializes information the current object
+     * @param SerializationWriter $writer Serialization writer to use to serialize this model
+    */
+    public function serialize(SerializationWriter $writer): void {
+        parent::serialize($writer);
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('modifiedDateTime', $this->getModifiedDateTime());
+    }
+
+    /**
+     * Sets the createdDateTime property value. The createdDateTime property
+     * @param DateTime|null $value Value to set for the createdDateTime property.
+    */
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
+    }
+
+    /**
+     * Sets the description property value. The description property
+     * @param string|null $value Value to set for the description property.
+    */
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
+    }
+
+    /**
+     * Sets the displayName property value. The displayName property
+     * @param string|null $value Value to set for the displayName property.
+    */
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the modifiedDateTime property value. The modifiedDateTime property
+     * @param DateTime|null $value Value to set for the modifiedDateTime property.
+    */
+    public function setModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('modifiedDateTime', $value);
+    }
+
+}

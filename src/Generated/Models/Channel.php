@@ -139,7 +139,7 @@ class Channel extends Entity implements Parsable
     }
 
     /**
-     * Gets the summary property value. The summary property
+     * Gets the summary property value. Contains summary information about the channel, including number of guests, members, owners, and an indicator for members from other tenants. The summary property will only be returned if it is specified in the $select clause of the Get channel method.
      * @return ChannelSummary|null
     */
     public function getSummary(): ?ChannelSummary {
@@ -282,7 +282,7 @@ class Channel extends Entity implements Parsable
     }
 
     /**
-     * Sets the summary property value. The summary property
+     * Sets the summary property value. Contains summary information about the channel, including number of guests, members, owners, and an indicator for members from other tenants. The summary property will only be returned if it is specified in the $select clause of the Get channel method.
      * @param ChannelSummary|null $value Value to set for the summary property.
     */
     public function setSummary(?ChannelSummary $value): void {

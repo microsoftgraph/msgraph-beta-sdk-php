@@ -7,13 +7,10 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Time;
 
-/**
- * Entity that represents a Microsoft Tunnel site
-*/
 class MicrosoftTunnelSite extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new microsoftTunnelSite and sets the default values.
+     * Instantiates a new MicrosoftTunnelSite and sets the default values.
     */
     public function __construct() {
         parent::__construct();

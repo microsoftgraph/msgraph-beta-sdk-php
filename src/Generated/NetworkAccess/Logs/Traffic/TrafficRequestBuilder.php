@@ -1,0 +1,133 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\Traffic;
+
+use Exception;
+use Http\Promise\Promise;
+use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\Models\Networkaccess\NetworkAccessTraffic;
+use Microsoft\Graph\Beta\Generated\Models\Networkaccess\NetworkAccessTrafficCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\Traffic\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\Traffic\Item\NetworkAccessTrafficTransactionItemRequestBuilder;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
+use Microsoft\Kiota\Abstractions\HttpMethod;
+use Microsoft\Kiota\Abstractions\RequestAdapter;
+use Microsoft\Kiota\Abstractions\RequestInformation;
+
+/**
+ * Provides operations to manage the traffic property of the microsoft.graph.networkaccess.logs entity.
+*/
+class TrafficRequestBuilder extends BaseRequestBuilder 
+{
+    /**
+     * Provides operations to count the resources in the collection.
+    */
+    public function count(): CountRequestBuilder {
+        return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the traffic property of the microsoft.graph.networkaccess.logs entity.
+     * @param string $networkAccessTrafficTransactionId Unique identifier of the item
+     * @return NetworkAccessTrafficTransactionItemRequestBuilder
+    */
+    public function byNetworkAccessTrafficTransactionId(string $networkAccessTrafficTransactionId): NetworkAccessTrafficTransactionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['networkAccessTraffic%2DtransactionId'] = $networkAccessTrafficTransactionId;
+        return new NetworkAccessTrafficTransactionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Instantiates a new TrafficRequestBuilder and sets the default values.
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
+     * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+    */
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
+        parent::__construct($requestAdapter, [], '{+baseurl}/networkAccess/logs/traffic{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}');
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
+    }
+
+    /**
+     * Get traffic from networkAccess
+     * @param TrafficRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise
+    */
+    public function get(?TrafficRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toGetRequestInformation($requestConfiguration);
+        try {
+            $errorMappings = [
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+            ];
+            return $this->requestAdapter->sendAsync($requestInfo, [NetworkAccessTrafficCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+        } catch(Exception $ex) {
+            return new RejectedPromise($ex);
+        }
+    }
+
+    /**
+     * Create new navigation property to traffic for networkAccess
+     * @param NetworkAccessTraffic $body The request body
+     * @param TrafficRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise
+    */
+    public function post(NetworkAccessTraffic $body, ?TrafficRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
+        try {
+            $errorMappings = [
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+            ];
+            return $this->requestAdapter->sendAsync($requestInfo, [NetworkAccessTraffic::class, 'createFromDiscriminatorValue'], $errorMappings);
+        } catch(Exception $ex) {
+            return new RejectedPromise($ex);
+        }
+    }
+
+    /**
+     * Get traffic from networkAccess
+     * @param TrafficRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return RequestInformation
+    */
+    public function toGetRequestInformation(?TrafficRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+        $requestInfo = new RequestInformation();
+        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->pathParameters = $this->pathParameters;
+        $requestInfo->httpMethod = HttpMethod::GET;
+        $requestInfo->addHeader('Accept', "application/json");
+        if ($requestConfiguration !== null) {
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            if ($requestConfiguration->queryParameters !== null) {
+                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
+            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
+        }
+        return $requestInfo;
+    }
+
+    /**
+     * Create new navigation property to traffic for networkAccess
+     * @param NetworkAccessTraffic $body The request body
+     * @param TrafficRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return RequestInformation
+    */
+    public function toPostRequestInformation(NetworkAccessTraffic $body, ?TrafficRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+        $requestInfo = new RequestInformation();
+        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->pathParameters = $this->pathParameters;
+        $requestInfo->httpMethod = HttpMethod::POST;
+        $requestInfo->addHeader('Accept', "application/json");
+        if ($requestConfiguration !== null) {
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
+        }
+        $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        return $requestInfo;
+    }
+
+}

@@ -72,7 +72,7 @@ class AuthenticationBehaviors implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the removeUnverifiedEmailClaim property value. The removeUnverifiedEmailClaim property
+     * Gets the removeUnverifiedEmailClaim property value. Removes the email claim from tokens sent to an application when the email address's domain cannot be verified.
      * @return bool|null
     */
     public function getRemoveUnverifiedEmailClaim(): ?bool {
@@ -123,7 +123,7 @@ class AuthenticationBehaviors implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the removeUnverifiedEmailClaim property value. The removeUnverifiedEmailClaim property
+     * Sets the removeUnverifiedEmailClaim property value. Removes the email claim from tokens sent to an application when the email address's domain cannot be verified.
      * @param bool|null $value Value to set for the removeUnverifiedEmailClaim property.
     */
     public function setRemoveUnverifiedEmailClaim(?bool $value): void {

@@ -6,13 +6,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * The user experience analytics application performance entity contains app performance details by app version.
-*/
 class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsAppHealthAppPerformanceByAppVersion and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion and sets the default values.
     */
     public function __construct() {
         parent::__construct();

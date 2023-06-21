@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\ApplyConfig;
 
+use Microsoft\Graph\Beta\Generated\Models\CloudPcPolicySettingType;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -66,7 +67,16 @@ class ApplyConfigPostRequestBody implements AdditionalDataHolder, BackedModel, P
         $o = $this;
         return  [
             'cloudPcIds' => fn(ParseNode $n) => $o->setCloudPcIds($n->getCollectionOfPrimitiveValues()),
+            'policySettings' => fn(ParseNode $n) => $o->setPolicySettings($n->getEnumValue(CloudPcPolicySettingType::class)),
         ];
+    }
+
+    /**
+     * Gets the policySettings property value. The policySettings property
+     * @return CloudPcPolicySettingType|null
+    */
+    public function getPolicySettings(): ?CloudPcPolicySettingType {
+        return $this->getBackingStore()->get('policySettings');
     }
 
     /**
@@ -75,6 +85,7 @@ class ApplyConfigPostRequestBody implements AdditionalDataHolder, BackedModel, P
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfPrimitiveValues('cloudPcIds', $this->getCloudPcIds());
+        $writer->writeEnumValue('policySettings', $this->getPolicySettings());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -100,6 +111,14 @@ class ApplyConfigPostRequestBody implements AdditionalDataHolder, BackedModel, P
     */
     public function setCloudPcIds(?array $value): void {
         $this->getBackingStore()->set('cloudPcIds', $value);
+    }
+
+    /**
+     * Sets the policySettings property value. The policySettings property
+     * @param CloudPcPolicySettingType|null $value Value to set for the policySettings property.
+    */
+    public function setPolicySettings(?CloudPcPolicySettingType $value): void {
+        $this->getBackingStore()->set('policySettings', $value);
     }
 
 }

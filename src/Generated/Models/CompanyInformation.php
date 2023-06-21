@@ -21,7 +21,7 @@ class CompanyInformation implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new companyInformation and sets the default values.
+     * Instantiates a new CompanyInformation and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
