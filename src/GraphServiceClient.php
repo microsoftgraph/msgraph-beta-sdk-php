@@ -27,7 +27,7 @@ class GraphServiceClient extends Generated\BaseGraphClient
 {
     /**
      * @param TokenRequestContext $tokenRequestContext
-     * @param array $scopes Defaults to "https://[graph national cloud host]/.default" scope
+     * @param array<string> $scopes Defaults to "https://[graph national cloud host]/.default" scope
      * @param string $nationalCloud Defaults to https://graph.microsoft.com. See
      * https://learn.microsoft.com/en-us/graph/deployments
      * @param RequestAdapter|null $requestAdapter Use createWithRequestAdapter() to set the request adapter.
