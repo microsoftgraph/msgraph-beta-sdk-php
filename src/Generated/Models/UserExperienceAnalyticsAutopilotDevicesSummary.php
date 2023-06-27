@@ -54,7 +54,7 @@ class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHo
     }
 
     /**
-     * Gets the devicesNotAutopilotRegistered property value. The count of intune devices that are not autopilot registerd.
+     * Gets the devicesNotAutopilotRegistered property value. The count of intune devices that are not autopilot registerd. Read-only.
      * @return int|null
     */
     public function getDevicesNotAutopilotRegistered(): ?int {
@@ -62,7 +62,7 @@ class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHo
     }
 
     /**
-     * Gets the devicesWithoutAutopilotProfileAssigned property value. The count of intune devices not autopilot profile assigned.
+     * Gets the devicesWithoutAutopilotProfileAssigned property value. The count of intune devices not autopilot profile assigned. Read-only.
      * @return int|null
     */
     public function getDevicesWithoutAutopilotProfileAssigned(): ?int {
@@ -92,7 +92,7 @@ class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHo
     }
 
     /**
-     * Gets the totalWindows10DevicesWithoutTenantAttached property value. The count of windows 10 devices that are Intune and Comanaged.
+     * Gets the totalWindows10DevicesWithoutTenantAttached property value. The count of windows 10 devices that are Intune and co-managed. Read-only.
      * @return int|null
     */
     public function getTotalWindows10DevicesWithoutTenantAttached(): ?int {
@@ -128,7 +128,7 @@ class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHo
     }
 
     /**
-     * Sets the devicesNotAutopilotRegistered property value. The count of intune devices that are not autopilot registerd.
+     * Sets the devicesNotAutopilotRegistered property value. The count of intune devices that are not autopilot registerd. Read-only.
      * @param int|null $value Value to set for the devicesNotAutopilotRegistered property.
     */
     public function setDevicesNotAutopilotRegistered(?int $value): void {
@@ -136,7 +136,7 @@ class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHo
     }
 
     /**
-     * Sets the devicesWithoutAutopilotProfileAssigned property value. The count of intune devices not autopilot profile assigned.
+     * Sets the devicesWithoutAutopilotProfileAssigned property value. The count of intune devices not autopilot profile assigned. Read-only.
      * @param int|null $value Value to set for the devicesWithoutAutopilotProfileAssigned property.
     */
     public function setDevicesWithoutAutopilotProfileAssigned(?int $value): void {
@@ -152,7 +152,7 @@ class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHo
     }
 
     /**
-     * Sets the totalWindows10DevicesWithoutTenantAttached property value. The count of windows 10 devices that are Intune and Comanaged.
+     * Sets the totalWindows10DevicesWithoutTenantAttached property value. The count of windows 10 devices that are Intune and co-managed. Read-only.
      * @param int|null $value Value to set for the totalWindows10DevicesWithoutTenantAttached property.
     */
     public function setTotalWindows10DevicesWithoutTenantAttached(?int $value): void {

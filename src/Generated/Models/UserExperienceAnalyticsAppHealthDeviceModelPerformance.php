@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics device model performance entity contains device model performance details.
+*/
 class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsAppHealthDeviceModelPerformance and sets the default values.
+     * Instantiates a new userExperienceAnalyticsAppHealthDeviceModelPerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -25,7 +28,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
     }
 
     /**
-     * Gets the activeDeviceCount property value. The number of active devices for the model. Valid values -2147483648 to 2147483647
+     * Gets the activeDeviceCount property value. The number of active devices for the model. Valid values 0 to 2147483647. Supports: $filter, $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getActiveDeviceCount(): ?int {
@@ -33,7 +36,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
     }
 
     /**
-     * Gets the deviceManufacturer property value. The manufacturer name of the device.
+     * Gets the deviceManufacturer property value. The manufacturer name of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getDeviceManufacturer(): ?string {
@@ -41,7 +44,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
     }
 
     /**
-     * Gets the deviceModel property value. The model name of the device.
+     * Gets the deviceModel property value. The model name of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getDeviceModel(): ?string {
@@ -73,7 +76,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
     }
 
     /**
-     * Gets the meanTimeToFailureInMinutes property value. The mean time to failure for the model device in minutes. Valid values -2147483648 to 2147483647
+     * Gets the meanTimeToFailureInMinutes property value. The mean time to failure for the application in minutes. Valid values 0 to 2147483647. Supports: $filter, $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getMeanTimeToFailureInMinutes(): ?int {
@@ -81,7 +84,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
     }
 
     /**
-     * Gets the modelAppHealthScore property value. The app health score of the device model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the modelAppHealthScore property value. The application health score of the device model. Valid values 0 to 100. Supports: $filter, $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getModelAppHealthScore(): ?float {
@@ -103,7 +106,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
     }
 
     /**
-     * Sets the activeDeviceCount property value. The number of active devices for the model. Valid values -2147483648 to 2147483647
+     * Sets the activeDeviceCount property value. The number of active devices for the model. Valid values 0 to 2147483647. Supports: $filter, $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the activeDeviceCount property.
     */
     public function setActiveDeviceCount(?int $value): void {
@@ -111,7 +114,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
     }
 
     /**
-     * Sets the deviceManufacturer property value. The manufacturer name of the device.
+     * Sets the deviceManufacturer property value. The manufacturer name of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the deviceManufacturer property.
     */
     public function setDeviceManufacturer(?string $value): void {
@@ -119,7 +122,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
     }
 
     /**
-     * Sets the deviceModel property value. The model name of the device.
+     * Sets the deviceModel property value. The model name of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the deviceModel property.
     */
     public function setDeviceModel(?string $value): void {
@@ -135,7 +138,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
     }
 
     /**
-     * Sets the meanTimeToFailureInMinutes property value. The mean time to failure for the model device in minutes. Valid values -2147483648 to 2147483647
+     * Sets the meanTimeToFailureInMinutes property value. The mean time to failure for the application in minutes. Valid values 0 to 2147483647. Supports: $filter, $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the meanTimeToFailureInMinutes property.
     */
     public function setMeanTimeToFailureInMinutes(?int $value): void {
@@ -143,7 +146,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
     }
 
     /**
-     * Sets the modelAppHealthScore property value. The app health score of the device model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the modelAppHealthScore property value. The application health score of the device model. Valid values 0 to 100. Supports: $filter, $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the modelAppHealthScore property.
     */
     public function setModelAppHealthScore(?float $value): void {

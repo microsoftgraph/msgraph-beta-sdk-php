@@ -116,7 +116,7 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
-     * Gets the isSystemPreferredAuthenticationMethodEnabled property value. The isSystemPreferredAuthenticationMethodEnabled property
+     * Gets the isSystemPreferredAuthenticationMethodEnabled property value. Indicates whether system preferred authentication method is enabled. If enabled, the system dynamically determines the most secure authentication method among the methods registered by the user. Supports $filter (eq).
      * @return bool|null
     */
     public function getIsSystemPreferredAuthenticationMethodEnabled(): ?bool {
@@ -140,7 +140,7 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
-     * Gets the systemPreferredAuthenticationMethods property value. The systemPreferredAuthenticationMethods property
+     * Gets the systemPreferredAuthenticationMethods property value. Collection of authentication methods that the system determined to be the most secure authentication methods among the registered methods for second factor authentication. Possible values are: push, oath, voiceMobile, voiceAlternateMobile, voiceOffice, sms, none, unknownFutureValue. Supports $filter (any with eq).
      * @return array<string>|null
     */
     public function getSystemPreferredAuthenticationMethods(): ?array {
@@ -156,7 +156,7 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
-     * Gets the userPreferredMethodForSecondaryAuthentication property value. The userPreferredMethodForSecondaryAuthentication property
+     * Gets the userPreferredMethodForSecondaryAuthentication property value. The method the user selected as the default second-factor for performing multi-factor authentication. Possible values are: push, oath, voiceMobile, voiceAlternateMobile, voiceOffice, sms, none, unknownFutureValue.
      * @return UserDefaultAuthenticationMethod|null
     */
     public function getUserPreferredMethodForSecondaryAuthentication(): ?UserDefaultAuthenticationMethod {
@@ -268,7 +268,7 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
-     * Sets the isSystemPreferredAuthenticationMethodEnabled property value. The isSystemPreferredAuthenticationMethodEnabled property
+     * Sets the isSystemPreferredAuthenticationMethodEnabled property value. Indicates whether system preferred authentication method is enabled. If enabled, the system dynamically determines the most secure authentication method among the methods registered by the user. Supports $filter (eq).
      * @param bool|null $value Value to set for the isSystemPreferredAuthenticationMethodEnabled property.
     */
     public function setIsSystemPreferredAuthenticationMethodEnabled(?bool $value): void {
@@ -292,7 +292,7 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
-     * Sets the systemPreferredAuthenticationMethods property value. The systemPreferredAuthenticationMethods property
+     * Sets the systemPreferredAuthenticationMethods property value. Collection of authentication methods that the system determined to be the most secure authentication methods among the registered methods for second factor authentication. Possible values are: push, oath, voiceMobile, voiceAlternateMobile, voiceOffice, sms, none, unknownFutureValue. Supports $filter (any with eq).
      * @param array<string>|null $value Value to set for the systemPreferredAuthenticationMethods property.
     */
     public function setSystemPreferredAuthenticationMethods(?array $value): void {
@@ -308,7 +308,7 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
-     * Sets the userPreferredMethodForSecondaryAuthentication property value. The userPreferredMethodForSecondaryAuthentication property
+     * Sets the userPreferredMethodForSecondaryAuthentication property value. The method the user selected as the default second-factor for performing multi-factor authentication. Possible values are: push, oath, voiceMobile, voiceAlternateMobile, voiceOffice, sms, none, unknownFutureValue.
      * @param UserDefaultAuthenticationMethod|null $value Value to set for the userPreferredMethodForSecondaryAuthentication property.
     */
     public function setUserPreferredMethodForSecondaryAuthentication(?UserDefaultAuthenticationMethod $value): void {

@@ -46,7 +46,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Gets the autopilotDevicesSummary property value. The value of work from anywhere autopilot devices summary.
+     * Gets the autopilotDevicesSummary property value. The user experience analytics work from anywhere Autopilot devices summary. Read-only.
      * @return UserExperienceAnalyticsAutopilotDevicesSummary|null
     */
     public function getAutopilotDevicesSummary(): ?UserExperienceAnalyticsAutopilotDevicesSummary {
@@ -62,7 +62,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Gets the cloudIdentityDevicesSummary property value. The user experience analytics work from anywhere Cloud Identity devices summary.
+     * Gets the cloudIdentityDevicesSummary property value. The user experience analytics work from anywhere Cloud Identity devices summary. Read-only.
      * @return UserExperienceAnalyticsCloudIdentityDevicesSummary|null
     */
     public function getCloudIdentityDevicesSummary(): ?UserExperienceAnalyticsCloudIdentityDevicesSummary {
@@ -70,7 +70,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Gets the cloudManagementDevicesSummary property value. The user experience work from anywhere Cloud management devices summary.
+     * Gets the cloudManagementDevicesSummary property value. The user experience analytics work from anywhere Cloud management devices summary. Read-only.
      * @return UserExperienceAnalyticsCloudManagementDevicesSummary|null
     */
     public function getCloudManagementDevicesSummary(): ?UserExperienceAnalyticsCloudManagementDevicesSummary {
@@ -78,7 +78,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Gets the coManagedDevices property value. Total number of co-managed devices. Valid values -2147483648 to 2147483647
+     * Gets the coManagedDevices property value. Total number of co-managed devices. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getCoManagedDevices(): ?int {
@@ -86,7 +86,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Gets the devicesNotAutopilotRegistered property value. The count of intune devices that are not autopilot registerd. Valid values -2147483648 to 2147483647
+     * Gets the devicesNotAutopilotRegistered property value. The count of intune devices that are not autopilot registerd. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getDevicesNotAutopilotRegistered(): ?int {
@@ -94,7 +94,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Gets the devicesWithoutAutopilotProfileAssigned property value. The count of intune devices not autopilot profile assigned. Valid values -2147483648 to 2147483647
+     * Gets the devicesWithoutAutopilotProfileAssigned property value. The count of intune devices not autopilot profile assigned. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getDevicesWithoutAutopilotProfileAssigned(): ?int {
@@ -102,7 +102,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Gets the devicesWithoutCloudIdentity property value. The count of devices that are not cloud identity. Valid values -2147483648 to 2147483647
+     * Gets the devicesWithoutCloudIdentity property value. The count of devices that are not cloud identity. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getDevicesWithoutCloudIdentity(): ?int {
@@ -135,7 +135,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Gets the intuneDevices property value. The count of intune devices that are not autopilot registerd. Valid values -2147483648 to 2147483647
+     * Gets the intuneDevices property value. The count of intune devices that are not autopilot registerd. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getIntuneDevices(): ?int {
@@ -151,7 +151,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Gets the tenantAttachDevices property value. Total count of tenant attach devices. Valid values -2147483648 to 2147483647
+     * Gets the tenantAttachDevices property value. Total count of tenant attach devices. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getTenantAttachDevices(): ?int {
@@ -159,7 +159,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Gets the totalDevices property value. The total count of devices. Valid values -2147483648 to 2147483647
+     * Gets the totalDevices property value. The total count of devices. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getTotalDevices(): ?int {
@@ -167,7 +167,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Gets the unsupportedOSversionDevices property value. The count of Windows 10 devices that have unsupported OS versions. Valid values -2147483648 to 2147483647
+     * Gets the unsupportedOSversionDevices property value. The count of Windows 10 devices that have unsupported OS versions. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getUnsupportedOSversionDevices(): ?int {
@@ -175,7 +175,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Gets the windows10Devices property value. The count of windows 10 devices. Valid values -2147483648 to 2147483647
+     * Gets the windows10Devices property value. The count of windows 10 devices. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getWindows10Devices(): ?int {
@@ -183,7 +183,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Gets the windows10DevicesSummary property value. The user experience analytics work from anywhere Windows 10 devices summary.
+     * Gets the windows10DevicesSummary property value. The user experience analytics work from anywhere Windows 10 devices summary. Read-only.
      * @return UserExperienceAnalyticsWindows10DevicesSummary|null
     */
     public function getWindows10DevicesSummary(): ?UserExperienceAnalyticsWindows10DevicesSummary {
@@ -191,7 +191,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Gets the windows10DevicesWithoutTenantAttach property value. The count of windows 10 devices that are Intune and Comanaged. Valid values -2147483648 to 2147483647
+     * Gets the windows10DevicesWithoutTenantAttach property value. The count of windows 10 devices that are Intune and co-managed. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getWindows10DevicesWithoutTenantAttach(): ?int {
@@ -230,7 +230,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Sets the autopilotDevicesSummary property value. The value of work from anywhere autopilot devices summary.
+     * Sets the autopilotDevicesSummary property value. The user experience analytics work from anywhere Autopilot devices summary. Read-only.
      * @param UserExperienceAnalyticsAutopilotDevicesSummary|null $value Value to set for the autopilotDevicesSummary property.
     */
     public function setAutopilotDevicesSummary(?UserExperienceAnalyticsAutopilotDevicesSummary $value): void {
@@ -246,7 +246,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Sets the cloudIdentityDevicesSummary property value. The user experience analytics work from anywhere Cloud Identity devices summary.
+     * Sets the cloudIdentityDevicesSummary property value. The user experience analytics work from anywhere Cloud Identity devices summary. Read-only.
      * @param UserExperienceAnalyticsCloudIdentityDevicesSummary|null $value Value to set for the cloudIdentityDevicesSummary property.
     */
     public function setCloudIdentityDevicesSummary(?UserExperienceAnalyticsCloudIdentityDevicesSummary $value): void {
@@ -254,7 +254,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Sets the cloudManagementDevicesSummary property value. The user experience work from anywhere Cloud management devices summary.
+     * Sets the cloudManagementDevicesSummary property value. The user experience analytics work from anywhere Cloud management devices summary. Read-only.
      * @param UserExperienceAnalyticsCloudManagementDevicesSummary|null $value Value to set for the cloudManagementDevicesSummary property.
     */
     public function setCloudManagementDevicesSummary(?UserExperienceAnalyticsCloudManagementDevicesSummary $value): void {
@@ -262,7 +262,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Sets the coManagedDevices property value. Total number of co-managed devices. Valid values -2147483648 to 2147483647
+     * Sets the coManagedDevices property value. Total number of co-managed devices. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the coManagedDevices property.
     */
     public function setCoManagedDevices(?int $value): void {
@@ -270,7 +270,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Sets the devicesNotAutopilotRegistered property value. The count of intune devices that are not autopilot registerd. Valid values -2147483648 to 2147483647
+     * Sets the devicesNotAutopilotRegistered property value. The count of intune devices that are not autopilot registerd. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the devicesNotAutopilotRegistered property.
     */
     public function setDevicesNotAutopilotRegistered(?int $value): void {
@@ -278,7 +278,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Sets the devicesWithoutAutopilotProfileAssigned property value. The count of intune devices not autopilot profile assigned. Valid values -2147483648 to 2147483647
+     * Sets the devicesWithoutAutopilotProfileAssigned property value. The count of intune devices not autopilot profile assigned. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the devicesWithoutAutopilotProfileAssigned property.
     */
     public function setDevicesWithoutAutopilotProfileAssigned(?int $value): void {
@@ -286,7 +286,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Sets the devicesWithoutCloudIdentity property value. The count of devices that are not cloud identity. Valid values -2147483648 to 2147483647
+     * Sets the devicesWithoutCloudIdentity property value. The count of devices that are not cloud identity. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the devicesWithoutCloudIdentity property.
     */
     public function setDevicesWithoutCloudIdentity(?int $value): void {
@@ -294,7 +294,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Sets the intuneDevices property value. The count of intune devices that are not autopilot registerd. Valid values -2147483648 to 2147483647
+     * Sets the intuneDevices property value. The count of intune devices that are not autopilot registerd. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the intuneDevices property.
     */
     public function setIntuneDevices(?int $value): void {
@@ -310,7 +310,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Sets the tenantAttachDevices property value. Total count of tenant attach devices. Valid values -2147483648 to 2147483647
+     * Sets the tenantAttachDevices property value. Total count of tenant attach devices. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the tenantAttachDevices property.
     */
     public function setTenantAttachDevices(?int $value): void {
@@ -318,7 +318,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Sets the totalDevices property value. The total count of devices. Valid values -2147483648 to 2147483647
+     * Sets the totalDevices property value. The total count of devices. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the totalDevices property.
     */
     public function setTotalDevices(?int $value): void {
@@ -326,7 +326,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Sets the unsupportedOSversionDevices property value. The count of Windows 10 devices that have unsupported OS versions. Valid values -2147483648 to 2147483647
+     * Sets the unsupportedOSversionDevices property value. The count of Windows 10 devices that have unsupported OS versions. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the unsupportedOSversionDevices property.
     */
     public function setUnsupportedOSversionDevices(?int $value): void {
@@ -334,7 +334,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Sets the windows10Devices property value. The count of windows 10 devices. Valid values -2147483648 to 2147483647
+     * Sets the windows10Devices property value. The count of windows 10 devices. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the windows10Devices property.
     */
     public function setWindows10Devices(?int $value): void {
@@ -342,7 +342,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Sets the windows10DevicesSummary property value. The user experience analytics work from anywhere Windows 10 devices summary.
+     * Sets the windows10DevicesSummary property value. The user experience analytics work from anywhere Windows 10 devices summary. Read-only.
      * @param UserExperienceAnalyticsWindows10DevicesSummary|null $value Value to set for the windows10DevicesSummary property.
     */
     public function setWindows10DevicesSummary(?UserExperienceAnalyticsWindows10DevicesSummary $value): void {
@@ -350,7 +350,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     }
 
     /**
-     * Sets the windows10DevicesWithoutTenantAttach property value. The count of windows 10 devices that are Intune and Comanaged. Valid values -2147483648 to 2147483647
+     * Sets the windows10DevicesWithoutTenantAttach property value. The count of windows 10 devices that are Intune and co-managed. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the windows10DevicesWithoutTenantAttach property.
     */
     public function setWindows10DevicesWithoutTenantAttach(?int $value): void {

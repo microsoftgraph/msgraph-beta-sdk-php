@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CredentialUserRegistrationDetails extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CredentialUserRegistrationDetails and sets the default values.
+     * Instantiates a new credentialUserRegistrationDetails and sets the default values.
     */
     public function __construct() {
         parent::__construct();

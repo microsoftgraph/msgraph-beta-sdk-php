@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The Group Policy migration report.
+*/
 class GroupPolicyMigrationReport extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new GroupPolicyMigrationReport and sets the default values.
+     * Instantiates a new groupPolicyMigrationReport and sets the default values.
     */
     public function __construct() {
         parent::__construct();

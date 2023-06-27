@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class User extends DirectoryObject implements Parsable 
 {
     /**
-     * Instantiates a new user and sets the default values.
+     * Instantiates a new User and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -44,7 +44,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the activities property value. The activities property
+     * Gets the activities property value. The user's activities across devices. Read-only. Nullable.
      * @return array<UserActivity>|null
     */
     public function getActivities(): ?array {
@@ -124,7 +124,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the authentication property value. The authentication property
+     * Gets the authentication property value. The authentication methods that are supported for the user.
      * @return Authentication|null
     */
     public function getAuthentication(): ?Authentication {
@@ -569,6 +569,7 @@ class User extends DirectoryObject implements Parsable
             'pastProjects' => fn(ParseNode $n) => $o->setPastProjects($n->getCollectionOfPrimitiveValues()),
             'pendingAccessReviewInstances' => fn(ParseNode $n) => $o->setPendingAccessReviewInstances($n->getCollectionOfObjectValues([AccessReviewInstance::class, 'createFromDiscriminatorValue'])),
             'people' => fn(ParseNode $n) => $o->setPeople($n->getCollectionOfObjectValues([Person::class, 'createFromDiscriminatorValue'])),
+            'permissionGrants' => fn(ParseNode $n) => $o->setPermissionGrants($n->getCollectionOfObjectValues([ResourceSpecificPermissionGrant::class, 'createFromDiscriminatorValue'])),
             'photo' => fn(ParseNode $n) => $o->setPhoto($n->getObjectValue([ProfilePhoto::class, 'createFromDiscriminatorValue'])),
             'photos' => fn(ParseNode $n) => $o->setPhotos($n->getCollectionOfObjectValues([ProfilePhoto::class, 'createFromDiscriminatorValue'])),
             'planner' => fn(ParseNode $n) => $o->setPlanner($n->getObjectValue([PlannerUser::class, 'createFromDiscriminatorValue'])),
@@ -593,6 +594,7 @@ class User extends DirectoryObject implements Parsable
             'signInActivity' => fn(ParseNode $n) => $o->setSignInActivity($n->getObjectValue([SignInActivity::class, 'createFromDiscriminatorValue'])),
             'signInSessionsValidFromDateTime' => fn(ParseNode $n) => $o->setSignInSessionsValidFromDateTime($n->getDateTimeValue()),
             'skills' => fn(ParseNode $n) => $o->setSkills($n->getCollectionOfPrimitiveValues()),
+            'sponsors' => fn(ParseNode $n) => $o->setSponsors($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'state' => fn(ParseNode $n) => $o->setState($n->getStringValue()),
             'streetAddress' => fn(ParseNode $n) => $o->setStreetAddress($n->getStringValue()),
             'surname' => fn(ParseNode $n) => $o->setSurname($n->getStringValue()),
@@ -697,7 +699,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the isManagementRestricted property value. true if the user is a member of a restricted management administrative unit, in which case it requires a role scoped to the restricted administrative unit to manage. Default value is false. Read-only.
+     * Gets the isManagementRestricted property value. true if the user is a member of a restricted management administrative unit, in which case it requires a role scoped to the restricted administrative unit to manage. Default value is false. Read-only.  To manage a user who is a member of a restricted administrative unit, the calling app must be assigned the Directory.Write.Restricted permission. For delegated scenarios, the administrators must also be explicitly assigned supported roles at the restricted administrative unit scope.
      * @return bool|null
     */
     public function getIsManagementRestricted(): ?bool {
@@ -905,7 +907,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the onlineMeetings property value. The onlineMeetings property
+     * Gets the onlineMeetings property value. Information about a meeting, including the URL used to join a meeting, the attendees' list, and the description.
      * @return array<OnlineMeeting>|null
     */
     public function getOnlineMeetings(): ?array {
@@ -1062,6 +1064,14 @@ class User extends DirectoryObject implements Parsable
     */
     public function getPeople(): ?array {
         return $this->getBackingStore()->get('people');
+    }
+
+    /**
+     * Gets the permissionGrants property value. The permissionGrants property
+     * @return array<ResourceSpecificPermissionGrant>|null
+    */
+    public function getPermissionGrants(): ?array {
+        return $this->getBackingStore()->get('permissionGrants');
     }
 
     /**
@@ -1262,6 +1272,14 @@ class User extends DirectoryObject implements Parsable
     */
     public function getSkills(): ?array {
         return $this->getBackingStore()->get('skills');
+    }
+
+    /**
+     * Gets the sponsors property value. The sponsors property
+     * @return array<DirectoryObject>|null
+    */
+    public function getSponsors(): ?array {
+        return $this->getBackingStore()->get('sponsors');
     }
 
     /**
@@ -1477,6 +1495,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeCollectionOfPrimitiveValues('pastProjects', $this->getPastProjects());
         $writer->writeCollectionOfObjectValues('pendingAccessReviewInstances', $this->getPendingAccessReviewInstances());
         $writer->writeCollectionOfObjectValues('people', $this->getPeople());
+        $writer->writeCollectionOfObjectValues('permissionGrants', $this->getPermissionGrants());
         $writer->writeObjectValue('photo', $this->getPhoto());
         $writer->writeCollectionOfObjectValues('photos', $this->getPhotos());
         $writer->writeObjectValue('planner', $this->getPlanner());
@@ -1501,6 +1520,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeObjectValue('signInActivity', $this->getSignInActivity());
         $writer->writeDateTimeValue('signInSessionsValidFromDateTime', $this->getSignInSessionsValidFromDateTime());
         $writer->writeCollectionOfPrimitiveValues('skills', $this->getSkills());
+        $writer->writeCollectionOfObjectValues('sponsors', $this->getSponsors());
         $writer->writeStringValue('state', $this->getState());
         $writer->writeStringValue('streetAddress', $this->getStreetAddress());
         $writer->writeStringValue('surname', $this->getSurname());
@@ -1532,7 +1552,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the activities property value. The activities property
+     * Sets the activities property value. The user's activities across devices. Read-only. Nullable.
      * @param array<UserActivity>|null $value Value to set for the activities property.
     */
     public function setActivities(?array $value): void {
@@ -1612,7 +1632,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the authentication property value. The authentication property
+     * Sets the authentication property value. The authentication methods that are supported for the user.
      * @param Authentication|null $value Value to set for the authentication property.
     */
     public function setAuthentication(?Authentication $value): void {
@@ -2028,7 +2048,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the isManagementRestricted property value. true if the user is a member of a restricted management administrative unit, in which case it requires a role scoped to the restricted administrative unit to manage. Default value is false. Read-only.
+     * Sets the isManagementRestricted property value. true if the user is a member of a restricted management administrative unit, in which case it requires a role scoped to the restricted administrative unit to manage. Default value is false. Read-only.  To manage a user who is a member of a restricted administrative unit, the calling app must be assigned the Directory.Write.Restricted permission. For delegated scenarios, the administrators must also be explicitly assigned supported roles at the restricted administrative unit scope.
      * @param bool|null $value Value to set for the isManagementRestricted property.
     */
     public function setIsManagementRestricted(?bool $value): void {
@@ -2236,7 +2256,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the onlineMeetings property value. The onlineMeetings property
+     * Sets the onlineMeetings property value. Information about a meeting, including the URL used to join a meeting, the attendees' list, and the description.
      * @param array<OnlineMeeting>|null $value Value to set for the onlineMeetings property.
     */
     public function setOnlineMeetings(?array $value): void {
@@ -2393,6 +2413,14 @@ class User extends DirectoryObject implements Parsable
     */
     public function setPeople(?array $value): void {
         $this->getBackingStore()->set('people', $value);
+    }
+
+    /**
+     * Sets the permissionGrants property value. The permissionGrants property
+     * @param array<ResourceSpecificPermissionGrant>|null $value Value to set for the permissionGrants property.
+    */
+    public function setPermissionGrants(?array $value): void {
+        $this->getBackingStore()->set('permissionGrants', $value);
     }
 
     /**
@@ -2593,6 +2621,14 @@ class User extends DirectoryObject implements Parsable
     */
     public function setSkills(?array $value): void {
         $this->getBackingStore()->set('skills', $value);
+    }
+
+    /**
+     * Sets the sponsors property value. The sponsors property
+     * @param array<DirectoryObject>|null $value Value to set for the sponsors property.
+    */
+    public function setSponsors(?array $value): void {
+        $this->getBackingStore()->set('sponsors', $value);
     }
 
     /**

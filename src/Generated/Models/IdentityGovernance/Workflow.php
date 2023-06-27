@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Workflow extends WorkflowBase implements Parsable 
 {
     /**
-     * Instantiates a new workflow and sets the default values.
+     * Instantiates a new Workflow and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -53,7 +53,6 @@ class Workflow extends WorkflowBase implements Parsable
             'executionScope' => fn(ParseNode $n) => $o->setExecutionScope($n->getCollectionOfObjectValues([UserProcessingResult::class, 'createFromDiscriminatorValue'])),
             'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
             'nextScheduleRunDateTime' => fn(ParseNode $n) => $o->setNextScheduleRunDateTime($n->getDateTimeValue()),
-            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'runs' => fn(ParseNode $n) => $o->setRuns($n->getCollectionOfObjectValues([Run::class, 'createFromDiscriminatorValue'])),
             'taskReports' => fn(ParseNode $n) => $o->setTaskReports($n->getCollectionOfObjectValues([TaskReport::class, 'createFromDiscriminatorValue'])),
             'userProcessingResults' => fn(ParseNode $n) => $o->setUserProcessingResults($n->getCollectionOfObjectValues([UserProcessingResult::class, 'createFromDiscriminatorValue'])),
@@ -76,14 +75,6 @@ class Workflow extends WorkflowBase implements Parsable
     */
     public function getNextScheduleRunDateTime(): ?DateTime {
         return $this->getBackingStore()->get('nextScheduleRunDateTime');
-    }
-
-    /**
-     * Gets the @odata.type property value. The OdataType property
-     * @return string|null
-    */
-    public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -136,7 +127,6 @@ class Workflow extends WorkflowBase implements Parsable
         $writer->writeCollectionOfObjectValues('executionScope', $this->getExecutionScope());
         $writer->writeStringValue('id', $this->getId());
         $writer->writeDateTimeValue('nextScheduleRunDateTime', $this->getNextScheduleRunDateTime());
-        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('runs', $this->getRuns());
         $writer->writeCollectionOfObjectValues('taskReports', $this->getTaskReports());
         $writer->writeCollectionOfObjectValues('userProcessingResults', $this->getUserProcessingResults());
@@ -174,14 +164,6 @@ class Workflow extends WorkflowBase implements Parsable
     */
     public function setNextScheduleRunDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('nextScheduleRunDateTime', $value);
-    }
-
-    /**
-     * Sets the @odata.type property value. The OdataType property
-     * @param string|null $value Value to set for the OdataType property.
-    */
-    public function setOdataType(?string $value): void {
-        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

@@ -25,7 +25,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. The description of the alert.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -33,7 +33,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The friendly display name that renders in Privileged Identity Management (PIM) alerts in the Azure portal.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -61,7 +61,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the howToPrevent property value. The howToPrevent property
+     * Gets the howToPrevent property value. Long-form text that indicates the ways to prevent the alert from being triggered in your tenant.
      * @return string|null
     */
     public function getHowToPrevent(): ?string {
@@ -69,7 +69,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the isConfigurable property value. The isConfigurable property
+     * Gets the isConfigurable property value. true if the alert configuration can be customized in the tenant, and false otherwise. For example, the number and percentage thresholds of the 'There are too many global administrators' alert can be configured by users, while the 'This organization does not have Azure AD Premium P2' cannot be configured, because the criteria is restricted.
      * @return bool|null
     */
     public function getIsConfigurable(): ?bool {
@@ -77,7 +77,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the isRemediatable property value. The isRemediatable property
+     * Gets the isRemediatable property value. true if the alert can be remediated, and false otherwise.
      * @return bool|null
     */
     public function getIsRemediatable(): ?bool {
@@ -85,7 +85,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the mitigationSteps property value. The mitigationSteps property
+     * Gets the mitigationSteps property value. The methods to mitigate the alert when it's triggered in the tenant. For example, to mitigate the 'There are too many global administrators', you could remove redundant privileged role assignments.
      * @return string|null
     */
     public function getMitigationSteps(): ?string {
@@ -93,7 +93,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the scopeId property value. The scopeId property
+     * Gets the scopeId property value. The identifier of the scope where the alert is related. / is the only supported one for the tenant. Supports $filter (eq, ne).
      * @return string|null
     */
     public function getScopeId(): ?string {
@@ -101,7 +101,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the scopeType property value. The scopeType property
+     * Gets the scopeType property value. The type of scope where the alert is created. DirectoryRole is the only currently supported scope type for Azure AD Roles.
      * @return string|null
     */
     public function getScopeType(): ?string {
@@ -109,7 +109,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the securityImpact property value. The securityImpact property
+     * Gets the securityImpact property value. Security impact of the alert. For example, it could be information leaks or unauthorized access.
      * @return string|null
     */
     public function getSecurityImpact(): ?string {
@@ -117,7 +117,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the severityLevel property value. The severityLevel property
+     * Gets the severityLevel property value. Severity level of the alert. The possible values are: unknown, informational, low, medium, high, unknownFutureValue.
      * @return AlertSeverity|null
     */
     public function getSeverityLevel(): ?AlertSeverity {
@@ -143,7 +143,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. The description of the alert.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -151,7 +151,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The friendly display name that renders in Privileged Identity Management (PIM) alerts in the Azure portal.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -159,7 +159,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the howToPrevent property value. The howToPrevent property
+     * Sets the howToPrevent property value. Long-form text that indicates the ways to prevent the alert from being triggered in your tenant.
      * @param string|null $value Value to set for the howToPrevent property.
     */
     public function setHowToPrevent(?string $value): void {
@@ -167,7 +167,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the isConfigurable property value. The isConfigurable property
+     * Sets the isConfigurable property value. true if the alert configuration can be customized in the tenant, and false otherwise. For example, the number and percentage thresholds of the 'There are too many global administrators' alert can be configured by users, while the 'This organization does not have Azure AD Premium P2' cannot be configured, because the criteria is restricted.
      * @param bool|null $value Value to set for the isConfigurable property.
     */
     public function setIsConfigurable(?bool $value): void {
@@ -175,7 +175,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the isRemediatable property value. The isRemediatable property
+     * Sets the isRemediatable property value. true if the alert can be remediated, and false otherwise.
      * @param bool|null $value Value to set for the isRemediatable property.
     */
     public function setIsRemediatable(?bool $value): void {
@@ -183,7 +183,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the mitigationSteps property value. The mitigationSteps property
+     * Sets the mitigationSteps property value. The methods to mitigate the alert when it's triggered in the tenant. For example, to mitigate the 'There are too many global administrators', you could remove redundant privileged role assignments.
      * @param string|null $value Value to set for the mitigationSteps property.
     */
     public function setMitigationSteps(?string $value): void {
@@ -191,7 +191,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the scopeId property value. The scopeId property
+     * Sets the scopeId property value. The identifier of the scope where the alert is related. / is the only supported one for the tenant. Supports $filter (eq, ne).
      * @param string|null $value Value to set for the scopeId property.
     */
     public function setScopeId(?string $value): void {
@@ -199,7 +199,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the scopeType property value. The scopeType property
+     * Sets the scopeType property value. The type of scope where the alert is created. DirectoryRole is the only currently supported scope type for Azure AD Roles.
      * @param string|null $value Value to set for the scopeType property.
     */
     public function setScopeType(?string $value): void {
@@ -207,7 +207,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the securityImpact property value. The securityImpact property
+     * Sets the securityImpact property value. Security impact of the alert. For example, it could be information leaks or unauthorized access.
      * @param string|null $value Value to set for the securityImpact property.
     */
     public function setSecurityImpact(?string $value): void {
@@ -215,7 +215,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the severityLevel property value. The severityLevel property
+     * Sets the severityLevel property value. Severity level of the alert. The possible values are: unknown, informational, low, medium, high, unknownFutureValue.
      * @param AlertSeverity|null $value Value to set for the severityLevel property.
     */
     public function setSeverityLevel(?AlertSeverity $value): void {

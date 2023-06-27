@@ -74,7 +74,7 @@ class UserExperienceAnalyticsWindows10DevicesSummary implements AdditionalDataHo
     }
 
     /**
-     * Gets the unsupportedOSversionDeviceCount property value. The count of Windows 10 devices that have unsupported OS versions.
+     * Gets the unsupportedOSversionDeviceCount property value. The count of Windows 10 devices that have unsupported OS versions. Read-only.
      * @return int|null
     */
     public function getUnsupportedOSversionDeviceCount(): ?int {
@@ -116,7 +116,7 @@ class UserExperienceAnalyticsWindows10DevicesSummary implements AdditionalDataHo
     }
 
     /**
-     * Sets the unsupportedOSversionDeviceCount property value. The count of Windows 10 devices that have unsupported OS versions.
+     * Sets the unsupportedOSversionDeviceCount property value. The count of Windows 10 devices that have unsupported OS versions. Read-only.
      * @param int|null $value Value to set for the unsupportedOSversionDeviceCount property.
     */
     public function setUnsupportedOSversionDeviceCount(?int $value): void {

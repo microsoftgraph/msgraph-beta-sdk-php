@@ -54,7 +54,7 @@ class UserExperienceAnalyticsCloudIdentityDevicesSummary implements AdditionalDa
     }
 
     /**
-     * Gets the deviceWithoutCloudIdentityCount property value. The count of devices that are not cloud identity.
+     * Gets the deviceWithoutCloudIdentityCount property value. The count of devices that are not cloud identity. Read-only.
      * @return int|null
     */
     public function getDeviceWithoutCloudIdentityCount(): ?int {
@@ -108,7 +108,7 @@ class UserExperienceAnalyticsCloudIdentityDevicesSummary implements AdditionalDa
     }
 
     /**
-     * Sets the deviceWithoutCloudIdentityCount property value. The count of devices that are not cloud identity.
+     * Sets the deviceWithoutCloudIdentityCount property value. The count of devices that are not cloud identity. Read-only.
      * @param int|null $value Value to set for the deviceWithoutCloudIdentityCount property.
     */
     public function setDeviceWithoutCloudIdentityCount(?int $value): void {

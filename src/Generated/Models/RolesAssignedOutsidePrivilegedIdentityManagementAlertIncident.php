@@ -27,7 +27,7 @@ class RolesAssignedOutsidePrivilegedIdentityManagementAlertIncident extends Unif
     }
 
     /**
-     * Gets the assigneeDisplayName property value. The assigneeDisplayName property
+     * Gets the assigneeDisplayName property value. Display name of the subject that the incident applies to.
      * @return string|null
     */
     public function getAssigneeDisplayName(): ?string {
@@ -35,7 +35,7 @@ class RolesAssignedOutsidePrivilegedIdentityManagementAlertIncident extends Unif
     }
 
     /**
-     * Gets the assigneeId property value. The assigneeId property
+     * Gets the assigneeId property value. The identifier of the subject that the incident applies to.
      * @return string|null
     */
     public function getAssigneeId(): ?string {
@@ -43,7 +43,7 @@ class RolesAssignedOutsidePrivilegedIdentityManagementAlertIncident extends Unif
     }
 
     /**
-     * Gets the assigneeUserPrincipalName property value. The assigneeUserPrincipalName property
+     * Gets the assigneeUserPrincipalName property value. User principal name of the subject that the incident applies to. Applies to user principals.
      * @return string|null
     */
     public function getAssigneeUserPrincipalName(): ?string {
@@ -76,7 +76,7 @@ class RolesAssignedOutsidePrivilegedIdentityManagementAlertIncident extends Unif
     }
 
     /**
-     * Gets the roleDefinitionId property value. The roleDefinitionId property
+     * Gets the roleDefinitionId property value. The identifier for the directory role definition that's in scope of this incident.
      * @return string|null
     */
     public function getRoleDefinitionId(): ?string {
@@ -84,7 +84,7 @@ class RolesAssignedOutsidePrivilegedIdentityManagementAlertIncident extends Unif
     }
 
     /**
-     * Gets the roleDisplayName property value. The roleDisplayName property
+     * Gets the roleDisplayName property value. The display name for the directory role.
      * @return string|null
     */
     public function getRoleDisplayName(): ?string {
@@ -92,7 +92,7 @@ class RolesAssignedOutsidePrivilegedIdentityManagementAlertIncident extends Unif
     }
 
     /**
-     * Gets the roleTemplateId property value. The roleTemplateId property
+     * Gets the roleTemplateId property value. The globally unique identifier for the directory role.
      * @return string|null
     */
     public function getRoleTemplateId(): ?string {
@@ -115,7 +115,7 @@ class RolesAssignedOutsidePrivilegedIdentityManagementAlertIncident extends Unif
     }
 
     /**
-     * Sets the assigneeDisplayName property value. The assigneeDisplayName property
+     * Sets the assigneeDisplayName property value. Display name of the subject that the incident applies to.
      * @param string|null $value Value to set for the assigneeDisplayName property.
     */
     public function setAssigneeDisplayName(?string $value): void {
@@ -123,7 +123,7 @@ class RolesAssignedOutsidePrivilegedIdentityManagementAlertIncident extends Unif
     }
 
     /**
-     * Sets the assigneeId property value. The assigneeId property
+     * Sets the assigneeId property value. The identifier of the subject that the incident applies to.
      * @param string|null $value Value to set for the assigneeId property.
     */
     public function setAssigneeId(?string $value): void {
@@ -131,7 +131,7 @@ class RolesAssignedOutsidePrivilegedIdentityManagementAlertIncident extends Unif
     }
 
     /**
-     * Sets the assigneeUserPrincipalName property value. The assigneeUserPrincipalName property
+     * Sets the assigneeUserPrincipalName property value. User principal name of the subject that the incident applies to. Applies to user principals.
      * @param string|null $value Value to set for the assigneeUserPrincipalName property.
     */
     public function setAssigneeUserPrincipalName(?string $value): void {
@@ -147,7 +147,7 @@ class RolesAssignedOutsidePrivilegedIdentityManagementAlertIncident extends Unif
     }
 
     /**
-     * Sets the roleDefinitionId property value. The roleDefinitionId property
+     * Sets the roleDefinitionId property value. The identifier for the directory role definition that's in scope of this incident.
      * @param string|null $value Value to set for the roleDefinitionId property.
     */
     public function setRoleDefinitionId(?string $value): void {
@@ -155,7 +155,7 @@ class RolesAssignedOutsidePrivilegedIdentityManagementAlertIncident extends Unif
     }
 
     /**
-     * Sets the roleDisplayName property value. The roleDisplayName property
+     * Sets the roleDisplayName property value. The display name for the directory role.
      * @param string|null $value Value to set for the roleDisplayName property.
     */
     public function setRoleDisplayName(?string $value): void {
@@ -163,7 +163,7 @@ class RolesAssignedOutsidePrivilegedIdentityManagementAlertIncident extends Unif
     }
 
     /**
-     * Sets the roleTemplateId property value. The roleTemplateId property
+     * Sets the roleTemplateId property value. The globally unique identifier for the directory role.
      * @param string|null $value Value to set for the roleTemplateId property.
     */
     public function setRoleTemplateId(?string $value): void {

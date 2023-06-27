@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics application performance entity contains application performance by application version device id.
+*/
 class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId and sets the default values.
+     * Instantiates a new userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -66,7 +69,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends
     }
 
     /**
-     * Gets the deviceDisplayName property value. The name of the device.
+     * Gets the deviceDisplayName property value. The name of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getDeviceDisplayName(): ?string {
@@ -74,7 +77,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends
     }
 
     /**
-     * Gets the deviceId property value. The id of the device.
+     * Gets the deviceId property value. The Intune device id of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getDeviceId(): ?string {
@@ -100,7 +103,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends
     }
 
     /**
-     * Gets the processedDateTime property value. The date and time when the statistics were last computed.
+     * Gets the processedDateTime property value. The date and time when the statistics were last computed. The value cannot be modified and is automatically populated when the statistics are computed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2022 would look like this: '2022-01-01T00:00:00Z'. Returned by default. Read-only.
      * @return DateTime|null
     */
     public function getProcessedDateTime(): ?DateTime {
@@ -164,7 +167,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends
     }
 
     /**
-     * Sets the deviceDisplayName property value. The name of the device.
+     * Sets the deviceDisplayName property value. The name of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the deviceDisplayName property.
     */
     public function setDeviceDisplayName(?string $value): void {
@@ -172,7 +175,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends
     }
 
     /**
-     * Sets the deviceId property value. The id of the device.
+     * Sets the deviceId property value. The Intune device id of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
@@ -180,7 +183,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends
     }
 
     /**
-     * Sets the processedDateTime property value. The date and time when the statistics were last computed.
+     * Sets the processedDateTime property value. The date and time when the statistics were last computed. The value cannot be modified and is automatically populated when the statistics are computed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2022 would look like this: '2022-01-01T00:00:00Z'. Returned by default. Read-only.
      * @param DateTime|null $value Value to set for the processedDateTime property.
     */
     public function setProcessedDateTime(?DateTime $value): void {

@@ -21,7 +21,7 @@ class UserExperienceAnalyticsAnomalyCorrelationGroupFeature implements Additiona
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new userExperienceAnalyticsAnomalyCorrelationGroupFeature and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsAnomalyCorrelationGroupFeature and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -38,7 +38,7 @@ class UnifiedRoleManagementAlertConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the alertDefinition property value. The alertDefinition property
+     * Gets the alertDefinition property value. The definition of the alert that contains its description, impact, and measures to mitigate or prevent it. Supports $expand.
      * @return UnifiedRoleManagementAlertDefinition|null
     */
     public function getAlertDefinition(): ?UnifiedRoleManagementAlertDefinition {
@@ -46,7 +46,7 @@ class UnifiedRoleManagementAlertConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the alertDefinitionId property value. The alertDefinitionId property
+     * Gets the alertDefinitionId property value. The identifier of an alert definition. Supports $filter (eq, ne).
      * @return string|null
     */
     public function getAlertDefinitionId(): ?string {
@@ -69,7 +69,7 @@ class UnifiedRoleManagementAlertConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the isEnabled property value. The isEnabled property
+     * Gets the isEnabled property value. true if the alert is enabled. Setting it to false disables PIM scanning the tenant to identify instances that trigger the alert.
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
@@ -77,7 +77,7 @@ class UnifiedRoleManagementAlertConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the scopeId property value. The scopeId property
+     * Gets the scopeId property value. The identifier of the scope to which the alert is related. Only / is supported to represent the tenant scope. Supports $filter (eq, ne).
      * @return string|null
     */
     public function getScopeId(): ?string {
@@ -85,7 +85,7 @@ class UnifiedRoleManagementAlertConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the scopeType property value. The scopeType property
+     * Gets the scopeType property value. The type of scope where the alert is created. DirectoryRole is the only currently supported scope type for Azure AD roles.
      * @return string|null
     */
     public function getScopeType(): ?string {
@@ -106,7 +106,7 @@ class UnifiedRoleManagementAlertConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the alertDefinition property value. The alertDefinition property
+     * Sets the alertDefinition property value. The definition of the alert that contains its description, impact, and measures to mitigate or prevent it. Supports $expand.
      * @param UnifiedRoleManagementAlertDefinition|null $value Value to set for the alertDefinition property.
     */
     public function setAlertDefinition(?UnifiedRoleManagementAlertDefinition $value): void {
@@ -114,7 +114,7 @@ class UnifiedRoleManagementAlertConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the alertDefinitionId property value. The alertDefinitionId property
+     * Sets the alertDefinitionId property value. The identifier of an alert definition. Supports $filter (eq, ne).
      * @param string|null $value Value to set for the alertDefinitionId property.
     */
     public function setAlertDefinitionId(?string $value): void {
@@ -122,7 +122,7 @@ class UnifiedRoleManagementAlertConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the isEnabled property value. The isEnabled property
+     * Sets the isEnabled property value. true if the alert is enabled. Setting it to false disables PIM scanning the tenant to identify instances that trigger the alert.
      * @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value): void {
@@ -130,7 +130,7 @@ class UnifiedRoleManagementAlertConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the scopeId property value. The scopeId property
+     * Sets the scopeId property value. The identifier of the scope to which the alert is related. Only / is supported to represent the tenant scope. Supports $filter (eq, ne).
      * @param string|null $value Value to set for the scopeId property.
     */
     public function setScopeId(?string $value): void {
@@ -138,7 +138,7 @@ class UnifiedRoleManagementAlertConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the scopeType property value. The scopeType property
+     * Sets the scopeType property value. The type of scope where the alert is created. DirectoryRole is the only currently supported scope type for Azure AD roles.
      * @param string|null $value Value to set for the scopeType property.
     */
     public function setScopeType(?string $value): void {

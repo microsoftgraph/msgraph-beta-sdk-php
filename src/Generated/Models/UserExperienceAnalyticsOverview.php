@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsOverview extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsOverview and sets the default values.
+     * Instantiates a new userExperienceAnalyticsOverview and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -36,7 +36,7 @@ class UserExperienceAnalyticsOverview extends Entity implements Parsable
     }
 
     /**
-     * Gets the insights property value. The user experience analytics insights.
+     * Gets the insights property value. The user experience analytics insights. Read-only.
      * @return array<UserExperienceAnalyticsInsight>|null
     */
     public function getInsights(): ?array {
@@ -53,7 +53,7 @@ class UserExperienceAnalyticsOverview extends Entity implements Parsable
     }
 
     /**
-     * Sets the insights property value. The user experience analytics insights.
+     * Sets the insights property value. The user experience analytics insights. Read-only.
      * @param array<UserExperienceAnalyticsInsight>|null $value Value to set for the insights property.
     */
     public function setInsights(?array $value): void {

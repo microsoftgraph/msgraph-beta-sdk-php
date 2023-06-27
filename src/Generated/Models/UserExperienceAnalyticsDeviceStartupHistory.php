@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics device startup history entity contains device boot performance history details.
+*/
 class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsDeviceStartupHistory and sets the default values.
+     * Instantiates a new userExperienceAnalyticsDeviceStartupHistory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -26,7 +29,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Gets the coreBootTimeInMs property value. The user experience analytics device core boot time in milliseconds.
+     * Gets the coreBootTimeInMs property value. The device core boot time in milliseconds. Supports: $select, $OrderBy. Read-only.
      * @return int|null
     */
     public function getCoreBootTimeInMs(): ?int {
@@ -34,7 +37,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Gets the coreLoginTimeInMs property value. The user experience analytics device core login time in milliseconds.
+     * Gets the coreLoginTimeInMs property value. The device core login time in milliseconds. Supports: $select, $OrderBy. Read-only.
      * @return int|null
     */
     public function getCoreLoginTimeInMs(): ?int {
@@ -42,7 +45,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Gets the deviceId property value. The user experience analytics device id.
+     * Gets the deviceId property value. The Intune device id of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getDeviceId(): ?string {
@@ -50,7 +53,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Gets the featureUpdateBootTimeInMs property value. The user experience analytics device feature update time in milliseconds.
+     * Gets the featureUpdateBootTimeInMs property value. The impact of device feature updates on boot time in milliseconds. Supports: $select, $OrderBy. Read-only.
      * @return int|null
     */
     public function getFeatureUpdateBootTimeInMs(): ?int {
@@ -84,7 +87,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Gets the groupPolicyBootTimeInMs property value. The User experience analytics Device group policy boot time in milliseconds.
+     * Gets the groupPolicyBootTimeInMs property value. The impact of device group policy client on boot time in milliseconds. Supports: $select, $OrderBy. Read-only.
      * @return int|null
     */
     public function getGroupPolicyBootTimeInMs(): ?int {
@@ -92,7 +95,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Gets the groupPolicyLoginTimeInMs property value. The User experience analytics Device group policy login time in milliseconds.
+     * Gets the groupPolicyLoginTimeInMs property value. The impact of device group policy client on login time in milliseconds. Supports: $select, $OrderBy. Read-only.
      * @return int|null
     */
     public function getGroupPolicyLoginTimeInMs(): ?int {
@@ -100,7 +103,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Gets the isFeatureUpdate property value. The user experience analytics device boot record is a feature update.
+     * Gets the isFeatureUpdate property value. When TRUE, indicates the device boot record is associated with feature updates. When FALSE, indicates the device boot record is not associated with feature updates. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getIsFeatureUpdate(): ?bool {
@@ -108,7 +111,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Gets the isFirstLogin property value. The user experience analytics device first login.
+     * Gets the isFirstLogin property value. When TRUE, indicates the device login is the first login after a reboot. When FALSE, indicates the device login is not the first login after a reboot. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getIsFirstLogin(): ?bool {
@@ -116,7 +119,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Gets the operatingSystemVersion property value. The user experience analytics device boot record's operating system version.
+     * Gets the operatingSystemVersion property value. The user experience analytics device boot record's operating system version. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getOperatingSystemVersion(): ?string {
@@ -124,7 +127,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Gets the responsiveDesktopTimeInMs property value. The user experience analytics responsive desktop time in milliseconds.
+     * Gets the responsiveDesktopTimeInMs property value. The time for desktop to become responsive during login process in milliseconds. Supports: $select, $OrderBy. Read-only.
      * @return int|null
     */
     public function getResponsiveDesktopTimeInMs(): ?int {
@@ -140,7 +143,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Gets the restartFaultBucket property value. OS restart fault bucket. The fault bucket is used to find additional information about a system crash.
+     * Gets the restartFaultBucket property value. OS restart fault bucket. The fault bucket is used to find additional information about a system crash. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getRestartFaultBucket(): ?string {
@@ -148,7 +151,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Gets the restartStopCode property value. OS restart stop code. This shows the bug check code which can be used to look up the blue screen reason.
+     * Gets the restartStopCode property value. OS restart stop code. This shows the bug check code which can be used to look up the blue screen reason. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getRestartStopCode(): ?string {
@@ -156,7 +159,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Gets the startTime property value. The user experience analytics device boot start time.
+     * Gets the startTime property value. The device boot start time. The value cannot be modified and is automatically populated when the device performs a reboot. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2022 would look like this: '2022-01-01T00:00:00Z'. Returned by default. Read-only.
      * @return DateTime|null
     */
     public function getStartTime(): ?DateTime {
@@ -164,7 +167,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Gets the totalBootTimeInMs property value. The user experience analytics device total boot time in milliseconds.
+     * Gets the totalBootTimeInMs property value. The device total boot time in milliseconds. Supports: $select, $OrderBy. Read-only.
      * @return int|null
     */
     public function getTotalBootTimeInMs(): ?int {
@@ -172,7 +175,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Gets the totalLoginTimeInMs property value. The user experience analytics device total login time in milliseconds.
+     * Gets the totalLoginTimeInMs property value. The device total login time in milliseconds. Supports: $select, $OrderBy. Read-only.
      * @return int|null
     */
     public function getTotalLoginTimeInMs(): ?int {
@@ -204,7 +207,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Sets the coreBootTimeInMs property value. The user experience analytics device core boot time in milliseconds.
+     * Sets the coreBootTimeInMs property value. The device core boot time in milliseconds. Supports: $select, $OrderBy. Read-only.
      * @param int|null $value Value to set for the coreBootTimeInMs property.
     */
     public function setCoreBootTimeInMs(?int $value): void {
@@ -212,7 +215,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Sets the coreLoginTimeInMs property value. The user experience analytics device core login time in milliseconds.
+     * Sets the coreLoginTimeInMs property value. The device core login time in milliseconds. Supports: $select, $OrderBy. Read-only.
      * @param int|null $value Value to set for the coreLoginTimeInMs property.
     */
     public function setCoreLoginTimeInMs(?int $value): void {
@@ -220,7 +223,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Sets the deviceId property value. The user experience analytics device id.
+     * Sets the deviceId property value. The Intune device id of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
@@ -228,7 +231,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Sets the featureUpdateBootTimeInMs property value. The user experience analytics device feature update time in milliseconds.
+     * Sets the featureUpdateBootTimeInMs property value. The impact of device feature updates on boot time in milliseconds. Supports: $select, $OrderBy. Read-only.
      * @param int|null $value Value to set for the featureUpdateBootTimeInMs property.
     */
     public function setFeatureUpdateBootTimeInMs(?int $value): void {
@@ -236,7 +239,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Sets the groupPolicyBootTimeInMs property value. The User experience analytics Device group policy boot time in milliseconds.
+     * Sets the groupPolicyBootTimeInMs property value. The impact of device group policy client on boot time in milliseconds. Supports: $select, $OrderBy. Read-only.
      * @param int|null $value Value to set for the groupPolicyBootTimeInMs property.
     */
     public function setGroupPolicyBootTimeInMs(?int $value): void {
@@ -244,7 +247,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Sets the groupPolicyLoginTimeInMs property value. The User experience analytics Device group policy login time in milliseconds.
+     * Sets the groupPolicyLoginTimeInMs property value. The impact of device group policy client on login time in milliseconds. Supports: $select, $OrderBy. Read-only.
      * @param int|null $value Value to set for the groupPolicyLoginTimeInMs property.
     */
     public function setGroupPolicyLoginTimeInMs(?int $value): void {
@@ -252,7 +255,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Sets the isFeatureUpdate property value. The user experience analytics device boot record is a feature update.
+     * Sets the isFeatureUpdate property value. When TRUE, indicates the device boot record is associated with feature updates. When FALSE, indicates the device boot record is not associated with feature updates. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the isFeatureUpdate property.
     */
     public function setIsFeatureUpdate(?bool $value): void {
@@ -260,7 +263,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Sets the isFirstLogin property value. The user experience analytics device first login.
+     * Sets the isFirstLogin property value. When TRUE, indicates the device login is the first login after a reboot. When FALSE, indicates the device login is not the first login after a reboot. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the isFirstLogin property.
     */
     public function setIsFirstLogin(?bool $value): void {
@@ -268,7 +271,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Sets the operatingSystemVersion property value. The user experience analytics device boot record's operating system version.
+     * Sets the operatingSystemVersion property value. The user experience analytics device boot record's operating system version. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the operatingSystemVersion property.
     */
     public function setOperatingSystemVersion(?string $value): void {
@@ -276,7 +279,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Sets the responsiveDesktopTimeInMs property value. The user experience analytics responsive desktop time in milliseconds.
+     * Sets the responsiveDesktopTimeInMs property value. The time for desktop to become responsive during login process in milliseconds. Supports: $select, $OrderBy. Read-only.
      * @param int|null $value Value to set for the responsiveDesktopTimeInMs property.
     */
     public function setResponsiveDesktopTimeInMs(?int $value): void {
@@ -292,7 +295,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Sets the restartFaultBucket property value. OS restart fault bucket. The fault bucket is used to find additional information about a system crash.
+     * Sets the restartFaultBucket property value. OS restart fault bucket. The fault bucket is used to find additional information about a system crash. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the restartFaultBucket property.
     */
     public function setRestartFaultBucket(?string $value): void {
@@ -300,7 +303,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Sets the restartStopCode property value. OS restart stop code. This shows the bug check code which can be used to look up the blue screen reason.
+     * Sets the restartStopCode property value. OS restart stop code. This shows the bug check code which can be used to look up the blue screen reason. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the restartStopCode property.
     */
     public function setRestartStopCode(?string $value): void {
@@ -308,7 +311,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Sets the startTime property value. The user experience analytics device boot start time.
+     * Sets the startTime property value. The device boot start time. The value cannot be modified and is automatically populated when the device performs a reboot. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2022 would look like this: '2022-01-01T00:00:00Z'. Returned by default. Read-only.
      * @param DateTime|null $value Value to set for the startTime property.
     */
     public function setStartTime(?DateTime $value): void {
@@ -316,7 +319,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Sets the totalBootTimeInMs property value. The user experience analytics device total boot time in milliseconds.
+     * Sets the totalBootTimeInMs property value. The device total boot time in milliseconds. Supports: $select, $OrderBy. Read-only.
      * @param int|null $value Value to set for the totalBootTimeInMs property.
     */
     public function setTotalBootTimeInMs(?int $value): void {
@@ -324,7 +327,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Sets the totalLoginTimeInMs property value. The user experience analytics device total login time in milliseconds.
+     * Sets the totalLoginTimeInMs property value. The device total login time in milliseconds. Supports: $select, $OrderBy. Read-only.
      * @param int|null $value Value to set for the totalLoginTimeInMs property.
     */
     public function setTotalLoginTimeInMs(?int $value): void {

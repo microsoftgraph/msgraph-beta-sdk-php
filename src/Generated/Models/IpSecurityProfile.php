@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IpSecurityProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new IpSecurityProfile and sets the default values.
+     * Instantiates a new ipSecurityProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

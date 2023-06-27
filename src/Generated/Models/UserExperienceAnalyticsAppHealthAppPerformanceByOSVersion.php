@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics application performance entity contains app performance details by OS version.
+*/
 class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion and sets the default values.
+     * Instantiates a new userExperienceAnalyticsAppHealthAppPerformanceByOSVersion and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -25,7 +28,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
     }
 
     /**
-     * Gets the activeDeviceCount property value. The number of devices where the app has been active. Valid values -2147483648 to 2147483647
+     * Gets the activeDeviceCount property value. The number of devices where the application has been active. Valid values 0 to 2147483647. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getActiveDeviceCount(): ?int {
@@ -33,7 +36,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
     }
 
     /**
-     * Gets the appCrashCount property value. The number of crashes for the app. Valid values -2147483648 to 2147483647
+     * Gets the appCrashCount property value. The number of crashes for the application. Valid values 0 to 2147483647. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getAppCrashCount(): ?int {
@@ -41,7 +44,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
     }
 
     /**
-     * Gets the appDisplayName property value. The friendly name of the application.
+     * Gets the appDisplayName property value. The friendly name of the application. Possible values are: Outlook, Excel. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getAppDisplayName(): ?string {
@@ -49,7 +52,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
     }
 
     /**
-     * Gets the appName property value. The name of the application.
+     * Gets the appName property value. The name of the application. Possible values are: outlook.exe, excel.exe. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getAppName(): ?string {
@@ -57,7 +60,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
     }
 
     /**
-     * Gets the appPublisher property value. The publisher of the application.
+     * Gets the appPublisher property value. The publisher of the application. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getAppPublisher(): ?string {
@@ -65,7 +68,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
     }
 
     /**
-     * Gets the appUsageDuration property value. The total usage time of the application in minutes. Valid values -2147483648 to 2147483647
+     * Gets the appUsageDuration property value. The total usage time of the application in minutes. Valid values 0 to 2147483647. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getAppUsageDuration(): ?int {
@@ -92,7 +95,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
     }
 
     /**
-     * Gets the meanTimeToFailureInMinutes property value. The mean time to failure for the app in minutes. Valid values -2147483648 to 2147483647
+     * Gets the meanTimeToFailureInMinutes property value. The mean time to failure for the application in minutes. Valid values 0 to 2147483647. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getMeanTimeToFailureInMinutes(): ?int {
@@ -100,7 +103,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
     }
 
     /**
-     * Gets the osBuildNumber property value. The os build number of the application.
+     * Gets the osBuildNumber property value. The OS build number of the application. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getOsBuildNumber(): ?string {
@@ -108,7 +111,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
     }
 
     /**
-     * Gets the osVersion property value. The os version of the application.
+     * Gets the osVersion property value. The OS version of the application. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getOsVersion(): ?string {
@@ -133,7 +136,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
     }
 
     /**
-     * Sets the activeDeviceCount property value. The number of devices where the app has been active. Valid values -2147483648 to 2147483647
+     * Sets the activeDeviceCount property value. The number of devices where the application has been active. Valid values 0 to 2147483647. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the activeDeviceCount property.
     */
     public function setActiveDeviceCount(?int $value): void {
@@ -141,7 +144,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
     }
 
     /**
-     * Sets the appCrashCount property value. The number of crashes for the app. Valid values -2147483648 to 2147483647
+     * Sets the appCrashCount property value. The number of crashes for the application. Valid values 0 to 2147483647. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the appCrashCount property.
     */
     public function setAppCrashCount(?int $value): void {
@@ -149,7 +152,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
     }
 
     /**
-     * Sets the appDisplayName property value. The friendly name of the application.
+     * Sets the appDisplayName property value. The friendly name of the application. Possible values are: Outlook, Excel. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the appDisplayName property.
     */
     public function setAppDisplayName(?string $value): void {
@@ -157,7 +160,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
     }
 
     /**
-     * Sets the appName property value. The name of the application.
+     * Sets the appName property value. The name of the application. Possible values are: outlook.exe, excel.exe. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the appName property.
     */
     public function setAppName(?string $value): void {
@@ -165,7 +168,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
     }
 
     /**
-     * Sets the appPublisher property value. The publisher of the application.
+     * Sets the appPublisher property value. The publisher of the application. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the appPublisher property.
     */
     public function setAppPublisher(?string $value): void {
@@ -173,7 +176,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
     }
 
     /**
-     * Sets the appUsageDuration property value. The total usage time of the application in minutes. Valid values -2147483648 to 2147483647
+     * Sets the appUsageDuration property value. The total usage time of the application in minutes. Valid values 0 to 2147483647. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the appUsageDuration property.
     */
     public function setAppUsageDuration(?int $value): void {
@@ -181,7 +184,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
     }
 
     /**
-     * Sets the meanTimeToFailureInMinutes property value. The mean time to failure for the app in minutes. Valid values -2147483648 to 2147483647
+     * Sets the meanTimeToFailureInMinutes property value. The mean time to failure for the application in minutes. Valid values 0 to 2147483647. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the meanTimeToFailureInMinutes property.
     */
     public function setMeanTimeToFailureInMinutes(?int $value): void {
@@ -189,7 +192,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
     }
 
     /**
-     * Sets the osBuildNumber property value. The os build number of the application.
+     * Sets the osBuildNumber property value. The OS build number of the application. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the osBuildNumber property.
     */
     public function setOsBuildNumber(?string $value): void {
@@ -197,7 +200,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
     }
 
     /**
-     * Sets the osVersion property value. The os version of the application.
+     * Sets the osVersion property value. The OS version of the application. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the osVersion property.
     */
     public function setOsVersion(?string $value): void {

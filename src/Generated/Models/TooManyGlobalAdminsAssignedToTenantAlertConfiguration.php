@@ -38,7 +38,7 @@ class TooManyGlobalAdminsAssignedToTenantAlertConfiguration extends UnifiedRoleM
     }
 
     /**
-     * Gets the globalAdminCountThreshold property value. The globalAdminCountThreshold property
+     * Gets the globalAdminCountThreshold property value. The threshold for the number of accounts assigned the Global Administrator role in the tenant. Triggers an alert if the number of global administrators in the tenant reaches or crosses this threshold value.
      * @return int|null
     */
     public function getGlobalAdminCountThreshold(): ?int {
@@ -46,7 +46,7 @@ class TooManyGlobalAdminsAssignedToTenantAlertConfiguration extends UnifiedRoleM
     }
 
     /**
-     * Gets the percentageOfGlobalAdminsOutOfRolesThreshold property value. The percentageOfGlobalAdminsOutOfRolesThreshold property
+     * Gets the percentageOfGlobalAdminsOutOfRolesThreshold property value. Threshold of the percentage of global administrators out of all the role assignments in the tenant. Triggers an alert if the percentage in the tenant reaches or crosses this threshold value.
      * @return int|null
     */
     public function getPercentageOfGlobalAdminsOutOfRolesThreshold(): ?int {
@@ -64,7 +64,7 @@ class TooManyGlobalAdminsAssignedToTenantAlertConfiguration extends UnifiedRoleM
     }
 
     /**
-     * Sets the globalAdminCountThreshold property value. The globalAdminCountThreshold property
+     * Sets the globalAdminCountThreshold property value. The threshold for the number of accounts assigned the Global Administrator role in the tenant. Triggers an alert if the number of global administrators in the tenant reaches or crosses this threshold value.
      * @param int|null $value Value to set for the globalAdminCountThreshold property.
     */
     public function setGlobalAdminCountThreshold(?int $value): void {
@@ -72,7 +72,7 @@ class TooManyGlobalAdminsAssignedToTenantAlertConfiguration extends UnifiedRoleM
     }
 
     /**
-     * Sets the percentageOfGlobalAdminsOutOfRolesThreshold property value. The percentageOfGlobalAdminsOutOfRolesThreshold property
+     * Sets the percentageOfGlobalAdminsOutOfRolesThreshold property value. Threshold of the percentage of global administrators out of all the role assignments in the tenant. Triggers an alert if the percentage in the tenant reaches or crosses this threshold value.
      * @param int|null $value Value to set for the percentageOfGlobalAdminsOutOfRolesThreshold property.
     */
     public function setPercentageOfGlobalAdminsOutOfRolesThreshold(?int $value): void {

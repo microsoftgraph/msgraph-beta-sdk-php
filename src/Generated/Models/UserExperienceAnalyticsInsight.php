@@ -93,7 +93,7 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the userExperienceAnalyticsMetricId property value. The unique identifier of the user experience analytics insight.
+     * Gets the userExperienceAnalyticsMetricId property value. The unique identifier of the user experience analytics metric.
      * @return string|null
     */
     public function getUserExperienceAnalyticsMetricId(): ?string {
@@ -162,7 +162,7 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the userExperienceAnalyticsMetricId property value. The unique identifier of the user experience analytics insight.
+     * Sets the userExperienceAnalyticsMetricId property value. The unique identifier of the user experience analytics metric.
      * @param string|null $value Value to set for the userExperienceAnalyticsMetricId property.
     */
     public function setUserExperienceAnalyticsMetricId(?string $value): void {

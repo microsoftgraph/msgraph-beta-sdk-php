@@ -18,7 +18,7 @@ class TenantContactInformation implements AdditionalDataHolder, BackedModel, Par
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new tenantContactInformation and sets the default values.
+     * Instantiates a new TenantContactInformation and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -54,7 +54,7 @@ class UserExperienceAnalyticsSettings implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Gets the configurationManagerDataConnectorConfigured property value. True if Tenant attach is configured. If configured then SCCM tenant attached devices will show up in UXA reporting.
+     * Gets the configurationManagerDataConnectorConfigured property value. When TRUE, indicates Tenant attach is configured properly and System Center Configuration Manager (SCCM) tenant attached devices will show up in endpoint analytics reporting. When FALSE, indicates Tenant attach is not configured. FALSE by default.
      * @return bool|null
     */
     public function getConfigurationManagerDataConnectorConfigured(): ?bool {
@@ -108,7 +108,7 @@ class UserExperienceAnalyticsSettings implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Sets the configurationManagerDataConnectorConfigured property value. True if Tenant attach is configured. If configured then SCCM tenant attached devices will show up in UXA reporting.
+     * Sets the configurationManagerDataConnectorConfigured property value. When TRUE, indicates Tenant attach is configured properly and System Center Configuration Manager (SCCM) tenant attached devices will show up in endpoint analytics reporting. When FALSE, indicates Tenant attach is not configured. FALSE by default.
      * @param bool|null $value Value to set for the configurationManagerDataConnectorConfigured property.
     */
     public function setConfigurationManagerDataConnectorConfigured(?bool $value): void {

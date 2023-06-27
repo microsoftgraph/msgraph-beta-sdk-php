@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Android Work Profile custom configuration
+*/
 class AndroidWorkProfileCustomConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new AndroidWorkProfileCustomConfiguration and sets the default values.
+     * Instantiates a new androidWorkProfileCustomConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

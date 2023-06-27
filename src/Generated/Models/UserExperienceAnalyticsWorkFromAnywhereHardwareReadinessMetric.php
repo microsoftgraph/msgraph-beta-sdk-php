@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric and sets the default values.
+     * Instantiates a new userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -46,7 +46,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
     }
 
     /**
-     * Gets the osCheckFailedPercentage property value. The percentage of devices for which OS check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the osCheckFailedPercentage property value. The percentage of devices for which OS check has failed. Valid values 0 to 100. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getOsCheckFailedPercentage(): ?float {
@@ -54,7 +54,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
     }
 
     /**
-     * Gets the processor64BitCheckFailedPercentage property value. The percentage of devices for which processor hardware 64-bit architecture check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the processor64BitCheckFailedPercentage property value. The percentage of devices for which processor hardware 64-bit architecture check has failed. Valid values 0 to 100. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getProcessor64BitCheckFailedPercentage(): ?float {
@@ -62,7 +62,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
     }
 
     /**
-     * Gets the processorCoreCountCheckFailedPercentage property value. The percentage of devices for which processor hardware core count check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the processorCoreCountCheckFailedPercentage property value. The percentage of devices for which processor hardware core count check has failed. Valid values 0 to 100. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getProcessorCoreCountCheckFailedPercentage(): ?float {
@@ -70,7 +70,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
     }
 
     /**
-     * Gets the processorFamilyCheckFailedPercentage property value. The percentage of devices for which processor hardware family check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the processorFamilyCheckFailedPercentage property value. The percentage of devices for which processor hardware family check has failed. Valid values 0 to 100. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getProcessorFamilyCheckFailedPercentage(): ?float {
@@ -78,7 +78,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
     }
 
     /**
-     * Gets the processorSpeedCheckFailedPercentage property value. The percentage of devices for which processor hardware speed check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the processorSpeedCheckFailedPercentage property value. The percentage of devices for which processor hardware speed check has failed. Valid values 0 to 100. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getProcessorSpeedCheckFailedPercentage(): ?float {
@@ -86,7 +86,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
     }
 
     /**
-     * Gets the ramCheckFailedPercentage property value. The percentage of devices for which RAM hardware check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the ramCheckFailedPercentage property value. The percentage of devices for which RAM hardware check has failed. Valid values 0 to 100. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getRamCheckFailedPercentage(): ?float {
@@ -94,7 +94,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
     }
 
     /**
-     * Gets the secureBootCheckFailedPercentage property value. The percentage of devices for which secure boot hardware check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the secureBootCheckFailedPercentage property value. The percentage of devices for which secure boot hardware check has failed. Valid values 0 to 100. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getSecureBootCheckFailedPercentage(): ?float {
@@ -102,7 +102,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
     }
 
     /**
-     * Gets the storageCheckFailedPercentage property value. The percentage of devices for which storage hardware check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the storageCheckFailedPercentage property value. The percentage of devices for which storage hardware check has failed. Valid values 0 to 100. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getStorageCheckFailedPercentage(): ?float {
@@ -110,7 +110,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
     }
 
     /**
-     * Gets the totalDeviceCount property value. The count of total devices in an organization. Valid values -2147483648 to 2147483647
+     * Gets the totalDeviceCount property value. The count of total devices in an organization. Valid values 0 to 2147483647. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getTotalDeviceCount(): ?int {
@@ -118,7 +118,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
     }
 
     /**
-     * Gets the tpmCheckFailedPercentage property value. The percentage of devices for which Trusted Platform Module (TPM) hardware check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the tpmCheckFailedPercentage property value. The percentage of devices for which Trusted Platform Module (TPM) hardware check has failed. Valid values 0 to 100. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getTpmCheckFailedPercentage(): ?float {
@@ -126,7 +126,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
     }
 
     /**
-     * Gets the upgradeEligibleDeviceCount property value. The count of devices in an organization eligible for windows upgrade. Valid values -2147483648 to 2147483647
+     * Gets the upgradeEligibleDeviceCount property value. The count of devices in an organization eligible for windows upgrade. Valid values 0 to 2147483647. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getUpgradeEligibleDeviceCount(): ?int {
@@ -153,7 +153,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
     }
 
     /**
-     * Sets the osCheckFailedPercentage property value. The percentage of devices for which OS check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the osCheckFailedPercentage property value. The percentage of devices for which OS check has failed. Valid values 0 to 100. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the osCheckFailedPercentage property.
     */
     public function setOsCheckFailedPercentage(?float $value): void {
@@ -161,7 +161,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
     }
 
     /**
-     * Sets the processor64BitCheckFailedPercentage property value. The percentage of devices for which processor hardware 64-bit architecture check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the processor64BitCheckFailedPercentage property value. The percentage of devices for which processor hardware 64-bit architecture check has failed. Valid values 0 to 100. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the processor64BitCheckFailedPercentage property.
     */
     public function setProcessor64BitCheckFailedPercentage(?float $value): void {
@@ -169,7 +169,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
     }
 
     /**
-     * Sets the processorCoreCountCheckFailedPercentage property value. The percentage of devices for which processor hardware core count check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the processorCoreCountCheckFailedPercentage property value. The percentage of devices for which processor hardware core count check has failed. Valid values 0 to 100. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the processorCoreCountCheckFailedPercentage property.
     */
     public function setProcessorCoreCountCheckFailedPercentage(?float $value): void {
@@ -177,7 +177,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
     }
 
     /**
-     * Sets the processorFamilyCheckFailedPercentage property value. The percentage of devices for which processor hardware family check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the processorFamilyCheckFailedPercentage property value. The percentage of devices for which processor hardware family check has failed. Valid values 0 to 100. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the processorFamilyCheckFailedPercentage property.
     */
     public function setProcessorFamilyCheckFailedPercentage(?float $value): void {
@@ -185,7 +185,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
     }
 
     /**
-     * Sets the processorSpeedCheckFailedPercentage property value. The percentage of devices for which processor hardware speed check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the processorSpeedCheckFailedPercentage property value. The percentage of devices for which processor hardware speed check has failed. Valid values 0 to 100. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the processorSpeedCheckFailedPercentage property.
     */
     public function setProcessorSpeedCheckFailedPercentage(?float $value): void {
@@ -193,7 +193,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
     }
 
     /**
-     * Sets the ramCheckFailedPercentage property value. The percentage of devices for which RAM hardware check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the ramCheckFailedPercentage property value. The percentage of devices for which RAM hardware check has failed. Valid values 0 to 100. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the ramCheckFailedPercentage property.
     */
     public function setRamCheckFailedPercentage(?float $value): void {
@@ -201,7 +201,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
     }
 
     /**
-     * Sets the secureBootCheckFailedPercentage property value. The percentage of devices for which secure boot hardware check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the secureBootCheckFailedPercentage property value. The percentage of devices for which secure boot hardware check has failed. Valid values 0 to 100. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the secureBootCheckFailedPercentage property.
     */
     public function setSecureBootCheckFailedPercentage(?float $value): void {
@@ -209,7 +209,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
     }
 
     /**
-     * Sets the storageCheckFailedPercentage property value. The percentage of devices for which storage hardware check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the storageCheckFailedPercentage property value. The percentage of devices for which storage hardware check has failed. Valid values 0 to 100. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the storageCheckFailedPercentage property.
     */
     public function setStorageCheckFailedPercentage(?float $value): void {
@@ -217,7 +217,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
     }
 
     /**
-     * Sets the totalDeviceCount property value. The count of total devices in an organization. Valid values -2147483648 to 2147483647
+     * Sets the totalDeviceCount property value. The count of total devices in an organization. Valid values 0 to 2147483647. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the totalDeviceCount property.
     */
     public function setTotalDeviceCount(?int $value): void {
@@ -225,7 +225,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
     }
 
     /**
-     * Sets the tpmCheckFailedPercentage property value. The percentage of devices for which Trusted Platform Module (TPM) hardware check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the tpmCheckFailedPercentage property value. The percentage of devices for which Trusted Platform Module (TPM) hardware check has failed. Valid values 0 to 100. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the tpmCheckFailedPercentage property.
     */
     public function setTpmCheckFailedPercentage(?float $value): void {
@@ -233,7 +233,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
     }
 
     /**
-     * Sets the upgradeEligibleDeviceCount property value. The count of devices in an organization eligible for windows upgrade. Valid values -2147483648 to 2147483647
+     * Sets the upgradeEligibleDeviceCount property value. The count of devices in an organization eligible for windows upgrade. Valid values 0 to 2147483647. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the upgradeEligibleDeviceCount property.
     */
     public function setUpgradeEligibleDeviceCount(?int $value): void {

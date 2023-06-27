@@ -59,7 +59,7 @@ class UserActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get activities from users
+     * The user's activities across devices. Read-only. Nullable.
      * @param UserActivityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -113,7 +113,7 @@ class UserActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get activities from users
+     * The user's activities across devices. Read-only. Nullable.
      * @param UserActivityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

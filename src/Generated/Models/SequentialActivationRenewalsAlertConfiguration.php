@@ -39,7 +39,7 @@ class SequentialActivationRenewalsAlertConfiguration extends UnifiedRoleManageme
     }
 
     /**
-     * Gets the sequentialActivationCounterThreshold property value. The sequentialActivationCounterThreshold property
+     * Gets the sequentialActivationCounterThreshold property value. The minimum number of activations within the timeIntervalBetweenActivations period to trigger an alert.
      * @return int|null
     */
     public function getSequentialActivationCounterThreshold(): ?int {
@@ -47,7 +47,7 @@ class SequentialActivationRenewalsAlertConfiguration extends UnifiedRoleManageme
     }
 
     /**
-     * Gets the timeIntervalBetweenActivations property value. The timeIntervalBetweenActivations property
+     * Gets the timeIntervalBetweenActivations property value. Time interval between activations to trigger an alert.
      * @return DateInterval|null
     */
     public function getTimeIntervalBetweenActivations(): ?DateInterval {
@@ -65,7 +65,7 @@ class SequentialActivationRenewalsAlertConfiguration extends UnifiedRoleManageme
     }
 
     /**
-     * Sets the sequentialActivationCounterThreshold property value. The sequentialActivationCounterThreshold property
+     * Sets the sequentialActivationCounterThreshold property value. The minimum number of activations within the timeIntervalBetweenActivations period to trigger an alert.
      * @param int|null $value Value to set for the sequentialActivationCounterThreshold property.
     */
     public function setSequentialActivationCounterThreshold(?int $value): void {
@@ -73,7 +73,7 @@ class SequentialActivationRenewalsAlertConfiguration extends UnifiedRoleManageme
     }
 
     /**
-     * Sets the timeIntervalBetweenActivations property value. The timeIntervalBetweenActivations property
+     * Sets the timeIntervalBetweenActivations property value. Time interval between activations to trigger an alert.
      * @param DateInterval|null $value Value to set for the timeIntervalBetweenActivations property.
     */
     public function setTimeIntervalBetweenActivations(?DateInterval $value): void {

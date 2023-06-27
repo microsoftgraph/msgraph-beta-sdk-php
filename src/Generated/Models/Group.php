@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Group extends DirectoryObject implements Parsable 
 {
     /**
-     * Instantiates a new Group and sets the default values.
+     * Instantiates a new group and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -364,7 +364,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the isManagementRestricted property value. Indicates whether the group is a member of a restricted management administrative unit, in which case it requires a role scoped to the restricted administrative unit to manage. Default value is false. Read-only.
+     * Gets the isManagementRestricted property value. Indicates whether the group is a member of a restricted management administrative unit, in which case it requires a role scoped to the restricted administrative unit to manage. Default value is false. Read-only.  To manage a group that's a member of a restricted administrative unit, the calling app must be assigned the Directory.Write.Restricted permission. For delegated scenarios, the administrators must also be explicitly assigned supported roles at the restricted administrative unit scope.
      * @return bool|null
     */
     public function getIsManagementRestricted(): ?bool {
@@ -1083,7 +1083,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the isManagementRestricted property value. Indicates whether the group is a member of a restricted management administrative unit, in which case it requires a role scoped to the restricted administrative unit to manage. Default value is false. Read-only.
+     * Sets the isManagementRestricted property value. Indicates whether the group is a member of a restricted management administrative unit, in which case it requires a role scoped to the restricted administrative unit to manage. Default value is false. Read-only.  To manage a group that's a member of a restricted administrative unit, the calling app must be assigned the Directory.Write.Restricted permission. For delegated scenarios, the administrators must also be explicitly assigned supported roles at the restricted administrative unit scope.
      * @param bool|null $value Value to set for the isManagementRestricted property.
     */
     public function setIsManagementRestricted(?bool $value): void {

@@ -27,7 +27,7 @@ class RedundantAssignmentAlertConfiguration extends UnifiedRoleManagementAlertCo
     }
 
     /**
-     * Gets the duration property value. The duration property
+     * Gets the duration property value. The number of days without activation to look back on from current timestamp.
      * @return DateInterval|null
     */
     public function getDuration(): ?DateInterval {
@@ -55,7 +55,7 @@ class RedundantAssignmentAlertConfiguration extends UnifiedRoleManagementAlertCo
     }
 
     /**
-     * Sets the duration property value. The duration property
+     * Sets the duration property value. The number of days without activation to look back on from current timestamp.
      * @param DateInterval|null $value Value to set for the duration property.
     */
     public function setDuration(?DateInterval $value): void {

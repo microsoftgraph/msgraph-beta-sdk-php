@@ -40,7 +40,7 @@ class UserExperienceAnalyticsMetric extends Entity implements Parsable
     }
 
     /**
-     * Gets the unit property value. The unit of the user experience analytics metric.
+     * Gets the unit property value. The unit of the user experience analytics metric. Examples: none, percentage, count, seconds, score.
      * @return string|null
     */
     public function getUnit(): ?string {
@@ -66,7 +66,7 @@ class UserExperienceAnalyticsMetric extends Entity implements Parsable
     }
 
     /**
-     * Sets the unit property value. The unit of the user experience analytics metric.
+     * Sets the unit property value. The unit of the user experience analytics metric. Examples: none, percentage, count, seconds, score.
      * @param string|null $value Value to set for the unit property.
     */
     public function setUnit(?string $value): void {

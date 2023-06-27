@@ -42,7 +42,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceState property value. Computer's state (like clean or pending full scan or pending reboot etc). Possible values are: clean, fullScanPending, rebootPending, manualStepsPending, offlineScanPending, critical.
+     * Gets the deviceState property value. Indicates device's health state. Possible values are: clean, fullScanPending, rebootPending, manualStepsPending, offlineScanPending, critical. Possible values are: clean, fullScanPending, rebootPending, manualStepsPending, offlineScanPending, critical.
      * @return WindowsDeviceHealthState|null
     */
     public function getDeviceState(): ?WindowsDeviceHealthState {
@@ -89,7 +89,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Gets the fullScanOverdue property value. Full scan overdue or not?
+     * Gets the fullScanOverdue property value. When TRUE indicates full scan is overdue, when FALSE indicates full scan is not overdue. Defaults to setting on client device.
      * @return bool|null
     */
     public function getFullScanOverdue(): ?bool {
@@ -97,7 +97,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Gets the fullScanRequired property value. Full scan required or not?
+     * Gets the fullScanRequired property value. When TRUE indicates full scan is required, when FALSE indicates full scan is not required. Defaults to setting on client device.
      * @return bool|null
     */
     public function getFullScanRequired(): ?bool {
@@ -105,7 +105,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Gets the isVirtualMachine property value. Indicates whether the device is a virtual machine.
+     * Gets the isVirtualMachine property value. When TRUE indicates the device is a virtual machine, when FALSE indicates the device is not a virtual machine. Defaults to setting on client device.
      * @return bool|null
     */
     public function getIsVirtualMachine(): ?bool {
@@ -153,7 +153,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Gets the malwareProtectionEnabled property value. Anti malware is enabled or not
+     * Gets the malwareProtectionEnabled property value. When TRUE indicates anti malware is enabled when FALSE indicates anti malware is not enabled.
      * @return bool|null
     */
     public function getMalwareProtectionEnabled(): ?bool {
@@ -161,7 +161,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Gets the networkInspectionSystemEnabled property value. Network inspection system enabled or not?
+     * Gets the networkInspectionSystemEnabled property value. When TRUE indicates network inspection system enabled, when FALSE indicates network inspection system is not enabled. Defaults to setting on client device.
      * @return bool|null
     */
     public function getNetworkInspectionSystemEnabled(): ?bool {
@@ -169,7 +169,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Gets the productStatus property value. Product Status of Windows Defender Antivirus. Possible values are: noStatus, serviceNotRunning, serviceStartedWithoutMalwareProtection, pendingFullScanDueToThreatAction, pendingRebootDueToThreatAction, pendingManualStepsDueToThreatAction, avSignaturesOutOfDate, asSignaturesOutOfDate, noQuickScanHappenedForSpecifiedPeriod, noFullScanHappenedForSpecifiedPeriod, systemInitiatedScanInProgress, systemInitiatedCleanInProgress, samplesPendingSubmission, productRunningInEvaluationMode, productRunningInNonGenuineMode, productExpired, offlineScanRequired, serviceShutdownAsPartOfSystemShutdown, threatRemediationFailedCritically, threatRemediationFailedNonCritically, noStatusFlagsSet, platformOutOfDate, platformUpdateInProgress, platformAboutToBeOutdated, signatureOrPlatformEndOfLifeIsPastOrIsImpending, windowsSModeSignaturesInUseOnNonWin10SInstall.
+     * Gets the productStatus property value. Product Status of Windows Defender Antivirus. Possible values are: noStatus, serviceNotRunning, serviceStartedWithoutMalwareProtection, pendingFullScanDueToThreatAction, pendingRebootDueToThreatAction, pendingManualStepsDueToThreatAction, avSignaturesOutOfDate, asSignaturesOutOfDate, noQuickScanHappenedForSpecifiedPeriod, noFullScanHappenedForSpecifiedPeriod, systemInitiatedScanInProgress, systemInitiatedCleanInProgress, samplesPendingSubmission, productRunningInEvaluationMode, productRunningInNonGenuineMode, productExpired, offlineScanRequired, serviceShutdownAsPartOfSystemShutdown, threatRemediationFailedCritically, threatRemediationFailedNonCritically, noStatusFlagsSet, platformOutOfDate, platformUpdateInProgress, platformAboutToBeOutdated, signatureOrPlatformEndOfLifeIsPastOrIsImpending, windowsSModeSignaturesInUseOnNonWin10SInstall. Possible values are: noStatus, serviceNotRunning, serviceStartedWithoutMalwareProtection, pendingFullScanDueToThreatAction, pendingRebootDueToThreatAction, pendingManualStepsDueToThreatAction, avSignaturesOutOfDate, asSignaturesOutOfDate, noQuickScanHappenedForSpecifiedPeriod, noFullScanHappenedForSpecifiedPeriod, systemInitiatedScanInProgress, systemInitiatedCleanInProgress, samplesPendingSubmission, productRunningInEvaluationMode, productRunningInNonGenuineMode, productExpired, offlineScanRequired, serviceShutdownAsPartOfSystemShutdown, threatRemediationFailedCritically, threatRemediationFailedNonCritically, noStatusFlagsSet, platformOutOfDate, platformUpdateInProgress, platformAboutToBeOutdated, signatureOrPlatformEndOfLifeIsPastOrIsImpending, windowsSModeSignaturesInUseOnNonWin10SInstall.
      * @return WindowsDefenderProductStatus|null
     */
     public function getProductStatus(): ?WindowsDefenderProductStatus {
@@ -177,7 +177,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Gets the quickScanOverdue property value. Quick scan overdue or not?
+     * Gets the quickScanOverdue property value. When TRUE indicates quick scan is overdue, when FALSE indicates quick scan is not overdue. Defaults to setting on client device.
      * @return bool|null
     */
     public function getQuickScanOverdue(): ?bool {
@@ -185,7 +185,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Gets the realTimeProtectionEnabled property value. Real time protection is enabled or not?
+     * Gets the realTimeProtectionEnabled property value. When TRUE indicates real time protection is enabled, when FALSE indicates real time protection is not enabled. Defaults to setting on client device.
      * @return bool|null
     */
     public function getRealTimeProtectionEnabled(): ?bool {
@@ -193,7 +193,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Gets the rebootRequired property value. Reboot required or not?
+     * Gets the rebootRequired property value. When TRUE indicates reboot is required, when FALSE indicates when TRUE indicates reboot is not required. Defaults to setting on client device.
      * @return bool|null
     */
     public function getRebootRequired(): ?bool {
@@ -201,7 +201,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Gets the signatureUpdateOverdue property value. Signature out of date or not?
+     * Gets the signatureUpdateOverdue property value. When TRUE indicates signature is out of date, when FALSE indicates signature is not out of date. Defaults to setting on client device.
      * @return bool|null
     */
     public function getSignatureUpdateOverdue(): ?bool {
@@ -217,7 +217,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Gets the tamperProtectionEnabled property value. Indicates whether the Windows Defender tamper protection feature is enabled.
+     * Gets the tamperProtectionEnabled property value. When TRUE indicates the Windows Defender tamper protection feature is enabled, when FALSE indicates the Windows Defender tamper protection feature is not enabled. Defaults to setting on client device.
      * @return bool|null
     */
     public function getTamperProtectionEnabled(): ?bool {
@@ -270,7 +270,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceState property value. Computer's state (like clean or pending full scan or pending reboot etc). Possible values are: clean, fullScanPending, rebootPending, manualStepsPending, offlineScanPending, critical.
+     * Sets the deviceState property value. Indicates device's health state. Possible values are: clean, fullScanPending, rebootPending, manualStepsPending, offlineScanPending, critical. Possible values are: clean, fullScanPending, rebootPending, manualStepsPending, offlineScanPending, critical.
      * @param WindowsDeviceHealthState|null $value Value to set for the deviceState property.
     */
     public function setDeviceState(?WindowsDeviceHealthState $value): void {
@@ -286,7 +286,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the fullScanOverdue property value. Full scan overdue or not?
+     * Sets the fullScanOverdue property value. When TRUE indicates full scan is overdue, when FALSE indicates full scan is not overdue. Defaults to setting on client device.
      * @param bool|null $value Value to set for the fullScanOverdue property.
     */
     public function setFullScanOverdue(?bool $value): void {
@@ -294,7 +294,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the fullScanRequired property value. Full scan required or not?
+     * Sets the fullScanRequired property value. When TRUE indicates full scan is required, when FALSE indicates full scan is not required. Defaults to setting on client device.
      * @param bool|null $value Value to set for the fullScanRequired property.
     */
     public function setFullScanRequired(?bool $value): void {
@@ -302,7 +302,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the isVirtualMachine property value. Indicates whether the device is a virtual machine.
+     * Sets the isVirtualMachine property value. When TRUE indicates the device is a virtual machine, when FALSE indicates the device is not a virtual machine. Defaults to setting on client device.
      * @param bool|null $value Value to set for the isVirtualMachine property.
     */
     public function setIsVirtualMachine(?bool $value): void {
@@ -350,7 +350,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the malwareProtectionEnabled property value. Anti malware is enabled or not
+     * Sets the malwareProtectionEnabled property value. When TRUE indicates anti malware is enabled when FALSE indicates anti malware is not enabled.
      * @param bool|null $value Value to set for the malwareProtectionEnabled property.
     */
     public function setMalwareProtectionEnabled(?bool $value): void {
@@ -358,7 +358,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the networkInspectionSystemEnabled property value. Network inspection system enabled or not?
+     * Sets the networkInspectionSystemEnabled property value. When TRUE indicates network inspection system enabled, when FALSE indicates network inspection system is not enabled. Defaults to setting on client device.
      * @param bool|null $value Value to set for the networkInspectionSystemEnabled property.
     */
     public function setNetworkInspectionSystemEnabled(?bool $value): void {
@@ -366,7 +366,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the productStatus property value. Product Status of Windows Defender Antivirus. Possible values are: noStatus, serviceNotRunning, serviceStartedWithoutMalwareProtection, pendingFullScanDueToThreatAction, pendingRebootDueToThreatAction, pendingManualStepsDueToThreatAction, avSignaturesOutOfDate, asSignaturesOutOfDate, noQuickScanHappenedForSpecifiedPeriod, noFullScanHappenedForSpecifiedPeriod, systemInitiatedScanInProgress, systemInitiatedCleanInProgress, samplesPendingSubmission, productRunningInEvaluationMode, productRunningInNonGenuineMode, productExpired, offlineScanRequired, serviceShutdownAsPartOfSystemShutdown, threatRemediationFailedCritically, threatRemediationFailedNonCritically, noStatusFlagsSet, platformOutOfDate, platformUpdateInProgress, platformAboutToBeOutdated, signatureOrPlatformEndOfLifeIsPastOrIsImpending, windowsSModeSignaturesInUseOnNonWin10SInstall.
+     * Sets the productStatus property value. Product Status of Windows Defender Antivirus. Possible values are: noStatus, serviceNotRunning, serviceStartedWithoutMalwareProtection, pendingFullScanDueToThreatAction, pendingRebootDueToThreatAction, pendingManualStepsDueToThreatAction, avSignaturesOutOfDate, asSignaturesOutOfDate, noQuickScanHappenedForSpecifiedPeriod, noFullScanHappenedForSpecifiedPeriod, systemInitiatedScanInProgress, systemInitiatedCleanInProgress, samplesPendingSubmission, productRunningInEvaluationMode, productRunningInNonGenuineMode, productExpired, offlineScanRequired, serviceShutdownAsPartOfSystemShutdown, threatRemediationFailedCritically, threatRemediationFailedNonCritically, noStatusFlagsSet, platformOutOfDate, platformUpdateInProgress, platformAboutToBeOutdated, signatureOrPlatformEndOfLifeIsPastOrIsImpending, windowsSModeSignaturesInUseOnNonWin10SInstall. Possible values are: noStatus, serviceNotRunning, serviceStartedWithoutMalwareProtection, pendingFullScanDueToThreatAction, pendingRebootDueToThreatAction, pendingManualStepsDueToThreatAction, avSignaturesOutOfDate, asSignaturesOutOfDate, noQuickScanHappenedForSpecifiedPeriod, noFullScanHappenedForSpecifiedPeriod, systemInitiatedScanInProgress, systemInitiatedCleanInProgress, samplesPendingSubmission, productRunningInEvaluationMode, productRunningInNonGenuineMode, productExpired, offlineScanRequired, serviceShutdownAsPartOfSystemShutdown, threatRemediationFailedCritically, threatRemediationFailedNonCritically, noStatusFlagsSet, platformOutOfDate, platformUpdateInProgress, platformAboutToBeOutdated, signatureOrPlatformEndOfLifeIsPastOrIsImpending, windowsSModeSignaturesInUseOnNonWin10SInstall.
      * @param WindowsDefenderProductStatus|null $value Value to set for the productStatus property.
     */
     public function setProductStatus(?WindowsDefenderProductStatus $value): void {
@@ -374,7 +374,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the quickScanOverdue property value. Quick scan overdue or not?
+     * Sets the quickScanOverdue property value. When TRUE indicates quick scan is overdue, when FALSE indicates quick scan is not overdue. Defaults to setting on client device.
      * @param bool|null $value Value to set for the quickScanOverdue property.
     */
     public function setQuickScanOverdue(?bool $value): void {
@@ -382,7 +382,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the realTimeProtectionEnabled property value. Real time protection is enabled or not?
+     * Sets the realTimeProtectionEnabled property value. When TRUE indicates real time protection is enabled, when FALSE indicates real time protection is not enabled. Defaults to setting on client device.
      * @param bool|null $value Value to set for the realTimeProtectionEnabled property.
     */
     public function setRealTimeProtectionEnabled(?bool $value): void {
@@ -390,7 +390,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the rebootRequired property value. Reboot required or not?
+     * Sets the rebootRequired property value. When TRUE indicates reboot is required, when FALSE indicates when TRUE indicates reboot is not required. Defaults to setting on client device.
      * @param bool|null $value Value to set for the rebootRequired property.
     */
     public function setRebootRequired(?bool $value): void {
@@ -398,7 +398,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the signatureUpdateOverdue property value. Signature out of date or not?
+     * Sets the signatureUpdateOverdue property value. When TRUE indicates signature is out of date, when FALSE indicates signature is not out of date. Defaults to setting on client device.
      * @param bool|null $value Value to set for the signatureUpdateOverdue property.
     */
     public function setSignatureUpdateOverdue(?bool $value): void {
@@ -414,7 +414,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the tamperProtectionEnabled property value. Indicates whether the Windows Defender tamper protection feature is enabled.
+     * Sets the tamperProtectionEnabled property value. When TRUE indicates the Windows Defender tamper protection feature is enabled, when FALSE indicates the Windows Defender tamper protection feature is not enabled. Defaults to setting on client device.
      * @param bool|null $value Value to set for the tamperProtectionEnabled property.
     */
     public function setTamperProtectionEnabled(?bool $value): void {

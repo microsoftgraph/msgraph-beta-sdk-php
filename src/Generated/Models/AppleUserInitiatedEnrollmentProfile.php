@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The enrollmentProfile resource represents a collection of configurations which must be provided pre-enrollment to enable enrolling certain devices whose identities have been pre-staged. Pre-staged device identities are assigned to this type of profile to apply the profile's configurations at enrollment of the corresponding device.
+*/
 class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AppleUserInitiatedEnrollmentProfile and sets the default values.
+     * Instantiates a new appleUserInitiatedEnrollmentProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

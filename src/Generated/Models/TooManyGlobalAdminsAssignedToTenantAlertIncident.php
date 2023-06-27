@@ -26,7 +26,7 @@ class TooManyGlobalAdminsAssignedToTenantAlertIncident extends UnifiedRoleManage
     }
 
     /**
-     * Gets the assigneeDisplayName property value. The assigneeDisplayName property
+     * Gets the assigneeDisplayName property value. Display name of the subject that the incident applies to.
      * @return string|null
     */
     public function getAssigneeDisplayName(): ?string {
@@ -34,7 +34,7 @@ class TooManyGlobalAdminsAssignedToTenantAlertIncident extends UnifiedRoleManage
     }
 
     /**
-     * Gets the assigneeId property value. The assigneeId property
+     * Gets the assigneeId property value. The identifier of the subject that the incident applies to.
      * @return string|null
     */
     public function getAssigneeId(): ?string {
@@ -42,7 +42,7 @@ class TooManyGlobalAdminsAssignedToTenantAlertIncident extends UnifiedRoleManage
     }
 
     /**
-     * Gets the assigneeUserPrincipalName property value. The assigneeUserPrincipalName property
+     * Gets the assigneeUserPrincipalName property value. User principal name of the subject that the incident applies to. Applies to user principals.
      * @return string|null
     */
     public function getAssigneeUserPrincipalName(): ?string {
@@ -74,7 +74,7 @@ class TooManyGlobalAdminsAssignedToTenantAlertIncident extends UnifiedRoleManage
     }
 
     /**
-     * Sets the assigneeDisplayName property value. The assigneeDisplayName property
+     * Sets the assigneeDisplayName property value. Display name of the subject that the incident applies to.
      * @param string|null $value Value to set for the assigneeDisplayName property.
     */
     public function setAssigneeDisplayName(?string $value): void {
@@ -82,7 +82,7 @@ class TooManyGlobalAdminsAssignedToTenantAlertIncident extends UnifiedRoleManage
     }
 
     /**
-     * Sets the assigneeId property value. The assigneeId property
+     * Sets the assigneeId property value. The identifier of the subject that the incident applies to.
      * @param string|null $value Value to set for the assigneeId property.
     */
     public function setAssigneeId(?string $value): void {
@@ -90,7 +90,7 @@ class TooManyGlobalAdminsAssignedToTenantAlertIncident extends UnifiedRoleManage
     }
 
     /**
-     * Sets the assigneeUserPrincipalName property value. The assigneeUserPrincipalName property
+     * Sets the assigneeUserPrincipalName property value. User principal name of the subject that the incident applies to. Applies to user principals.
      * @param string|null $value Value to set for the assigneeUserPrincipalName property.
     */
     public function setAssigneeUserPrincipalName(?string $value): void {

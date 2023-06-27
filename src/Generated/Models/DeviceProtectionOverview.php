@@ -54,7 +54,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the cleanDeviceCount property value. Clean device count.
+     * Gets the cleanDeviceCount property value. Indicates number of devices reporting as clean
      * @return int|null
     */
     public function getCleanDeviceCount(): ?int {
@@ -62,7 +62,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the criticalFailuresDeviceCount property value. Critical failures device count.
+     * Gets the criticalFailuresDeviceCount property value. Indicates number of devices with critical failures
      * @return int|null
     */
     public function getCriticalFailuresDeviceCount(): ?int {
@@ -92,7 +92,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the inactiveThreatAgentDeviceCount property value. Device with inactive threat agent count
+     * Gets the inactiveThreatAgentDeviceCount property value. Indicates number of devices with inactive threat agent
      * @return int|null
     */
     public function getInactiveThreatAgentDeviceCount(): ?int {
@@ -108,7 +108,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the pendingFullScanDeviceCount property value. Pending full scan device count.
+     * Gets the pendingFullScanDeviceCount property value. Indicates number of devices pending full scan
      * @return int|null
     */
     public function getPendingFullScanDeviceCount(): ?int {
@@ -116,7 +116,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the pendingManualStepsDeviceCount property value. Pending manual steps device count.
+     * Gets the pendingManualStepsDeviceCount property value. Indicates number of devices with pending manual steps
      * @return int|null
     */
     public function getPendingManualStepsDeviceCount(): ?int {
@@ -124,7 +124,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the pendingOfflineScanDeviceCount property value. Pending offline scan device count.
+     * Gets the pendingOfflineScanDeviceCount property value. Indicates number of pending offline scan devices
      * @return int|null
     */
     public function getPendingOfflineScanDeviceCount(): ?int {
@@ -132,7 +132,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the pendingQuickScanDeviceCount property value. Pending quick scan device count. Valid values -2147483648 to 2147483647
+     * Gets the pendingQuickScanDeviceCount property value. Indicates the number of devices that have a pending full scan. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getPendingQuickScanDeviceCount(): ?int {
@@ -140,7 +140,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the pendingRestartDeviceCount property value. Pending restart device count.
+     * Gets the pendingRestartDeviceCount property value. Indicates number of devices pending restart
      * @return int|null
     */
     public function getPendingRestartDeviceCount(): ?int {
@@ -148,7 +148,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the pendingSignatureUpdateDeviceCount property value. Device with old signature count.
+     * Gets the pendingSignatureUpdateDeviceCount property value. Indicates number of devices with an old signature
      * @return int|null
     */
     public function getPendingSignatureUpdateDeviceCount(): ?int {
@@ -164,7 +164,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the unknownStateThreatAgentDeviceCount property value. Device with threat agent state as unknown count.
+     * Gets the unknownStateThreatAgentDeviceCount property value. Indicates number of devices with threat agent state as unknown
      * @return int|null
     */
     public function getUnknownStateThreatAgentDeviceCount(): ?int {
@@ -208,7 +208,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the cleanDeviceCount property value. Clean device count.
+     * Sets the cleanDeviceCount property value. Indicates number of devices reporting as clean
      * @param int|null $value Value to set for the cleanDeviceCount property.
     */
     public function setCleanDeviceCount(?int $value): void {
@@ -216,7 +216,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the criticalFailuresDeviceCount property value. Critical failures device count.
+     * Sets the criticalFailuresDeviceCount property value. Indicates number of devices with critical failures
      * @param int|null $value Value to set for the criticalFailuresDeviceCount property.
     */
     public function setCriticalFailuresDeviceCount(?int $value): void {
@@ -224,7 +224,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the inactiveThreatAgentDeviceCount property value. Device with inactive threat agent count
+     * Sets the inactiveThreatAgentDeviceCount property value. Indicates number of devices with inactive threat agent
      * @param int|null $value Value to set for the inactiveThreatAgentDeviceCount property.
     */
     public function setInactiveThreatAgentDeviceCount(?int $value): void {
@@ -240,7 +240,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the pendingFullScanDeviceCount property value. Pending full scan device count.
+     * Sets the pendingFullScanDeviceCount property value. Indicates number of devices pending full scan
      * @param int|null $value Value to set for the pendingFullScanDeviceCount property.
     */
     public function setPendingFullScanDeviceCount(?int $value): void {
@@ -248,7 +248,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the pendingManualStepsDeviceCount property value. Pending manual steps device count.
+     * Sets the pendingManualStepsDeviceCount property value. Indicates number of devices with pending manual steps
      * @param int|null $value Value to set for the pendingManualStepsDeviceCount property.
     */
     public function setPendingManualStepsDeviceCount(?int $value): void {
@@ -256,7 +256,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the pendingOfflineScanDeviceCount property value. Pending offline scan device count.
+     * Sets the pendingOfflineScanDeviceCount property value. Indicates number of pending offline scan devices
      * @param int|null $value Value to set for the pendingOfflineScanDeviceCount property.
     */
     public function setPendingOfflineScanDeviceCount(?int $value): void {
@@ -264,7 +264,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the pendingQuickScanDeviceCount property value. Pending quick scan device count. Valid values -2147483648 to 2147483647
+     * Sets the pendingQuickScanDeviceCount property value. Indicates the number of devices that have a pending full scan. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the pendingQuickScanDeviceCount property.
     */
     public function setPendingQuickScanDeviceCount(?int $value): void {
@@ -272,7 +272,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the pendingRestartDeviceCount property value. Pending restart device count.
+     * Sets the pendingRestartDeviceCount property value. Indicates number of devices pending restart
      * @param int|null $value Value to set for the pendingRestartDeviceCount property.
     */
     public function setPendingRestartDeviceCount(?int $value): void {
@@ -280,7 +280,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the pendingSignatureUpdateDeviceCount property value. Device with old signature count.
+     * Sets the pendingSignatureUpdateDeviceCount property value. Indicates number of devices with an old signature
      * @param int|null $value Value to set for the pendingSignatureUpdateDeviceCount property.
     */
     public function setPendingSignatureUpdateDeviceCount(?int $value): void {
@@ -296,7 +296,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the unknownStateThreatAgentDeviceCount property value. Device with threat agent state as unknown count.
+     * Sets the unknownStateThreatAgentDeviceCount property value. Indicates number of devices with threat agent state as unknown
      * @param int|null $value Value to set for the unknownStateThreatAgentDeviceCount property.
     */
     public function setUnknownStateThreatAgentDeviceCount(?int $value): void {

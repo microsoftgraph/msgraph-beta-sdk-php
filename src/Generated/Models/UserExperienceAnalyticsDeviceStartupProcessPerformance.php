@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics device startup process performance.
+*/
 class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsDeviceStartupProcessPerformance and sets the default values.
+     * Instantiates a new userExperienceAnalyticsDeviceStartupProcessPerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -25,7 +28,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
     }
 
     /**
-     * Gets the deviceCount property value. User experience analytics device startup process summarized count.
+     * Gets the deviceCount property value. The count of devices which initiated this process on startup. Supports: $filter, $select, $OrderBy. Read-only.
      * @return int|null
     */
     public function getDeviceCount(): ?int {
@@ -51,7 +54,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
     }
 
     /**
-     * Gets the medianImpactInMs property value. User experience analytics device startup process median impact in milliseconds.
+     * Gets the medianImpactInMs property value. The median impact of startup process on device boot time in milliseconds. Supports: $filter, $select, $OrderBy. Read-only.
      * @return int|null
     */
     public function getMedianImpactInMs(): ?int {
@@ -59,7 +62,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
     }
 
     /**
-     * Gets the medianImpactInMs2 property value. User experience analytics device startup process median impact in milliseconds.
+     * Gets the medianImpactInMs2 property value. The median impact of startup process on device boot time in milliseconds. Supports: $filter, $select, $OrderBy. Read-only.
      * @return int|null
     */
     public function getMedianImpactInMs2(): ?int {
@@ -67,7 +70,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
     }
 
     /**
-     * Gets the processName property value. User experience analytics device startup process name.
+     * Gets the processName property value. The name of the startup process. Examples: outlook, excel. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getProcessName(): ?string {
@@ -75,7 +78,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
     }
 
     /**
-     * Gets the productName property value. The user experience analytics device startup process product name.
+     * Gets the productName property value. The product name of the startup process. Examples: Microsoft Outlook, Microsoft Excel. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getProductName(): ?string {
@@ -83,7 +86,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
     }
 
     /**
-     * Gets the publisher property value. The User experience analytics device startup process publisher.
+     * Gets the publisher property value. The publisher of the startup process. Examples: Microsoft Corporation, Contoso Corp. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getPublisher(): ?string {
@@ -91,7 +94,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
     }
 
     /**
-     * Gets the totalImpactInMs property value. User experience analytics device startup process total impact in milliseconds.
+     * Gets the totalImpactInMs property value. The total impact of startup process on device boot time in milliseconds. Supports: $filter, $select, $OrderBy. Read-only.
      * @return int|null
     */
     public function getTotalImpactInMs(): ?int {
@@ -99,7 +102,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
     }
 
     /**
-     * Gets the totalImpactInMs2 property value. User experience analytics device startup process total impact in milliseconds.
+     * Gets the totalImpactInMs2 property value. The total impact of startup process on device boot time in milliseconds. Supports: $filter, $select, $OrderBy. Read-only.
      * @return int|null
     */
     public function getTotalImpactInMs2(): ?int {
@@ -123,7 +126,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
     }
 
     /**
-     * Sets the deviceCount property value. User experience analytics device startup process summarized count.
+     * Sets the deviceCount property value. The count of devices which initiated this process on startup. Supports: $filter, $select, $OrderBy. Read-only.
      * @param int|null $value Value to set for the deviceCount property.
     */
     public function setDeviceCount(?int $value): void {
@@ -131,7 +134,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
     }
 
     /**
-     * Sets the medianImpactInMs property value. User experience analytics device startup process median impact in milliseconds.
+     * Sets the medianImpactInMs property value. The median impact of startup process on device boot time in milliseconds. Supports: $filter, $select, $OrderBy. Read-only.
      * @param int|null $value Value to set for the medianImpactInMs property.
     */
     public function setMedianImpactInMs(?int $value): void {
@@ -139,7 +142,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
     }
 
     /**
-     * Sets the medianImpactInMs2 property value. User experience analytics device startup process median impact in milliseconds.
+     * Sets the medianImpactInMs2 property value. The median impact of startup process on device boot time in milliseconds. Supports: $filter, $select, $OrderBy. Read-only.
      * @param int|null $value Value to set for the medianImpactInMs2 property.
     */
     public function setMedianImpactInMs2(?int $value): void {
@@ -147,7 +150,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
     }
 
     /**
-     * Sets the processName property value. User experience analytics device startup process name.
+     * Sets the processName property value. The name of the startup process. Examples: outlook, excel. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the processName property.
     */
     public function setProcessName(?string $value): void {
@@ -155,7 +158,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
     }
 
     /**
-     * Sets the productName property value. The user experience analytics device startup process product name.
+     * Sets the productName property value. The product name of the startup process. Examples: Microsoft Outlook, Microsoft Excel. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the productName property.
     */
     public function setProductName(?string $value): void {
@@ -163,7 +166,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
     }
 
     /**
-     * Sets the publisher property value. The User experience analytics device startup process publisher.
+     * Sets the publisher property value. The publisher of the startup process. Examples: Microsoft Corporation, Contoso Corp. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the publisher property.
     */
     public function setPublisher(?string $value): void {
@@ -171,7 +174,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
     }
 
     /**
-     * Sets the totalImpactInMs property value. User experience analytics device startup process total impact in milliseconds.
+     * Sets the totalImpactInMs property value. The total impact of startup process on device boot time in milliseconds. Supports: $filter, $select, $OrderBy. Read-only.
      * @param int|null $value Value to set for the totalImpactInMs property.
     */
     public function setTotalImpactInMs(?int $value): void {
@@ -179,7 +182,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
     }
 
     /**
-     * Sets the totalImpactInMs2 property value. User experience analytics device startup process total impact in milliseconds.
+     * Sets the totalImpactInMs2 property value. The total impact of startup process on device boot time in milliseconds. Supports: $filter, $select, $OrderBy. Read-only.
      * @param int|null $value Value to set for the totalImpactInMs2 property.
     */
     public function setTotalImpactInMs2(?int $value): void {

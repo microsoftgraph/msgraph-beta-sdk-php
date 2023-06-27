@@ -54,7 +54,7 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
     }
 
     /**
-     * Gets the coManagedDeviceCount property value. Total number of  co-managed devices.
+     * Gets the coManagedDeviceCount property value. Total number of  co-managed devices. Read-only.
      * @return int|null
     */
     public function getCoManagedDeviceCount(): ?int {
@@ -76,7 +76,7 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
     }
 
     /**
-     * Gets the intuneDeviceCount property value. The count of intune devices that are not autopilot registerd.
+     * Gets the intuneDeviceCount property value. The count of intune devices that are not autopilot registerd. Read-only.
      * @return int|null
     */
     public function getIntuneDeviceCount(): ?int {
@@ -92,7 +92,7 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
     }
 
     /**
-     * Gets the tenantAttachDeviceCount property value. Total count of tenant attach devices.
+     * Gets the tenantAttachDeviceCount property value. Total count of tenant attach devices. Read-only.
      * @return int|null
     */
     public function getTenantAttachDeviceCount(): ?int {
@@ -128,7 +128,7 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
     }
 
     /**
-     * Sets the coManagedDeviceCount property value. Total number of  co-managed devices.
+     * Sets the coManagedDeviceCount property value. Total number of  co-managed devices. Read-only.
      * @param int|null $value Value to set for the coManagedDeviceCount property.
     */
     public function setCoManagedDeviceCount(?int $value): void {
@@ -136,7 +136,7 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
     }
 
     /**
-     * Sets the intuneDeviceCount property value. The count of intune devices that are not autopilot registerd.
+     * Sets the intuneDeviceCount property value. The count of intune devices that are not autopilot registerd. Read-only.
      * @param int|null $value Value to set for the intuneDeviceCount property.
     */
     public function setIntuneDeviceCount(?int $value): void {
@@ -152,7 +152,7 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
     }
 
     /**
-     * Sets the tenantAttachDeviceCount property value. Total count of tenant attach devices.
+     * Sets the tenantAttachDeviceCount property value. Total count of tenant attach devices. Read-only.
      * @param int|null $value Value to set for the tenantAttachDeviceCount property.
     */
     public function setTenantAttachDeviceCount(?int $value): void {

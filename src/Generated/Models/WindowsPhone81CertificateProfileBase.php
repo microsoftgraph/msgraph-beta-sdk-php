@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Base Windows Phone 8.1+ certificate profile.
+*/
 class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implements Parsable 
 {
     /**

@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Windows update catalog item entity
+*/
 class WindowsUpdateCatalogItem extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new WindowsUpdateCatalogItem and sets the default values.
+     * Instantiates a new windowsUpdateCatalogItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();

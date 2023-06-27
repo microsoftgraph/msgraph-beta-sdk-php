@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\AuditLogs;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\AuditLogs\CustomSecurityAttributeAudits\CustomSecurityAttributeAuditsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\DirectoryAudits\DirectoryAuditsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\DirectoryProvisioning\DirectoryProvisioningRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\Provisioning\ProvisioningRequestBuilder;
@@ -21,6 +22,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class AuditLogsRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the customSecurityAttributeAudits property of the microsoft.graph.auditLogRoot entity.
+    */
+    public function customSecurityAttributeAudits(): CustomSecurityAttributeAuditsRequestBuilder {
+        return new CustomSecurityAttributeAuditsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity.
     */

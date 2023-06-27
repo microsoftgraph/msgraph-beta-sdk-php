@@ -51,6 +51,14 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the customSecurityAttributeAudits property value. The customSecurityAttributeAudits property
+     * @return array<CustomSecurityAttributeAudit>|null
+    */
+    public function getCustomSecurityAttributeAudits(): ?array {
+        return $this->getBackingStore()->get('customSecurityAttributeAudits');
+    }
+
+    /**
      * Gets the directoryAudits property value. The directoryAudits property
      * @return array<DirectoryAudit>|null
     */
@@ -73,6 +81,7 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'customSecurityAttributeAudits' => fn(ParseNode $n) => $o->setCustomSecurityAttributeAudits($n->getCollectionOfObjectValues([CustomSecurityAttributeAudit::class, 'createFromDiscriminatorValue'])),
             'directoryAudits' => fn(ParseNode $n) => $o->setDirectoryAudits($n->getCollectionOfObjectValues([DirectoryAudit::class, 'createFromDiscriminatorValue'])),
             'directoryProvisioning' => fn(ParseNode $n) => $o->setDirectoryProvisioning($n->getCollectionOfObjectValues([ProvisioningObjectSummary::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -110,6 +119,7 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeCollectionOfObjectValues('customSecurityAttributeAudits', $this->getCustomSecurityAttributeAudits());
         $writer->writeCollectionOfObjectValues('directoryAudits', $this->getDirectoryAudits());
         $writer->writeCollectionOfObjectValues('directoryProvisioning', $this->getDirectoryProvisioning());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -132,6 +142,14 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the customSecurityAttributeAudits property value. The customSecurityAttributeAudits property
+     * @param array<CustomSecurityAttributeAudit>|null $value Value to set for the customSecurityAttributeAudits property.
+    */
+    public function setCustomSecurityAttributeAudits(?array $value): void {
+        $this->getBackingStore()->set('customSecurityAttributeAudits', $value);
     }
 
     /**

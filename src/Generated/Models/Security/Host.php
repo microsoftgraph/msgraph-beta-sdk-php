@@ -64,6 +64,7 @@ class Host extends Artifact implements Parsable
             'passiveDns' => fn(ParseNode $n) => $o->setPassiveDns($n->getCollectionOfObjectValues([PassiveDnsRecord::class, 'createFromDiscriminatorValue'])),
             'passiveDnsReverse' => fn(ParseNode $n) => $o->setPassiveDnsReverse($n->getCollectionOfObjectValues([PassiveDnsRecord::class, 'createFromDiscriminatorValue'])),
             'reputation' => fn(ParseNode $n) => $o->setReputation($n->getObjectValue([HostReputation::class, 'createFromDiscriminatorValue'])),
+            'subdomains' => fn(ParseNode $n) => $o->setSubdomains($n->getCollectionOfObjectValues([Subdomain::class, 'createFromDiscriminatorValue'])),
             'trackers' => fn(ParseNode $n) => $o->setTrackers($n->getCollectionOfObjectValues([HostTracker::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -109,6 +110,14 @@ class Host extends Artifact implements Parsable
     }
 
     /**
+     * Gets the subdomains property value. The subdomains that are associated with this host.
+     * @return array<Subdomain>|null
+    */
+    public function getSubdomains(): ?array {
+        return $this->getBackingStore()->get('subdomains');
+    }
+
+    /**
      * Gets the trackers property value. The hostTrackers that are associated with this host.
      * @return array<HostTracker>|null
     */
@@ -129,6 +138,7 @@ class Host extends Artifact implements Parsable
         $writer->writeCollectionOfObjectValues('passiveDns', $this->getPassiveDns());
         $writer->writeCollectionOfObjectValues('passiveDnsReverse', $this->getPassiveDnsReverse());
         $writer->writeObjectValue('reputation', $this->getReputation());
+        $writer->writeCollectionOfObjectValues('subdomains', $this->getSubdomains());
         $writer->writeCollectionOfObjectValues('trackers', $this->getTrackers());
     }
 
@@ -186,6 +196,14 @@ class Host extends Artifact implements Parsable
     */
     public function setReputation(?HostReputation $value): void {
         $this->getBackingStore()->set('reputation', $value);
+    }
+
+    /**
+     * Sets the subdomains property value. The subdomains that are associated with this host.
+     * @param array<Subdomain>|null $value Value to set for the subdomains property.
+    */
+    public function setSubdomains(?array $value): void {
+        $this->getBackingStore()->set('subdomains', $value);
     }
 
     /**

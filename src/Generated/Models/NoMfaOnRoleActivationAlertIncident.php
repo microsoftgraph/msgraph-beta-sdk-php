@@ -38,7 +38,7 @@ class NoMfaOnRoleActivationAlertIncident extends UnifiedRoleManagementAlertIncid
     }
 
     /**
-     * Gets the roleDisplayName property value. The roleDisplayName property
+     * Gets the roleDisplayName property value. The name of the Azure AD directory role.
      * @return string|null
     */
     public function getRoleDisplayName(): ?string {
@@ -46,7 +46,7 @@ class NoMfaOnRoleActivationAlertIncident extends UnifiedRoleManagementAlertIncid
     }
 
     /**
-     * Gets the roleTemplateId property value. The roleTemplateId property
+     * Gets the roleTemplateId property value. The globally unique identifier for a directory role.
      * @return string|null
     */
     public function getRoleTemplateId(): ?string {
@@ -64,7 +64,7 @@ class NoMfaOnRoleActivationAlertIncident extends UnifiedRoleManagementAlertIncid
     }
 
     /**
-     * Sets the roleDisplayName property value. The roleDisplayName property
+     * Sets the roleDisplayName property value. The name of the Azure AD directory role.
      * @param string|null $value Value to set for the roleDisplayName property.
     */
     public function setRoleDisplayName(?string $value): void {
@@ -72,7 +72,7 @@ class NoMfaOnRoleActivationAlertIncident extends UnifiedRoleManagementAlertIncid
     }
 
     /**
-     * Sets the roleTemplateId property value. The roleTemplateId property
+     * Sets the roleTemplateId property value. The globally unique identifier for a directory role.
      * @param string|null $value Value to set for the roleTemplateId property.
     */
     public function setRoleTemplateId(?string $value): void {

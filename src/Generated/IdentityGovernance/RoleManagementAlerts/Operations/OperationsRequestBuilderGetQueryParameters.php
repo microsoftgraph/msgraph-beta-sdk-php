@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\RoleManagementAlerts
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get operations from identityGovernance
+ * Represents operations on resources that take a long time to complete and can run in the background until completion.
 */
 class OperationsRequestBuilderGetQueryParameters 
 {

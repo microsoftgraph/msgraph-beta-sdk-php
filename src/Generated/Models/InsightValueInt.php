@@ -37,7 +37,7 @@ class InsightValueInt extends UserExperienceAnalyticsInsightValue implements Par
     }
 
     /**
-     * Gets the value property value. Not yet documented
+     * Gets the value property value. The int value of the user experience analytics insight.
      * @return int|null
     */
     public function getValue(): ?int {
@@ -54,7 +54,7 @@ class InsightValueInt extends UserExperienceAnalyticsInsightValue implements Par
     }
 
     /**
-     * Sets the value property value. Not yet documented
+     * Sets the value property value. The int value of the user experience analytics insight.
      * @param int|null $value Value to set for the value property.
     */
     public function setValue(?int $value): void {

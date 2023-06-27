@@ -64,7 +64,7 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
-     * Gets the offerShiftRequests property value. The offerShiftRequests property
+     * Gets the offerShiftRequests property value. The offer requests for shifts in the schedule.
      * @return array<OfferShiftRequest>|null
     */
     public function getOfferShiftRequests(): ?array {
@@ -259,7 +259,7 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
-     * Sets the offerShiftRequests property value. The offerShiftRequests property
+     * Sets the offerShiftRequests property value. The offer requests for shifts in the schedule.
      * @param array<OfferShiftRequest>|null $value Value to set for the offerShiftRequests property.
     */
     public function setOfferShiftRequests(?array $value): void {

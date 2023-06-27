@@ -187,6 +187,14 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the federatedTokenValidationPolicy property value. The federatedTokenValidationPolicy property
+     * @return FederatedTokenValidationPolicy|null
+    */
+    public function getFederatedTokenValidationPolicy(): ?FederatedTokenValidationPolicy {
+        return $this->getBackingStore()->get('federatedTokenValidationPolicy');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
@@ -210,6 +218,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
             'directoryRoleAccessReviewPolicy' => fn(ParseNode $n) => $o->setDirectoryRoleAccessReviewPolicy($n->getObjectValue([DirectoryRoleAccessReviewPolicy::class, 'createFromDiscriminatorValue'])),
             'externalIdentitiesPolicy' => fn(ParseNode $n) => $o->setExternalIdentitiesPolicy($n->getObjectValue([ExternalIdentitiesPolicy::class, 'createFromDiscriminatorValue'])),
             'featureRolloutPolicies' => fn(ParseNode $n) => $o->setFeatureRolloutPolicies($n->getCollectionOfObjectValues([FeatureRolloutPolicy::class, 'createFromDiscriminatorValue'])),
+            'federatedTokenValidationPolicy' => fn(ParseNode $n) => $o->setFederatedTokenValidationPolicy($n->getObjectValue([FederatedTokenValidationPolicy::class, 'createFromDiscriminatorValue'])),
             'homeRealmDiscoveryPolicies' => fn(ParseNode $n) => $o->setHomeRealmDiscoveryPolicies($n->getCollectionOfObjectValues([HomeRealmDiscoveryPolicy::class, 'createFromDiscriminatorValue'])),
             'identitySecurityDefaultsEnforcementPolicy' => fn(ParseNode $n) => $o->setIdentitySecurityDefaultsEnforcementPolicy($n->getObjectValue([IdentitySecurityDefaultsEnforcementPolicy::class, 'createFromDiscriminatorValue'])),
             'mobileAppManagementPolicies' => fn(ParseNode $n) => $o->setMobileAppManagementPolicies($n->getCollectionOfObjectValues([MobilityManagementPolicy::class, 'createFromDiscriminatorValue'])),
@@ -334,6 +343,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeObjectValue('directoryRoleAccessReviewPolicy', $this->getDirectoryRoleAccessReviewPolicy());
         $writer->writeObjectValue('externalIdentitiesPolicy', $this->getExternalIdentitiesPolicy());
         $writer->writeCollectionOfObjectValues('featureRolloutPolicies', $this->getFeatureRolloutPolicies());
+        $writer->writeObjectValue('federatedTokenValidationPolicy', $this->getFederatedTokenValidationPolicy());
         $writer->writeCollectionOfObjectValues('homeRealmDiscoveryPolicies', $this->getHomeRealmDiscoveryPolicies());
         $writer->writeObjectValue('identitySecurityDefaultsEnforcementPolicy', $this->getIdentitySecurityDefaultsEnforcementPolicy());
         $writer->writeCollectionOfObjectValues('mobileAppManagementPolicies', $this->getMobileAppManagementPolicies());
@@ -498,6 +508,14 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setFeatureRolloutPolicies(?array $value): void {
         $this->getBackingStore()->set('featureRolloutPolicies', $value);
+    }
+
+    /**
+     * Sets the federatedTokenValidationPolicy property value. The federatedTokenValidationPolicy property
+     * @param FederatedTokenValidationPolicy|null $value Value to set for the federatedTokenValidationPolicy property.
+    */
+    public function setFederatedTokenValidationPolicy(?FederatedTokenValidationPolicy $value): void {
+        $this->getBackingStore()->set('federatedTokenValidationPolicy', $value);
     }
 
     /**

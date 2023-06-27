@@ -21,7 +21,7 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new androidForWorkAppConfigurationSchemaItem and sets the default values.
+     * Instantiates a new AndroidForWorkAppConfigurationSchemaItem and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

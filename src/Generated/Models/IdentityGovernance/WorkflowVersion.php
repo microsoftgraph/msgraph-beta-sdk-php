@@ -32,17 +32,8 @@ class WorkflowVersion extends WorkflowBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'versionNumber' => fn(ParseNode $n) => $o->setVersionNumber($n->getIntegerValue()),
         ]);
-    }
-
-    /**
-     * Gets the @odata.type property value. The OdataType property
-     * @return string|null
-    */
-    public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -59,16 +50,7 @@ class WorkflowVersion extends WorkflowBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('versionNumber', $this->getVersionNumber());
-    }
-
-    /**
-     * Sets the @odata.type property value. The OdataType property
-     * @param string|null $value Value to set for the OdataType property.
-    */
-    public function setOdataType(?string $value): void {
-        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

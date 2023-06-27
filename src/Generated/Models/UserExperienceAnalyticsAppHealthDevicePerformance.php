@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics device performance entity contains device performance details.
+*/
 class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsAppHealthDevicePerformance and sets the default values.
+     * Instantiates a new userExperienceAnalyticsAppHealthDevicePerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -26,7 +29,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Gets the appCrashCount property value. The number of app crashes for the device. Valid values -2147483648 to 2147483647
+     * Gets the appCrashCount property value. The number of application crashes for the device. Valid values 0 to 2147483647. Supports: $filter, $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getAppCrashCount(): ?int {
@@ -34,7 +37,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Gets the appHangCount property value. The number of app hangs for the device. Valid values -2147483648 to 2147483647
+     * Gets the appHangCount property value. The number of application hangs for the device. Valid values 0 to 2147483647. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getAppHangCount(): ?int {
@@ -42,7 +45,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Gets the crashedAppCount property value. The number of distinct app crashes for the device. Valid values -2147483648 to 2147483647
+     * Gets the crashedAppCount property value. The number of distinct application crashes for the device. Valid values 0 to 2147483647. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getCrashedAppCount(): ?int {
@@ -50,7 +53,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Gets the deviceAppHealthScore property value. The app health score of the device. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the deviceAppHealthScore property value. The application health score of the device. Valid values 0 to 100. Supports: $filter, $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getDeviceAppHealthScore(): ?float {
@@ -58,7 +61,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Gets the deviceDisplayName property value. The name of the device.
+     * Gets the deviceDisplayName property value. The name of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getDeviceDisplayName(): ?string {
@@ -66,7 +69,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Gets the deviceId property value. The id of the device.
+     * Gets the deviceId property value. The Intune device id of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getDeviceId(): ?string {
@@ -74,7 +77,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Gets the deviceManufacturer property value. The manufacturer name of the device.
+     * Gets the deviceManufacturer property value. The manufacturer name of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getDeviceManufacturer(): ?string {
@@ -82,7 +85,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Gets the deviceModel property value. The model name of the device.
+     * Gets the deviceModel property value. The model name of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getDeviceModel(): ?string {
@@ -119,7 +122,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Gets the meanTimeToFailureInMinutes property value. The mean time to failure for the device in minutes. Valid values -2147483648 to 2147483647
+     * Gets the meanTimeToFailureInMinutes property value. The mean time to failure for the application in minutes. Valid values 0 to 2147483647. Supports: $filter, $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getMeanTimeToFailureInMinutes(): ?int {
@@ -127,7 +130,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Gets the processedDateTime property value. The date and time when the statistics were last computed.
+     * Gets the processedDateTime property value. The date and time when the statistics were last computed. The value cannot be modified and is automatically populated when the statistics are computed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2022 would look like this: '2022-01-01T00:00:00Z'. Returned by default. Read-only.
      * @return DateTime|null
     */
     public function getProcessedDateTime(): ?DateTime {
@@ -154,7 +157,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Sets the appCrashCount property value. The number of app crashes for the device. Valid values -2147483648 to 2147483647
+     * Sets the appCrashCount property value. The number of application crashes for the device. Valid values 0 to 2147483647. Supports: $filter, $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the appCrashCount property.
     */
     public function setAppCrashCount(?int $value): void {
@@ -162,7 +165,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Sets the appHangCount property value. The number of app hangs for the device. Valid values -2147483648 to 2147483647
+     * Sets the appHangCount property value. The number of application hangs for the device. Valid values 0 to 2147483647. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the appHangCount property.
     */
     public function setAppHangCount(?int $value): void {
@@ -170,7 +173,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Sets the crashedAppCount property value. The number of distinct app crashes for the device. Valid values -2147483648 to 2147483647
+     * Sets the crashedAppCount property value. The number of distinct application crashes for the device. Valid values 0 to 2147483647. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the crashedAppCount property.
     */
     public function setCrashedAppCount(?int $value): void {
@@ -178,7 +181,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Sets the deviceAppHealthScore property value. The app health score of the device. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the deviceAppHealthScore property value. The application health score of the device. Valid values 0 to 100. Supports: $filter, $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the deviceAppHealthScore property.
     */
     public function setDeviceAppHealthScore(?float $value): void {
@@ -186,7 +189,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Sets the deviceDisplayName property value. The name of the device.
+     * Sets the deviceDisplayName property value. The name of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the deviceDisplayName property.
     */
     public function setDeviceDisplayName(?string $value): void {
@@ -194,7 +197,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Sets the deviceId property value. The id of the device.
+     * Sets the deviceId property value. The Intune device id of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
@@ -202,7 +205,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Sets the deviceManufacturer property value. The manufacturer name of the device.
+     * Sets the deviceManufacturer property value. The manufacturer name of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the deviceManufacturer property.
     */
     public function setDeviceManufacturer(?string $value): void {
@@ -210,7 +213,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Sets the deviceModel property value. The model name of the device.
+     * Sets the deviceModel property value. The model name of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the deviceModel property.
     */
     public function setDeviceModel(?string $value): void {
@@ -226,7 +229,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Sets the meanTimeToFailureInMinutes property value. The mean time to failure for the device in minutes. Valid values -2147483648 to 2147483647
+     * Sets the meanTimeToFailureInMinutes property value. The mean time to failure for the application in minutes. Valid values 0 to 2147483647. Supports: $filter, $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the meanTimeToFailureInMinutes property.
     */
     public function setMeanTimeToFailureInMinutes(?int $value): void {
@@ -234,7 +237,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     }
 
     /**
-     * Sets the processedDateTime property value. The date and time when the statistics were last computed.
+     * Sets the processedDateTime property value. The date and time when the statistics were last computed. The value cannot be modified and is automatically populated when the statistics are computed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2022 would look like this: '2022-01-01T00:00:00Z'. Returned by default. Read-only.
      * @param DateTime|null $value Value to set for the processedDateTime property.
     */
     public function setProcessedDateTime(?DateTime $value): void {

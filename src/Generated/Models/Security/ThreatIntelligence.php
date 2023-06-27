@@ -57,6 +57,7 @@ class ThreatIntelligence extends Entity implements Parsable
             'intelligenceProfileIndicators' => fn(ParseNode $n) => $o->setIntelligenceProfileIndicators($n->getCollectionOfObjectValues([IntelligenceProfileIndicator::class, 'createFromDiscriminatorValue'])),
             'intelProfiles' => fn(ParseNode $n) => $o->setIntelProfiles($n->getCollectionOfObjectValues([IntelligenceProfile::class, 'createFromDiscriminatorValue'])),
             'passiveDnsRecords' => fn(ParseNode $n) => $o->setPassiveDnsRecords($n->getCollectionOfObjectValues([PassiveDnsRecord::class, 'createFromDiscriminatorValue'])),
+            'subdomains' => fn(ParseNode $n) => $o->setSubdomains($n->getCollectionOfObjectValues([Subdomain::class, 'createFromDiscriminatorValue'])),
             'vulnerabilities' => fn(ParseNode $n) => $o->setVulnerabilities($n->getCollectionOfObjectValues([Vulnerability::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -118,6 +119,14 @@ class ThreatIntelligence extends Entity implements Parsable
     }
 
     /**
+     * Gets the subdomains property value. Retrieve details about the microsoft.graph.security.subdomain.Note: List retrieval is not yet supported.
+     * @return array<Subdomain>|null
+    */
+    public function getSubdomains(): ?array {
+        return $this->getBackingStore()->get('subdomains');
+    }
+
+    /**
      * Gets the vulnerabilities property value. Retrieve details about microsoft.graph.security.vulnerabilities.Note: List retrieval is not yet supported.
      * @return array<Vulnerability>|null
     */
@@ -140,6 +149,7 @@ class ThreatIntelligence extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('intelligenceProfileIndicators', $this->getIntelligenceProfileIndicators());
         $writer->writeCollectionOfObjectValues('intelProfiles', $this->getIntelProfiles());
         $writer->writeCollectionOfObjectValues('passiveDnsRecords', $this->getPassiveDnsRecords());
+        $writer->writeCollectionOfObjectValues('subdomains', $this->getSubdomains());
         $writer->writeCollectionOfObjectValues('vulnerabilities', $this->getVulnerabilities());
     }
 
@@ -213,6 +223,14 @@ class ThreatIntelligence extends Entity implements Parsable
     */
     public function setPassiveDnsRecords(?array $value): void {
         $this->getBackingStore()->set('passiveDnsRecords', $value);
+    }
+
+    /**
+     * Sets the subdomains property value. Retrieve details about the microsoft.graph.security.subdomain.Note: List retrieval is not yet supported.
+     * @param array<Subdomain>|null $value Value to set for the subdomains property.
+    */
+    public function setSubdomains(?array $value): void {
+        $this->getBackingStore()->set('subdomains', $value);
     }
 
     /**

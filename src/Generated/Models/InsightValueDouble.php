@@ -37,7 +37,7 @@ class InsightValueDouble extends UserExperienceAnalyticsInsightValue implements 
     }
 
     /**
-     * Gets the value property value. Not yet documented
+     * Gets the value property value. The double value of the user experience analytics insight.
      * @return float|null
     */
     public function getValue(): ?float {
@@ -54,7 +54,7 @@ class InsightValueDouble extends UserExperienceAnalyticsInsightValue implements 
     }
 
     /**
-     * Sets the value property value. Not yet documented
+     * Sets the value property value. The double value of the user experience analytics insight.
      * @param float|null $value Value to set for the value property.
     */
     public function setValue(?float $value): void {

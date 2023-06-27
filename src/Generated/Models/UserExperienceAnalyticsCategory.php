@@ -37,7 +37,7 @@ class UserExperienceAnalyticsCategory extends Entity implements Parsable
     }
 
     /**
-     * Gets the insights property value. The insights for the user experience analytics category.
+     * Gets the insights property value. The insights for the category. Read-only.
      * @return array<UserExperienceAnalyticsInsight>|null
     */
     public function getInsights(): ?array {
@@ -45,7 +45,7 @@ class UserExperienceAnalyticsCategory extends Entity implements Parsable
     }
 
     /**
-     * Gets the metricValues property value. The metric values for the user experience analytics category.
+     * Gets the metricValues property value. The metric values for the user experience analytics category. Read-only.
      * @return array<UserExperienceAnalyticsMetric>|null
     */
     public function getMetricValues(): ?array {
@@ -63,7 +63,7 @@ class UserExperienceAnalyticsCategory extends Entity implements Parsable
     }
 
     /**
-     * Sets the insights property value. The insights for the user experience analytics category.
+     * Sets the insights property value. The insights for the category. Read-only.
      * @param array<UserExperienceAnalyticsInsight>|null $value Value to set for the insights property.
     */
     public function setInsights(?array $value): void {
@@ -71,7 +71,7 @@ class UserExperienceAnalyticsCategory extends Entity implements Parsable
     }
 
     /**
-     * Sets the metricValues property value. The metric values for the user experience analytics category.
+     * Sets the metricValues property value. The metric values for the user experience analytics category. Read-only.
      * @param array<UserExperienceAnalyticsMetric>|null $value Value to set for the metricValues property.
     */
     public function setMetricValues(?array $value): void {

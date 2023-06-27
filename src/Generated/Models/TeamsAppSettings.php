@@ -41,6 +41,7 @@ class TeamsAppSettings extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'allowUserRequestsForAppAccess' => fn(ParseNode $n) => $o->setAllowUserRequestsForAppAccess($n->getBooleanValue()),
             'isChatResourceSpecificConsentEnabled' => fn(ParseNode $n) => $o->setIsChatResourceSpecificConsentEnabled($n->getBooleanValue()),
+            'isUserPersonalScopeResourceSpecificConsentEnabled' => fn(ParseNode $n) => $o->setIsUserPersonalScopeResourceSpecificConsentEnabled($n->getBooleanValue()),
         ]);
     }
 
@@ -53,6 +54,14 @@ class TeamsAppSettings extends Entity implements Parsable
     }
 
     /**
+     * Gets the isUserPersonalScopeResourceSpecificConsentEnabled property value. The isUserPersonalScopeResourceSpecificConsentEnabled property
+     * @return bool|null
+    */
+    public function getIsUserPersonalScopeResourceSpecificConsentEnabled(): ?bool {
+        return $this->getBackingStore()->get('isUserPersonalScopeResourceSpecificConsentEnabled');
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -60,6 +69,7 @@ class TeamsAppSettings extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeBooleanValue('allowUserRequestsForAppAccess', $this->getAllowUserRequestsForAppAccess());
         $writer->writeBooleanValue('isChatResourceSpecificConsentEnabled', $this->getIsChatResourceSpecificConsentEnabled());
+        $writer->writeBooleanValue('isUserPersonalScopeResourceSpecificConsentEnabled', $this->getIsUserPersonalScopeResourceSpecificConsentEnabled());
     }
 
     /**
@@ -76,6 +86,14 @@ class TeamsAppSettings extends Entity implements Parsable
     */
     public function setIsChatResourceSpecificConsentEnabled(?bool $value): void {
         $this->getBackingStore()->set('isChatResourceSpecificConsentEnabled', $value);
+    }
+
+    /**
+     * Sets the isUserPersonalScopeResourceSpecificConsentEnabled property value. The isUserPersonalScopeResourceSpecificConsentEnabled property
+     * @param bool|null $value Value to set for the isUserPersonalScopeResourceSpecificConsentEnabled property.
+    */
+    public function setIsUserPersonalScopeResourceSpecificConsentEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isUserPersonalScopeResourceSpecificConsentEnabled', $value);
     }
 
 }

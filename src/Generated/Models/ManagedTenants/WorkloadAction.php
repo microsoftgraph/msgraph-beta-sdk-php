@@ -18,7 +18,7 @@ class WorkloadAction implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new WorkloadAction and sets the default values.
+     * Instantiates a new workloadAction and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

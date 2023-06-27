@@ -18,7 +18,7 @@ class AppliedAuthenticationEventListener implements AdditionalDataHolder, Backed
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new appliedAuthenticationEventListener and sets the default values.
+     * Instantiates a new AppliedAuthenticationEventListener and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

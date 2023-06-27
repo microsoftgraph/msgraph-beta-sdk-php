@@ -21,7 +21,7 @@ class DeviceManagementConfigurationSettingInstanceTemplate implements Additional
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new DeviceManagementConfigurationSettingInstanceTemplate and sets the default values.
+     * Instantiates a new deviceManagementConfigurationSettingInstanceTemplate and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

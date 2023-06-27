@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics work from anywhere model performance.
+*/
 class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsWorkFromAnywhereModelPerformance and sets the default values.
+     * Instantiates a new userExperienceAnalyticsWorkFromAnywhereModelPerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -25,7 +28,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
     }
 
     /**
-     * Gets the cloudIdentityScore property value. The user experience work from anywhere's cloud identity score for the model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the cloudIdentityScore property value. The cloud identity score of the device model. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getCloudIdentityScore(): ?float {
@@ -33,7 +36,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
     }
 
     /**
-     * Gets the cloudManagementScore property value. The user experience work from anywhere's cloud management score for the model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the cloudManagementScore property value. The cloud management score of the device model. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getCloudManagementScore(): ?float {
@@ -41,7 +44,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
     }
 
     /**
-     * Gets the cloudProvisioningScore property value. The user experience work from anywhere's cloud provisioning score for the model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the cloudProvisioningScore property value. The cloud provisioning score of the device model.  Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getCloudProvisioningScore(): ?float {
@@ -76,7 +79,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
     }
 
     /**
-     * Gets the manufacturer property value. The user experience work from anywhere's manufacturer name of the devices.
+     * Gets the manufacturer property value. The manufacturer name of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getManufacturer(): ?string {
@@ -84,7 +87,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
     }
 
     /**
-     * Gets the model property value. The user experience work from anywhere's model name of the devices.
+     * Gets the model property value. The model name of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getModel(): ?string {
@@ -92,7 +95,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
     }
 
     /**
-     * Gets the modelDeviceCount property value. The user experience work from anywhere's devices count for the model. Valid values -2147483648 to 2147483647
+     * Gets the modelDeviceCount property value. The devices count for the model. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getModelDeviceCount(): ?int {
@@ -100,7 +103,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
     }
 
     /**
-     * Gets the windowsScore property value. The user experience work from anywhere windows score for the model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the windowsScore property value. The window score of the device model. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getWindowsScore(): ?float {
@@ -108,7 +111,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
     }
 
     /**
-     * Gets the workFromAnywhereScore property value. The user experience work from anywhere overall score for the model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the workFromAnywhereScore property value. The work from anywhere score of the device model. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getWorkFromAnywhereScore(): ?float {
@@ -133,7 +136,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
     }
 
     /**
-     * Sets the cloudIdentityScore property value. The user experience work from anywhere's cloud identity score for the model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the cloudIdentityScore property value. The cloud identity score of the device model. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the cloudIdentityScore property.
     */
     public function setCloudIdentityScore(?float $value): void {
@@ -141,7 +144,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
     }
 
     /**
-     * Sets the cloudManagementScore property value. The user experience work from anywhere's cloud management score for the model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the cloudManagementScore property value. The cloud management score of the device model. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the cloudManagementScore property.
     */
     public function setCloudManagementScore(?float $value): void {
@@ -149,7 +152,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
     }
 
     /**
-     * Sets the cloudProvisioningScore property value. The user experience work from anywhere's cloud provisioning score for the model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the cloudProvisioningScore property value. The cloud provisioning score of the device model.  Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the cloudProvisioningScore property.
     */
     public function setCloudProvisioningScore(?float $value): void {
@@ -165,7 +168,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
     }
 
     /**
-     * Sets the manufacturer property value. The user experience work from anywhere's manufacturer name of the devices.
+     * Sets the manufacturer property value. The manufacturer name of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
@@ -173,7 +176,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
     }
 
     /**
-     * Sets the model property value. The user experience work from anywhere's model name of the devices.
+     * Sets the model property value. The model name of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value): void {
@@ -181,7 +184,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
     }
 
     /**
-     * Sets the modelDeviceCount property value. The user experience work from anywhere's devices count for the model. Valid values -2147483648 to 2147483647
+     * Sets the modelDeviceCount property value. The devices count for the model. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the modelDeviceCount property.
     */
     public function setModelDeviceCount(?int $value): void {
@@ -189,7 +192,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
     }
 
     /**
-     * Sets the windowsScore property value. The user experience work from anywhere windows score for the model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the windowsScore property value. The window score of the device model. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the windowsScore property.
     */
     public function setWindowsScore(?float $value): void {
@@ -197,7 +200,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
     }
 
     /**
-     * Sets the workFromAnywhereScore property value. The user experience work from anywhere overall score for the model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the workFromAnywhereScore property value. The work from anywhere score of the device model. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the workFromAnywhereScore property.
     */
     public function setWorkFromAnywhereScore(?float $value): void {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\Security;
+namespace Microsoft\Graph\Beta\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class IntelligenceProfileSponsorState implements AdditionalDataHolder, BackedModel, Parsable 
+class ValidatingDomains implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
      * @var BackingStore $backingStore Stores model information.
@@ -18,7 +18,7 @@ class IntelligenceProfileSponsorState implements AdditionalDataHolder, BackedMod
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new intelligenceProfileSponsorState and sets the default values.
+     * Instantiates a new ValidatingDomains and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -28,10 +28,18 @@ class IntelligenceProfileSponsorState implements AdditionalDataHolder, BackedMod
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return IntelligenceProfileSponsorState
+     * @return ValidatingDomains
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): IntelligenceProfileSponsorState {
-        return new IntelligenceProfileSponsorState();
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ValidatingDomains {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.allDomains': return new AllDomains();
+                case '#microsoft.graph.enumeratedDomains': return new EnumeratedDomains();
+            }
+        }
+        return new ValidatingDomains();
     }
 
     /**
@@ -51,32 +59,15 @@ class IntelligenceProfileSponsorState implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Gets the code property value. A codified representation for this sponsor state.
-     * @return string|null
-    */
-    public function getCode(): ?string {
-        return $this->getBackingStore()->get('code');
-    }
-
-    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'code' => fn(ParseNode $n) => $o->setCode($n->getStringValue()),
-            'label' => fn(ParseNode $n) => $o->setLabel($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'rootDomains' => fn(ParseNode $n) => $o->setRootDomains($n->getEnumValue(RootDomains::class)),
         ];
-    }
-
-    /**
-     * Gets the label property value. A display label for this sponsor state.
-     * @return string|null
-    */
-    public function getLabel(): ?string {
-        return $this->getBackingStore()->get('label');
     }
 
     /**
@@ -88,13 +79,20 @@ class IntelligenceProfileSponsorState implements AdditionalDataHolder, BackedMod
     }
 
     /**
+     * Gets the rootDomains property value. The rootDomains property
+     * @return RootDomains|null
+    */
+    public function getRootDomains(): ?RootDomains {
+        return $this->getBackingStore()->get('rootDomains');
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('code', $this->getCode());
-        $writer->writeStringValue('label', $this->getLabel());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('rootDomains', $this->getRootDomains());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -115,27 +113,19 @@ class IntelligenceProfileSponsorState implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Sets the code property value. A codified representation for this sponsor state.
-     * @param string|null $value Value to set for the code property.
-    */
-    public function setCode(?string $value): void {
-        $this->getBackingStore()->set('code', $value);
-    }
-
-    /**
-     * Sets the label property value. A display label for this sponsor state.
-     * @param string|null $value Value to set for the label property.
-    */
-    public function setLabel(?string $value): void {
-        $this->getBackingStore()->set('label', $value);
-    }
-
-    /**
      * Sets the @odata.type property value. The OdataType property
      * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the rootDomains property value. The rootDomains property
+     * @param RootDomains|null $value Value to set for the rootDomains property.
+    */
+    public function setRootDomains(?RootDomains $value): void {
+        $this->getBackingStore()->set('rootDomains', $value);
     }
 
 }

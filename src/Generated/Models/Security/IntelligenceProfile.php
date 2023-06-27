@@ -35,6 +35,14 @@ class IntelligenceProfile extends Entity implements Parsable
     }
 
     /**
+     * Gets the countriesOrRegionsOfOrigin property value. The countriesOrRegionsOfOrigin property
+     * @return array<IntelligenceProfileCountryOrRegionOfOrigin>|null
+    */
+    public function getCountriesOrRegionsOfOrigin(): ?array {
+        return $this->getBackingStore()->get('countriesOrRegionsOfOrigin');
+    }
+
+    /**
      * Gets the description property value. The description property
      * @return FormattedContent|null
     */
@@ -50,11 +58,11 @@ class IntelligenceProfile extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'aliases' => fn(ParseNode $n) => $o->setAliases($n->getCollectionOfPrimitiveValues()),
+            'countriesOrRegionsOfOrigin' => fn(ParseNode $n) => $o->setCountriesOrRegionsOfOrigin($n->getCollectionOfObjectValues([IntelligenceProfileCountryOrRegionOfOrigin::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getObjectValue([FormattedContent::class, 'createFromDiscriminatorValue'])),
             'firstActiveDateTime' => fn(ParseNode $n) => $o->setFirstActiveDateTime($n->getDateTimeValue()),
             'indicators' => fn(ParseNode $n) => $o->setIndicators($n->getCollectionOfObjectValues([IntelligenceProfileIndicator::class, 'createFromDiscriminatorValue'])),
             'kind' => fn(ParseNode $n) => $o->setKind($n->getEnumValue(IntelligenceProfileKind::class)),
-            'sponsorStates' => fn(ParseNode $n) => $o->setSponsorStates($n->getCollectionOfObjectValues([IntelligenceProfileSponsorState::class, 'createFromDiscriminatorValue'])),
             'summary' => fn(ParseNode $n) => $o->setSummary($n->getObjectValue([FormattedContent::class, 'createFromDiscriminatorValue'])),
             'targets' => fn(ParseNode $n) => $o->setTargets($n->getCollectionOfPrimitiveValues()),
             'title' => fn(ParseNode $n) => $o->setTitle($n->getStringValue()),
@@ -84,14 +92,6 @@ class IntelligenceProfile extends Entity implements Parsable
     */
     public function getKind(): ?IntelligenceProfileKind {
         return $this->getBackingStore()->get('kind');
-    }
-
-    /**
-     * Gets the sponsorStates property value. Known states (such as a country or government) who have sponsored threat actors associated with this intelligenceProfile. This is also known as the country/region of origin for the given actor or threat.
-     * @return array<IntelligenceProfileSponsorState>|null
-    */
-    public function getSponsorStates(): ?array {
-        return $this->getBackingStore()->get('sponsorStates');
     }
 
     /**
@@ -133,11 +133,11 @@ class IntelligenceProfile extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfPrimitiveValues('aliases', $this->getAliases());
+        $writer->writeCollectionOfObjectValues('countriesOrRegionsOfOrigin', $this->getCountriesOrRegionsOfOrigin());
         $writer->writeObjectValue('description', $this->getDescription());
         $writer->writeDateTimeValue('firstActiveDateTime', $this->getFirstActiveDateTime());
         $writer->writeCollectionOfObjectValues('indicators', $this->getIndicators());
         $writer->writeEnumValue('kind', $this->getKind());
-        $writer->writeCollectionOfObjectValues('sponsorStates', $this->getSponsorStates());
         $writer->writeObjectValue('summary', $this->getSummary());
         $writer->writeCollectionOfPrimitiveValues('targets', $this->getTargets());
         $writer->writeStringValue('title', $this->getTitle());
@@ -150,6 +150,14 @@ class IntelligenceProfile extends Entity implements Parsable
     */
     public function setAliases(?array $value): void {
         $this->getBackingStore()->set('aliases', $value);
+    }
+
+    /**
+     * Sets the countriesOrRegionsOfOrigin property value. The countriesOrRegionsOfOrigin property
+     * @param array<IntelligenceProfileCountryOrRegionOfOrigin>|null $value Value to set for the countriesOrRegionsOfOrigin property.
+    */
+    public function setCountriesOrRegionsOfOrigin(?array $value): void {
+        $this->getBackingStore()->set('countriesOrRegionsOfOrigin', $value);
     }
 
     /**
@@ -182,14 +190,6 @@ class IntelligenceProfile extends Entity implements Parsable
     */
     public function setKind(?IntelligenceProfileKind $value): void {
         $this->getBackingStore()->set('kind', $value);
-    }
-
-    /**
-     * Sets the sponsorStates property value. Known states (such as a country or government) who have sponsored threat actors associated with this intelligenceProfile. This is also known as the country/region of origin for the given actor or threat.
-     * @param array<IntelligenceProfileSponsorState>|null $value Value to set for the sponsorStates property.
-    */
-    public function setSponsorStates(?array $value): void {
-        $this->getBackingStore()->set('sponsorStates', $value);
     }
 
     /**

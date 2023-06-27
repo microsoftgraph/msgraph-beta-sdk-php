@@ -25,6 +25,14 @@ class Teamwork extends Entity implements Parsable
     }
 
     /**
+     * Gets the deletedChats property value. The deletedChats property
+     * @return array<DeletedChat>|null
+    */
+    public function getDeletedChats(): ?array {
+        return $this->getBackingStore()->get('deletedChats');
+    }
+
+    /**
      * Gets the deletedTeams property value. A collection of deleted teams.
      * @return array<DeletedTeam>|null
     */
@@ -47,6 +55,7 @@ class Teamwork extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'deletedChats' => fn(ParseNode $n) => $o->setDeletedChats($n->getCollectionOfObjectValues([DeletedChat::class, 'createFromDiscriminatorValue'])),
             'deletedTeams' => fn(ParseNode $n) => $o->setDeletedTeams($n->getCollectionOfObjectValues([DeletedTeam::class, 'createFromDiscriminatorValue'])),
             'devices' => fn(ParseNode $n) => $o->setDevices($n->getCollectionOfObjectValues([TeamworkDevice::class, 'createFromDiscriminatorValue'])),
             'teamsAppSettings' => fn(ParseNode $n) => $o->setTeamsAppSettings($n->getObjectValue([TeamsAppSettings::class, 'createFromDiscriminatorValue'])),
@@ -85,11 +94,20 @@ class Teamwork extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('deletedChats', $this->getDeletedChats());
         $writer->writeCollectionOfObjectValues('deletedTeams', $this->getDeletedTeams());
         $writer->writeCollectionOfObjectValues('devices', $this->getDevices());
         $writer->writeObjectValue('teamsAppSettings', $this->getTeamsAppSettings());
         $writer->writeCollectionOfObjectValues('teamTemplates', $this->getTeamTemplates());
         $writer->writeCollectionOfObjectValues('workforceIntegrations', $this->getWorkforceIntegrations());
+    }
+
+    /**
+     * Sets the deletedChats property value. The deletedChats property
+     * @param array<DeletedChat>|null $value Value to set for the deletedChats property.
+    */
+    public function setDeletedChats(?array $value): void {
+        $this->getBackingStore()->set('deletedChats', $value);
     }
 
     /**

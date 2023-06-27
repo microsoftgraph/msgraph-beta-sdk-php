@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalytic
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The user experience analytics resource performance metrics.
+ * The scores and insights for the resource performance metrics.
 */
 class ResourcePerformanceMetricsRequestBuilderGetQueryParameters 
 {

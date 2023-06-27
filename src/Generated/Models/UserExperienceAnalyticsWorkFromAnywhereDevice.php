@@ -28,7 +28,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the autoPilotProfileAssigned property value. The user experience analytics work from anywhere intune device's autopilotProfileAssigned.
+     * Gets the autoPilotProfileAssigned property value. When TRUE, indicates the intune device's autopilot profile is assigned. When FALSE, indicates it's not Assigned. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getAutoPilotProfileAssigned(): ?bool {
@@ -36,7 +36,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the autoPilotRegistered property value. The user experience work from anywhere intune device's autopilotRegistered.
+     * Gets the autoPilotRegistered property value. When TRUE, indicates the intune device's autopilot is registered. When FALSE, indicates it's not registered. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getAutoPilotRegistered(): ?bool {
@@ -44,7 +44,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the azureAdDeviceId property value. The user experience work from anywhere azure Ad device Id.
+     * Gets the azureAdDeviceId property value. The Azure Active Directory (Azure AD) device Id. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getAzureAdDeviceId(): ?string {
@@ -52,7 +52,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the azureAdJoinType property value. The user experience work from anywhere device's azure Ad joinType.
+     * Gets the azureAdJoinType property value. The work from anywhere device's Azure Active Directory (Azure AD) join type. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getAzureAdJoinType(): ?string {
@@ -60,7 +60,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the azureAdRegistered property value. The user experience work from anywhere device's azureAdRegistered.
+     * Gets the azureAdRegistered property value. When TRUE, indicates the device's Azure Active Directory (Azure AD) is registered. When False, indicates it's not registered. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getAzureAdRegistered(): ?bool {
@@ -68,7 +68,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the cloudIdentityScore property value. The user experience work from anywhere per device cloud identity score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the cloudIdentityScore property value. Indicates per device cloud identity score. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getCloudIdentityScore(): ?float {
@@ -76,7 +76,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the cloudManagementScore property value. The user experience work from anywhere per device cloud management score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the cloudManagementScore property value. Indicates per device cloud management score. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getCloudManagementScore(): ?float {
@@ -84,7 +84,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the cloudProvisioningScore property value. The user experience work from anywhere per device cloud provisioning score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the cloudProvisioningScore property value. Indicates per device cloud provisioning score. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getCloudProvisioningScore(): ?float {
@@ -92,7 +92,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the compliancePolicySetToIntune property value. The user experience work from anywhere device's compliancePolicySetToIntune.
+     * Gets the compliancePolicySetToIntune property value. When TRUE, indicates the device's compliance policy is set to intune. When FALSE, indicates it's not set to intune. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getCompliancePolicySetToIntune(): ?bool {
@@ -100,7 +100,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the deviceId property value. The user experience work from anywhere device Id.
+     * Gets the deviceId property value. The Intune device id of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getDeviceId(): ?string {
@@ -108,7 +108,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the deviceName property value. The work from anywhere device's name.
+     * Gets the deviceName property value. The name of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getDeviceName(): ?string {
@@ -168,7 +168,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the isCloudManagedGatewayEnabled property value. The user experience work from anywhere device's Cloud Management Gateway for Configuration Manager is enabled.
+     * Gets the isCloudManagedGatewayEnabled property value. When TRUE, indicates the device's Cloud Management Gateway for Configuration Manager is enabled. When FALSE, indicates it's not enabled. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getIsCloudManagedGatewayEnabled(): ?bool {
@@ -176,7 +176,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the managedBy property value. The user experience work from anywhere management agent of the device.
+     * Gets the managedBy property value. The management agent of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getManagedBy(): ?string {
@@ -184,7 +184,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the manufacturer property value. The user experience work from anywhere device's manufacturer.
+     * Gets the manufacturer property value. The manufacturer name of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getManufacturer(): ?string {
@@ -192,7 +192,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the model property value. The user experience work from anywhere device's model.
+     * Gets the model property value. The model name of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getModel(): ?string {
@@ -200,7 +200,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the osCheckFailed property value. The user experience work from anywhere device, Is OS check failed for device to upgrade to the latest version of windows.
+     * Gets the osCheckFailed property value. When TRUE, indicates OS check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getOsCheckFailed(): ?bool {
@@ -208,7 +208,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the osDescription property value. The user experience work from anywhere device's OS Description.
+     * Gets the osDescription property value. The OS description of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getOsDescription(): ?string {
@@ -216,7 +216,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the osVersion property value. The user experience work from anywhere device's OS Version.
+     * Gets the osVersion property value. The OS version of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getOsVersion(): ?string {
@@ -224,7 +224,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the otherWorkloadsSetToIntune property value. The user experience work from anywhere device's otherWorkloadsSetToIntune.
+     * Gets the otherWorkloadsSetToIntune property value. When TRUE, indicates the device's other workloads is set to intune. When FALSE, indicates it's not set to intune. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getOtherWorkloadsSetToIntune(): ?bool {
@@ -232,7 +232,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the ownership property value. The user experience work from anywhere device's ownership.
+     * Gets the ownership property value. Ownership of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getOwnership(): ?string {
@@ -240,7 +240,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the processor64BitCheckFailed property value. The user experience work from anywhere device, Is processor hardware 64-bit architecture check failed for device to upgrade to the latest version of windows.
+     * Gets the processor64BitCheckFailed property value. When TRUE, indicates processor hardware 64-bit architecture check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getProcessor64BitCheckFailed(): ?bool {
@@ -248,7 +248,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the processorCoreCountCheckFailed property value. The user experience work from anywhere device, Is processor hardware core count check failed for device to upgrade to the latest version of windows.
+     * Gets the processorCoreCountCheckFailed property value. When TRUE, indicates processor hardware core count check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getProcessorCoreCountCheckFailed(): ?bool {
@@ -256,7 +256,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the processorFamilyCheckFailed property value. The user experience work from anywhere device, Is processor hardware family check failed for device to upgrade to the latest version of windows.
+     * Gets the processorFamilyCheckFailed property value. When TRUE, indicates processor hardware family check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getProcessorFamilyCheckFailed(): ?bool {
@@ -264,7 +264,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the processorSpeedCheckFailed property value. The user experience work from anywhere device, Is processor hardware speed check failed for device to upgrade to the latest version of windows.
+     * Gets the processorSpeedCheckFailed property value. When TRUE, indicates processor hardware speed check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getProcessorSpeedCheckFailed(): ?bool {
@@ -272,7 +272,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the ramCheckFailed property value. Is the user experience analytics work from anywhere device RAM hardware check failed for device to upgrade to the latest version of windows
+     * Gets the ramCheckFailed property value. When TRUE, indicates RAM hardware check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getRamCheckFailed(): ?bool {
@@ -280,7 +280,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the secureBootCheckFailed property value. The user experience work from anywhere device, Is secure boot hardware check failed for device to upgrade to the latest version of windows.
+     * Gets the secureBootCheckFailed property value. When TRUE, indicates secure boot hardware check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getSecureBootCheckFailed(): ?bool {
@@ -288,7 +288,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the serialNumber property value. The user experience work from anywhere device's serial number.
+     * Gets the serialNumber property value. The serial number of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getSerialNumber(): ?string {
@@ -296,7 +296,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the storageCheckFailed property value. The user experience work from anywhere device, Is storage hardware check failed for device to upgrade to the latest version of windows.
+     * Gets the storageCheckFailed property value. When TRUE, indicates storage hardware check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getStorageCheckFailed(): ?bool {
@@ -304,7 +304,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the tenantAttached property value. The user experience work from anywhere device's tenantAttached.
+     * Gets the tenantAttached property value. When TRUE, indicates the device is Tenant Attached. When FALSE, indicates it's not Tenant Attached. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getTenantAttached(): ?bool {
@@ -312,7 +312,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the tpmCheckFailed property value. The user experience work from anywhere device, Is Trusted Platform Module (TPM) hardware check failed for device to the latest version of upgrade to windows.
+     * Gets the tpmCheckFailed property value. When TRUE, indicates Trusted Platform Module (TPM) hardware check failed for device to the latest version of upgrade to windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getTpmCheckFailed(): ?bool {
@@ -328,7 +328,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the windowsScore property value. The user experience work from anywhere per device windows score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the windowsScore property value. Indicates per device windows score. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getWindowsScore(): ?float {
@@ -336,7 +336,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the workFromAnywhereScore property value. The user experience work from anywhere per device overall score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the workFromAnywhereScore property value. Indicates work from anywhere per device overall score. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getWorkFromAnywhereScore(): ?float {
@@ -386,7 +386,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the autoPilotProfileAssigned property value. The user experience analytics work from anywhere intune device's autopilotProfileAssigned.
+     * Sets the autoPilotProfileAssigned property value. When TRUE, indicates the intune device's autopilot profile is assigned. When FALSE, indicates it's not Assigned. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the autoPilotProfileAssigned property.
     */
     public function setAutoPilotProfileAssigned(?bool $value): void {
@@ -394,7 +394,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the autoPilotRegistered property value. The user experience work from anywhere intune device's autopilotRegistered.
+     * Sets the autoPilotRegistered property value. When TRUE, indicates the intune device's autopilot is registered. When FALSE, indicates it's not registered. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the autoPilotRegistered property.
     */
     public function setAutoPilotRegistered(?bool $value): void {
@@ -402,7 +402,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the azureAdDeviceId property value. The user experience work from anywhere azure Ad device Id.
+     * Sets the azureAdDeviceId property value. The Azure Active Directory (Azure AD) device Id. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the azureAdDeviceId property.
     */
     public function setAzureAdDeviceId(?string $value): void {
@@ -410,7 +410,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the azureAdJoinType property value. The user experience work from anywhere device's azure Ad joinType.
+     * Sets the azureAdJoinType property value. The work from anywhere device's Azure Active Directory (Azure AD) join type. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the azureAdJoinType property.
     */
     public function setAzureAdJoinType(?string $value): void {
@@ -418,7 +418,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the azureAdRegistered property value. The user experience work from anywhere device's azureAdRegistered.
+     * Sets the azureAdRegistered property value. When TRUE, indicates the device's Azure Active Directory (Azure AD) is registered. When False, indicates it's not registered. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the azureAdRegistered property.
     */
     public function setAzureAdRegistered(?bool $value): void {
@@ -426,7 +426,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the cloudIdentityScore property value. The user experience work from anywhere per device cloud identity score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the cloudIdentityScore property value. Indicates per device cloud identity score. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the cloudIdentityScore property.
     */
     public function setCloudIdentityScore(?float $value): void {
@@ -434,7 +434,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the cloudManagementScore property value. The user experience work from anywhere per device cloud management score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the cloudManagementScore property value. Indicates per device cloud management score. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the cloudManagementScore property.
     */
     public function setCloudManagementScore(?float $value): void {
@@ -442,7 +442,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the cloudProvisioningScore property value. The user experience work from anywhere per device cloud provisioning score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the cloudProvisioningScore property value. Indicates per device cloud provisioning score. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the cloudProvisioningScore property.
     */
     public function setCloudProvisioningScore(?float $value): void {
@@ -450,7 +450,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the compliancePolicySetToIntune property value. The user experience work from anywhere device's compliancePolicySetToIntune.
+     * Sets the compliancePolicySetToIntune property value. When TRUE, indicates the device's compliance policy is set to intune. When FALSE, indicates it's not set to intune. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the compliancePolicySetToIntune property.
     */
     public function setCompliancePolicySetToIntune(?bool $value): void {
@@ -458,7 +458,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the deviceId property value. The user experience work from anywhere device Id.
+     * Sets the deviceId property value. The Intune device id of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
@@ -466,7 +466,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the deviceName property value. The work from anywhere device's name.
+     * Sets the deviceName property value. The name of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
@@ -482,7 +482,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the isCloudManagedGatewayEnabled property value. The user experience work from anywhere device's Cloud Management Gateway for Configuration Manager is enabled.
+     * Sets the isCloudManagedGatewayEnabled property value. When TRUE, indicates the device's Cloud Management Gateway for Configuration Manager is enabled. When FALSE, indicates it's not enabled. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the isCloudManagedGatewayEnabled property.
     */
     public function setIsCloudManagedGatewayEnabled(?bool $value): void {
@@ -490,7 +490,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the managedBy property value. The user experience work from anywhere management agent of the device.
+     * Sets the managedBy property value. The management agent of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the managedBy property.
     */
     public function setManagedBy(?string $value): void {
@@ -498,7 +498,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the manufacturer property value. The user experience work from anywhere device's manufacturer.
+     * Sets the manufacturer property value. The manufacturer name of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
@@ -506,7 +506,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the model property value. The user experience work from anywhere device's model.
+     * Sets the model property value. The model name of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value): void {
@@ -514,7 +514,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the osCheckFailed property value. The user experience work from anywhere device, Is OS check failed for device to upgrade to the latest version of windows.
+     * Sets the osCheckFailed property value. When TRUE, indicates OS check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the osCheckFailed property.
     */
     public function setOsCheckFailed(?bool $value): void {
@@ -522,7 +522,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the osDescription property value. The user experience work from anywhere device's OS Description.
+     * Sets the osDescription property value. The OS description of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the osDescription property.
     */
     public function setOsDescription(?string $value): void {
@@ -530,7 +530,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the osVersion property value. The user experience work from anywhere device's OS Version.
+     * Sets the osVersion property value. The OS version of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the osVersion property.
     */
     public function setOsVersion(?string $value): void {
@@ -538,7 +538,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the otherWorkloadsSetToIntune property value. The user experience work from anywhere device's otherWorkloadsSetToIntune.
+     * Sets the otherWorkloadsSetToIntune property value. When TRUE, indicates the device's other workloads is set to intune. When FALSE, indicates it's not set to intune. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the otherWorkloadsSetToIntune property.
     */
     public function setOtherWorkloadsSetToIntune(?bool $value): void {
@@ -546,7 +546,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the ownership property value. The user experience work from anywhere device's ownership.
+     * Sets the ownership property value. Ownership of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the ownership property.
     */
     public function setOwnership(?string $value): void {
@@ -554,7 +554,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the processor64BitCheckFailed property value. The user experience work from anywhere device, Is processor hardware 64-bit architecture check failed for device to upgrade to the latest version of windows.
+     * Sets the processor64BitCheckFailed property value. When TRUE, indicates processor hardware 64-bit architecture check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the processor64BitCheckFailed property.
     */
     public function setProcessor64BitCheckFailed(?bool $value): void {
@@ -562,7 +562,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the processorCoreCountCheckFailed property value. The user experience work from anywhere device, Is processor hardware core count check failed for device to upgrade to the latest version of windows.
+     * Sets the processorCoreCountCheckFailed property value. When TRUE, indicates processor hardware core count check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the processorCoreCountCheckFailed property.
     */
     public function setProcessorCoreCountCheckFailed(?bool $value): void {
@@ -570,7 +570,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the processorFamilyCheckFailed property value. The user experience work from anywhere device, Is processor hardware family check failed for device to upgrade to the latest version of windows.
+     * Sets the processorFamilyCheckFailed property value. When TRUE, indicates processor hardware family check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the processorFamilyCheckFailed property.
     */
     public function setProcessorFamilyCheckFailed(?bool $value): void {
@@ -578,7 +578,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the processorSpeedCheckFailed property value. The user experience work from anywhere device, Is processor hardware speed check failed for device to upgrade to the latest version of windows.
+     * Sets the processorSpeedCheckFailed property value. When TRUE, indicates processor hardware speed check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the processorSpeedCheckFailed property.
     */
     public function setProcessorSpeedCheckFailed(?bool $value): void {
@@ -586,7 +586,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the ramCheckFailed property value. Is the user experience analytics work from anywhere device RAM hardware check failed for device to upgrade to the latest version of windows
+     * Sets the ramCheckFailed property value. When TRUE, indicates RAM hardware check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the ramCheckFailed property.
     */
     public function setRamCheckFailed(?bool $value): void {
@@ -594,7 +594,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the secureBootCheckFailed property value. The user experience work from anywhere device, Is secure boot hardware check failed for device to upgrade to the latest version of windows.
+     * Sets the secureBootCheckFailed property value. When TRUE, indicates secure boot hardware check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the secureBootCheckFailed property.
     */
     public function setSecureBootCheckFailed(?bool $value): void {
@@ -602,7 +602,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the serialNumber property value. The user experience work from anywhere device's serial number.
+     * Sets the serialNumber property value. The serial number of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the serialNumber property.
     */
     public function setSerialNumber(?string $value): void {
@@ -610,7 +610,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the storageCheckFailed property value. The user experience work from anywhere device, Is storage hardware check failed for device to upgrade to the latest version of windows.
+     * Sets the storageCheckFailed property value. When TRUE, indicates storage hardware check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the storageCheckFailed property.
     */
     public function setStorageCheckFailed(?bool $value): void {
@@ -618,7 +618,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the tenantAttached property value. The user experience work from anywhere device's tenantAttached.
+     * Sets the tenantAttached property value. When TRUE, indicates the device is Tenant Attached. When FALSE, indicates it's not Tenant Attached. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the tenantAttached property.
     */
     public function setTenantAttached(?bool $value): void {
@@ -626,7 +626,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the tpmCheckFailed property value. The user experience work from anywhere device, Is Trusted Platform Module (TPM) hardware check failed for device to the latest version of upgrade to windows.
+     * Sets the tpmCheckFailed property value. When TRUE, indicates Trusted Platform Module (TPM) hardware check failed for device to the latest version of upgrade to windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the tpmCheckFailed property.
     */
     public function setTpmCheckFailed(?bool $value): void {
@@ -642,7 +642,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the windowsScore property value. The user experience work from anywhere per device windows score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the windowsScore property value. Indicates per device windows score. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the windowsScore property.
     */
     public function setWindowsScore(?float $value): void {
@@ -650,7 +650,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the workFromAnywhereScore property value. The user experience work from anywhere per device overall score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the workFromAnywhereScore property value. Indicates work from anywhere per device overall score. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the workFromAnywhereScore property.
     */
     public function setWorkFromAnywhereScore(?float $value): void {

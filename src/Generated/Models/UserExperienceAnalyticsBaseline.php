@@ -29,7 +29,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Gets the appHealthMetrics property value. The user experience analytics app health metrics.
+     * Gets the appHealthMetrics property value. The scores and insights for the application health metrics.
      * @return UserExperienceAnalyticsCategory|null
     */
     public function getAppHealthMetrics(): ?UserExperienceAnalyticsCategory {
@@ -37,7 +37,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Gets the batteryHealthMetrics property value. The user experience analytics battery health metrics.
+     * Gets the batteryHealthMetrics property value. The scores and insights for the battery health metrics.
      * @return UserExperienceAnalyticsCategory|null
     */
     public function getBatteryHealthMetrics(): ?UserExperienceAnalyticsCategory {
@@ -45,7 +45,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Gets the bestPracticesMetrics property value. The user experience analytics best practices metrics.
+     * Gets the bestPracticesMetrics property value. The scores and insights for the best practices metrics.
      * @return UserExperienceAnalyticsCategory|null
     */
     public function getBestPracticesMetrics(): ?UserExperienceAnalyticsCategory {
@@ -53,7 +53,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The date the custom baseline was created.
+     * Gets the createdDateTime property value. The date the custom baseline was created. The value cannot be modified and is automatically populated when the baseline is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -61,7 +61,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceBootPerformanceMetrics property value. The user experience analytics device boot performance metrics.
+     * Gets the deviceBootPerformanceMetrics property value. The scores and insights for the device boot performance metrics.
      * @return UserExperienceAnalyticsCategory|null
     */
     public function getDeviceBootPerformanceMetrics(): ?UserExperienceAnalyticsCategory {
@@ -69,7 +69,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The name of the user experience analytics baseline.
+     * Gets the displayName property value. The name of the baseline.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -97,7 +97,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Gets the isBuiltIn property value. Signifies if the current baseline is the commercial median baseline or a custom baseline.
+     * Gets the isBuiltIn property value. When TRUE, indicates the current baseline is the commercial median baseline. When FALSE, indicates it is a custom baseline. FALSE by default.
      * @return bool|null
     */
     public function getIsBuiltIn(): ?bool {
@@ -105,7 +105,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Gets the rebootAnalyticsMetrics property value. The user experience analytics reboot analytics metrics.
+     * Gets the rebootAnalyticsMetrics property value. The scores and insights for the reboot analytics metrics.
      * @return UserExperienceAnalyticsCategory|null
     */
     public function getRebootAnalyticsMetrics(): ?UserExperienceAnalyticsCategory {
@@ -113,7 +113,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Gets the resourcePerformanceMetrics property value. The user experience analytics resource performance metrics.
+     * Gets the resourcePerformanceMetrics property value. The scores and insights for the resource performance metrics.
      * @return UserExperienceAnalyticsCategory|null
     */
     public function getResourcePerformanceMetrics(): ?UserExperienceAnalyticsCategory {
@@ -121,7 +121,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Gets the workFromAnywhereMetrics property value. The user experience analytics work from anywhere metrics.
+     * Gets the workFromAnywhereMetrics property value. The scores and insights for the work from anywhere metrics.
      * @return UserExperienceAnalyticsCategory|null
     */
     public function getWorkFromAnywhereMetrics(): ?UserExperienceAnalyticsCategory {
@@ -147,7 +147,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Sets the appHealthMetrics property value. The user experience analytics app health metrics.
+     * Sets the appHealthMetrics property value. The scores and insights for the application health metrics.
      * @param UserExperienceAnalyticsCategory|null $value Value to set for the appHealthMetrics property.
     */
     public function setAppHealthMetrics(?UserExperienceAnalyticsCategory $value): void {
@@ -155,7 +155,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Sets the batteryHealthMetrics property value. The user experience analytics battery health metrics.
+     * Sets the batteryHealthMetrics property value. The scores and insights for the battery health metrics.
      * @param UserExperienceAnalyticsCategory|null $value Value to set for the batteryHealthMetrics property.
     */
     public function setBatteryHealthMetrics(?UserExperienceAnalyticsCategory $value): void {
@@ -163,7 +163,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Sets the bestPracticesMetrics property value. The user experience analytics best practices metrics.
+     * Sets the bestPracticesMetrics property value. The scores and insights for the best practices metrics.
      * @param UserExperienceAnalyticsCategory|null $value Value to set for the bestPracticesMetrics property.
     */
     public function setBestPracticesMetrics(?UserExperienceAnalyticsCategory $value): void {
@@ -171,7 +171,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The date the custom baseline was created.
+     * Sets the createdDateTime property value. The date the custom baseline was created. The value cannot be modified and is automatically populated when the baseline is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -179,7 +179,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceBootPerformanceMetrics property value. The user experience analytics device boot performance metrics.
+     * Sets the deviceBootPerformanceMetrics property value. The scores and insights for the device boot performance metrics.
      * @param UserExperienceAnalyticsCategory|null $value Value to set for the deviceBootPerformanceMetrics property.
     */
     public function setDeviceBootPerformanceMetrics(?UserExperienceAnalyticsCategory $value): void {
@@ -187,7 +187,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The name of the user experience analytics baseline.
+     * Sets the displayName property value. The name of the baseline.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -195,7 +195,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Sets the isBuiltIn property value. Signifies if the current baseline is the commercial median baseline or a custom baseline.
+     * Sets the isBuiltIn property value. When TRUE, indicates the current baseline is the commercial median baseline. When FALSE, indicates it is a custom baseline. FALSE by default.
      * @param bool|null $value Value to set for the isBuiltIn property.
     */
     public function setIsBuiltIn(?bool $value): void {
@@ -203,7 +203,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Sets the rebootAnalyticsMetrics property value. The user experience analytics reboot analytics metrics.
+     * Sets the rebootAnalyticsMetrics property value. The scores and insights for the reboot analytics metrics.
      * @param UserExperienceAnalyticsCategory|null $value Value to set for the rebootAnalyticsMetrics property.
     */
     public function setRebootAnalyticsMetrics(?UserExperienceAnalyticsCategory $value): void {
@@ -211,7 +211,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Sets the resourcePerformanceMetrics property value. The user experience analytics resource performance metrics.
+     * Sets the resourcePerformanceMetrics property value. The scores and insights for the resource performance metrics.
      * @param UserExperienceAnalyticsCategory|null $value Value to set for the resourcePerformanceMetrics property.
     */
     public function setResourcePerformanceMetrics(?UserExperienceAnalyticsCategory $value): void {
@@ -219,7 +219,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     }
 
     /**
-     * Sets the workFromAnywhereMetrics property value. The user experience analytics work from anywhere metrics.
+     * Sets the workFromAnywhereMetrics property value. The scores and insights for the work from anywhere metrics.
      * @param UserExperienceAnalyticsCategory|null $value Value to set for the workFromAnywhereMetrics property.
     */
     public function setWorkFromAnywhereMetrics(?UserExperienceAnalyticsCategory $value): void {
