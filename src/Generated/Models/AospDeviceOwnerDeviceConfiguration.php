@@ -30,7 +30,11 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return bool|null
     */
     public function getAppsBlockInstallFromUnknownSources(): ?bool {
-        return $this->getBackingStore()->get('appsBlockInstallFromUnknownSources');
+        $val = $this->getBackingStore()->get('appsBlockInstallFromUnknownSources');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appsBlockInstallFromUnknownSources'");
     }
 
     /**
@@ -38,7 +42,11 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return bool|null
     */
     public function getBluetoothBlockConfiguration(): ?bool {
-        return $this->getBackingStore()->get('bluetoothBlockConfiguration');
+        $val = $this->getBackingStore()->get('bluetoothBlockConfiguration');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bluetoothBlockConfiguration'");
     }
 
     /**
@@ -46,7 +54,11 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return bool|null
     */
     public function getBluetoothBlocked(): ?bool {
-        return $this->getBackingStore()->get('bluetoothBlocked');
+        $val = $this->getBackingStore()->get('bluetoothBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bluetoothBlocked'");
     }
 
     /**
@@ -54,7 +66,11 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return bool|null
     */
     public function getCameraBlocked(): ?bool {
-        return $this->getBackingStore()->get('cameraBlocked');
+        $val = $this->getBackingStore()->get('cameraBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cameraBlocked'");
     }
 
     /**
@@ -62,12 +78,16 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return bool|null
     */
     public function getFactoryResetBlocked(): ?bool {
-        return $this->getBackingStore()->get('factoryResetBlocked');
+        $val = $this->getBackingStore()->get('factoryResetBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'factoryResetBlocked'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -94,7 +114,11 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return int|null
     */
     public function getPasswordMinimumLength(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumLength');
+        $val = $this->getBackingStore()->get('passwordMinimumLength');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumLength'");
     }
 
     /**
@@ -102,7 +126,11 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return int|null
     */
     public function getPasswordMinutesOfInactivityBeforeScreenTimeout(): ?int {
-        return $this->getBackingStore()->get('passwordMinutesOfInactivityBeforeScreenTimeout');
+        $val = $this->getBackingStore()->get('passwordMinutesOfInactivityBeforeScreenTimeout');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinutesOfInactivityBeforeScreenTimeout'");
     }
 
     /**
@@ -110,7 +138,11 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return AndroidDeviceOwnerRequiredPasswordType|null
     */
     public function getPasswordRequiredType(): ?AndroidDeviceOwnerRequiredPasswordType {
-        return $this->getBackingStore()->get('passwordRequiredType');
+        $val = $this->getBackingStore()->get('passwordRequiredType');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerRequiredPasswordType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordRequiredType'");
     }
 
     /**
@@ -118,7 +150,11 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return int|null
     */
     public function getPasswordSignInFailureCountBeforeFactoryReset(): ?int {
-        return $this->getBackingStore()->get('passwordSignInFailureCountBeforeFactoryReset');
+        $val = $this->getBackingStore()->get('passwordSignInFailureCountBeforeFactoryReset');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordSignInFailureCountBeforeFactoryReset'");
     }
 
     /**
@@ -126,7 +162,11 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return bool|null
     */
     public function getScreenCaptureBlocked(): ?bool {
-        return $this->getBackingStore()->get('screenCaptureBlocked');
+        $val = $this->getBackingStore()->get('screenCaptureBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'screenCaptureBlocked'");
     }
 
     /**
@@ -134,7 +174,11 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return bool|null
     */
     public function getSecurityAllowDebuggingFeatures(): ?bool {
-        return $this->getBackingStore()->get('securityAllowDebuggingFeatures');
+        $val = $this->getBackingStore()->get('securityAllowDebuggingFeatures');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'securityAllowDebuggingFeatures'");
     }
 
     /**
@@ -142,7 +186,11 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return bool|null
     */
     public function getStorageBlockExternalMedia(): ?bool {
-        return $this->getBackingStore()->get('storageBlockExternalMedia');
+        $val = $this->getBackingStore()->get('storageBlockExternalMedia');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'storageBlockExternalMedia'");
     }
 
     /**
@@ -150,7 +198,11 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return bool|null
     */
     public function getStorageBlockUsbFileTransfer(): ?bool {
-        return $this->getBackingStore()->get('storageBlockUsbFileTransfer');
+        $val = $this->getBackingStore()->get('storageBlockUsbFileTransfer');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'storageBlockUsbFileTransfer'");
     }
 
     /**
@@ -158,7 +210,11 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return bool|null
     */
     public function getWifiBlockEditConfigurations(): ?bool {
-        return $this->getBackingStore()->get('wifiBlockEditConfigurations');
+        $val = $this->getBackingStore()->get('wifiBlockEditConfigurations');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wifiBlockEditConfigurations'");
     }
 
     /**

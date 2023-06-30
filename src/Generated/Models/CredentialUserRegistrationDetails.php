@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class CredentialUserRegistrationDetails extends Entity implements Parsable 
 {
@@ -29,12 +30,18 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
      * @return array<RegistrationAuthMethod>|null
     */
     public function getAuthMethods(): ?array {
-        return $this->getBackingStore()->get('authMethods');
+        $val = $this->getBackingStore()->get('authMethods');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RegistrationAuthMethod::class);
+            /** @var array<RegistrationAuthMethod>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authMethods'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -54,7 +61,11 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsCapable(): ?bool {
-        return $this->getBackingStore()->get('isCapable');
+        $val = $this->getBackingStore()->get('isCapable');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isCapable'");
     }
 
     /**
@@ -62,7 +73,11 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
-        return $this->getBackingStore()->get('isEnabled');
+        $val = $this->getBackingStore()->get('isEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isEnabled'");
     }
 
     /**
@@ -70,7 +85,11 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsMfaRegistered(): ?bool {
-        return $this->getBackingStore()->get('isMfaRegistered');
+        $val = $this->getBackingStore()->get('isMfaRegistered');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isMfaRegistered'");
     }
 
     /**
@@ -78,7 +97,11 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsRegistered(): ?bool {
-        return $this->getBackingStore()->get('isRegistered');
+        $val = $this->getBackingStore()->get('isRegistered');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isRegistered'");
     }
 
     /**
@@ -86,7 +109,11 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
      * @return string|null
     */
     public function getUserDisplayName(): ?string {
-        return $this->getBackingStore()->get('userDisplayName');
+        $val = $this->getBackingStore()->get('userDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userDisplayName'");
     }
 
     /**
@@ -94,7 +121,11 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('userPrincipalName');
+        $val = $this->getBackingStore()->get('userPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
     }
 
     /**

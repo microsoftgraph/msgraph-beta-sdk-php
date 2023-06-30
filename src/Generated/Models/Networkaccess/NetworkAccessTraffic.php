@@ -40,7 +40,12 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -48,7 +53,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getAgentVersion(): ?string {
-        return $this->getBackingStore()->get('agentVersion');
+        $val = $this->getBackingStore()->get('agentVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'agentVersion'");
     }
 
     /**
@@ -64,7 +73,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getConnectionId(): ?string {
-        return $this->getBackingStore()->get('connectionId');
+        $val = $this->getBackingStore()->get('connectionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectionId'");
     }
 
     /**
@@ -72,7 +85,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -80,7 +97,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getDestinationFQDN(): ?string {
-        return $this->getBackingStore()->get('destinationFQDN');
+        $val = $this->getBackingStore()->get('destinationFQDN');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'destinationFQDN'");
     }
 
     /**
@@ -88,7 +109,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getDestinationIp(): ?string {
-        return $this->getBackingStore()->get('destinationIp');
+        $val = $this->getBackingStore()->get('destinationIp');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'destinationIp'");
     }
 
     /**
@@ -96,7 +121,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return int|null
     */
     public function getDestinationPort(): ?int {
-        return $this->getBackingStore()->get('destinationPort');
+        $val = $this->getBackingStore()->get('destinationPort');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'destinationPort'");
     }
 
     /**
@@ -104,7 +133,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return DeviceCategory|null
     */
     public function getDeviceCategory(): ?DeviceCategory {
-        return $this->getBackingStore()->get('deviceCategory');
+        $val = $this->getBackingStore()->get('deviceCategory');
+        if (is_null($val) || $val instanceof DeviceCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceCategory'");
     }
 
     /**
@@ -112,7 +145,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->getBackingStore()->get('deviceId');
+        $val = $this->getBackingStore()->get('deviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceId'");
     }
 
     /**
@@ -120,7 +157,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getDeviceOperatingSystem(): ?string {
-        return $this->getBackingStore()->get('deviceOperatingSystem');
+        $val = $this->getBackingStore()->get('deviceOperatingSystem');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceOperatingSystem'");
     }
 
     /**
@@ -128,12 +169,16 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getDeviceOperatingSystemVersion(): ?string {
-        return $this->getBackingStore()->get('deviceOperatingSystemVersion');
+        $val = $this->getBackingStore()->get('deviceOperatingSystemVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceOperatingSystemVersion'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -172,7 +217,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return Headers|null
     */
     public function getHeaders(): ?Headers {
-        return $this->getBackingStore()->get('headers');
+        $val = $this->getBackingStore()->get('headers');
+        if (is_null($val) || $val instanceof Headers) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'headers'");
     }
 
     /**
@@ -180,7 +229,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return NetworkingProtocol|null
     */
     public function getNetworkProtocol(): ?NetworkingProtocol {
-        return $this->getBackingStore()->get('networkProtocol');
+        $val = $this->getBackingStore()->get('networkProtocol');
+        if (is_null($val) || $val instanceof NetworkingProtocol) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkProtocol'");
     }
 
     /**
@@ -188,7 +241,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -196,7 +253,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getPolicyId(): ?string {
-        return $this->getBackingStore()->get('policyId');
+        $val = $this->getBackingStore()->get('policyId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyId'");
     }
 
     /**
@@ -204,7 +265,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getPolicyRuleId(): ?string {
-        return $this->getBackingStore()->get('policyRuleId');
+        $val = $this->getBackingStore()->get('policyRuleId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyRuleId'");
     }
 
     /**
@@ -212,7 +277,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return int|null
     */
     public function getReceivedBytes(): ?int {
-        return $this->getBackingStore()->get('receivedBytes');
+        $val = $this->getBackingStore()->get('receivedBytes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'receivedBytes'");
     }
 
     /**
@@ -220,7 +289,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return int|null
     */
     public function getSentBytes(): ?int {
-        return $this->getBackingStore()->get('sentBytes');
+        $val = $this->getBackingStore()->get('sentBytes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sentBytes'");
     }
 
     /**
@@ -228,7 +301,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getSessionId(): ?string {
-        return $this->getBackingStore()->get('sessionId');
+        $val = $this->getBackingStore()->get('sessionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sessionId'");
     }
 
     /**
@@ -236,7 +313,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getSourceIp(): ?string {
-        return $this->getBackingStore()->get('sourceIp');
+        $val = $this->getBackingStore()->get('sourceIp');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sourceIp'");
     }
 
     /**
@@ -244,7 +325,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return int|null
     */
     public function getSourcePort(): ?int {
-        return $this->getBackingStore()->get('sourcePort');
+        $val = $this->getBackingStore()->get('sourcePort');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sourcePort'");
     }
 
     /**
@@ -252,7 +337,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->getBackingStore()->get('tenantId');
+        $val = $this->getBackingStore()->get('tenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantId'");
     }
 
     /**
@@ -260,7 +349,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return TrafficType|null
     */
     public function getTrafficType(): ?TrafficType {
-        return $this->getBackingStore()->get('trafficType');
+        $val = $this->getBackingStore()->get('trafficType');
+        if (is_null($val) || $val instanceof TrafficType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'trafficType'");
     }
 
     /**
@@ -268,7 +361,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getTransactionId(): ?string {
-        return $this->getBackingStore()->get('transactionId');
+        $val = $this->getBackingStore()->get('transactionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'transactionId'");
     }
 
     /**
@@ -276,7 +373,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return NetworkingProtocol|null
     */
     public function getTransportProtocol(): ?NetworkingProtocol {
-        return $this->getBackingStore()->get('transportProtocol');
+        $val = $this->getBackingStore()->get('transportProtocol');
+        if (is_null($val) || $val instanceof NetworkingProtocol) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'transportProtocol'");
     }
 
     /**
@@ -284,7 +385,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->getBackingStore()->get('userId');
+        $val = $this->getBackingStore()->get('userId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
     }
 
     /**
@@ -292,7 +397,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('userPrincipalName');
+        $val = $this->getBackingStore()->get('userPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
     }
 
     /**

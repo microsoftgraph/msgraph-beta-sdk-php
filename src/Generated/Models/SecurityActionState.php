@@ -40,7 +40,12 @@ class SecurityActionState implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -48,7 +53,11 @@ class SecurityActionState implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getAppId(): ?string {
-        return $this->getBackingStore()->get('appId');
+        $val = $this->getBackingStore()->get('appId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appId'");
     }
 
     /**
@@ -61,7 +70,7 @@ class SecurityActionState implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -79,7 +88,11 @@ class SecurityActionState implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -87,7 +100,11 @@ class SecurityActionState implements AdditionalDataHolder, BackedModel, Parsable
      * @return OperationStatus|null
     */
     public function getStatus(): ?OperationStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof OperationStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**
@@ -95,7 +112,11 @@ class SecurityActionState implements AdditionalDataHolder, BackedModel, Parsable
      * @return DateTime|null
     */
     public function getUpdatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('updatedDateTime');
+        $val = $this->getBackingStore()->get('updatedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'updatedDateTime'");
     }
 
     /**
@@ -103,7 +124,11 @@ class SecurityActionState implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getUser(): ?string {
-        return $this->getBackingStore()->get('user');
+        $val = $this->getBackingStore()->get('user');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'user'");
     }
 
     /**

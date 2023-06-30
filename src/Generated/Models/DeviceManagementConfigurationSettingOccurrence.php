@@ -39,7 +39,12 @@ class DeviceManagementConfigurationSettingOccurrence implements AdditionalDataHo
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +57,7 @@ class DeviceManagementConfigurationSettingOccurrence implements AdditionalDataHo
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -68,7 +73,11 @@ class DeviceManagementConfigurationSettingOccurrence implements AdditionalDataHo
      * @return int|null
     */
     public function getMaxDeviceOccurrence(): ?int {
-        return $this->getBackingStore()->get('maxDeviceOccurrence');
+        $val = $this->getBackingStore()->get('maxDeviceOccurrence');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maxDeviceOccurrence'");
     }
 
     /**
@@ -76,7 +85,11 @@ class DeviceManagementConfigurationSettingOccurrence implements AdditionalDataHo
      * @return int|null
     */
     public function getMinDeviceOccurrence(): ?int {
-        return $this->getBackingStore()->get('minDeviceOccurrence');
+        $val = $this->getBackingStore()->get('minDeviceOccurrence');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minDeviceOccurrence'");
     }
 
     /**
@@ -84,7 +97,11 @@ class DeviceManagementConfigurationSettingOccurrence implements AdditionalDataHo
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

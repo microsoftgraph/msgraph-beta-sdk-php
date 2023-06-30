@@ -37,12 +37,16 @@ class AppleExpeditedCheckinConfigurationBase extends DeviceConfiguration impleme
      * @return bool|null
     */
     public function getEnableExpeditedCheckin(): ?bool {
-        return $this->getBackingStore()->get('enableExpeditedCheckin');
+        $val = $this->getBackingStore()->get('enableExpeditedCheckin');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableExpeditedCheckin'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

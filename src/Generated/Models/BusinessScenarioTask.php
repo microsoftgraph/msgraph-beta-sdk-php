@@ -29,12 +29,16 @@ class BusinessScenarioTask extends PlannerTask implements Parsable
      * @return BusinessScenarioProperties|null
     */
     public function getBusinessScenarioProperties(): ?BusinessScenarioProperties {
-        return $this->getBackingStore()->get('businessScenarioProperties');
+        $val = $this->getBackingStore()->get('businessScenarioProperties');
+        if (is_null($val) || $val instanceof BusinessScenarioProperties) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'businessScenarioProperties'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -49,7 +53,11 @@ class BusinessScenarioTask extends PlannerTask implements Parsable
      * @return BusinessScenarioTaskTargetBase|null
     */
     public function getTarget(): ?BusinessScenarioTaskTargetBase {
-        return $this->getBackingStore()->get('target');
+        $val = $this->getBackingStore()->get('target');
+        if (is_null($val) || $val instanceof BusinessScenarioTaskTargetBase) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'target'");
     }
 
     /**

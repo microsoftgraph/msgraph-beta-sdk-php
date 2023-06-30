@@ -30,12 +30,16 @@ class PrivilegedAccessGroupEligibilityScheduleRequest extends PrivilegedAccessSc
      * @return PrivilegedAccessGroupRelationships|null
     */
     public function getAccessId(): ?PrivilegedAccessGroupRelationships {
-        return $this->getBackingStore()->get('accessId');
+        $val = $this->getBackingStore()->get('accessId');
+        if (is_null($val) || $val instanceof PrivilegedAccessGroupRelationships) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accessId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -55,7 +59,11 @@ class PrivilegedAccessGroupEligibilityScheduleRequest extends PrivilegedAccessSc
      * @return Group|null
     */
     public function getGroup(): ?Group {
-        return $this->getBackingStore()->get('group');
+        $val = $this->getBackingStore()->get('group');
+        if (is_null($val) || $val instanceof Group) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'group'");
     }
 
     /**
@@ -63,7 +71,11 @@ class PrivilegedAccessGroupEligibilityScheduleRequest extends PrivilegedAccessSc
      * @return string|null
     */
     public function getGroupId(): ?string {
-        return $this->getBackingStore()->get('groupId');
+        $val = $this->getBackingStore()->get('groupId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupId'");
     }
 
     /**
@@ -71,7 +83,11 @@ class PrivilegedAccessGroupEligibilityScheduleRequest extends PrivilegedAccessSc
      * @return DirectoryObject|null
     */
     public function getPrincipal(): ?DirectoryObject {
-        return $this->getBackingStore()->get('principal');
+        $val = $this->getBackingStore()->get('principal');
+        if (is_null($val) || $val instanceof DirectoryObject) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'principal'");
     }
 
     /**
@@ -79,7 +95,11 @@ class PrivilegedAccessGroupEligibilityScheduleRequest extends PrivilegedAccessSc
      * @return string|null
     */
     public function getPrincipalId(): ?string {
-        return $this->getBackingStore()->get('principalId');
+        $val = $this->getBackingStore()->get('principalId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'principalId'");
     }
 
     /**
@@ -87,7 +107,11 @@ class PrivilegedAccessGroupEligibilityScheduleRequest extends PrivilegedAccessSc
      * @return PrivilegedAccessGroupEligibilitySchedule|null
     */
     public function getTargetSchedule(): ?PrivilegedAccessGroupEligibilitySchedule {
-        return $this->getBackingStore()->get('targetSchedule');
+        $val = $this->getBackingStore()->get('targetSchedule');
+        if (is_null($val) || $val instanceof PrivilegedAccessGroupEligibilitySchedule) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetSchedule'");
     }
 
     /**
@@ -95,7 +119,11 @@ class PrivilegedAccessGroupEligibilityScheduleRequest extends PrivilegedAccessSc
      * @return string|null
     */
     public function getTargetScheduleId(): ?string {
-        return $this->getBackingStore()->get('targetScheduleId');
+        $val = $this->getBackingStore()->get('targetScheduleId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetScheduleId'");
     }
 
     /**

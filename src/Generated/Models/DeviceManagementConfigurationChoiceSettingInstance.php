@@ -30,12 +30,16 @@ class DeviceManagementConfigurationChoiceSettingInstance extends DeviceManagemen
      * @return DeviceManagementConfigurationChoiceSettingValue|null
     */
     public function getChoiceSettingValue(): ?DeviceManagementConfigurationChoiceSettingValue {
-        return $this->getBackingStore()->get('choiceSettingValue');
+        $val = $this->getBackingStore()->get('choiceSettingValue');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationChoiceSettingValue) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'choiceSettingValue'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

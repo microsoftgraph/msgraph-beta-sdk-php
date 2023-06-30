@@ -27,7 +27,7 @@ class Windows10PFXImportCertificateProfile extends DeviceConfiguration implement
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class Windows10PFXImportCertificateProfile extends DeviceConfiguration implement
      * @return KeyStorageProviderOption|null
     */
     public function getKeyStorageProvider(): ?KeyStorageProviderOption {
-        return $this->getBackingStore()->get('keyStorageProvider');
+        $val = $this->getBackingStore()->get('keyStorageProvider');
+        if (is_null($val) || $val instanceof KeyStorageProviderOption) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'keyStorageProvider'");
     }
 
     /**

@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class OnPremisesPublishingProfile extends Entity implements Parsable 
 {
@@ -29,7 +30,13 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
      * @return array<OnPremisesAgentGroup>|null
     */
     public function getAgentGroups(): ?array {
-        return $this->getBackingStore()->get('agentGroups');
+        $val = $this->getBackingStore()->get('agentGroups');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, OnPremisesAgentGroup::class);
+            /** @var array<OnPremisesAgentGroup>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'agentGroups'");
     }
 
     /**
@@ -37,7 +44,13 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
      * @return array<OnPremisesAgent>|null
     */
     public function getAgents(): ?array {
-        return $this->getBackingStore()->get('agents');
+        $val = $this->getBackingStore()->get('agents');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, OnPremisesAgent::class);
+            /** @var array<OnPremisesAgent>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'agents'");
     }
 
     /**
@@ -45,7 +58,13 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
      * @return array<ConnectorGroup>|null
     */
     public function getConnectorGroups(): ?array {
-        return $this->getBackingStore()->get('connectorGroups');
+        $val = $this->getBackingStore()->get('connectorGroups');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ConnectorGroup::class);
+            /** @var array<ConnectorGroup>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectorGroups'");
     }
 
     /**
@@ -53,12 +72,18 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
      * @return array<Connector>|null
     */
     public function getConnectors(): ?array {
-        return $this->getBackingStore()->get('connectors');
+        $val = $this->getBackingStore()->get('connectors');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Connector::class);
+            /** @var array<Connector>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectors'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -79,7 +104,11 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
      * @return HybridAgentUpdaterConfiguration|null
     */
     public function getHybridAgentUpdaterConfiguration(): ?HybridAgentUpdaterConfiguration {
-        return $this->getBackingStore()->get('hybridAgentUpdaterConfiguration');
+        $val = $this->getBackingStore()->get('hybridAgentUpdaterConfiguration');
+        if (is_null($val) || $val instanceof HybridAgentUpdaterConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hybridAgentUpdaterConfiguration'");
     }
 
     /**
@@ -87,7 +116,11 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDefaultAccessEnabled(): ?bool {
-        return $this->getBackingStore()->get('isDefaultAccessEnabled');
+        $val = $this->getBackingStore()->get('isDefaultAccessEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDefaultAccessEnabled'");
     }
 
     /**
@@ -95,7 +128,11 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
-        return $this->getBackingStore()->get('isEnabled');
+        $val = $this->getBackingStore()->get('isEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isEnabled'");
     }
 
     /**
@@ -103,7 +140,13 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
      * @return array<PublishedResource>|null
     */
     public function getPublishedResources(): ?array {
-        return $this->getBackingStore()->get('publishedResources');
+        $val = $this->getBackingStore()->get('publishedResources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PublishedResource::class);
+            /** @var array<PublishedResource>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publishedResources'");
     }
 
     /**

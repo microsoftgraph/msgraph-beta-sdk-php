@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ServicePrincipalCreationPolicy extends PolicyBase implements Parsable 
 {
@@ -30,12 +31,18 @@ class ServicePrincipalCreationPolicy extends PolicyBase implements Parsable
      * @return array<ServicePrincipalCreationConditionSet>|null
     */
     public function getExcludes(): ?array {
-        return $this->getBackingStore()->get('excludes');
+        $val = $this->getBackingStore()->get('excludes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ServicePrincipalCreationConditionSet::class);
+            /** @var array<ServicePrincipalCreationConditionSet>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'excludes'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -51,7 +58,13 @@ class ServicePrincipalCreationPolicy extends PolicyBase implements Parsable
      * @return array<ServicePrincipalCreationConditionSet>|null
     */
     public function getIncludes(): ?array {
-        return $this->getBackingStore()->get('includes');
+        $val = $this->getBackingStore()->get('includes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ServicePrincipalCreationConditionSet::class);
+            /** @var array<ServicePrincipalCreationConditionSet>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'includes'");
     }
 
     /**
@@ -59,7 +72,11 @@ class ServicePrincipalCreationPolicy extends PolicyBase implements Parsable
      * @return bool|null
     */
     public function getIsBuiltIn(): ?bool {
-        return $this->getBackingStore()->get('isBuiltIn');
+        $val = $this->getBackingStore()->get('isBuiltIn');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isBuiltIn'");
     }
 
     /**

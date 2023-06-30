@@ -26,7 +26,7 @@ class ImportedDeviceIdentityResult extends ImportedDeviceIdentity implements Par
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -40,7 +40,11 @@ class ImportedDeviceIdentityResult extends ImportedDeviceIdentity implements Par
      * @return bool|null
     */
     public function getStatus(): ?bool {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

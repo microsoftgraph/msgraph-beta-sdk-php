@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DeviceManagementConfigurationChoiceSettingValue extends DeviceManagementConfigurationSettingValue implements Parsable 
 {
@@ -30,12 +31,18 @@ class DeviceManagementConfigurationChoiceSettingValue extends DeviceManagementCo
      * @return array<DeviceManagementConfigurationSettingInstance>|null
     */
     public function getChildren(): ?array {
-        return $this->getBackingStore()->get('children');
+        $val = $this->getBackingStore()->get('children');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementConfigurationSettingInstance::class);
+            /** @var array<DeviceManagementConfigurationSettingInstance>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'children'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -50,7 +57,11 @@ class DeviceManagementConfigurationChoiceSettingValue extends DeviceManagementCo
      * @return string|null
     */
     public function getValue(): ?string {
-        return $this->getBackingStore()->get('value');
+        $val = $this->getBackingStore()->get('value');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'value'");
     }
 
     /**

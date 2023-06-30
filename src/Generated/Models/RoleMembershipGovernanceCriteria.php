@@ -27,7 +27,7 @@ class RoleMembershipGovernanceCriteria extends GovernanceCriteria implements Par
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -42,7 +42,11 @@ class RoleMembershipGovernanceCriteria extends GovernanceCriteria implements Par
      * @return string|null
     */
     public function getRoleId(): ?string {
-        return $this->getBackingStore()->get('roleId');
+        $val = $this->getBackingStore()->get('roleId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleId'");
     }
 
     /**
@@ -50,7 +54,11 @@ class RoleMembershipGovernanceCriteria extends GovernanceCriteria implements Par
      * @return string|null
     */
     public function getRoleTemplateId(): ?string {
-        return $this->getBackingStore()->get('roleTemplateId');
+        $val = $this->getBackingStore()->get('roleTemplateId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleTemplateId'");
     }
 
     /**

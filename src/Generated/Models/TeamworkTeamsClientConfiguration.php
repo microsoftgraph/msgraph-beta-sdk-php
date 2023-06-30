@@ -39,7 +39,11 @@ class TeamworkTeamsClientConfiguration implements AdditionalDataHolder, BackedMo
      * @return TeamworkAccountConfiguration|null
     */
     public function getAccountConfiguration(): ?TeamworkAccountConfiguration {
-        return $this->getBackingStore()->get('accountConfiguration');
+        $val = $this->getBackingStore()->get('accountConfiguration');
+        if (is_null($val) || $val instanceof TeamworkAccountConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accountConfiguration'");
     }
 
     /**
@@ -47,7 +51,12 @@ class TeamworkTeamsClientConfiguration implements AdditionalDataHolder, BackedMo
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -63,12 +72,16 @@ class TeamworkTeamsClientConfiguration implements AdditionalDataHolder, BackedMo
      * @return TeamworkFeaturesConfiguration|null
     */
     public function getFeaturesConfiguration(): ?TeamworkFeaturesConfiguration {
-        return $this->getBackingStore()->get('featuresConfiguration');
+        $val = $this->getBackingStore()->get('featuresConfiguration');
+        if (is_null($val) || $val instanceof TeamworkFeaturesConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'featuresConfiguration'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -84,7 +97,11 @@ class TeamworkTeamsClientConfiguration implements AdditionalDataHolder, BackedMo
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

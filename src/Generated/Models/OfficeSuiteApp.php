@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
 class OfficeSuiteApp extends MobileApp implements Parsable 
@@ -31,7 +32,11 @@ class OfficeSuiteApp extends MobileApp implements Parsable
      * @return bool|null
     */
     public function getAutoAcceptEula(): ?bool {
-        return $this->getBackingStore()->get('autoAcceptEula');
+        $val = $this->getBackingStore()->get('autoAcceptEula');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'autoAcceptEula'");
     }
 
     /**
@@ -39,12 +44,16 @@ class OfficeSuiteApp extends MobileApp implements Parsable
      * @return ExcludedApps|null
     */
     public function getExcludedApps(): ?ExcludedApps {
-        return $this->getBackingStore()->get('excludedApps');
+        $val = $this->getBackingStore()->get('excludedApps');
+        if (is_null($val) || $val instanceof ExcludedApps) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'excludedApps'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -52,7 +61,14 @@ class OfficeSuiteApp extends MobileApp implements Parsable
             'autoAcceptEula' => fn(ParseNode $n) => $o->setAutoAcceptEula($n->getBooleanValue()),
             'excludedApps' => fn(ParseNode $n) => $o->setExcludedApps($n->getObjectValue([ExcludedApps::class, 'createFromDiscriminatorValue'])),
             'installProgressDisplayLevel' => fn(ParseNode $n) => $o->setInstallProgressDisplayLevel($n->getEnumValue(OfficeSuiteInstallProgressDisplayLevel::class)),
-            'localesToInstall' => fn(ParseNode $n) => $o->setLocalesToInstall($n->getCollectionOfPrimitiveValues()),
+            'localesToInstall' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setLocalesToInstall($val);
+            },
             'officeConfigurationXml' => fn(ParseNode $n) => $o->setOfficeConfigurationXml($n->getBinaryContent()),
             'officePlatformArchitecture' => fn(ParseNode $n) => $o->setOfficePlatformArchitecture($n->getEnumValue(WindowsArchitecture::class)),
             'officeSuiteAppDefaultFileFormat' => fn(ParseNode $n) => $o->setOfficeSuiteAppDefaultFileFormat($n->getEnumValue(OfficeSuiteDefaultFileFormatType::class)),
@@ -70,7 +86,11 @@ class OfficeSuiteApp extends MobileApp implements Parsable
      * @return OfficeSuiteInstallProgressDisplayLevel|null
     */
     public function getInstallProgressDisplayLevel(): ?OfficeSuiteInstallProgressDisplayLevel {
-        return $this->getBackingStore()->get('installProgressDisplayLevel');
+        $val = $this->getBackingStore()->get('installProgressDisplayLevel');
+        if (is_null($val) || $val instanceof OfficeSuiteInstallProgressDisplayLevel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'installProgressDisplayLevel'");
     }
 
     /**
@@ -78,7 +98,13 @@ class OfficeSuiteApp extends MobileApp implements Parsable
      * @return array<string>|null
     */
     public function getLocalesToInstall(): ?array {
-        return $this->getBackingStore()->get('localesToInstall');
+        $val = $this->getBackingStore()->get('localesToInstall');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localesToInstall'");
     }
 
     /**
@@ -86,7 +112,11 @@ class OfficeSuiteApp extends MobileApp implements Parsable
      * @return StreamInterface|null
     */
     public function getOfficeConfigurationXml(): ?StreamInterface {
-        return $this->getBackingStore()->get('officeConfigurationXml');
+        $val = $this->getBackingStore()->get('officeConfigurationXml');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'officeConfigurationXml'");
     }
 
     /**
@@ -94,7 +124,11 @@ class OfficeSuiteApp extends MobileApp implements Parsable
      * @return WindowsArchitecture|null
     */
     public function getOfficePlatformArchitecture(): ?WindowsArchitecture {
-        return $this->getBackingStore()->get('officePlatformArchitecture');
+        $val = $this->getBackingStore()->get('officePlatformArchitecture');
+        if (is_null($val) || $val instanceof WindowsArchitecture) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'officePlatformArchitecture'");
     }
 
     /**
@@ -102,7 +136,11 @@ class OfficeSuiteApp extends MobileApp implements Parsable
      * @return OfficeSuiteDefaultFileFormatType|null
     */
     public function getOfficeSuiteAppDefaultFileFormat(): ?OfficeSuiteDefaultFileFormatType {
-        return $this->getBackingStore()->get('officeSuiteAppDefaultFileFormat');
+        $val = $this->getBackingStore()->get('officeSuiteAppDefaultFileFormat');
+        if (is_null($val) || $val instanceof OfficeSuiteDefaultFileFormatType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'officeSuiteAppDefaultFileFormat'");
     }
 
     /**
@@ -110,7 +148,13 @@ class OfficeSuiteApp extends MobileApp implements Parsable
      * @return array<OfficeProductId>|null
     */
     public function getProductIds(): ?array {
-        return $this->getBackingStore()->get('productIds');
+        $val = $this->getBackingStore()->get('productIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, OfficeProductId::class);
+            /** @var array<OfficeProductId>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'productIds'");
     }
 
     /**
@@ -118,7 +162,11 @@ class OfficeSuiteApp extends MobileApp implements Parsable
      * @return bool|null
     */
     public function getShouldUninstallOlderVersionsOfOffice(): ?bool {
-        return $this->getBackingStore()->get('shouldUninstallOlderVersionsOfOffice');
+        $val = $this->getBackingStore()->get('shouldUninstallOlderVersionsOfOffice');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'shouldUninstallOlderVersionsOfOffice'");
     }
 
     /**
@@ -126,7 +174,11 @@ class OfficeSuiteApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getTargetVersion(): ?string {
-        return $this->getBackingStore()->get('targetVersion');
+        $val = $this->getBackingStore()->get('targetVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetVersion'");
     }
 
     /**
@@ -134,7 +186,11 @@ class OfficeSuiteApp extends MobileApp implements Parsable
      * @return OfficeUpdateChannel|null
     */
     public function getUpdateChannel(): ?OfficeUpdateChannel {
-        return $this->getBackingStore()->get('updateChannel');
+        $val = $this->getBackingStore()->get('updateChannel');
+        if (is_null($val) || $val instanceof OfficeUpdateChannel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'updateChannel'");
     }
 
     /**
@@ -142,7 +198,11 @@ class OfficeSuiteApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getUpdateVersion(): ?string {
-        return $this->getBackingStore()->get('updateVersion');
+        $val = $this->getBackingStore()->get('updateVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'updateVersion'");
     }
 
     /**
@@ -150,7 +210,11 @@ class OfficeSuiteApp extends MobileApp implements Parsable
      * @return bool|null
     */
     public function getUseSharedComputerActivation(): ?bool {
-        return $this->getBackingStore()->get('useSharedComputerActivation');
+        $val = $this->getBackingStore()->get('useSharedComputerActivation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'useSharedComputerActivation'");
     }
 
     /**

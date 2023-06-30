@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
 class Application extends DirectoryObject implements Parsable 
@@ -32,7 +33,11 @@ class Application extends DirectoryObject implements Parsable
      * @return ApiApplication|null
     */
     public function getApi(): ?ApiApplication {
-        return $this->getBackingStore()->get('api');
+        $val = $this->getBackingStore()->get('api');
+        if (is_null($val) || $val instanceof ApiApplication) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'api'");
     }
 
     /**
@@ -40,7 +45,11 @@ class Application extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getAppId(): ?string {
-        return $this->getBackingStore()->get('appId');
+        $val = $this->getBackingStore()->get('appId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appId'");
     }
 
     /**
@@ -48,7 +57,13 @@ class Application extends DirectoryObject implements Parsable
      * @return array<AppManagementPolicy>|null
     */
     public function getAppManagementPolicies(): ?array {
-        return $this->getBackingStore()->get('appManagementPolicies');
+        $val = $this->getBackingStore()->get('appManagementPolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AppManagementPolicy::class);
+            /** @var array<AppManagementPolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appManagementPolicies'");
     }
 
     /**
@@ -56,15 +71,25 @@ class Application extends DirectoryObject implements Parsable
      * @return array<AppRole>|null
     */
     public function getAppRoles(): ?array {
-        return $this->getBackingStore()->get('appRoles');
+        $val = $this->getBackingStore()->get('appRoles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AppRole::class);
+            /** @var array<AppRole>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appRoles'");
     }
 
     /**
-     * Gets the authenticationBehaviors property value. The collection of authentication behaviors set for the application. Authentication behaviors are unset by default and must be explicitly enabled (or disabled). Returned only on $select.
+     * Gets the authenticationBehaviors property value. The collection of authentication behaviors set for the application. Authentication behaviors are unset by default and must be explicitly enabled (or disabled). Returned only on $select.  For more information about authentication behaviors, see Manage application authenticationBehaviors to avoid unverified use of email claims for user identification or authorization.
      * @return AuthenticationBehaviors|null
     */
     public function getAuthenticationBehaviors(): ?AuthenticationBehaviors {
-        return $this->getBackingStore()->get('authenticationBehaviors');
+        $val = $this->getBackingStore()->get('authenticationBehaviors');
+        if (is_null($val) || $val instanceof AuthenticationBehaviors) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationBehaviors'");
     }
 
     /**
@@ -72,7 +97,11 @@ class Application extends DirectoryObject implements Parsable
      * @return Certification|null
     */
     public function getCertification(): ?Certification {
-        return $this->getBackingStore()->get('certification');
+        $val = $this->getBackingStore()->get('certification');
+        if (is_null($val) || $val instanceof Certification) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certification'");
     }
 
     /**
@@ -80,7 +109,11 @@ class Application extends DirectoryObject implements Parsable
      * @return ConnectorGroup|null
     */
     public function getConnectorGroup(): ?ConnectorGroup {
-        return $this->getBackingStore()->get('connectorGroup');
+        $val = $this->getBackingStore()->get('connectorGroup');
+        if (is_null($val) || $val instanceof ConnectorGroup) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectorGroup'");
     }
 
     /**
@@ -88,7 +121,11 @@ class Application extends DirectoryObject implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -96,7 +133,11 @@ class Application extends DirectoryObject implements Parsable
      * @return DirectoryObject|null
     */
     public function getCreatedOnBehalfOf(): ?DirectoryObject {
-        return $this->getBackingStore()->get('createdOnBehalfOf');
+        $val = $this->getBackingStore()->get('createdOnBehalfOf');
+        if (is_null($val) || $val instanceof DirectoryObject) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdOnBehalfOf'");
     }
 
     /**
@@ -104,7 +145,11 @@ class Application extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getDefaultRedirectUri(): ?string {
-        return $this->getBackingStore()->get('defaultRedirectUri');
+        $val = $this->getBackingStore()->get('defaultRedirectUri');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultRedirectUri'");
     }
 
     /**
@@ -112,7 +157,11 @@ class Application extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -120,7 +169,11 @@ class Application extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getDisabledByMicrosoftStatus(): ?string {
-        return $this->getBackingStore()->get('disabledByMicrosoftStatus');
+        $val = $this->getBackingStore()->get('disabledByMicrosoftStatus');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disabledByMicrosoftStatus'");
     }
 
     /**
@@ -128,7 +181,11 @@ class Application extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -136,7 +193,13 @@ class Application extends DirectoryObject implements Parsable
      * @return array<ExtensionProperty>|null
     */
     public function getExtensionProperties(): ?array {
-        return $this->getBackingStore()->get('extensionProperties');
+        $val = $this->getBackingStore()->get('extensionProperties');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ExtensionProperty::class);
+            /** @var array<ExtensionProperty>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'extensionProperties'");
     }
 
     /**
@@ -144,12 +207,18 @@ class Application extends DirectoryObject implements Parsable
      * @return array<FederatedIdentityCredential>|null
     */
     public function getFederatedIdentityCredentials(): ?array {
-        return $this->getBackingStore()->get('federatedIdentityCredentials');
+        $val = $this->getBackingStore()->get('federatedIdentityCredentials');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, FederatedIdentityCredential::class);
+            /** @var array<FederatedIdentityCredential>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'federatedIdentityCredentials'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -171,7 +240,14 @@ class Application extends DirectoryObject implements Parsable
             'federatedIdentityCredentials' => fn(ParseNode $n) => $o->setFederatedIdentityCredentials($n->getCollectionOfObjectValues([FederatedIdentityCredential::class, 'createFromDiscriminatorValue'])),
             'groupMembershipClaims' => fn(ParseNode $n) => $o->setGroupMembershipClaims($n->getStringValue()),
             'homeRealmDiscoveryPolicies' => fn(ParseNode $n) => $o->setHomeRealmDiscoveryPolicies($n->getCollectionOfObjectValues([HomeRealmDiscoveryPolicy::class, 'createFromDiscriminatorValue'])),
-            'identifierUris' => fn(ParseNode $n) => $o->setIdentifierUris($n->getCollectionOfPrimitiveValues()),
+            'identifierUris' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setIdentifierUris($val);
+            },
             'info' => fn(ParseNode $n) => $o->setInfo($n->getObjectValue([InformationalUrl::class, 'createFromDiscriminatorValue'])),
             'isDeviceOnlyAuthSupported' => fn(ParseNode $n) => $o->setIsDeviceOnlyAuthSupported($n->getBooleanValue()),
             'isFallbackPublicClient' => fn(ParseNode $n) => $o->setIsFallbackPublicClient($n->getBooleanValue()),
@@ -193,7 +269,14 @@ class Application extends DirectoryObject implements Parsable
             'signInAudience' => fn(ParseNode $n) => $o->setSignInAudience($n->getStringValue()),
             'spa' => fn(ParseNode $n) => $o->setSpa($n->getObjectValue([SpaApplication::class, 'createFromDiscriminatorValue'])),
             'synchronization' => fn(ParseNode $n) => $o->setSynchronization($n->getObjectValue([Synchronization::class, 'createFromDiscriminatorValue'])),
-            'tags' => fn(ParseNode $n) => $o->setTags($n->getCollectionOfPrimitiveValues()),
+            'tags' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setTags($val);
+            },
             'tokenEncryptionKeyId' => fn(ParseNode $n) => $o->setTokenEncryptionKeyId($n->getStringValue()),
             'tokenIssuancePolicies' => fn(ParseNode $n) => $o->setTokenIssuancePolicies($n->getCollectionOfObjectValues([TokenIssuancePolicy::class, 'createFromDiscriminatorValue'])),
             'tokenLifetimePolicies' => fn(ParseNode $n) => $o->setTokenLifetimePolicies($n->getCollectionOfObjectValues([TokenLifetimePolicy::class, 'createFromDiscriminatorValue'])),
@@ -209,7 +292,11 @@ class Application extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getGroupMembershipClaims(): ?string {
-        return $this->getBackingStore()->get('groupMembershipClaims');
+        $val = $this->getBackingStore()->get('groupMembershipClaims');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupMembershipClaims'");
     }
 
     /**
@@ -217,7 +304,13 @@ class Application extends DirectoryObject implements Parsable
      * @return array<HomeRealmDiscoveryPolicy>|null
     */
     public function getHomeRealmDiscoveryPolicies(): ?array {
-        return $this->getBackingStore()->get('homeRealmDiscoveryPolicies');
+        $val = $this->getBackingStore()->get('homeRealmDiscoveryPolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, HomeRealmDiscoveryPolicy::class);
+            /** @var array<HomeRealmDiscoveryPolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'homeRealmDiscoveryPolicies'");
     }
 
     /**
@@ -225,7 +318,13 @@ class Application extends DirectoryObject implements Parsable
      * @return array<string>|null
     */
     public function getIdentifierUris(): ?array {
-        return $this->getBackingStore()->get('identifierUris');
+        $val = $this->getBackingStore()->get('identifierUris');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identifierUris'");
     }
 
     /**
@@ -233,7 +332,11 @@ class Application extends DirectoryObject implements Parsable
      * @return InformationalUrl|null
     */
     public function getInfo(): ?InformationalUrl {
-        return $this->getBackingStore()->get('info');
+        $val = $this->getBackingStore()->get('info');
+        if (is_null($val) || $val instanceof InformationalUrl) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'info'");
     }
 
     /**
@@ -241,7 +344,11 @@ class Application extends DirectoryObject implements Parsable
      * @return bool|null
     */
     public function getIsDeviceOnlyAuthSupported(): ?bool {
-        return $this->getBackingStore()->get('isDeviceOnlyAuthSupported');
+        $val = $this->getBackingStore()->get('isDeviceOnlyAuthSupported');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDeviceOnlyAuthSupported'");
     }
 
     /**
@@ -249,7 +356,11 @@ class Application extends DirectoryObject implements Parsable
      * @return bool|null
     */
     public function getIsFallbackPublicClient(): ?bool {
-        return $this->getBackingStore()->get('isFallbackPublicClient');
+        $val = $this->getBackingStore()->get('isFallbackPublicClient');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isFallbackPublicClient'");
     }
 
     /**
@@ -257,7 +368,13 @@ class Application extends DirectoryObject implements Parsable
      * @return array<KeyCredential>|null
     */
     public function getKeyCredentials(): ?array {
-        return $this->getBackingStore()->get('keyCredentials');
+        $val = $this->getBackingStore()->get('keyCredentials');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, KeyCredential::class);
+            /** @var array<KeyCredential>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'keyCredentials'");
     }
 
     /**
@@ -265,7 +382,11 @@ class Application extends DirectoryObject implements Parsable
      * @return StreamInterface|null
     */
     public function getLogo(): ?StreamInterface {
-        return $this->getBackingStore()->get('logo');
+        $val = $this->getBackingStore()->get('logo');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'logo'");
     }
 
     /**
@@ -273,7 +394,11 @@ class Application extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getNotes(): ?string {
-        return $this->getBackingStore()->get('notes');
+        $val = $this->getBackingStore()->get('notes');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notes'");
     }
 
     /**
@@ -281,7 +406,11 @@ class Application extends DirectoryObject implements Parsable
      * @return OnPremisesPublishing|null
     */
     public function getOnPremisesPublishing(): ?OnPremisesPublishing {
-        return $this->getBackingStore()->get('onPremisesPublishing');
+        $val = $this->getBackingStore()->get('onPremisesPublishing');
+        if (is_null($val) || $val instanceof OnPremisesPublishing) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onPremisesPublishing'");
     }
 
     /**
@@ -289,7 +418,11 @@ class Application extends DirectoryObject implements Parsable
      * @return OptionalClaims|null
     */
     public function getOptionalClaims(): ?OptionalClaims {
-        return $this->getBackingStore()->get('optionalClaims');
+        $val = $this->getBackingStore()->get('optionalClaims');
+        if (is_null($val) || $val instanceof OptionalClaims) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'optionalClaims'");
     }
 
     /**
@@ -297,7 +430,13 @@ class Application extends DirectoryObject implements Parsable
      * @return array<DirectoryObject>|null
     */
     public function getOwners(): ?array {
-        return $this->getBackingStore()->get('owners');
+        $val = $this->getBackingStore()->get('owners');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DirectoryObject::class);
+            /** @var array<DirectoryObject>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'owners'");
     }
 
     /**
@@ -305,7 +444,11 @@ class Application extends DirectoryObject implements Parsable
      * @return ParentalControlSettings|null
     */
     public function getParentalControlSettings(): ?ParentalControlSettings {
-        return $this->getBackingStore()->get('parentalControlSettings');
+        $val = $this->getBackingStore()->get('parentalControlSettings');
+        if (is_null($val) || $val instanceof ParentalControlSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'parentalControlSettings'");
     }
 
     /**
@@ -313,7 +456,13 @@ class Application extends DirectoryObject implements Parsable
      * @return array<PasswordCredential>|null
     */
     public function getPasswordCredentials(): ?array {
-        return $this->getBackingStore()->get('passwordCredentials');
+        $val = $this->getBackingStore()->get('passwordCredentials');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PasswordCredential::class);
+            /** @var array<PasswordCredential>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordCredentials'");
     }
 
     /**
@@ -321,7 +470,11 @@ class Application extends DirectoryObject implements Parsable
      * @return PublicClientApplication|null
     */
     public function getPublicClient(): ?PublicClientApplication {
-        return $this->getBackingStore()->get('publicClient');
+        $val = $this->getBackingStore()->get('publicClient');
+        if (is_null($val) || $val instanceof PublicClientApplication) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publicClient'");
     }
 
     /**
@@ -329,7 +482,11 @@ class Application extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getPublisherDomain(): ?string {
-        return $this->getBackingStore()->get('publisherDomain');
+        $val = $this->getBackingStore()->get('publisherDomain');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publisherDomain'");
     }
 
     /**
@@ -337,7 +494,11 @@ class Application extends DirectoryObject implements Parsable
      * @return RequestSignatureVerification|null
     */
     public function getRequestSignatureVerification(): ?RequestSignatureVerification {
-        return $this->getBackingStore()->get('requestSignatureVerification');
+        $val = $this->getBackingStore()->get('requestSignatureVerification');
+        if (is_null($val) || $val instanceof RequestSignatureVerification) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requestSignatureVerification'");
     }
 
     /**
@@ -345,7 +506,13 @@ class Application extends DirectoryObject implements Parsable
      * @return array<RequiredResourceAccess>|null
     */
     public function getRequiredResourceAccess(): ?array {
-        return $this->getBackingStore()->get('requiredResourceAccess');
+        $val = $this->getBackingStore()->get('requiredResourceAccess');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RequiredResourceAccess::class);
+            /** @var array<RequiredResourceAccess>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requiredResourceAccess'");
     }
 
     /**
@@ -353,7 +520,11 @@ class Application extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getSamlMetadataUrl(): ?string {
-        return $this->getBackingStore()->get('samlMetadataUrl');
+        $val = $this->getBackingStore()->get('samlMetadataUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'samlMetadataUrl'");
     }
 
     /**
@@ -361,7 +532,11 @@ class Application extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getServiceManagementReference(): ?string {
-        return $this->getBackingStore()->get('serviceManagementReference');
+        $val = $this->getBackingStore()->get('serviceManagementReference');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'serviceManagementReference'");
     }
 
     /**
@@ -369,7 +544,11 @@ class Application extends DirectoryObject implements Parsable
      * @return ServicePrincipalLockConfiguration|null
     */
     public function getServicePrincipalLockConfiguration(): ?ServicePrincipalLockConfiguration {
-        return $this->getBackingStore()->get('servicePrincipalLockConfiguration');
+        $val = $this->getBackingStore()->get('servicePrincipalLockConfiguration');
+        if (is_null($val) || $val instanceof ServicePrincipalLockConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'servicePrincipalLockConfiguration'");
     }
 
     /**
@@ -377,7 +556,11 @@ class Application extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getSignInAudience(): ?string {
-        return $this->getBackingStore()->get('signInAudience');
+        $val = $this->getBackingStore()->get('signInAudience');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signInAudience'");
     }
 
     /**
@@ -385,7 +568,11 @@ class Application extends DirectoryObject implements Parsable
      * @return SpaApplication|null
     */
     public function getSpa(): ?SpaApplication {
-        return $this->getBackingStore()->get('spa');
+        $val = $this->getBackingStore()->get('spa');
+        if (is_null($val) || $val instanceof SpaApplication) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'spa'");
     }
 
     /**
@@ -393,7 +580,11 @@ class Application extends DirectoryObject implements Parsable
      * @return Synchronization|null
     */
     public function getSynchronization(): ?Synchronization {
-        return $this->getBackingStore()->get('synchronization');
+        $val = $this->getBackingStore()->get('synchronization');
+        if (is_null($val) || $val instanceof Synchronization) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'synchronization'");
     }
 
     /**
@@ -401,7 +592,13 @@ class Application extends DirectoryObject implements Parsable
      * @return array<string>|null
     */
     public function getTags(): ?array {
-        return $this->getBackingStore()->get('tags');
+        $val = $this->getBackingStore()->get('tags');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tags'");
     }
 
     /**
@@ -409,7 +606,11 @@ class Application extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getTokenEncryptionKeyId(): ?string {
-        return $this->getBackingStore()->get('tokenEncryptionKeyId');
+        $val = $this->getBackingStore()->get('tokenEncryptionKeyId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tokenEncryptionKeyId'");
     }
 
     /**
@@ -417,7 +618,13 @@ class Application extends DirectoryObject implements Parsable
      * @return array<TokenIssuancePolicy>|null
     */
     public function getTokenIssuancePolicies(): ?array {
-        return $this->getBackingStore()->get('tokenIssuancePolicies');
+        $val = $this->getBackingStore()->get('tokenIssuancePolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, TokenIssuancePolicy::class);
+            /** @var array<TokenIssuancePolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tokenIssuancePolicies'");
     }
 
     /**
@@ -425,7 +632,13 @@ class Application extends DirectoryObject implements Parsable
      * @return array<TokenLifetimePolicy>|null
     */
     public function getTokenLifetimePolicies(): ?array {
-        return $this->getBackingStore()->get('tokenLifetimePolicies');
+        $val = $this->getBackingStore()->get('tokenLifetimePolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, TokenLifetimePolicy::class);
+            /** @var array<TokenLifetimePolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tokenLifetimePolicies'");
     }
 
     /**
@@ -433,7 +646,11 @@ class Application extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getUniqueName(): ?string {
-        return $this->getBackingStore()->get('uniqueName');
+        $val = $this->getBackingStore()->get('uniqueName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'uniqueName'");
     }
 
     /**
@@ -441,7 +658,11 @@ class Application extends DirectoryObject implements Parsable
      * @return VerifiedPublisher|null
     */
     public function getVerifiedPublisher(): ?VerifiedPublisher {
-        return $this->getBackingStore()->get('verifiedPublisher');
+        $val = $this->getBackingStore()->get('verifiedPublisher');
+        if (is_null($val) || $val instanceof VerifiedPublisher) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'verifiedPublisher'");
     }
 
     /**
@@ -449,7 +670,11 @@ class Application extends DirectoryObject implements Parsable
      * @return WebApplication|null
     */
     public function getWeb(): ?WebApplication {
-        return $this->getBackingStore()->get('web');
+        $val = $this->getBackingStore()->get('web');
+        if (is_null($val) || $val instanceof WebApplication) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'web'");
     }
 
     /**
@@ -457,7 +682,11 @@ class Application extends DirectoryObject implements Parsable
      * @return WindowsApplication|null
     */
     public function getWindows(): ?WindowsApplication {
-        return $this->getBackingStore()->get('windows');
+        $val = $this->getBackingStore()->get('windows');
+        if (is_null($val) || $val instanceof WindowsApplication) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windows'");
     }
 
     /**
@@ -548,7 +777,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the authenticationBehaviors property value. The collection of authentication behaviors set for the application. Authentication behaviors are unset by default and must be explicitly enabled (or disabled). Returned only on $select.
+     * Sets the authenticationBehaviors property value. The collection of authentication behaviors set for the application. Authentication behaviors are unset by default and must be explicitly enabled (or disabled). Returned only on $select.  For more information about authentication behaviors, see Manage application authenticationBehaviors to avoid unverified use of email claims for user identification or authorization.
      * @param AuthenticationBehaviors|null $value Value to set for the authenticationBehaviors property.
     */
     public function setAuthenticationBehaviors(?AuthenticationBehaviors $value): void {

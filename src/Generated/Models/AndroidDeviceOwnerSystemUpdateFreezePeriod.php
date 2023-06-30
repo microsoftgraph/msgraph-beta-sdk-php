@@ -42,7 +42,12 @@ class AndroidDeviceOwnerSystemUpdateFreezePeriod implements AdditionalDataHolder
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -58,7 +63,11 @@ class AndroidDeviceOwnerSystemUpdateFreezePeriod implements AdditionalDataHolder
      * @return int|null
     */
     public function getEndDay(): ?int {
-        return $this->getBackingStore()->get('endDay');
+        $val = $this->getBackingStore()->get('endDay');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endDay'");
     }
 
     /**
@@ -66,12 +75,16 @@ class AndroidDeviceOwnerSystemUpdateFreezePeriod implements AdditionalDataHolder
      * @return int|null
     */
     public function getEndMonth(): ?int {
-        return $this->getBackingStore()->get('endMonth');
+        $val = $this->getBackingStore()->get('endMonth');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endMonth'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -89,7 +102,11 @@ class AndroidDeviceOwnerSystemUpdateFreezePeriod implements AdditionalDataHolder
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -97,7 +114,11 @@ class AndroidDeviceOwnerSystemUpdateFreezePeriod implements AdditionalDataHolder
      * @return int|null
     */
     public function getStartDay(): ?int {
-        return $this->getBackingStore()->get('startDay');
+        $val = $this->getBackingStore()->get('startDay');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startDay'");
     }
 
     /**
@@ -105,7 +126,11 @@ class AndroidDeviceOwnerSystemUpdateFreezePeriod implements AdditionalDataHolder
      * @return int|null
     */
     public function getStartMonth(): ?int {
-        return $this->getBackingStore()->get('startMonth');
+        $val = $this->getBackingStore()->get('startMonth');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMonth'");
     }
 
     /**

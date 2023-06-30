@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class SitePage extends BaseItem implements Parsable 
 {
@@ -30,7 +31,11 @@ class SitePage extends BaseItem implements Parsable
      * @return CanvasLayout|null
     */
     public function getCanvasLayout(): ?CanvasLayout {
-        return $this->getBackingStore()->get('canvasLayout');
+        $val = $this->getBackingStore()->get('canvasLayout');
+        if (is_null($val) || $val instanceof CanvasLayout) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'canvasLayout'");
     }
 
     /**
@@ -38,12 +43,16 @@ class SitePage extends BaseItem implements Parsable
      * @return ContentTypeInfo|null
     */
     public function getContentType(): ?ContentTypeInfo {
-        return $this->getBackingStore()->get('contentType');
+        $val = $this->getBackingStore()->get('contentType');
+        if (is_null($val) || $val instanceof ContentTypeInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentType'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -68,7 +77,11 @@ class SitePage extends BaseItem implements Parsable
      * @return PageLayoutType|null
     */
     public function getPageLayout(): ?PageLayoutType {
-        return $this->getBackingStore()->get('pageLayout');
+        $val = $this->getBackingStore()->get('pageLayout');
+        if (is_null($val) || $val instanceof PageLayoutType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pageLayout'");
     }
 
     /**
@@ -76,7 +89,11 @@ class SitePage extends BaseItem implements Parsable
      * @return PagePromotionType|null
     */
     public function getPromotionKind(): ?PagePromotionType {
-        return $this->getBackingStore()->get('promotionKind');
+        $val = $this->getBackingStore()->get('promotionKind');
+        if (is_null($val) || $val instanceof PagePromotionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'promotionKind'");
     }
 
     /**
@@ -84,7 +101,11 @@ class SitePage extends BaseItem implements Parsable
      * @return PublicationFacet|null
     */
     public function getPublishingState(): ?PublicationFacet {
-        return $this->getBackingStore()->get('publishingState');
+        $val = $this->getBackingStore()->get('publishingState');
+        if (is_null($val) || $val instanceof PublicationFacet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publishingState'");
     }
 
     /**
@@ -92,7 +113,11 @@ class SitePage extends BaseItem implements Parsable
      * @return ReactionsFacet|null
     */
     public function getReactions(): ?ReactionsFacet {
-        return $this->getBackingStore()->get('reactions');
+        $val = $this->getBackingStore()->get('reactions');
+        if (is_null($val) || $val instanceof ReactionsFacet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reactions'");
     }
 
     /**
@@ -100,7 +125,11 @@ class SitePage extends BaseItem implements Parsable
      * @return bool|null
     */
     public function getShowComments(): ?bool {
-        return $this->getBackingStore()->get('showComments');
+        $val = $this->getBackingStore()->get('showComments');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'showComments'");
     }
 
     /**
@@ -108,7 +137,11 @@ class SitePage extends BaseItem implements Parsable
      * @return bool|null
     */
     public function getShowRecommendedPages(): ?bool {
-        return $this->getBackingStore()->get('showRecommendedPages');
+        $val = $this->getBackingStore()->get('showRecommendedPages');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'showRecommendedPages'");
     }
 
     /**
@@ -116,7 +149,11 @@ class SitePage extends BaseItem implements Parsable
      * @return string|null
     */
     public function getThumbnailWebUrl(): ?string {
-        return $this->getBackingStore()->get('thumbnailWebUrl');
+        $val = $this->getBackingStore()->get('thumbnailWebUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'thumbnailWebUrl'");
     }
 
     /**
@@ -124,7 +161,11 @@ class SitePage extends BaseItem implements Parsable
      * @return string|null
     */
     public function getTitle(): ?string {
-        return $this->getBackingStore()->get('title');
+        $val = $this->getBackingStore()->get('title');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'title'");
     }
 
     /**
@@ -132,7 +173,11 @@ class SitePage extends BaseItem implements Parsable
      * @return TitleArea|null
     */
     public function getTitleArea(): ?TitleArea {
-        return $this->getBackingStore()->get('titleArea');
+        $val = $this->getBackingStore()->get('titleArea');
+        if (is_null($val) || $val instanceof TitleArea) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'titleArea'");
     }
 
     /**
@@ -140,7 +185,13 @@ class SitePage extends BaseItem implements Parsable
      * @return array<WebPart>|null
     */
     public function getWebParts(): ?array {
-        return $this->getBackingStore()->get('webParts');
+        $val = $this->getBackingStore()->get('webParts');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WebPart::class);
+            /** @var array<WebPart>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'webParts'");
     }
 
     /**

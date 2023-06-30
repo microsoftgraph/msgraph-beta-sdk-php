@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\RoleManagementAlerts
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get alertDefinition from identityGovernance
+ * Contains the description, impact, and measures to mitigate or prevent the security alert from being triggered in your tenant. Supports $expand.
 */
 class AlertDefinitionRequestBuilderGetQueryParameters 
 {

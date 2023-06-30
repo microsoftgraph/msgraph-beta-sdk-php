@@ -34,7 +34,7 @@ class PolicyLink extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -50,7 +50,11 @@ class PolicyLink extends Entity implements Parsable
      * @return Policy|null
     */
     public function getPolicy(): ?Policy {
-        return $this->getBackingStore()->get('policy');
+        $val = $this->getBackingStore()->get('policy');
+        if (is_null($val) || $val instanceof Policy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policy'");
     }
 
     /**
@@ -58,7 +62,11 @@ class PolicyLink extends Entity implements Parsable
      * @return Status|null
     */
     public function getState(): ?Status {
-        return $this->getBackingStore()->get('state');
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || $val instanceof Status) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
     }
 
     /**
@@ -66,7 +74,11 @@ class PolicyLink extends Entity implements Parsable
      * @return string|null
     */
     public function getVersion(): ?string {
-        return $this->getBackingStore()->get('version');
+        $val = $this->getBackingStore()->get('version');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'version'");
     }
 
     /**

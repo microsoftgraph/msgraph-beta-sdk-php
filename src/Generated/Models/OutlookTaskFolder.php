@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class OutlookTaskFolder extends Entity implements Parsable 
 {
@@ -29,12 +30,16 @@ class OutlookTaskFolder extends Entity implements Parsable
      * @return string|null
     */
     public function getChangeKey(): ?string {
-        return $this->getBackingStore()->get('changeKey');
+        $val = $this->getBackingStore()->get('changeKey');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'changeKey'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -54,7 +59,11 @@ class OutlookTaskFolder extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDefaultFolder(): ?bool {
-        return $this->getBackingStore()->get('isDefaultFolder');
+        $val = $this->getBackingStore()->get('isDefaultFolder');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDefaultFolder'");
     }
 
     /**
@@ -62,7 +71,13 @@ class OutlookTaskFolder extends Entity implements Parsable
      * @return array<MultiValueLegacyExtendedProperty>|null
     */
     public function getMultiValueExtendedProperties(): ?array {
-        return $this->getBackingStore()->get('multiValueExtendedProperties');
+        $val = $this->getBackingStore()->get('multiValueExtendedProperties');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MultiValueLegacyExtendedProperty::class);
+            /** @var array<MultiValueLegacyExtendedProperty>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'multiValueExtendedProperties'");
     }
 
     /**
@@ -70,7 +85,11 @@ class OutlookTaskFolder extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -78,7 +97,11 @@ class OutlookTaskFolder extends Entity implements Parsable
      * @return string|null
     */
     public function getParentGroupKey(): ?string {
-        return $this->getBackingStore()->get('parentGroupKey');
+        $val = $this->getBackingStore()->get('parentGroupKey');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'parentGroupKey'");
     }
 
     /**
@@ -86,7 +109,13 @@ class OutlookTaskFolder extends Entity implements Parsable
      * @return array<SingleValueLegacyExtendedProperty>|null
     */
     public function getSingleValueExtendedProperties(): ?array {
-        return $this->getBackingStore()->get('singleValueExtendedProperties');
+        $val = $this->getBackingStore()->get('singleValueExtendedProperties');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SingleValueLegacyExtendedProperty::class);
+            /** @var array<SingleValueLegacyExtendedProperty>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'singleValueExtendedProperties'");
     }
 
     /**
@@ -94,7 +123,13 @@ class OutlookTaskFolder extends Entity implements Parsable
      * @return array<OutlookTask>|null
     */
     public function getTasks(): ?array {
-        return $this->getBackingStore()->get('tasks');
+        $val = $this->getBackingStore()->get('tasks');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, OutlookTask::class);
+            /** @var array<OutlookTask>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tasks'");
     }
 
     /**

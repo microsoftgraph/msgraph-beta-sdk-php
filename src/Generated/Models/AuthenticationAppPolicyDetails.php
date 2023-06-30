@@ -39,7 +39,12 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +52,11 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
      * @return AuthenticationAppAdminConfiguration|null
     */
     public function getAdminConfiguration(): ?AuthenticationAppAdminConfiguration {
-        return $this->getBackingStore()->get('adminConfiguration');
+        $val = $this->getBackingStore()->get('adminConfiguration');
+        if (is_null($val) || $val instanceof AuthenticationAppAdminConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'adminConfiguration'");
     }
 
     /**
@@ -55,7 +64,11 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
      * @return AuthenticationAppEvaluation|null
     */
     public function getAuthenticationEvaluation(): ?AuthenticationAppEvaluation {
-        return $this->getBackingStore()->get('authenticationEvaluation');
+        $val = $this->getBackingStore()->get('authenticationEvaluation');
+        if (is_null($val) || $val instanceof AuthenticationAppEvaluation) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationEvaluation'");
     }
 
     /**
@@ -68,7 +81,7 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -86,7 +99,11 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -94,7 +111,11 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getPolicyName(): ?string {
-        return $this->getBackingStore()->get('policyName');
+        $val = $this->getBackingStore()->get('policyName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyName'");
     }
 
     /**
@@ -102,7 +123,11 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
      * @return AuthenticationAppPolicyStatus|null
     */
     public function getStatus(): ?AuthenticationAppPolicyStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof AuthenticationAppPolicyStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

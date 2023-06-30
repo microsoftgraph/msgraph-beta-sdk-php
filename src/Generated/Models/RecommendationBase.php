@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class RecommendationBase extends Entity implements Parsable 
 {
@@ -37,7 +38,13 @@ class RecommendationBase extends Entity implements Parsable
      * @return array<ActionStep>|null
     */
     public function getActionSteps(): ?array {
-        return $this->getBackingStore()->get('actionSteps');
+        $val = $this->getBackingStore()->get('actionSteps');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ActionStep::class);
+            /** @var array<ActionStep>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'actionSteps'");
     }
 
     /**
@@ -45,7 +52,11 @@ class RecommendationBase extends Entity implements Parsable
      * @return string|null
     */
     public function getBenefits(): ?string {
-        return $this->getBackingStore()->get('benefits');
+        $val = $this->getBackingStore()->get('benefits');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'benefits'");
     }
 
     /**
@@ -53,7 +64,11 @@ class RecommendationBase extends Entity implements Parsable
      * @return RecommendationCategory|null
     */
     public function getCategory(): ?RecommendationCategory {
-        return $this->getBackingStore()->get('category');
+        $val = $this->getBackingStore()->get('category');
+        if (is_null($val) || $val instanceof RecommendationCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'category'");
     }
 
     /**
@@ -61,7 +76,11 @@ class RecommendationBase extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -69,7 +88,11 @@ class RecommendationBase extends Entity implements Parsable
      * @return float|null
     */
     public function getCurrentScore(): ?float {
-        return $this->getBackingStore()->get('currentScore');
+        $val = $this->getBackingStore()->get('currentScore');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'currentScore'");
     }
 
     /**
@@ -77,7 +100,11 @@ class RecommendationBase extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -85,12 +112,18 @@ class RecommendationBase extends Entity implements Parsable
      * @return array<RecommendationFeatureAreas>|null
     */
     public function getFeatureAreas(): ?array {
-        return $this->getBackingStore()->get('featureAreas');
+        $val = $this->getBackingStore()->get('featureAreas');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RecommendationFeatureAreas::class);
+            /** @var array<RecommendationFeatureAreas>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'featureAreas'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -123,7 +156,13 @@ class RecommendationBase extends Entity implements Parsable
      * @return array<ImpactedResource>|null
     */
     public function getImpactedResources(): ?array {
-        return $this->getBackingStore()->get('impactedResources');
+        $val = $this->getBackingStore()->get('impactedResources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ImpactedResource::class);
+            /** @var array<ImpactedResource>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'impactedResources'");
     }
 
     /**
@@ -131,7 +170,11 @@ class RecommendationBase extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getImpactStartDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('impactStartDateTime');
+        $val = $this->getBackingStore()->get('impactStartDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'impactStartDateTime'");
     }
 
     /**
@@ -139,7 +182,11 @@ class RecommendationBase extends Entity implements Parsable
      * @return string|null
     */
     public function getImpactType(): ?string {
-        return $this->getBackingStore()->get('impactType');
+        $val = $this->getBackingStore()->get('impactType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'impactType'");
     }
 
     /**
@@ -147,7 +194,11 @@ class RecommendationBase extends Entity implements Parsable
      * @return string|null
     */
     public function getInsights(): ?string {
-        return $this->getBackingStore()->get('insights');
+        $val = $this->getBackingStore()->get('insights');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'insights'");
     }
 
     /**
@@ -155,7 +206,11 @@ class RecommendationBase extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastCheckedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastCheckedDateTime');
+        $val = $this->getBackingStore()->get('lastCheckedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastCheckedDateTime'");
     }
 
     /**
@@ -163,7 +218,11 @@ class RecommendationBase extends Entity implements Parsable
      * @return string|null
     */
     public function getLastModifiedBy(): ?string {
-        return $this->getBackingStore()->get('lastModifiedBy');
+        $val = $this->getBackingStore()->get('lastModifiedBy');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedBy'");
     }
 
     /**
@@ -171,7 +230,11 @@ class RecommendationBase extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -179,7 +242,11 @@ class RecommendationBase extends Entity implements Parsable
      * @return float|null
     */
     public function getMaxScore(): ?float {
-        return $this->getBackingStore()->get('maxScore');
+        $val = $this->getBackingStore()->get('maxScore');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maxScore'");
     }
 
     /**
@@ -187,7 +254,11 @@ class RecommendationBase extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getPostponeUntilDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('postponeUntilDateTime');
+        $val = $this->getBackingStore()->get('postponeUntilDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'postponeUntilDateTime'");
     }
 
     /**
@@ -195,7 +266,11 @@ class RecommendationBase extends Entity implements Parsable
      * @return RecommendationPriority|null
     */
     public function getPriority(): ?RecommendationPriority {
-        return $this->getBackingStore()->get('priority');
+        $val = $this->getBackingStore()->get('priority');
+        if (is_null($val) || $val instanceof RecommendationPriority) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'priority'");
     }
 
     /**
@@ -203,7 +278,11 @@ class RecommendationBase extends Entity implements Parsable
      * @return RecommendationType|null
     */
     public function getRecommendationType(): ?RecommendationType {
-        return $this->getBackingStore()->get('recommendationType');
+        $val = $this->getBackingStore()->get('recommendationType');
+        if (is_null($val) || $val instanceof RecommendationType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recommendationType'");
     }
 
     /**
@@ -211,7 +290,11 @@ class RecommendationBase extends Entity implements Parsable
      * @return string|null
     */
     public function getRemediationImpact(): ?string {
-        return $this->getBackingStore()->get('remediationImpact');
+        $val = $this->getBackingStore()->get('remediationImpact');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remediationImpact'");
     }
 
     /**
@@ -219,7 +302,11 @@ class RecommendationBase extends Entity implements Parsable
      * @return RecommendationStatus|null
     */
     public function getStatus(): ?RecommendationStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof RecommendationStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

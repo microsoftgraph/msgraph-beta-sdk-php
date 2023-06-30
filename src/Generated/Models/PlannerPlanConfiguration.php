@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class PlannerPlanConfiguration extends Entity implements Parsable 
 {
@@ -30,7 +31,13 @@ class PlannerPlanConfiguration extends Entity implements Parsable
      * @return array<PlannerPlanConfigurationBucketDefinition>|null
     */
     public function getBuckets(): ?array {
-        return $this->getBackingStore()->get('buckets');
+        $val = $this->getBackingStore()->get('buckets');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PlannerPlanConfigurationBucketDefinition::class);
+            /** @var array<PlannerPlanConfigurationBucketDefinition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'buckets'");
     }
 
     /**
@@ -38,7 +45,11 @@ class PlannerPlanConfiguration extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
-        return $this->getBackingStore()->get('createdBy');
+        $val = $this->getBackingStore()->get('createdBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdBy'");
     }
 
     /**
@@ -46,7 +57,11 @@ class PlannerPlanConfiguration extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -54,12 +69,16 @@ class PlannerPlanConfiguration extends Entity implements Parsable
      * @return string|null
     */
     public function getDefaultLanguage(): ?string {
-        return $this->getBackingStore()->get('defaultLanguage');
+        $val = $this->getBackingStore()->get('defaultLanguage');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultLanguage'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -79,7 +98,11 @@ class PlannerPlanConfiguration extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
-        return $this->getBackingStore()->get('lastModifiedBy');
+        $val = $this->getBackingStore()->get('lastModifiedBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedBy'");
     }
 
     /**
@@ -87,7 +110,11 @@ class PlannerPlanConfiguration extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -95,7 +122,13 @@ class PlannerPlanConfiguration extends Entity implements Parsable
      * @return array<PlannerPlanConfigurationLocalization>|null
     */
     public function getLocalizations(): ?array {
-        return $this->getBackingStore()->get('localizations');
+        $val = $this->getBackingStore()->get('localizations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PlannerPlanConfigurationLocalization::class);
+            /** @var array<PlannerPlanConfigurationLocalization>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localizations'");
     }
 
     /**

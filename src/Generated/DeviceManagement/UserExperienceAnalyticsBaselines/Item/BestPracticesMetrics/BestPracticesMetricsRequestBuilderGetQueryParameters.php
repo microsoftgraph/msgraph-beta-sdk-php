@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalytic
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The user experience analytics best practices metrics.
+ * The scores and insights for the best practices metrics.
 */
 class BestPracticesMetricsRequestBuilderGetQueryParameters 
 {

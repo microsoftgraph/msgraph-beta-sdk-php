@@ -30,12 +30,16 @@ class CertificateAuthorityAsEntity extends Entity implements Parsable
      * @return StreamInterface|null
     */
     public function getCertificate(): ?StreamInterface {
-        return $this->getBackingStore()->get('certificate');
+        $val = $this->getBackingStore()->get('certificate');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificate'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -52,7 +56,11 @@ class CertificateAuthorityAsEntity extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsRootAuthority(): ?bool {
-        return $this->getBackingStore()->get('isRootAuthority');
+        $val = $this->getBackingStore()->get('isRootAuthority');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isRootAuthority'");
     }
 
     /**
@@ -60,7 +68,11 @@ class CertificateAuthorityAsEntity extends Entity implements Parsable
      * @return string|null
     */
     public function getIssuer(): ?string {
-        return $this->getBackingStore()->get('issuer');
+        $val = $this->getBackingStore()->get('issuer');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'issuer'");
     }
 
     /**
@@ -68,7 +80,11 @@ class CertificateAuthorityAsEntity extends Entity implements Parsable
      * @return string|null
     */
     public function getIssuerSubjectKeyIdentifier(): ?string {
-        return $this->getBackingStore()->get('issuerSubjectKeyIdentifier');
+        $val = $this->getBackingStore()->get('issuerSubjectKeyIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'issuerSubjectKeyIdentifier'");
     }
 
     /**

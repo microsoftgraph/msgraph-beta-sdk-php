@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class MacOSEnterpriseWiFiConfiguration extends MacOSWiFiConfiguration implements Parsable 
 {
@@ -30,7 +31,11 @@ class MacOSEnterpriseWiFiConfiguration extends MacOSWiFiConfiguration implements
      * @return WiFiAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?WiFiAuthenticationMethod {
-        return $this->getBackingStore()->get('authenticationMethod');
+        $val = $this->getBackingStore()->get('authenticationMethod');
+        if (is_null($val) || $val instanceof WiFiAuthenticationMethod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationMethod'");
     }
 
     /**
@@ -38,7 +43,11 @@ class MacOSEnterpriseWiFiConfiguration extends MacOSWiFiConfiguration implements
      * @return EapFastConfiguration|null
     */
     public function getEapFastConfiguration(): ?EapFastConfiguration {
-        return $this->getBackingStore()->get('eapFastConfiguration');
+        $val = $this->getBackingStore()->get('eapFastConfiguration');
+        if (is_null($val) || $val instanceof EapFastConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eapFastConfiguration'");
     }
 
     /**
@@ -46,12 +55,16 @@ class MacOSEnterpriseWiFiConfiguration extends MacOSWiFiConfiguration implements
      * @return EapType|null
     */
     public function getEapType(): ?EapType {
-        return $this->getBackingStore()->get('eapType');
+        $val = $this->getBackingStore()->get('eapType');
+        if (is_null($val) || $val instanceof EapType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eapType'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -64,7 +77,14 @@ class MacOSEnterpriseWiFiConfiguration extends MacOSWiFiConfiguration implements
             'outerIdentityPrivacyTemporaryValue' => fn(ParseNode $n) => $o->setOuterIdentityPrivacyTemporaryValue($n->getStringValue()),
             'rootCertificateForServerValidation' => fn(ParseNode $n) => $o->setRootCertificateForServerValidation($n->getObjectValue([MacOSTrustedRootCertificate::class, 'createFromDiscriminatorValue'])),
             'rootCertificatesForServerValidation' => fn(ParseNode $n) => $o->setRootCertificatesForServerValidation($n->getCollectionOfObjectValues([MacOSTrustedRootCertificate::class, 'createFromDiscriminatorValue'])),
-            'trustedServerCertificateNames' => fn(ParseNode $n) => $o->setTrustedServerCertificateNames($n->getCollectionOfPrimitiveValues()),
+            'trustedServerCertificateNames' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setTrustedServerCertificateNames($val);
+            },
         ]);
     }
 
@@ -73,7 +93,11 @@ class MacOSEnterpriseWiFiConfiguration extends MacOSWiFiConfiguration implements
      * @return MacOSCertificateProfileBase|null
     */
     public function getIdentityCertificateForClientAuthentication(): ?MacOSCertificateProfileBase {
-        return $this->getBackingStore()->get('identityCertificateForClientAuthentication');
+        $val = $this->getBackingStore()->get('identityCertificateForClientAuthentication');
+        if (is_null($val) || $val instanceof MacOSCertificateProfileBase) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityCertificateForClientAuthentication'");
     }
 
     /**
@@ -81,7 +105,11 @@ class MacOSEnterpriseWiFiConfiguration extends MacOSWiFiConfiguration implements
      * @return NonEapAuthenticationMethodForEapTtlsType|null
     */
     public function getInnerAuthenticationProtocolForEapTtls(): ?NonEapAuthenticationMethodForEapTtlsType {
-        return $this->getBackingStore()->get('innerAuthenticationProtocolForEapTtls');
+        $val = $this->getBackingStore()->get('innerAuthenticationProtocolForEapTtls');
+        if (is_null($val) || $val instanceof NonEapAuthenticationMethodForEapTtlsType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'innerAuthenticationProtocolForEapTtls'");
     }
 
     /**
@@ -89,7 +117,11 @@ class MacOSEnterpriseWiFiConfiguration extends MacOSWiFiConfiguration implements
      * @return string|null
     */
     public function getOuterIdentityPrivacyTemporaryValue(): ?string {
-        return $this->getBackingStore()->get('outerIdentityPrivacyTemporaryValue');
+        $val = $this->getBackingStore()->get('outerIdentityPrivacyTemporaryValue');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'outerIdentityPrivacyTemporaryValue'");
     }
 
     /**
@@ -97,7 +129,11 @@ class MacOSEnterpriseWiFiConfiguration extends MacOSWiFiConfiguration implements
      * @return MacOSTrustedRootCertificate|null
     */
     public function getRootCertificateForServerValidation(): ?MacOSTrustedRootCertificate {
-        return $this->getBackingStore()->get('rootCertificateForServerValidation');
+        $val = $this->getBackingStore()->get('rootCertificateForServerValidation');
+        if (is_null($val) || $val instanceof MacOSTrustedRootCertificate) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rootCertificateForServerValidation'");
     }
 
     /**
@@ -105,7 +141,13 @@ class MacOSEnterpriseWiFiConfiguration extends MacOSWiFiConfiguration implements
      * @return array<MacOSTrustedRootCertificate>|null
     */
     public function getRootCertificatesForServerValidation(): ?array {
-        return $this->getBackingStore()->get('rootCertificatesForServerValidation');
+        $val = $this->getBackingStore()->get('rootCertificatesForServerValidation');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MacOSTrustedRootCertificate::class);
+            /** @var array<MacOSTrustedRootCertificate>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rootCertificatesForServerValidation'");
     }
 
     /**
@@ -113,7 +155,13 @@ class MacOSEnterpriseWiFiConfiguration extends MacOSWiFiConfiguration implements
      * @return array<string>|null
     */
     public function getTrustedServerCertificateNames(): ?array {
-        return $this->getBackingStore()->get('trustedServerCertificateNames');
+        $val = $this->getBackingStore()->get('trustedServerCertificateNames');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'trustedServerCertificateNames'");
     }
 
     /**

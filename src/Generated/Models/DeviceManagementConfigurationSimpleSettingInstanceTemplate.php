@@ -27,7 +27,7 @@ class DeviceManagementConfigurationSimpleSettingInstanceTemplate extends DeviceM
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class DeviceManagementConfigurationSimpleSettingInstanceTemplate extends DeviceM
      * @return DeviceManagementConfigurationSimpleSettingValueTemplate|null
     */
     public function getSimpleSettingValueTemplate(): ?DeviceManagementConfigurationSimpleSettingValueTemplate {
-        return $this->getBackingStore()->get('simpleSettingValueTemplate');
+        $val = $this->getBackingStore()->get('simpleSettingValueTemplate');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationSimpleSettingValueTemplate) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'simpleSettingValueTemplate'");
     }
 
     /**

@@ -30,12 +30,16 @@ class DlpEvaluationWindowsDevicesInput extends DlpEvaluationInput implements Par
      * @return ContentProperties|null
     */
     public function getContentProperties(): ?ContentProperties {
-        return $this->getBackingStore()->get('contentProperties');
+        $val = $this->getBackingStore()->get('contentProperties');
+        if (is_null($val) || $val instanceof ContentProperties) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentProperties'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -50,7 +54,11 @@ class DlpEvaluationWindowsDevicesInput extends DlpEvaluationInput implements Par
      * @return string|null
     */
     public function getSharedBy(): ?string {
-        return $this->getBackingStore()->get('sharedBy');
+        $val = $this->getBackingStore()->get('sharedBy');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sharedBy'");
     }
 
     /**

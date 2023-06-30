@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * A rule controlling traffic through the Windows Firewall.
@@ -42,7 +43,11 @@ class WindowsFirewallRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return StateManagementSetting|null
     */
     public function getAction(): ?StateManagementSetting {
-        return $this->getBackingStore()->get('action');
+        $val = $this->getBackingStore()->get('action');
+        if (is_null($val) || $val instanceof StateManagementSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'action'");
     }
 
     /**
@@ -50,7 +55,12 @@ class WindowsFirewallRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -66,7 +76,11 @@ class WindowsFirewallRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -74,7 +88,11 @@ class WindowsFirewallRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -82,12 +100,16 @@ class WindowsFirewallRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return StateManagementSetting|null
     */
     public function getEdgeTraversal(): ?StateManagementSetting {
-        return $this->getBackingStore()->get('edgeTraversal');
+        $val = $this->getBackingStore()->get('edgeTraversal');
+        if (is_null($val) || $val instanceof StateManagementSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeTraversal'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -98,15 +120,43 @@ class WindowsFirewallRule implements AdditionalDataHolder, BackedModel, Parsable
             'edgeTraversal' => fn(ParseNode $n) => $o->setEdgeTraversal($n->getEnumValue(StateManagementSetting::class)),
             'filePath' => fn(ParseNode $n) => $o->setFilePath($n->getStringValue()),
             'interfaceTypes' => fn(ParseNode $n) => $o->setInterfaceTypes($n->getEnumValue(WindowsFirewallRuleInterfaceTypes::class)),
-            'localAddressRanges' => fn(ParseNode $n) => $o->setLocalAddressRanges($n->getCollectionOfPrimitiveValues()),
-            'localPortRanges' => fn(ParseNode $n) => $o->setLocalPortRanges($n->getCollectionOfPrimitiveValues()),
+            'localAddressRanges' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setLocalAddressRanges($val);
+            },
+            'localPortRanges' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setLocalPortRanges($val);
+            },
             'localUserAuthorizations' => fn(ParseNode $n) => $o->setLocalUserAuthorizations($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'packageFamilyName' => fn(ParseNode $n) => $o->setPackageFamilyName($n->getStringValue()),
             'profileTypes' => fn(ParseNode $n) => $o->setProfileTypes($n->getEnumValue(WindowsFirewallRuleNetworkProfileTypes::class)),
             'protocol' => fn(ParseNode $n) => $o->setProtocol($n->getIntegerValue()),
-            'remoteAddressRanges' => fn(ParseNode $n) => $o->setRemoteAddressRanges($n->getCollectionOfPrimitiveValues()),
-            'remotePortRanges' => fn(ParseNode $n) => $o->setRemotePortRanges($n->getCollectionOfPrimitiveValues()),
+            'remoteAddressRanges' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRemoteAddressRanges($val);
+            },
+            'remotePortRanges' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRemotePortRanges($val);
+            },
             'serviceName' => fn(ParseNode $n) => $o->setServiceName($n->getStringValue()),
             'trafficDirection' => fn(ParseNode $n) => $o->setTrafficDirection($n->getEnumValue(WindowsFirewallRuleTrafficDirectionType::class)),
         ];
@@ -117,7 +167,11 @@ class WindowsFirewallRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getFilePath(): ?string {
-        return $this->getBackingStore()->get('filePath');
+        $val = $this->getBackingStore()->get('filePath');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'filePath'");
     }
 
     /**
@@ -125,7 +179,11 @@ class WindowsFirewallRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return WindowsFirewallRuleInterfaceTypes|null
     */
     public function getInterfaceTypes(): ?WindowsFirewallRuleInterfaceTypes {
-        return $this->getBackingStore()->get('interfaceTypes');
+        $val = $this->getBackingStore()->get('interfaceTypes');
+        if (is_null($val) || $val instanceof WindowsFirewallRuleInterfaceTypes) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'interfaceTypes'");
     }
 
     /**
@@ -133,7 +191,13 @@ class WindowsFirewallRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getLocalAddressRanges(): ?array {
-        return $this->getBackingStore()->get('localAddressRanges');
+        $val = $this->getBackingStore()->get('localAddressRanges');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localAddressRanges'");
     }
 
     /**
@@ -141,7 +205,13 @@ class WindowsFirewallRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getLocalPortRanges(): ?array {
-        return $this->getBackingStore()->get('localPortRanges');
+        $val = $this->getBackingStore()->get('localPortRanges');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localPortRanges'");
     }
 
     /**
@@ -149,7 +219,11 @@ class WindowsFirewallRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getLocalUserAuthorizations(): ?string {
-        return $this->getBackingStore()->get('localUserAuthorizations');
+        $val = $this->getBackingStore()->get('localUserAuthorizations');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localUserAuthorizations'");
     }
 
     /**
@@ -157,7 +231,11 @@ class WindowsFirewallRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -165,7 +243,11 @@ class WindowsFirewallRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getPackageFamilyName(): ?string {
-        return $this->getBackingStore()->get('packageFamilyName');
+        $val = $this->getBackingStore()->get('packageFamilyName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'packageFamilyName'");
     }
 
     /**
@@ -173,7 +255,11 @@ class WindowsFirewallRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return WindowsFirewallRuleNetworkProfileTypes|null
     */
     public function getProfileTypes(): ?WindowsFirewallRuleNetworkProfileTypes {
-        return $this->getBackingStore()->get('profileTypes');
+        $val = $this->getBackingStore()->get('profileTypes');
+        if (is_null($val) || $val instanceof WindowsFirewallRuleNetworkProfileTypes) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'profileTypes'");
     }
 
     /**
@@ -181,7 +267,11 @@ class WindowsFirewallRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getProtocol(): ?int {
-        return $this->getBackingStore()->get('protocol');
+        $val = $this->getBackingStore()->get('protocol');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'protocol'");
     }
 
     /**
@@ -189,7 +279,13 @@ class WindowsFirewallRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getRemoteAddressRanges(): ?array {
-        return $this->getBackingStore()->get('remoteAddressRanges');
+        $val = $this->getBackingStore()->get('remoteAddressRanges');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remoteAddressRanges'");
     }
 
     /**
@@ -197,7 +293,13 @@ class WindowsFirewallRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getRemotePortRanges(): ?array {
-        return $this->getBackingStore()->get('remotePortRanges');
+        $val = $this->getBackingStore()->get('remotePortRanges');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remotePortRanges'");
     }
 
     /**
@@ -205,7 +307,11 @@ class WindowsFirewallRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getServiceName(): ?string {
-        return $this->getBackingStore()->get('serviceName');
+        $val = $this->getBackingStore()->get('serviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'serviceName'");
     }
 
     /**
@@ -213,7 +319,11 @@ class WindowsFirewallRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return WindowsFirewallRuleTrafficDirectionType|null
     */
     public function getTrafficDirection(): ?WindowsFirewallRuleTrafficDirectionType {
-        return $this->getBackingStore()->get('trafficDirection');
+        $val = $this->getBackingStore()->get('trafficDirection');
+        if (is_null($val) || $val instanceof WindowsFirewallRuleTrafficDirectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'trafficDirection'");
     }
 
     /**

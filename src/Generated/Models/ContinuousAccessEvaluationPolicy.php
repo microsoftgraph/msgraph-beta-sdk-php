@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ContinuousAccessEvaluationPolicy extends Entity implements Parsable 
 {
@@ -29,7 +30,11 @@ class ContinuousAccessEvaluationPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -37,22 +42,40 @@ class ContinuousAccessEvaluationPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'groups' => fn(ParseNode $n) => $o->setGroups($n->getCollectionOfPrimitiveValues()),
+            'groups' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setGroups($val);
+            },
             'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
             'migrate' => fn(ParseNode $n) => $o->setMigrate($n->getBooleanValue()),
-            'users' => fn(ParseNode $n) => $o->setUsers($n->getCollectionOfPrimitiveValues()),
+            'users' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setUsers($val);
+            },
         ]);
     }
 
@@ -61,7 +84,13 @@ class ContinuousAccessEvaluationPolicy extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getGroups(): ?array {
-        return $this->getBackingStore()->get('groups');
+        $val = $this->getBackingStore()->get('groups');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groups'");
     }
 
     /**
@@ -69,7 +98,11 @@ class ContinuousAccessEvaluationPolicy extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
-        return $this->getBackingStore()->get('isEnabled');
+        $val = $this->getBackingStore()->get('isEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isEnabled'");
     }
 
     /**
@@ -77,7 +110,11 @@ class ContinuousAccessEvaluationPolicy extends Entity implements Parsable
      * @return bool|null
     */
     public function getMigrate(): ?bool {
-        return $this->getBackingStore()->get('migrate');
+        $val = $this->getBackingStore()->get('migrate');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'migrate'");
     }
 
     /**
@@ -85,7 +122,13 @@ class ContinuousAccessEvaluationPolicy extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getUsers(): ?array {
-        return $this->getBackingStore()->get('users');
+        $val = $this->getBackingStore()->get('users');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'users'");
     }
 
     /**

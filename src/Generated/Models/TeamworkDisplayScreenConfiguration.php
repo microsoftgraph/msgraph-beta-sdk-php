@@ -40,7 +40,12 @@ class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Backed
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -56,7 +61,11 @@ class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Backed
      * @return int|null
     */
     public function getBacklightBrightness(): ?int {
-        return $this->getBackingStore()->get('backlightBrightness');
+        $val = $this->getBackingStore()->get('backlightBrightness');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'backlightBrightness'");
     }
 
     /**
@@ -64,12 +73,16 @@ class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Backed
      * @return DateInterval|null
     */
     public function getBacklightTimeout(): ?DateInterval {
-        return $this->getBackingStore()->get('backlightTimeout');
+        $val = $this->getBackingStore()->get('backlightTimeout');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'backlightTimeout'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -88,7 +101,11 @@ class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Backed
      * @return bool|null
     */
     public function getIsHighContrastEnabled(): ?bool {
-        return $this->getBackingStore()->get('isHighContrastEnabled');
+        $val = $this->getBackingStore()->get('isHighContrastEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isHighContrastEnabled'");
     }
 
     /**
@@ -96,7 +113,11 @@ class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Backed
      * @return bool|null
     */
     public function getIsScreensaverEnabled(): ?bool {
-        return $this->getBackingStore()->get('isScreensaverEnabled');
+        $val = $this->getBackingStore()->get('isScreensaverEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isScreensaverEnabled'");
     }
 
     /**
@@ -104,7 +125,11 @@ class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Backed
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -112,7 +137,11 @@ class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Backed
      * @return DateInterval|null
     */
     public function getScreensaverTimeout(): ?DateInterval {
-        return $this->getBackingStore()->get('screensaverTimeout');
+        $val = $this->getBackingStore()->get('screensaverTimeout');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'screensaverTimeout'");
     }
 
     /**

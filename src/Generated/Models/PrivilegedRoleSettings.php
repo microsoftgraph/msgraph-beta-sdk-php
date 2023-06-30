@@ -6,6 +6,7 @@ use DateInterval;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class PrivilegedRoleSettings extends Entity implements Parsable 
 {
@@ -30,7 +31,11 @@ class PrivilegedRoleSettings extends Entity implements Parsable
      * @return bool|null
     */
     public function getApprovalOnElevation(): ?bool {
-        return $this->getBackingStore()->get('approvalOnElevation');
+        $val = $this->getBackingStore()->get('approvalOnElevation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'approvalOnElevation'");
     }
 
     /**
@@ -38,7 +43,13 @@ class PrivilegedRoleSettings extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getApproverIds(): ?array {
-        return $this->getBackingStore()->get('approverIds');
+        $val = $this->getBackingStore()->get('approverIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'approverIds'");
     }
 
     /**
@@ -46,18 +57,29 @@ class PrivilegedRoleSettings extends Entity implements Parsable
      * @return DateInterval|null
     */
     public function getElevationDuration(): ?DateInterval {
-        return $this->getBackingStore()->get('elevationDuration');
+        $val = $this->getBackingStore()->get('elevationDuration');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'elevationDuration'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'approvalOnElevation' => fn(ParseNode $n) => $o->setApprovalOnElevation($n->getBooleanValue()),
-            'approverIds' => fn(ParseNode $n) => $o->setApproverIds($n->getCollectionOfPrimitiveValues()),
+            'approverIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setApproverIds($val);
+            },
             'elevationDuration' => fn(ParseNode $n) => $o->setElevationDuration($n->getDateIntervalValue()),
             'isMfaOnElevationConfigurable' => fn(ParseNode $n) => $o->setIsMfaOnElevationConfigurable($n->getBooleanValue()),
             'lastGlobalAdmin' => fn(ParseNode $n) => $o->setLastGlobalAdmin($n->getBooleanValue()),
@@ -74,7 +96,11 @@ class PrivilegedRoleSettings extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsMfaOnElevationConfigurable(): ?bool {
-        return $this->getBackingStore()->get('isMfaOnElevationConfigurable');
+        $val = $this->getBackingStore()->get('isMfaOnElevationConfigurable');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isMfaOnElevationConfigurable'");
     }
 
     /**
@@ -82,7 +108,11 @@ class PrivilegedRoleSettings extends Entity implements Parsable
      * @return bool|null
     */
     public function getLastGlobalAdmin(): ?bool {
-        return $this->getBackingStore()->get('lastGlobalAdmin');
+        $val = $this->getBackingStore()->get('lastGlobalAdmin');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastGlobalAdmin'");
     }
 
     /**
@@ -90,7 +120,11 @@ class PrivilegedRoleSettings extends Entity implements Parsable
      * @return DateInterval|null
     */
     public function getMaxElavationDuration(): ?DateInterval {
-        return $this->getBackingStore()->get('maxElavationDuration');
+        $val = $this->getBackingStore()->get('maxElavationDuration');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maxElavationDuration'");
     }
 
     /**
@@ -98,7 +132,11 @@ class PrivilegedRoleSettings extends Entity implements Parsable
      * @return bool|null
     */
     public function getMfaOnElevation(): ?bool {
-        return $this->getBackingStore()->get('mfaOnElevation');
+        $val = $this->getBackingStore()->get('mfaOnElevation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mfaOnElevation'");
     }
 
     /**
@@ -106,7 +144,11 @@ class PrivilegedRoleSettings extends Entity implements Parsable
      * @return DateInterval|null
     */
     public function getMinElevationDuration(): ?DateInterval {
-        return $this->getBackingStore()->get('minElevationDuration');
+        $val = $this->getBackingStore()->get('minElevationDuration');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minElevationDuration'");
     }
 
     /**
@@ -114,7 +156,11 @@ class PrivilegedRoleSettings extends Entity implements Parsable
      * @return bool|null
     */
     public function getNotificationToUserOnElevation(): ?bool {
-        return $this->getBackingStore()->get('notificationToUserOnElevation');
+        $val = $this->getBackingStore()->get('notificationToUserOnElevation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notificationToUserOnElevation'");
     }
 
     /**
@@ -122,7 +168,11 @@ class PrivilegedRoleSettings extends Entity implements Parsable
      * @return bool|null
     */
     public function getTicketingInfoOnElevation(): ?bool {
-        return $this->getBackingStore()->get('ticketingInfoOnElevation');
+        $val = $this->getBackingStore()->get('ticketingInfoOnElevation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ticketingInfoOnElevation'");
     }
 
     /**

@@ -33,7 +33,11 @@ class WindowsInformationProtectionDeviceRegistration extends Entity implements P
      * @return string|null
     */
     public function getDeviceMacAddress(): ?string {
-        return $this->getBackingStore()->get('deviceMacAddress');
+        $val = $this->getBackingStore()->get('deviceMacAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceMacAddress'");
     }
 
     /**
@@ -41,7 +45,11 @@ class WindowsInformationProtectionDeviceRegistration extends Entity implements P
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->getBackingStore()->get('deviceName');
+        $val = $this->getBackingStore()->get('deviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceName'");
     }
 
     /**
@@ -49,7 +57,11 @@ class WindowsInformationProtectionDeviceRegistration extends Entity implements P
      * @return string|null
     */
     public function getDeviceRegistrationId(): ?string {
-        return $this->getBackingStore()->get('deviceRegistrationId');
+        $val = $this->getBackingStore()->get('deviceRegistrationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceRegistrationId'");
     }
 
     /**
@@ -57,12 +69,16 @@ class WindowsInformationProtectionDeviceRegistration extends Entity implements P
      * @return string|null
     */
     public function getDeviceType(): ?string {
-        return $this->getBackingStore()->get('deviceType');
+        $val = $this->getBackingStore()->get('deviceType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceType'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -81,7 +97,11 @@ class WindowsInformationProtectionDeviceRegistration extends Entity implements P
      * @return DateTime|null
     */
     public function getLastCheckInDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastCheckInDateTime');
+        $val = $this->getBackingStore()->get('lastCheckInDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastCheckInDateTime'");
     }
 
     /**
@@ -89,7 +109,11 @@ class WindowsInformationProtectionDeviceRegistration extends Entity implements P
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->getBackingStore()->get('userId');
+        $val = $this->getBackingStore()->get('userId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
     }
 
     /**

@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics device performance entity contains device performance details.
+*/
 class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsAppHealthDevicePerformanceDetails and sets the default values.
+     * Instantiates a new userExperienceAnalyticsAppHealthDevicePerformanceDetails and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -26,64 +29,92 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
     }
 
     /**
-     * Gets the appDisplayName property value. The friendly name of the application for which the event occurred.
+     * Gets the appDisplayName property value. The friendly name of the application for which the event occurred. Possible values are: outlook.exe, excel.exe. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getAppDisplayName(): ?string {
-        return $this->getBackingStore()->get('appDisplayName');
+        $val = $this->getBackingStore()->get('appDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appDisplayName'");
     }
 
     /**
-     * Gets the appPublisher property value. The publisher of the application.
+     * Gets the appPublisher property value. The publisher of the application. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getAppPublisher(): ?string {
-        return $this->getBackingStore()->get('appPublisher');
+        $val = $this->getBackingStore()->get('appPublisher');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appPublisher'");
     }
 
     /**
-     * Gets the appVersion property value. The version of the application.
+     * Gets the appVersion property value. The version of the application. Possible values are: 1.0.0.1, 75.65.23.9. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getAppVersion(): ?string {
-        return $this->getBackingStore()->get('appVersion');
+        $val = $this->getBackingStore()->get('appVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appVersion'");
     }
 
     /**
-     * Gets the deviceDisplayName property value. The name of the device.
+     * Gets the deviceDisplayName property value. The name of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getDeviceDisplayName(): ?string {
-        return $this->getBackingStore()->get('deviceDisplayName');
+        $val = $this->getBackingStore()->get('deviceDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceDisplayName'");
     }
 
     /**
-     * Gets the deviceId property value. The id of the device.
+     * Gets the deviceId property value. The Intune device id of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->getBackingStore()->get('deviceId');
+        $val = $this->getBackingStore()->get('deviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceId'");
     }
 
     /**
-     * Gets the eventDateTime property value. The time the event occurred.
+     * Gets the eventDateTime property value. The time the event occurred. The value cannot be modified and is automatically populated when the statistics are computed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2022 would look like this: '2022-01-01T00:00:00Z'. Returned by default. Read-only.
      * @return DateTime|null
     */
     public function getEventDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('eventDateTime');
+        $val = $this->getBackingStore()->get('eventDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eventDateTime'");
     }
 
     /**
-     * Gets the eventType property value. The type of the event.
+     * Gets the eventType property value. The type of the event. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getEventType(): ?string {
-        return $this->getBackingStore()->get('eventType');
+        $val = $this->getBackingStore()->get('eventType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eventType'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -114,7 +145,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
     }
 
     /**
-     * Sets the appDisplayName property value. The friendly name of the application for which the event occurred.
+     * Sets the appDisplayName property value. The friendly name of the application for which the event occurred. Possible values are: outlook.exe, excel.exe. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the appDisplayName property.
     */
     public function setAppDisplayName(?string $value): void {
@@ -122,7 +153,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
     }
 
     /**
-     * Sets the appPublisher property value. The publisher of the application.
+     * Sets the appPublisher property value. The publisher of the application. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the appPublisher property.
     */
     public function setAppPublisher(?string $value): void {
@@ -130,7 +161,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
     }
 
     /**
-     * Sets the appVersion property value. The version of the application.
+     * Sets the appVersion property value. The version of the application. Possible values are: 1.0.0.1, 75.65.23.9. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the appVersion property.
     */
     public function setAppVersion(?string $value): void {
@@ -138,7 +169,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
     }
 
     /**
-     * Sets the deviceDisplayName property value. The name of the device.
+     * Sets the deviceDisplayName property value. The name of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the deviceDisplayName property.
     */
     public function setDeviceDisplayName(?string $value): void {
@@ -146,7 +177,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
     }
 
     /**
-     * Sets the deviceId property value. The id of the device.
+     * Sets the deviceId property value. The Intune device id of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
@@ -154,7 +185,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
     }
 
     /**
-     * Sets the eventDateTime property value. The time the event occurred.
+     * Sets the eventDateTime property value. The time the event occurred. The value cannot be modified and is automatically populated when the statistics are computed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2022 would look like this: '2022-01-01T00:00:00Z'. Returned by default. Read-only.
      * @param DateTime|null $value Value to set for the eventDateTime property.
     */
     public function setEventDateTime(?DateTime $value): void {
@@ -162,7 +193,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
     }
 
     /**
-     * Sets the eventType property value. The type of the event.
+     * Sets the eventType property value. The type of the event. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the eventType property.
     */
     public function setEventType(?string $value): void {

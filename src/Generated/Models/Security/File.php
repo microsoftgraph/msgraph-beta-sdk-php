@@ -7,6 +7,7 @@ use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
 class File extends Entity implements Parsable 
@@ -39,7 +40,11 @@ class File extends Entity implements Parsable
      * @return StreamInterface|null
     */
     public function getContent(): ?StreamInterface {
-        return $this->getBackingStore()->get('content');
+        $val = $this->getBackingStore()->get('content');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'content'");
     }
 
     /**
@@ -47,7 +52,11 @@ class File extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('dateTime');
+        $val = $this->getBackingStore()->get('dateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dateTime'");
     }
 
     /**
@@ -55,7 +64,11 @@ class File extends Entity implements Parsable
      * @return string|null
     */
     public function getExtension(): ?string {
-        return $this->getBackingStore()->get('extension');
+        $val = $this->getBackingStore()->get('extension');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'extension'");
     }
 
     /**
@@ -63,12 +76,16 @@ class File extends Entity implements Parsable
      * @return StreamInterface|null
     */
     public function getExtractedTextContent(): ?StreamInterface {
-        return $this->getBackingStore()->get('extractedTextContent');
+        $val = $this->getBackingStore()->get('extractedTextContent');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'extractedTextContent'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -81,7 +98,14 @@ class File extends Entity implements Parsable
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'otherProperties' => fn(ParseNode $n) => $o->setOtherProperties($n->getObjectValue([StringValueDictionary::class, 'createFromDiscriminatorValue'])),
             'processingStatus' => fn(ParseNode $n) => $o->setProcessingStatus($n->getEnumValue(FileProcessingStatus::class)),
-            'senderOrAuthors' => fn(ParseNode $n) => $o->setSenderOrAuthors($n->getCollectionOfPrimitiveValues()),
+            'senderOrAuthors' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSenderOrAuthors($val);
+            },
             'size' => fn(ParseNode $n) => $o->setSize($n->getIntegerValue()),
             'sourceType' => fn(ParseNode $n) => $o->setSourceType($n->getEnumValue(SourceType::class)),
             'subjectTitle' => fn(ParseNode $n) => $o->setSubjectTitle($n->getStringValue()),
@@ -93,7 +117,11 @@ class File extends Entity implements Parsable
      * @return string|null
     */
     public function getMediaType(): ?string {
-        return $this->getBackingStore()->get('mediaType');
+        $val = $this->getBackingStore()->get('mediaType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mediaType'");
     }
 
     /**
@@ -101,7 +129,11 @@ class File extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -109,7 +141,11 @@ class File extends Entity implements Parsable
      * @return StringValueDictionary|null
     */
     public function getOtherProperties(): ?StringValueDictionary {
-        return $this->getBackingStore()->get('otherProperties');
+        $val = $this->getBackingStore()->get('otherProperties');
+        if (is_null($val) || $val instanceof StringValueDictionary) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'otherProperties'");
     }
 
     /**
@@ -117,7 +153,11 @@ class File extends Entity implements Parsable
      * @return FileProcessingStatus|null
     */
     public function getProcessingStatus(): ?FileProcessingStatus {
-        return $this->getBackingStore()->get('processingStatus');
+        $val = $this->getBackingStore()->get('processingStatus');
+        if (is_null($val) || $val instanceof FileProcessingStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'processingStatus'");
     }
 
     /**
@@ -125,7 +165,13 @@ class File extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getSenderOrAuthors(): ?array {
-        return $this->getBackingStore()->get('senderOrAuthors');
+        $val = $this->getBackingStore()->get('senderOrAuthors');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'senderOrAuthors'");
     }
 
     /**
@@ -133,7 +179,11 @@ class File extends Entity implements Parsable
      * @return int|null
     */
     public function getSize(): ?int {
-        return $this->getBackingStore()->get('size');
+        $val = $this->getBackingStore()->get('size');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'size'");
     }
 
     /**
@@ -141,7 +191,11 @@ class File extends Entity implements Parsable
      * @return SourceType|null
     */
     public function getSourceType(): ?SourceType {
-        return $this->getBackingStore()->get('sourceType');
+        $val = $this->getBackingStore()->get('sourceType');
+        if (is_null($val) || $val instanceof SourceType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sourceType'");
     }
 
     /**
@@ -149,7 +203,11 @@ class File extends Entity implements Parsable
      * @return string|null
     */
     public function getSubjectTitle(): ?string {
-        return $this->getBackingStore()->get('subjectTitle');
+        $val = $this->getBackingStore()->get('subjectTitle');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subjectTitle'");
     }
 
     /**

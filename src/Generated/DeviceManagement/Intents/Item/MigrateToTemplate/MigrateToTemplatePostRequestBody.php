@@ -39,7 +39,12 @@ class MigrateToTemplatePostRequestBody implements AdditionalDataHolder, BackedMo
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +57,7 @@ class MigrateToTemplatePostRequestBody implements AdditionalDataHolder, BackedMo
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -67,7 +72,11 @@ class MigrateToTemplatePostRequestBody implements AdditionalDataHolder, BackedMo
      * @return string|null
     */
     public function getNewTemplateId(): ?string {
-        return $this->getBackingStore()->get('newTemplateId');
+        $val = $this->getBackingStore()->get('newTemplateId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'newTemplateId'");
     }
 
     /**
@@ -75,7 +84,11 @@ class MigrateToTemplatePostRequestBody implements AdditionalDataHolder, BackedMo
      * @return bool|null
     */
     public function getPreserveCustomValues(): ?bool {
-        return $this->getBackingStore()->get('preserveCustomValues');
+        $val = $this->getBackingStore()->get('preserveCustomValues');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'preserveCustomValues'");
     }
 
     /**

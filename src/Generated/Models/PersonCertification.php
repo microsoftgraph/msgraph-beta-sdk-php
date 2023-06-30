@@ -31,7 +31,11 @@ class PersonCertification extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getCertificationId(): ?string {
-        return $this->getBackingStore()->get('certificationId');
+        $val = $this->getBackingStore()->get('certificationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificationId'");
     }
 
     /**
@@ -39,7 +43,11 @@ class PersonCertification extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -47,7 +55,11 @@ class PersonCertification extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -55,12 +67,16 @@ class PersonCertification extends ItemFacet implements Parsable
      * @return Date|null
     */
     public function getEndDate(): ?Date {
-        return $this->getBackingStore()->get('endDate');
+        $val = $this->getBackingStore()->get('endDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endDate'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -83,7 +99,11 @@ class PersonCertification extends ItemFacet implements Parsable
      * @return Date|null
     */
     public function getIssuedDate(): ?Date {
-        return $this->getBackingStore()->get('issuedDate');
+        $val = $this->getBackingStore()->get('issuedDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'issuedDate'");
     }
 
     /**
@@ -91,7 +111,11 @@ class PersonCertification extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getIssuingAuthority(): ?string {
-        return $this->getBackingStore()->get('issuingAuthority');
+        $val = $this->getBackingStore()->get('issuingAuthority');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'issuingAuthority'");
     }
 
     /**
@@ -99,7 +123,11 @@ class PersonCertification extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getIssuingCompany(): ?string {
-        return $this->getBackingStore()->get('issuingCompany');
+        $val = $this->getBackingStore()->get('issuingCompany');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'issuingCompany'");
     }
 
     /**
@@ -107,7 +135,11 @@ class PersonCertification extends ItemFacet implements Parsable
      * @return Date|null
     */
     public function getStartDate(): ?Date {
-        return $this->getBackingStore()->get('startDate');
+        $val = $this->getBackingStore()->get('startDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startDate'");
     }
 
     /**
@@ -115,7 +147,11 @@ class PersonCertification extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getThumbnailUrl(): ?string {
-        return $this->getBackingStore()->get('thumbnailUrl');
+        $val = $this->getBackingStore()->get('thumbnailUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'thumbnailUrl'");
     }
 
     /**
@@ -123,7 +159,11 @@ class PersonCertification extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getWebUrl(): ?string {
-        return $this->getBackingStore()->get('webUrl');
+        $val = $this->getBackingStore()->get('webUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'webUrl'");
     }
 
     /**

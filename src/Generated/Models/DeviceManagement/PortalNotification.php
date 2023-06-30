@@ -39,7 +39,12 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +52,11 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
      * @return AlertImpact|null
     */
     public function getAlertImpact(): ?AlertImpact {
-        return $this->getBackingStore()->get('alertImpact');
+        $val = $this->getBackingStore()->get('alertImpact');
+        if (is_null($val) || $val instanceof AlertImpact) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'alertImpact'");
     }
 
     /**
@@ -55,7 +64,11 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getAlertRecordId(): ?string {
-        return $this->getBackingStore()->get('alertRecordId');
+        $val = $this->getBackingStore()->get('alertRecordId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'alertRecordId'");
     }
 
     /**
@@ -63,7 +76,11 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getAlertRuleId(): ?string {
-        return $this->getBackingStore()->get('alertRuleId');
+        $val = $this->getBackingStore()->get('alertRuleId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'alertRuleId'");
     }
 
     /**
@@ -71,7 +88,11 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getAlertRuleName(): ?string {
-        return $this->getBackingStore()->get('alertRuleName');
+        $val = $this->getBackingStore()->get('alertRuleName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'alertRuleName'");
     }
 
     /**
@@ -79,7 +100,11 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
      * @return AlertRuleTemplate|null
     */
     public function getAlertRuleTemplate(): ?AlertRuleTemplate {
-        return $this->getBackingStore()->get('alertRuleTemplate');
+        $val = $this->getBackingStore()->get('alertRuleTemplate');
+        if (is_null($val) || $val instanceof AlertRuleTemplate) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'alertRuleTemplate'");
     }
 
     /**
@@ -92,7 +117,7 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -114,7 +139,11 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->getBackingStore()->get('id');
+        $val = $this->getBackingStore()->get('id');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'id'");
     }
 
     /**
@@ -122,7 +151,11 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getIsPortalNotificationSent(): ?bool {
-        return $this->getBackingStore()->get('isPortalNotificationSent');
+        $val = $this->getBackingStore()->get('isPortalNotificationSent');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isPortalNotificationSent'");
     }
 
     /**
@@ -130,7 +163,11 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -138,7 +175,11 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
      * @return RuleSeverityType|null
     */
     public function getSeverity(): ?RuleSeverityType {
-        return $this->getBackingStore()->get('severity');
+        $val = $this->getBackingStore()->get('severity');
+        if (is_null($val) || $val instanceof RuleSeverityType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'severity'");
     }
 
     /**

@@ -39,7 +39,12 @@ class ChannelModerationSettings implements AdditionalDataHolder, BackedModel, Pa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +52,11 @@ class ChannelModerationSettings implements AdditionalDataHolder, BackedModel, Pa
      * @return bool|null
     */
     public function getAllowNewMessageFromBots(): ?bool {
-        return $this->getBackingStore()->get('allowNewMessageFromBots');
+        $val = $this->getBackingStore()->get('allowNewMessageFromBots');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowNewMessageFromBots'");
     }
 
     /**
@@ -55,7 +64,11 @@ class ChannelModerationSettings implements AdditionalDataHolder, BackedModel, Pa
      * @return bool|null
     */
     public function getAllowNewMessageFromConnectors(): ?bool {
-        return $this->getBackingStore()->get('allowNewMessageFromConnectors');
+        $val = $this->getBackingStore()->get('allowNewMessageFromConnectors');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowNewMessageFromConnectors'");
     }
 
     /**
@@ -68,7 +81,7 @@ class ChannelModerationSettings implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -86,7 +99,11 @@ class ChannelModerationSettings implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -94,7 +111,11 @@ class ChannelModerationSettings implements AdditionalDataHolder, BackedModel, Pa
      * @return ReplyRestriction|null
     */
     public function getReplyRestriction(): ?ReplyRestriction {
-        return $this->getBackingStore()->get('replyRestriction');
+        $val = $this->getBackingStore()->get('replyRestriction');
+        if (is_null($val) || $val instanceof ReplyRestriction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'replyRestriction'");
     }
 
     /**
@@ -102,7 +123,11 @@ class ChannelModerationSettings implements AdditionalDataHolder, BackedModel, Pa
      * @return UserNewMessageRestriction|null
     */
     public function getUserNewMessageRestriction(): ?UserNewMessageRestriction {
-        return $this->getBackingStore()->get('userNewMessageRestriction');
+        $val = $this->getBackingStore()->get('userNewMessageRestriction');
+        if (is_null($val) || $val instanceof UserNewMessageRestriction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userNewMessageRestriction'");
     }
 
     /**

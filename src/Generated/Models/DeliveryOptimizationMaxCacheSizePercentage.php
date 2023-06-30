@@ -27,7 +27,7 @@ class DeliveryOptimizationMaxCacheSizePercentage extends DeliveryOptimizationMax
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class DeliveryOptimizationMaxCacheSizePercentage extends DeliveryOptimizationMax
      * @return int|null
     */
     public function getMaximumCacheSizePercentage(): ?int {
-        return $this->getBackingStore()->get('maximumCacheSizePercentage');
+        $val = $this->getBackingStore()->get('maximumCacheSizePercentage');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maximumCacheSizePercentage'");
     }
 
     /**

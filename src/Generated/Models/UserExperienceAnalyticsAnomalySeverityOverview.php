@@ -42,7 +42,12 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +60,7 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -73,7 +78,11 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
      * @return int|null
     */
     public function getHighSeverityAnomalyCount(): ?int {
-        return $this->getBackingStore()->get('highSeverityAnomalyCount');
+        $val = $this->getBackingStore()->get('highSeverityAnomalyCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'highSeverityAnomalyCount'");
     }
 
     /**
@@ -81,7 +90,11 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
      * @return int|null
     */
     public function getInformationalSeverityAnomalyCount(): ?int {
-        return $this->getBackingStore()->get('informationalSeverityAnomalyCount');
+        $val = $this->getBackingStore()->get('informationalSeverityAnomalyCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'informationalSeverityAnomalyCount'");
     }
 
     /**
@@ -89,7 +102,11 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
      * @return int|null
     */
     public function getLowSeverityAnomalyCount(): ?int {
-        return $this->getBackingStore()->get('lowSeverityAnomalyCount');
+        $val = $this->getBackingStore()->get('lowSeverityAnomalyCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lowSeverityAnomalyCount'");
     }
 
     /**
@@ -97,7 +114,11 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
      * @return int|null
     */
     public function getMediumSeverityAnomalyCount(): ?int {
-        return $this->getBackingStore()->get('mediumSeverityAnomalyCount');
+        $val = $this->getBackingStore()->get('mediumSeverityAnomalyCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mediumSeverityAnomalyCount'");
     }
 
     /**
@@ -105,7 +126,11 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

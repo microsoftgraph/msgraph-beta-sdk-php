@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class VirtualEventRegistration extends Entity implements Parsable 
 {
@@ -29,12 +30,16 @@ class VirtualEventRegistration extends Entity implements Parsable
      * @return int|null
     */
     public function getCapacity(): ?int {
-        return $this->getBackingStore()->get('capacity');
+        $val = $this->getBackingStore()->get('capacity');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'capacity'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -51,7 +56,13 @@ class VirtualEventRegistration extends Entity implements Parsable
      * @return array<VirtualEventRegistrationQuestion>|null
     */
     public function getQuestions(): ?array {
-        return $this->getBackingStore()->get('questions');
+        $val = $this->getBackingStore()->get('questions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, VirtualEventRegistrationQuestion::class);
+            /** @var array<VirtualEventRegistrationQuestion>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'questions'");
     }
 
     /**
@@ -59,7 +70,13 @@ class VirtualEventRegistration extends Entity implements Parsable
      * @return array<VirtualEventRegistrant>|null
     */
     public function getRegistrants(): ?array {
-        return $this->getBackingStore()->get('registrants');
+        $val = $this->getBackingStore()->get('registrants');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, VirtualEventRegistrant::class);
+            /** @var array<VirtualEventRegistrant>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'registrants'");
     }
 
     /**
@@ -67,7 +84,11 @@ class VirtualEventRegistration extends Entity implements Parsable
      * @return string|null
     */
     public function getRegistrationWebUrl(): ?string {
-        return $this->getBackingStore()->get('registrationWebUrl');
+        $val = $this->getBackingStore()->get('registrationWebUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'registrationWebUrl'");
     }
 
     /**

@@ -40,7 +40,12 @@ class AlternativeSecurityId implements AdditionalDataHolder, BackedModel, Parsab
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -53,7 +58,7 @@ class AlternativeSecurityId implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -66,19 +71,27 @@ class AlternativeSecurityId implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the identityProvider property value. For internal use only
+     * Gets the identityProvider property value. For internal use only.
      * @return string|null
     */
     public function getIdentityProvider(): ?string {
-        return $this->getBackingStore()->get('identityProvider');
+        $val = $this->getBackingStore()->get('identityProvider');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityProvider'");
     }
 
     /**
-     * Gets the key property value. For internal use only
+     * Gets the key property value. For internal use only.
      * @return StreamInterface|null
     */
     public function getKey(): ?StreamInterface {
-        return $this->getBackingStore()->get('key');
+        $val = $this->getBackingStore()->get('key');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'key'");
     }
 
     /**
@@ -86,15 +99,23 @@ class AlternativeSecurityId implements AdditionalDataHolder, BackedModel, Parsab
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
-     * Gets the type property value. For internal use only
+     * Gets the type property value. For internal use only.
      * @return int|null
     */
     public function getType(): ?int {
-        return $this->getBackingStore()->get('type');
+        $val = $this->getBackingStore()->get('type');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
     }
 
     /**
@@ -126,7 +147,7 @@ class AlternativeSecurityId implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the identityProvider property value. For internal use only
+     * Sets the identityProvider property value. For internal use only.
      * @param string|null $value Value to set for the identityProvider property.
     */
     public function setIdentityProvider(?string $value): void {
@@ -134,7 +155,7 @@ class AlternativeSecurityId implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the key property value. For internal use only
+     * Sets the key property value. For internal use only.
      * @param StreamInterface|null $value Value to set for the key property.
     */
     public function setKey(?StreamInterface $value): void {
@@ -150,7 +171,7 @@ class AlternativeSecurityId implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the type property value. For internal use only
+     * Sets the type property value. For internal use only.
      * @param int|null $value Value to set for the type property.
     */
     public function setType(?int $value): void {

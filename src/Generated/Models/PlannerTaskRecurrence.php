@@ -40,7 +40,12 @@ class PlannerTaskRecurrence implements AdditionalDataHolder, BackedModel, Parsab
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -53,7 +58,7 @@ class PlannerTaskRecurrence implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -73,7 +78,11 @@ class PlannerTaskRecurrence implements AdditionalDataHolder, BackedModel, Parsab
      * @return string|null
     */
     public function getNextInSeriesTaskId(): ?string {
-        return $this->getBackingStore()->get('nextInSeriesTaskId');
+        $val = $this->getBackingStore()->get('nextInSeriesTaskId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'nextInSeriesTaskId'");
     }
 
     /**
@@ -81,7 +90,11 @@ class PlannerTaskRecurrence implements AdditionalDataHolder, BackedModel, Parsab
      * @return int|null
     */
     public function getOccurrenceId(): ?int {
-        return $this->getBackingStore()->get('occurrenceId');
+        $val = $this->getBackingStore()->get('occurrenceId');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'occurrenceId'");
     }
 
     /**
@@ -89,7 +102,11 @@ class PlannerTaskRecurrence implements AdditionalDataHolder, BackedModel, Parsab
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -97,7 +114,11 @@ class PlannerTaskRecurrence implements AdditionalDataHolder, BackedModel, Parsab
      * @return string|null
     */
     public function getPreviousInSeriesTaskId(): ?string {
-        return $this->getBackingStore()->get('previousInSeriesTaskId');
+        $val = $this->getBackingStore()->get('previousInSeriesTaskId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'previousInSeriesTaskId'");
     }
 
     /**
@@ -105,7 +126,11 @@ class PlannerTaskRecurrence implements AdditionalDataHolder, BackedModel, Parsab
      * @return DateTime|null
     */
     public function getRecurrenceStartDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('recurrenceStartDateTime');
+        $val = $this->getBackingStore()->get('recurrenceStartDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recurrenceStartDateTime'");
     }
 
     /**
@@ -113,7 +138,11 @@ class PlannerTaskRecurrence implements AdditionalDataHolder, BackedModel, Parsab
      * @return PlannerRecurrenceSchedule|null
     */
     public function getSchedule(): ?PlannerRecurrenceSchedule {
-        return $this->getBackingStore()->get('schedule');
+        $val = $this->getBackingStore()->get('schedule');
+        if (is_null($val) || $val instanceof PlannerRecurrenceSchedule) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'schedule'");
     }
 
     /**
@@ -121,7 +150,11 @@ class PlannerTaskRecurrence implements AdditionalDataHolder, BackedModel, Parsab
      * @return string|null
     */
     public function getSeriesId(): ?string {
-        return $this->getBackingStore()->get('seriesId');
+        $val = $this->getBackingStore()->get('seriesId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'seriesId'");
     }
 
     /**

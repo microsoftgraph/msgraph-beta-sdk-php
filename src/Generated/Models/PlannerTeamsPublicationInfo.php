@@ -28,7 +28,7 @@ class PlannerTeamsPublicationInfo extends PlannerTaskCreation implements Parsabl
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -47,7 +47,11 @@ class PlannerTeamsPublicationInfo extends PlannerTaskCreation implements Parsabl
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -55,7 +59,11 @@ class PlannerTeamsPublicationInfo extends PlannerTaskCreation implements Parsabl
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -63,7 +71,11 @@ class PlannerTeamsPublicationInfo extends PlannerTaskCreation implements Parsabl
      * @return string|null
     */
     public function getPublicationId(): ?string {
-        return $this->getBackingStore()->get('publicationId');
+        $val = $this->getBackingStore()->get('publicationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publicationId'");
     }
 
     /**
@@ -71,7 +83,11 @@ class PlannerTeamsPublicationInfo extends PlannerTaskCreation implements Parsabl
      * @return string|null
     */
     public function getPublishedToPlanId(): ?string {
-        return $this->getBackingStore()->get('publishedToPlanId');
+        $val = $this->getBackingStore()->get('publishedToPlanId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publishedToPlanId'");
     }
 
     /**
@@ -79,7 +95,11 @@ class PlannerTeamsPublicationInfo extends PlannerTaskCreation implements Parsabl
      * @return string|null
     */
     public function getPublishingTeamId(): ?string {
-        return $this->getBackingStore()->get('publishingTeamId');
+        $val = $this->getBackingStore()->get('publishingTeamId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publishingTeamId'");
     }
 
     /**
@@ -87,7 +107,11 @@ class PlannerTeamsPublicationInfo extends PlannerTaskCreation implements Parsabl
      * @return string|null
     */
     public function getPublishingTeamName(): ?string {
-        return $this->getBackingStore()->get('publishingTeamName');
+        $val = $this->getBackingStore()->get('publishingTeamName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publishingTeamName'");
     }
 
     /**

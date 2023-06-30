@@ -29,7 +29,11 @@ class PlannerPlanDetails extends PlannerDelta implements Parsable
      * @return PlannerCategoryDescriptions|null
     */
     public function getCategoryDescriptions(): ?PlannerCategoryDescriptions {
-        return $this->getBackingStore()->get('categoryDescriptions');
+        $val = $this->getBackingStore()->get('categoryDescriptions');
+        if (is_null($val) || $val instanceof PlannerCategoryDescriptions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'categoryDescriptions'");
     }
 
     /**
@@ -37,12 +41,16 @@ class PlannerPlanDetails extends PlannerDelta implements Parsable
      * @return PlannerPlanContextDetailsCollection|null
     */
     public function getContextDetails(): ?PlannerPlanContextDetailsCollection {
-        return $this->getBackingStore()->get('contextDetails');
+        $val = $this->getBackingStore()->get('contextDetails');
+        if (is_null($val) || $val instanceof PlannerPlanContextDetailsCollection) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contextDetails'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -58,7 +66,11 @@ class PlannerPlanDetails extends PlannerDelta implements Parsable
      * @return PlannerUserIds|null
     */
     public function getSharedWith(): ?PlannerUserIds {
-        return $this->getBackingStore()->get('sharedWith');
+        $val = $this->getBackingStore()->get('sharedWith');
+        if (is_null($val) || $val instanceof PlannerUserIds) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sharedWith'");
     }
 
     /**

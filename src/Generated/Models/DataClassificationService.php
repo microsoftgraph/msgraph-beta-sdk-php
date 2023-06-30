@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DataClassificationService extends Entity implements Parsable 
 {
@@ -29,7 +30,13 @@ class DataClassificationService extends Entity implements Parsable
      * @return array<JobResponseBase>|null
     */
     public function getClassifyFileJobs(): ?array {
-        return $this->getBackingStore()->get('classifyFileJobs');
+        $val = $this->getBackingStore()->get('classifyFileJobs');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, JobResponseBase::class);
+            /** @var array<JobResponseBase>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'classifyFileJobs'");
     }
 
     /**
@@ -37,7 +44,13 @@ class DataClassificationService extends Entity implements Parsable
      * @return array<JobResponseBase>|null
     */
     public function getClassifyTextJobs(): ?array {
-        return $this->getBackingStore()->get('classifyTextJobs');
+        $val = $this->getBackingStore()->get('classifyTextJobs');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, JobResponseBase::class);
+            /** @var array<JobResponseBase>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'classifyTextJobs'");
     }
 
     /**
@@ -45,7 +58,13 @@ class DataClassificationService extends Entity implements Parsable
      * @return array<JobResponseBase>|null
     */
     public function getEvaluateDlpPoliciesJobs(): ?array {
-        return $this->getBackingStore()->get('evaluateDlpPoliciesJobs');
+        $val = $this->getBackingStore()->get('evaluateDlpPoliciesJobs');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, JobResponseBase::class);
+            /** @var array<JobResponseBase>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'evaluateDlpPoliciesJobs'");
     }
 
     /**
@@ -53,7 +72,13 @@ class DataClassificationService extends Entity implements Parsable
      * @return array<JobResponseBase>|null
     */
     public function getEvaluateLabelJobs(): ?array {
-        return $this->getBackingStore()->get('evaluateLabelJobs');
+        $val = $this->getBackingStore()->get('evaluateLabelJobs');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, JobResponseBase::class);
+            /** @var array<JobResponseBase>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'evaluateLabelJobs'");
     }
 
     /**
@@ -61,7 +86,13 @@ class DataClassificationService extends Entity implements Parsable
      * @return array<ExactMatchDataStore>|null
     */
     public function getExactMatchDataStores(): ?array {
-        return $this->getBackingStore()->get('exactMatchDataStores');
+        $val = $this->getBackingStore()->get('exactMatchDataStores');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ExactMatchDataStore::class);
+            /** @var array<ExactMatchDataStore>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exactMatchDataStores'");
     }
 
     /**
@@ -69,12 +100,18 @@ class DataClassificationService extends Entity implements Parsable
      * @return array<ExactMatchUploadAgent>|null
     */
     public function getExactMatchUploadAgents(): ?array {
-        return $this->getBackingStore()->get('exactMatchUploadAgents');
+        $val = $this->getBackingStore()->get('exactMatchUploadAgents');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ExactMatchUploadAgent::class);
+            /** @var array<ExactMatchUploadAgent>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exactMatchUploadAgents'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -96,7 +133,13 @@ class DataClassificationService extends Entity implements Parsable
      * @return array<JobResponseBase>|null
     */
     public function getJobs(): ?array {
-        return $this->getBackingStore()->get('jobs');
+        $val = $this->getBackingStore()->get('jobs');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, JobResponseBase::class);
+            /** @var array<JobResponseBase>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'jobs'");
     }
 
     /**
@@ -104,7 +147,13 @@ class DataClassificationService extends Entity implements Parsable
      * @return array<SensitiveType>|null
     */
     public function getSensitiveTypes(): ?array {
-        return $this->getBackingStore()->get('sensitiveTypes');
+        $val = $this->getBackingStore()->get('sensitiveTypes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SensitiveType::class);
+            /** @var array<SensitiveType>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sensitiveTypes'");
     }
 
     /**
@@ -112,7 +161,13 @@ class DataClassificationService extends Entity implements Parsable
      * @return array<SensitivityLabel>|null
     */
     public function getSensitivityLabels(): ?array {
-        return $this->getBackingStore()->get('sensitivityLabels');
+        $val = $this->getBackingStore()->get('sensitivityLabels');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SensitivityLabel::class);
+            /** @var array<SensitivityLabel>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sensitivityLabels'");
     }
 
     /**

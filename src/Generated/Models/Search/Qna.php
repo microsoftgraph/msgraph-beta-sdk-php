@@ -7,6 +7,7 @@ use Microsoft\Graph\Beta\Generated\Models\DevicePlatformType;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class Qna extends SearchAnswer implements Parsable 
 {
@@ -31,7 +32,11 @@ class Qna extends SearchAnswer implements Parsable
      * @return DateTime|null
     */
     public function getAvailabilityEndDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('availabilityEndDateTime');
+        $val = $this->getBackingStore()->get('availabilityEndDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'availabilityEndDateTime'");
     }
 
     /**
@@ -39,22 +44,40 @@ class Qna extends SearchAnswer implements Parsable
      * @return DateTime|null
     */
     public function getAvailabilityStartDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('availabilityStartDateTime');
+        $val = $this->getBackingStore()->get('availabilityStartDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'availabilityStartDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'availabilityEndDateTime' => fn(ParseNode $n) => $o->setAvailabilityEndDateTime($n->getDateTimeValue()),
             'availabilityStartDateTime' => fn(ParseNode $n) => $o->setAvailabilityStartDateTime($n->getDateTimeValue()),
-            'groupIds' => fn(ParseNode $n) => $o->setGroupIds($n->getCollectionOfPrimitiveValues()),
+            'groupIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setGroupIds($val);
+            },
             'isSuggested' => fn(ParseNode $n) => $o->setIsSuggested($n->getBooleanValue()),
             'keywords' => fn(ParseNode $n) => $o->setKeywords($n->getObjectValue([AnswerKeyword::class, 'createFromDiscriminatorValue'])),
-            'languageTags' => fn(ParseNode $n) => $o->setLanguageTags($n->getCollectionOfPrimitiveValues()),
+            'languageTags' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setLanguageTags($val);
+            },
             'platforms' => fn(ParseNode $n) => $o->setPlatforms($n->getCollectionOfEnumValues(DevicePlatformType::class)),
             'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(AnswerState::class)),
             'targetedVariations' => fn(ParseNode $n) => $o->setTargetedVariations($n->getCollectionOfObjectValues([AnswerVariant::class, 'createFromDiscriminatorValue'])),
@@ -66,7 +89,13 @@ class Qna extends SearchAnswer implements Parsable
      * @return array<string>|null
     */
     public function getGroupIds(): ?array {
-        return $this->getBackingStore()->get('groupIds');
+        $val = $this->getBackingStore()->get('groupIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupIds'");
     }
 
     /**
@@ -74,7 +103,11 @@ class Qna extends SearchAnswer implements Parsable
      * @return bool|null
     */
     public function getIsSuggested(): ?bool {
-        return $this->getBackingStore()->get('isSuggested');
+        $val = $this->getBackingStore()->get('isSuggested');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isSuggested'");
     }
 
     /**
@@ -82,7 +115,11 @@ class Qna extends SearchAnswer implements Parsable
      * @return AnswerKeyword|null
     */
     public function getKeywords(): ?AnswerKeyword {
-        return $this->getBackingStore()->get('keywords');
+        $val = $this->getBackingStore()->get('keywords');
+        if (is_null($val) || $val instanceof AnswerKeyword) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'keywords'");
     }
 
     /**
@@ -90,7 +127,13 @@ class Qna extends SearchAnswer implements Parsable
      * @return array<string>|null
     */
     public function getLanguageTags(): ?array {
-        return $this->getBackingStore()->get('languageTags');
+        $val = $this->getBackingStore()->get('languageTags');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'languageTags'");
     }
 
     /**
@@ -98,7 +141,13 @@ class Qna extends SearchAnswer implements Parsable
      * @return array<DevicePlatformType>|null
     */
     public function getPlatforms(): ?array {
-        return $this->getBackingStore()->get('platforms');
+        $val = $this->getBackingStore()->get('platforms');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DevicePlatformType::class);
+            /** @var array<DevicePlatformType>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'platforms'");
     }
 
     /**
@@ -106,7 +155,11 @@ class Qna extends SearchAnswer implements Parsable
      * @return AnswerState|null
     */
     public function getState(): ?AnswerState {
-        return $this->getBackingStore()->get('state');
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || $val instanceof AnswerState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
     }
 
     /**
@@ -114,7 +167,13 @@ class Qna extends SearchAnswer implements Parsable
      * @return array<AnswerVariant>|null
     */
     public function getTargetedVariations(): ?array {
-        return $this->getBackingStore()->get('targetedVariations');
+        $val = $this->getBackingStore()->get('targetedVariations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AnswerVariant::class);
+            /** @var array<AnswerVariant>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetedVariations'");
     }
 
     /**

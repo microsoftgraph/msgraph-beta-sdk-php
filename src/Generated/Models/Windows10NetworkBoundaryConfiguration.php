@@ -27,7 +27,7 @@ class Windows10NetworkBoundaryConfiguration extends DeviceConfiguration implemen
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class Windows10NetworkBoundaryConfiguration extends DeviceConfiguration implemen
      * @return WindowsNetworkIsolationPolicy|null
     */
     public function getWindowsNetworkIsolationPolicy(): ?WindowsNetworkIsolationPolicy {
-        return $this->getBackingStore()->get('windowsNetworkIsolationPolicy');
+        $val = $this->getBackingStore()->get('windowsNetworkIsolationPolicy');
+        if (is_null($val) || $val instanceof WindowsNetworkIsolationPolicy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsNetworkIsolationPolicy'");
     }
 
     /**

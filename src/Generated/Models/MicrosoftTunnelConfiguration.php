@@ -6,11 +6,15 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Entity that represents a collection of Microsoft Tunnel settings
+*/
 class MicrosoftTunnelConfiguration extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new MicrosoftTunnelConfiguration and sets the default values.
+     * Instantiates a new microsoftTunnelConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -30,7 +34,13 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
      * @return array<KeyValuePair>|null
     */
     public function getAdvancedSettings(): ?array {
-        return $this->getBackingStore()->get('advancedSettings');
+        $val = $this->getBackingStore()->get('advancedSettings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, KeyValuePair::class);
+            /** @var array<KeyValuePair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'advancedSettings'");
     }
 
     /**
@@ -38,7 +48,11 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
      * @return string|null
     */
     public function getDefaultDomainSuffix(): ?string {
-        return $this->getBackingStore()->get('defaultDomainSuffix');
+        $val = $this->getBackingStore()->get('defaultDomainSuffix');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultDomainSuffix'");
     }
 
     /**
@@ -46,7 +60,11 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -54,7 +72,11 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
      * @return bool|null
     */
     public function getDisableUdpConnections(): ?bool {
-        return $this->getBackingStore()->get('disableUdpConnections');
+        $val = $this->getBackingStore()->get('disableUdpConnections');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disableUdpConnections'");
     }
 
     /**
@@ -62,7 +84,11 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -70,12 +96,18 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getDnsServers(): ?array {
-        return $this->getBackingStore()->get('dnsServers');
+        $val = $this->getBackingStore()->get('dnsServers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dnsServers'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -85,16 +117,65 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'disableUdpConnections' => fn(ParseNode $n) => $o->setDisableUdpConnections($n->getBooleanValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'dnsServers' => fn(ParseNode $n) => $o->setDnsServers($n->getCollectionOfPrimitiveValues()),
+            'dnsServers' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDnsServers($val);
+            },
             'lastUpdateDateTime' => fn(ParseNode $n) => $o->setLastUpdateDateTime($n->getDateTimeValue()),
             'listenPort' => fn(ParseNode $n) => $o->setListenPort($n->getIntegerValue()),
             'network' => fn(ParseNode $n) => $o->setNetwork($n->getStringValue()),
-            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
-            'routeExcludes' => fn(ParseNode $n) => $o->setRouteExcludes($n->getCollectionOfPrimitiveValues()),
-            'routeIncludes' => fn(ParseNode $n) => $o->setRouteIncludes($n->getCollectionOfPrimitiveValues()),
-            'routesExclude' => fn(ParseNode $n) => $o->setRoutesExclude($n->getCollectionOfPrimitiveValues()),
-            'routesInclude' => fn(ParseNode $n) => $o->setRoutesInclude($n->getCollectionOfPrimitiveValues()),
-            'splitDNS' => fn(ParseNode $n) => $o->setSplitDNS($n->getCollectionOfPrimitiveValues()),
+            'roleScopeTagIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoleScopeTagIds($val);
+            },
+            'routeExcludes' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRouteExcludes($val);
+            },
+            'routeIncludes' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRouteIncludes($val);
+            },
+            'routesExclude' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoutesExclude($val);
+            },
+            'routesInclude' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoutesInclude($val);
+            },
+            'splitDNS' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSplitDNS($val);
+            },
         ]);
     }
 
@@ -103,7 +184,11 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastUpdateDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastUpdateDateTime');
+        $val = $this->getBackingStore()->get('lastUpdateDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastUpdateDateTime'");
     }
 
     /**
@@ -111,7 +196,11 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
      * @return int|null
     */
     public function getListenPort(): ?int {
-        return $this->getBackingStore()->get('listenPort');
+        $val = $this->getBackingStore()->get('listenPort');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'listenPort'");
     }
 
     /**
@@ -119,7 +208,11 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
      * @return string|null
     */
     public function getNetwork(): ?string {
-        return $this->getBackingStore()->get('network');
+        $val = $this->getBackingStore()->get('network');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'network'");
     }
 
     /**
@@ -127,7 +220,13 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->getBackingStore()->get('roleScopeTagIds');
+        $val = $this->getBackingStore()->get('roleScopeTagIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleScopeTagIds'");
     }
 
     /**
@@ -135,7 +234,13 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRouteExcludes(): ?array {
-        return $this->getBackingStore()->get('routeExcludes');
+        $val = $this->getBackingStore()->get('routeExcludes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'routeExcludes'");
     }
 
     /**
@@ -143,7 +248,13 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRouteIncludes(): ?array {
-        return $this->getBackingStore()->get('routeIncludes');
+        $val = $this->getBackingStore()->get('routeIncludes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'routeIncludes'");
     }
 
     /**
@@ -151,7 +262,13 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoutesExclude(): ?array {
-        return $this->getBackingStore()->get('routesExclude');
+        $val = $this->getBackingStore()->get('routesExclude');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'routesExclude'");
     }
 
     /**
@@ -159,7 +276,13 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoutesInclude(): ?array {
-        return $this->getBackingStore()->get('routesInclude');
+        $val = $this->getBackingStore()->get('routesInclude');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'routesInclude'");
     }
 
     /**
@@ -167,7 +290,13 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getSplitDNS(): ?array {
-        return $this->getBackingStore()->get('splitDNS');
+        $val = $this->getBackingStore()->get('splitDNS');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'splitDNS'");
     }
 
     /**

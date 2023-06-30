@@ -30,12 +30,16 @@ class DeviceManagementConfigurationIntegerSettingValueTemplate extends DeviceMan
      * @return DeviceManagementConfigurationIntegerSettingValueDefaultTemplate|null
     */
     public function getDefaultValue(): ?DeviceManagementConfigurationIntegerSettingValueDefaultTemplate {
-        return $this->getBackingStore()->get('defaultValue');
+        $val = $this->getBackingStore()->get('defaultValue');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationIntegerSettingValueDefaultTemplate) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultValue'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -51,7 +55,11 @@ class DeviceManagementConfigurationIntegerSettingValueTemplate extends DeviceMan
      * @return DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate|null
     */
     public function getRecommendedValueDefinition(): ?DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate {
-        return $this->getBackingStore()->get('recommendedValueDefinition');
+        $val = $this->getBackingStore()->get('recommendedValueDefinition');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recommendedValueDefinition'");
     }
 
     /**
@@ -59,7 +67,11 @@ class DeviceManagementConfigurationIntegerSettingValueTemplate extends DeviceMan
      * @return DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate|null
     */
     public function getRequiredValueDefinition(): ?DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate {
-        return $this->getBackingStore()->get('requiredValueDefinition');
+        $val = $this->getBackingStore()->get('requiredValueDefinition');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requiredValueDefinition'");
     }
 
     /**

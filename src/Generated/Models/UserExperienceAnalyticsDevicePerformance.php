@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics device performance entity contains device boot performance details.
+*/
 class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsDevicePerformance and sets the default values.
+     * Instantiates a new userExperienceAnalyticsDevicePerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -29,7 +32,11 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
      * @return float|null
     */
     public function getAverageBlueScreens(): ?float {
-        return $this->getBackingStore()->get('averageBlueScreens');
+        $val = $this->getBackingStore()->get('averageBlueScreens');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'averageBlueScreens'");
     }
 
     /**
@@ -37,7 +44,11 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
      * @return float|null
     */
     public function getAverageRestarts(): ?float {
-        return $this->getBackingStore()->get('averageRestarts');
+        $val = $this->getBackingStore()->get('averageRestarts');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'averageRestarts'");
     }
 
     /**
@@ -45,7 +56,11 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
      * @return int|null
     */
     public function getBlueScreenCount(): ?int {
-        return $this->getBackingStore()->get('blueScreenCount');
+        $val = $this->getBackingStore()->get('blueScreenCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blueScreenCount'");
     }
 
     /**
@@ -53,7 +68,11 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
      * @return int|null
     */
     public function getBootScore(): ?int {
-        return $this->getBackingStore()->get('bootScore');
+        $val = $this->getBackingStore()->get('bootScore');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bootScore'");
     }
 
     /**
@@ -61,7 +80,11 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
      * @return int|null
     */
     public function getCoreBootTimeInMs(): ?int {
-        return $this->getBackingStore()->get('coreBootTimeInMs');
+        $val = $this->getBackingStore()->get('coreBootTimeInMs');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'coreBootTimeInMs'");
     }
 
     /**
@@ -69,7 +92,11 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
      * @return int|null
     */
     public function getCoreLoginTimeInMs(): ?int {
-        return $this->getBackingStore()->get('coreLoginTimeInMs');
+        $val = $this->getBackingStore()->get('coreLoginTimeInMs');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'coreLoginTimeInMs'");
     }
 
     /**
@@ -77,7 +104,11 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
      * @return int|null
     */
     public function getDeviceCount(): ?int {
-        return $this->getBackingStore()->get('deviceCount');
+        $val = $this->getBackingStore()->get('deviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceCount'");
     }
 
     /**
@@ -85,7 +116,11 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->getBackingStore()->get('deviceName');
+        $val = $this->getBackingStore()->get('deviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceName'");
     }
 
     /**
@@ -93,12 +128,16 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
      * @return DiskType|null
     */
     public function getDiskType(): ?DiskType {
-        return $this->getBackingStore()->get('diskType');
+        $val = $this->getBackingStore()->get('diskType');
+        if (is_null($val) || $val instanceof DiskType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'diskType'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -131,7 +170,11 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
      * @return int|null
     */
     public function getGroupPolicyBootTimeInMs(): ?int {
-        return $this->getBackingStore()->get('groupPolicyBootTimeInMs');
+        $val = $this->getBackingStore()->get('groupPolicyBootTimeInMs');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupPolicyBootTimeInMs'");
     }
 
     /**
@@ -139,7 +182,11 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
      * @return int|null
     */
     public function getGroupPolicyLoginTimeInMs(): ?int {
-        return $this->getBackingStore()->get('groupPolicyLoginTimeInMs');
+        $val = $this->getBackingStore()->get('groupPolicyLoginTimeInMs');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupPolicyLoginTimeInMs'");
     }
 
     /**
@@ -147,7 +194,11 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
      * @return UserExperienceAnalyticsHealthState|null
     */
     public function getHealthStatus(): ?UserExperienceAnalyticsHealthState {
-        return $this->getBackingStore()->get('healthStatus');
+        $val = $this->getBackingStore()->get('healthStatus');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsHealthState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'healthStatus'");
     }
 
     /**
@@ -155,7 +206,11 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
      * @return int|null
     */
     public function getLoginScore(): ?int {
-        return $this->getBackingStore()->get('loginScore');
+        $val = $this->getBackingStore()->get('loginScore');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'loginScore'");
     }
 
     /**
@@ -163,7 +218,11 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
      * @return string|null
     */
     public function getManufacturer(): ?string {
-        return $this->getBackingStore()->get('manufacturer');
+        $val = $this->getBackingStore()->get('manufacturer');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'manufacturer'");
     }
 
     /**
@@ -171,7 +230,11 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
      * @return string|null
     */
     public function getModel(): ?string {
-        return $this->getBackingStore()->get('model');
+        $val = $this->getBackingStore()->get('model');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'model'");
     }
 
     /**
@@ -179,7 +242,11 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
      * @return float|null
     */
     public function getModelStartupPerformanceScore(): ?float {
-        return $this->getBackingStore()->get('modelStartupPerformanceScore');
+        $val = $this->getBackingStore()->get('modelStartupPerformanceScore');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'modelStartupPerformanceScore'");
     }
 
     /**
@@ -187,7 +254,11 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
      * @return string|null
     */
     public function getOperatingSystemVersion(): ?string {
-        return $this->getBackingStore()->get('operatingSystemVersion');
+        $val = $this->getBackingStore()->get('operatingSystemVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'operatingSystemVersion'");
     }
 
     /**
@@ -195,7 +266,11 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
      * @return int|null
     */
     public function getResponsiveDesktopTimeInMs(): ?int {
-        return $this->getBackingStore()->get('responsiveDesktopTimeInMs');
+        $val = $this->getBackingStore()->get('responsiveDesktopTimeInMs');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'responsiveDesktopTimeInMs'");
     }
 
     /**
@@ -203,7 +278,11 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
      * @return int|null
     */
     public function getRestartCount(): ?int {
-        return $this->getBackingStore()->get('restartCount');
+        $val = $this->getBackingStore()->get('restartCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'restartCount'");
     }
 
     /**
@@ -211,7 +290,11 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
      * @return float|null
     */
     public function getStartupPerformanceScore(): ?float {
-        return $this->getBackingStore()->get('startupPerformanceScore');
+        $val = $this->getBackingStore()->get('startupPerformanceScore');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startupPerformanceScore'");
     }
 
     /**

@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,13 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<DlpActionInfo>|null
     */
     public function getActions(): ?array {
-        return $this->getBackingStore()->get('actions');
+        $val = $this->getBackingStore()->get('actions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DlpActionInfo::class);
+            /** @var array<DlpActionInfo>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'actions'");
     }
 
     /**
@@ -47,7 +54,12 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -60,7 +72,7 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -82,7 +94,11 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getIsMostRestrictive(): ?bool {
-        return $this->getBackingStore()->get('isMostRestrictive');
+        $val = $this->getBackingStore()->get('isMostRestrictive');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isMostRestrictive'");
     }
 
     /**
@@ -90,7 +106,11 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -98,7 +118,11 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getPolicyId(): ?string {
-        return $this->getBackingStore()->get('policyId');
+        $val = $this->getBackingStore()->get('policyId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyId'");
     }
 
     /**
@@ -106,7 +130,11 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getPolicyName(): ?string {
-        return $this->getBackingStore()->get('policyName');
+        $val = $this->getBackingStore()->get('policyName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyName'");
     }
 
     /**
@@ -114,7 +142,11 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getPriority(): ?int {
-        return $this->getBackingStore()->get('priority');
+        $val = $this->getBackingStore()->get('priority');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'priority'");
     }
 
     /**
@@ -122,7 +154,11 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getRuleId(): ?string {
-        return $this->getBackingStore()->get('ruleId');
+        $val = $this->getBackingStore()->get('ruleId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ruleId'");
     }
 
     /**
@@ -130,7 +166,11 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return RuleMode|null
     */
     public function getRuleMode(): ?RuleMode {
-        return $this->getBackingStore()->get('ruleMode');
+        $val = $this->getBackingStore()->get('ruleMode');
+        if (is_null($val) || $val instanceof RuleMode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ruleMode'");
     }
 
     /**
@@ -138,7 +178,11 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getRuleName(): ?string {
-        return $this->getBackingStore()->get('ruleName');
+        $val = $this->getBackingStore()->get('ruleName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ruleName'");
     }
 
     /**

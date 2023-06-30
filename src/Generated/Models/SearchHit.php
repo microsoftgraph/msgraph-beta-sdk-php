@@ -18,7 +18,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new SearchHit and sets the default values.
+     * Instantiates a new searchHit and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -39,7 +39,12 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,12 +60,16 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getContentSource(): ?string {
-        return $this->getBackingStore()->get('contentSource');
+        $val = $this->getBackingStore()->get('contentSource');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentSource'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -68,7 +77,6 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
             '_id' => fn(ParseNode $n) => $o->setid($n->getStringValue()),
             '_score' => fn(ParseNode $n) => $o->setscore($n->getIntegerValue()),
             '_source' => fn(ParseNode $n) => $o->setsource($n->getObjectValue([Entity::class, 'createFromDiscriminatorValue'])),
-            '_summary' => fn(ParseNode $n) => $o->setSummary($n->getStringValue()),
             'contentSource' => fn(ParseNode $n) => $o->setContentSource($n->getStringValue()),
             'hitId' => fn(ParseNode $n) => $o->setHitId($n->getStringValue()),
             'isCollapsed' => fn(ParseNode $n) => $o->setIsCollapsed($n->getBooleanValue()),
@@ -76,6 +84,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
             'rank' => fn(ParseNode $n) => $o->setRank($n->getIntegerValue()),
             'resource' => fn(ParseNode $n) => $o->setResource($n->getObjectValue([Entity::class, 'createFromDiscriminatorValue'])),
             'resultTemplateId' => fn(ParseNode $n) => $o->setResultTemplateId($n->getStringValue()),
+            'summary' => fn(ParseNode $n) => $o->setsummary($n->getStringValue()),
         ];
     }
 
@@ -84,7 +93,11 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getHitId(): ?string {
-        return $this->getBackingStore()->get('hitId');
+        $val = $this->getBackingStore()->get('hitId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hitId'");
     }
 
     /**
@@ -92,15 +105,23 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getid(): ?string {
-        return $this->getBackingStore()->get('_id');
+        $val = $this->getBackingStore()->get('_id');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for '_id'");
     }
 
     /**
-     * Gets the isCollapsed property value. Indicates whether the current result is collapses when the collapseProperties property is used.
+     * Gets the isCollapsed property value. Indicates whether the current result is collapses when the collapseProperties property in the searchRequest is used.
      * @return bool|null
     */
     public function getIsCollapsed(): ?bool {
-        return $this->getBackingStore()->get('isCollapsed');
+        $val = $this->getBackingStore()->get('isCollapsed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isCollapsed'");
     }
 
     /**
@@ -108,7 +129,11 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -116,7 +141,11 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getRank(): ?int {
-        return $this->getBackingStore()->get('rank');
+        $val = $this->getBackingStore()->get('rank');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rank'");
     }
 
     /**
@@ -124,7 +153,11 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
      * @return Entity|null
     */
     public function getResource(): ?Entity {
-        return $this->getBackingStore()->get('resource');
+        $val = $this->getBackingStore()->get('resource');
+        if (is_null($val) || $val instanceof Entity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resource'");
     }
 
     /**
@@ -132,7 +165,11 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getResultTemplateId(): ?string {
-        return $this->getBackingStore()->get('resultTemplateId');
+        $val = $this->getBackingStore()->get('resultTemplateId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resultTemplateId'");
     }
 
     /**
@@ -140,7 +177,11 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getscore(): ?int {
-        return $this->getBackingStore()->get('_score');
+        $val = $this->getBackingStore()->get('_score');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for '_score'");
     }
 
     /**
@@ -148,15 +189,23 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
      * @return Entity|null
     */
     public function getsource(): ?Entity {
-        return $this->getBackingStore()->get('_source');
+        $val = $this->getBackingStore()->get('_source');
+        if (is_null($val) || $val instanceof Entity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for '_source'");
     }
 
     /**
-     * Gets the _summary property value. The _summary property
+     * Gets the summary property value. A summary of the result, if a summary is available.
      * @return string|null
     */
-    public function getSummary(): ?string {
-        return $this->getBackingStore()->get('_summary');
+    public function getsummary(): ?string {
+        $val = $this->getBackingStore()->get('summary');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'summary'");
     }
 
     /**
@@ -171,10 +220,10 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeIntegerValue('rank', $this->getRank());
         $writer->writeObjectValue('resource', $this->getResource());
         $writer->writeStringValue('resultTemplateId', $this->getResultTemplateId());
+        $writer->writeStringValue('summary', $this->getsummary());
         $writer->writeStringValue('_id', $this->getid());
         $writer->writeIntegerValue('_score', $this->getscore());
         $writer->writeObjectValue('_source', $this->getsource());
-        $writer->writeStringValue('_summary', $this->getSummary());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -219,7 +268,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isCollapsed property value. Indicates whether the current result is collapses when the collapseProperties property is used.
+     * Sets the isCollapsed property value. Indicates whether the current result is collapses when the collapseProperties property in the searchRequest is used.
      * @param bool|null $value Value to set for the isCollapsed property.
     */
     public function setIsCollapsed(?bool $value): void {
@@ -275,11 +324,11 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the _summary property value. The _summary property
-     * @param string|null $value Value to set for the _summary property.
+     * Sets the summary property value. A summary of the result, if a summary is available.
+     * @param string|null $value Value to set for the summary property.
     */
-    public function setSummary(?string $value): void {
-        $this->getBackingStore()->set('_summary', $value);
+    public function setsummary(?string $value): void {
+        $this->getBackingStore()->set('summary', $value);
     }
 
 }

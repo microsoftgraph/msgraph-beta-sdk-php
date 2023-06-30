@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ExactMatchLookupJob extends ExactMatchJobBase implements Parsable 
 {
@@ -27,7 +28,7 @@ class ExactMatchLookupJob extends ExactMatchJobBase implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -42,7 +43,13 @@ class ExactMatchLookupJob extends ExactMatchJobBase implements Parsable
      * @return array<LookupResultRow>|null
     */
     public function getMatchingRows(): ?array {
-        return $this->getBackingStore()->get('matchingRows');
+        $val = $this->getBackingStore()->get('matchingRows');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, LookupResultRow::class);
+            /** @var array<LookupResultRow>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'matchingRows'");
     }
 
     /**
@@ -50,7 +57,11 @@ class ExactMatchLookupJob extends ExactMatchJobBase implements Parsable
      * @return string|null
     */
     public function getState(): ?string {
-        return $this->getBackingStore()->get('state');
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
     }
 
     /**

@@ -30,7 +30,11 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Pars
      * @return ClaimsMapping|null
     */
     public function getClaimsMapping(): ?ClaimsMapping {
-        return $this->getBackingStore()->get('claimsMapping');
+        $val = $this->getBackingStore()->get('claimsMapping');
+        if (is_null($val) || $val instanceof ClaimsMapping) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'claimsMapping'");
     }
 
     /**
@@ -38,7 +42,11 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Pars
      * @return string|null
     */
     public function getClientId(): ?string {
-        return $this->getBackingStore()->get('clientId');
+        $val = $this->getBackingStore()->get('clientId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clientId'");
     }
 
     /**
@@ -46,7 +54,11 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Pars
      * @return string|null
     */
     public function getClientSecret(): ?string {
-        return $this->getBackingStore()->get('clientSecret');
+        $val = $this->getBackingStore()->get('clientSecret');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clientSecret'");
     }
 
     /**
@@ -54,12 +66,16 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Pars
      * @return string|null
     */
     public function getDomainHint(): ?string {
-        return $this->getBackingStore()->get('domainHint');
+        $val = $this->getBackingStore()->get('domainHint');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'domainHint'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -80,7 +96,11 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Pars
      * @return string|null
     */
     public function getMetadataUrl(): ?string {
-        return $this->getBackingStore()->get('metadataUrl');
+        $val = $this->getBackingStore()->get('metadataUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'metadataUrl'");
     }
 
     /**
@@ -88,7 +108,11 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Pars
      * @return OpenIdConnectResponseMode|null
     */
     public function getResponseMode(): ?OpenIdConnectResponseMode {
-        return $this->getBackingStore()->get('responseMode');
+        $val = $this->getBackingStore()->get('responseMode');
+        if (is_null($val) || $val instanceof OpenIdConnectResponseMode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'responseMode'");
     }
 
     /**
@@ -96,7 +120,11 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Pars
      * @return OpenIdConnectResponseTypes|null
     */
     public function getResponseType(): ?OpenIdConnectResponseTypes {
-        return $this->getBackingStore()->get('responseType');
+        $val = $this->getBackingStore()->get('responseType');
+        if (is_null($val) || $val instanceof OpenIdConnectResponseTypes) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'responseType'");
     }
 
     /**
@@ -104,7 +132,11 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Pars
      * @return string|null
     */
     public function getScope(): ?string {
-        return $this->getBackingStore()->get('scope');
+        $val = $this->getBackingStore()->get('scope');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scope'");
     }
 
     /**

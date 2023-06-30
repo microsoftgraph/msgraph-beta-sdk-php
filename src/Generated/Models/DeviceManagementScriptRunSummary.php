@@ -29,7 +29,11 @@ class DeviceManagementScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getErrorDeviceCount(): ?int {
-        return $this->getBackingStore()->get('errorDeviceCount');
+        $val = $this->getBackingStore()->get('errorDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorDeviceCount'");
     }
 
     /**
@@ -37,12 +41,16 @@ class DeviceManagementScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getErrorUserCount(): ?int {
-        return $this->getBackingStore()->get('errorUserCount');
+        $val = $this->getBackingStore()->get('errorUserCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorUserCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -59,7 +67,11 @@ class DeviceManagementScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getSuccessDeviceCount(): ?int {
-        return $this->getBackingStore()->get('successDeviceCount');
+        $val = $this->getBackingStore()->get('successDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'successDeviceCount'");
     }
 
     /**
@@ -67,7 +79,11 @@ class DeviceManagementScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getSuccessUserCount(): ?int {
-        return $this->getBackingStore()->get('successUserCount');
+        $val = $this->getBackingStore()->get('successUserCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'successUserCount'");
     }
 
     /**

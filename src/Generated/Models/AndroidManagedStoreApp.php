@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AndroidManagedStoreApp extends MobileApp implements Parsable 
 {
@@ -37,7 +38,11 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getAppIdentifier(): ?string {
-        return $this->getBackingStore()->get('appIdentifier');
+        $val = $this->getBackingStore()->get('appIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appIdentifier'");
     }
 
     /**
@@ -45,7 +50,11 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getAppStoreUrl(): ?string {
-        return $this->getBackingStore()->get('appStoreUrl');
+        $val = $this->getBackingStore()->get('appStoreUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appStoreUrl'");
     }
 
     /**
@@ -53,12 +62,18 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
      * @return array<AndroidManagedStoreAppTrack>|null
     */
     public function getAppTracks(): ?array {
-        return $this->getBackingStore()->get('appTracks');
+        $val = $this->getBackingStore()->get('appTracks');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AndroidManagedStoreAppTrack::class);
+            /** @var array<AndroidManagedStoreAppTrack>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appTracks'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -80,7 +95,11 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
      * @return bool|null
     */
     public function getIsPrivate(): ?bool {
-        return $this->getBackingStore()->get('isPrivate');
+        $val = $this->getBackingStore()->get('isPrivate');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isPrivate'");
     }
 
     /**
@@ -88,7 +107,11 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
      * @return bool|null
     */
     public function getIsSystemApp(): ?bool {
-        return $this->getBackingStore()->get('isSystemApp');
+        $val = $this->getBackingStore()->get('isSystemApp');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isSystemApp'");
     }
 
     /**
@@ -96,7 +119,11 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getPackageId(): ?string {
-        return $this->getBackingStore()->get('packageId');
+        $val = $this->getBackingStore()->get('packageId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'packageId'");
     }
 
     /**
@@ -104,7 +131,11 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
      * @return bool|null
     */
     public function getSupportsOemConfig(): ?bool {
-        return $this->getBackingStore()->get('supportsOemConfig');
+        $val = $this->getBackingStore()->get('supportsOemConfig');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportsOemConfig'");
     }
 
     /**
@@ -112,7 +143,11 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
      * @return int|null
     */
     public function getTotalLicenseCount(): ?int {
-        return $this->getBackingStore()->get('totalLicenseCount');
+        $val = $this->getBackingStore()->get('totalLicenseCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalLicenseCount'");
     }
 
     /**
@@ -120,7 +155,11 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
      * @return int|null
     */
     public function getUsedLicenseCount(): ?int {
-        return $this->getBackingStore()->get('usedLicenseCount');
+        $val = $this->getBackingStore()->get('usedLicenseCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'usedLicenseCount'");
     }
 
     /**

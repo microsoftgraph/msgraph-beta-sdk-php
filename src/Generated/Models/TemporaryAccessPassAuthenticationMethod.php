@@ -31,12 +31,16 @@ class TemporaryAccessPassAuthenticationMethod extends AuthenticationMethod imple
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -54,7 +58,11 @@ class TemporaryAccessPassAuthenticationMethod extends AuthenticationMethod imple
      * @return bool|null
     */
     public function getIsUsableOnce(): ?bool {
-        return $this->getBackingStore()->get('isUsableOnce');
+        $val = $this->getBackingStore()->get('isUsableOnce');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isUsableOnce'");
     }
 
     /**
@@ -62,7 +70,11 @@ class TemporaryAccessPassAuthenticationMethod extends AuthenticationMethod imple
      * @return int|null
     */
     public function getLifetimeInMinutes(): ?int {
-        return $this->getBackingStore()->get('lifetimeInMinutes');
+        $val = $this->getBackingStore()->get('lifetimeInMinutes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lifetimeInMinutes'");
     }
 
     /**
@@ -70,7 +82,11 @@ class TemporaryAccessPassAuthenticationMethod extends AuthenticationMethod imple
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('startDateTime');
+        $val = $this->getBackingStore()->get('startDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startDateTime'");
     }
 
     /**
@@ -78,7 +94,11 @@ class TemporaryAccessPassAuthenticationMethod extends AuthenticationMethod imple
      * @return string|null
     */
     public function getTemporaryAccessPass(): ?string {
-        return $this->getBackingStore()->get('temporaryAccessPass');
+        $val = $this->getBackingStore()->get('temporaryAccessPass');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'temporaryAccessPass'");
     }
 
     /**

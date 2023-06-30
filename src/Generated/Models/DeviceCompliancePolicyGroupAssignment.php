@@ -29,7 +29,11 @@ class DeviceCompliancePolicyGroupAssignment extends Entity implements Parsable
      * @return DeviceCompliancePolicy|null
     */
     public function getDeviceCompliancePolicy(): ?DeviceCompliancePolicy {
-        return $this->getBackingStore()->get('deviceCompliancePolicy');
+        $val = $this->getBackingStore()->get('deviceCompliancePolicy');
+        if (is_null($val) || $val instanceof DeviceCompliancePolicy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceCompliancePolicy'");
     }
 
     /**
@@ -37,12 +41,16 @@ class DeviceCompliancePolicyGroupAssignment extends Entity implements Parsable
      * @return bool|null
     */
     public function getExcludeGroup(): ?bool {
-        return $this->getBackingStore()->get('excludeGroup');
+        $val = $this->getBackingStore()->get('excludeGroup');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'excludeGroup'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -58,7 +66,11 @@ class DeviceCompliancePolicyGroupAssignment extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetGroupId(): ?string {
-        return $this->getBackingStore()->get('targetGroupId');
+        $val = $this->getBackingStore()->get('targetGroupId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetGroupId'");
     }
 
     /**

@@ -42,7 +42,12 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -50,7 +55,11 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getAuthorizedApplicationRulesFromGroupPolicyMerged(): ?bool {
-        return $this->getBackingStore()->get('authorizedApplicationRulesFromGroupPolicyMerged');
+        $val = $this->getBackingStore()->get('authorizedApplicationRulesFromGroupPolicyMerged');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authorizedApplicationRulesFromGroupPolicyMerged'");
     }
 
     /**
@@ -58,7 +67,11 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getAuthorizedApplicationRulesFromGroupPolicyNotMerged(): ?bool {
-        return $this->getBackingStore()->get('authorizedApplicationRulesFromGroupPolicyNotMerged');
+        $val = $this->getBackingStore()->get('authorizedApplicationRulesFromGroupPolicyNotMerged');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authorizedApplicationRulesFromGroupPolicyNotMerged'");
     }
 
     /**
@@ -74,7 +87,11 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getConnectionSecurityRulesFromGroupPolicyMerged(): ?bool {
-        return $this->getBackingStore()->get('connectionSecurityRulesFromGroupPolicyMerged');
+        $val = $this->getBackingStore()->get('connectionSecurityRulesFromGroupPolicyMerged');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectionSecurityRulesFromGroupPolicyMerged'");
     }
 
     /**
@@ -82,12 +99,16 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getConnectionSecurityRulesFromGroupPolicyNotMerged(): ?bool {
-        return $this->getBackingStore()->get('connectionSecurityRulesFromGroupPolicyNotMerged');
+        $val = $this->getBackingStore()->get('connectionSecurityRulesFromGroupPolicyNotMerged');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectionSecurityRulesFromGroupPolicyNotMerged'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -124,7 +145,11 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
      * @return StateManagementSetting|null
     */
     public function getFirewallEnabled(): ?StateManagementSetting {
-        return $this->getBackingStore()->get('firewallEnabled');
+        $val = $this->getBackingStore()->get('firewallEnabled');
+        if (is_null($val) || $val instanceof StateManagementSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firewallEnabled'");
     }
 
     /**
@@ -132,7 +157,11 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getGlobalPortRulesFromGroupPolicyMerged(): ?bool {
-        return $this->getBackingStore()->get('globalPortRulesFromGroupPolicyMerged');
+        $val = $this->getBackingStore()->get('globalPortRulesFromGroupPolicyMerged');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'globalPortRulesFromGroupPolicyMerged'");
     }
 
     /**
@@ -140,7 +169,11 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getGlobalPortRulesFromGroupPolicyNotMerged(): ?bool {
-        return $this->getBackingStore()->get('globalPortRulesFromGroupPolicyNotMerged');
+        $val = $this->getBackingStore()->get('globalPortRulesFromGroupPolicyNotMerged');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'globalPortRulesFromGroupPolicyNotMerged'");
     }
 
     /**
@@ -148,7 +181,11 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getInboundConnectionsBlocked(): ?bool {
-        return $this->getBackingStore()->get('inboundConnectionsBlocked');
+        $val = $this->getBackingStore()->get('inboundConnectionsBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inboundConnectionsBlocked'");
     }
 
     /**
@@ -156,7 +193,11 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getInboundConnectionsRequired(): ?bool {
-        return $this->getBackingStore()->get('inboundConnectionsRequired');
+        $val = $this->getBackingStore()->get('inboundConnectionsRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inboundConnectionsRequired'");
     }
 
     /**
@@ -164,7 +205,11 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getInboundNotificationsBlocked(): ?bool {
-        return $this->getBackingStore()->get('inboundNotificationsBlocked');
+        $val = $this->getBackingStore()->get('inboundNotificationsBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inboundNotificationsBlocked'");
     }
 
     /**
@@ -172,7 +217,11 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getInboundNotificationsRequired(): ?bool {
-        return $this->getBackingStore()->get('inboundNotificationsRequired');
+        $val = $this->getBackingStore()->get('inboundNotificationsRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inboundNotificationsRequired'");
     }
 
     /**
@@ -180,7 +229,11 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getIncomingTrafficBlocked(): ?bool {
-        return $this->getBackingStore()->get('incomingTrafficBlocked');
+        $val = $this->getBackingStore()->get('incomingTrafficBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'incomingTrafficBlocked'");
     }
 
     /**
@@ -188,7 +241,11 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getIncomingTrafficRequired(): ?bool {
-        return $this->getBackingStore()->get('incomingTrafficRequired');
+        $val = $this->getBackingStore()->get('incomingTrafficRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'incomingTrafficRequired'");
     }
 
     /**
@@ -196,7 +253,11 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -204,7 +265,11 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getOutboundConnectionsBlocked(): ?bool {
-        return $this->getBackingStore()->get('outboundConnectionsBlocked');
+        $val = $this->getBackingStore()->get('outboundConnectionsBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'outboundConnectionsBlocked'");
     }
 
     /**
@@ -212,7 +277,11 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getOutboundConnectionsRequired(): ?bool {
-        return $this->getBackingStore()->get('outboundConnectionsRequired');
+        $val = $this->getBackingStore()->get('outboundConnectionsRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'outboundConnectionsRequired'");
     }
 
     /**
@@ -220,7 +289,11 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getPolicyRulesFromGroupPolicyMerged(): ?bool {
-        return $this->getBackingStore()->get('policyRulesFromGroupPolicyMerged');
+        $val = $this->getBackingStore()->get('policyRulesFromGroupPolicyMerged');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyRulesFromGroupPolicyMerged'");
     }
 
     /**
@@ -228,7 +301,11 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getPolicyRulesFromGroupPolicyNotMerged(): ?bool {
-        return $this->getBackingStore()->get('policyRulesFromGroupPolicyNotMerged');
+        $val = $this->getBackingStore()->get('policyRulesFromGroupPolicyNotMerged');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyRulesFromGroupPolicyNotMerged'");
     }
 
     /**
@@ -236,7 +313,11 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getSecuredPacketExemptionAllowed(): ?bool {
-        return $this->getBackingStore()->get('securedPacketExemptionAllowed');
+        $val = $this->getBackingStore()->get('securedPacketExemptionAllowed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'securedPacketExemptionAllowed'");
     }
 
     /**
@@ -244,7 +325,11 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getSecuredPacketExemptionBlocked(): ?bool {
-        return $this->getBackingStore()->get('securedPacketExemptionBlocked');
+        $val = $this->getBackingStore()->get('securedPacketExemptionBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'securedPacketExemptionBlocked'");
     }
 
     /**
@@ -252,7 +337,11 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getStealthModeBlocked(): ?bool {
-        return $this->getBackingStore()->get('stealthModeBlocked');
+        $val = $this->getBackingStore()->get('stealthModeBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'stealthModeBlocked'");
     }
 
     /**
@@ -260,7 +349,11 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getStealthModeRequired(): ?bool {
-        return $this->getBackingStore()->get('stealthModeRequired');
+        $val = $this->getBackingStore()->get('stealthModeRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'stealthModeRequired'");
     }
 
     /**
@@ -268,7 +361,11 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getUnicastResponsesToMulticastBroadcastsBlocked(): ?bool {
-        return $this->getBackingStore()->get('unicastResponsesToMulticastBroadcastsBlocked');
+        $val = $this->getBackingStore()->get('unicastResponsesToMulticastBroadcastsBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'unicastResponsesToMulticastBroadcastsBlocked'");
     }
 
     /**
@@ -276,7 +373,11 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getUnicastResponsesToMulticastBroadcastsRequired(): ?bool {
-        return $this->getBackingStore()->get('unicastResponsesToMulticastBroadcastsRequired');
+        $val = $this->getBackingStore()->get('unicastResponsesToMulticastBroadcastsRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'unicastResponsesToMulticastBroadcastsRequired'");
     }
 
     /**

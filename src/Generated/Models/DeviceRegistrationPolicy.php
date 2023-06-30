@@ -29,7 +29,11 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
      * @return AzureAdJoinPolicy|null
     */
     public function getAzureADJoin(): ?AzureAdJoinPolicy {
-        return $this->getBackingStore()->get('azureADJoin');
+        $val = $this->getBackingStore()->get('azureADJoin');
+        if (is_null($val) || $val instanceof AzureAdJoinPolicy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureADJoin'");
     }
 
     /**
@@ -37,7 +41,11 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
      * @return AzureADRegistrationPolicy|null
     */
     public function getAzureADRegistration(): ?AzureADRegistrationPolicy {
-        return $this->getBackingStore()->get('azureADRegistration');
+        $val = $this->getBackingStore()->get('azureADRegistration');
+        if (is_null($val) || $val instanceof AzureADRegistrationPolicy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureADRegistration'");
     }
 
     /**
@@ -45,7 +53,11 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -53,12 +65,16 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -78,7 +94,11 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
      * @return LocalAdminPasswordSettings|null
     */
     public function getLocalAdminPassword(): ?LocalAdminPasswordSettings {
-        return $this->getBackingStore()->get('localAdminPassword');
+        $val = $this->getBackingStore()->get('localAdminPassword');
+        if (is_null($val) || $val instanceof LocalAdminPasswordSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localAdminPassword'");
     }
 
     /**
@@ -86,7 +106,11 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
      * @return MultiFactorAuthConfiguration|null
     */
     public function getMultiFactorAuthConfiguration(): ?MultiFactorAuthConfiguration {
-        return $this->getBackingStore()->get('multiFactorAuthConfiguration');
+        $val = $this->getBackingStore()->get('multiFactorAuthConfiguration');
+        if (is_null($val) || $val instanceof MultiFactorAuthConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'multiFactorAuthConfiguration'");
     }
 
     /**
@@ -94,7 +118,11 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
      * @return int|null
     */
     public function getUserDeviceQuota(): ?int {
-        return $this->getBackingStore()->get('userDeviceQuota');
+        $val = $this->getBackingStore()->get('userDeviceQuota');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userDeviceQuota'");
     }
 
     /**

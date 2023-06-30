@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AggregatedInboundStatistics implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class AggregatedInboundStatistics implements AdditionalDataHolder, BackedModel, 
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,12 +61,16 @@ class AggregatedInboundStatistics implements AdditionalDataHolder, BackedModel, 
      * @return int|null
     */
     public function getErrors(): ?int {
-        return $this->getBackingStore()->get('errors');
+        $val = $this->getBackingStore()->get('errors');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errors'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -82,7 +92,11 @@ class AggregatedInboundStatistics implements AdditionalDataHolder, BackedModel, 
      * @return int|null
     */
     public function getGroups(): ?int {
-        return $this->getBackingStore()->get('groups');
+        $val = $this->getBackingStore()->get('groups');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groups'");
     }
 
     /**
@@ -90,7 +104,13 @@ class AggregatedInboundStatistics implements AdditionalDataHolder, BackedModel, 
      * @return array<IndustryDataRunRoleCountMetric>|null
     */
     public function getMatchedPeopleByRole(): ?array {
-        return $this->getBackingStore()->get('matchedPeopleByRole');
+        $val = $this->getBackingStore()->get('matchedPeopleByRole');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IndustryDataRunRoleCountMetric::class);
+            /** @var array<IndustryDataRunRoleCountMetric>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'matchedPeopleByRole'");
     }
 
     /**
@@ -98,7 +118,11 @@ class AggregatedInboundStatistics implements AdditionalDataHolder, BackedModel, 
      * @return int|null
     */
     public function getMemberships(): ?int {
-        return $this->getBackingStore()->get('memberships');
+        $val = $this->getBackingStore()->get('memberships');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'memberships'");
     }
 
     /**
@@ -106,7 +130,11 @@ class AggregatedInboundStatistics implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -114,7 +142,11 @@ class AggregatedInboundStatistics implements AdditionalDataHolder, BackedModel, 
      * @return int|null
     */
     public function getOrganizations(): ?int {
-        return $this->getBackingStore()->get('organizations');
+        $val = $this->getBackingStore()->get('organizations');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'organizations'");
     }
 
     /**
@@ -122,7 +154,11 @@ class AggregatedInboundStatistics implements AdditionalDataHolder, BackedModel, 
      * @return int|null
     */
     public function getPeople(): ?int {
-        return $this->getBackingStore()->get('people');
+        $val = $this->getBackingStore()->get('people');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'people'");
     }
 
     /**
@@ -130,7 +166,13 @@ class AggregatedInboundStatistics implements AdditionalDataHolder, BackedModel, 
      * @return array<IndustryDataRunRoleCountMetric>|null
     */
     public function getUnmatchedPeopleByRole(): ?array {
-        return $this->getBackingStore()->get('unmatchedPeopleByRole');
+        $val = $this->getBackingStore()->get('unmatchedPeopleByRole');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IndustryDataRunRoleCountMetric::class);
+            /** @var array<IndustryDataRunRoleCountMetric>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'unmatchedPeopleByRole'");
     }
 
     /**
@@ -138,7 +180,11 @@ class AggregatedInboundStatistics implements AdditionalDataHolder, BackedModel, 
      * @return int|null
     */
     public function getWarnings(): ?int {
-        return $this->getBackingStore()->get('warnings');
+        $val = $this->getBackingStore()->get('warnings');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'warnings'");
     }
 
     /**

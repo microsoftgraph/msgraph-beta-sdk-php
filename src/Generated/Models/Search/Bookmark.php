@@ -7,6 +7,7 @@ use Microsoft\Graph\Beta\Generated\Models\DevicePlatformType;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class Bookmark extends SearchAnswer implements Parsable 
 {
@@ -31,7 +32,11 @@ class Bookmark extends SearchAnswer implements Parsable
      * @return DateTime|null
     */
     public function getAvailabilityEndDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('availabilityEndDateTime');
+        $val = $this->getBackingStore()->get('availabilityEndDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'availabilityEndDateTime'");
     }
 
     /**
@@ -39,7 +44,11 @@ class Bookmark extends SearchAnswer implements Parsable
      * @return DateTime|null
     */
     public function getAvailabilityStartDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('availabilityStartDateTime');
+        $val = $this->getBackingStore()->get('availabilityStartDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'availabilityStartDateTime'");
     }
 
     /**
@@ -47,25 +56,59 @@ class Bookmark extends SearchAnswer implements Parsable
      * @return array<string>|null
     */
     public function getCategories(): ?array {
-        return $this->getBackingStore()->get('categories');
+        $val = $this->getBackingStore()->get('categories');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'categories'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'availabilityEndDateTime' => fn(ParseNode $n) => $o->setAvailabilityEndDateTime($n->getDateTimeValue()),
             'availabilityStartDateTime' => fn(ParseNode $n) => $o->setAvailabilityStartDateTime($n->getDateTimeValue()),
-            'categories' => fn(ParseNode $n) => $o->setCategories($n->getCollectionOfPrimitiveValues()),
-            'groupIds' => fn(ParseNode $n) => $o->setGroupIds($n->getCollectionOfPrimitiveValues()),
+            'categories' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setCategories($val);
+            },
+            'groupIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setGroupIds($val);
+            },
             'isSuggested' => fn(ParseNode $n) => $o->setIsSuggested($n->getBooleanValue()),
             'keywords' => fn(ParseNode $n) => $o->setKeywords($n->getObjectValue([AnswerKeyword::class, 'createFromDiscriminatorValue'])),
-            'languageTags' => fn(ParseNode $n) => $o->setLanguageTags($n->getCollectionOfPrimitiveValues()),
+            'languageTags' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setLanguageTags($val);
+            },
             'platforms' => fn(ParseNode $n) => $o->setPlatforms($n->getCollectionOfEnumValues(DevicePlatformType::class)),
-            'powerAppIds' => fn(ParseNode $n) => $o->setPowerAppIds($n->getCollectionOfPrimitiveValues()),
+            'powerAppIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setPowerAppIds($val);
+            },
             'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(AnswerState::class)),
             'targetedVariations' => fn(ParseNode $n) => $o->setTargetedVariations($n->getCollectionOfObjectValues([AnswerVariant::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -76,7 +119,13 @@ class Bookmark extends SearchAnswer implements Parsable
      * @return array<string>|null
     */
     public function getGroupIds(): ?array {
-        return $this->getBackingStore()->get('groupIds');
+        $val = $this->getBackingStore()->get('groupIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupIds'");
     }
 
     /**
@@ -84,7 +133,11 @@ class Bookmark extends SearchAnswer implements Parsable
      * @return bool|null
     */
     public function getIsSuggested(): ?bool {
-        return $this->getBackingStore()->get('isSuggested');
+        $val = $this->getBackingStore()->get('isSuggested');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isSuggested'");
     }
 
     /**
@@ -92,7 +145,11 @@ class Bookmark extends SearchAnswer implements Parsable
      * @return AnswerKeyword|null
     */
     public function getKeywords(): ?AnswerKeyword {
-        return $this->getBackingStore()->get('keywords');
+        $val = $this->getBackingStore()->get('keywords');
+        if (is_null($val) || $val instanceof AnswerKeyword) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'keywords'");
     }
 
     /**
@@ -100,7 +157,13 @@ class Bookmark extends SearchAnswer implements Parsable
      * @return array<string>|null
     */
     public function getLanguageTags(): ?array {
-        return $this->getBackingStore()->get('languageTags');
+        $val = $this->getBackingStore()->get('languageTags');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'languageTags'");
     }
 
     /**
@@ -108,7 +171,13 @@ class Bookmark extends SearchAnswer implements Parsable
      * @return array<DevicePlatformType>|null
     */
     public function getPlatforms(): ?array {
-        return $this->getBackingStore()->get('platforms');
+        $val = $this->getBackingStore()->get('platforms');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DevicePlatformType::class);
+            /** @var array<DevicePlatformType>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'platforms'");
     }
 
     /**
@@ -116,7 +185,13 @@ class Bookmark extends SearchAnswer implements Parsable
      * @return array<string>|null
     */
     public function getPowerAppIds(): ?array {
-        return $this->getBackingStore()->get('powerAppIds');
+        $val = $this->getBackingStore()->get('powerAppIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'powerAppIds'");
     }
 
     /**
@@ -124,7 +199,11 @@ class Bookmark extends SearchAnswer implements Parsable
      * @return AnswerState|null
     */
     public function getState(): ?AnswerState {
-        return $this->getBackingStore()->get('state');
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || $val instanceof AnswerState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
     }
 
     /**
@@ -132,7 +211,13 @@ class Bookmark extends SearchAnswer implements Parsable
      * @return array<AnswerVariant>|null
     */
     public function getTargetedVariations(): ?array {
-        return $this->getBackingStore()->get('targetedVariations');
+        $val = $this->getBackingStore()->get('targetedVariations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AnswerVariant::class);
+            /** @var array<AnswerVariant>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetedVariations'");
     }
 
     /**

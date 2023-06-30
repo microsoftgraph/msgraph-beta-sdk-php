@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +53,11 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getAlternateUrl(): ?string {
-        return $this->getBackingStore()->get('alternateUrl');
+        $val = $this->getBackingStore()->get('alternateUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'alternateUrl'");
     }
 
     /**
@@ -55,7 +65,11 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getApplicationServerTimeout(): ?string {
-        return $this->getBackingStore()->get('applicationServerTimeout');
+        $val = $this->getBackingStore()->get('applicationServerTimeout');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationServerTimeout'");
     }
 
     /**
@@ -63,7 +77,11 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getApplicationType(): ?string {
-        return $this->getBackingStore()->get('applicationType');
+        $val = $this->getBackingStore()->get('applicationType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationType'");
     }
 
     /**
@@ -79,7 +97,11 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
      * @return ExternalAuthenticationType|null
     */
     public function getExternalAuthenticationType(): ?ExternalAuthenticationType {
-        return $this->getBackingStore()->get('externalAuthenticationType');
+        $val = $this->getBackingStore()->get('externalAuthenticationType');
+        if (is_null($val) || $val instanceof ExternalAuthenticationType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'externalAuthenticationType'");
     }
 
     /**
@@ -87,12 +109,16 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getExternalUrl(): ?string {
-        return $this->getBackingStore()->get('externalUrl');
+        $val = $this->getBackingStore()->get('externalUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'externalUrl'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -128,7 +154,11 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getInternalUrl(): ?string {
-        return $this->getBackingStore()->get('internalUrl');
+        $val = $this->getBackingStore()->get('internalUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'internalUrl'");
     }
 
     /**
@@ -136,7 +166,11 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
      * @return bool|null
     */
     public function getIsAccessibleViaZTNAClient(): ?bool {
-        return $this->getBackingStore()->get('isAccessibleViaZTNAClient');
+        $val = $this->getBackingStore()->get('isAccessibleViaZTNAClient');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isAccessibleViaZTNAClient'");
     }
 
     /**
@@ -144,7 +178,11 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
      * @return bool|null
     */
     public function getIsBackendCertificateValidationEnabled(): ?bool {
-        return $this->getBackingStore()->get('isBackendCertificateValidationEnabled');
+        $val = $this->getBackingStore()->get('isBackendCertificateValidationEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isBackendCertificateValidationEnabled'");
     }
 
     /**
@@ -152,7 +190,11 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
      * @return bool|null
     */
     public function getIsHttpOnlyCookieEnabled(): ?bool {
-        return $this->getBackingStore()->get('isHttpOnlyCookieEnabled');
+        $val = $this->getBackingStore()->get('isHttpOnlyCookieEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isHttpOnlyCookieEnabled'");
     }
 
     /**
@@ -160,7 +202,11 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
      * @return bool|null
     */
     public function getIsOnPremPublishingEnabled(): ?bool {
-        return $this->getBackingStore()->get('isOnPremPublishingEnabled');
+        $val = $this->getBackingStore()->get('isOnPremPublishingEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isOnPremPublishingEnabled'");
     }
 
     /**
@@ -168,7 +214,11 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
      * @return bool|null
     */
     public function getIsPersistentCookieEnabled(): ?bool {
-        return $this->getBackingStore()->get('isPersistentCookieEnabled');
+        $val = $this->getBackingStore()->get('isPersistentCookieEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isPersistentCookieEnabled'");
     }
 
     /**
@@ -176,7 +226,11 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
      * @return bool|null
     */
     public function getIsSecureCookieEnabled(): ?bool {
-        return $this->getBackingStore()->get('isSecureCookieEnabled');
+        $val = $this->getBackingStore()->get('isSecureCookieEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isSecureCookieEnabled'");
     }
 
     /**
@@ -184,7 +238,11 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
      * @return bool|null
     */
     public function getIsStateSessionEnabled(): ?bool {
-        return $this->getBackingStore()->get('isStateSessionEnabled');
+        $val = $this->getBackingStore()->get('isStateSessionEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isStateSessionEnabled'");
     }
 
     /**
@@ -192,7 +250,11 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
      * @return bool|null
     */
     public function getIsTranslateHostHeaderEnabled(): ?bool {
-        return $this->getBackingStore()->get('isTranslateHostHeaderEnabled');
+        $val = $this->getBackingStore()->get('isTranslateHostHeaderEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isTranslateHostHeaderEnabled'");
     }
 
     /**
@@ -200,7 +262,11 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
      * @return bool|null
     */
     public function getIsTranslateLinksInBodyEnabled(): ?bool {
-        return $this->getBackingStore()->get('isTranslateLinksInBodyEnabled');
+        $val = $this->getBackingStore()->get('isTranslateLinksInBodyEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isTranslateLinksInBodyEnabled'");
     }
 
     /**
@@ -208,7 +274,11 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -216,7 +286,13 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
      * @return array<OnPremisesApplicationSegment>|null
     */
     public function getOnPremisesApplicationSegments(): ?array {
-        return $this->getBackingStore()->get('onPremisesApplicationSegments');
+        $val = $this->getBackingStore()->get('onPremisesApplicationSegments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, OnPremisesApplicationSegment::class);
+            /** @var array<OnPremisesApplicationSegment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onPremisesApplicationSegments'");
     }
 
     /**
@@ -224,7 +300,11 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
      * @return SegmentConfiguration|null
     */
     public function getSegmentsConfiguration(): ?SegmentConfiguration {
-        return $this->getBackingStore()->get('segmentsConfiguration');
+        $val = $this->getBackingStore()->get('segmentsConfiguration');
+        if (is_null($val) || $val instanceof SegmentConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'segmentsConfiguration'");
     }
 
     /**
@@ -232,7 +312,11 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
      * @return OnPremisesPublishingSingleSignOn|null
     */
     public function getSingleSignOnSettings(): ?OnPremisesPublishingSingleSignOn {
-        return $this->getBackingStore()->get('singleSignOnSettings');
+        $val = $this->getBackingStore()->get('singleSignOnSettings');
+        if (is_null($val) || $val instanceof OnPremisesPublishingSingleSignOn) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'singleSignOnSettings'");
     }
 
     /**
@@ -240,7 +324,11 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
      * @return bool|null
     */
     public function getUseAlternateUrlForTranslationAndRedirect(): ?bool {
-        return $this->getBackingStore()->get('useAlternateUrlForTranslationAndRedirect');
+        $val = $this->getBackingStore()->get('useAlternateUrlForTranslationAndRedirect');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'useAlternateUrlForTranslationAndRedirect'");
     }
 
     /**
@@ -248,7 +336,11 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
      * @return VerifiedCustomDomainCertificatesMetadata|null
     */
     public function getVerifiedCustomDomainCertificatesMetadata(): ?VerifiedCustomDomainCertificatesMetadata {
-        return $this->getBackingStore()->get('verifiedCustomDomainCertificatesMetadata');
+        $val = $this->getBackingStore()->get('verifiedCustomDomainCertificatesMetadata');
+        if (is_null($val) || $val instanceof VerifiedCustomDomainCertificatesMetadata) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'verifiedCustomDomainCertificatesMetadata'");
     }
 
     /**
@@ -256,7 +348,11 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
      * @return KeyCredential|null
     */
     public function getVerifiedCustomDomainKeyCredential(): ?KeyCredential {
-        return $this->getBackingStore()->get('verifiedCustomDomainKeyCredential');
+        $val = $this->getBackingStore()->get('verifiedCustomDomainKeyCredential');
+        if (is_null($val) || $val instanceof KeyCredential) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'verifiedCustomDomainKeyCredential'");
     }
 
     /**
@@ -264,7 +360,11 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
      * @return PasswordCredential|null
     */
     public function getVerifiedCustomDomainPasswordCredential(): ?PasswordCredential {
-        return $this->getBackingStore()->get('verifiedCustomDomainPasswordCredential');
+        $val = $this->getBackingStore()->get('verifiedCustomDomainPasswordCredential');
+        if (is_null($val) || $val instanceof PasswordCredential) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'verifiedCustomDomainPasswordCredential'");
     }
 
     /**

@@ -30,7 +30,11 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
      * @return TeamworkCameraConfiguration|null
     */
     public function getCameraConfiguration(): ?TeamworkCameraConfiguration {
-        return $this->getBackingStore()->get('cameraConfiguration');
+        $val = $this->getBackingStore()->get('cameraConfiguration');
+        if (is_null($val) || $val instanceof TeamworkCameraConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cameraConfiguration'");
     }
 
     /**
@@ -38,7 +42,11 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
-        return $this->getBackingStore()->get('createdBy');
+        $val = $this->getBackingStore()->get('createdBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdBy'");
     }
 
     /**
@@ -46,7 +54,11 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -54,12 +66,16 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
      * @return TeamworkDisplayConfiguration|null
     */
     public function getDisplayConfiguration(): ?TeamworkDisplayConfiguration {
-        return $this->getBackingStore()->get('displayConfiguration');
+        $val = $this->getBackingStore()->get('displayConfiguration');
+        if (is_null($val) || $val instanceof TeamworkDisplayConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayConfiguration'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -84,7 +100,11 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
      * @return TeamworkHardwareConfiguration|null
     */
     public function getHardwareConfiguration(): ?TeamworkHardwareConfiguration {
-        return $this->getBackingStore()->get('hardwareConfiguration');
+        $val = $this->getBackingStore()->get('hardwareConfiguration');
+        if (is_null($val) || $val instanceof TeamworkHardwareConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hardwareConfiguration'");
     }
 
     /**
@@ -92,7 +112,11 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
-        return $this->getBackingStore()->get('lastModifiedBy');
+        $val = $this->getBackingStore()->get('lastModifiedBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedBy'");
     }
 
     /**
@@ -100,7 +124,11 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -108,7 +136,11 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
      * @return TeamworkMicrophoneConfiguration|null
     */
     public function getMicrophoneConfiguration(): ?TeamworkMicrophoneConfiguration {
-        return $this->getBackingStore()->get('microphoneConfiguration');
+        $val = $this->getBackingStore()->get('microphoneConfiguration');
+        if (is_null($val) || $val instanceof TeamworkMicrophoneConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microphoneConfiguration'");
     }
 
     /**
@@ -116,7 +148,11 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
      * @return TeamworkDeviceSoftwareVersions|null
     */
     public function getSoftwareVersions(): ?TeamworkDeviceSoftwareVersions {
-        return $this->getBackingStore()->get('softwareVersions');
+        $val = $this->getBackingStore()->get('softwareVersions');
+        if (is_null($val) || $val instanceof TeamworkDeviceSoftwareVersions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'softwareVersions'");
     }
 
     /**
@@ -124,7 +160,11 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
      * @return TeamworkSpeakerConfiguration|null
     */
     public function getSpeakerConfiguration(): ?TeamworkSpeakerConfiguration {
-        return $this->getBackingStore()->get('speakerConfiguration');
+        $val = $this->getBackingStore()->get('speakerConfiguration');
+        if (is_null($val) || $val instanceof TeamworkSpeakerConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'speakerConfiguration'");
     }
 
     /**
@@ -132,7 +172,11 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
      * @return TeamworkSystemConfiguration|null
     */
     public function getSystemConfiguration(): ?TeamworkSystemConfiguration {
-        return $this->getBackingStore()->get('systemConfiguration');
+        $val = $this->getBackingStore()->get('systemConfiguration');
+        if (is_null($val) || $val instanceof TeamworkSystemConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'systemConfiguration'");
     }
 
     /**
@@ -140,7 +184,11 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
      * @return TeamworkTeamsClientConfiguration|null
     */
     public function getTeamsClientConfiguration(): ?TeamworkTeamsClientConfiguration {
-        return $this->getBackingStore()->get('teamsClientConfiguration');
+        $val = $this->getBackingStore()->get('teamsClientConfiguration');
+        if (is_null($val) || $val instanceof TeamworkTeamsClientConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teamsClientConfiguration'");
     }
 
     /**

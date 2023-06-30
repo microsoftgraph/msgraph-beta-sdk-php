@@ -30,12 +30,16 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
      * @return bool|null
     */
     public function getEnhancedAntiSpoofingForFacialFeaturesEnabled(): ?bool {
-        return $this->getBackingStore()->get('enhancedAntiSpoofingForFacialFeaturesEnabled');
+        $val = $this->getBackingStore()->get('enhancedAntiSpoofingForFacialFeaturesEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enhancedAntiSpoofingForFacialFeaturesEnabled'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -62,7 +66,11 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
      * @return int|null
     */
     public function getPinExpirationInDays(): ?int {
-        return $this->getBackingStore()->get('pinExpirationInDays');
+        $val = $this->getBackingStore()->get('pinExpirationInDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pinExpirationInDays'");
     }
 
     /**
@@ -70,7 +78,11 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
      * @return ConfigurationUsage|null
     */
     public function getPinLowercaseCharactersUsage(): ?ConfigurationUsage {
-        return $this->getBackingStore()->get('pinLowercaseCharactersUsage');
+        $val = $this->getBackingStore()->get('pinLowercaseCharactersUsage');
+        if (is_null($val) || $val instanceof ConfigurationUsage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pinLowercaseCharactersUsage'");
     }
 
     /**
@@ -78,7 +90,11 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
      * @return int|null
     */
     public function getPinMaximumLength(): ?int {
-        return $this->getBackingStore()->get('pinMaximumLength');
+        $val = $this->getBackingStore()->get('pinMaximumLength');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pinMaximumLength'");
     }
 
     /**
@@ -86,7 +102,11 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
      * @return int|null
     */
     public function getPinMinimumLength(): ?int {
-        return $this->getBackingStore()->get('pinMinimumLength');
+        $val = $this->getBackingStore()->get('pinMinimumLength');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pinMinimumLength'");
     }
 
     /**
@@ -94,7 +114,11 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
      * @return int|null
     */
     public function getPinPreviousBlockCount(): ?int {
-        return $this->getBackingStore()->get('pinPreviousBlockCount');
+        $val = $this->getBackingStore()->get('pinPreviousBlockCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pinPreviousBlockCount'");
     }
 
     /**
@@ -102,7 +126,11 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
      * @return bool|null
     */
     public function getPinRecoveryEnabled(): ?bool {
-        return $this->getBackingStore()->get('pinRecoveryEnabled');
+        $val = $this->getBackingStore()->get('pinRecoveryEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pinRecoveryEnabled'");
     }
 
     /**
@@ -110,7 +138,11 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
      * @return ConfigurationUsage|null
     */
     public function getPinSpecialCharactersUsage(): ?ConfigurationUsage {
-        return $this->getBackingStore()->get('pinSpecialCharactersUsage');
+        $val = $this->getBackingStore()->get('pinSpecialCharactersUsage');
+        if (is_null($val) || $val instanceof ConfigurationUsage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pinSpecialCharactersUsage'");
     }
 
     /**
@@ -118,7 +150,11 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
      * @return ConfigurationUsage|null
     */
     public function getPinUppercaseCharactersUsage(): ?ConfigurationUsage {
-        return $this->getBackingStore()->get('pinUppercaseCharactersUsage');
+        $val = $this->getBackingStore()->get('pinUppercaseCharactersUsage');
+        if (is_null($val) || $val instanceof ConfigurationUsage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pinUppercaseCharactersUsage'");
     }
 
     /**
@@ -126,7 +162,11 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
      * @return bool|null
     */
     public function getSecurityDeviceRequired(): ?bool {
-        return $this->getBackingStore()->get('securityDeviceRequired');
+        $val = $this->getBackingStore()->get('securityDeviceRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'securityDeviceRequired'");
     }
 
     /**
@@ -134,7 +174,11 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
      * @return bool|null
     */
     public function getUnlockWithBiometricsEnabled(): ?bool {
-        return $this->getBackingStore()->get('unlockWithBiometricsEnabled');
+        $val = $this->getBackingStore()->get('unlockWithBiometricsEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'unlockWithBiometricsEnabled'");
     }
 
     /**
@@ -142,7 +186,11 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
      * @return bool|null
     */
     public function getUseCertificatesForOnPremisesAuthEnabled(): ?bool {
-        return $this->getBackingStore()->get('useCertificatesForOnPremisesAuthEnabled');
+        $val = $this->getBackingStore()->get('useCertificatesForOnPremisesAuthEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'useCertificatesForOnPremisesAuthEnabled'");
     }
 
     /**
@@ -150,7 +198,11 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
      * @return bool|null
     */
     public function getUseSecurityKeyForSignin(): ?bool {
-        return $this->getBackingStore()->get('useSecurityKeyForSignin');
+        $val = $this->getBackingStore()->get('useSecurityKeyForSignin');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'useSecurityKeyForSignin'");
     }
 
     /**
@@ -158,7 +210,11 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
      * @return bool|null
     */
     public function getWindowsHelloForBusinessBlocked(): ?bool {
-        return $this->getBackingStore()->get('windowsHelloForBusinessBlocked');
+        $val = $this->getBackingStore()->get('windowsHelloForBusinessBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsHelloForBusinessBlocked'");
     }
 
     /**

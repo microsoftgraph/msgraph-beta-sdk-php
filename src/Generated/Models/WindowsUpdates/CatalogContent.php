@@ -30,12 +30,16 @@ class CatalogContent extends DeployableContent implements Parsable
      * @return CatalogEntry|null
     */
     public function getCatalogEntry(): ?CatalogEntry {
-        return $this->getBackingStore()->get('catalogEntry');
+        $val = $this->getBackingStore()->get('catalogEntry');
+        if (is_null($val) || $val instanceof CatalogEntry) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'catalogEntry'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

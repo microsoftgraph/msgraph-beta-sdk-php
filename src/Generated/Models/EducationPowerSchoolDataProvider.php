@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvider implements Parsable 
 {
@@ -30,7 +31,11 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
      * @return bool|null
     */
     public function getAllowTeachersInMultipleSchools(): ?bool {
-        return $this->getBackingStore()->get('allowTeachersInMultipleSchools');
+        $val = $this->getBackingStore()->get('allowTeachersInMultipleSchools');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowTeachersInMultipleSchools'");
     }
 
     /**
@@ -38,7 +43,11 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
      * @return string|null
     */
     public function getClientId(): ?string {
-        return $this->getBackingStore()->get('clientId');
+        $val = $this->getBackingStore()->get('clientId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clientId'");
     }
 
     /**
@@ -46,7 +55,11 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
      * @return string|null
     */
     public function getClientSecret(): ?string {
-        return $this->getBackingStore()->get('clientSecret');
+        $val = $this->getBackingStore()->get('clientSecret');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clientSecret'");
     }
 
     /**
@@ -54,7 +67,11 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
      * @return string|null
     */
     public function getConnectionUrl(): ?string {
-        return $this->getBackingStore()->get('connectionUrl');
+        $val = $this->getBackingStore()->get('connectionUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectionUrl'");
     }
 
     /**
@@ -62,12 +79,16 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
      * @return EducationSynchronizationCustomizations|null
     */
     public function getCustomizations(): ?EducationSynchronizationCustomizations {
-        return $this->getBackingStore()->get('customizations');
+        $val = $this->getBackingStore()->get('customizations');
+        if (is_null($val) || $val instanceof EducationSynchronizationCustomizations) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customizations'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -77,7 +98,14 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
             'clientSecret' => fn(ParseNode $n) => $o->setClientSecret($n->getStringValue()),
             'connectionUrl' => fn(ParseNode $n) => $o->setConnectionUrl($n->getStringValue()),
             'customizations' => fn(ParseNode $n) => $o->setCustomizations($n->getObjectValue([EducationSynchronizationCustomizations::class, 'createFromDiscriminatorValue'])),
-            'schoolsIds' => fn(ParseNode $n) => $o->setSchoolsIds($n->getCollectionOfPrimitiveValues()),
+            'schoolsIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSchoolsIds($val);
+            },
             'schoolYear' => fn(ParseNode $n) => $o->setSchoolYear($n->getStringValue()),
         ]);
     }
@@ -87,7 +115,13 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
      * @return array<string>|null
     */
     public function getSchoolsIds(): ?array {
-        return $this->getBackingStore()->get('schoolsIds');
+        $val = $this->getBackingStore()->get('schoolsIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'schoolsIds'");
     }
 
     /**
@@ -95,7 +129,11 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
      * @return string|null
     */
     public function getSchoolYear(): ?string {
-        return $this->getBackingStore()->get('schoolYear');
+        $val = $this->getBackingStore()->get('schoolYear');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'schoolYear'");
     }
 
     /**

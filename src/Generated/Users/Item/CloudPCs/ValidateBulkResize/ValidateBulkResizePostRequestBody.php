@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ValidateBulkResizePostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class ValidateBulkResizePostRequestBody implements AdditionalDataHolder, BackedM
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,17 +61,30 @@ class ValidateBulkResizePostRequestBody implements AdditionalDataHolder, BackedM
      * @return array<string>|null
     */
     public function getCloudPcIds(): ?array {
-        return $this->getBackingStore()->get('cloudPcIds');
+        $val = $this->getBackingStore()->get('cloudPcIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudPcIds'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'cloudPcIds' => fn(ParseNode $n) => $o->setCloudPcIds($n->getCollectionOfPrimitiveValues()),
+            'cloudPcIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setCloudPcIds($val);
+            },
             'targetServicePlanId' => fn(ParseNode $n) => $o->setTargetServicePlanId($n->getStringValue()),
         ];
     }
@@ -75,7 +94,11 @@ class ValidateBulkResizePostRequestBody implements AdditionalDataHolder, BackedM
      * @return string|null
     */
     public function getTargetServicePlanId(): ?string {
-        return $this->getBackingStore()->get('targetServicePlanId');
+        $val = $this->getBackingStore()->get('targetServicePlanId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetServicePlanId'");
     }
 
     /**

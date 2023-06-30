@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * MacOS software update account summary report for a device and user
@@ -33,7 +34,13 @@ class MacOSSoftwareUpdateAccountSummary extends Entity implements Parsable
      * @return array<MacOSSoftwareUpdateCategorySummary>|null
     */
     public function getCategorySummaries(): ?array {
-        return $this->getBackingStore()->get('categorySummaries');
+        $val = $this->getBackingStore()->get('categorySummaries');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MacOSSoftwareUpdateCategorySummary::class);
+            /** @var array<MacOSSoftwareUpdateCategorySummary>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'categorySummaries'");
     }
 
     /**
@@ -41,7 +48,11 @@ class MacOSSoftwareUpdateAccountSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->getBackingStore()->get('deviceId');
+        $val = $this->getBackingStore()->get('deviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceId'");
     }
 
     /**
@@ -49,7 +60,11 @@ class MacOSSoftwareUpdateAccountSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->getBackingStore()->get('deviceName');
+        $val = $this->getBackingStore()->get('deviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceName'");
     }
 
     /**
@@ -57,7 +72,11 @@ class MacOSSoftwareUpdateAccountSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -65,12 +84,16 @@ class MacOSSoftwareUpdateAccountSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getFailedUpdateCount(): ?int {
-        return $this->getBackingStore()->get('failedUpdateCount');
+        $val = $this->getBackingStore()->get('failedUpdateCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'failedUpdateCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -94,7 +117,11 @@ class MacOSSoftwareUpdateAccountSummary extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastUpdatedDateTime');
+        $val = $this->getBackingStore()->get('lastUpdatedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastUpdatedDateTime'");
     }
 
     /**
@@ -102,7 +129,11 @@ class MacOSSoftwareUpdateAccountSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getOsVersion(): ?string {
-        return $this->getBackingStore()->get('osVersion');
+        $val = $this->getBackingStore()->get('osVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osVersion'");
     }
 
     /**
@@ -110,7 +141,11 @@ class MacOSSoftwareUpdateAccountSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getSuccessfulUpdateCount(): ?int {
-        return $this->getBackingStore()->get('successfulUpdateCount');
+        $val = $this->getBackingStore()->get('successfulUpdateCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'successfulUpdateCount'");
     }
 
     /**
@@ -118,7 +153,11 @@ class MacOSSoftwareUpdateAccountSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getTotalUpdateCount(): ?int {
-        return $this->getBackingStore()->get('totalUpdateCount');
+        $val = $this->getBackingStore()->get('totalUpdateCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalUpdateCount'");
     }
 
     /**
@@ -126,7 +165,11 @@ class MacOSSoftwareUpdateAccountSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->getBackingStore()->get('userId');
+        $val = $this->getBackingStore()->get('userId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
     }
 
     /**
@@ -134,7 +177,11 @@ class MacOSSoftwareUpdateAccountSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('userPrincipalName');
+        $val = $this->getBackingStore()->get('userPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
     }
 
     /**

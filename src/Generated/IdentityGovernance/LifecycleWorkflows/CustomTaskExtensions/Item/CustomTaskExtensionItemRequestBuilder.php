@@ -48,7 +48,7 @@ class CustomTaskExtensionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a customTaskExtension object. Can only be deleted if it is not referenced in any task objects in a lifecycle workflow.
+     * Delete a customTaskExtension object. A custom task extension  can only be deleted if it is not referenced in any task objects in a lifecycle workflow.
      * @param CustomTaskExtensionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/identitygovernance-customtaskextension-delete?view=graph-rest-1.0 Find more info here
@@ -106,7 +106,7 @@ class CustomTaskExtensionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a customTaskExtension object. Can only be deleted if it is not referenced in any task objects in a lifecycle workflow.
+     * Delete a customTaskExtension object. A custom task extension  can only be deleted if it is not referenced in any task objects in a lifecycle workflow.
      * @param CustomTaskExtensionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -30,7 +30,11 @@ class DeviceHealthScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getDetectionScriptErrorDeviceCount(): ?int {
-        return $this->getBackingStore()->get('detectionScriptErrorDeviceCount');
+        $val = $this->getBackingStore()->get('detectionScriptErrorDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detectionScriptErrorDeviceCount'");
     }
 
     /**
@@ -38,7 +42,11 @@ class DeviceHealthScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getDetectionScriptNotApplicableDeviceCount(): ?int {
-        return $this->getBackingStore()->get('detectionScriptNotApplicableDeviceCount');
+        $val = $this->getBackingStore()->get('detectionScriptNotApplicableDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detectionScriptNotApplicableDeviceCount'");
     }
 
     /**
@@ -46,12 +54,16 @@ class DeviceHealthScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getDetectionScriptPendingDeviceCount(): ?int {
-        return $this->getBackingStore()->get('detectionScriptPendingDeviceCount');
+        $val = $this->getBackingStore()->get('detectionScriptPendingDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detectionScriptPendingDeviceCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -75,7 +87,11 @@ class DeviceHealthScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getIssueDetectedDeviceCount(): ?int {
-        return $this->getBackingStore()->get('issueDetectedDeviceCount');
+        $val = $this->getBackingStore()->get('issueDetectedDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'issueDetectedDeviceCount'");
     }
 
     /**
@@ -83,7 +99,11 @@ class DeviceHealthScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getIssueRemediatedCumulativeDeviceCount(): ?int {
-        return $this->getBackingStore()->get('issueRemediatedCumulativeDeviceCount');
+        $val = $this->getBackingStore()->get('issueRemediatedCumulativeDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'issueRemediatedCumulativeDeviceCount'");
     }
 
     /**
@@ -91,7 +111,11 @@ class DeviceHealthScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getIssueRemediatedDeviceCount(): ?int {
-        return $this->getBackingStore()->get('issueRemediatedDeviceCount');
+        $val = $this->getBackingStore()->get('issueRemediatedDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'issueRemediatedDeviceCount'");
     }
 
     /**
@@ -99,7 +123,11 @@ class DeviceHealthScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getIssueReoccurredDeviceCount(): ?int {
-        return $this->getBackingStore()->get('issueReoccurredDeviceCount');
+        $val = $this->getBackingStore()->get('issueReoccurredDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'issueReoccurredDeviceCount'");
     }
 
     /**
@@ -107,7 +135,11 @@ class DeviceHealthScriptRunSummary extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastScriptRunDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastScriptRunDateTime');
+        $val = $this->getBackingStore()->get('lastScriptRunDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastScriptRunDateTime'");
     }
 
     /**
@@ -115,7 +147,11 @@ class DeviceHealthScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getNoIssueDetectedDeviceCount(): ?int {
-        return $this->getBackingStore()->get('noIssueDetectedDeviceCount');
+        $val = $this->getBackingStore()->get('noIssueDetectedDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'noIssueDetectedDeviceCount'");
     }
 
     /**
@@ -123,7 +159,11 @@ class DeviceHealthScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getRemediationScriptErrorDeviceCount(): ?int {
-        return $this->getBackingStore()->get('remediationScriptErrorDeviceCount');
+        $val = $this->getBackingStore()->get('remediationScriptErrorDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remediationScriptErrorDeviceCount'");
     }
 
     /**
@@ -131,7 +171,11 @@ class DeviceHealthScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getRemediationSkippedDeviceCount(): ?int {
-        return $this->getBackingStore()->get('remediationSkippedDeviceCount');
+        $val = $this->getBackingStore()->get('remediationSkippedDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remediationSkippedDeviceCount'");
     }
 
     /**

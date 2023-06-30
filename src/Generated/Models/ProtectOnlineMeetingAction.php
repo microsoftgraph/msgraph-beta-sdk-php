@@ -30,7 +30,11 @@ class ProtectOnlineMeetingAction extends LabelActionBase implements Parsable
      * @return OnlineMeetingForwarders|null
     */
     public function getAllowedForwarders(): ?OnlineMeetingForwarders {
-        return $this->getBackingStore()->get('allowedForwarders');
+        $val = $this->getBackingStore()->get('allowedForwarders');
+        if (is_null($val) || $val instanceof OnlineMeetingForwarders) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedForwarders'");
     }
 
     /**
@@ -38,12 +42,16 @@ class ProtectOnlineMeetingAction extends LabelActionBase implements Parsable
      * @return OnlineMeetingPresenters|null
     */
     public function getAllowedPresenters(): ?OnlineMeetingPresenters {
-        return $this->getBackingStore()->get('allowedPresenters');
+        $val = $this->getBackingStore()->get('allowedPresenters');
+        if (is_null($val) || $val instanceof OnlineMeetingPresenters) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedPresenters'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -61,7 +69,11 @@ class ProtectOnlineMeetingAction extends LabelActionBase implements Parsable
      * @return bool|null
     */
     public function getIsCopyToClipboardEnabled(): ?bool {
-        return $this->getBackingStore()->get('isCopyToClipboardEnabled');
+        $val = $this->getBackingStore()->get('isCopyToClipboardEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isCopyToClipboardEnabled'");
     }
 
     /**
@@ -69,7 +81,11 @@ class ProtectOnlineMeetingAction extends LabelActionBase implements Parsable
      * @return bool|null
     */
     public function getIsLobbyEnabled(): ?bool {
-        return $this->getBackingStore()->get('isLobbyEnabled');
+        $val = $this->getBackingStore()->get('isLobbyEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isLobbyEnabled'");
     }
 
     /**
@@ -77,7 +93,11 @@ class ProtectOnlineMeetingAction extends LabelActionBase implements Parsable
      * @return LobbyBypassSettings|null
     */
     public function getLobbyBypassSettings(): ?LobbyBypassSettings {
-        return $this->getBackingStore()->get('lobbyBypassSettings');
+        $val = $this->getBackingStore()->get('lobbyBypassSettings');
+        if (is_null($val) || $val instanceof LobbyBypassSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lobbyBypassSettings'");
     }
 
     /**

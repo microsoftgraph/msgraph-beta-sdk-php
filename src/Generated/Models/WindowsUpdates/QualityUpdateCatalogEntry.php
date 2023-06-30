@@ -27,7 +27,7 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -42,7 +42,11 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
      * @return bool|null
     */
     public function getIsExpeditable(): ?bool {
-        return $this->getBackingStore()->get('isExpeditable');
+        $val = $this->getBackingStore()->get('isExpeditable');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isExpeditable'");
     }
 
     /**
@@ -50,7 +54,11 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
      * @return QualityUpdateClassification|null
     */
     public function getQualityUpdateClassification(): ?QualityUpdateClassification {
-        return $this->getBackingStore()->get('qualityUpdateClassification');
+        $val = $this->getBackingStore()->get('qualityUpdateClassification');
+        if (is_null($val) || $val instanceof QualityUpdateClassification) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'qualityUpdateClassification'");
     }
 
     /**

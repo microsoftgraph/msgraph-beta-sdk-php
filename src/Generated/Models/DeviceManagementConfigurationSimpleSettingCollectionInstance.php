@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DeviceManagementConfigurationSimpleSettingCollectionInstance extends DeviceManagementConfigurationSettingInstance implements Parsable 
 {
@@ -27,7 +28,7 @@ class DeviceManagementConfigurationSimpleSettingCollectionInstance extends Devic
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +42,13 @@ class DeviceManagementConfigurationSimpleSettingCollectionInstance extends Devic
      * @return array<DeviceManagementConfigurationSimpleSettingValue>|null
     */
     public function getSimpleSettingCollectionValue(): ?array {
-        return $this->getBackingStore()->get('simpleSettingCollectionValue');
+        $val = $this->getBackingStore()->get('simpleSettingCollectionValue');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementConfigurationSimpleSettingValue::class);
+            /** @var array<DeviceManagementConfigurationSimpleSettingValue>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'simpleSettingCollectionValue'");
     }
 
     /**

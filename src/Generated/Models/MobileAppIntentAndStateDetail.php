@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Mobile App Intent and Install State for a given device.
@@ -42,7 +43,12 @@ class MobileAppIntentAndStateDetail implements AdditionalDataHolder, BackedModel
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -50,7 +56,11 @@ class MobileAppIntentAndStateDetail implements AdditionalDataHolder, BackedModel
      * @return string|null
     */
     public function getApplicationId(): ?string {
-        return $this->getBackingStore()->get('applicationId');
+        $val = $this->getBackingStore()->get('applicationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationId'");
     }
 
     /**
@@ -66,7 +76,11 @@ class MobileAppIntentAndStateDetail implements AdditionalDataHolder, BackedModel
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -74,12 +88,16 @@ class MobileAppIntentAndStateDetail implements AdditionalDataHolder, BackedModel
      * @return string|null
     */
     public function getDisplayVersion(): ?string {
-        return $this->getBackingStore()->get('displayVersion');
+        $val = $this->getBackingStore()->get('displayVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayVersion'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -99,7 +117,11 @@ class MobileAppIntentAndStateDetail implements AdditionalDataHolder, BackedModel
      * @return ResultantAppState|null
     */
     public function getInstallState(): ?ResultantAppState {
-        return $this->getBackingStore()->get('installState');
+        $val = $this->getBackingStore()->get('installState');
+        if (is_null($val) || $val instanceof ResultantAppState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'installState'");
     }
 
     /**
@@ -107,7 +129,11 @@ class MobileAppIntentAndStateDetail implements AdditionalDataHolder, BackedModel
      * @return MobileAppIntent|null
     */
     public function getMobileAppIntent(): ?MobileAppIntent {
-        return $this->getBackingStore()->get('mobileAppIntent');
+        $val = $this->getBackingStore()->get('mobileAppIntent');
+        if (is_null($val) || $val instanceof MobileAppIntent) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mobileAppIntent'");
     }
 
     /**
@@ -115,7 +141,11 @@ class MobileAppIntentAndStateDetail implements AdditionalDataHolder, BackedModel
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -123,7 +153,13 @@ class MobileAppIntentAndStateDetail implements AdditionalDataHolder, BackedModel
      * @return array<MobileAppSupportedDeviceType>|null
     */
     public function getSupportedDeviceTypes(): ?array {
-        return $this->getBackingStore()->get('supportedDeviceTypes');
+        $val = $this->getBackingStore()->get('supportedDeviceTypes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MobileAppSupportedDeviceType::class);
+            /** @var array<MobileAppSupportedDeviceType>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedDeviceTypes'");
     }
 
     /**

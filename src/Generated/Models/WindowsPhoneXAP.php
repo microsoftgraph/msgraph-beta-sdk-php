@@ -27,7 +27,7 @@ class WindowsPhoneXAP extends MobileLobApp implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -43,7 +43,11 @@ class WindowsPhoneXAP extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getIdentityVersion(): ?string {
-        return $this->getBackingStore()->get('identityVersion');
+        $val = $this->getBackingStore()->get('identityVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityVersion'");
     }
 
     /**
@@ -51,7 +55,11 @@ class WindowsPhoneXAP extends MobileLobApp implements Parsable
      * @return WindowsMinimumOperatingSystem|null
     */
     public function getMinimumSupportedOperatingSystem(): ?WindowsMinimumOperatingSystem {
-        return $this->getBackingStore()->get('minimumSupportedOperatingSystem');
+        $val = $this->getBackingStore()->get('minimumSupportedOperatingSystem');
+        if (is_null($val) || $val instanceof WindowsMinimumOperatingSystem) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumSupportedOperatingSystem'");
     }
 
     /**
@@ -59,7 +67,11 @@ class WindowsPhoneXAP extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getProductIdentifier(): ?string {
-        return $this->getBackingStore()->get('productIdentifier');
+        $val = $this->getBackingStore()->get('productIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'productIdentifier'");
     }
 
     /**

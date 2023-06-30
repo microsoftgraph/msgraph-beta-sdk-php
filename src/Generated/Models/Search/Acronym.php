@@ -26,7 +26,7 @@ class Acronym extends SearchAnswer implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class Acronym extends SearchAnswer implements Parsable
      * @return string|null
     */
     public function getStandsFor(): ?string {
-        return $this->getBackingStore()->get('standsFor');
+        $val = $this->getBackingStore()->get('standsFor');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'standsFor'");
     }
 
     /**
@@ -49,7 +53,11 @@ class Acronym extends SearchAnswer implements Parsable
      * @return AnswerState|null
     */
     public function getState(): ?AnswerState {
-        return $this->getBackingStore()->get('state');
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || $val instanceof AnswerState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
     }
 
     /**

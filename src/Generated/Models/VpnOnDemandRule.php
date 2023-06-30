@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * VPN On-Demand Rule definition.
@@ -42,7 +43,11 @@ class VpnOnDemandRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return VpnOnDemandRuleConnectionAction|null
     */
     public function getAction(): ?VpnOnDemandRuleConnectionAction {
-        return $this->getBackingStore()->get('action');
+        $val = $this->getBackingStore()->get('action');
+        if (is_null($val) || $val instanceof VpnOnDemandRuleConnectionAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'action'");
     }
 
     /**
@@ -50,7 +55,12 @@ class VpnOnDemandRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -66,7 +76,13 @@ class VpnOnDemandRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getDnsSearchDomains(): ?array {
-        return $this->getBackingStore()->get('dnsSearchDomains');
+        $val = $this->getBackingStore()->get('dnsSearchDomains');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dnsSearchDomains'");
     }
 
     /**
@@ -74,7 +90,13 @@ class VpnOnDemandRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getDnsServerAddressMatch(): ?array {
-        return $this->getBackingStore()->get('dnsServerAddressMatch');
+        $val = $this->getBackingStore()->get('dnsServerAddressMatch');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dnsServerAddressMatch'");
     }
 
     /**
@@ -82,7 +104,11 @@ class VpnOnDemandRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return VpnOnDemandRuleConnectionDomainAction|null
     */
     public function getDomainAction(): ?VpnOnDemandRuleConnectionDomainAction {
-        return $this->getBackingStore()->get('domainAction');
+        $val = $this->getBackingStore()->get('domainAction');
+        if (is_null($val) || $val instanceof VpnOnDemandRuleConnectionDomainAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'domainAction'");
     }
 
     /**
@@ -90,26 +116,60 @@ class VpnOnDemandRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getDomains(): ?array {
-        return $this->getBackingStore()->get('domains');
+        $val = $this->getBackingStore()->get('domains');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'domains'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
             'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(VpnOnDemandRuleConnectionAction::class)),
-            'dnsSearchDomains' => fn(ParseNode $n) => $o->setDnsSearchDomains($n->getCollectionOfPrimitiveValues()),
-            'dnsServerAddressMatch' => fn(ParseNode $n) => $o->setDnsServerAddressMatch($n->getCollectionOfPrimitiveValues()),
+            'dnsSearchDomains' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDnsSearchDomains($val);
+            },
+            'dnsServerAddressMatch' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDnsServerAddressMatch($val);
+            },
             'domainAction' => fn(ParseNode $n) => $o->setDomainAction($n->getEnumValue(VpnOnDemandRuleConnectionDomainAction::class)),
-            'domains' => fn(ParseNode $n) => $o->setDomains($n->getCollectionOfPrimitiveValues()),
+            'domains' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDomains($val);
+            },
             'interfaceTypeMatch' => fn(ParseNode $n) => $o->setInterfaceTypeMatch($n->getEnumValue(VpnOnDemandRuleInterfaceTypeMatch::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'probeRequiredUrl' => fn(ParseNode $n) => $o->setProbeRequiredUrl($n->getStringValue()),
             'probeUrl' => fn(ParseNode $n) => $o->setProbeUrl($n->getStringValue()),
-            'ssids' => fn(ParseNode $n) => $o->setSsids($n->getCollectionOfPrimitiveValues()),
+            'ssids' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSsids($val);
+            },
         ];
     }
 
@@ -118,7 +178,11 @@ class VpnOnDemandRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return VpnOnDemandRuleInterfaceTypeMatch|null
     */
     public function getInterfaceTypeMatch(): ?VpnOnDemandRuleInterfaceTypeMatch {
-        return $this->getBackingStore()->get('interfaceTypeMatch');
+        $val = $this->getBackingStore()->get('interfaceTypeMatch');
+        if (is_null($val) || $val instanceof VpnOnDemandRuleInterfaceTypeMatch) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'interfaceTypeMatch'");
     }
 
     /**
@@ -126,7 +190,11 @@ class VpnOnDemandRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -134,7 +202,11 @@ class VpnOnDemandRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getProbeRequiredUrl(): ?string {
-        return $this->getBackingStore()->get('probeRequiredUrl');
+        $val = $this->getBackingStore()->get('probeRequiredUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'probeRequiredUrl'");
     }
 
     /**
@@ -142,7 +214,11 @@ class VpnOnDemandRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getProbeUrl(): ?string {
-        return $this->getBackingStore()->get('probeUrl');
+        $val = $this->getBackingStore()->get('probeUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'probeUrl'");
     }
 
     /**
@@ -150,7 +226,13 @@ class VpnOnDemandRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getSsids(): ?array {
-        return $this->getBackingStore()->get('ssids');
+        $val = $this->getBackingStore()->get('ssids');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ssids'");
     }
 
     /**

@@ -32,7 +32,7 @@ class AppHealthMetricsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The user experience analytics app health metrics.
+     * The scores and insights for the application health metrics.
      * @param AppHealthMetricsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -50,7 +50,7 @@ class AppHealthMetricsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The user experience analytics app health metrics.
+     * The scores and insights for the application health metrics.
      * @param AppHealthMetricsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

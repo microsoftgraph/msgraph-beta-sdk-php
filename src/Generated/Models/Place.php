@@ -38,7 +38,11 @@ class Place extends Entity implements Parsable
      * @return PhysicalAddress|null
     */
     public function getAddress(): ?PhysicalAddress {
-        return $this->getBackingStore()->get('address');
+        $val = $this->getBackingStore()->get('address');
+        if (is_null($val) || $val instanceof PhysicalAddress) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'address'");
     }
 
     /**
@@ -46,12 +50,16 @@ class Place extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -68,7 +76,11 @@ class Place extends Entity implements Parsable
      * @return OutlookGeoCoordinates|null
     */
     public function getGeoCoordinates(): ?OutlookGeoCoordinates {
-        return $this->getBackingStore()->get('geoCoordinates');
+        $val = $this->getBackingStore()->get('geoCoordinates');
+        if (is_null($val) || $val instanceof OutlookGeoCoordinates) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'geoCoordinates'");
     }
 
     /**
@@ -76,7 +88,11 @@ class Place extends Entity implements Parsable
      * @return string|null
     */
     public function getPhone(): ?string {
-        return $this->getBackingStore()->get('phone');
+        $val = $this->getBackingStore()->get('phone');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'phone'");
     }
 
     /**

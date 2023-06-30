@@ -6,11 +6,15 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Enrollment Profile used to enroll Android Enterprise devices using Google's Cloud Management.
+*/
 class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AndroidDeviceOwnerEnrollmentProfile and sets the default values.
+     * Instantiates a new androidDeviceOwnerEnrollmentProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -30,7 +34,11 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getAccountId(): ?string {
-        return $this->getBackingStore()->get('accountId');
+        $val = $this->getBackingStore()->get('accountId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accountId'");
     }
 
     /**
@@ -38,7 +46,11 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getConfigureWifi(): ?bool {
-        return $this->getBackingStore()->get('configureWifi');
+        $val = $this->getBackingStore()->get('configureWifi');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configureWifi'");
     }
 
     /**
@@ -46,7 +58,11 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -54,7 +70,11 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -62,7 +82,11 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -70,7 +94,11 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return int|null
     */
     public function getEnrolledDeviceCount(): ?int {
-        return $this->getBackingStore()->get('enrolledDeviceCount');
+        $val = $this->getBackingStore()->get('enrolledDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrolledDeviceCount'");
     }
 
     /**
@@ -78,7 +106,11 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return AndroidDeviceOwnerEnrollmentMode|null
     */
     public function getEnrollmentMode(): ?AndroidDeviceOwnerEnrollmentMode {
-        return $this->getBackingStore()->get('enrollmentMode');
+        $val = $this->getBackingStore()->get('enrollmentMode');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerEnrollmentMode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrollmentMode'");
     }
 
     /**
@@ -86,7 +118,11 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return AndroidDeviceOwnerEnrollmentTokenType|null
     */
     public function getEnrollmentTokenType(): ?AndroidDeviceOwnerEnrollmentTokenType {
-        return $this->getBackingStore()->get('enrollmentTokenType');
+        $val = $this->getBackingStore()->get('enrollmentTokenType');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerEnrollmentTokenType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrollmentTokenType'");
     }
 
     /**
@@ -94,12 +130,16 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return int|null
     */
     public function getEnrollmentTokenUsageCount(): ?int {
-        return $this->getBackingStore()->get('enrollmentTokenUsageCount');
+        $val = $this->getBackingStore()->get('enrollmentTokenUsageCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrollmentTokenUsageCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -117,7 +157,14 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'qrCodeContent' => fn(ParseNode $n) => $o->setQrCodeContent($n->getStringValue()),
             'qrCodeImage' => fn(ParseNode $n) => $o->setQrCodeImage($n->getObjectValue([MimeContent::class, 'createFromDiscriminatorValue'])),
-            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
+            'roleScopeTagIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoleScopeTagIds($val);
+            },
             'tokenCreationDateTime' => fn(ParseNode $n) => $o->setTokenCreationDateTime($n->getDateTimeValue()),
             'tokenExpirationDateTime' => fn(ParseNode $n) => $o->setTokenExpirationDateTime($n->getDateTimeValue()),
             'tokenValue' => fn(ParseNode $n) => $o->setTokenValue($n->getStringValue()),
@@ -133,7 +180,11 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsTeamsDeviceProfile(): ?bool {
-        return $this->getBackingStore()->get('isTeamsDeviceProfile');
+        $val = $this->getBackingStore()->get('isTeamsDeviceProfile');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isTeamsDeviceProfile'");
     }
 
     /**
@@ -141,7 +192,11 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -149,7 +204,11 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getQrCodeContent(): ?string {
-        return $this->getBackingStore()->get('qrCodeContent');
+        $val = $this->getBackingStore()->get('qrCodeContent');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'qrCodeContent'");
     }
 
     /**
@@ -157,7 +216,11 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return MimeContent|null
     */
     public function getQrCodeImage(): ?MimeContent {
-        return $this->getBackingStore()->get('qrCodeImage');
+        $val = $this->getBackingStore()->get('qrCodeImage');
+        if (is_null($val) || $val instanceof MimeContent) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'qrCodeImage'");
     }
 
     /**
@@ -165,7 +228,13 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->getBackingStore()->get('roleScopeTagIds');
+        $val = $this->getBackingStore()->get('roleScopeTagIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleScopeTagIds'");
     }
 
     /**
@@ -173,7 +242,11 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getTokenCreationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('tokenCreationDateTime');
+        $val = $this->getBackingStore()->get('tokenCreationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tokenCreationDateTime'");
     }
 
     /**
@@ -181,7 +254,11 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getTokenExpirationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('tokenExpirationDateTime');
+        $val = $this->getBackingStore()->get('tokenExpirationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tokenExpirationDateTime'");
     }
 
     /**
@@ -189,7 +266,11 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getTokenValue(): ?string {
-        return $this->getBackingStore()->get('tokenValue');
+        $val = $this->getBackingStore()->get('tokenValue');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tokenValue'");
     }
 
     /**
@@ -197,7 +278,11 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getWifiHidden(): ?bool {
-        return $this->getBackingStore()->get('wifiHidden');
+        $val = $this->getBackingStore()->get('wifiHidden');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wifiHidden'");
     }
 
     /**
@@ -205,7 +290,11 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getWifiPassword(): ?string {
-        return $this->getBackingStore()->get('wifiPassword');
+        $val = $this->getBackingStore()->get('wifiPassword');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wifiPassword'");
     }
 
     /**
@@ -213,7 +302,11 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return AospWifiSecurityType|null
     */
     public function getWifiSecurityType(): ?AospWifiSecurityType {
-        return $this->getBackingStore()->get('wifiSecurityType');
+        $val = $this->getBackingStore()->get('wifiSecurityType');
+        if (is_null($val) || $val instanceof AospWifiSecurityType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wifiSecurityType'");
     }
 
     /**
@@ -221,7 +314,11 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getWifiSsid(): ?string {
-        return $this->getBackingStore()->get('wifiSsid');
+        $val = $this->getBackingStore()->get('wifiSsid');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wifiSsid'");
     }
 
     /**

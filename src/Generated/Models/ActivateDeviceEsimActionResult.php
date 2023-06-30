@@ -29,12 +29,16 @@ class ActivateDeviceEsimActionResult extends DeviceActionResult implements Parsa
      * @return string|null
     */
     public function getCarrierUrl(): ?string {
-        return $this->getBackingStore()->get('carrierUrl');
+        $val = $this->getBackingStore()->get('carrierUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'carrierUrl'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

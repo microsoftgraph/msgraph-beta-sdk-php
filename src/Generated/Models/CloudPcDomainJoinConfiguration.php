@@ -39,7 +39,12 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +57,7 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -70,7 +75,11 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -78,7 +87,11 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getOnPremisesConnectionId(): ?string {
-        return $this->getBackingStore()->get('onPremisesConnectionId');
+        $val = $this->getBackingStore()->get('onPremisesConnectionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onPremisesConnectionId'");
     }
 
     /**
@@ -86,7 +99,11 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
      * @return CloudPcRegionGroup|null
     */
     public function getRegionGroup(): ?CloudPcRegionGroup {
-        return $this->getBackingStore()->get('regionGroup');
+        $val = $this->getBackingStore()->get('regionGroup');
+        if (is_null($val) || $val instanceof CloudPcRegionGroup) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'regionGroup'");
     }
 
     /**
@@ -94,7 +111,11 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getRegionName(): ?string {
-        return $this->getBackingStore()->get('regionName');
+        $val = $this->getBackingStore()->get('regionName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'regionName'");
     }
 
     /**
@@ -102,7 +123,11 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
      * @return CloudPcDomainJoinType|null
     */
     public function getType(): ?CloudPcDomainJoinType {
-        return $this->getBackingStore()->get('type');
+        $val = $this->getBackingStore()->get('type');
+        if (is_null($val) || $val instanceof CloudPcDomainJoinType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
     }
 
     /**

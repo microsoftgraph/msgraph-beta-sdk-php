@@ -6,11 +6,15 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * A class containing the properties used for Assignment Filter.
+*/
 class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceAndAppManagementAssignmentFilter and sets the default values.
+     * Instantiates a new deviceAndAppManagementAssignmentFilter and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -37,7 +41,11 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
      * @return AssignmentFilterManagementType|null
     */
     public function getAssignmentFilterManagementType(): ?AssignmentFilterManagementType {
-        return $this->getBackingStore()->get('assignmentFilterManagementType');
+        $val = $this->getBackingStore()->get('assignmentFilterManagementType');
+        if (is_null($val) || $val instanceof AssignmentFilterManagementType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignmentFilterManagementType'");
     }
 
     /**
@@ -45,7 +53,11 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -53,7 +65,11 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -61,12 +77,16 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -78,7 +98,14 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'payloads' => fn(ParseNode $n) => $o->setPayloads($n->getCollectionOfObjectValues([PayloadByFilter::class, 'createFromDiscriminatorValue'])),
             'platform' => fn(ParseNode $n) => $o->setPlatform($n->getEnumValue(DevicePlatformType::class)),
-            'roleScopeTags' => fn(ParseNode $n) => $o->setRoleScopeTags($n->getCollectionOfPrimitiveValues()),
+            'roleScopeTags' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoleScopeTags($val);
+            },
             'rule' => fn(ParseNode $n) => $o->setRule($n->getStringValue()),
         ]);
     }
@@ -88,7 +115,11 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -96,7 +127,13 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
      * @return array<PayloadByFilter>|null
     */
     public function getPayloads(): ?array {
-        return $this->getBackingStore()->get('payloads');
+        $val = $this->getBackingStore()->get('payloads');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PayloadByFilter::class);
+            /** @var array<PayloadByFilter>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'payloads'");
     }
 
     /**
@@ -104,7 +141,11 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
      * @return DevicePlatformType|null
     */
     public function getPlatform(): ?DevicePlatformType {
-        return $this->getBackingStore()->get('platform');
+        $val = $this->getBackingStore()->get('platform');
+        if (is_null($val) || $val instanceof DevicePlatformType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'platform'");
     }
 
     /**
@@ -112,7 +153,13 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTags(): ?array {
-        return $this->getBackingStore()->get('roleScopeTags');
+        $val = $this->getBackingStore()->get('roleScopeTags');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleScopeTags'");
     }
 
     /**
@@ -120,7 +167,11 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
      * @return string|null
     */
     public function getRule(): ?string {
-        return $this->getBackingStore()->get('rule');
+        $val = $this->getBackingStore()->get('rule');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rule'");
     }
 
     /**

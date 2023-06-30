@@ -6,11 +6,15 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Base Profile Type for Resource Access
+*/
 class DeviceManagementResourceAccessProfileBase extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementResourceAccessProfileBase and sets the default values.
+     * Instantiates a new deviceManagementResourceAccessProfileBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -41,7 +45,13 @@ class DeviceManagementResourceAccessProfileBase extends Entity implements Parsab
      * @return array<DeviceManagementResourceAccessProfileAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->getBackingStore()->get('assignments');
+        $val = $this->getBackingStore()->get('assignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementResourceAccessProfileAssignment::class);
+            /** @var array<DeviceManagementResourceAccessProfileAssignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignments'");
     }
 
     /**
@@ -49,7 +59,11 @@ class DeviceManagementResourceAccessProfileBase extends Entity implements Parsab
      * @return DateTime|null
     */
     public function getCreationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('creationDateTime');
+        $val = $this->getBackingStore()->get('creationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'creationDateTime'");
     }
 
     /**
@@ -57,7 +71,11 @@ class DeviceManagementResourceAccessProfileBase extends Entity implements Parsab
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -65,12 +83,16 @@ class DeviceManagementResourceAccessProfileBase extends Entity implements Parsab
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -80,7 +102,14 @@ class DeviceManagementResourceAccessProfileBase extends Entity implements Parsab
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
-            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
+            'roleScopeTagIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoleScopeTagIds($val);
+            },
             'version' => fn(ParseNode $n) => $o->setVersion($n->getIntegerValue()),
         ]);
     }
@@ -90,7 +119,11 @@ class DeviceManagementResourceAccessProfileBase extends Entity implements Parsab
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -98,7 +131,13 @@ class DeviceManagementResourceAccessProfileBase extends Entity implements Parsab
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->getBackingStore()->get('roleScopeTagIds');
+        $val = $this->getBackingStore()->get('roleScopeTagIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleScopeTagIds'");
     }
 
     /**
@@ -106,7 +145,11 @@ class DeviceManagementResourceAccessProfileBase extends Entity implements Parsab
      * @return int|null
     */
     public function getVersion(): ?int {
-        return $this->getBackingStore()->get('version');
+        $val = $this->getBackingStore()->get('version');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'version'");
     }
 
     /**

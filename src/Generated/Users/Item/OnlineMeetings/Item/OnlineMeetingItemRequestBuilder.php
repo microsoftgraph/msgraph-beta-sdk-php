@@ -139,7 +139,7 @@ class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get onlineMeetings from users
+     * Information about a meeting, including the URL used to join a meeting, the attendees' list, and the description.
      * @param OnlineMeetingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -194,7 +194,7 @@ class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get onlineMeetings from users
+     * Information about a meeting, including the URL used to join a meeting, the attendees' list, and the description.
      * @param OnlineMeetingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

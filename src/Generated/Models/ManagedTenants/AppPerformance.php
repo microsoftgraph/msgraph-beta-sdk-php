@@ -31,7 +31,11 @@ class AppPerformance extends Entity implements Parsable
      * @return string|null
     */
     public function getAppFriendlyName(): ?string {
-        return $this->getBackingStore()->get('appFriendlyName');
+        $val = $this->getBackingStore()->get('appFriendlyName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appFriendlyName'");
     }
 
     /**
@@ -39,7 +43,11 @@ class AppPerformance extends Entity implements Parsable
      * @return string|null
     */
     public function getAppName(): ?string {
-        return $this->getBackingStore()->get('appName');
+        $val = $this->getBackingStore()->get('appName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appName'");
     }
 
     /**
@@ -47,12 +55,16 @@ class AppPerformance extends Entity implements Parsable
      * @return string|null
     */
     public function getAppPublisher(): ?string {
-        return $this->getBackingStore()->get('appPublisher');
+        $val = $this->getBackingStore()->get('appPublisher');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appPublisher'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -75,7 +87,11 @@ class AppPerformance extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastUpdatedDateTime');
+        $val = $this->getBackingStore()->get('lastUpdatedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastUpdatedDateTime'");
     }
 
     /**
@@ -83,7 +99,11 @@ class AppPerformance extends Entity implements Parsable
      * @return int|null
     */
     public function getMeanTimeToFailureInMinutes(): ?int {
-        return $this->getBackingStore()->get('meanTimeToFailureInMinutes');
+        $val = $this->getBackingStore()->get('meanTimeToFailureInMinutes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'meanTimeToFailureInMinutes'");
     }
 
     /**
@@ -91,7 +111,11 @@ class AppPerformance extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantDisplayName(): ?string {
-        return $this->getBackingStore()->get('tenantDisplayName');
+        $val = $this->getBackingStore()->get('tenantDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantDisplayName'");
     }
 
     /**
@@ -99,7 +123,11 @@ class AppPerformance extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->getBackingStore()->get('tenantId');
+        $val = $this->getBackingStore()->get('tenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantId'");
     }
 
     /**
@@ -107,7 +135,11 @@ class AppPerformance extends Entity implements Parsable
      * @return int|null
     */
     public function getTotalActiveDeviceCount(): ?int {
-        return $this->getBackingStore()->get('totalActiveDeviceCount');
+        $val = $this->getBackingStore()->get('totalActiveDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalActiveDeviceCount'");
     }
 
     /**
@@ -115,7 +147,11 @@ class AppPerformance extends Entity implements Parsable
      * @return int|null
     */
     public function getTotalAppCrashCount(): ?int {
-        return $this->getBackingStore()->get('totalAppCrashCount');
+        $val = $this->getBackingStore()->get('totalAppCrashCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalAppCrashCount'");
     }
 
     /**
@@ -123,7 +159,11 @@ class AppPerformance extends Entity implements Parsable
      * @return int|null
     */
     public function getTotalAppFreezeCount(): ?int {
-        return $this->getBackingStore()->get('totalAppFreezeCount');
+        $val = $this->getBackingStore()->get('totalAppFreezeCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalAppFreezeCount'");
     }
 
     /**

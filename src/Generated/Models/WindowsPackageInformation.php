@@ -42,7 +42,12 @@ class WindowsPackageInformation implements AdditionalDataHolder, BackedModel, Pa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -50,7 +55,11 @@ class WindowsPackageInformation implements AdditionalDataHolder, BackedModel, Pa
      * @return WindowsArchitecture|null
     */
     public function getApplicableArchitecture(): ?WindowsArchitecture {
-        return $this->getBackingStore()->get('applicableArchitecture');
+        $val = $this->getBackingStore()->get('applicableArchitecture');
+        if (is_null($val) || $val instanceof WindowsArchitecture) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicableArchitecture'");
     }
 
     /**
@@ -66,12 +75,16 @@ class WindowsPackageInformation implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -92,7 +105,11 @@ class WindowsPackageInformation implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getIdentityName(): ?string {
-        return $this->getBackingStore()->get('identityName');
+        $val = $this->getBackingStore()->get('identityName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityName'");
     }
 
     /**
@@ -100,7 +117,11 @@ class WindowsPackageInformation implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getIdentityPublisher(): ?string {
-        return $this->getBackingStore()->get('identityPublisher');
+        $val = $this->getBackingStore()->get('identityPublisher');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityPublisher'");
     }
 
     /**
@@ -108,7 +129,11 @@ class WindowsPackageInformation implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getIdentityResourceIdentifier(): ?string {
-        return $this->getBackingStore()->get('identityResourceIdentifier');
+        $val = $this->getBackingStore()->get('identityResourceIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityResourceIdentifier'");
     }
 
     /**
@@ -116,7 +141,11 @@ class WindowsPackageInformation implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getIdentityVersion(): ?string {
-        return $this->getBackingStore()->get('identityVersion');
+        $val = $this->getBackingStore()->get('identityVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityVersion'");
     }
 
     /**
@@ -124,7 +153,11 @@ class WindowsPackageInformation implements AdditionalDataHolder, BackedModel, Pa
      * @return WindowsMinimumOperatingSystem|null
     */
     public function getMinimumSupportedOperatingSystem(): ?WindowsMinimumOperatingSystem {
-        return $this->getBackingStore()->get('minimumSupportedOperatingSystem');
+        $val = $this->getBackingStore()->get('minimumSupportedOperatingSystem');
+        if (is_null($val) || $val instanceof WindowsMinimumOperatingSystem) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumSupportedOperatingSystem'");
     }
 
     /**
@@ -132,7 +165,11 @@ class WindowsPackageInformation implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Hardware information of a given device.
@@ -42,7 +43,12 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -58,7 +64,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getBatteryChargeCycles(): ?int {
-        return $this->getBackingStore()->get('batteryChargeCycles');
+        $val = $this->getBackingStore()->get('batteryChargeCycles');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'batteryChargeCycles'");
     }
 
     /**
@@ -66,7 +76,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getBatteryHealthPercentage(): ?int {
-        return $this->getBackingStore()->get('batteryHealthPercentage');
+        $val = $this->getBackingStore()->get('batteryHealthPercentage');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'batteryHealthPercentage'");
     }
 
     /**
@@ -74,7 +88,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return float|null
     */
     public function getBatteryLevelPercentage(): ?float {
-        return $this->getBackingStore()->get('batteryLevelPercentage');
+        $val = $this->getBackingStore()->get('batteryLevelPercentage');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'batteryLevelPercentage'");
     }
 
     /**
@@ -82,7 +100,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getBatterySerialNumber(): ?string {
-        return $this->getBackingStore()->get('batterySerialNumber');
+        $val = $this->getBackingStore()->get('batterySerialNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'batterySerialNumber'");
     }
 
     /**
@@ -90,7 +112,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getCellularTechnology(): ?string {
-        return $this->getBackingStore()->get('cellularTechnology');
+        $val = $this->getBackingStore()->get('cellularTechnology');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cellularTechnology'");
     }
 
     /**
@@ -98,7 +124,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDeviceFullQualifiedDomainName(): ?string {
-        return $this->getBackingStore()->get('deviceFullQualifiedDomainName');
+        $val = $this->getBackingStore()->get('deviceFullQualifiedDomainName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceFullQualifiedDomainName'");
     }
 
     /**
@@ -106,7 +136,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return DeviceGuardLocalSystemAuthorityCredentialGuardState|null
     */
     public function getDeviceGuardLocalSystemAuthorityCredentialGuardState(): ?DeviceGuardLocalSystemAuthorityCredentialGuardState {
-        return $this->getBackingStore()->get('deviceGuardLocalSystemAuthorityCredentialGuardState');
+        $val = $this->getBackingStore()->get('deviceGuardLocalSystemAuthorityCredentialGuardState');
+        if (is_null($val) || $val instanceof DeviceGuardLocalSystemAuthorityCredentialGuardState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceGuardLocalSystemAuthorityCredentialGuardState'");
     }
 
     /**
@@ -114,7 +148,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return DeviceGuardVirtualizationBasedSecurityHardwareRequirementState|null
     */
     public function getDeviceGuardVirtualizationBasedSecurityHardwareRequirementState(): ?DeviceGuardVirtualizationBasedSecurityHardwareRequirementState {
-        return $this->getBackingStore()->get('deviceGuardVirtualizationBasedSecurityHardwareRequirementState');
+        $val = $this->getBackingStore()->get('deviceGuardVirtualizationBasedSecurityHardwareRequirementState');
+        if (is_null($val) || $val instanceof DeviceGuardVirtualizationBasedSecurityHardwareRequirementState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceGuardVirtualizationBasedSecurityHardwareRequirementState'");
     }
 
     /**
@@ -122,7 +160,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return DeviceGuardVirtualizationBasedSecurityState|null
     */
     public function getDeviceGuardVirtualizationBasedSecurityState(): ?DeviceGuardVirtualizationBasedSecurityState {
-        return $this->getBackingStore()->get('deviceGuardVirtualizationBasedSecurityState');
+        $val = $this->getBackingStore()->get('deviceGuardVirtualizationBasedSecurityState');
+        if (is_null($val) || $val instanceof DeviceGuardVirtualizationBasedSecurityState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceGuardVirtualizationBasedSecurityState'");
     }
 
     /**
@@ -130,7 +172,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getDeviceLicensingLastErrorCode(): ?int {
-        return $this->getBackingStore()->get('deviceLicensingLastErrorCode');
+        $val = $this->getBackingStore()->get('deviceLicensingLastErrorCode');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceLicensingLastErrorCode'");
     }
 
     /**
@@ -138,7 +184,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDeviceLicensingLastErrorDescription(): ?string {
-        return $this->getBackingStore()->get('deviceLicensingLastErrorDescription');
+        $val = $this->getBackingStore()->get('deviceLicensingLastErrorDescription');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceLicensingLastErrorDescription'");
     }
 
     /**
@@ -146,7 +196,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return DeviceLicensingStatus|null
     */
     public function getDeviceLicensingStatus(): ?DeviceLicensingStatus {
-        return $this->getBackingStore()->get('deviceLicensingStatus');
+        $val = $this->getBackingStore()->get('deviceLicensingStatus');
+        if (is_null($val) || $val instanceof DeviceLicensingStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceLicensingStatus'");
     }
 
     /**
@@ -154,12 +208,16 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getEsimIdentifier(): ?string {
-        return $this->getBackingStore()->get('esimIdentifier');
+        $val = $this->getBackingStore()->get('esimIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'esimIdentifier'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -204,7 +262,14 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
             'tpmSpecificationVersion' => fn(ParseNode $n) => $o->setTpmSpecificationVersion($n->getStringValue()),
             'tpmVersion' => fn(ParseNode $n) => $o->setTpmVersion($n->getStringValue()),
             'wifiMac' => fn(ParseNode $n) => $o->setWifiMac($n->getStringValue()),
-            'wiredIPv4Addresses' => fn(ParseNode $n) => $o->setWiredIPv4Addresses($n->getCollectionOfPrimitiveValues()),
+            'wiredIPv4Addresses' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setWiredIPv4Addresses($val);
+            },
         ];
     }
 
@@ -213,7 +278,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getFreeStorageSpace(): ?int {
-        return $this->getBackingStore()->get('freeStorageSpace');
+        $val = $this->getBackingStore()->get('freeStorageSpace');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'freeStorageSpace'");
     }
 
     /**
@@ -221,7 +290,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getImei(): ?string {
-        return $this->getBackingStore()->get('imei');
+        $val = $this->getBackingStore()->get('imei');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'imei'");
     }
 
     /**
@@ -229,7 +302,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getIpAddressV4(): ?string {
-        return $this->getBackingStore()->get('ipAddressV4');
+        $val = $this->getBackingStore()->get('ipAddressV4');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ipAddressV4'");
     }
 
     /**
@@ -237,7 +314,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getIsEncrypted(): ?bool {
-        return $this->getBackingStore()->get('isEncrypted');
+        $val = $this->getBackingStore()->get('isEncrypted');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isEncrypted'");
     }
 
     /**
@@ -245,7 +326,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getIsSharedDevice(): ?bool {
-        return $this->getBackingStore()->get('isSharedDevice');
+        $val = $this->getBackingStore()->get('isSharedDevice');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isSharedDevice'");
     }
 
     /**
@@ -253,7 +338,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getIsSupervised(): ?bool {
-        return $this->getBackingStore()->get('isSupervised');
+        $val = $this->getBackingStore()->get('isSupervised');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isSupervised'");
     }
 
     /**
@@ -261,7 +350,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getManufacturer(): ?string {
-        return $this->getBackingStore()->get('manufacturer');
+        $val = $this->getBackingStore()->get('manufacturer');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'manufacturer'");
     }
 
     /**
@@ -269,7 +362,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getMeid(): ?string {
-        return $this->getBackingStore()->get('meid');
+        $val = $this->getBackingStore()->get('meid');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'meid'");
     }
 
     /**
@@ -277,7 +374,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getModel(): ?string {
-        return $this->getBackingStore()->get('model');
+        $val = $this->getBackingStore()->get('model');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'model'");
     }
 
     /**
@@ -285,7 +386,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -293,7 +398,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOperatingSystemEdition(): ?string {
-        return $this->getBackingStore()->get('operatingSystemEdition');
+        $val = $this->getBackingStore()->get('operatingSystemEdition');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'operatingSystemEdition'");
     }
 
     /**
@@ -301,7 +410,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOperatingSystemLanguage(): ?string {
-        return $this->getBackingStore()->get('operatingSystemLanguage');
+        $val = $this->getBackingStore()->get('operatingSystemLanguage');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'operatingSystemLanguage'");
     }
 
     /**
@@ -309,7 +422,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getOperatingSystemProductType(): ?int {
-        return $this->getBackingStore()->get('operatingSystemProductType');
+        $val = $this->getBackingStore()->get('operatingSystemProductType');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'operatingSystemProductType'");
     }
 
     /**
@@ -317,7 +434,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOsBuildNumber(): ?string {
-        return $this->getBackingStore()->get('osBuildNumber');
+        $val = $this->getBackingStore()->get('osBuildNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osBuildNumber'");
     }
 
     /**
@@ -325,7 +446,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getPhoneNumber(): ?string {
-        return $this->getBackingStore()->get('phoneNumber');
+        $val = $this->getBackingStore()->get('phoneNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'phoneNumber'");
     }
 
     /**
@@ -333,7 +458,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getProductName(): ?string {
-        return $this->getBackingStore()->get('productName');
+        $val = $this->getBackingStore()->get('productName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'productName'");
     }
 
     /**
@@ -341,7 +470,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getResidentUsersCount(): ?int {
-        return $this->getBackingStore()->get('residentUsersCount');
+        $val = $this->getBackingStore()->get('residentUsersCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'residentUsersCount'");
     }
 
     /**
@@ -349,7 +482,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getSerialNumber(): ?string {
-        return $this->getBackingStore()->get('serialNumber');
+        $val = $this->getBackingStore()->get('serialNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'serialNumber'");
     }
 
     /**
@@ -357,7 +494,13 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<SharedAppleDeviceUser>|null
     */
     public function getSharedDeviceCachedUsers(): ?array {
-        return $this->getBackingStore()->get('sharedDeviceCachedUsers');
+        $val = $this->getBackingStore()->get('sharedDeviceCachedUsers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SharedAppleDeviceUser::class);
+            /** @var array<SharedAppleDeviceUser>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sharedDeviceCachedUsers'");
     }
 
     /**
@@ -365,7 +508,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getSubnetAddress(): ?string {
-        return $this->getBackingStore()->get('subnetAddress');
+        $val = $this->getBackingStore()->get('subnetAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subnetAddress'");
     }
 
     /**
@@ -373,7 +520,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getSubscriberCarrier(): ?string {
-        return $this->getBackingStore()->get('subscriberCarrier');
+        $val = $this->getBackingStore()->get('subscriberCarrier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subscriberCarrier'");
     }
 
     /**
@@ -381,7 +532,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getSystemManagementBIOSVersion(): ?string {
-        return $this->getBackingStore()->get('systemManagementBIOSVersion');
+        $val = $this->getBackingStore()->get('systemManagementBIOSVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'systemManagementBIOSVersion'");
     }
 
     /**
@@ -389,7 +544,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getTotalStorageSpace(): ?int {
-        return $this->getBackingStore()->get('totalStorageSpace');
+        $val = $this->getBackingStore()->get('totalStorageSpace');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalStorageSpace'");
     }
 
     /**
@@ -397,7 +556,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getTpmManufacturer(): ?string {
-        return $this->getBackingStore()->get('tpmManufacturer');
+        $val = $this->getBackingStore()->get('tpmManufacturer');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tpmManufacturer'");
     }
 
     /**
@@ -405,7 +568,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getTpmSpecificationVersion(): ?string {
-        return $this->getBackingStore()->get('tpmSpecificationVersion');
+        $val = $this->getBackingStore()->get('tpmSpecificationVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tpmSpecificationVersion'");
     }
 
     /**
@@ -413,7 +580,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getTpmVersion(): ?string {
-        return $this->getBackingStore()->get('tpmVersion');
+        $val = $this->getBackingStore()->get('tpmVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tpmVersion'");
     }
 
     /**
@@ -421,7 +592,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getWifiMac(): ?string {
-        return $this->getBackingStore()->get('wifiMac');
+        $val = $this->getBackingStore()->get('wifiMac');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wifiMac'");
     }
 
     /**
@@ -429,7 +604,13 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getWiredIPv4Addresses(): ?array {
-        return $this->getBackingStore()->get('wiredIPv4Addresses');
+        $val = $this->getBackingStore()->get('wiredIPv4Addresses');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wiredIPv4Addresses'");
     }
 
     /**

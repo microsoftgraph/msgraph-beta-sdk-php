@@ -39,7 +39,12 @@ class UploadSecretPostRequestBody implements AdditionalDataHolder, BackedModel, 
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,12 +60,16 @@ class UploadSecretPostRequestBody implements AdditionalDataHolder, BackedModel, 
      * @return int|null
     */
     public function getExp(): ?int {
-        return $this->getBackingStore()->get('exp');
+        $val = $this->getBackingStore()->get('exp');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exp'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -77,7 +86,11 @@ class UploadSecretPostRequestBody implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getK(): ?string {
-        return $this->getBackingStore()->get('k');
+        $val = $this->getBackingStore()->get('k');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'k'");
     }
 
     /**
@@ -85,7 +98,11 @@ class UploadSecretPostRequestBody implements AdditionalDataHolder, BackedModel, 
      * @return int|null
     */
     public function getNbf(): ?int {
-        return $this->getBackingStore()->get('nbf');
+        $val = $this->getBackingStore()->get('nbf');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'nbf'");
     }
 
     /**
@@ -93,7 +110,11 @@ class UploadSecretPostRequestBody implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getUse(): ?string {
-        return $this->getBackingStore()->get('escapedUse');
+        $val = $this->getBackingStore()->get('escapedUse');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'escapedUse'");
     }
 
     /**

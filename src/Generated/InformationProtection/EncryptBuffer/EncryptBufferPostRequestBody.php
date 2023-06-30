@@ -40,7 +40,12 @@ class EncryptBufferPostRequestBody implements AdditionalDataHolder, BackedModel,
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -56,12 +61,16 @@ class EncryptBufferPostRequestBody implements AdditionalDataHolder, BackedModel,
      * @return StreamInterface|null
     */
     public function getBuffer(): ?StreamInterface {
-        return $this->getBackingStore()->get('buffer');
+        $val = $this->getBackingStore()->get('buffer');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'buffer'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -76,7 +85,11 @@ class EncryptBufferPostRequestBody implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getLabelId(): ?string {
-        return $this->getBackingStore()->get('labelId');
+        $val = $this->getBackingStore()->get('labelId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'labelId'");
     }
 
     /**

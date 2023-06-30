@@ -7,6 +7,7 @@ use Microsoft\Graph\Beta\Generated\Models\LongRunningOperation;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class IndustryDataRoot extends Entity implements Parsable 
 {
@@ -31,12 +32,18 @@ class IndustryDataRoot extends Entity implements Parsable
      * @return array<IndustryDataConnector>|null
     */
     public function getDataConnectors(): ?array {
-        return $this->getBackingStore()->get('dataConnectors');
+        $val = $this->getBackingStore()->get('dataConnectors');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IndustryDataConnector::class);
+            /** @var array<IndustryDataConnector>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dataConnectors'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -57,7 +64,13 @@ class IndustryDataRoot extends Entity implements Parsable
      * @return array<InboundFlow>|null
     */
     public function getInboundFlows(): ?array {
-        return $this->getBackingStore()->get('inboundFlows');
+        $val = $this->getBackingStore()->get('inboundFlows');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, InboundFlow::class);
+            /** @var array<InboundFlow>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inboundFlows'");
     }
 
     /**
@@ -65,7 +78,13 @@ class IndustryDataRoot extends Entity implements Parsable
      * @return array<LongRunningOperation>|null
     */
     public function getOperations(): ?array {
-        return $this->getBackingStore()->get('operations');
+        $val = $this->getBackingStore()->get('operations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, LongRunningOperation::class);
+            /** @var array<LongRunningOperation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'operations'");
     }
 
     /**
@@ -73,7 +92,13 @@ class IndustryDataRoot extends Entity implements Parsable
      * @return array<ReferenceDefinition>|null
     */
     public function getReferenceDefinitions(): ?array {
-        return $this->getBackingStore()->get('referenceDefinitions');
+        $val = $this->getBackingStore()->get('referenceDefinitions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ReferenceDefinition::class);
+            /** @var array<ReferenceDefinition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'referenceDefinitions'");
     }
 
     /**
@@ -81,7 +106,13 @@ class IndustryDataRoot extends Entity implements Parsable
      * @return array<RoleGroup>|null
     */
     public function getRoleGroups(): ?array {
-        return $this->getBackingStore()->get('roleGroups');
+        $val = $this->getBackingStore()->get('roleGroups');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RoleGroup::class);
+            /** @var array<RoleGroup>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleGroups'");
     }
 
     /**
@@ -89,7 +120,13 @@ class IndustryDataRoot extends Entity implements Parsable
      * @return array<IndustryDataRun>|null
     */
     public function getRuns(): ?array {
-        return $this->getBackingStore()->get('runs');
+        $val = $this->getBackingStore()->get('runs');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IndustryDataRun::class);
+            /** @var array<IndustryDataRun>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'runs'");
     }
 
     /**
@@ -97,7 +134,13 @@ class IndustryDataRoot extends Entity implements Parsable
      * @return array<SourceSystemDefinition>|null
     */
     public function getSourceSystems(): ?array {
-        return $this->getBackingStore()->get('sourceSystems');
+        $val = $this->getBackingStore()->get('sourceSystems');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SourceSystemDefinition::class);
+            /** @var array<SourceSystemDefinition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sourceSystems'");
     }
 
     /**
@@ -105,7 +148,13 @@ class IndustryDataRoot extends Entity implements Parsable
      * @return array<YearTimePeriodDefinition>|null
     */
     public function getYears(): ?array {
-        return $this->getBackingStore()->get('years');
+        $val = $this->getBackingStore()->get('years');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, YearTimePeriodDefinition::class);
+            /** @var array<YearTimePeriodDefinition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'years'");
     }
 
     /**

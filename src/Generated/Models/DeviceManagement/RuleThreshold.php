@@ -39,7 +39,12 @@ class RuleThreshold implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +52,11 @@ class RuleThreshold implements AdditionalDataHolder, BackedModel, Parsable
      * @return AggregationType|null
     */
     public function getAggregation(): ?AggregationType {
-        return $this->getBackingStore()->get('aggregation');
+        $val = $this->getBackingStore()->get('aggregation');
+        if (is_null($val) || $val instanceof AggregationType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'aggregation'");
     }
 
     /**
@@ -60,7 +69,7 @@ class RuleThreshold implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -77,7 +86,11 @@ class RuleThreshold implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -85,7 +98,11 @@ class RuleThreshold implements AdditionalDataHolder, BackedModel, Parsable
      * @return OperatorType|null
     */
     public function getOperator(): ?OperatorType {
-        return $this->getBackingStore()->get('operator');
+        $val = $this->getBackingStore()->get('operator');
+        if (is_null($val) || $val instanceof OperatorType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'operator'");
     }
 
     /**
@@ -93,7 +110,11 @@ class RuleThreshold implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getTarget(): ?int {
-        return $this->getBackingStore()->get('target');
+        $val = $this->getBackingStore()->get('target');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'target'");
     }
 
     /**

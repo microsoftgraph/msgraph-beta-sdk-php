@@ -33,7 +33,11 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getAnomalyId(): ?string {
-        return $this->getBackingStore()->get('anomalyId');
+        $val = $this->getBackingStore()->get('anomalyId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'anomalyId'");
     }
 
     /**
@@ -41,7 +45,11 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getAnomalyOnDeviceFirstOccurrenceDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('anomalyOnDeviceFirstOccurrenceDateTime');
+        $val = $this->getBackingStore()->get('anomalyOnDeviceFirstOccurrenceDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'anomalyOnDeviceFirstOccurrenceDateTime'");
     }
 
     /**
@@ -49,7 +57,11 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getAnomalyOnDeviceLatestOccurrenceDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('anomalyOnDeviceLatestOccurrenceDateTime');
+        $val = $this->getBackingStore()->get('anomalyOnDeviceLatestOccurrenceDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'anomalyOnDeviceLatestOccurrenceDateTime'");
     }
 
     /**
@@ -57,7 +69,11 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getCorrelationGroupId(): ?string {
-        return $this->getBackingStore()->get('correlationGroupId');
+        $val = $this->getBackingStore()->get('correlationGroupId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'correlationGroupId'");
     }
 
     /**
@@ -65,7 +81,11 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->getBackingStore()->get('deviceId');
+        $val = $this->getBackingStore()->get('deviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceId'");
     }
 
     /**
@@ -73,7 +93,11 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceManufacturer(): ?string {
-        return $this->getBackingStore()->get('deviceManufacturer');
+        $val = $this->getBackingStore()->get('deviceManufacturer');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceManufacturer'");
     }
 
     /**
@@ -81,7 +105,11 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceModel(): ?string {
-        return $this->getBackingStore()->get('deviceModel');
+        $val = $this->getBackingStore()->get('deviceModel');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceModel'");
     }
 
     /**
@@ -89,7 +117,11 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->getBackingStore()->get('deviceName');
+        $val = $this->getBackingStore()->get('deviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceName'");
     }
 
     /**
@@ -97,12 +129,16 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
      * @return UserExperienceAnalyticsDeviceStatus|null
     */
     public function getDeviceStatus(): ?UserExperienceAnalyticsDeviceStatus {
-        return $this->getBackingStore()->get('deviceStatus');
+        $val = $this->getBackingStore()->get('deviceStatus');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsDeviceStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceStatus'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -126,7 +162,11 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getOsName(): ?string {
-        return $this->getBackingStore()->get('osName');
+        $val = $this->getBackingStore()->get('osName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osName'");
     }
 
     /**
@@ -134,7 +174,11 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getOsVersion(): ?string {
-        return $this->getBackingStore()->get('osVersion');
+        $val = $this->getBackingStore()->get('osVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osVersion'");
     }
 
     /**

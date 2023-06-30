@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ExactDataMatchStoreColumn implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class ExactDataMatchStoreColumn implements AdditionalDataHolder, BackedModel, Pa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,12 +58,19 @@ class ExactDataMatchStoreColumn implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'ignoredDelimiters' => fn(ParseNode $n) => $o->setIgnoredDelimiters($n->getCollectionOfPrimitiveValues()),
+            'ignoredDelimiters' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setIgnoredDelimiters($val);
+            },
             'isCaseInsensitive' => fn(ParseNode $n) => $o->setIsCaseInsensitive($n->getBooleanValue()),
             'isSearchable' => fn(ParseNode $n) => $o->setIsSearchable($n->getBooleanValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
@@ -70,7 +83,13 @@ class ExactDataMatchStoreColumn implements AdditionalDataHolder, BackedModel, Pa
      * @return array<string>|null
     */
     public function getIgnoredDelimiters(): ?array {
-        return $this->getBackingStore()->get('ignoredDelimiters');
+        $val = $this->getBackingStore()->get('ignoredDelimiters');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ignoredDelimiters'");
     }
 
     /**
@@ -78,7 +97,11 @@ class ExactDataMatchStoreColumn implements AdditionalDataHolder, BackedModel, Pa
      * @return bool|null
     */
     public function getIsCaseInsensitive(): ?bool {
-        return $this->getBackingStore()->get('isCaseInsensitive');
+        $val = $this->getBackingStore()->get('isCaseInsensitive');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isCaseInsensitive'");
     }
 
     /**
@@ -86,7 +109,11 @@ class ExactDataMatchStoreColumn implements AdditionalDataHolder, BackedModel, Pa
      * @return bool|null
     */
     public function getIsSearchable(): ?bool {
-        return $this->getBackingStore()->get('isSearchable');
+        $val = $this->getBackingStore()->get('isSearchable');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isSearchable'");
     }
 
     /**
@@ -94,7 +121,11 @@ class ExactDataMatchStoreColumn implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -102,7 +133,11 @@ class ExactDataMatchStoreColumn implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

@@ -6,11 +6,15 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * The enrollmentProfile resource represents a collection of configurations which must be provided pre-enrollment to enable enrolling certain devices whose identities have been pre-staged. Pre-staged device identities are assigned to this type of profile to apply the profile's configurations at enrollment of the corresponding device.
+*/
 class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AppleUserInitiatedEnrollmentProfile and sets the default values.
+     * Instantiates a new appleUserInitiatedEnrollmentProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -30,7 +34,13 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
      * @return array<AppleEnrollmentProfileAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->getBackingStore()->get('assignments');
+        $val = $this->getBackingStore()->get('assignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AppleEnrollmentProfileAssignment::class);
+            /** @var array<AppleEnrollmentProfileAssignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignments'");
     }
 
     /**
@@ -38,7 +48,13 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
      * @return array<AppleOwnerTypeEnrollmentType>|null
     */
     public function getAvailableEnrollmentTypeOptions(): ?array {
-        return $this->getBackingStore()->get('availableEnrollmentTypeOptions');
+        $val = $this->getBackingStore()->get('availableEnrollmentTypeOptions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AppleOwnerTypeEnrollmentType::class);
+            /** @var array<AppleOwnerTypeEnrollmentType>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'availableEnrollmentTypeOptions'");
     }
 
     /**
@@ -46,7 +62,11 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -54,7 +74,11 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
      * @return AppleUserInitiatedEnrollmentType|null
     */
     public function getDefaultEnrollmentType(): ?AppleUserInitiatedEnrollmentType {
-        return $this->getBackingStore()->get('defaultEnrollmentType');
+        $val = $this->getBackingStore()->get('defaultEnrollmentType');
+        if (is_null($val) || $val instanceof AppleUserInitiatedEnrollmentType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultEnrollmentType'");
     }
 
     /**
@@ -62,7 +86,11 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -70,12 +98,16 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -97,7 +129,11 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -105,7 +141,11 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
      * @return DevicePlatformType|null
     */
     public function getPlatform(): ?DevicePlatformType {
-        return $this->getBackingStore()->get('platform');
+        $val = $this->getBackingStore()->get('platform');
+        if (is_null($val) || $val instanceof DevicePlatformType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'platform'");
     }
 
     /**
@@ -113,7 +153,11 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
      * @return int|null
     */
     public function getPriority(): ?int {
-        return $this->getBackingStore()->get('priority');
+        $val = $this->getBackingStore()->get('priority');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'priority'");
     }
 
     /**

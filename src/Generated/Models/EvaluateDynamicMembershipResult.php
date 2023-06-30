@@ -39,7 +39,12 @@ class EvaluateDynamicMembershipResult implements AdditionalDataHolder, BackedMod
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +57,7 @@ class EvaluateDynamicMembershipResult implements AdditionalDataHolder, BackedMod
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -69,7 +74,11 @@ class EvaluateDynamicMembershipResult implements AdditionalDataHolder, BackedMod
      * @return string|null
     */
     public function getMembershipRule(): ?string {
-        return $this->getBackingStore()->get('membershipRule');
+        $val = $this->getBackingStore()->get('membershipRule');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'membershipRule'");
     }
 
     /**
@@ -77,7 +86,11 @@ class EvaluateDynamicMembershipResult implements AdditionalDataHolder, BackedMod
      * @return ExpressionEvaluationDetails|null
     */
     public function getMembershipRuleEvaluationDetails(): ?ExpressionEvaluationDetails {
-        return $this->getBackingStore()->get('membershipRuleEvaluationDetails');
+        $val = $this->getBackingStore()->get('membershipRuleEvaluationDetails');
+        if (is_null($val) || $val instanceof ExpressionEvaluationDetails) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'membershipRuleEvaluationDetails'");
     }
 
     /**
@@ -85,7 +98,11 @@ class EvaluateDynamicMembershipResult implements AdditionalDataHolder, BackedMod
      * @return bool|null
     */
     public function getMembershipRuleEvaluationResult(): ?bool {
-        return $this->getBackingStore()->get('membershipRuleEvaluationResult');
+        $val = $this->getBackingStore()->get('membershipRuleEvaluationResult');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'membershipRuleEvaluationResult'");
     }
 
     /**
@@ -93,7 +110,11 @@ class EvaluateDynamicMembershipResult implements AdditionalDataHolder, BackedMod
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

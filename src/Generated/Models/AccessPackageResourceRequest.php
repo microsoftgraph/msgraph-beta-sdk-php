@@ -30,7 +30,11 @@ class AccessPackageResourceRequest extends Entity implements Parsable
      * @return AccessPackageResource|null
     */
     public function getAccessPackageResource(): ?AccessPackageResource {
-        return $this->getBackingStore()->get('accessPackageResource');
+        $val = $this->getBackingStore()->get('accessPackageResource');
+        if (is_null($val) || $val instanceof AccessPackageResource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accessPackageResource'");
     }
 
     /**
@@ -38,7 +42,11 @@ class AccessPackageResourceRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getCatalogId(): ?string {
-        return $this->getBackingStore()->get('catalogId');
+        $val = $this->getBackingStore()->get('catalogId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'catalogId'");
     }
 
     /**
@@ -46,7 +54,11 @@ class AccessPackageResourceRequest extends Entity implements Parsable
      * @return bool|null
     */
     public function getExecuteImmediately(): ?bool {
-        return $this->getBackingStore()->get('executeImmediately');
+        $val = $this->getBackingStore()->get('executeImmediately');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'executeImmediately'");
     }
 
     /**
@@ -54,12 +66,16 @@ class AccessPackageResourceRequest extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('expirationDateTime');
+        $val = $this->getBackingStore()->get('expirationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expirationDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -82,7 +98,11 @@ class AccessPackageResourceRequest extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsValidationOnly(): ?bool {
-        return $this->getBackingStore()->get('isValidationOnly');
+        $val = $this->getBackingStore()->get('isValidationOnly');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isValidationOnly'");
     }
 
     /**
@@ -90,7 +110,11 @@ class AccessPackageResourceRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getJustification(): ?string {
-        return $this->getBackingStore()->get('justification');
+        $val = $this->getBackingStore()->get('justification');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'justification'");
     }
 
     /**
@@ -98,7 +122,11 @@ class AccessPackageResourceRequest extends Entity implements Parsable
      * @return AccessPackageSubject|null
     */
     public function getRequestor(): ?AccessPackageSubject {
-        return $this->getBackingStore()->get('requestor');
+        $val = $this->getBackingStore()->get('requestor');
+        if (is_null($val) || $val instanceof AccessPackageSubject) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requestor'");
     }
 
     /**
@@ -106,7 +134,11 @@ class AccessPackageResourceRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getRequestState(): ?string {
-        return $this->getBackingStore()->get('requestState');
+        $val = $this->getBackingStore()->get('requestState');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requestState'");
     }
 
     /**
@@ -114,7 +146,11 @@ class AccessPackageResourceRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getRequestStatus(): ?string {
-        return $this->getBackingStore()->get('requestStatus');
+        $val = $this->getBackingStore()->get('requestStatus');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requestStatus'");
     }
 
     /**
@@ -122,7 +158,11 @@ class AccessPackageResourceRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getRequestType(): ?string {
-        return $this->getBackingStore()->get('requestType');
+        $val = $this->getBackingStore()->get('requestType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requestType'");
     }
 
     /**

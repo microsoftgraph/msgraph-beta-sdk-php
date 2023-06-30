@@ -40,7 +40,12 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -48,7 +53,11 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getAzureStorageAccountId(): ?string {
-        return $this->getBackingStore()->get('azureStorageAccountId');
+        $val = $this->getBackingStore()->get('azureStorageAccountId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureStorageAccountId'");
     }
 
     /**
@@ -56,7 +65,11 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getAzureStorageAccountName(): ?string {
-        return $this->getBackingStore()->get('azureStorageAccountName');
+        $val = $this->getBackingStore()->get('azureStorageAccountName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureStorageAccountName'");
     }
 
     /**
@@ -64,7 +77,11 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getAzureStorageContainerName(): ?string {
-        return $this->getBackingStore()->get('azureStorageContainerName');
+        $val = $this->getBackingStore()->get('azureStorageContainerName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureStorageContainerName'");
     }
 
     /**
@@ -77,7 +94,7 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -100,7 +117,11 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getInReview(): ?bool {
-        return $this->getBackingStore()->get('inReview');
+        $val = $this->getBackingStore()->get('inReview');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inReview'");
     }
 
     /**
@@ -108,7 +129,11 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -116,7 +141,11 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
      * @return DateTime|null
     */
     public function getRestorePointDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('restorePointDateTime');
+        $val = $this->getBackingStore()->get('restorePointDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'restorePointDateTime'");
     }
 
     /**
@@ -124,7 +153,11 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
      * @return DateTime|null
     */
     public function getReviewStartDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('reviewStartDateTime');
+        $val = $this->getBackingStore()->get('reviewStartDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reviewStartDateTime'");
     }
 
     /**
@@ -132,7 +165,11 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getSubscriptionId(): ?string {
-        return $this->getBackingStore()->get('subscriptionId');
+        $val = $this->getBackingStore()->get('subscriptionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subscriptionId'");
     }
 
     /**
@@ -140,7 +177,11 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getSubscriptionName(): ?string {
-        return $this->getBackingStore()->get('subscriptionName');
+        $val = $this->getBackingStore()->get('subscriptionName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subscriptionName'");
     }
 
     /**
@@ -148,7 +189,11 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
      * @return CloudPcUserAccessLevel|null
     */
     public function getUserAccessLevel(): ?CloudPcUserAccessLevel {
-        return $this->getBackingStore()->get('userAccessLevel');
+        $val = $this->getBackingStore()->get('userAccessLevel');
+        if (is_null($val) || $val instanceof CloudPcUserAccessLevel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userAccessLevel'");
     }
 
     /**

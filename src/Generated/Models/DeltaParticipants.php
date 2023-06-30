@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DeltaParticipants extends Entity implements Parsable 
 {
@@ -26,7 +27,7 @@ class DeltaParticipants extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +42,13 @@ class DeltaParticipants extends Entity implements Parsable
      * @return array<Participant>|null
     */
     public function getParticipants(): ?array {
-        return $this->getBackingStore()->get('participants');
+        $val = $this->getBackingStore()->get('participants');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Participant::class);
+            /** @var array<Participant>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'participants'");
     }
 
     /**
@@ -49,7 +56,11 @@ class DeltaParticipants extends Entity implements Parsable
      * @return int|null
     */
     public function getSequenceNumber(): ?int {
-        return $this->getBackingStore()->get('sequenceNumber');
+        $val = $this->getBackingStore()->get('sequenceNumber');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sequenceNumber'");
     }
 
     /**

@@ -43,7 +43,12 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -59,7 +64,11 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->getBackingStore()->get('deviceName');
+        $val = $this->getBackingStore()->get('deviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceName'");
     }
 
     /**
@@ -67,12 +76,16 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDomain(): ?string {
-        return $this->getBackingStore()->get('domain');
+        $val = $this->getBackingStore()->get('domain');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'domain'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -97,7 +110,11 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getIpAddress(): ?string {
-        return $this->getBackingStore()->get('ipAddress');
+        $val = $this->getBackingStore()->get('ipAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ipAddress'");
     }
 
     /**
@@ -105,7 +122,11 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getLastLoggedOnUser(): ?string {
-        return $this->getBackingStore()->get('lastLoggedOnUser');
+        $val = $this->getBackingStore()->get('lastLoggedOnUser');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastLoggedOnUser'");
     }
 
     /**
@@ -113,7 +134,11 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
      * @return DateTime|null
     */
     public function getLastSeenDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastSeenDateTime');
+        $val = $this->getBackingStore()->get('lastSeenDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSeenDateTime'");
     }
 
     /**
@@ -121,7 +146,11 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getLocation(): ?string {
-        return $this->getBackingStore()->get('location');
+        $val = $this->getBackingStore()->get('location');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'location'");
     }
 
     /**
@@ -129,7 +158,11 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getMacAddress(): ?string {
-        return $this->getBackingStore()->get('macAddress');
+        $val = $this->getBackingStore()->get('macAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'macAddress'");
     }
 
     /**
@@ -137,7 +170,11 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getManufacturer(): ?string {
-        return $this->getBackingStore()->get('manufacturer');
+        $val = $this->getBackingStore()->get('manufacturer');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'manufacturer'");
     }
 
     /**
@@ -145,7 +182,11 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getModel(): ?string {
-        return $this->getBackingStore()->get('model');
+        $val = $this->getBackingStore()->get('model');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'model'");
     }
 
     /**
@@ -153,7 +194,11 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -161,7 +206,11 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOs(): ?string {
-        return $this->getBackingStore()->get('os');
+        $val = $this->getBackingStore()->get('os');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'os'");
     }
 
     /**
@@ -169,7 +218,11 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOsVersion(): ?string {
-        return $this->getBackingStore()->get('osVersion');
+        $val = $this->getBackingStore()->get('osVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osVersion'");
     }
 
     /**

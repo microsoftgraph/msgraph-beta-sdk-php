@@ -43,7 +43,12 @@ class ConnectorStatusDetails implements AdditionalDataHolder, BackedModel, Parsa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -59,7 +64,11 @@ class ConnectorStatusDetails implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getConnectorInstanceId(): ?string {
-        return $this->getBackingStore()->get('connectorInstanceId');
+        $val = $this->getBackingStore()->get('connectorInstanceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectorInstanceId'");
     }
 
     /**
@@ -67,7 +76,11 @@ class ConnectorStatusDetails implements AdditionalDataHolder, BackedModel, Parsa
      * @return ConnectorName|null
     */
     public function getConnectorName(): ?ConnectorName {
-        return $this->getBackingStore()->get('connectorName');
+        $val = $this->getBackingStore()->get('connectorName');
+        if (is_null($val) || $val instanceof ConnectorName) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectorName'");
     }
 
     /**
@@ -75,12 +88,16 @@ class ConnectorStatusDetails implements AdditionalDataHolder, BackedModel, Parsa
      * @return DateTime|null
     */
     public function getEventDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('eventDateTime');
+        $val = $this->getBackingStore()->get('eventDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eventDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -98,7 +115,11 @@ class ConnectorStatusDetails implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -106,7 +127,11 @@ class ConnectorStatusDetails implements AdditionalDataHolder, BackedModel, Parsa
      * @return ConnectorHealthState|null
     */
     public function getStatus(): ?ConnectorHealthState {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof ConnectorHealthState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

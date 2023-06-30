@@ -29,12 +29,16 @@ class MicrosoftApplicationDataAccessSettings extends Entity implements Parsable
      * @return string|null
     */
     public function getDisabledForGroup(): ?string {
-        return $this->getBackingStore()->get('disabledForGroup');
+        $val = $this->getBackingStore()->get('disabledForGroup');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disabledForGroup'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -49,7 +53,11 @@ class MicrosoftApplicationDataAccessSettings extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsEnabledForAllMicrosoftApplications(): ?bool {
-        return $this->getBackingStore()->get('isEnabledForAllMicrosoftApplications');
+        $val = $this->getBackingStore()->get('isEnabledForAllMicrosoftApplications');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isEnabledForAllMicrosoftApplications'");
     }
 
     /**

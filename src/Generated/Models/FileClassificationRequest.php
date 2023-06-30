@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
 class FileClassificationRequest extends Entity implements Parsable 
@@ -27,13 +28,20 @@ class FileClassificationRequest extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'file' => fn(ParseNode $n) => $o->setFile($n->getBinaryContent()),
-            'sensitiveTypeIds' => fn(ParseNode $n) => $o->setSensitiveTypeIds($n->getCollectionOfPrimitiveValues()),
+            'sensitiveTypeIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSensitiveTypeIds($val);
+            },
         ]);
     }
 
@@ -42,7 +50,11 @@ class FileClassificationRequest extends Entity implements Parsable
      * @return StreamInterface|null
     */
     public function getFile(): ?StreamInterface {
-        return $this->getBackingStore()->get('file');
+        $val = $this->getBackingStore()->get('file');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'file'");
     }
 
     /**
@@ -50,7 +62,13 @@ class FileClassificationRequest extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getSensitiveTypeIds(): ?array {
-        return $this->getBackingStore()->get('sensitiveTypeIds');
+        $val = $this->getBackingStore()->get('sensitiveTypeIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sensitiveTypeIds'");
     }
 
     /**

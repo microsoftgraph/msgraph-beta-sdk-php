@@ -46,7 +46,12 @@ class ClassifcationErrorBase implements AdditionalDataHolder, BackedModel, Parsa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -62,12 +67,16 @@ class ClassifcationErrorBase implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getCode(): ?string {
-        return $this->getBackingStore()->get('code');
+        $val = $this->getBackingStore()->get('code');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'code'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -85,7 +94,11 @@ class ClassifcationErrorBase implements AdditionalDataHolder, BackedModel, Parsa
      * @return ClassificationInnerError|null
     */
     public function getInnerError(): ?ClassificationInnerError {
-        return $this->getBackingStore()->get('innerError');
+        $val = $this->getBackingStore()->get('innerError');
+        if (is_null($val) || $val instanceof ClassificationInnerError) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'innerError'");
     }
 
     /**
@@ -93,7 +106,11 @@ class ClassifcationErrorBase implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getMessage(): ?string {
-        return $this->getBackingStore()->get('message');
+        $val = $this->getBackingStore()->get('message');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'message'");
     }
 
     /**
@@ -101,7 +118,11 @@ class ClassifcationErrorBase implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -109,7 +130,11 @@ class ClassifcationErrorBase implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getTarget(): ?string {
-        return $this->getBackingStore()->get('target');
+        $val = $this->getBackingStore()->get('target');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'target'");
     }
 
     /**

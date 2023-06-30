@@ -24,6 +24,7 @@ use Microsoft\Graph\Beta\Generated\Policies\DeviceRegistrationPolicy\DeviceRegis
 use Microsoft\Graph\Beta\Generated\Policies\DirectoryRoleAccessReviewPolicy\DirectoryRoleAccessReviewPolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\ExternalIdentitiesPolicy\ExternalIdentitiesPolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\FeatureRolloutPolicies\FeatureRolloutPoliciesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Policies\FederatedTokenValidationPolicy\FederatedTokenValidationPolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\HomeRealmDiscoveryPolicies\HomeRealmDiscoveryPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\IdentitySecurityDefaultsEnforcementPolicy\IdentitySecurityDefaultsEnforcementPolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\MobileAppManagementPolicies\MobileAppManagementPoliciesRequestBuilder;
@@ -161,6 +162,13 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     */
     public function featureRolloutPolicies(): FeatureRolloutPoliciesRequestBuilder {
         return new FeatureRolloutPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the federatedTokenValidationPolicy property of the microsoft.graph.policyRoot entity.
+    */
+    public function federatedTokenValidationPolicy(): FederatedTokenValidationPolicyRequestBuilder {
+        return new FederatedTokenValidationPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

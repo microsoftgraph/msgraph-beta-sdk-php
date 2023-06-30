@@ -50,7 +50,7 @@ class UnifiedRoleManagementAlertDefinitionItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Get alertDefinitions from identityGovernance
+     * Defines an alert, its impact, and measures to mitigate or prevent it.
      * @param UnifiedRoleManagementAlertDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -104,7 +104,7 @@ class UnifiedRoleManagementAlertDefinitionItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Get alertDefinitions from identityGovernance
+     * Defines an alert, its impact, and measures to mitigate or prevent it.
      * @param UnifiedRoleManagementAlertDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

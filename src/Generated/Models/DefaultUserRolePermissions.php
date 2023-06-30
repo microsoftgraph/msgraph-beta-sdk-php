@@ -39,7 +39,12 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, BackedModel, P
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +52,11 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, BackedModel, P
      * @return bool|null
     */
     public function getAllowedToCreateApps(): ?bool {
-        return $this->getBackingStore()->get('allowedToCreateApps');
+        $val = $this->getBackingStore()->get('allowedToCreateApps');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedToCreateApps'");
     }
 
     /**
@@ -55,7 +64,11 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, BackedModel, P
      * @return bool|null
     */
     public function getAllowedToCreateSecurityGroups(): ?bool {
-        return $this->getBackingStore()->get('allowedToCreateSecurityGroups');
+        $val = $this->getBackingStore()->get('allowedToCreateSecurityGroups');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedToCreateSecurityGroups'");
     }
 
     /**
@@ -63,7 +76,11 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, BackedModel, P
      * @return bool|null
     */
     public function getAllowedToCreateTenants(): ?bool {
-        return $this->getBackingStore()->get('allowedToCreateTenants');
+        $val = $this->getBackingStore()->get('allowedToCreateTenants');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedToCreateTenants'");
     }
 
     /**
@@ -71,7 +88,11 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, BackedModel, P
      * @return bool|null
     */
     public function getAllowedToReadBitlockerKeysForOwnedDevice(): ?bool {
-        return $this->getBackingStore()->get('allowedToReadBitlockerKeysForOwnedDevice');
+        $val = $this->getBackingStore()->get('allowedToReadBitlockerKeysForOwnedDevice');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedToReadBitlockerKeysForOwnedDevice'");
     }
 
     /**
@@ -79,7 +100,11 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, BackedModel, P
      * @return bool|null
     */
     public function getAllowedToReadOtherUsers(): ?bool {
-        return $this->getBackingStore()->get('allowedToReadOtherUsers');
+        $val = $this->getBackingStore()->get('allowedToReadOtherUsers');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedToReadOtherUsers'");
     }
 
     /**
@@ -92,7 +117,7 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, BackedModel, P
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -111,7 +136,11 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, BackedModel, P
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

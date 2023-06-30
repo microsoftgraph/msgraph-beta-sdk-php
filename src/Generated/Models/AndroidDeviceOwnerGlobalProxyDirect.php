@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AndroidDeviceOwnerGlobalProxyDirect extends AndroidDeviceOwnerGlobalProxy implements Parsable 
 {
@@ -30,17 +31,30 @@ class AndroidDeviceOwnerGlobalProxyDirect extends AndroidDeviceOwnerGlobalProxy 
      * @return array<string>|null
     */
     public function getExcludedHosts(): ?array {
-        return $this->getBackingStore()->get('excludedHosts');
+        $val = $this->getBackingStore()->get('excludedHosts');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'excludedHosts'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'excludedHosts' => fn(ParseNode $n) => $o->setExcludedHosts($n->getCollectionOfPrimitiveValues()),
+            'excludedHosts' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setExcludedHosts($val);
+            },
             'host' => fn(ParseNode $n) => $o->setHost($n->getStringValue()),
             'port' => fn(ParseNode $n) => $o->setPort($n->getIntegerValue()),
         ]);
@@ -51,7 +65,11 @@ class AndroidDeviceOwnerGlobalProxyDirect extends AndroidDeviceOwnerGlobalProxy 
      * @return string|null
     */
     public function getHost(): ?string {
-        return $this->getBackingStore()->get('host');
+        $val = $this->getBackingStore()->get('host');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'host'");
     }
 
     /**
@@ -59,7 +77,11 @@ class AndroidDeviceOwnerGlobalProxyDirect extends AndroidDeviceOwnerGlobalProxy 
      * @return int|null
     */
     public function getPort(): ?int {
-        return $this->getBackingStore()->get('port');
+        $val = $this->getBackingStore()->get('port');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'port'");
     }
 
     /**

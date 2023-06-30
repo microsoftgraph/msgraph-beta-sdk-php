@@ -39,7 +39,12 @@ class ConnectPostRequestBody implements AdditionalDataHolder, BackedModel, Parsa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +57,7 @@ class ConnectPostRequestBody implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -67,7 +72,11 @@ class ConnectPostRequestBody implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getOwnerAccessToken(): ?string {
-        return $this->getBackingStore()->get('ownerAccessToken');
+        $val = $this->getBackingStore()->get('ownerAccessToken');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ownerAccessToken'");
     }
 
     /**
@@ -75,7 +84,11 @@ class ConnectPostRequestBody implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getOwnerUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('ownerUserPrincipalName');
+        $val = $this->getBackingStore()->get('ownerUserPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ownerUserPrincipalName'");
     }
 
     /**

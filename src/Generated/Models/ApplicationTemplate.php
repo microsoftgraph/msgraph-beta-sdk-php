@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ApplicationTemplate extends Entity implements Parsable 
 {
@@ -29,7 +30,13 @@ class ApplicationTemplate extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getCategories(): ?array {
-        return $this->getBackingStore()->get('categories');
+        $val = $this->getBackingStore()->get('categories');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'categories'");
     }
 
     /**
@@ -37,7 +44,11 @@ class ApplicationTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -45,17 +56,28 @@ class ApplicationTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'categories' => fn(ParseNode $n) => $o->setCategories($n->getCollectionOfPrimitiveValues()),
+            'categories' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setCategories($val);
+            },
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'homePageUrl' => fn(ParseNode $n) => $o->setHomePageUrl($n->getStringValue()),
@@ -63,8 +85,22 @@ class ApplicationTemplate extends Entity implements Parsable
             'logoUrl' => fn(ParseNode $n) => $o->setLogoUrl($n->getStringValue()),
             'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
             'supportedClaimConfiguration' => fn(ParseNode $n) => $o->setSupportedClaimConfiguration($n->getObjectValue([SupportedClaimConfiguration::class, 'createFromDiscriminatorValue'])),
-            'supportedProvisioningTypes' => fn(ParseNode $n) => $o->setSupportedProvisioningTypes($n->getCollectionOfPrimitiveValues()),
-            'supportedSingleSignOnModes' => fn(ParseNode $n) => $o->setSupportedSingleSignOnModes($n->getCollectionOfPrimitiveValues()),
+            'supportedProvisioningTypes' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSupportedProvisioningTypes($val);
+            },
+            'supportedSingleSignOnModes' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSupportedSingleSignOnModes($val);
+            },
         ]);
     }
 
@@ -73,7 +109,11 @@ class ApplicationTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getHomePageUrl(): ?string {
-        return $this->getBackingStore()->get('homePageUrl');
+        $val = $this->getBackingStore()->get('homePageUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'homePageUrl'");
     }
 
     /**
@@ -81,7 +121,11 @@ class ApplicationTemplate extends Entity implements Parsable
      * @return InformationalUrls|null
     */
     public function getInformationalUrls(): ?InformationalUrls {
-        return $this->getBackingStore()->get('informationalUrls');
+        $val = $this->getBackingStore()->get('informationalUrls');
+        if (is_null($val) || $val instanceof InformationalUrls) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'informationalUrls'");
     }
 
     /**
@@ -89,7 +133,11 @@ class ApplicationTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getLogoUrl(): ?string {
-        return $this->getBackingStore()->get('logoUrl');
+        $val = $this->getBackingStore()->get('logoUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'logoUrl'");
     }
 
     /**
@@ -97,7 +145,11 @@ class ApplicationTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getPublisher(): ?string {
-        return $this->getBackingStore()->get('publisher');
+        $val = $this->getBackingStore()->get('publisher');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publisher'");
     }
 
     /**
@@ -105,7 +157,11 @@ class ApplicationTemplate extends Entity implements Parsable
      * @return SupportedClaimConfiguration|null
     */
     public function getSupportedClaimConfiguration(): ?SupportedClaimConfiguration {
-        return $this->getBackingStore()->get('supportedClaimConfiguration');
+        $val = $this->getBackingStore()->get('supportedClaimConfiguration');
+        if (is_null($val) || $val instanceof SupportedClaimConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedClaimConfiguration'");
     }
 
     /**
@@ -113,7 +169,13 @@ class ApplicationTemplate extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getSupportedProvisioningTypes(): ?array {
-        return $this->getBackingStore()->get('supportedProvisioningTypes');
+        $val = $this->getBackingStore()->get('supportedProvisioningTypes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedProvisioningTypes'");
     }
 
     /**
@@ -121,7 +183,13 @@ class ApplicationTemplate extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getSupportedSingleSignOnModes(): ?array {
-        return $this->getBackingStore()->get('supportedSingleSignOnModes');
+        $val = $this->getBackingStore()->get('supportedSingleSignOnModes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedSingleSignOnModes'");
     }
 
     /**

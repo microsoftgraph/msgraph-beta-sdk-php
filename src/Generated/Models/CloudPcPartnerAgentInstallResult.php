@@ -39,7 +39,12 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +57,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -70,7 +75,11 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
      * @return CloudPcPartnerAgentInstallStatus|null
     */
     public function getInstallStatus(): ?CloudPcPartnerAgentInstallStatus {
-        return $this->getBackingStore()->get('installStatus');
+        $val = $this->getBackingStore()->get('installStatus');
+        if (is_null($val) || $val instanceof CloudPcPartnerAgentInstallStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'installStatus'");
     }
 
     /**
@@ -78,7 +87,11 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
      * @return bool|null
     */
     public function getIsThirdPartyPartner(): ?bool {
-        return $this->getBackingStore()->get('isThirdPartyPartner');
+        $val = $this->getBackingStore()->get('isThirdPartyPartner');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isThirdPartyPartner'");
     }
 
     /**
@@ -86,7 +99,11 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -94,7 +111,11 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
      * @return CloudPcPartnerAgentName|null
     */
     public function getPartnerAgentName(): ?CloudPcPartnerAgentName {
-        return $this->getBackingStore()->get('partnerAgentName');
+        $val = $this->getBackingStore()->get('partnerAgentName');
+        if (is_null($val) || $val instanceof CloudPcPartnerAgentName) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'partnerAgentName'");
     }
 
     /**
@@ -102,7 +123,11 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
      * @return bool|null
     */
     public function getRetriable(): ?bool {
-        return $this->getBackingStore()->get('retriable');
+        $val = $this->getBackingStore()->get('retriable');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'retriable'");
     }
 
     /**

@@ -39,7 +39,12 @@ class SecurityProviderStatus implements AdditionalDataHolder, BackedModel, Parsa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +60,11 @@ class SecurityProviderStatus implements AdditionalDataHolder, BackedModel, Parsa
      * @return bool|null
     */
     public function getEnabled(): ?bool {
-        return $this->getBackingStore()->get('enabled');
+        $val = $this->getBackingStore()->get('enabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enabled'");
     }
 
     /**
@@ -63,12 +72,16 @@ class SecurityProviderStatus implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getEndpoint(): ?string {
-        return $this->getBackingStore()->get('endpoint');
+        $val = $this->getBackingStore()->get('endpoint');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endpoint'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -87,7 +100,11 @@ class SecurityProviderStatus implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -95,7 +112,11 @@ class SecurityProviderStatus implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getProvider(): ?string {
-        return $this->getBackingStore()->get('provider');
+        $val = $this->getBackingStore()->get('provider');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'provider'");
     }
 
     /**
@@ -103,7 +124,11 @@ class SecurityProviderStatus implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getRegion(): ?string {
-        return $this->getBackingStore()->get('region');
+        $val = $this->getBackingStore()->get('region');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'region'");
     }
 
     /**
@@ -111,7 +136,11 @@ class SecurityProviderStatus implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getVendor(): ?string {
-        return $this->getBackingStore()->get('vendor');
+        $val = $this->getBackingStore()->get('vendor');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vendor'");
     }
 
     /**

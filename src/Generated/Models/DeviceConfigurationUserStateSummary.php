@@ -29,7 +29,11 @@ class DeviceConfigurationUserStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getCompliantUserCount(): ?int {
-        return $this->getBackingStore()->get('compliantUserCount');
+        $val = $this->getBackingStore()->get('compliantUserCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'compliantUserCount'");
     }
 
     /**
@@ -37,7 +41,11 @@ class DeviceConfigurationUserStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getConflictUserCount(): ?int {
-        return $this->getBackingStore()->get('conflictUserCount');
+        $val = $this->getBackingStore()->get('conflictUserCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'conflictUserCount'");
     }
 
     /**
@@ -45,12 +53,16 @@ class DeviceConfigurationUserStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getErrorUserCount(): ?int {
-        return $this->getBackingStore()->get('errorUserCount');
+        $val = $this->getBackingStore()->get('errorUserCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorUserCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -70,7 +82,11 @@ class DeviceConfigurationUserStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getNonCompliantUserCount(): ?int {
-        return $this->getBackingStore()->get('nonCompliantUserCount');
+        $val = $this->getBackingStore()->get('nonCompliantUserCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'nonCompliantUserCount'");
     }
 
     /**
@@ -78,7 +94,11 @@ class DeviceConfigurationUserStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getNotApplicableUserCount(): ?int {
-        return $this->getBackingStore()->get('notApplicableUserCount');
+        $val = $this->getBackingStore()->get('notApplicableUserCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notApplicableUserCount'");
     }
 
     /**
@@ -86,7 +106,11 @@ class DeviceConfigurationUserStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getRemediatedUserCount(): ?int {
-        return $this->getBackingStore()->get('remediatedUserCount');
+        $val = $this->getBackingStore()->get('remediatedUserCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remediatedUserCount'");
     }
 
     /**
@@ -94,7 +118,11 @@ class DeviceConfigurationUserStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getUnknownUserCount(): ?int {
-        return $this->getBackingStore()->get('unknownUserCount');
+        $val = $this->getBackingStore()->get('unknownUserCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'unknownUserCount'");
     }
 
     /**

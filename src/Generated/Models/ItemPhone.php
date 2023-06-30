@@ -30,12 +30,16 @@ class ItemPhone extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -51,7 +55,11 @@ class ItemPhone extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getNumber(): ?string {
-        return $this->getBackingStore()->get('number');
+        $val = $this->getBackingStore()->get('number');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'number'");
     }
 
     /**
@@ -59,7 +67,11 @@ class ItemPhone extends ItemFacet implements Parsable
      * @return PhoneType|null
     */
     public function getType(): ?PhoneType {
-        return $this->getBackingStore()->get('type');
+        $val = $this->getBackingStore()->get('type');
+        if (is_null($val) || $val instanceof PhoneType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
     }
 
     /**

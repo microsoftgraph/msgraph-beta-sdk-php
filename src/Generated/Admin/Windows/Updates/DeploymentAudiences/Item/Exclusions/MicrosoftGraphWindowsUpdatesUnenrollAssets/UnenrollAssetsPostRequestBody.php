@@ -11,6 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class UnenrollAssetsPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -41,7 +42,12 @@ class UnenrollAssetsPostRequestBody implements AdditionalDataHolder, BackedModel
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -49,7 +55,13 @@ class UnenrollAssetsPostRequestBody implements AdditionalDataHolder, BackedModel
      * @return array<UpdatableAsset>|null
     */
     public function getAssets(): ?array {
-        return $this->getBackingStore()->get('assets');
+        $val = $this->getBackingStore()->get('assets');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UpdatableAsset::class);
+            /** @var array<UpdatableAsset>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assets'");
     }
 
     /**
@@ -62,7 +74,7 @@ class UnenrollAssetsPostRequestBody implements AdditionalDataHolder, BackedModel
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -77,7 +89,11 @@ class UnenrollAssetsPostRequestBody implements AdditionalDataHolder, BackedModel
      * @return UpdateCategory|null
     */
     public function getUpdateCategory(): ?UpdateCategory {
-        return $this->getBackingStore()->get('updateCategory');
+        $val = $this->getBackingStore()->get('updateCategory');
+        if (is_null($val) || $val instanceof UpdateCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'updateCategory'");
     }
 
     /**

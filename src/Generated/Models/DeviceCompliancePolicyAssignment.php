@@ -29,7 +29,7 @@ class DeviceCompliancePolicyAssignment extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -45,7 +45,11 @@ class DeviceCompliancePolicyAssignment extends Entity implements Parsable
      * @return DeviceAndAppManagementAssignmentSource|null
     */
     public function getSource(): ?DeviceAndAppManagementAssignmentSource {
-        return $this->getBackingStore()->get('source');
+        $val = $this->getBackingStore()->get('source');
+        if (is_null($val) || $val instanceof DeviceAndAppManagementAssignmentSource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'source'");
     }
 
     /**
@@ -53,7 +57,11 @@ class DeviceCompliancePolicyAssignment extends Entity implements Parsable
      * @return string|null
     */
     public function getSourceId(): ?string {
-        return $this->getBackingStore()->get('sourceId');
+        $val = $this->getBackingStore()->get('sourceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sourceId'");
     }
 
     /**
@@ -61,7 +69,11 @@ class DeviceCompliancePolicyAssignment extends Entity implements Parsable
      * @return DeviceAndAppManagementAssignmentTarget|null
     */
     public function getTarget(): ?DeviceAndAppManagementAssignmentTarget {
-        return $this->getBackingStore()->get('target');
+        $val = $this->getBackingStore()->get('target');
+        if (is_null($val) || $val instanceof DeviceAndAppManagementAssignmentTarget) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'target'");
     }
 
     /**

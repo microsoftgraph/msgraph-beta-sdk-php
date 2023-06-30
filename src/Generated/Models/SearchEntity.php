@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Models\Search\Qna;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class SearchEntity extends Entity implements Parsable 
 {
@@ -32,7 +33,13 @@ class SearchEntity extends Entity implements Parsable
      * @return array<Acronym>|null
     */
     public function getAcronyms(): ?array {
-        return $this->getBackingStore()->get('acronyms');
+        $val = $this->getBackingStore()->get('acronyms');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Acronym::class);
+            /** @var array<Acronym>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'acronyms'");
     }
 
     /**
@@ -40,12 +47,18 @@ class SearchEntity extends Entity implements Parsable
      * @return array<Bookmark>|null
     */
     public function getBookmarks(): ?array {
-        return $this->getBackingStore()->get('bookmarks');
+        $val = $this->getBackingStore()->get('bookmarks');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Bookmark::class);
+            /** @var array<Bookmark>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bookmarks'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -61,7 +74,13 @@ class SearchEntity extends Entity implements Parsable
      * @return array<Qna>|null
     */
     public function getQnas(): ?array {
-        return $this->getBackingStore()->get('qnas');
+        $val = $this->getBackingStore()->get('qnas');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Qna::class);
+            /** @var array<Qna>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'qnas'");
     }
 
     /**

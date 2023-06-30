@@ -27,7 +27,7 @@ class LearningSelfInitiatedCourse extends LearningCourseActivity implements Pars
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class LearningSelfInitiatedCourse extends LearningCourseActivity implements Pars
      * @return DateTime|null
     */
     public function getStartedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('startedDateTime');
+        $val = $this->getBackingStore()->get('startedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startedDateTime'");
     }
 
     /**

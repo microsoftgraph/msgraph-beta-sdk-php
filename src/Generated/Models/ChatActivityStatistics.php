@@ -31,12 +31,16 @@ class ChatActivityStatistics extends ActivityStatistics implements Parsable
      * @return DateInterval|null
     */
     public function getAfterHours(): ?DateInterval {
-        return $this->getBackingStore()->get('afterHours');
+        $val = $this->getBackingStore()->get('afterHours');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'afterHours'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

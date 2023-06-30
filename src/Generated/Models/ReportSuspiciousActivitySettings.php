@@ -39,7 +39,12 @@ class ReportSuspiciousActivitySettings implements AdditionalDataHolder, BackedMo
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +57,7 @@ class ReportSuspiciousActivitySettings implements AdditionalDataHolder, BackedMo
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -69,7 +74,11 @@ class ReportSuspiciousActivitySettings implements AdditionalDataHolder, BackedMo
      * @return IncludeTarget|null
     */
     public function getIncludeTarget(): ?IncludeTarget {
-        return $this->getBackingStore()->get('includeTarget');
+        $val = $this->getBackingStore()->get('includeTarget');
+        if (is_null($val) || $val instanceof IncludeTarget) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'includeTarget'");
     }
 
     /**
@@ -77,7 +86,11 @@ class ReportSuspiciousActivitySettings implements AdditionalDataHolder, BackedMo
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -85,7 +98,11 @@ class ReportSuspiciousActivitySettings implements AdditionalDataHolder, BackedMo
      * @return AdvancedConfigState|null
     */
     public function getState(): ?AdvancedConfigState {
-        return $this->getBackingStore()->get('state');
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || $val instanceof AdvancedConfigState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
     }
 
     /**
@@ -93,7 +110,11 @@ class ReportSuspiciousActivitySettings implements AdditionalDataHolder, BackedMo
      * @return int|null
     */
     public function getVoiceReportingCode(): ?int {
-        return $this->getBackingStore()->get('voiceReportingCode');
+        $val = $this->getBackingStore()->get('voiceReportingCode');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'voiceReportingCode'");
     }
 
     /**

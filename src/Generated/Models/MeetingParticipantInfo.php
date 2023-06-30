@@ -46,7 +46,12 @@ class MeetingParticipantInfo implements AdditionalDataHolder, BackedModel, Parsa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -59,7 +64,7 @@ class MeetingParticipantInfo implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -76,7 +81,11 @@ class MeetingParticipantInfo implements AdditionalDataHolder, BackedModel, Parsa
      * @return IdentitySet|null
     */
     public function getIdentity(): ?IdentitySet {
-        return $this->getBackingStore()->get('identity');
+        $val = $this->getBackingStore()->get('identity');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identity'");
     }
 
     /**
@@ -84,7 +93,11 @@ class MeetingParticipantInfo implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -92,7 +105,11 @@ class MeetingParticipantInfo implements AdditionalDataHolder, BackedModel, Parsa
      * @return OnlineMeetingRole|null
     */
     public function getRole(): ?OnlineMeetingRole {
-        return $this->getBackingStore()->get('role');
+        $val = $this->getBackingStore()->get('role');
+        if (is_null($val) || $val instanceof OnlineMeetingRole) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'role'");
     }
 
     /**
@@ -100,7 +117,11 @@ class MeetingParticipantInfo implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getUpn(): ?string {
-        return $this->getBackingStore()->get('upn');
+        $val = $this->getBackingStore()->get('upn');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'upn'");
     }
 
     /**

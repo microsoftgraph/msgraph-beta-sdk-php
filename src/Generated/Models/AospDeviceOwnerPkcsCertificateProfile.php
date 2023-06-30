@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificateProfileBase implements Parsable 
 {
@@ -30,7 +31,11 @@ class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificatePr
      * @return CertificateStore|null
     */
     public function getCertificateStore(): ?CertificateStore {
-        return $this->getBackingStore()->get('certificateStore');
+        $val = $this->getBackingStore()->get('certificateStore');
+        if (is_null($val) || $val instanceof CertificateStore) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateStore'");
     }
 
     /**
@@ -38,7 +43,11 @@ class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificatePr
      * @return string|null
     */
     public function getCertificateTemplateName(): ?string {
-        return $this->getBackingStore()->get('certificateTemplateName');
+        $val = $this->getBackingStore()->get('certificateTemplateName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateTemplateName'");
     }
 
     /**
@@ -46,7 +55,11 @@ class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificatePr
      * @return string|null
     */
     public function getCertificationAuthority(): ?string {
-        return $this->getBackingStore()->get('certificationAuthority');
+        $val = $this->getBackingStore()->get('certificationAuthority');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificationAuthority'");
     }
 
     /**
@@ -54,7 +67,11 @@ class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificatePr
      * @return string|null
     */
     public function getCertificationAuthorityName(): ?string {
-        return $this->getBackingStore()->get('certificationAuthorityName');
+        $val = $this->getBackingStore()->get('certificationAuthorityName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificationAuthorityName'");
     }
 
     /**
@@ -62,7 +79,11 @@ class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificatePr
      * @return DeviceManagementCertificationAuthority|null
     */
     public function getCertificationAuthorityType(): ?DeviceManagementCertificationAuthority {
-        return $this->getBackingStore()->get('certificationAuthorityType');
+        $val = $this->getBackingStore()->get('certificationAuthorityType');
+        if (is_null($val) || $val instanceof DeviceManagementCertificationAuthority) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificationAuthorityType'");
     }
 
     /**
@@ -70,12 +91,18 @@ class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificatePr
      * @return array<CustomSubjectAlternativeName>|null
     */
     public function getCustomSubjectAlternativeNames(): ?array {
-        return $this->getBackingStore()->get('customSubjectAlternativeNames');
+        $val = $this->getBackingStore()->get('customSubjectAlternativeNames');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CustomSubjectAlternativeName::class);
+            /** @var array<CustomSubjectAlternativeName>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customSubjectAlternativeNames'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -97,7 +124,13 @@ class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificatePr
      * @return array<ManagedDeviceCertificateState>|null
     */
     public function getManagedDeviceCertificateStates(): ?array {
-        return $this->getBackingStore()->get('managedDeviceCertificateStates');
+        $val = $this->getBackingStore()->get('managedDeviceCertificateStates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagedDeviceCertificateState::class);
+            /** @var array<ManagedDeviceCertificateState>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceCertificateStates'");
     }
 
     /**
@@ -105,7 +138,11 @@ class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificatePr
      * @return string|null
     */
     public function getSubjectAlternativeNameFormatString(): ?string {
-        return $this->getBackingStore()->get('subjectAlternativeNameFormatString');
+        $val = $this->getBackingStore()->get('subjectAlternativeNameFormatString');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subjectAlternativeNameFormatString'");
     }
 
     /**
@@ -113,7 +150,11 @@ class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificatePr
      * @return string|null
     */
     public function getSubjectNameFormatString(): ?string {
-        return $this->getBackingStore()->get('subjectNameFormatString');
+        $val = $this->getBackingStore()->get('subjectNameFormatString');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subjectNameFormatString'");
     }
 
     /**

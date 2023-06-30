@@ -31,7 +31,11 @@ class EducationalActivity extends ItemFacet implements Parsable
      * @return Date|null
     */
     public function getCompletionMonthYear(): ?Date {
-        return $this->getBackingStore()->get('completionMonthYear');
+        $val = $this->getBackingStore()->get('completionMonthYear');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'completionMonthYear'");
     }
 
     /**
@@ -39,12 +43,16 @@ class EducationalActivity extends ItemFacet implements Parsable
      * @return Date|null
     */
     public function getEndMonthYear(): ?Date {
-        return $this->getBackingStore()->get('endMonthYear');
+        $val = $this->getBackingStore()->get('endMonthYear');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endMonthYear'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -62,7 +70,11 @@ class EducationalActivity extends ItemFacet implements Parsable
      * @return InstitutionData|null
     */
     public function getInstitution(): ?InstitutionData {
-        return $this->getBackingStore()->get('institution');
+        $val = $this->getBackingStore()->get('institution');
+        if (is_null($val) || $val instanceof InstitutionData) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'institution'");
     }
 
     /**
@@ -70,7 +82,11 @@ class EducationalActivity extends ItemFacet implements Parsable
      * @return EducationalActivityDetail|null
     */
     public function getProgram(): ?EducationalActivityDetail {
-        return $this->getBackingStore()->get('program');
+        $val = $this->getBackingStore()->get('program');
+        if (is_null($val) || $val instanceof EducationalActivityDetail) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'program'");
     }
 
     /**
@@ -78,7 +94,11 @@ class EducationalActivity extends ItemFacet implements Parsable
      * @return Date|null
     */
     public function getStartMonthYear(): ?Date {
-        return $this->getBackingStore()->get('startMonthYear');
+        $val = $this->getBackingStore()->get('startMonthYear');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMonthYear'");
     }
 
     /**

@@ -30,7 +30,11 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getAnomalyFirstOccurrenceDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('anomalyFirstOccurrenceDateTime');
+        $val = $this->getBackingStore()->get('anomalyFirstOccurrenceDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'anomalyFirstOccurrenceDateTime'");
     }
 
     /**
@@ -38,7 +42,11 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
      * @return string|null
     */
     public function getAnomalyId(): ?string {
-        return $this->getBackingStore()->get('anomalyId');
+        $val = $this->getBackingStore()->get('anomalyId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'anomalyId'");
     }
 
     /**
@@ -46,7 +54,11 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getAnomalyLatestOccurrenceDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('anomalyLatestOccurrenceDateTime');
+        $val = $this->getBackingStore()->get('anomalyLatestOccurrenceDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'anomalyLatestOccurrenceDateTime'");
     }
 
     /**
@@ -54,7 +66,11 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
      * @return string|null
     */
     public function getAnomalyName(): ?string {
-        return $this->getBackingStore()->get('anomalyName');
+        $val = $this->getBackingStore()->get('anomalyName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'anomalyName'");
     }
 
     /**
@@ -62,7 +78,11 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
      * @return UserExperienceAnalyticsAnomalyType|null
     */
     public function getAnomalyType(): ?UserExperienceAnalyticsAnomalyType {
-        return $this->getBackingStore()->get('anomalyType');
+        $val = $this->getBackingStore()->get('anomalyType');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsAnomalyType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'anomalyType'");
     }
 
     /**
@@ -70,7 +90,11 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
      * @return string|null
     */
     public function getAssetName(): ?string {
-        return $this->getBackingStore()->get('assetName');
+        $val = $this->getBackingStore()->get('assetName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assetName'");
     }
 
     /**
@@ -78,7 +102,11 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
      * @return string|null
     */
     public function getAssetPublisher(): ?string {
-        return $this->getBackingStore()->get('assetPublisher');
+        $val = $this->getBackingStore()->get('assetPublisher');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assetPublisher'");
     }
 
     /**
@@ -86,7 +114,11 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
      * @return string|null
     */
     public function getAssetVersion(): ?string {
-        return $this->getBackingStore()->get('assetVersion');
+        $val = $this->getBackingStore()->get('assetVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assetVersion'");
     }
 
     /**
@@ -94,7 +126,11 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
      * @return string|null
     */
     public function getDetectionModelId(): ?string {
-        return $this->getBackingStore()->get('detectionModelId');
+        $val = $this->getBackingStore()->get('detectionModelId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detectionModelId'");
     }
 
     /**
@@ -102,12 +138,16 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
      * @return int|null
     */
     public function getDeviceImpactedCount(): ?int {
-        return $this->getBackingStore()->get('deviceImpactedCount');
+        $val = $this->getBackingStore()->get('deviceImpactedCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceImpactedCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -133,7 +173,11 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
      * @return string|null
     */
     public function getIssueId(): ?string {
-        return $this->getBackingStore()->get('issueId');
+        $val = $this->getBackingStore()->get('issueId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'issueId'");
     }
 
     /**
@@ -141,7 +185,11 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
      * @return UserExperienceAnalyticsAnomalySeverity|null
     */
     public function getSeverity(): ?UserExperienceAnalyticsAnomalySeverity {
-        return $this->getBackingStore()->get('severity');
+        $val = $this->getBackingStore()->get('severity');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsAnomalySeverity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'severity'");
     }
 
     /**
@@ -149,7 +197,11 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
      * @return UserExperienceAnalyticsAnomalyState|null
     */
     public function getState(): ?UserExperienceAnalyticsAnomalyState {
-        return $this->getBackingStore()->get('state');
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsAnomalyState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
     }
 
     /**

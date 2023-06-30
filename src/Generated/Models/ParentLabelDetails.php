@@ -46,7 +46,12 @@ class ParentLabelDetails implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -62,7 +67,11 @@ class ParentLabelDetails implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getColor(): ?string {
-        return $this->getBackingStore()->get('color');
+        $val = $this->getBackingStore()->get('color');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'color'");
     }
 
     /**
@@ -70,12 +79,16 @@ class ParentLabelDetails implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -97,7 +110,11 @@ class ParentLabelDetails implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->getBackingStore()->get('id');
+        $val = $this->getBackingStore()->get('id');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'id'");
     }
 
     /**
@@ -105,7 +122,11 @@ class ParentLabelDetails implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getIsActive(): ?bool {
-        return $this->getBackingStore()->get('isActive');
+        $val = $this->getBackingStore()->get('isActive');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isActive'");
     }
 
     /**
@@ -113,7 +134,11 @@ class ParentLabelDetails implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -121,7 +146,11 @@ class ParentLabelDetails implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -129,7 +158,11 @@ class ParentLabelDetails implements AdditionalDataHolder, BackedModel, Parsable
      * @return ParentLabelDetails|null
     */
     public function getParent(): ?ParentLabelDetails {
-        return $this->getBackingStore()->get('parent');
+        $val = $this->getBackingStore()->get('parent');
+        if (is_null($val) || $val instanceof ParentLabelDetails) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'parent'");
     }
 
     /**
@@ -137,7 +170,11 @@ class ParentLabelDetails implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getSensitivity(): ?int {
-        return $this->getBackingStore()->get('sensitivity');
+        $val = $this->getBackingStore()->get('sensitivity');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sensitivity'");
     }
 
     /**
@@ -145,7 +182,11 @@ class ParentLabelDetails implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getTooltip(): ?string {
-        return $this->getBackingStore()->get('tooltip');
+        $val = $this->getBackingStore()->get('tooltip');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tooltip'");
     }
 
     /**

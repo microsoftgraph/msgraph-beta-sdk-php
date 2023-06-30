@@ -30,7 +30,11 @@ class UserAccountInformation extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getAgeGroup(): ?string {
-        return $this->getBackingStore()->get('ageGroup');
+        $val = $this->getBackingStore()->get('ageGroup');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ageGroup'");
     }
 
     /**
@@ -38,12 +42,16 @@ class UserAccountInformation extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getCountryCode(): ?string {
-        return $this->getBackingStore()->get('countryCode');
+        $val = $this->getBackingStore()->get('countryCode');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'countryCode'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -60,7 +68,11 @@ class UserAccountInformation extends ItemFacet implements Parsable
      * @return LocaleInfo|null
     */
     public function getPreferredLanguageTag(): ?LocaleInfo {
-        return $this->getBackingStore()->get('preferredLanguageTag');
+        $val = $this->getBackingStore()->get('preferredLanguageTag');
+        if (is_null($val) || $val instanceof LocaleInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'preferredLanguageTag'");
     }
 
     /**
@@ -68,7 +80,11 @@ class UserAccountInformation extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('userPrincipalName');
+        $val = $this->getBackingStore()->get('userPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
     }
 
     /**

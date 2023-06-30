@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics battery health app impact entity contains battery usage related information at an app level for the tenant.
+*/
 class UserExperienceAnalyticsBatteryHealthAppImpact extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsBatteryHealthAppImpact and sets the default values.
+     * Instantiates a new userExperienceAnalyticsBatteryHealthAppImpact and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -29,7 +32,11 @@ class UserExperienceAnalyticsBatteryHealthAppImpact extends Entity implements Pa
      * @return int|null
     */
     public function getActiveDevices(): ?int {
-        return $this->getBackingStore()->get('activeDevices');
+        $val = $this->getBackingStore()->get('activeDevices');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activeDevices'");
     }
 
     /**
@@ -37,7 +44,11 @@ class UserExperienceAnalyticsBatteryHealthAppImpact extends Entity implements Pa
      * @return string|null
     */
     public function getAppDisplayName(): ?string {
-        return $this->getBackingStore()->get('appDisplayName');
+        $val = $this->getBackingStore()->get('appDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appDisplayName'");
     }
 
     /**
@@ -45,7 +56,11 @@ class UserExperienceAnalyticsBatteryHealthAppImpact extends Entity implements Pa
      * @return string|null
     */
     public function getAppName(): ?string {
-        return $this->getBackingStore()->get('appName');
+        $val = $this->getBackingStore()->get('appName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appName'");
     }
 
     /**
@@ -53,7 +68,11 @@ class UserExperienceAnalyticsBatteryHealthAppImpact extends Entity implements Pa
      * @return string|null
     */
     public function getAppPublisher(): ?string {
-        return $this->getBackingStore()->get('appPublisher');
+        $val = $this->getBackingStore()->get('appPublisher');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appPublisher'");
     }
 
     /**
@@ -61,12 +80,16 @@ class UserExperienceAnalyticsBatteryHealthAppImpact extends Entity implements Pa
      * @return float|null
     */
     public function getBatteryUsagePercentage(): ?float {
-        return $this->getBackingStore()->get('batteryUsagePercentage');
+        $val = $this->getBackingStore()->get('batteryUsagePercentage');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'batteryUsagePercentage'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -85,7 +108,11 @@ class UserExperienceAnalyticsBatteryHealthAppImpact extends Entity implements Pa
      * @return bool|null
     */
     public function getIsForegroundApp(): ?bool {
-        return $this->getBackingStore()->get('isForegroundApp');
+        $val = $this->getBackingStore()->get('isForegroundApp');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isForegroundApp'");
     }
 
     /**

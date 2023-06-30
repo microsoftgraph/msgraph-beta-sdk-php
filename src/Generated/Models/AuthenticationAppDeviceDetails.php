@@ -39,7 +39,12 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, BackedMode
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +52,11 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getAppVersion(): ?string {
-        return $this->getBackingStore()->get('appVersion');
+        $val = $this->getBackingStore()->get('appVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appVersion'");
     }
 
     /**
@@ -63,7 +72,11 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getClientApp(): ?string {
-        return $this->getBackingStore()->get('clientApp');
+        $val = $this->getBackingStore()->get('clientApp');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clientApp'");
     }
 
     /**
@@ -71,12 +84,16 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->getBackingStore()->get('deviceId');
+        $val = $this->getBackingStore()->get('deviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -94,7 +111,11 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -102,7 +123,11 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getOperatingSystem(): ?string {
-        return $this->getBackingStore()->get('operatingSystem');
+        $val = $this->getBackingStore()->get('operatingSystem');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'operatingSystem'");
     }
 
     /**

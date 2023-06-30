@@ -28,7 +28,7 @@ class CloudPcOverview extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -61,7 +61,11 @@ class CloudPcOverview extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastRefreshedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastRefreshedDateTime');
+        $val = $this->getBackingStore()->get('lastRefreshedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastRefreshedDateTime'");
     }
 
     /**
@@ -69,7 +73,11 @@ class CloudPcOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getNumberOfCloudPcConnectionStatusFailed(): ?int {
-        return $this->getBackingStore()->get('numberOfCloudPcConnectionStatusFailed');
+        $val = $this->getBackingStore()->get('numberOfCloudPcConnectionStatusFailed');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'numberOfCloudPcConnectionStatusFailed'");
     }
 
     /**
@@ -77,7 +85,11 @@ class CloudPcOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getNumberOfCloudPcConnectionStatusPassed(): ?int {
-        return $this->getBackingStore()->get('numberOfCloudPcConnectionStatusPassed');
+        $val = $this->getBackingStore()->get('numberOfCloudPcConnectionStatusPassed');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'numberOfCloudPcConnectionStatusPassed'");
     }
 
     /**
@@ -85,7 +97,11 @@ class CloudPcOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getNumberOfCloudPcConnectionStatusPending(): ?int {
-        return $this->getBackingStore()->get('numberOfCloudPcConnectionStatusPending');
+        $val = $this->getBackingStore()->get('numberOfCloudPcConnectionStatusPending');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'numberOfCloudPcConnectionStatusPending'");
     }
 
     /**
@@ -93,7 +109,11 @@ class CloudPcOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getNumberOfCloudPcConnectionStatusRunning(): ?int {
-        return $this->getBackingStore()->get('numberOfCloudPcConnectionStatusRunning');
+        $val = $this->getBackingStore()->get('numberOfCloudPcConnectionStatusRunning');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'numberOfCloudPcConnectionStatusRunning'");
     }
 
     /**
@@ -101,7 +121,11 @@ class CloudPcOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getNumberOfCloudPcConnectionStatusUnkownFutureValue(): ?int {
-        return $this->getBackingStore()->get('numberOfCloudPcConnectionStatusUnkownFutureValue');
+        $val = $this->getBackingStore()->get('numberOfCloudPcConnectionStatusUnkownFutureValue');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'numberOfCloudPcConnectionStatusUnkownFutureValue'");
     }
 
     /**
@@ -109,7 +133,11 @@ class CloudPcOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getNumberOfCloudPcStatusDeprovisioning(): ?int {
-        return $this->getBackingStore()->get('numberOfCloudPcStatusDeprovisioning');
+        $val = $this->getBackingStore()->get('numberOfCloudPcStatusDeprovisioning');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'numberOfCloudPcStatusDeprovisioning'");
     }
 
     /**
@@ -117,7 +145,11 @@ class CloudPcOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getNumberOfCloudPcStatusFailed(): ?int {
-        return $this->getBackingStore()->get('numberOfCloudPcStatusFailed');
+        $val = $this->getBackingStore()->get('numberOfCloudPcStatusFailed');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'numberOfCloudPcStatusFailed'");
     }
 
     /**
@@ -125,7 +157,11 @@ class CloudPcOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getNumberOfCloudPcStatusInGracePeriod(): ?int {
-        return $this->getBackingStore()->get('numberOfCloudPcStatusInGracePeriod');
+        $val = $this->getBackingStore()->get('numberOfCloudPcStatusInGracePeriod');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'numberOfCloudPcStatusInGracePeriod'");
     }
 
     /**
@@ -133,7 +169,11 @@ class CloudPcOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getNumberOfCloudPcStatusNotProvisioned(): ?int {
-        return $this->getBackingStore()->get('numberOfCloudPcStatusNotProvisioned');
+        $val = $this->getBackingStore()->get('numberOfCloudPcStatusNotProvisioned');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'numberOfCloudPcStatusNotProvisioned'");
     }
 
     /**
@@ -141,7 +181,11 @@ class CloudPcOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getNumberOfCloudPcStatusProvisioned(): ?int {
-        return $this->getBackingStore()->get('numberOfCloudPcStatusProvisioned');
+        $val = $this->getBackingStore()->get('numberOfCloudPcStatusProvisioned');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'numberOfCloudPcStatusProvisioned'");
     }
 
     /**
@@ -149,7 +193,11 @@ class CloudPcOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getNumberOfCloudPcStatusProvisioning(): ?int {
-        return $this->getBackingStore()->get('numberOfCloudPcStatusProvisioning');
+        $val = $this->getBackingStore()->get('numberOfCloudPcStatusProvisioning');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'numberOfCloudPcStatusProvisioning'");
     }
 
     /**
@@ -157,7 +205,11 @@ class CloudPcOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getNumberOfCloudPcStatusUnknown(): ?int {
-        return $this->getBackingStore()->get('numberOfCloudPcStatusUnknown');
+        $val = $this->getBackingStore()->get('numberOfCloudPcStatusUnknown');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'numberOfCloudPcStatusUnknown'");
     }
 
     /**
@@ -165,7 +217,11 @@ class CloudPcOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getNumberOfCloudPcStatusUpgrading(): ?int {
-        return $this->getBackingStore()->get('numberOfCloudPcStatusUpgrading');
+        $val = $this->getBackingStore()->get('numberOfCloudPcStatusUpgrading');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'numberOfCloudPcStatusUpgrading'");
     }
 
     /**
@@ -173,7 +229,11 @@ class CloudPcOverview extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantDisplayName(): ?string {
-        return $this->getBackingStore()->get('tenantDisplayName');
+        $val = $this->getBackingStore()->get('tenantDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantDisplayName'");
     }
 
     /**
@@ -181,7 +241,11 @@ class CloudPcOverview extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->getBackingStore()->get('tenantId');
+        $val = $this->getBackingStore()->get('tenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantId'");
     }
 
     /**
@@ -189,7 +253,11 @@ class CloudPcOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getTotalBusinessLicenses(): ?int {
-        return $this->getBackingStore()->get('totalBusinessLicenses');
+        $val = $this->getBackingStore()->get('totalBusinessLicenses');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalBusinessLicenses'");
     }
 
     /**
@@ -197,7 +265,11 @@ class CloudPcOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getTotalCloudPcConnectionStatus(): ?int {
-        return $this->getBackingStore()->get('totalCloudPcConnectionStatus');
+        $val = $this->getBackingStore()->get('totalCloudPcConnectionStatus');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalCloudPcConnectionStatus'");
     }
 
     /**
@@ -205,7 +277,11 @@ class CloudPcOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getTotalCloudPcStatus(): ?int {
-        return $this->getBackingStore()->get('totalCloudPcStatus');
+        $val = $this->getBackingStore()->get('totalCloudPcStatus');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalCloudPcStatus'");
     }
 
     /**
@@ -213,7 +289,11 @@ class CloudPcOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getTotalEnterpriseLicenses(): ?int {
-        return $this->getBackingStore()->get('totalEnterpriseLicenses');
+        $val = $this->getBackingStore()->get('totalEnterpriseLicenses');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalEnterpriseLicenses'");
     }
 
     /**

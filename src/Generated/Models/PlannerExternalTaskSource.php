@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable 
 {
@@ -30,7 +31,11 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
      * @return string|null
     */
     public function getContextScenarioId(): ?string {
-        return $this->getBackingStore()->get('contextScenarioId');
+        $val = $this->getBackingStore()->get('contextScenarioId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contextScenarioId'");
     }
 
     /**
@@ -38,7 +43,11 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
      * @return PlannerExternalTaskSourceDisplayType|null
     */
     public function getDisplayLinkType(): ?PlannerExternalTaskSourceDisplayType {
-        return $this->getBackingStore()->get('displayLinkType');
+        $val = $this->getBackingStore()->get('displayLinkType');
+        if (is_null($val) || $val instanceof PlannerExternalTaskSourceDisplayType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayLinkType'");
     }
 
     /**
@@ -46,7 +55,13 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
      * @return array<string>|null
     */
     public function getDisplayNameSegments(): ?array {
-        return $this->getBackingStore()->get('displayNameSegments');
+        $val = $this->getBackingStore()->get('displayNameSegments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayNameSegments'");
     }
 
     /**
@@ -54,7 +69,11 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
      * @return string|null
     */
     public function getExternalContextId(): ?string {
-        return $this->getBackingStore()->get('externalContextId');
+        $val = $this->getBackingStore()->get('externalContextId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'externalContextId'");
     }
 
     /**
@@ -62,7 +81,11 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
      * @return string|null
     */
     public function getExternalObjectId(): ?string {
-        return $this->getBackingStore()->get('externalObjectId');
+        $val = $this->getBackingStore()->get('externalObjectId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'externalObjectId'");
     }
 
     /**
@@ -70,19 +93,30 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
      * @return string|null
     */
     public function getExternalObjectVersion(): ?string {
-        return $this->getBackingStore()->get('externalObjectVersion');
+        $val = $this->getBackingStore()->get('externalObjectVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'externalObjectVersion'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'contextScenarioId' => fn(ParseNode $n) => $o->setContextScenarioId($n->getStringValue()),
             'displayLinkType' => fn(ParseNode $n) => $o->setDisplayLinkType($n->getEnumValue(PlannerExternalTaskSourceDisplayType::class)),
-            'displayNameSegments' => fn(ParseNode $n) => $o->setDisplayNameSegments($n->getCollectionOfPrimitiveValues()),
+            'displayNameSegments' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDisplayNameSegments($val);
+            },
             'externalContextId' => fn(ParseNode $n) => $o->setExternalContextId($n->getStringValue()),
             'externalObjectId' => fn(ParseNode $n) => $o->setExternalObjectId($n->getStringValue()),
             'externalObjectVersion' => fn(ParseNode $n) => $o->setExternalObjectVersion($n->getStringValue()),
@@ -95,7 +129,11 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
      * @return string|null
     */
     public function getWebUrl(): ?string {
-        return $this->getBackingStore()->get('webUrl');
+        $val = $this->getBackingStore()->get('webUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'webUrl'");
     }
 
     /**

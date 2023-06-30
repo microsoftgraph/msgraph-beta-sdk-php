@@ -6,6 +6,7 @@ use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ManagementActionTenantDeploymentStatus extends Entity implements Parsable 
 {
@@ -27,7 +28,7 @@ class ManagementActionTenantDeploymentStatus extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -43,7 +44,13 @@ class ManagementActionTenantDeploymentStatus extends Entity implements Parsable
      * @return array<ManagementActionDeploymentStatus>|null
     */
     public function getStatuses(): ?array {
-        return $this->getBackingStore()->get('statuses');
+        $val = $this->getBackingStore()->get('statuses');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagementActionDeploymentStatus::class);
+            /** @var array<ManagementActionDeploymentStatus>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'statuses'");
     }
 
     /**
@@ -51,7 +58,11 @@ class ManagementActionTenantDeploymentStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantGroupId(): ?string {
-        return $this->getBackingStore()->get('tenantGroupId');
+        $val = $this->getBackingStore()->get('tenantGroupId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantGroupId'");
     }
 
     /**
@@ -59,7 +70,11 @@ class ManagementActionTenantDeploymentStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->getBackingStore()->get('tenantId');
+        $val = $this->getBackingStore()->get('tenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantId'");
     }
 
     /**

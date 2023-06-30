@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Group Setting Value Template
@@ -42,7 +43,12 @@ class DeviceManagementConfigurationGroupSettingValueTemplate implements Addition
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -58,12 +64,18 @@ class DeviceManagementConfigurationGroupSettingValueTemplate implements Addition
      * @return array<DeviceManagementConfigurationSettingInstanceTemplate>|null
     */
     public function getChildren(): ?array {
-        return $this->getBackingStore()->get('children');
+        $val = $this->getBackingStore()->get('children');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementConfigurationSettingInstanceTemplate::class);
+            /** @var array<DeviceManagementConfigurationSettingInstanceTemplate>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'children'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -79,7 +91,11 @@ class DeviceManagementConfigurationGroupSettingValueTemplate implements Addition
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -87,7 +103,11 @@ class DeviceManagementConfigurationGroupSettingValueTemplate implements Addition
      * @return string|null
     */
     public function getSettingValueTemplateId(): ?string {
-        return $this->getBackingStore()->get('settingValueTemplateId');
+        $val = $this->getBackingStore()->get('settingValueTemplateId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingValueTemplateId'");
     }
 
     /**

@@ -39,7 +39,11 @@ class RelatedContact implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getAccessConsent(): ?bool {
-        return $this->getBackingStore()->get('accessConsent');
+        $val = $this->getBackingStore()->get('accessConsent');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accessConsent'");
     }
 
     /**
@@ -47,7 +51,12 @@ class RelatedContact implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -63,7 +72,11 @@ class RelatedContact implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -71,12 +84,16 @@ class RelatedContact implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getEmailAddress(): ?string {
-        return $this->getBackingStore()->get('emailAddress');
+        $val = $this->getBackingStore()->get('emailAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailAddress'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -96,7 +113,11 @@ class RelatedContact implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->getBackingStore()->get('id');
+        $val = $this->getBackingStore()->get('id');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'id'");
     }
 
     /**
@@ -104,7 +125,11 @@ class RelatedContact implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getMobilePhone(): ?string {
-        return $this->getBackingStore()->get('mobilePhone');
+        $val = $this->getBackingStore()->get('mobilePhone');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mobilePhone'");
     }
 
     /**
@@ -112,7 +137,11 @@ class RelatedContact implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -120,7 +149,11 @@ class RelatedContact implements AdditionalDataHolder, BackedModel, Parsable
      * @return ContactRelationship|null
     */
     public function getRelationship(): ?ContactRelationship {
-        return $this->getBackingStore()->get('relationship');
+        $val = $this->getBackingStore()->get('relationship');
+        if (is_null($val) || $val instanceof ContactRelationship) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'relationship'");
     }
 
     /**

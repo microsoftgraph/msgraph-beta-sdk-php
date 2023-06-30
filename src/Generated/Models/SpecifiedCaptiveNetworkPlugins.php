@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Specifies all the Captive network plugins allowed during the IKEv2 AlwaysOn VPN connection
@@ -42,7 +43,12 @@ class SpecifiedCaptiveNetworkPlugins implements AdditionalDataHolder, BackedMode
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -50,7 +56,13 @@ class SpecifiedCaptiveNetworkPlugins implements AdditionalDataHolder, BackedMode
      * @return array<string>|null
     */
     public function getAllowedBundleIdentifiers(): ?array {
-        return $this->getBackingStore()->get('allowedBundleIdentifiers');
+        $val = $this->getBackingStore()->get('allowedBundleIdentifiers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedBundleIdentifiers'");
     }
 
     /**
@@ -63,12 +75,19 @@ class SpecifiedCaptiveNetworkPlugins implements AdditionalDataHolder, BackedMode
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'allowedBundleIdentifiers' => fn(ParseNode $n) => $o->setAllowedBundleIdentifiers($n->getCollectionOfPrimitiveValues()),
+            'allowedBundleIdentifiers' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAllowedBundleIdentifiers($val);
+            },
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
@@ -78,7 +97,11 @@ class SpecifiedCaptiveNetworkPlugins implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

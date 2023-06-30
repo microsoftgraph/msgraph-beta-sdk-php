@@ -46,7 +46,11 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
      * @return bool|null
     */
     public function getAccessRecommendationsEnabled(): ?bool {
-        return $this->getBackingStore()->get('accessRecommendationsEnabled');
+        $val = $this->getBackingStore()->get('accessRecommendationsEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accessRecommendationsEnabled'");
     }
 
     /**
@@ -54,7 +58,11 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
      * @return int|null
     */
     public function getActivityDurationInDays(): ?int {
-        return $this->getBackingStore()->get('activityDurationInDays');
+        $val = $this->getBackingStore()->get('activityDurationInDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activityDurationInDays'");
     }
 
     /**
@@ -62,7 +70,12 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -70,7 +83,11 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
      * @return bool|null
     */
     public function getAutoApplyReviewResultsEnabled(): ?bool {
-        return $this->getBackingStore()->get('autoApplyReviewResultsEnabled');
+        $val = $this->getBackingStore()->get('autoApplyReviewResultsEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'autoApplyReviewResultsEnabled'");
     }
 
     /**
@@ -78,7 +95,11 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
      * @return bool|null
     */
     public function getAutoReviewEnabled(): ?bool {
-        return $this->getBackingStore()->get('autoReviewEnabled');
+        $val = $this->getBackingStore()->get('autoReviewEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'autoReviewEnabled'");
     }
 
     /**
@@ -86,7 +107,11 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
      * @return AutoReviewSettings|null
     */
     public function getAutoReviewSettings(): ?AutoReviewSettings {
-        return $this->getBackingStore()->get('autoReviewSettings');
+        $val = $this->getBackingStore()->get('autoReviewSettings');
+        if (is_null($val) || $val instanceof AutoReviewSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'autoReviewSettings'");
     }
 
     /**
@@ -99,7 +124,7 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -122,7 +147,11 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
      * @return bool|null
     */
     public function getJustificationRequiredOnApproval(): ?bool {
-        return $this->getBackingStore()->get('justificationRequiredOnApproval');
+        $val = $this->getBackingStore()->get('justificationRequiredOnApproval');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'justificationRequiredOnApproval'");
     }
 
     /**
@@ -130,7 +159,11 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
      * @return bool|null
     */
     public function getMailNotificationsEnabled(): ?bool {
-        return $this->getBackingStore()->get('mailNotificationsEnabled');
+        $val = $this->getBackingStore()->get('mailNotificationsEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mailNotificationsEnabled'");
     }
 
     /**
@@ -138,7 +171,11 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -146,7 +183,11 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
      * @return AccessReviewRecurrenceSettings|null
     */
     public function getRecurrenceSettings(): ?AccessReviewRecurrenceSettings {
-        return $this->getBackingStore()->get('recurrenceSettings');
+        $val = $this->getBackingStore()->get('recurrenceSettings');
+        if (is_null($val) || $val instanceof AccessReviewRecurrenceSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recurrenceSettings'");
     }
 
     /**
@@ -154,7 +195,11 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
      * @return bool|null
     */
     public function getRemindersEnabled(): ?bool {
-        return $this->getBackingStore()->get('remindersEnabled');
+        $val = $this->getBackingStore()->get('remindersEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remindersEnabled'");
     }
 
     /**

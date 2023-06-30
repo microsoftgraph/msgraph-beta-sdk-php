@@ -29,12 +29,16 @@ class ConnectionOperation extends Entity implements Parsable
      * @return PublicError|null
     */
     public function getError(): ?PublicError {
-        return $this->getBackingStore()->get('error');
+        $val = $this->getBackingStore()->get('error');
+        if (is_null($val) || $val instanceof PublicError) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'error'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -49,7 +53,11 @@ class ConnectionOperation extends Entity implements Parsable
      * @return ConnectionOperationStatus|null
     */
     public function getStatus(): ?ConnectionOperationStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof ConnectionOperationStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

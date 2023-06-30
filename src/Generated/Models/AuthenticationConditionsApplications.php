@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AuthenticationConditionsApplications implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class AuthenticationConditionsApplications implements AdditionalDataHolder, Back
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +58,7 @@ class AuthenticationConditionsApplications implements AdditionalDataHolder, Back
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -68,7 +74,11 @@ class AuthenticationConditionsApplications implements AdditionalDataHolder, Back
      * @return bool|null
     */
     public function getIncludeAllApplications(): ?bool {
-        return $this->getBackingStore()->get('includeAllApplications');
+        $val = $this->getBackingStore()->get('includeAllApplications');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'includeAllApplications'");
     }
 
     /**
@@ -76,7 +86,13 @@ class AuthenticationConditionsApplications implements AdditionalDataHolder, Back
      * @return array<AuthenticationConditionApplication>|null
     */
     public function getIncludeApplications(): ?array {
-        return $this->getBackingStore()->get('includeApplications');
+        $val = $this->getBackingStore()->get('includeApplications');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AuthenticationConditionApplication::class);
+            /** @var array<AuthenticationConditionApplication>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'includeApplications'");
     }
 
     /**
@@ -84,7 +100,11 @@ class AuthenticationConditionsApplications implements AdditionalDataHolder, Back
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

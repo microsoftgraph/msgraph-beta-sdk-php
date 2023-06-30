@@ -42,7 +42,12 @@ class DeviceScopeActionResult implements AdditionalDataHolder, BackedModel, Pars
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -58,7 +63,11 @@ class DeviceScopeActionResult implements AdditionalDataHolder, BackedModel, Pars
      * @return string|null
     */
     public function getDeviceScopeAction(): ?string {
-        return $this->getBackingStore()->get('deviceScopeAction');
+        $val = $this->getBackingStore()->get('deviceScopeAction');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceScopeAction'");
     }
 
     /**
@@ -66,7 +75,11 @@ class DeviceScopeActionResult implements AdditionalDataHolder, BackedModel, Pars
      * @return string|null
     */
     public function getDeviceScopeId(): ?string {
-        return $this->getBackingStore()->get('deviceScopeId');
+        $val = $this->getBackingStore()->get('deviceScopeId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceScopeId'");
     }
 
     /**
@@ -74,12 +87,16 @@ class DeviceScopeActionResult implements AdditionalDataHolder, BackedModel, Pars
      * @return string|null
     */
     public function getFailedMessage(): ?string {
-        return $this->getBackingStore()->get('failedMessage');
+        $val = $this->getBackingStore()->get('failedMessage');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'failedMessage'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -97,7 +114,11 @@ class DeviceScopeActionResult implements AdditionalDataHolder, BackedModel, Pars
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -105,7 +126,11 @@ class DeviceScopeActionResult implements AdditionalDataHolder, BackedModel, Pars
      * @return DeviceScopeActionStatus|null
     */
     public function getStatus(): ?DeviceScopeActionStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof DeviceScopeActionStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

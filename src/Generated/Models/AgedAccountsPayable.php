@@ -40,7 +40,12 @@ class AgedAccountsPayable implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -48,7 +53,11 @@ class AgedAccountsPayable implements AdditionalDataHolder, BackedModel, Parsable
      * @return Date|null
     */
     public function getAgedAsOfDate(): ?Date {
-        return $this->getBackingStore()->get('agedAsOfDate');
+        $val = $this->getBackingStore()->get('agedAsOfDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'agedAsOfDate'");
     }
 
     /**
@@ -64,7 +73,11 @@ class AgedAccountsPayable implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getBalanceDue(): ?string {
-        return $this->getBackingStore()->get('balanceDue');
+        $val = $this->getBackingStore()->get('balanceDue');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'balanceDue'");
     }
 
     /**
@@ -72,7 +85,11 @@ class AgedAccountsPayable implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getCurrencyCode(): ?string {
-        return $this->getBackingStore()->get('currencyCode');
+        $val = $this->getBackingStore()->get('currencyCode');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'currencyCode'");
     }
 
     /**
@@ -80,12 +97,16 @@ class AgedAccountsPayable implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getCurrentAmount(): ?string {
-        return $this->getBackingStore()->get('currentAmount');
+        $val = $this->getBackingStore()->get('currentAmount');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'currentAmount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -111,7 +132,11 @@ class AgedAccountsPayable implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->getBackingStore()->get('id');
+        $val = $this->getBackingStore()->get('id');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'id'");
     }
 
     /**
@@ -119,7 +144,11 @@ class AgedAccountsPayable implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -127,7 +156,11 @@ class AgedAccountsPayable implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -135,7 +168,11 @@ class AgedAccountsPayable implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getPeriod1Amount(): ?string {
-        return $this->getBackingStore()->get('period1Amount');
+        $val = $this->getBackingStore()->get('period1Amount');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'period1Amount'");
     }
 
     /**
@@ -143,7 +180,11 @@ class AgedAccountsPayable implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getPeriod2Amount(): ?string {
-        return $this->getBackingStore()->get('period2Amount');
+        $val = $this->getBackingStore()->get('period2Amount');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'period2Amount'");
     }
 
     /**
@@ -151,7 +192,11 @@ class AgedAccountsPayable implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getPeriod3Amount(): ?string {
-        return $this->getBackingStore()->get('period3Amount');
+        $val = $this->getBackingStore()->get('period3Amount');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'period3Amount'");
     }
 
     /**
@@ -159,7 +204,11 @@ class AgedAccountsPayable implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getPeriodLengthFilter(): ?string {
-        return $this->getBackingStore()->get('periodLengthFilter');
+        $val = $this->getBackingStore()->get('periodLengthFilter');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'periodLengthFilter'");
     }
 
     /**
@@ -167,7 +216,11 @@ class AgedAccountsPayable implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getVendorId(): ?string {
-        return $this->getBackingStore()->get('vendorId');
+        $val = $this->getBackingStore()->get('vendorId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vendorId'");
     }
 
     /**
@@ -175,7 +228,11 @@ class AgedAccountsPayable implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getVendorNumber(): ?string {
-        return $this->getBackingStore()->get('vendorNumber');
+        $val = $this->getBackingStore()->get('vendorNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vendorNumber'");
     }
 
     /**

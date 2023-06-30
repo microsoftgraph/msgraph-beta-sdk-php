@@ -39,7 +39,12 @@ class ComanagementEligibleDevicesSummary implements AdditionalDataHolder, Backed
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +60,11 @@ class ComanagementEligibleDevicesSummary implements AdditionalDataHolder, Backed
      * @return int|null
     */
     public function getComanagedCount(): ?int {
-        return $this->getBackingStore()->get('comanagedCount');
+        $val = $this->getBackingStore()->get('comanagedCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'comanagedCount'");
     }
 
     /**
@@ -63,7 +72,11 @@ class ComanagementEligibleDevicesSummary implements AdditionalDataHolder, Backed
      * @return int|null
     */
     public function getEligibleButNotAzureAdJoinedCount(): ?int {
-        return $this->getBackingStore()->get('eligibleButNotAzureAdJoinedCount');
+        $val = $this->getBackingStore()->get('eligibleButNotAzureAdJoinedCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eligibleButNotAzureAdJoinedCount'");
     }
 
     /**
@@ -71,12 +84,16 @@ class ComanagementEligibleDevicesSummary implements AdditionalDataHolder, Backed
      * @return int|null
     */
     public function getEligibleCount(): ?int {
-        return $this->getBackingStore()->get('eligibleCount');
+        $val = $this->getBackingStore()->get('eligibleCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eligibleCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -96,7 +113,11 @@ class ComanagementEligibleDevicesSummary implements AdditionalDataHolder, Backed
      * @return int|null
     */
     public function getIneligibleCount(): ?int {
-        return $this->getBackingStore()->get('ineligibleCount');
+        $val = $this->getBackingStore()->get('ineligibleCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ineligibleCount'");
     }
 
     /**
@@ -104,7 +125,11 @@ class ComanagementEligibleDevicesSummary implements AdditionalDataHolder, Backed
      * @return int|null
     */
     public function getNeedsOsUpdateCount(): ?int {
-        return $this->getBackingStore()->get('needsOsUpdateCount');
+        $val = $this->getBackingStore()->get('needsOsUpdateCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'needsOsUpdateCount'");
     }
 
     /**
@@ -112,7 +137,11 @@ class ComanagementEligibleDevicesSummary implements AdditionalDataHolder, Backed
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -120,7 +149,11 @@ class ComanagementEligibleDevicesSummary implements AdditionalDataHolder, Backed
      * @return int|null
     */
     public function getScheduledForEnrollmentCount(): ?int {
-        return $this->getBackingStore()->get('scheduledForEnrollmentCount');
+        $val = $this->getBackingStore()->get('scheduledForEnrollmentCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scheduledForEnrollmentCount'");
     }
 
     /**

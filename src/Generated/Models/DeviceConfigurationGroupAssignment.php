@@ -32,7 +32,11 @@ class DeviceConfigurationGroupAssignment extends Entity implements Parsable
      * @return DeviceConfiguration|null
     */
     public function getDeviceConfiguration(): ?DeviceConfiguration {
-        return $this->getBackingStore()->get('deviceConfiguration');
+        $val = $this->getBackingStore()->get('deviceConfiguration');
+        if (is_null($val) || $val instanceof DeviceConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceConfiguration'");
     }
 
     /**
@@ -40,12 +44,16 @@ class DeviceConfigurationGroupAssignment extends Entity implements Parsable
      * @return bool|null
     */
     public function getExcludeGroup(): ?bool {
-        return $this->getBackingStore()->get('excludeGroup');
+        $val = $this->getBackingStore()->get('excludeGroup');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'excludeGroup'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -61,7 +69,11 @@ class DeviceConfigurationGroupAssignment extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetGroupId(): ?string {
-        return $this->getBackingStore()->get('targetGroupId');
+        $val = $this->getBackingStore()->get('targetGroupId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetGroupId'");
     }
 
     /**

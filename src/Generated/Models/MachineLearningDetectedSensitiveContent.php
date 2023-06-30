@@ -26,7 +26,7 @@ class MachineLearningDetectedSensitiveContent extends DetectedSensitiveContent i
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class MachineLearningDetectedSensitiveContent extends DetectedSensitiveContent i
      * @return MlClassificationMatchTolerance|null
     */
     public function getMatchTolerance(): ?MlClassificationMatchTolerance {
-        return $this->getBackingStore()->get('matchTolerance');
+        $val = $this->getBackingStore()->get('matchTolerance');
+        if (is_null($val) || $val instanceof MlClassificationMatchTolerance) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'matchTolerance'");
     }
 
     /**
@@ -49,7 +53,11 @@ class MachineLearningDetectedSensitiveContent extends DetectedSensitiveContent i
      * @return string|null
     */
     public function getModelVersion(): ?string {
-        return $this->getBackingStore()->get('modelVersion');
+        $val = $this->getBackingStore()->get('modelVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'modelVersion'");
     }
 
     /**

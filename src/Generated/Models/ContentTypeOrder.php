@@ -39,7 +39,12 @@ class ContentTypeOrder implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -51,16 +56,20 @@ class ContentTypeOrder implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the default property value. Whether this is the default Content Type
+     * Gets the default property value. Indicates whether this is the default content type.
      * @return bool|null
     */
     public function getDefault(): ?bool {
-        return $this->getBackingStore()->get('escapedDefault');
+        $val = $this->getBackingStore()->get('escapedDefault');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'escapedDefault'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -76,15 +85,23 @@ class ContentTypeOrder implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
-     * Gets the position property value. Specifies the position in which the Content Type appears in the selection UI.
+     * Gets the position property value. Specifies the position in which the content type appears in the selection UI.
      * @return int|null
     */
     public function getPosition(): ?int {
-        return $this->getBackingStore()->get('position');
+        $val = $this->getBackingStore()->get('position');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'position'");
     }
 
     /**
@@ -115,7 +132,7 @@ class ContentTypeOrder implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the default property value. Whether this is the default Content Type
+     * Sets the default property value. Indicates whether this is the default content type.
      * @param bool|null $value Value to set for the EscapedDefault property.
     */
     public function setDefault(?bool $value): void {
@@ -131,7 +148,7 @@ class ContentTypeOrder implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the position property value. Specifies the position in which the Content Type appears in the selection UI.
+     * Sets the position property value. Specifies the position in which the content type appears in the selection UI.
      * @param int|null $value Value to set for the position property.
     */
     public function setPosition(?int $value): void {

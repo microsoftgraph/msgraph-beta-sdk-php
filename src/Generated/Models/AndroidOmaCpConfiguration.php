@@ -31,12 +31,16 @@ class AndroidOmaCpConfiguration extends DeviceConfiguration implements Parsable
      * @return StreamInterface|null
     */
     public function getConfigurationXml(): ?StreamInterface {
-        return $this->getBackingStore()->get('configurationXml');
+        $val = $this->getBackingStore()->get('configurationXml');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configurationXml'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

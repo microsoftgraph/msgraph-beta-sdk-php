@@ -27,7 +27,7 @@ class EducationSynchronizationOAuth2ClientCredentialsConnectionSettings extends 
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -42,7 +42,11 @@ class EducationSynchronizationOAuth2ClientCredentialsConnectionSettings extends 
      * @return string|null
     */
     public function getScope(): ?string {
-        return $this->getBackingStore()->get('scope');
+        $val = $this->getBackingStore()->get('scope');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scope'");
     }
 
     /**
@@ -50,7 +54,11 @@ class EducationSynchronizationOAuth2ClientCredentialsConnectionSettings extends 
      * @return string|null
     */
     public function getTokenUrl(): ?string {
-        return $this->getBackingStore()->get('tokenUrl');
+        $val = $this->getBackingStore()->get('tokenUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tokenUrl'");
     }
 
     /**

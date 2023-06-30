@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile implements Parsable 
 {
@@ -30,7 +31,11 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
      * @return CertificateStore|null
     */
     public function getCertificateStore(): ?CertificateStore {
-        return $this->getBackingStore()->get('certificateStore');
+        $val = $this->getBackingStore()->get('certificateStore');
+        if (is_null($val) || $val instanceof CertificateStore) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateStore'");
     }
 
     /**
@@ -38,7 +43,11 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
      * @return CertificateValidityPeriodScale|null
     */
     public function getCertificateValidityPeriodScale(): ?CertificateValidityPeriodScale {
-        return $this->getBackingStore()->get('certificateValidityPeriodScale');
+        $val = $this->getBackingStore()->get('certificateValidityPeriodScale');
+        if (is_null($val) || $val instanceof CertificateValidityPeriodScale) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateValidityPeriodScale'");
     }
 
     /**
@@ -46,7 +55,11 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
      * @return int|null
     */
     public function getCertificateValidityPeriodValue(): ?int {
-        return $this->getBackingStore()->get('certificateValidityPeriodValue');
+        $val = $this->getBackingStore()->get('certificateValidityPeriodValue');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateValidityPeriodValue'");
     }
 
     /**
@@ -54,12 +67,18 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
      * @return array<ExtendedKeyUsage>|null
     */
     public function getExtendedKeyUsages(): ?array {
-        return $this->getBackingStore()->get('extendedKeyUsages');
+        $val = $this->getBackingStore()->get('extendedKeyUsages');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ExtendedKeyUsage::class);
+            /** @var array<ExtendedKeyUsage>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'extendedKeyUsages'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -74,7 +93,14 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
             'keyUsage' => fn(ParseNode $n) => $o->setKeyUsage($n->getEnumValue(KeyUsages::class)),
             'renewalThresholdPercentage' => fn(ParseNode $n) => $o->setRenewalThresholdPercentage($n->getIntegerValue()),
             'rootCertificateId' => fn(ParseNode $n) => $o->setRootCertificateId($n->getStringValue()),
-            'scepServerUrls' => fn(ParseNode $n) => $o->setScepServerUrls($n->getCollectionOfPrimitiveValues()),
+            'scepServerUrls' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setScepServerUrls($val);
+            },
             'subjectAlternativeNameFormats' => fn(ParseNode $n) => $o->setSubjectAlternativeNameFormats($n->getCollectionOfObjectValues([Windows10XCustomSubjectAlternativeName::class, 'createFromDiscriminatorValue'])),
             'subjectNameFormatString' => fn(ParseNode $n) => $o->setSubjectNameFormatString($n->getStringValue()),
         ]);
@@ -85,7 +111,13 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
      * @return array<HashAlgorithms>|null
     */
     public function getHashAlgorithm(): ?array {
-        return $this->getBackingStore()->get('hashAlgorithm');
+        $val = $this->getBackingStore()->get('hashAlgorithm');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, HashAlgorithms::class);
+            /** @var array<HashAlgorithms>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hashAlgorithm'");
     }
 
     /**
@@ -93,7 +125,11 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
      * @return KeySize|null
     */
     public function getKeySize(): ?KeySize {
-        return $this->getBackingStore()->get('keySize');
+        $val = $this->getBackingStore()->get('keySize');
+        if (is_null($val) || $val instanceof KeySize) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'keySize'");
     }
 
     /**
@@ -101,7 +137,11 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
      * @return KeyStorageProviderOption|null
     */
     public function getKeyStorageProvider(): ?KeyStorageProviderOption {
-        return $this->getBackingStore()->get('keyStorageProvider');
+        $val = $this->getBackingStore()->get('keyStorageProvider');
+        if (is_null($val) || $val instanceof KeyStorageProviderOption) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'keyStorageProvider'");
     }
 
     /**
@@ -109,7 +149,11 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
      * @return KeyUsages|null
     */
     public function getKeyUsage(): ?KeyUsages {
-        return $this->getBackingStore()->get('keyUsage');
+        $val = $this->getBackingStore()->get('keyUsage');
+        if (is_null($val) || $val instanceof KeyUsages) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'keyUsage'");
     }
 
     /**
@@ -117,7 +161,11 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
      * @return int|null
     */
     public function getRenewalThresholdPercentage(): ?int {
-        return $this->getBackingStore()->get('renewalThresholdPercentage');
+        $val = $this->getBackingStore()->get('renewalThresholdPercentage');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'renewalThresholdPercentage'");
     }
 
     /**
@@ -125,7 +173,11 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
      * @return string|null
     */
     public function getRootCertificateId(): ?string {
-        return $this->getBackingStore()->get('rootCertificateId');
+        $val = $this->getBackingStore()->get('rootCertificateId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rootCertificateId'");
     }
 
     /**
@@ -133,7 +185,13 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
      * @return array<string>|null
     */
     public function getScepServerUrls(): ?array {
-        return $this->getBackingStore()->get('scepServerUrls');
+        $val = $this->getBackingStore()->get('scepServerUrls');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scepServerUrls'");
     }
 
     /**
@@ -141,7 +199,13 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
      * @return array<Windows10XCustomSubjectAlternativeName>|null
     */
     public function getSubjectAlternativeNameFormats(): ?array {
-        return $this->getBackingStore()->get('subjectAlternativeNameFormats');
+        $val = $this->getBackingStore()->get('subjectAlternativeNameFormats');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Windows10XCustomSubjectAlternativeName::class);
+            /** @var array<Windows10XCustomSubjectAlternativeName>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subjectAlternativeNameFormats'");
     }
 
     /**
@@ -149,7 +213,11 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
      * @return string|null
     */
     public function getSubjectNameFormatString(): ?string {
-        return $this->getBackingStore()->get('subjectNameFormatString');
+        $val = $this->getBackingStore()->get('subjectNameFormatString');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subjectNameFormatString'");
     }
 
     /**

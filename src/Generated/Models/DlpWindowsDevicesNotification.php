@@ -30,12 +30,16 @@ class DlpWindowsDevicesNotification extends DlpNotification implements Parsable
      * @return string|null
     */
     public function getContentName(): ?string {
-        return $this->getBackingStore()->get('contentName');
+        $val = $this->getBackingStore()->get('contentName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -50,7 +54,11 @@ class DlpWindowsDevicesNotification extends DlpNotification implements Parsable
      * @return string|null
     */
     public function getLastModfiedBy(): ?string {
-        return $this->getBackingStore()->get('lastModfiedBy');
+        $val = $this->getBackingStore()->get('lastModfiedBy');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModfiedBy'");
     }
 
     /**

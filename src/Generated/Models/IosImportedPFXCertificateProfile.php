@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class IosImportedPFXCertificateProfile extends IosCertificateProfile implements Parsable 
 {
@@ -27,7 +28,7 @@ class IosImportedPFXCertificateProfile extends IosCertificateProfile implements 
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -42,7 +43,11 @@ class IosImportedPFXCertificateProfile extends IosCertificateProfile implements 
      * @return IntendedPurpose|null
     */
     public function getIntendedPurpose(): ?IntendedPurpose {
-        return $this->getBackingStore()->get('intendedPurpose');
+        $val = $this->getBackingStore()->get('intendedPurpose');
+        if (is_null($val) || $val instanceof IntendedPurpose) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'intendedPurpose'");
     }
 
     /**
@@ -50,7 +55,13 @@ class IosImportedPFXCertificateProfile extends IosCertificateProfile implements 
      * @return array<ManagedDeviceCertificateState>|null
     */
     public function getManagedDeviceCertificateStates(): ?array {
-        return $this->getBackingStore()->get('managedDeviceCertificateStates');
+        $val = $this->getBackingStore()->get('managedDeviceCertificateStates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagedDeviceCertificateState::class);
+            /** @var array<ManagedDeviceCertificateState>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceCertificateStates'");
     }
 
     /**

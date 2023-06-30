@@ -39,7 +39,12 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,12 +60,16 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
      * @return Edge|null
     */
     public function getEdge(): ?Edge {
-        return $this->getBackingStore()->get('edge');
+        $val = $this->getBackingStore()->get('edge');
+        if (is_null($val) || $val instanceof Edge) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edge'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -79,7 +88,11 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -87,7 +100,11 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
      * @return AdminReportSettings|null
     */
     public function getReportSettings(): ?AdminReportSettings {
-        return $this->getBackingStore()->get('reportSettings');
+        $val = $this->getBackingStore()->get('reportSettings');
+        if (is_null($val) || $val instanceof AdminReportSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reportSettings'");
     }
 
     /**
@@ -95,7 +112,11 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
      * @return ServiceAnnouncement|null
     */
     public function getServiceAnnouncement(): ?ServiceAnnouncement {
-        return $this->getBackingStore()->get('serviceAnnouncement');
+        $val = $this->getBackingStore()->get('serviceAnnouncement');
+        if (is_null($val) || $val instanceof ServiceAnnouncement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'serviceAnnouncement'");
     }
 
     /**
@@ -103,7 +124,11 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
      * @return Sharepoint|null
     */
     public function getSharepoint(): ?Sharepoint {
-        return $this->getBackingStore()->get('sharepoint');
+        $val = $this->getBackingStore()->get('sharepoint');
+        if (is_null($val) || $val instanceof Sharepoint) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sharepoint'");
     }
 
     /**
@@ -111,7 +136,11 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
      * @return AdminWindows|null
     */
     public function getWindows(): ?AdminWindows {
-        return $this->getBackingStore()->get('windows');
+        $val = $this->getBackingStore()->get('windows');
+        if (is_null($val) || $val instanceof AdminWindows) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windows'");
     }
 
     /**

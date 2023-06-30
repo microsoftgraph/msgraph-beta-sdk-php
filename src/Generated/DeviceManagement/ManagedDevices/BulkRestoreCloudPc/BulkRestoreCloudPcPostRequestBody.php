@@ -11,6 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class BulkRestoreCloudPcPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -41,7 +42,12 @@ class BulkRestoreCloudPcPostRequestBody implements AdditionalDataHolder, BackedM
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -54,12 +60,19 @@ class BulkRestoreCloudPcPostRequestBody implements AdditionalDataHolder, BackedM
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'managedDeviceIds' => fn(ParseNode $n) => $o->setManagedDeviceIds($n->getCollectionOfPrimitiveValues()),
+            'managedDeviceIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setManagedDeviceIds($val);
+            },
             'restorePointDateTime' => fn(ParseNode $n) => $o->setRestorePointDateTime($n->getDateTimeValue()),
             'timeRange' => fn(ParseNode $n) => $o->setTimeRange($n->getEnumValue(RestoreTimeRange::class)),
         ];
@@ -70,7 +83,13 @@ class BulkRestoreCloudPcPostRequestBody implements AdditionalDataHolder, BackedM
      * @return array<string>|null
     */
     public function getManagedDeviceIds(): ?array {
-        return $this->getBackingStore()->get('managedDeviceIds');
+        $val = $this->getBackingStore()->get('managedDeviceIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceIds'");
     }
 
     /**
@@ -78,7 +97,11 @@ class BulkRestoreCloudPcPostRequestBody implements AdditionalDataHolder, BackedM
      * @return DateTime|null
     */
     public function getRestorePointDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('restorePointDateTime');
+        $val = $this->getBackingStore()->get('restorePointDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'restorePointDateTime'");
     }
 
     /**
@@ -86,7 +109,11 @@ class BulkRestoreCloudPcPostRequestBody implements AdditionalDataHolder, BackedM
      * @return RestoreTimeRange|null
     */
     public function getTimeRange(): ?RestoreTimeRange {
-        return $this->getBackingStore()->get('timeRange');
+        $val = $this->getBackingStore()->get('timeRange');
+        if (is_null($val) || $val instanceof RestoreTimeRange) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'timeRange'");
     }
 
     /**

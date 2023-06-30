@@ -39,7 +39,12 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, BackedMo
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +52,11 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, BackedMo
      * @return EducationUserRole|null
     */
     public function getAppliesTo(): ?EducationUserRole {
-        return $this->getBackingStore()->get('appliesTo');
+        $val = $this->getBackingStore()->get('appliesTo');
+        if (is_null($val) || $val instanceof EducationUserRole) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appliesTo'");
     }
 
     /**
@@ -60,7 +69,7 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, BackedMo
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -78,7 +87,11 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, BackedMo
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -86,7 +99,11 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, BackedMo
      * @return string|null
     */
     public function getSourcePropertyName(): ?string {
-        return $this->getBackingStore()->get('sourcePropertyName');
+        $val = $this->getBackingStore()->get('sourcePropertyName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sourcePropertyName'");
     }
 
     /**
@@ -94,7 +111,11 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, BackedMo
      * @return string|null
     */
     public function getTargetDomain(): ?string {
-        return $this->getBackingStore()->get('targetDomain');
+        $val = $this->getBackingStore()->get('targetDomain');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetDomain'");
     }
 
     /**
@@ -102,7 +123,11 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, BackedMo
      * @return string|null
     */
     public function getTargetPropertyName(): ?string {
-        return $this->getBackingStore()->get('targetPropertyName');
+        $val = $this->getBackingStore()->get('targetPropertyName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetPropertyName'");
     }
 
     /**

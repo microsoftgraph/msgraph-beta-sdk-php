@@ -31,7 +31,11 @@ class ContentApprovalRule extends ComplianceChangeRule implements Parsable
      * @return ContentFilter|null
     */
     public function getContentFilter(): ?ContentFilter {
-        return $this->getBackingStore()->get('contentFilter');
+        $val = $this->getBackingStore()->get('contentFilter');
+        if (is_null($val) || $val instanceof ContentFilter) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentFilter'");
     }
 
     /**
@@ -39,12 +43,16 @@ class ContentApprovalRule extends ComplianceChangeRule implements Parsable
      * @return DateInterval|null
     */
     public function getDurationBeforeDeploymentStart(): ?DateInterval {
-        return $this->getBackingStore()->get('durationBeforeDeploymentStart');
+        $val = $this->getBackingStore()->get('durationBeforeDeploymentStart');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'durationBeforeDeploymentStart'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

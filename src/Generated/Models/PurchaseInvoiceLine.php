@@ -30,7 +30,11 @@ class PurchaseInvoiceLine extends Entity implements Parsable
      * @return Account|null
     */
     public function getAccount(): ?Account {
-        return $this->getBackingStore()->get('account');
+        $val = $this->getBackingStore()->get('account');
+        if (is_null($val) || $val instanceof Account) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'account'");
     }
 
     /**
@@ -38,7 +42,11 @@ class PurchaseInvoiceLine extends Entity implements Parsable
      * @return string|null
     */
     public function getAccountId(): ?string {
-        return $this->getBackingStore()->get('accountId');
+        $val = $this->getBackingStore()->get('accountId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accountId'");
     }
 
     /**
@@ -46,7 +54,11 @@ class PurchaseInvoiceLine extends Entity implements Parsable
      * @return string|null
     */
     public function getAmountExcludingTax(): ?string {
-        return $this->getBackingStore()->get('amountExcludingTax');
+        $val = $this->getBackingStore()->get('amountExcludingTax');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'amountExcludingTax'");
     }
 
     /**
@@ -54,7 +66,11 @@ class PurchaseInvoiceLine extends Entity implements Parsable
      * @return string|null
     */
     public function getAmountIncludingTax(): ?string {
-        return $this->getBackingStore()->get('amountIncludingTax');
+        $val = $this->getBackingStore()->get('amountIncludingTax');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'amountIncludingTax'");
     }
 
     /**
@@ -62,7 +78,11 @@ class PurchaseInvoiceLine extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -70,7 +90,11 @@ class PurchaseInvoiceLine extends Entity implements Parsable
      * @return string|null
     */
     public function getDiscountAmount(): ?string {
-        return $this->getBackingStore()->get('discountAmount');
+        $val = $this->getBackingStore()->get('discountAmount');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'discountAmount'");
     }
 
     /**
@@ -78,7 +102,11 @@ class PurchaseInvoiceLine extends Entity implements Parsable
      * @return bool|null
     */
     public function getDiscountAppliedBeforeTax(): ?bool {
-        return $this->getBackingStore()->get('discountAppliedBeforeTax');
+        $val = $this->getBackingStore()->get('discountAppliedBeforeTax');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'discountAppliedBeforeTax'");
     }
 
     /**
@@ -86,7 +114,11 @@ class PurchaseInvoiceLine extends Entity implements Parsable
      * @return string|null
     */
     public function getDiscountPercent(): ?string {
-        return $this->getBackingStore()->get('discountPercent');
+        $val = $this->getBackingStore()->get('discountPercent');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'discountPercent'");
     }
 
     /**
@@ -94,7 +126,11 @@ class PurchaseInvoiceLine extends Entity implements Parsable
      * @return string|null
     */
     public function getDocumentId(): ?string {
-        return $this->getBackingStore()->get('documentId');
+        $val = $this->getBackingStore()->get('documentId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'documentId'");
     }
 
     /**
@@ -102,12 +138,16 @@ class PurchaseInvoiceLine extends Entity implements Parsable
      * @return Date|null
     */
     public function getExpectedReceiptDate(): ?Date {
-        return $this->getBackingStore()->get('expectedReceiptDate');
+        $val = $this->getBackingStore()->get('expectedReceiptDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expectedReceiptDate'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -143,7 +183,11 @@ class PurchaseInvoiceLine extends Entity implements Parsable
      * @return string|null
     */
     public function getInvoiceDiscountAllocation(): ?string {
-        return $this->getBackingStore()->get('invoiceDiscountAllocation');
+        $val = $this->getBackingStore()->get('invoiceDiscountAllocation');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'invoiceDiscountAllocation'");
     }
 
     /**
@@ -151,7 +195,11 @@ class PurchaseInvoiceLine extends Entity implements Parsable
      * @return Item|null
     */
     public function getItem(): ?Item {
-        return $this->getBackingStore()->get('item');
+        $val = $this->getBackingStore()->get('item');
+        if (is_null($val) || $val instanceof Item) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'item'");
     }
 
     /**
@@ -159,7 +207,11 @@ class PurchaseInvoiceLine extends Entity implements Parsable
      * @return string|null
     */
     public function getItemId(): ?string {
-        return $this->getBackingStore()->get('itemId');
+        $val = $this->getBackingStore()->get('itemId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'itemId'");
     }
 
     /**
@@ -167,7 +219,11 @@ class PurchaseInvoiceLine extends Entity implements Parsable
      * @return string|null
     */
     public function getLineType(): ?string {
-        return $this->getBackingStore()->get('lineType');
+        $val = $this->getBackingStore()->get('lineType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lineType'");
     }
 
     /**
@@ -175,7 +231,11 @@ class PurchaseInvoiceLine extends Entity implements Parsable
      * @return string|null
     */
     public function getNetAmount(): ?string {
-        return $this->getBackingStore()->get('netAmount');
+        $val = $this->getBackingStore()->get('netAmount');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'netAmount'");
     }
 
     /**
@@ -183,7 +243,11 @@ class PurchaseInvoiceLine extends Entity implements Parsable
      * @return string|null
     */
     public function getNetAmountIncludingTax(): ?string {
-        return $this->getBackingStore()->get('netAmountIncludingTax');
+        $val = $this->getBackingStore()->get('netAmountIncludingTax');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'netAmountIncludingTax'");
     }
 
     /**
@@ -191,7 +255,11 @@ class PurchaseInvoiceLine extends Entity implements Parsable
      * @return string|null
     */
     public function getNetTaxAmount(): ?string {
-        return $this->getBackingStore()->get('netTaxAmount');
+        $val = $this->getBackingStore()->get('netTaxAmount');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'netTaxAmount'");
     }
 
     /**
@@ -199,7 +267,11 @@ class PurchaseInvoiceLine extends Entity implements Parsable
      * @return string|null
     */
     public function getQuantity(): ?string {
-        return $this->getBackingStore()->get('quantity');
+        $val = $this->getBackingStore()->get('quantity');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'quantity'");
     }
 
     /**
@@ -207,7 +279,11 @@ class PurchaseInvoiceLine extends Entity implements Parsable
      * @return int|null
     */
     public function getSequence(): ?int {
-        return $this->getBackingStore()->get('sequence');
+        $val = $this->getBackingStore()->get('sequence');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sequence'");
     }
 
     /**
@@ -215,7 +291,11 @@ class PurchaseInvoiceLine extends Entity implements Parsable
      * @return string|null
     */
     public function getTaxCode(): ?string {
-        return $this->getBackingStore()->get('taxCode');
+        $val = $this->getBackingStore()->get('taxCode');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'taxCode'");
     }
 
     /**
@@ -223,7 +303,11 @@ class PurchaseInvoiceLine extends Entity implements Parsable
      * @return string|null
     */
     public function getTaxPercent(): ?string {
-        return $this->getBackingStore()->get('taxPercent');
+        $val = $this->getBackingStore()->get('taxPercent');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'taxPercent'");
     }
 
     /**
@@ -231,7 +315,11 @@ class PurchaseInvoiceLine extends Entity implements Parsable
      * @return string|null
     */
     public function getTotalTaxAmount(): ?string {
-        return $this->getBackingStore()->get('totalTaxAmount');
+        $val = $this->getBackingStore()->get('totalTaxAmount');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalTaxAmount'");
     }
 
     /**
@@ -239,7 +327,11 @@ class PurchaseInvoiceLine extends Entity implements Parsable
      * @return string|null
     */
     public function getUnitCost(): ?string {
-        return $this->getBackingStore()->get('unitCost');
+        $val = $this->getBackingStore()->get('unitCost');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'unitCost'");
     }
 
     /**

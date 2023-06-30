@@ -39,7 +39,12 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, BackedModel
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,12 +60,16 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, BackedModel
      * @return string|null
     */
     public function getEmailToSendLogsAndFeedback(): ?string {
-        return $this->getBackingStore()->get('emailToSendLogsAndFeedback');
+        $val = $this->getBackingStore()->get('emailToSendLogsAndFeedback');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailToSendLogsAndFeedback'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -79,7 +88,11 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getIsAutoScreenShareEnabled(): ?bool {
-        return $this->getBackingStore()->get('isAutoScreenShareEnabled');
+        $val = $this->getBackingStore()->get('isAutoScreenShareEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isAutoScreenShareEnabled'");
     }
 
     /**
@@ -87,7 +100,11 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getIsBluetoothBeaconingEnabled(): ?bool {
-        return $this->getBackingStore()->get('isBluetoothBeaconingEnabled');
+        $val = $this->getBackingStore()->get('isBluetoothBeaconingEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isBluetoothBeaconingEnabled'");
     }
 
     /**
@@ -95,7 +112,11 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getIsHideMeetingNamesEnabled(): ?bool {
-        return $this->getBackingStore()->get('isHideMeetingNamesEnabled');
+        $val = $this->getBackingStore()->get('isHideMeetingNamesEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isHideMeetingNamesEnabled'");
     }
 
     /**
@@ -103,7 +124,11 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getIsSendLogsAndFeedbackEnabled(): ?bool {
-        return $this->getBackingStore()->get('isSendLogsAndFeedbackEnabled');
+        $val = $this->getBackingStore()->get('isSendLogsAndFeedbackEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isSendLogsAndFeedbackEnabled'");
     }
 
     /**
@@ -111,7 +136,11 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, BackedModel
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

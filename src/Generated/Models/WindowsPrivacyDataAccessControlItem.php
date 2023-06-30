@@ -32,7 +32,11 @@ class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable
      * @return WindowsPrivacyDataAccessLevel|null
     */
     public function getAccessLevel(): ?WindowsPrivacyDataAccessLevel {
-        return $this->getBackingStore()->get('accessLevel');
+        $val = $this->getBackingStore()->get('accessLevel');
+        if (is_null($val) || $val instanceof WindowsPrivacyDataAccessLevel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accessLevel'");
     }
 
     /**
@@ -40,7 +44,11 @@ class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable
      * @return string|null
     */
     public function getAppDisplayName(): ?string {
-        return $this->getBackingStore()->get('appDisplayName');
+        $val = $this->getBackingStore()->get('appDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appDisplayName'");
     }
 
     /**
@@ -48,7 +56,11 @@ class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable
      * @return string|null
     */
     public function getAppPackageFamilyName(): ?string {
-        return $this->getBackingStore()->get('appPackageFamilyName');
+        $val = $this->getBackingStore()->get('appPackageFamilyName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appPackageFamilyName'");
     }
 
     /**
@@ -56,12 +68,16 @@ class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable
      * @return WindowsPrivacyDataCategory|null
     */
     public function getDataCategory(): ?WindowsPrivacyDataCategory {
-        return $this->getBackingStore()->get('dataCategory');
+        $val = $this->getBackingStore()->get('dataCategory');
+        if (is_null($val) || $val instanceof WindowsPrivacyDataCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dataCategory'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

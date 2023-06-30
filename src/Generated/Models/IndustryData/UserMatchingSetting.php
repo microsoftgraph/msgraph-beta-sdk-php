@@ -39,7 +39,12 @@ class UserMatchingSetting implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +57,7 @@ class UserMatchingSetting implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -70,7 +75,11 @@ class UserMatchingSetting implements AdditionalDataHolder, BackedModel, Parsable
      * @return UserMatchTargetReferenceValue|null
     */
     public function getMatchTarget(): ?UserMatchTargetReferenceValue {
-        return $this->getBackingStore()->get('matchTarget');
+        $val = $this->getBackingStore()->get('matchTarget');
+        if (is_null($val) || $val instanceof UserMatchTargetReferenceValue) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'matchTarget'");
     }
 
     /**
@@ -78,7 +87,11 @@ class UserMatchingSetting implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -86,7 +99,11 @@ class UserMatchingSetting implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getPriorityOrder(): ?int {
-        return $this->getBackingStore()->get('priorityOrder');
+        $val = $this->getBackingStore()->get('priorityOrder');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'priorityOrder'");
     }
 
     /**
@@ -94,7 +111,11 @@ class UserMatchingSetting implements AdditionalDataHolder, BackedModel, Parsable
      * @return RoleGroup|null
     */
     public function getRoleGroup(): ?RoleGroup {
-        return $this->getBackingStore()->get('roleGroup');
+        $val = $this->getBackingStore()->get('roleGroup');
+        if (is_null($val) || $val instanceof RoleGroup) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleGroup'");
     }
 
     /**
@@ -102,7 +123,11 @@ class UserMatchingSetting implements AdditionalDataHolder, BackedModel, Parsable
      * @return IdentifierTypeReferenceValue|null
     */
     public function getSourceIdentifier(): ?IdentifierTypeReferenceValue {
-        return $this->getBackingStore()->get('sourceIdentifier');
+        $val = $this->getBackingStore()->get('sourceIdentifier');
+        if (is_null($val) || $val instanceof IdentifierTypeReferenceValue) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sourceIdentifier'");
     }
 
     /**

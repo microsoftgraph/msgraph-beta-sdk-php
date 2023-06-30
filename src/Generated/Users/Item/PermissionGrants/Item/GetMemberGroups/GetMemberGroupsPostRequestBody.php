@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\Security;
+namespace Microsoft\Graph\Beta\Generated\Users\Item\PermissionGrants\Item\GetMemberGroups;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class IntelligenceProfileSponsorState implements AdditionalDataHolder, BackedModel, Parsable 
+class GetMemberGroupsPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
      * @var BackingStore $backingStore Stores model information.
@@ -18,7 +18,7 @@ class IntelligenceProfileSponsorState implements AdditionalDataHolder, BackedMod
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new intelligenceProfileSponsorState and sets the default values.
+     * Instantiates a new getMemberGroupsPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -28,10 +28,10 @@ class IntelligenceProfileSponsorState implements AdditionalDataHolder, BackedMod
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return IntelligenceProfileSponsorState
+     * @return GetMemberGroupsPostRequestBody
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): IntelligenceProfileSponsorState {
-        return new IntelligenceProfileSponsorState();
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): GetMemberGroupsPostRequestBody {
+        return new GetMemberGroupsPostRequestBody();
     }
 
     /**
@@ -39,7 +39,12 @@ class IntelligenceProfileSponsorState implements AdditionalDataHolder, BackedMod
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -51,40 +56,26 @@ class IntelligenceProfileSponsorState implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Gets the code property value. A codified representation for this sponsor state.
-     * @return string|null
-    */
-    public function getCode(): ?string {
-        return $this->getBackingStore()->get('code');
-    }
-
-    /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'code' => fn(ParseNode $n) => $o->setCode($n->getStringValue()),
-            'label' => fn(ParseNode $n) => $o->setLabel($n->getStringValue()),
-            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'securityEnabledOnly' => fn(ParseNode $n) => $o->setSecurityEnabledOnly($n->getBooleanValue()),
         ];
     }
 
     /**
-     * Gets the label property value. A display label for this sponsor state.
-     * @return string|null
+     * Gets the securityEnabledOnly property value. The securityEnabledOnly property
+     * @return bool|null
     */
-    public function getLabel(): ?string {
-        return $this->getBackingStore()->get('label');
-    }
-
-    /**
-     * Gets the @odata.type property value. The OdataType property
-     * @return string|null
-    */
-    public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+    public function getSecurityEnabledOnly(): ?bool {
+        $val = $this->getBackingStore()->get('securityEnabledOnly');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'securityEnabledOnly'");
     }
 
     /**
@@ -92,9 +83,7 @@ class IntelligenceProfileSponsorState implements AdditionalDataHolder, BackedMod
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('code', $this->getCode());
-        $writer->writeStringValue('label', $this->getLabel());
-        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeBooleanValue('securityEnabledOnly', $this->getSecurityEnabledOnly());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -115,27 +104,11 @@ class IntelligenceProfileSponsorState implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Sets the code property value. A codified representation for this sponsor state.
-     * @param string|null $value Value to set for the code property.
+     * Sets the securityEnabledOnly property value. The securityEnabledOnly property
+     * @param bool|null $value Value to set for the securityEnabledOnly property.
     */
-    public function setCode(?string $value): void {
-        $this->getBackingStore()->set('code', $value);
-    }
-
-    /**
-     * Sets the label property value. A display label for this sponsor state.
-     * @param string|null $value Value to set for the label property.
-    */
-    public function setLabel(?string $value): void {
-        $this->getBackingStore()->set('label', $value);
-    }
-
-    /**
-     * Sets the @odata.type property value. The OdataType property
-     * @param string|null $value Value to set for the OdataType property.
-    */
-    public function setOdataType(?string $value): void {
-        $this->getBackingStore()->set('odataType', $value);
+    public function setSecurityEnabledOnly(?bool $value): void {
+        $this->getBackingStore()->set('securityEnabledOnly', $value);
     }
 
 }

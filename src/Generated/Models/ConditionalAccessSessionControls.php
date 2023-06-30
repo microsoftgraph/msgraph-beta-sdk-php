@@ -39,7 +39,12 @@ class ConditionalAccessSessionControls implements AdditionalDataHolder, BackedMo
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +52,11 @@ class ConditionalAccessSessionControls implements AdditionalDataHolder, BackedMo
      * @return ApplicationEnforcedRestrictionsSessionControl|null
     */
     public function getApplicationEnforcedRestrictions(): ?ApplicationEnforcedRestrictionsSessionControl {
-        return $this->getBackingStore()->get('applicationEnforcedRestrictions');
+        $val = $this->getBackingStore()->get('applicationEnforcedRestrictions');
+        if (is_null($val) || $val instanceof ApplicationEnforcedRestrictionsSessionControl) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationEnforcedRestrictions'");
     }
 
     /**
@@ -63,7 +72,11 @@ class ConditionalAccessSessionControls implements AdditionalDataHolder, BackedMo
      * @return CloudAppSecuritySessionControl|null
     */
     public function getCloudAppSecurity(): ?CloudAppSecuritySessionControl {
-        return $this->getBackingStore()->get('cloudAppSecurity');
+        $val = $this->getBackingStore()->get('cloudAppSecurity');
+        if (is_null($val) || $val instanceof CloudAppSecuritySessionControl) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudAppSecurity'");
     }
 
     /**
@@ -71,7 +84,11 @@ class ConditionalAccessSessionControls implements AdditionalDataHolder, BackedMo
      * @return ContinuousAccessEvaluationSessionControl|null
     */
     public function getContinuousAccessEvaluation(): ?ContinuousAccessEvaluationSessionControl {
-        return $this->getBackingStore()->get('continuousAccessEvaluation');
+        $val = $this->getBackingStore()->get('continuousAccessEvaluation');
+        if (is_null($val) || $val instanceof ContinuousAccessEvaluationSessionControl) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'continuousAccessEvaluation'");
     }
 
     /**
@@ -79,12 +96,16 @@ class ConditionalAccessSessionControls implements AdditionalDataHolder, BackedMo
      * @return bool|null
     */
     public function getDisableResilienceDefaults(): ?bool {
-        return $this->getBackingStore()->get('disableResilienceDefaults');
+        $val = $this->getBackingStore()->get('disableResilienceDefaults');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disableResilienceDefaults'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -105,7 +126,11 @@ class ConditionalAccessSessionControls implements AdditionalDataHolder, BackedMo
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -113,7 +138,11 @@ class ConditionalAccessSessionControls implements AdditionalDataHolder, BackedMo
      * @return PersistentBrowserSessionControl|null
     */
     public function getPersistentBrowser(): ?PersistentBrowserSessionControl {
-        return $this->getBackingStore()->get('persistentBrowser');
+        $val = $this->getBackingStore()->get('persistentBrowser');
+        if (is_null($val) || $val instanceof PersistentBrowserSessionControl) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'persistentBrowser'");
     }
 
     /**
@@ -121,7 +150,11 @@ class ConditionalAccessSessionControls implements AdditionalDataHolder, BackedMo
      * @return SecureSignInSessionControl|null
     */
     public function getSecureSignInSession(): ?SecureSignInSessionControl {
-        return $this->getBackingStore()->get('secureSignInSession');
+        $val = $this->getBackingStore()->get('secureSignInSession');
+        if (is_null($val) || $val instanceof SecureSignInSessionControl) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'secureSignInSession'");
     }
 
     /**
@@ -129,7 +162,11 @@ class ConditionalAccessSessionControls implements AdditionalDataHolder, BackedMo
      * @return SignInFrequencySessionControl|null
     */
     public function getSignInFrequency(): ?SignInFrequencySessionControl {
-        return $this->getBackingStore()->get('signInFrequency');
+        $val = $this->getBackingStore()->get('signInFrequency');
+        if (is_null($val) || $val instanceof SignInFrequencySessionControl) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signInFrequency'");
     }
 
     /**

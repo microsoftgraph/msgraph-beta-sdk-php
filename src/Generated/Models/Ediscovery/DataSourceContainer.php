@@ -39,7 +39,11 @@ class DataSourceContainer extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -47,12 +51,16 @@ class DataSourceContainer extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -72,7 +80,11 @@ class DataSourceContainer extends Entity implements Parsable
      * @return DataSourceHoldStatus|null
     */
     public function getHoldStatus(): ?DataSourceHoldStatus {
-        return $this->getBackingStore()->get('holdStatus');
+        $val = $this->getBackingStore()->get('holdStatus');
+        if (is_null($val) || $val instanceof DataSourceHoldStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'holdStatus'");
     }
 
     /**
@@ -80,7 +92,11 @@ class DataSourceContainer extends Entity implements Parsable
      * @return CaseIndexOperation|null
     */
     public function getLastIndexOperation(): ?CaseIndexOperation {
-        return $this->getBackingStore()->get('lastIndexOperation');
+        $val = $this->getBackingStore()->get('lastIndexOperation');
+        if (is_null($val) || $val instanceof CaseIndexOperation) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastIndexOperation'");
     }
 
     /**
@@ -88,7 +104,11 @@ class DataSourceContainer extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -96,7 +116,11 @@ class DataSourceContainer extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getReleasedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('releasedDateTime');
+        $val = $this->getBackingStore()->get('releasedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'releasedDateTime'");
     }
 
     /**
@@ -104,7 +128,11 @@ class DataSourceContainer extends Entity implements Parsable
      * @return DataSourceContainerStatus|null
     */
     public function getStatus(): ?DataSourceContainerStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof DataSourceContainerStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

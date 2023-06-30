@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Models\PublicError;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class IndustryDataRun extends Entity implements Parsable 
 {
@@ -32,7 +33,13 @@ class IndustryDataRun extends Entity implements Parsable
      * @return array<IndustryDataRunActivity>|null
     */
     public function getActivities(): ?array {
-        return $this->getBackingStore()->get('activities');
+        $val = $this->getBackingStore()->get('activities');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IndustryDataRunActivity::class);
+            /** @var array<IndustryDataRunActivity>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activities'");
     }
 
     /**
@@ -40,7 +47,11 @@ class IndustryDataRun extends Entity implements Parsable
      * @return PublicError|null
     */
     public function getBlockingError(): ?PublicError {
-        return $this->getBackingStore()->get('blockingError');
+        $val = $this->getBackingStore()->get('blockingError');
+        if (is_null($val) || $val instanceof PublicError) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockingError'");
     }
 
     /**
@@ -48,7 +59,11 @@ class IndustryDataRun extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -56,12 +71,16 @@ class IndustryDataRun extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('endDateTime');
+        $val = $this->getBackingStore()->get('endDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -80,7 +99,11 @@ class IndustryDataRun extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('startDateTime');
+        $val = $this->getBackingStore()->get('startDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startDateTime'");
     }
 
     /**
@@ -88,7 +111,11 @@ class IndustryDataRun extends Entity implements Parsable
      * @return IndustryDataRunStatus|null
     */
     public function getStatus(): ?IndustryDataRunStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof IndustryDataRunStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

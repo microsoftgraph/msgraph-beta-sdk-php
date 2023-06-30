@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent implements Parsable 
 {
@@ -29,7 +30,11 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
      * @return string|null
     */
     public function getApplicationId(): ?string {
-        return $this->getBackingStore()->get('applicationId');
+        $val = $this->getBackingStore()->get('applicationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationId'");
     }
 
     /**
@@ -37,7 +42,13 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
      * @return array<AppLogCollectionRequest>|null
     */
     public function getAppLogCollectionRequests(): ?array {
-        return $this->getBackingStore()->get('appLogCollectionRequests');
+        $val = $this->getBackingStore()->get('appLogCollectionRequests');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AppLogCollectionRequest::class);
+            /** @var array<AppLogCollectionRequest>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appLogCollectionRequests'");
     }
 
     /**
@@ -45,12 +56,16 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->getBackingStore()->get('deviceId');
+        $val = $this->getBackingStore()->get('deviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -69,7 +84,13 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
      * @return array<MobileAppTroubleshootingHistoryItem>|null
     */
     public function getHistory(): ?array {
-        return $this->getBackingStore()->get('history');
+        $val = $this->getBackingStore()->get('history');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MobileAppTroubleshootingHistoryItem::class);
+            /** @var array<MobileAppTroubleshootingHistoryItem>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'history'");
     }
 
     /**
@@ -77,7 +98,11 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
      * @return string|null
     */
     public function getManagedDeviceIdentifier(): ?string {
-        return $this->getBackingStore()->get('managedDeviceIdentifier');
+        $val = $this->getBackingStore()->get('managedDeviceIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceIdentifier'");
     }
 
     /**
@@ -85,7 +110,11 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->getBackingStore()->get('userId');
+        $val = $this->getBackingStore()->get('userId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
     }
 
     /**

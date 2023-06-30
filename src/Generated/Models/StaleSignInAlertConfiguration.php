@@ -27,16 +27,20 @@ class StaleSignInAlertConfiguration extends UnifiedRoleManagementAlertConfigurat
     }
 
     /**
-     * Gets the duration property value. The duration property
+     * Gets the duration property value. The number of days to look back from current timestamp within which the account has not signed in.
      * @return DateInterval|null
     */
     public function getDuration(): ?DateInterval {
-        return $this->getBackingStore()->get('duration');
+        $val = $this->getBackingStore()->get('duration');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'duration'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -55,7 +59,7 @@ class StaleSignInAlertConfiguration extends UnifiedRoleManagementAlertConfigurat
     }
 
     /**
-     * Sets the duration property value. The duration property
+     * Sets the duration property value. The number of days to look back from current timestamp within which the account has not signed in.
      * @param DateInterval|null $value Value to set for the duration property.
     */
     public function setDuration(?DateInterval $value): void {

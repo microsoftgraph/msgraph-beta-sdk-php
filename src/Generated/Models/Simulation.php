@@ -30,7 +30,11 @@ class Simulation extends Entity implements Parsable
      * @return SimulationAttackTechnique|null
     */
     public function getAttackTechnique(): ?SimulationAttackTechnique {
-        return $this->getBackingStore()->get('attackTechnique');
+        $val = $this->getBackingStore()->get('attackTechnique');
+        if (is_null($val) || $val instanceof SimulationAttackTechnique) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'attackTechnique'");
     }
 
     /**
@@ -38,7 +42,11 @@ class Simulation extends Entity implements Parsable
      * @return SimulationAttackType|null
     */
     public function getAttackType(): ?SimulationAttackType {
-        return $this->getBackingStore()->get('attackType');
+        $val = $this->getBackingStore()->get('attackType');
+        if (is_null($val) || $val instanceof SimulationAttackType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'attackType'");
     }
 
     /**
@@ -46,7 +54,11 @@ class Simulation extends Entity implements Parsable
      * @return string|null
     */
     public function getAutomationId(): ?string {
-        return $this->getBackingStore()->get('automationId');
+        $val = $this->getBackingStore()->get('automationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'automationId'");
     }
 
     /**
@@ -54,7 +66,11 @@ class Simulation extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCompletionDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('completionDateTime');
+        $val = $this->getBackingStore()->get('completionDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'completionDateTime'");
     }
 
     /**
@@ -62,7 +78,11 @@ class Simulation extends Entity implements Parsable
      * @return EmailIdentity|null
     */
     public function getCreatedBy(): ?EmailIdentity {
-        return $this->getBackingStore()->get('createdBy');
+        $val = $this->getBackingStore()->get('createdBy');
+        if (is_null($val) || $val instanceof EmailIdentity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdBy'");
     }
 
     /**
@@ -70,7 +90,11 @@ class Simulation extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -78,7 +102,11 @@ class Simulation extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -86,7 +114,11 @@ class Simulation extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -94,7 +126,11 @@ class Simulation extends Entity implements Parsable
      * @return int|null
     */
     public function getDurationInDays(): ?int {
-        return $this->getBackingStore()->get('durationInDays');
+        $val = $this->getBackingStore()->get('durationInDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'durationInDays'");
     }
 
     /**
@@ -102,12 +138,16 @@ class Simulation extends Entity implements Parsable
      * @return AccountTargetContent|null
     */
     public function getExcludedAccountTarget(): ?AccountTargetContent {
-        return $this->getBackingStore()->get('excludedAccountTarget');
+        $val = $this->getBackingStore()->get('excludedAccountTarget');
+        if (is_null($val) || $val instanceof AccountTargetContent) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'excludedAccountTarget'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -139,7 +179,11 @@ class Simulation extends Entity implements Parsable
      * @return AccountTargetContent|null
     */
     public function getIncludedAccountTarget(): ?AccountTargetContent {
-        return $this->getBackingStore()->get('includedAccountTarget');
+        $val = $this->getBackingStore()->get('includedAccountTarget');
+        if (is_null($val) || $val instanceof AccountTargetContent) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'includedAccountTarget'");
     }
 
     /**
@@ -147,7 +191,11 @@ class Simulation extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsAutomated(): ?bool {
-        return $this->getBackingStore()->get('isAutomated');
+        $val = $this->getBackingStore()->get('isAutomated');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isAutomated'");
     }
 
     /**
@@ -155,7 +203,11 @@ class Simulation extends Entity implements Parsable
      * @return EmailIdentity|null
     */
     public function getLastModifiedBy(): ?EmailIdentity {
-        return $this->getBackingStore()->get('lastModifiedBy');
+        $val = $this->getBackingStore()->get('lastModifiedBy');
+        if (is_null($val) || $val instanceof EmailIdentity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedBy'");
     }
 
     /**
@@ -163,7 +215,11 @@ class Simulation extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -171,7 +227,11 @@ class Simulation extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLaunchDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('launchDateTime');
+        $val = $this->getBackingStore()->get('launchDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'launchDateTime'");
     }
 
     /**
@@ -179,7 +239,11 @@ class Simulation extends Entity implements Parsable
      * @return Payload|null
     */
     public function getPayload(): ?Payload {
-        return $this->getBackingStore()->get('payload');
+        $val = $this->getBackingStore()->get('payload');
+        if (is_null($val) || $val instanceof Payload) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'payload'");
     }
 
     /**
@@ -187,7 +251,11 @@ class Simulation extends Entity implements Parsable
      * @return PayloadDeliveryPlatform|null
     */
     public function getPayloadDeliveryPlatform(): ?PayloadDeliveryPlatform {
-        return $this->getBackingStore()->get('payloadDeliveryPlatform');
+        $val = $this->getBackingStore()->get('payloadDeliveryPlatform');
+        if (is_null($val) || $val instanceof PayloadDeliveryPlatform) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'payloadDeliveryPlatform'");
     }
 
     /**
@@ -195,7 +263,11 @@ class Simulation extends Entity implements Parsable
      * @return SimulationReport|null
     */
     public function getReport(): ?SimulationReport {
-        return $this->getBackingStore()->get('report');
+        $val = $this->getBackingStore()->get('report');
+        if (is_null($val) || $val instanceof SimulationReport) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'report'");
     }
 
     /**
@@ -203,7 +275,11 @@ class Simulation extends Entity implements Parsable
      * @return SimulationStatus|null
     */
     public function getStatus(): ?SimulationStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof SimulationStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

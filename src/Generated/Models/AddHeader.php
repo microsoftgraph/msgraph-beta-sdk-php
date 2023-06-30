@@ -30,12 +30,16 @@ class AddHeader extends MarkContent implements Parsable
      * @return Alignment|null
     */
     public function getAlignment(): ?Alignment {
-        return $this->getBackingStore()->get('alignment');
+        $val = $this->getBackingStore()->get('alignment');
+        if (is_null($val) || $val instanceof Alignment) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'alignment'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -50,7 +54,11 @@ class AddHeader extends MarkContent implements Parsable
      * @return int|null
     */
     public function getMargin(): ?int {
-        return $this->getBackingStore()->get('margin');
+        $val = $this->getBackingStore()->get('margin');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'margin'");
     }
 
     /**

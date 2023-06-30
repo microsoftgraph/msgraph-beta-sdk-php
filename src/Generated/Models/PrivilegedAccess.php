@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class PrivilegedAccess extends Entity implements Parsable 
 {
@@ -29,12 +30,16 @@ class PrivilegedAccess extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -53,7 +58,13 @@ class PrivilegedAccess extends Entity implements Parsable
      * @return array<GovernanceResource>|null
     */
     public function getResources(): ?array {
-        return $this->getBackingStore()->get('resources');
+        $val = $this->getBackingStore()->get('resources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, GovernanceResource::class);
+            /** @var array<GovernanceResource>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resources'");
     }
 
     /**
@@ -61,7 +72,13 @@ class PrivilegedAccess extends Entity implements Parsable
      * @return array<GovernanceRoleAssignmentRequest>|null
     */
     public function getRoleAssignmentRequests(): ?array {
-        return $this->getBackingStore()->get('roleAssignmentRequests');
+        $val = $this->getBackingStore()->get('roleAssignmentRequests');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, GovernanceRoleAssignmentRequest::class);
+            /** @var array<GovernanceRoleAssignmentRequest>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleAssignmentRequests'");
     }
 
     /**
@@ -69,7 +86,13 @@ class PrivilegedAccess extends Entity implements Parsable
      * @return array<GovernanceRoleAssignment>|null
     */
     public function getRoleAssignments(): ?array {
-        return $this->getBackingStore()->get('roleAssignments');
+        $val = $this->getBackingStore()->get('roleAssignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, GovernanceRoleAssignment::class);
+            /** @var array<GovernanceRoleAssignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleAssignments'");
     }
 
     /**
@@ -77,7 +100,13 @@ class PrivilegedAccess extends Entity implements Parsable
      * @return array<GovernanceRoleDefinition>|null
     */
     public function getRoleDefinitions(): ?array {
-        return $this->getBackingStore()->get('roleDefinitions');
+        $val = $this->getBackingStore()->get('roleDefinitions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, GovernanceRoleDefinition::class);
+            /** @var array<GovernanceRoleDefinition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleDefinitions'");
     }
 
     /**
@@ -85,7 +114,13 @@ class PrivilegedAccess extends Entity implements Parsable
      * @return array<GovernanceRoleSetting>|null
     */
     public function getRoleSettings(): ?array {
-        return $this->getBackingStore()->get('roleSettings');
+        $val = $this->getBackingStore()->get('roleSettings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, GovernanceRoleSetting::class);
+            /** @var array<GovernanceRoleSetting>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleSettings'");
     }
 
     /**

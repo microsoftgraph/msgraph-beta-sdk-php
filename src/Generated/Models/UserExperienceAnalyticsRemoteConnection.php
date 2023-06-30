@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analyte remote connection entity.
+*/
 class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsRemoteConnection and sets the default values.
+     * Instantiates a new userExperienceAnalyticsRemoteConnection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -29,7 +32,11 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return float|null
     */
     public function getCloudPcFailurePercentage(): ?float {
-        return $this->getBackingStore()->get('cloudPcFailurePercentage');
+        $val = $this->getBackingStore()->get('cloudPcFailurePercentage');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudPcFailurePercentage'");
     }
 
     /**
@@ -37,7 +44,11 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return float|null
     */
     public function getCloudPcRoundTripTime(): ?float {
-        return $this->getBackingStore()->get('cloudPcRoundTripTime');
+        $val = $this->getBackingStore()->get('cloudPcRoundTripTime');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudPcRoundTripTime'");
     }
 
     /**
@@ -45,7 +56,11 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return float|null
     */
     public function getCloudPcSignInTime(): ?float {
-        return $this->getBackingStore()->get('cloudPcSignInTime');
+        $val = $this->getBackingStore()->get('cloudPcSignInTime');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudPcSignInTime'");
     }
 
     /**
@@ -53,7 +68,11 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return float|null
     */
     public function getCoreBootTime(): ?float {
-        return $this->getBackingStore()->get('coreBootTime');
+        $val = $this->getBackingStore()->get('coreBootTime');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'coreBootTime'");
     }
 
     /**
@@ -61,7 +80,11 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return float|null
     */
     public function getCoreSignInTime(): ?float {
-        return $this->getBackingStore()->get('coreSignInTime');
+        $val = $this->getBackingStore()->get('coreSignInTime');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'coreSignInTime'");
     }
 
     /**
@@ -69,7 +92,11 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return int|null
     */
     public function getDeviceCount(): ?int {
-        return $this->getBackingStore()->get('deviceCount');
+        $val = $this->getBackingStore()->get('deviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceCount'");
     }
 
     /**
@@ -77,7 +104,11 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->getBackingStore()->get('deviceId');
+        $val = $this->getBackingStore()->get('deviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceId'");
     }
 
     /**
@@ -85,12 +116,16 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->getBackingStore()->get('deviceName');
+        $val = $this->getBackingStore()->get('deviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -116,7 +151,11 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getManufacturer(): ?string {
-        return $this->getBackingStore()->get('manufacturer');
+        $val = $this->getBackingStore()->get('manufacturer');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'manufacturer'");
     }
 
     /**
@@ -124,7 +163,11 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getModel(): ?string {
-        return $this->getBackingStore()->get('model');
+        $val = $this->getBackingStore()->get('model');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'model'");
     }
 
     /**
@@ -132,7 +175,11 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return float|null
     */
     public function getRemoteSignInTime(): ?float {
-        return $this->getBackingStore()->get('remoteSignInTime');
+        $val = $this->getBackingStore()->get('remoteSignInTime');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remoteSignInTime'");
     }
 
     /**
@@ -140,7 +187,11 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('userPrincipalName');
+        $val = $this->getBackingStore()->get('userPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
     }
 
     /**
@@ -148,7 +199,11 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getVirtualNetwork(): ?string {
-        return $this->getBackingStore()->get('virtualNetwork');
+        $val = $this->getBackingStore()->get('virtualNetwork');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'virtualNetwork'");
     }
 
     /**

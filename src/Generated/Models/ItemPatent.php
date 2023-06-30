@@ -31,7 +31,11 @@ class ItemPatent extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -39,12 +43,16 @@ class ItemPatent extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -64,7 +72,11 @@ class ItemPatent extends ItemFacet implements Parsable
      * @return bool|null
     */
     public function getIsPending(): ?bool {
-        return $this->getBackingStore()->get('isPending');
+        $val = $this->getBackingStore()->get('isPending');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isPending'");
     }
 
     /**
@@ -72,7 +84,11 @@ class ItemPatent extends ItemFacet implements Parsable
      * @return Date|null
     */
     public function getIssuedDate(): ?Date {
-        return $this->getBackingStore()->get('issuedDate');
+        $val = $this->getBackingStore()->get('issuedDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'issuedDate'");
     }
 
     /**
@@ -80,7 +96,11 @@ class ItemPatent extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getIssuingAuthority(): ?string {
-        return $this->getBackingStore()->get('issuingAuthority');
+        $val = $this->getBackingStore()->get('issuingAuthority');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'issuingAuthority'");
     }
 
     /**
@@ -88,7 +108,11 @@ class ItemPatent extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getNumber(): ?string {
-        return $this->getBackingStore()->get('number');
+        $val = $this->getBackingStore()->get('number');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'number'");
     }
 
     /**
@@ -96,7 +120,11 @@ class ItemPatent extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getWebUrl(): ?string {
-        return $this->getBackingStore()->get('webUrl');
+        $val = $this->getBackingStore()->get('webUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'webUrl'");
     }
 
     /**

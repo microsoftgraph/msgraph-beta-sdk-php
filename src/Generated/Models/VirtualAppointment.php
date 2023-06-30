@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class VirtualAppointment extends Entity implements Parsable 
 {
@@ -29,7 +30,11 @@ class VirtualAppointment extends Entity implements Parsable
      * @return string|null
     */
     public function getAppointmentClientJoinWebUrl(): ?string {
-        return $this->getBackingStore()->get('appointmentClientJoinWebUrl');
+        $val = $this->getBackingStore()->get('appointmentClientJoinWebUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appointmentClientJoinWebUrl'");
     }
 
     /**
@@ -37,7 +42,13 @@ class VirtualAppointment extends Entity implements Parsable
      * @return array<VirtualAppointmentUser>|null
     */
     public function getAppointmentClients(): ?array {
-        return $this->getBackingStore()->get('appointmentClients');
+        $val = $this->getBackingStore()->get('appointmentClients');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, VirtualAppointmentUser::class);
+            /** @var array<VirtualAppointmentUser>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appointmentClients'");
     }
 
     /**
@@ -45,7 +56,11 @@ class VirtualAppointment extends Entity implements Parsable
      * @return string|null
     */
     public function getExternalAppointmentId(): ?string {
-        return $this->getBackingStore()->get('externalAppointmentId');
+        $val = $this->getBackingStore()->get('externalAppointmentId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'externalAppointmentId'");
     }
 
     /**
@@ -53,12 +68,16 @@ class VirtualAppointment extends Entity implements Parsable
      * @return string|null
     */
     public function getExternalAppointmentUrl(): ?string {
-        return $this->getBackingStore()->get('externalAppointmentUrl');
+        $val = $this->getBackingStore()->get('externalAppointmentUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'externalAppointmentUrl'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -76,7 +95,11 @@ class VirtualAppointment extends Entity implements Parsable
      * @return VirtualAppointmentSettings|null
     */
     public function getSettings(): ?VirtualAppointmentSettings {
-        return $this->getBackingStore()->get('settings');
+        $val = $this->getBackingStore()->get('settings');
+        if (is_null($val) || $val instanceof VirtualAppointmentSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settings'");
     }
 
     /**

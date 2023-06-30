@@ -29,7 +29,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyAssignment extends Enti
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -43,7 +43,11 @@ class WindowsDefenderApplicationControlSupplementalPolicyAssignment extends Enti
      * @return DeviceAndAppManagementAssignmentTarget|null
     */
     public function getTarget(): ?DeviceAndAppManagementAssignmentTarget {
-        return $this->getBackingStore()->get('target');
+        $val = $this->getBackingStore()->get('target');
+        if (is_null($val) || $val instanceof DeviceAndAppManagementAssignmentTarget) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'target'");
     }
 
     /**

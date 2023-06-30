@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ServerProcessedContent implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class ServerProcessedContent implements AdditionalDataHolder, BackedModel, Parsa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +61,13 @@ class ServerProcessedContent implements AdditionalDataHolder, BackedModel, Parsa
      * @return array<MetaDataKeyStringPair>|null
     */
     public function getComponentDependencies(): ?array {
-        return $this->getBackingStore()->get('componentDependencies');
+        $val = $this->getBackingStore()->get('componentDependencies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MetaDataKeyStringPair::class);
+            /** @var array<MetaDataKeyStringPair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'componentDependencies'");
     }
 
     /**
@@ -63,12 +75,18 @@ class ServerProcessedContent implements AdditionalDataHolder, BackedModel, Parsa
      * @return array<MetaDataKeyValuePair>|null
     */
     public function getCustomMetadata(): ?array {
-        return $this->getBackingStore()->get('customMetadata');
+        $val = $this->getBackingStore()->get('customMetadata');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MetaDataKeyValuePair::class);
+            /** @var array<MetaDataKeyValuePair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customMetadata'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -88,7 +106,13 @@ class ServerProcessedContent implements AdditionalDataHolder, BackedModel, Parsa
      * @return array<MetaDataKeyStringPair>|null
     */
     public function getHtmlStrings(): ?array {
-        return $this->getBackingStore()->get('htmlStrings');
+        $val = $this->getBackingStore()->get('htmlStrings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MetaDataKeyStringPair::class);
+            /** @var array<MetaDataKeyStringPair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'htmlStrings'");
     }
 
     /**
@@ -96,7 +120,13 @@ class ServerProcessedContent implements AdditionalDataHolder, BackedModel, Parsa
      * @return array<MetaDataKeyStringPair>|null
     */
     public function getImageSources(): ?array {
-        return $this->getBackingStore()->get('imageSources');
+        $val = $this->getBackingStore()->get('imageSources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MetaDataKeyStringPair::class);
+            /** @var array<MetaDataKeyStringPair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'imageSources'");
     }
 
     /**
@@ -104,7 +134,13 @@ class ServerProcessedContent implements AdditionalDataHolder, BackedModel, Parsa
      * @return array<MetaDataKeyStringPair>|null
     */
     public function getLinks(): ?array {
-        return $this->getBackingStore()->get('links');
+        $val = $this->getBackingStore()->get('links');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MetaDataKeyStringPair::class);
+            /** @var array<MetaDataKeyStringPair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'links'");
     }
 
     /**
@@ -112,7 +148,11 @@ class ServerProcessedContent implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -120,7 +160,13 @@ class ServerProcessedContent implements AdditionalDataHolder, BackedModel, Parsa
      * @return array<MetaDataKeyStringPair>|null
     */
     public function getSearchablePlainTexts(): ?array {
-        return $this->getBackingStore()->get('searchablePlainTexts');
+        $val = $this->getBackingStore()->get('searchablePlainTexts');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MetaDataKeyStringPair::class);
+            /** @var array<MetaDataKeyStringPair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'searchablePlainTexts'");
     }
 
     /**

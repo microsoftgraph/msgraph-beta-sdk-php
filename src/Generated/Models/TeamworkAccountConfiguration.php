@@ -39,7 +39,12 @@ class TeamworkAccountConfiguration implements AdditionalDataHolder, BackedModel,
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +57,7 @@ class TeamworkAccountConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -68,7 +73,11 @@ class TeamworkAccountConfiguration implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -76,7 +85,11 @@ class TeamworkAccountConfiguration implements AdditionalDataHolder, BackedModel,
      * @return TeamworkOnPremisesCalendarSyncConfiguration|null
     */
     public function getOnPremisesCalendarSyncConfiguration(): ?TeamworkOnPremisesCalendarSyncConfiguration {
-        return $this->getBackingStore()->get('onPremisesCalendarSyncConfiguration');
+        $val = $this->getBackingStore()->get('onPremisesCalendarSyncConfiguration');
+        if (is_null($val) || $val instanceof TeamworkOnPremisesCalendarSyncConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onPremisesCalendarSyncConfiguration'");
     }
 
     /**
@@ -84,7 +97,11 @@ class TeamworkAccountConfiguration implements AdditionalDataHolder, BackedModel,
      * @return TeamworkSupportedClient|null
     */
     public function getSupportedClient(): ?TeamworkSupportedClient {
-        return $this->getBackingStore()->get('supportedClient');
+        $val = $this->getBackingStore()->get('supportedClient');
+        if (is_null($val) || $val instanceof TeamworkSupportedClient) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedClient'");
     }
 
     /**

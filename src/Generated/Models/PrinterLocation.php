@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class PrinterLocation implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class PrinterLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +53,11 @@ class PrinterLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getAltitudeInMeters(): ?int {
-        return $this->getBackingStore()->get('altitudeInMeters');
+        $val = $this->getBackingStore()->get('altitudeInMeters');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'altitudeInMeters'");
     }
 
     /**
@@ -63,7 +73,11 @@ class PrinterLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getBuilding(): ?string {
-        return $this->getBackingStore()->get('building');
+        $val = $this->getBackingStore()->get('building');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'building'");
     }
 
     /**
@@ -71,7 +85,11 @@ class PrinterLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getCity(): ?string {
-        return $this->getBackingStore()->get('city');
+        $val = $this->getBackingStore()->get('city');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'city'");
     }
 
     /**
@@ -79,12 +97,16 @@ class PrinterLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getCountryOrRegion(): ?string {
-        return $this->getBackingStore()->get('countryOrRegion');
+        $val = $this->getBackingStore()->get('countryOrRegion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'countryOrRegion'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -99,7 +121,14 @@ class PrinterLocation implements AdditionalDataHolder, BackedModel, Parsable
             'latitude' => fn(ParseNode $n) => $o->setLatitude($n->getFloatValue()),
             'longitude' => fn(ParseNode $n) => $o->setLongitude($n->getFloatValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'organization' => fn(ParseNode $n) => $o->setOrganization($n->getCollectionOfPrimitiveValues()),
+            'organization' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setOrganization($val);
+            },
             'postalCode' => fn(ParseNode $n) => $o->setPostalCode($n->getStringValue()),
             'roomDescription' => fn(ParseNode $n) => $o->setRoomDescription($n->getStringValue()),
             'roomName' => fn(ParseNode $n) => $o->setRoomName($n->getStringValue()),
@@ -107,8 +136,22 @@ class PrinterLocation implements AdditionalDataHolder, BackedModel, Parsable
             'site' => fn(ParseNode $n) => $o->setSite($n->getStringValue()),
             'stateOrProvince' => fn(ParseNode $n) => $o->setStateOrProvince($n->getStringValue()),
             'streetAddress' => fn(ParseNode $n) => $o->setStreetAddress($n->getStringValue()),
-            'subdivision' => fn(ParseNode $n) => $o->setSubdivision($n->getCollectionOfPrimitiveValues()),
-            'subunit' => fn(ParseNode $n) => $o->setSubunit($n->getCollectionOfPrimitiveValues()),
+            'subdivision' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSubdivision($val);
+            },
+            'subunit' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSubunit($val);
+            },
         ];
     }
 
@@ -117,7 +160,11 @@ class PrinterLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getFloor(): ?string {
-        return $this->getBackingStore()->get('floor');
+        $val = $this->getBackingStore()->get('floor');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'floor'");
     }
 
     /**
@@ -125,7 +172,11 @@ class PrinterLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getFloorDescription(): ?string {
-        return $this->getBackingStore()->get('floorDescription');
+        $val = $this->getBackingStore()->get('floorDescription');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'floorDescription'");
     }
 
     /**
@@ -133,7 +184,11 @@ class PrinterLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getFloorNumber(): ?int {
-        return $this->getBackingStore()->get('floorNumber');
+        $val = $this->getBackingStore()->get('floorNumber');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'floorNumber'");
     }
 
     /**
@@ -141,7 +196,11 @@ class PrinterLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return float|null
     */
     public function getLatitude(): ?float {
-        return $this->getBackingStore()->get('latitude');
+        $val = $this->getBackingStore()->get('latitude');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'latitude'");
     }
 
     /**
@@ -149,7 +208,11 @@ class PrinterLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return float|null
     */
     public function getLongitude(): ?float {
-        return $this->getBackingStore()->get('longitude');
+        $val = $this->getBackingStore()->get('longitude');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'longitude'");
     }
 
     /**
@@ -157,7 +220,11 @@ class PrinterLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -165,7 +232,13 @@ class PrinterLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getOrganization(): ?array {
-        return $this->getBackingStore()->get('organization');
+        $val = $this->getBackingStore()->get('organization');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'organization'");
     }
 
     /**
@@ -173,7 +246,11 @@ class PrinterLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getPostalCode(): ?string {
-        return $this->getBackingStore()->get('postalCode');
+        $val = $this->getBackingStore()->get('postalCode');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'postalCode'");
     }
 
     /**
@@ -181,7 +258,11 @@ class PrinterLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getRoomDescription(): ?string {
-        return $this->getBackingStore()->get('roomDescription');
+        $val = $this->getBackingStore()->get('roomDescription');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roomDescription'");
     }
 
     /**
@@ -189,7 +270,11 @@ class PrinterLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getRoomName(): ?string {
-        return $this->getBackingStore()->get('roomName');
+        $val = $this->getBackingStore()->get('roomName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roomName'");
     }
 
     /**
@@ -197,7 +282,11 @@ class PrinterLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getRoomNumber(): ?int {
-        return $this->getBackingStore()->get('roomNumber');
+        $val = $this->getBackingStore()->get('roomNumber');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roomNumber'");
     }
 
     /**
@@ -205,7 +294,11 @@ class PrinterLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getSite(): ?string {
-        return $this->getBackingStore()->get('site');
+        $val = $this->getBackingStore()->get('site');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'site'");
     }
 
     /**
@@ -213,7 +306,11 @@ class PrinterLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getStateOrProvince(): ?string {
-        return $this->getBackingStore()->get('stateOrProvince');
+        $val = $this->getBackingStore()->get('stateOrProvince');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'stateOrProvince'");
     }
 
     /**
@@ -221,7 +318,11 @@ class PrinterLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getStreetAddress(): ?string {
-        return $this->getBackingStore()->get('streetAddress');
+        $val = $this->getBackingStore()->get('streetAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'streetAddress'");
     }
 
     /**
@@ -229,7 +330,13 @@ class PrinterLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getSubdivision(): ?array {
-        return $this->getBackingStore()->get('subdivision');
+        $val = $this->getBackingStore()->get('subdivision');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subdivision'");
     }
 
     /**
@@ -237,7 +344,13 @@ class PrinterLocation implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getSubunit(): ?array {
-        return $this->getBackingStore()->get('subunit');
+        $val = $this->getBackingStore()->get('subunit');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subunit'");
     }
 
     /**

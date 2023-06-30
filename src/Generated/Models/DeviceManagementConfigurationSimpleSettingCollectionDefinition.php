@@ -26,7 +26,7 @@ class DeviceManagementConfigurationSimpleSettingCollectionDefinition extends Dev
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -37,19 +37,27 @@ class DeviceManagementConfigurationSimpleSettingCollectionDefinition extends Dev
     }
 
     /**
-     * Gets the maximumCount property value. Maximum number of simple settings in the collection. Valid values 1 to 100
+     * Gets the maximumCount property value. Maximum number of simple settings in the collection
      * @return int|null
     */
     public function getMaximumCount(): ?int {
-        return $this->getBackingStore()->get('maximumCount');
+        $val = $this->getBackingStore()->get('maximumCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maximumCount'");
     }
 
     /**
-     * Gets the minimumCount property value. Minimum number of simple settings in the collection. Valid values 1 to 100
+     * Gets the minimumCount property value. Minimum number of simple settings in the collection
      * @return int|null
     */
     public function getMinimumCount(): ?int {
-        return $this->getBackingStore()->get('minimumCount');
+        $val = $this->getBackingStore()->get('minimumCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumCount'");
     }
 
     /**
@@ -63,7 +71,7 @@ class DeviceManagementConfigurationSimpleSettingCollectionDefinition extends Dev
     }
 
     /**
-     * Sets the maximumCount property value. Maximum number of simple settings in the collection. Valid values 1 to 100
+     * Sets the maximumCount property value. Maximum number of simple settings in the collection
      * @param int|null $value Value to set for the maximumCount property.
     */
     public function setMaximumCount(?int $value): void {
@@ -71,7 +79,7 @@ class DeviceManagementConfigurationSimpleSettingCollectionDefinition extends Dev
     }
 
     /**
-     * Sets the minimumCount property value. Minimum number of simple settings in the collection. Valid values 1 to 100
+     * Sets the minimumCount property value. Minimum number of simple settings in the collection
      * @param int|null $value Value to set for the minimumCount property.
     */
     public function setMinimumCount(?int $value): void {

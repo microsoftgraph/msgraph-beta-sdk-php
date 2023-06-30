@@ -29,7 +29,7 @@ class CustomTaskExtensionCalloutData extends CustomExtensionData implements Pars
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -46,7 +46,11 @@ class CustomTaskExtensionCalloutData extends CustomExtensionData implements Pars
      * @return User|null
     */
     public function getSubject(): ?User {
-        return $this->getBackingStore()->get('subject');
+        $val = $this->getBackingStore()->get('subject');
+        if (is_null($val) || $val instanceof User) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subject'");
     }
 
     /**
@@ -54,7 +58,11 @@ class CustomTaskExtensionCalloutData extends CustomExtensionData implements Pars
      * @return Task|null
     */
     public function getTask(): ?Task {
-        return $this->getBackingStore()->get('task');
+        $val = $this->getBackingStore()->get('task');
+        if (is_null($val) || $val instanceof Task) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'task'");
     }
 
     /**
@@ -62,7 +70,11 @@ class CustomTaskExtensionCalloutData extends CustomExtensionData implements Pars
      * @return TaskProcessingResult|null
     */
     public function getTaskProcessingresult(): ?TaskProcessingResult {
-        return $this->getBackingStore()->get('taskProcessingresult');
+        $val = $this->getBackingStore()->get('taskProcessingresult');
+        if (is_null($val) || $val instanceof TaskProcessingResult) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'taskProcessingresult'");
     }
 
     /**
@@ -70,7 +82,11 @@ class CustomTaskExtensionCalloutData extends CustomExtensionData implements Pars
      * @return Workflow|null
     */
     public function getWorkflow(): ?Workflow {
-        return $this->getBackingStore()->get('workflow');
+        $val = $this->getBackingStore()->get('workflow');
+        if (is_null($val) || $val instanceof Workflow) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workflow'");
     }
 
     /**

@@ -42,7 +42,12 @@ class ChromeOSDeviceProperty implements AdditionalDataHolder, BackedModel, Parsa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +60,7 @@ class ChromeOSDeviceProperty implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -73,7 +78,11 @@ class ChromeOSDeviceProperty implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -81,7 +90,11 @@ class ChromeOSDeviceProperty implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -89,7 +102,11 @@ class ChromeOSDeviceProperty implements AdditionalDataHolder, BackedModel, Parsa
      * @return bool|null
     */
     public function getUpdatable(): ?bool {
-        return $this->getBackingStore()->get('updatable');
+        $val = $this->getBackingStore()->get('updatable');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'updatable'");
     }
 
     /**
@@ -97,7 +114,11 @@ class ChromeOSDeviceProperty implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getValue(): ?string {
-        return $this->getBackingStore()->get('value');
+        $val = $this->getBackingStore()->get('value');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'value'");
     }
 
     /**
@@ -105,7 +126,11 @@ class ChromeOSDeviceProperty implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getValueType(): ?string {
-        return $this->getBackingStore()->get('valueType');
+        $val = $this->getBackingStore()->get('valueType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'valueType'");
     }
 
     /**

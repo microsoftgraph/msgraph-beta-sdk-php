@@ -42,7 +42,12 @@ class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHo
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -54,24 +59,32 @@ class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHo
     }
 
     /**
-     * Gets the devicesNotAutopilotRegistered property value. The count of intune devices that are not autopilot registerd.
+     * Gets the devicesNotAutopilotRegistered property value. The count of intune devices that are not autopilot registerd. Read-only.
      * @return int|null
     */
     public function getDevicesNotAutopilotRegistered(): ?int {
-        return $this->getBackingStore()->get('devicesNotAutopilotRegistered');
+        $val = $this->getBackingStore()->get('devicesNotAutopilotRegistered');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'devicesNotAutopilotRegistered'");
     }
 
     /**
-     * Gets the devicesWithoutAutopilotProfileAssigned property value. The count of intune devices not autopilot profile assigned.
+     * Gets the devicesWithoutAutopilotProfileAssigned property value. The count of intune devices not autopilot profile assigned. Read-only.
      * @return int|null
     */
     public function getDevicesWithoutAutopilotProfileAssigned(): ?int {
-        return $this->getBackingStore()->get('devicesWithoutAutopilotProfileAssigned');
+        $val = $this->getBackingStore()->get('devicesWithoutAutopilotProfileAssigned');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'devicesWithoutAutopilotProfileAssigned'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -88,15 +101,23 @@ class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHo
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
-     * Gets the totalWindows10DevicesWithoutTenantAttached property value. The count of windows 10 devices that are Intune and Comanaged.
+     * Gets the totalWindows10DevicesWithoutTenantAttached property value. The count of windows 10 devices that are Intune and co-managed. Read-only.
      * @return int|null
     */
     public function getTotalWindows10DevicesWithoutTenantAttached(): ?int {
-        return $this->getBackingStore()->get('totalWindows10DevicesWithoutTenantAttached');
+        $val = $this->getBackingStore()->get('totalWindows10DevicesWithoutTenantAttached');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalWindows10DevicesWithoutTenantAttached'");
     }
 
     /**
@@ -128,7 +149,7 @@ class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHo
     }
 
     /**
-     * Sets the devicesNotAutopilotRegistered property value. The count of intune devices that are not autopilot registerd.
+     * Sets the devicesNotAutopilotRegistered property value. The count of intune devices that are not autopilot registerd. Read-only.
      * @param int|null $value Value to set for the devicesNotAutopilotRegistered property.
     */
     public function setDevicesNotAutopilotRegistered(?int $value): void {
@@ -136,7 +157,7 @@ class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHo
     }
 
     /**
-     * Sets the devicesWithoutAutopilotProfileAssigned property value. The count of intune devices not autopilot profile assigned.
+     * Sets the devicesWithoutAutopilotProfileAssigned property value. The count of intune devices not autopilot profile assigned. Read-only.
      * @param int|null $value Value to set for the devicesWithoutAutopilotProfileAssigned property.
     */
     public function setDevicesWithoutAutopilotProfileAssigned(?int $value): void {
@@ -152,7 +173,7 @@ class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHo
     }
 
     /**
-     * Sets the totalWindows10DevicesWithoutTenantAttached property value. The count of windows 10 devices that are Intune and Comanaged.
+     * Sets the totalWindows10DevicesWithoutTenantAttached property value. The count of windows 10 devices that are Intune and co-managed. Read-only.
      * @param int|null $value Value to set for the totalWindows10DevicesWithoutTenantAttached property.
     */
     public function setTotalWindows10DevicesWithoutTenantAttached(?int $value): void {

@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics device OS version performance entity contains OS version performance details.
+*/
 class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsAppHealthOSVersionPerformance and sets the default values.
+     * Instantiates a new userExperienceAnalyticsAppHealthOSVersionPerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -25,16 +28,20 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implem
     }
 
     /**
-     * Gets the activeDeviceCount property value. The number of active devices for the OS version. Valid values -2147483648 to 2147483647
+     * Gets the activeDeviceCount property value. The number of active devices for the OS version. Valid values 0 to 2147483647. Supports: $filter, $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getActiveDeviceCount(): ?int {
-        return $this->getBackingStore()->get('activeDeviceCount');
+        $val = $this->getBackingStore()->get('activeDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activeDeviceCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -48,35 +55,51 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implem
     }
 
     /**
-     * Gets the meanTimeToFailureInMinutes property value. The mean time to failure for the OS version in minutes. Valid values -2147483648 to 2147483647
+     * Gets the meanTimeToFailureInMinutes property value. The mean time to failure for the application in minutes. Valid values 0 to 2147483647. Supports: $filter, $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getMeanTimeToFailureInMinutes(): ?int {
-        return $this->getBackingStore()->get('meanTimeToFailureInMinutes');
+        $val = $this->getBackingStore()->get('meanTimeToFailureInMinutes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'meanTimeToFailureInMinutes'");
     }
 
     /**
-     * Gets the osBuildNumber property value. The OS build number installed on the device.
+     * Gets the osBuildNumber property value. The OS build number installed on the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getOsBuildNumber(): ?string {
-        return $this->getBackingStore()->get('osBuildNumber');
+        $val = $this->getBackingStore()->get('osBuildNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osBuildNumber'");
     }
 
     /**
-     * Gets the osVersion property value. The OS version installed on the device.
+     * Gets the osVersion property value. The OS version installed on the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getOsVersion(): ?string {
-        return $this->getBackingStore()->get('osVersion');
+        $val = $this->getBackingStore()->get('osVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osVersion'");
     }
 
     /**
-     * Gets the osVersionAppHealthScore property value. The app health score of the OS version. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the osVersionAppHealthScore property value. The application health score of the OS version. Valid values 0 to 100. Supports: $filter, $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getOsVersionAppHealthScore(): ?float {
-        return $this->getBackingStore()->get('osVersionAppHealthScore');
+        $val = $this->getBackingStore()->get('osVersionAppHealthScore');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osVersionAppHealthScore'");
     }
 
     /**
@@ -93,7 +116,7 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implem
     }
 
     /**
-     * Sets the activeDeviceCount property value. The number of active devices for the OS version. Valid values -2147483648 to 2147483647
+     * Sets the activeDeviceCount property value. The number of active devices for the OS version. Valid values 0 to 2147483647. Supports: $filter, $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the activeDeviceCount property.
     */
     public function setActiveDeviceCount(?int $value): void {
@@ -101,7 +124,7 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implem
     }
 
     /**
-     * Sets the meanTimeToFailureInMinutes property value. The mean time to failure for the OS version in minutes. Valid values -2147483648 to 2147483647
+     * Sets the meanTimeToFailureInMinutes property value. The mean time to failure for the application in minutes. Valid values 0 to 2147483647. Supports: $filter, $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the meanTimeToFailureInMinutes property.
     */
     public function setMeanTimeToFailureInMinutes(?int $value): void {
@@ -109,7 +132,7 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implem
     }
 
     /**
-     * Sets the osBuildNumber property value. The OS build number installed on the device.
+     * Sets the osBuildNumber property value. The OS build number installed on the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the osBuildNumber property.
     */
     public function setOsBuildNumber(?string $value): void {
@@ -117,7 +140,7 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implem
     }
 
     /**
-     * Sets the osVersion property value. The OS version installed on the device.
+     * Sets the osVersion property value. The OS version installed on the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the osVersion property.
     */
     public function setOsVersion(?string $value): void {
@@ -125,7 +148,7 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implem
     }
 
     /**
-     * Sets the osVersionAppHealthScore property value. The app health score of the OS version. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the osVersionAppHealthScore property value. The application health score of the OS version. Valid values 0 to 100. Supports: $filter, $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the osVersionAppHealthScore property.
     */
     public function setOsVersionAppHealthScore(?float $value): void {

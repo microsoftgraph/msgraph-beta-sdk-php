@@ -26,7 +26,7 @@ class GroupPolicyPresentationValueDecimal extends GroupPolicyPresentationValue i
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -40,7 +40,11 @@ class GroupPolicyPresentationValueDecimal extends GroupPolicyPresentationValue i
      * @return int|null
     */
     public function getValue(): ?int {
-        return $this->getBackingStore()->get('value');
+        $val = $this->getBackingStore()->get('value');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'value'");
     }
 
     /**

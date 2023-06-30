@@ -27,7 +27,7 @@ class VirtualEventPresenterInfo extends MeetingParticipantInfo implements Parsab
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class VirtualEventPresenterInfo extends MeetingParticipantInfo implements Parsab
      * @return VirtualEventPresenterDetails|null
     */
     public function getPresenterDetails(): ?VirtualEventPresenterDetails {
-        return $this->getBackingStore()->get('presenterDetails');
+        $val = $this->getBackingStore()->get('presenterDetails');
+        if (is_null($val) || $val instanceof VirtualEventPresenterDetails) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'presenterDetails'");
     }
 
     /**

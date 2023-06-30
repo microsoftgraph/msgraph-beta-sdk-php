@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics Device without Cloud Identity.
+*/
 class UserExperienceAnalyticsDeviceWithoutCloudIdentity extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsDeviceWithoutCloudIdentity and sets the default values.
+     * Instantiates a new userExperienceAnalyticsDeviceWithoutCloudIdentity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -29,7 +32,11 @@ class UserExperienceAnalyticsDeviceWithoutCloudIdentity extends Entity implement
      * @return string|null
     */
     public function getAzureAdDeviceId(): ?string {
-        return $this->getBackingStore()->get('azureAdDeviceId');
+        $val = $this->getBackingStore()->get('azureAdDeviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureAdDeviceId'");
     }
 
     /**
@@ -37,12 +44,16 @@ class UserExperienceAnalyticsDeviceWithoutCloudIdentity extends Entity implement
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->getBackingStore()->get('deviceName');
+        $val = $this->getBackingStore()->get('deviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class SecurityBaselineTemplate extends DeviceManagementTemplate implements Parsable 
 {
@@ -30,7 +31,13 @@ class SecurityBaselineTemplate extends DeviceManagementTemplate implements Parsa
      * @return array<SecurityBaselineCategoryStateSummary>|null
     */
     public function getCategoryDeviceStateSummaries(): ?array {
-        return $this->getBackingStore()->get('categoryDeviceStateSummaries');
+        $val = $this->getBackingStore()->get('categoryDeviceStateSummaries');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SecurityBaselineCategoryStateSummary::class);
+            /** @var array<SecurityBaselineCategoryStateSummary>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'categoryDeviceStateSummaries'");
     }
 
     /**
@@ -38,7 +45,13 @@ class SecurityBaselineTemplate extends DeviceManagementTemplate implements Parsa
      * @return array<SecurityBaselineDeviceState>|null
     */
     public function getDeviceStates(): ?array {
-        return $this->getBackingStore()->get('deviceStates');
+        $val = $this->getBackingStore()->get('deviceStates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SecurityBaselineDeviceState::class);
+            /** @var array<SecurityBaselineDeviceState>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceStates'");
     }
 
     /**
@@ -46,12 +59,16 @@ class SecurityBaselineTemplate extends DeviceManagementTemplate implements Parsa
      * @return SecurityBaselineStateSummary|null
     */
     public function getDeviceStateSummary(): ?SecurityBaselineStateSummary {
-        return $this->getBackingStore()->get('deviceStateSummary');
+        $val = $this->getBackingStore()->get('deviceStateSummary');
+        if (is_null($val) || $val instanceof SecurityBaselineStateSummary) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceStateSummary'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

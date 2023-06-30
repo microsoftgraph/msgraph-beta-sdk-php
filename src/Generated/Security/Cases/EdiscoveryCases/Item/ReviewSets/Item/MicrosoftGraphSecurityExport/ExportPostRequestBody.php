@@ -41,7 +41,12 @@ class ExportPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -49,7 +54,11 @@ class ExportPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
      * @return string|null
     */
     public function getAzureBlobContainer(): ?string {
-        return $this->getBackingStore()->get('azureBlobContainer');
+        $val = $this->getBackingStore()->get('azureBlobContainer');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureBlobContainer'");
     }
 
     /**
@@ -57,7 +66,11 @@ class ExportPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
      * @return string|null
     */
     public function getAzureBlobToken(): ?string {
-        return $this->getBackingStore()->get('azureBlobToken');
+        $val = $this->getBackingStore()->get('azureBlobToken');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureBlobToken'");
     }
 
     /**
@@ -73,7 +86,11 @@ class ExportPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -81,7 +98,11 @@ class ExportPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
      * @return ExportOptions|null
     */
     public function getExportOptions(): ?ExportOptions {
-        return $this->getBackingStore()->get('exportOptions');
+        $val = $this->getBackingStore()->get('exportOptions');
+        if (is_null($val) || $val instanceof ExportOptions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exportOptions'");
     }
 
     /**
@@ -89,12 +110,16 @@ class ExportPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
      * @return ExportFileStructure|null
     */
     public function getExportStructure(): ?ExportFileStructure {
-        return $this->getBackingStore()->get('exportStructure');
+        $val = $this->getBackingStore()->get('exportStructure');
+        if (is_null($val) || $val instanceof ExportFileStructure) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exportStructure'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -113,7 +138,11 @@ class ExportPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
      * @return string|null
     */
     public function getOutputName(): ?string {
-        return $this->getBackingStore()->get('outputName');
+        $val = $this->getBackingStore()->get('outputName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'outputName'");
     }
 
     /**

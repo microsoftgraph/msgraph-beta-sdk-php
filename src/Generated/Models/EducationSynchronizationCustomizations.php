@@ -27,7 +27,7 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -46,7 +46,11 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
      * @return EducationSynchronizationCustomization|null
     */
     public function getSchool(): ?EducationSynchronizationCustomization {
-        return $this->getBackingStore()->get('school');
+        $val = $this->getBackingStore()->get('school');
+        if (is_null($val) || $val instanceof EducationSynchronizationCustomization) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'school'");
     }
 
     /**
@@ -54,7 +58,11 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
      * @return EducationSynchronizationCustomization|null
     */
     public function getSection(): ?EducationSynchronizationCustomization {
-        return $this->getBackingStore()->get('section');
+        $val = $this->getBackingStore()->get('section');
+        if (is_null($val) || $val instanceof EducationSynchronizationCustomization) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'section'");
     }
 
     /**
@@ -62,7 +70,11 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
      * @return EducationSynchronizationCustomization|null
     */
     public function getStudent(): ?EducationSynchronizationCustomization {
-        return $this->getBackingStore()->get('student');
+        $val = $this->getBackingStore()->get('student');
+        if (is_null($val) || $val instanceof EducationSynchronizationCustomization) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'student'");
     }
 
     /**
@@ -70,7 +82,11 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
      * @return EducationSynchronizationCustomization|null
     */
     public function getStudentEnrollment(): ?EducationSynchronizationCustomization {
-        return $this->getBackingStore()->get('studentEnrollment');
+        $val = $this->getBackingStore()->get('studentEnrollment');
+        if (is_null($val) || $val instanceof EducationSynchronizationCustomization) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'studentEnrollment'");
     }
 
     /**
@@ -78,7 +94,11 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
      * @return EducationSynchronizationCustomization|null
     */
     public function getTeacher(): ?EducationSynchronizationCustomization {
-        return $this->getBackingStore()->get('teacher');
+        $val = $this->getBackingStore()->get('teacher');
+        if (is_null($val) || $val instanceof EducationSynchronizationCustomization) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teacher'");
     }
 
     /**
@@ -86,7 +106,11 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
      * @return EducationSynchronizationCustomization|null
     */
     public function getTeacherRoster(): ?EducationSynchronizationCustomization {
-        return $this->getBackingStore()->get('teacherRoster');
+        $val = $this->getBackingStore()->get('teacherRoster');
+        if (is_null($val) || $val instanceof EducationSynchronizationCustomization) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teacherRoster'");
     }
 
     /**

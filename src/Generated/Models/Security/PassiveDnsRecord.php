@@ -31,7 +31,11 @@ class PassiveDnsRecord extends Artifact implements Parsable
      * @return Artifact|null
     */
     public function getArtifact(): ?Artifact {
-        return $this->getBackingStore()->get('artifact');
+        $val = $this->getBackingStore()->get('artifact');
+        if (is_null($val) || $val instanceof Artifact) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'artifact'");
     }
 
     /**
@@ -39,12 +43,16 @@ class PassiveDnsRecord extends Artifact implements Parsable
      * @return DateTime|null
     */
     public function getCollectedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('collectedDateTime');
+        $val = $this->getBackingStore()->get('collectedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'collectedDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -63,7 +71,11 @@ class PassiveDnsRecord extends Artifact implements Parsable
      * @return DateTime|null
     */
     public function getFirstSeenDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('firstSeenDateTime');
+        $val = $this->getBackingStore()->get('firstSeenDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firstSeenDateTime'");
     }
 
     /**
@@ -71,7 +83,11 @@ class PassiveDnsRecord extends Artifact implements Parsable
      * @return DateTime|null
     */
     public function getLastSeenDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastSeenDateTime');
+        $val = $this->getBackingStore()->get('lastSeenDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSeenDateTime'");
     }
 
     /**
@@ -79,7 +95,11 @@ class PassiveDnsRecord extends Artifact implements Parsable
      * @return Host|null
     */
     public function getParentHost(): ?Host {
-        return $this->getBackingStore()->get('parentHost');
+        $val = $this->getBackingStore()->get('parentHost');
+        if (is_null($val) || $val instanceof Host) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'parentHost'");
     }
 
     /**
@@ -87,7 +107,11 @@ class PassiveDnsRecord extends Artifact implements Parsable
      * @return string|null
     */
     public function getRecordType(): ?string {
-        return $this->getBackingStore()->get('recordType');
+        $val = $this->getBackingStore()->get('recordType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recordType'");
     }
 
     /**

@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +53,11 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
      * @return ConditionalAccessApplications|null
     */
     public function getApplications(): ?ConditionalAccessApplications {
-        return $this->getBackingStore()->get('applications');
+        $val = $this->getBackingStore()->get('applications');
+        if (is_null($val) || $val instanceof ConditionalAccessApplications) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applications'");
     }
 
     /**
@@ -63,7 +73,11 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
      * @return ConditionalAccessClientApplications|null
     */
     public function getClientApplications(): ?ConditionalAccessClientApplications {
-        return $this->getBackingStore()->get('clientApplications');
+        $val = $this->getBackingStore()->get('clientApplications');
+        if (is_null($val) || $val instanceof ConditionalAccessClientApplications) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clientApplications'");
     }
 
     /**
@@ -71,7 +85,13 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
      * @return array<ConditionalAccessClientApp>|null
     */
     public function getClientAppTypes(): ?array {
-        return $this->getBackingStore()->get('clientAppTypes');
+        $val = $this->getBackingStore()->get('clientAppTypes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ConditionalAccessClientApp::class);
+            /** @var array<ConditionalAccessClientApp>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clientAppTypes'");
     }
 
     /**
@@ -79,7 +99,11 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
      * @return ConditionalAccessDevices|null
     */
     public function getDevices(): ?ConditionalAccessDevices {
-        return $this->getBackingStore()->get('devices');
+        $val = $this->getBackingStore()->get('devices');
+        if (is_null($val) || $val instanceof ConditionalAccessDevices) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'devices'");
     }
 
     /**
@@ -87,12 +111,16 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
      * @return ConditionalAccessDeviceStates|null
     */
     public function getDeviceStates(): ?ConditionalAccessDeviceStates {
-        return $this->getBackingStore()->get('deviceStates');
+        $val = $this->getBackingStore()->get('deviceStates');
+        if (is_null($val) || $val instanceof ConditionalAccessDeviceStates) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceStates'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -117,7 +145,11 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
      * @return ConditionalAccessLocations|null
     */
     public function getLocations(): ?ConditionalAccessLocations {
-        return $this->getBackingStore()->get('locations');
+        $val = $this->getBackingStore()->get('locations');
+        if (is_null($val) || $val instanceof ConditionalAccessLocations) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'locations'");
     }
 
     /**
@@ -125,7 +157,11 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -133,7 +169,11 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
      * @return ConditionalAccessPlatforms|null
     */
     public function getPlatforms(): ?ConditionalAccessPlatforms {
-        return $this->getBackingStore()->get('platforms');
+        $val = $this->getBackingStore()->get('platforms');
+        if (is_null($val) || $val instanceof ConditionalAccessPlatforms) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'platforms'");
     }
 
     /**
@@ -141,7 +181,13 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
      * @return array<RiskLevel>|null
     */
     public function getServicePrincipalRiskLevels(): ?array {
-        return $this->getBackingStore()->get('servicePrincipalRiskLevels');
+        $val = $this->getBackingStore()->get('servicePrincipalRiskLevels');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RiskLevel::class);
+            /** @var array<RiskLevel>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'servicePrincipalRiskLevels'");
     }
 
     /**
@@ -149,7 +195,13 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
      * @return array<RiskLevel>|null
     */
     public function getSignInRiskLevels(): ?array {
-        return $this->getBackingStore()->get('signInRiskLevels');
+        $val = $this->getBackingStore()->get('signInRiskLevels');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RiskLevel::class);
+            /** @var array<RiskLevel>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signInRiskLevels'");
     }
 
     /**
@@ -157,7 +209,13 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
      * @return array<RiskLevel>|null
     */
     public function getUserRiskLevels(): ?array {
-        return $this->getBackingStore()->get('userRiskLevels');
+        $val = $this->getBackingStore()->get('userRiskLevels');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RiskLevel::class);
+            /** @var array<RiskLevel>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRiskLevels'");
     }
 
     /**
@@ -165,7 +223,11 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
      * @return ConditionalAccessUsers|null
     */
     public function getUsers(): ?ConditionalAccessUsers {
-        return $this->getBackingStore()->get('users');
+        $val = $this->getBackingStore()->get('users');
+        if (is_null($val) || $val instanceof ConditionalAccessUsers) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'users'");
     }
 
     /**

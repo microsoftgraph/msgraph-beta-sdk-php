@@ -10,6 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class EducationSynchronizationCustomization implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -40,7 +41,12 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Bac
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -48,7 +54,11 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Bac
      * @return bool|null
     */
     public function getAllowDisplayNameUpdate(): ?bool {
-        return $this->getBackingStore()->get('allowDisplayNameUpdate');
+        $val = $this->getBackingStore()->get('allowDisplayNameUpdate');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowDisplayNameUpdate'");
     }
 
     /**
@@ -61,7 +71,7 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Bac
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -69,7 +79,14 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Bac
             'allowDisplayNameUpdate' => fn(ParseNode $n) => $o->setAllowDisplayNameUpdate($n->getBooleanValue()),
             'isSyncDeferred' => fn(ParseNode $n) => $o->setIsSyncDeferred($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'optionalPropertiesToSync' => fn(ParseNode $n) => $o->setOptionalPropertiesToSync($n->getCollectionOfPrimitiveValues()),
+            'optionalPropertiesToSync' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setOptionalPropertiesToSync($val);
+            },
             'synchronizationStartDate' => fn(ParseNode $n) => $o->setSynchronizationStartDate($n->getDateTimeValue()),
         ];
     }
@@ -79,7 +96,11 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Bac
      * @return bool|null
     */
     public function getIsSyncDeferred(): ?bool {
-        return $this->getBackingStore()->get('isSyncDeferred');
+        $val = $this->getBackingStore()->get('isSyncDeferred');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isSyncDeferred'");
     }
 
     /**
@@ -87,7 +108,11 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Bac
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -95,7 +120,13 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Bac
      * @return array<string>|null
     */
     public function getOptionalPropertiesToSync(): ?array {
-        return $this->getBackingStore()->get('optionalPropertiesToSync');
+        $val = $this->getBackingStore()->get('optionalPropertiesToSync');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'optionalPropertiesToSync'");
     }
 
     /**
@@ -103,7 +134,11 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Bac
      * @return DateTime|null
     */
     public function getSynchronizationStartDate(): ?DateTime {
-        return $this->getBackingStore()->get('synchronizationStartDate');
+        $val = $this->getBackingStore()->get('synchronizationStartDate');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'synchronizationStartDate'");
     }
 
     /**

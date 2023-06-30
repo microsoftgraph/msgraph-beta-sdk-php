@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class CloudPcUserSetting extends Entity implements Parsable 
 {
@@ -30,7 +31,13 @@ class CloudPcUserSetting extends Entity implements Parsable
      * @return array<CloudPcUserSettingAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->getBackingStore()->get('assignments');
+        $val = $this->getBackingStore()->get('assignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudPcUserSettingAssignment::class);
+            /** @var array<CloudPcUserSettingAssignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignments'");
     }
 
     /**
@@ -38,7 +45,11 @@ class CloudPcUserSetting extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -46,12 +57,16 @@ class CloudPcUserSetting extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -71,7 +86,11 @@ class CloudPcUserSetting extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -79,7 +98,11 @@ class CloudPcUserSetting extends Entity implements Parsable
      * @return bool|null
     */
     public function getLocalAdminEnabled(): ?bool {
-        return $this->getBackingStore()->get('localAdminEnabled');
+        $val = $this->getBackingStore()->get('localAdminEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localAdminEnabled'");
     }
 
     /**
@@ -87,7 +110,11 @@ class CloudPcUserSetting extends Entity implements Parsable
      * @return CloudPcRestorePointSetting|null
     */
     public function getRestorePointSetting(): ?CloudPcRestorePointSetting {
-        return $this->getBackingStore()->get('restorePointSetting');
+        $val = $this->getBackingStore()->get('restorePointSetting');
+        if (is_null($val) || $val instanceof CloudPcRestorePointSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'restorePointSetting'");
     }
 
     /**
@@ -95,7 +122,11 @@ class CloudPcUserSetting extends Entity implements Parsable
      * @return bool|null
     */
     public function getSelfServiceEnabled(): ?bool {
-        return $this->getBackingStore()->get('selfServiceEnabled');
+        $val = $this->getBackingStore()->get('selfServiceEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'selfServiceEnabled'");
     }
 
     /**

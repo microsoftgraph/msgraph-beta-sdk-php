@@ -42,7 +42,12 @@ class ExpeditedWindowsQualityUpdateSettings implements AdditionalDataHolder, Bac
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -58,12 +63,16 @@ class ExpeditedWindowsQualityUpdateSettings implements AdditionalDataHolder, Bac
      * @return int|null
     */
     public function getDaysUntilForcedReboot(): ?int {
-        return $this->getBackingStore()->get('daysUntilForcedReboot');
+        $val = $this->getBackingStore()->get('daysUntilForcedReboot');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'daysUntilForcedReboot'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -79,7 +88,11 @@ class ExpeditedWindowsQualityUpdateSettings implements AdditionalDataHolder, Bac
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -87,7 +100,11 @@ class ExpeditedWindowsQualityUpdateSettings implements AdditionalDataHolder, Bac
      * @return string|null
     */
     public function getQualityUpdateRelease(): ?string {
-        return $this->getBackingStore()->get('qualityUpdateRelease');
+        $val = $this->getBackingStore()->get('qualityUpdateRelease');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'qualityUpdateRelease'");
     }
 
     /**

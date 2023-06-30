@@ -29,12 +29,16 @@ class PrivilegedRoleSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getElevatedCount(): ?int {
-        return $this->getBackingStore()->get('elevatedCount');
+        $val = $this->getBackingStore()->get('elevatedCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'elevatedCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -52,7 +56,11 @@ class PrivilegedRoleSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getManagedCount(): ?int {
-        return $this->getBackingStore()->get('managedCount');
+        $val = $this->getBackingStore()->get('managedCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedCount'");
     }
 
     /**
@@ -60,7 +68,11 @@ class PrivilegedRoleSummary extends Entity implements Parsable
      * @return bool|null
     */
     public function getMfaEnabled(): ?bool {
-        return $this->getBackingStore()->get('mfaEnabled');
+        $val = $this->getBackingStore()->get('mfaEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mfaEnabled'");
     }
 
     /**
@@ -68,7 +80,11 @@ class PrivilegedRoleSummary extends Entity implements Parsable
      * @return RoleSummaryStatus|null
     */
     public function getStatus(): ?RoleSummaryStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof RoleSummaryStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**
@@ -76,7 +92,11 @@ class PrivilegedRoleSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getUsersCount(): ?int {
-        return $this->getBackingStore()->get('usersCount');
+        $val = $this->getBackingStore()->get('usersCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'usersCount'");
     }
 
     /**

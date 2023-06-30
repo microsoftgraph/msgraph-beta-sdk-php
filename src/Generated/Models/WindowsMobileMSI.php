@@ -30,12 +30,16 @@ class WindowsMobileMSI extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getCommandLine(): ?string {
-        return $this->getBackingStore()->get('commandLine');
+        $val = $this->getBackingStore()->get('commandLine');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'commandLine'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -54,7 +58,11 @@ class WindowsMobileMSI extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getIdentityVersion(): ?string {
-        return $this->getBackingStore()->get('identityVersion');
+        $val = $this->getBackingStore()->get('identityVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityVersion'");
     }
 
     /**
@@ -62,7 +70,11 @@ class WindowsMobileMSI extends MobileLobApp implements Parsable
      * @return bool|null
     */
     public function getIgnoreVersionDetection(): ?bool {
-        return $this->getBackingStore()->get('ignoreVersionDetection');
+        $val = $this->getBackingStore()->get('ignoreVersionDetection');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ignoreVersionDetection'");
     }
 
     /**
@@ -70,7 +82,11 @@ class WindowsMobileMSI extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getProductCode(): ?string {
-        return $this->getBackingStore()->get('productCode');
+        $val = $this->getBackingStore()->get('productCode');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'productCode'");
     }
 
     /**
@@ -78,7 +94,11 @@ class WindowsMobileMSI extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getProductVersion(): ?string {
-        return $this->getBackingStore()->get('productVersion');
+        $val = $this->getBackingStore()->get('productVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'productVersion'");
     }
 
     /**
@@ -86,7 +106,11 @@ class WindowsMobileMSI extends MobileLobApp implements Parsable
      * @return bool|null
     */
     public function getUseDeviceContext(): ?bool {
-        return $this->getBackingStore()->get('useDeviceContext');
+        $val = $this->getBackingStore()->get('useDeviceContext');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'useDeviceContext'");
     }
 
     /**

@@ -7,13 +7,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * Data sharing consent information.
-*/
 class DataSharingConsent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new dataSharingConsent and sets the default values.
+     * Instantiates a new DataSharingConsent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -30,7 +27,7 @@ class DataSharingConsent extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -49,7 +46,11 @@ class DataSharingConsent extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getGrantDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('grantDateTime');
+        $val = $this->getBackingStore()->get('grantDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'grantDateTime'");
     }
 
     /**
@@ -57,7 +58,11 @@ class DataSharingConsent extends Entity implements Parsable
      * @return bool|null
     */
     public function getGranted(): ?bool {
-        return $this->getBackingStore()->get('granted');
+        $val = $this->getBackingStore()->get('granted');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'granted'");
     }
 
     /**
@@ -65,7 +70,11 @@ class DataSharingConsent extends Entity implements Parsable
      * @return string|null
     */
     public function getGrantedByUpn(): ?string {
-        return $this->getBackingStore()->get('grantedByUpn');
+        $val = $this->getBackingStore()->get('grantedByUpn');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'grantedByUpn'");
     }
 
     /**
@@ -73,7 +82,11 @@ class DataSharingConsent extends Entity implements Parsable
      * @return string|null
     */
     public function getGrantedByUserId(): ?string {
-        return $this->getBackingStore()->get('grantedByUserId');
+        $val = $this->getBackingStore()->get('grantedByUserId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'grantedByUserId'");
     }
 
     /**
@@ -81,7 +94,11 @@ class DataSharingConsent extends Entity implements Parsable
      * @return string|null
     */
     public function getServiceDisplayName(): ?string {
-        return $this->getBackingStore()->get('serviceDisplayName');
+        $val = $this->getBackingStore()->get('serviceDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'serviceDisplayName'");
     }
 
     /**
@@ -89,7 +106,11 @@ class DataSharingConsent extends Entity implements Parsable
      * @return string|null
     */
     public function getTermsUrl(): ?string {
-        return $this->getBackingStore()->get('termsUrl');
+        $val = $this->getBackingStore()->get('termsUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'termsUrl'");
     }
 
     /**

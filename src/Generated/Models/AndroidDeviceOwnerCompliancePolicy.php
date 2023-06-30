@@ -30,7 +30,11 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
      * @return DeviceThreatProtectionLevel|null
     */
     public function getAdvancedThreatProtectionRequiredSecurityLevel(): ?DeviceThreatProtectionLevel {
-        return $this->getBackingStore()->get('advancedThreatProtectionRequiredSecurityLevel');
+        $val = $this->getBackingStore()->get('advancedThreatProtectionRequiredSecurityLevel');
+        if (is_null($val) || $val instanceof DeviceThreatProtectionLevel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'advancedThreatProtectionRequiredSecurityLevel'");
     }
 
     /**
@@ -38,7 +42,11 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
      * @return bool|null
     */
     public function getDeviceThreatProtectionEnabled(): ?bool {
-        return $this->getBackingStore()->get('deviceThreatProtectionEnabled');
+        $val = $this->getBackingStore()->get('deviceThreatProtectionEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceThreatProtectionEnabled'");
     }
 
     /**
@@ -46,12 +54,16 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
      * @return DeviceThreatProtectionLevel|null
     */
     public function getDeviceThreatProtectionRequiredSecurityLevel(): ?DeviceThreatProtectionLevel {
-        return $this->getBackingStore()->get('deviceThreatProtectionRequiredSecurityLevel');
+        $val = $this->getBackingStore()->get('deviceThreatProtectionRequiredSecurityLevel');
+        if (is_null($val) || $val instanceof DeviceThreatProtectionLevel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceThreatProtectionRequiredSecurityLevel'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -86,7 +98,11 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
      * @return string|null
     */
     public function getMinAndroidSecurityPatchLevel(): ?string {
-        return $this->getBackingStore()->get('minAndroidSecurityPatchLevel');
+        $val = $this->getBackingStore()->get('minAndroidSecurityPatchLevel');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minAndroidSecurityPatchLevel'");
     }
 
     /**
@@ -94,7 +110,11 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
      * @return string|null
     */
     public function getOsMaximumVersion(): ?string {
-        return $this->getBackingStore()->get('osMaximumVersion');
+        $val = $this->getBackingStore()->get('osMaximumVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osMaximumVersion'");
     }
 
     /**
@@ -102,7 +122,11 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
      * @return string|null
     */
     public function getOsMinimumVersion(): ?string {
-        return $this->getBackingStore()->get('osMinimumVersion');
+        $val = $this->getBackingStore()->get('osMinimumVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osMinimumVersion'");
     }
 
     /**
@@ -110,7 +134,11 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
      * @return int|null
     */
     public function getPasswordExpirationDays(): ?int {
-        return $this->getBackingStore()->get('passwordExpirationDays');
+        $val = $this->getBackingStore()->get('passwordExpirationDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordExpirationDays'");
     }
 
     /**
@@ -118,7 +146,11 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
      * @return int|null
     */
     public function getPasswordMinimumLength(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumLength');
+        $val = $this->getBackingStore()->get('passwordMinimumLength');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumLength'");
     }
 
     /**
@@ -126,7 +158,11 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
      * @return int|null
     */
     public function getPasswordMinimumLetterCharacters(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumLetterCharacters');
+        $val = $this->getBackingStore()->get('passwordMinimumLetterCharacters');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumLetterCharacters'");
     }
 
     /**
@@ -134,7 +170,11 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
      * @return int|null
     */
     public function getPasswordMinimumLowerCaseCharacters(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumLowerCaseCharacters');
+        $val = $this->getBackingStore()->get('passwordMinimumLowerCaseCharacters');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumLowerCaseCharacters'");
     }
 
     /**
@@ -142,7 +182,11 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
      * @return int|null
     */
     public function getPasswordMinimumNonLetterCharacters(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumNonLetterCharacters');
+        $val = $this->getBackingStore()->get('passwordMinimumNonLetterCharacters');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumNonLetterCharacters'");
     }
 
     /**
@@ -150,7 +194,11 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
      * @return int|null
     */
     public function getPasswordMinimumNumericCharacters(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumNumericCharacters');
+        $val = $this->getBackingStore()->get('passwordMinimumNumericCharacters');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumNumericCharacters'");
     }
 
     /**
@@ -158,7 +206,11 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
      * @return int|null
     */
     public function getPasswordMinimumSymbolCharacters(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumSymbolCharacters');
+        $val = $this->getBackingStore()->get('passwordMinimumSymbolCharacters');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumSymbolCharacters'");
     }
 
     /**
@@ -166,7 +218,11 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
      * @return int|null
     */
     public function getPasswordMinimumUpperCaseCharacters(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumUpperCaseCharacters');
+        $val = $this->getBackingStore()->get('passwordMinimumUpperCaseCharacters');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumUpperCaseCharacters'");
     }
 
     /**
@@ -174,7 +230,11 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
      * @return int|null
     */
     public function getPasswordMinutesOfInactivityBeforeLock(): ?int {
-        return $this->getBackingStore()->get('passwordMinutesOfInactivityBeforeLock');
+        $val = $this->getBackingStore()->get('passwordMinutesOfInactivityBeforeLock');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinutesOfInactivityBeforeLock'");
     }
 
     /**
@@ -182,7 +242,11 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
      * @return int|null
     */
     public function getPasswordPreviousPasswordCountToBlock(): ?int {
-        return $this->getBackingStore()->get('passwordPreviousPasswordCountToBlock');
+        $val = $this->getBackingStore()->get('passwordPreviousPasswordCountToBlock');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordPreviousPasswordCountToBlock'");
     }
 
     /**
@@ -190,7 +254,11 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
      * @return bool|null
     */
     public function getPasswordRequired(): ?bool {
-        return $this->getBackingStore()->get('passwordRequired');
+        $val = $this->getBackingStore()->get('passwordRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordRequired'");
     }
 
     /**
@@ -198,7 +266,11 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
      * @return AndroidDeviceOwnerRequiredPasswordType|null
     */
     public function getPasswordRequiredType(): ?AndroidDeviceOwnerRequiredPasswordType {
-        return $this->getBackingStore()->get('passwordRequiredType');
+        $val = $this->getBackingStore()->get('passwordRequiredType');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerRequiredPasswordType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordRequiredType'");
     }
 
     /**
@@ -206,7 +278,11 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
      * @return bool|null
     */
     public function getSecurityRequireIntuneAppIntegrity(): ?bool {
-        return $this->getBackingStore()->get('securityRequireIntuneAppIntegrity');
+        $val = $this->getBackingStore()->get('securityRequireIntuneAppIntegrity');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'securityRequireIntuneAppIntegrity'");
     }
 
     /**
@@ -214,7 +290,11 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
      * @return bool|null
     */
     public function getSecurityRequireSafetyNetAttestationBasicIntegrity(): ?bool {
-        return $this->getBackingStore()->get('securityRequireSafetyNetAttestationBasicIntegrity');
+        $val = $this->getBackingStore()->get('securityRequireSafetyNetAttestationBasicIntegrity');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'securityRequireSafetyNetAttestationBasicIntegrity'");
     }
 
     /**
@@ -222,7 +302,11 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
      * @return bool|null
     */
     public function getSecurityRequireSafetyNetAttestationCertifiedDevice(): ?bool {
-        return $this->getBackingStore()->get('securityRequireSafetyNetAttestationCertifiedDevice');
+        $val = $this->getBackingStore()->get('securityRequireSafetyNetAttestationCertifiedDevice');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'securityRequireSafetyNetAttestationCertifiedDevice'");
     }
 
     /**
@@ -230,7 +314,11 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
      * @return bool|null
     */
     public function getStorageRequireEncryption(): ?bool {
-        return $this->getBackingStore()->get('storageRequireEncryption');
+        $val = $this->getBackingStore()->get('storageRequireEncryption');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'storageRequireEncryption'");
     }
 
     /**

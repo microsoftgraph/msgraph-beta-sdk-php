@@ -30,12 +30,16 @@ class LanguageProficiency extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -55,7 +59,11 @@ class LanguageProficiency extends ItemFacet implements Parsable
      * @return LanguageProficiencyLevel|null
     */
     public function getProficiency(): ?LanguageProficiencyLevel {
-        return $this->getBackingStore()->get('proficiency');
+        $val = $this->getBackingStore()->get('proficiency');
+        if (is_null($val) || $val instanceof LanguageProficiencyLevel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'proficiency'");
     }
 
     /**
@@ -63,7 +71,11 @@ class LanguageProficiency extends ItemFacet implements Parsable
      * @return LanguageProficiencyLevel|null
     */
     public function getReading(): ?LanguageProficiencyLevel {
-        return $this->getBackingStore()->get('reading');
+        $val = $this->getBackingStore()->get('reading');
+        if (is_null($val) || $val instanceof LanguageProficiencyLevel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reading'");
     }
 
     /**
@@ -71,7 +83,11 @@ class LanguageProficiency extends ItemFacet implements Parsable
      * @return LanguageProficiencyLevel|null
     */
     public function getSpoken(): ?LanguageProficiencyLevel {
-        return $this->getBackingStore()->get('spoken');
+        $val = $this->getBackingStore()->get('spoken');
+        if (is_null($val) || $val instanceof LanguageProficiencyLevel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'spoken'");
     }
 
     /**
@@ -79,7 +95,11 @@ class LanguageProficiency extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getTag(): ?string {
-        return $this->getBackingStore()->get('tag');
+        $val = $this->getBackingStore()->get('tag');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tag'");
     }
 
     /**
@@ -87,7 +107,11 @@ class LanguageProficiency extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getThumbnailUrl(): ?string {
-        return $this->getBackingStore()->get('thumbnailUrl');
+        $val = $this->getBackingStore()->get('thumbnailUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'thumbnailUrl'");
     }
 
     /**
@@ -95,7 +119,11 @@ class LanguageProficiency extends ItemFacet implements Parsable
      * @return LanguageProficiencyLevel|null
     */
     public function getWritten(): ?LanguageProficiencyLevel {
-        return $this->getBackingStore()->get('written');
+        $val = $this->getBackingStore()->get('written');
+        if (is_null($val) || $val instanceof LanguageProficiencyLevel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'written'");
     }
 
     /**

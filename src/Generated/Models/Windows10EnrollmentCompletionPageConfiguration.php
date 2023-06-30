@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentConfiguration implements Parsable 
 {
@@ -30,7 +31,11 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
      * @return bool|null
     */
     public function getAllowDeviceResetOnInstallFailure(): ?bool {
-        return $this->getBackingStore()->get('allowDeviceResetOnInstallFailure');
+        $val = $this->getBackingStore()->get('allowDeviceResetOnInstallFailure');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowDeviceResetOnInstallFailure'");
     }
 
     /**
@@ -38,7 +43,11 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
      * @return bool|null
     */
     public function getAllowDeviceUseOnInstallFailure(): ?bool {
-        return $this->getBackingStore()->get('allowDeviceUseOnInstallFailure');
+        $val = $this->getBackingStore()->get('allowDeviceUseOnInstallFailure');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowDeviceUseOnInstallFailure'");
     }
 
     /**
@@ -46,7 +55,11 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
      * @return bool|null
     */
     public function getAllowLogCollectionOnInstallFailure(): ?bool {
-        return $this->getBackingStore()->get('allowLogCollectionOnInstallFailure');
+        $val = $this->getBackingStore()->get('allowLogCollectionOnInstallFailure');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowLogCollectionOnInstallFailure'");
     }
 
     /**
@@ -54,7 +67,11 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
      * @return bool|null
     */
     public function getAllowNonBlockingAppInstallation(): ?bool {
-        return $this->getBackingStore()->get('allowNonBlockingAppInstallation');
+        $val = $this->getBackingStore()->get('allowNonBlockingAppInstallation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowNonBlockingAppInstallation'");
     }
 
     /**
@@ -62,7 +79,11 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
      * @return bool|null
     */
     public function getBlockDeviceSetupRetryByUser(): ?bool {
-        return $this->getBackingStore()->get('blockDeviceSetupRetryByUser');
+        $val = $this->getBackingStore()->get('blockDeviceSetupRetryByUser');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockDeviceSetupRetryByUser'");
     }
 
     /**
@@ -70,7 +91,11 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
      * @return string|null
     */
     public function getCustomErrorMessage(): ?string {
-        return $this->getBackingStore()->get('customErrorMessage');
+        $val = $this->getBackingStore()->get('customErrorMessage');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customErrorMessage'");
     }
 
     /**
@@ -78,12 +103,16 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
      * @return bool|null
     */
     public function getDisableUserStatusTrackingAfterFirstUser(): ?bool {
-        return $this->getBackingStore()->get('disableUserStatusTrackingAfterFirstUser');
+        $val = $this->getBackingStore()->get('disableUserStatusTrackingAfterFirstUser');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disableUserStatusTrackingAfterFirstUser'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -97,7 +126,14 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
             'disableUserStatusTrackingAfterFirstUser' => fn(ParseNode $n) => $o->setDisableUserStatusTrackingAfterFirstUser($n->getBooleanValue()),
             'installProgressTimeoutInMinutes' => fn(ParseNode $n) => $o->setInstallProgressTimeoutInMinutes($n->getIntegerValue()),
             'installQualityUpdates' => fn(ParseNode $n) => $o->setInstallQualityUpdates($n->getBooleanValue()),
-            'selectedMobileAppIds' => fn(ParseNode $n) => $o->setSelectedMobileAppIds($n->getCollectionOfPrimitiveValues()),
+            'selectedMobileAppIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSelectedMobileAppIds($val);
+            },
             'showInstallationProgress' => fn(ParseNode $n) => $o->setShowInstallationProgress($n->getBooleanValue()),
             'trackInstallProgressForAutopilotOnly' => fn(ParseNode $n) => $o->setTrackInstallProgressForAutopilotOnly($n->getBooleanValue()),
         ]);
@@ -108,7 +144,11 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
      * @return int|null
     */
     public function getInstallProgressTimeoutInMinutes(): ?int {
-        return $this->getBackingStore()->get('installProgressTimeoutInMinutes');
+        $val = $this->getBackingStore()->get('installProgressTimeoutInMinutes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'installProgressTimeoutInMinutes'");
     }
 
     /**
@@ -116,7 +156,11 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
      * @return bool|null
     */
     public function getInstallQualityUpdates(): ?bool {
-        return $this->getBackingStore()->get('installQualityUpdates');
+        $val = $this->getBackingStore()->get('installQualityUpdates');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'installQualityUpdates'");
     }
 
     /**
@@ -124,7 +168,13 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
      * @return array<string>|null
     */
     public function getSelectedMobileAppIds(): ?array {
-        return $this->getBackingStore()->get('selectedMobileAppIds');
+        $val = $this->getBackingStore()->get('selectedMobileAppIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'selectedMobileAppIds'");
     }
 
     /**
@@ -132,7 +182,11 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
      * @return bool|null
     */
     public function getShowInstallationProgress(): ?bool {
-        return $this->getBackingStore()->get('showInstallationProgress');
+        $val = $this->getBackingStore()->get('showInstallationProgress');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'showInstallationProgress'");
     }
 
     /**
@@ -140,7 +194,11 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
      * @return bool|null
     */
     public function getTrackInstallProgressForAutopilotOnly(): ?bool {
-        return $this->getBackingStore()->get('trackInstallProgressForAutopilotOnly');
+        $val = $this->getBackingStore()->get('trackInstallProgressForAutopilotOnly');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'trackInstallProgressForAutopilotOnly'");
     }
 
     /**

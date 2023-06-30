@@ -39,7 +39,12 @@ class PrivateLinkDetails implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +57,7 @@ class PrivateLinkDetails implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -70,7 +75,11 @@ class PrivateLinkDetails implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -78,7 +87,11 @@ class PrivateLinkDetails implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getPolicyId(): ?string {
-        return $this->getBackingStore()->get('policyId');
+        $val = $this->getBackingStore()->get('policyId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyId'");
     }
 
     /**
@@ -86,7 +99,11 @@ class PrivateLinkDetails implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getPolicyName(): ?string {
-        return $this->getBackingStore()->get('policyName');
+        $val = $this->getBackingStore()->get('policyName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyName'");
     }
 
     /**
@@ -94,7 +111,11 @@ class PrivateLinkDetails implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getPolicyTenantId(): ?string {
-        return $this->getBackingStore()->get('policyTenantId');
+        $val = $this->getBackingStore()->get('policyTenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyTenantId'");
     }
 
     /**
@@ -102,7 +123,11 @@ class PrivateLinkDetails implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getResourceId(): ?string {
-        return $this->getBackingStore()->get('resourceId');
+        $val = $this->getBackingStore()->get('resourceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resourceId'");
     }
 
     /**

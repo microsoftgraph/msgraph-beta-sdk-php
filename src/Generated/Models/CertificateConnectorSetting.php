@@ -43,7 +43,12 @@ class CertificateConnectorSetting implements AdditionalDataHolder, BackedModel, 
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -59,7 +64,11 @@ class CertificateConnectorSetting implements AdditionalDataHolder, BackedModel, 
      * @return DateTime|null
     */
     public function getCertExpiryTime(): ?DateTime {
-        return $this->getBackingStore()->get('certExpiryTime');
+        $val = $this->getBackingStore()->get('certExpiryTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certExpiryTime'");
     }
 
     /**
@@ -67,7 +76,11 @@ class CertificateConnectorSetting implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getConnectorVersion(): ?string {
-        return $this->getBackingStore()->get('connectorVersion');
+        $val = $this->getBackingStore()->get('connectorVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectorVersion'");
     }
 
     /**
@@ -75,12 +88,16 @@ class CertificateConnectorSetting implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getEnrollmentError(): ?string {
-        return $this->getBackingStore()->get('enrollmentError');
+        $val = $this->getBackingStore()->get('enrollmentError');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrollmentError'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -100,7 +117,11 @@ class CertificateConnectorSetting implements AdditionalDataHolder, BackedModel, 
      * @return DateTime|null
     */
     public function getLastConnectorConnectionTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastConnectorConnectionTime');
+        $val = $this->getBackingStore()->get('lastConnectorConnectionTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastConnectorConnectionTime'");
     }
 
     /**
@@ -108,7 +129,11 @@ class CertificateConnectorSetting implements AdditionalDataHolder, BackedModel, 
      * @return int|null
     */
     public function getLastUploadVersion(): ?int {
-        return $this->getBackingStore()->get('lastUploadVersion');
+        $val = $this->getBackingStore()->get('lastUploadVersion');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastUploadVersion'");
     }
 
     /**
@@ -116,7 +141,11 @@ class CertificateConnectorSetting implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -124,7 +153,11 @@ class CertificateConnectorSetting implements AdditionalDataHolder, BackedModel, 
      * @return int|null
     */
     public function getStatus(): ?int {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

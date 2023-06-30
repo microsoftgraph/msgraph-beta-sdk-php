@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements Parsable 
 {
@@ -29,7 +30,13 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements P
      * @return array<AdvancedThreatProtectionOnboardingDeviceSettingState>|null
     */
     public function getAdvancedThreatProtectionOnboardingDeviceSettingStates(): ?array {
-        return $this->getBackingStore()->get('advancedThreatProtectionOnboardingDeviceSettingStates');
+        $val = $this->getBackingStore()->get('advancedThreatProtectionOnboardingDeviceSettingStates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AdvancedThreatProtectionOnboardingDeviceSettingState::class);
+            /** @var array<AdvancedThreatProtectionOnboardingDeviceSettingState>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'advancedThreatProtectionOnboardingDeviceSettingStates'");
     }
 
     /**
@@ -37,7 +44,11 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements P
      * @return int|null
     */
     public function getCompliantDeviceCount(): ?int {
-        return $this->getBackingStore()->get('compliantDeviceCount');
+        $val = $this->getBackingStore()->get('compliantDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'compliantDeviceCount'");
     }
 
     /**
@@ -45,7 +56,11 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements P
      * @return int|null
     */
     public function getConflictDeviceCount(): ?int {
-        return $this->getBackingStore()->get('conflictDeviceCount');
+        $val = $this->getBackingStore()->get('conflictDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'conflictDeviceCount'");
     }
 
     /**
@@ -53,12 +68,16 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements P
      * @return int|null
     */
     public function getErrorDeviceCount(): ?int {
-        return $this->getBackingStore()->get('errorDeviceCount');
+        $val = $this->getBackingStore()->get('errorDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorDeviceCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -80,7 +99,11 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements P
      * @return int|null
     */
     public function getNonCompliantDeviceCount(): ?int {
-        return $this->getBackingStore()->get('nonCompliantDeviceCount');
+        $val = $this->getBackingStore()->get('nonCompliantDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'nonCompliantDeviceCount'");
     }
 
     /**
@@ -88,7 +111,11 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements P
      * @return int|null
     */
     public function getNotApplicableDeviceCount(): ?int {
-        return $this->getBackingStore()->get('notApplicableDeviceCount');
+        $val = $this->getBackingStore()->get('notApplicableDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notApplicableDeviceCount'");
     }
 
     /**
@@ -96,7 +123,11 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements P
      * @return int|null
     */
     public function getNotAssignedDeviceCount(): ?int {
-        return $this->getBackingStore()->get('notAssignedDeviceCount');
+        $val = $this->getBackingStore()->get('notAssignedDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notAssignedDeviceCount'");
     }
 
     /**
@@ -104,7 +135,11 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements P
      * @return int|null
     */
     public function getRemediatedDeviceCount(): ?int {
-        return $this->getBackingStore()->get('remediatedDeviceCount');
+        $val = $this->getBackingStore()->get('remediatedDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remediatedDeviceCount'");
     }
 
     /**
@@ -112,7 +147,11 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements P
      * @return int|null
     */
     public function getUnknownDeviceCount(): ?int {
-        return $this->getBackingStore()->get('unknownDeviceCount');
+        $val = $this->getBackingStore()->get('unknownDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'unknownDeviceCount'");
     }
 
     /**

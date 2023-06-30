@@ -39,7 +39,12 @@ class SharingLink implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +52,11 @@ class SharingLink implements AdditionalDataHolder, BackedModel, Parsable
      * @return Identity|null
     */
     public function getApplication(): ?Identity {
-        return $this->getBackingStore()->get('application');
+        $val = $this->getBackingStore()->get('application');
+        if (is_null($val) || $val instanceof Identity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'application'");
     }
 
     /**
@@ -63,12 +72,16 @@ class SharingLink implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getConfiguratorUrl(): ?string {
-        return $this->getBackingStore()->get('configuratorUrl');
+        $val = $this->getBackingStore()->get('configuratorUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configuratorUrl'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -89,7 +102,11 @@ class SharingLink implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -97,7 +114,11 @@ class SharingLink implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getPreventsDownload(): ?bool {
-        return $this->getBackingStore()->get('preventsDownload');
+        $val = $this->getBackingStore()->get('preventsDownload');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'preventsDownload'");
     }
 
     /**
@@ -105,7 +126,11 @@ class SharingLink implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getScope(): ?string {
-        return $this->getBackingStore()->get('scope');
+        $val = $this->getBackingStore()->get('scope');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scope'");
     }
 
     /**
@@ -113,7 +138,11 @@ class SharingLink implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getType(): ?string {
-        return $this->getBackingStore()->get('type');
+        $val = $this->getBackingStore()->get('type');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
     }
 
     /**
@@ -121,7 +150,11 @@ class SharingLink implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getWebHtml(): ?string {
-        return $this->getBackingStore()->get('webHtml');
+        $val = $this->getBackingStore()->get('webHtml');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'webHtml'");
     }
 
     /**
@@ -129,7 +162,11 @@ class SharingLink implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getWebUrl(): ?string {
-        return $this->getBackingStore()->get('webUrl');
+        $val = $this->getBackingStore()->get('webUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'webUrl'");
     }
 
     /**

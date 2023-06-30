@@ -30,7 +30,11 @@ class IpAddress extends Host implements Parsable
      * @return AutonomousSystem|null
     */
     public function getAutonomousSystem(): ?AutonomousSystem {
-        return $this->getBackingStore()->get('autonomousSystem');
+        $val = $this->getBackingStore()->get('autonomousSystem');
+        if (is_null($val) || $val instanceof AutonomousSystem) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'autonomousSystem'");
     }
 
     /**
@@ -38,12 +42,16 @@ class IpAddress extends Host implements Parsable
      * @return string|null
     */
     public function getCountryOrRegion(): ?string {
-        return $this->getBackingStore()->get('countryOrRegion');
+        $val = $this->getBackingStore()->get('countryOrRegion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'countryOrRegion'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -60,7 +68,11 @@ class IpAddress extends Host implements Parsable
      * @return string|null
     */
     public function getHostingProvider(): ?string {
-        return $this->getBackingStore()->get('hostingProvider');
+        $val = $this->getBackingStore()->get('hostingProvider');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hostingProvider'");
     }
 
     /**
@@ -68,7 +80,11 @@ class IpAddress extends Host implements Parsable
      * @return string|null
     */
     public function getNetblock(): ?string {
-        return $this->getBackingStore()->get('netblock');
+        $val = $this->getBackingStore()->get('netblock');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'netblock'");
     }
 
     /**

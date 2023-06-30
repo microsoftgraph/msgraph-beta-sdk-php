@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AuthenticationAttributeCollectionInputConfiguration implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class AuthenticationAttributeCollectionInputConfiguration implements AdditionalD
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +53,11 @@ class AuthenticationAttributeCollectionInputConfiguration implements AdditionalD
      * @return string|null
     */
     public function getAttribute(): ?string {
-        return $this->getBackingStore()->get('attribute');
+        $val = $this->getBackingStore()->get('attribute');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'attribute'");
     }
 
     /**
@@ -63,7 +73,11 @@ class AuthenticationAttributeCollectionInputConfiguration implements AdditionalD
      * @return string|null
     */
     public function getDefaultValue(): ?string {
-        return $this->getBackingStore()->get('defaultValue');
+        $val = $this->getBackingStore()->get('defaultValue');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultValue'");
     }
 
     /**
@@ -71,12 +85,16 @@ class AuthenticationAttributeCollectionInputConfiguration implements AdditionalD
      * @return bool|null
     */
     public function getEditable(): ?bool {
-        return $this->getBackingStore()->get('editable');
+        $val = $this->getBackingStore()->get('editable');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'editable'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -100,7 +118,11 @@ class AuthenticationAttributeCollectionInputConfiguration implements AdditionalD
      * @return bool|null
     */
     public function getHidden(): ?bool {
-        return $this->getBackingStore()->get('hidden');
+        $val = $this->getBackingStore()->get('hidden');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hidden'");
     }
 
     /**
@@ -108,7 +130,11 @@ class AuthenticationAttributeCollectionInputConfiguration implements AdditionalD
      * @return AuthenticationAttributeCollectionInputType|null
     */
     public function getInputType(): ?AuthenticationAttributeCollectionInputType {
-        return $this->getBackingStore()->get('inputType');
+        $val = $this->getBackingStore()->get('inputType');
+        if (is_null($val) || $val instanceof AuthenticationAttributeCollectionInputType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inputType'");
     }
 
     /**
@@ -116,7 +142,11 @@ class AuthenticationAttributeCollectionInputConfiguration implements AdditionalD
      * @return string|null
     */
     public function getLabel(): ?string {
-        return $this->getBackingStore()->get('label');
+        $val = $this->getBackingStore()->get('label');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'label'");
     }
 
     /**
@@ -124,7 +154,11 @@ class AuthenticationAttributeCollectionInputConfiguration implements AdditionalD
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -132,7 +166,13 @@ class AuthenticationAttributeCollectionInputConfiguration implements AdditionalD
      * @return array<AuthenticationAttributeCollectionOptionConfiguration>|null
     */
     public function getOptions(): ?array {
-        return $this->getBackingStore()->get('options');
+        $val = $this->getBackingStore()->get('options');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AuthenticationAttributeCollectionOptionConfiguration::class);
+            /** @var array<AuthenticationAttributeCollectionOptionConfiguration>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'options'");
     }
 
     /**
@@ -140,7 +180,11 @@ class AuthenticationAttributeCollectionInputConfiguration implements AdditionalD
      * @return bool|null
     */
     public function getRequired(): ?bool {
-        return $this->getBackingStore()->get('required');
+        $val = $this->getBackingStore()->get('required');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'required'");
     }
 
     /**
@@ -148,7 +192,11 @@ class AuthenticationAttributeCollectionInputConfiguration implements AdditionalD
      * @return string|null
     */
     public function getValidationRegEx(): ?string {
-        return $this->getBackingStore()->get('validationRegEx');
+        $val = $this->getBackingStore()->get('validationRegEx');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'validationRegEx'");
     }
 
     /**
@@ -156,7 +204,11 @@ class AuthenticationAttributeCollectionInputConfiguration implements AdditionalD
      * @return bool|null
     */
     public function getWriteToDirectory(): ?bool {
-        return $this->getBackingStore()->get('writeToDirectory');
+        $val = $this->getBackingStore()->get('writeToDirectory');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'writeToDirectory'");
     }
 
     /**

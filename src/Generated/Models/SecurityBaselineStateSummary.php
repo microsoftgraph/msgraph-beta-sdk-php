@@ -39,7 +39,11 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getConflictCount(): ?int {
-        return $this->getBackingStore()->get('conflictCount');
+        $val = $this->getBackingStore()->get('conflictCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'conflictCount'");
     }
 
     /**
@@ -47,12 +51,16 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getErrorCount(): ?int {
-        return $this->getBackingStore()->get('errorCount');
+        $val = $this->getBackingStore()->get('errorCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -71,7 +79,11 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getNotApplicableCount(): ?int {
-        return $this->getBackingStore()->get('notApplicableCount');
+        $val = $this->getBackingStore()->get('notApplicableCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notApplicableCount'");
     }
 
     /**
@@ -79,7 +91,11 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getNotSecureCount(): ?int {
-        return $this->getBackingStore()->get('notSecureCount');
+        $val = $this->getBackingStore()->get('notSecureCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notSecureCount'");
     }
 
     /**
@@ -87,7 +103,11 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getSecureCount(): ?int {
-        return $this->getBackingStore()->get('secureCount');
+        $val = $this->getBackingStore()->get('secureCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'secureCount'");
     }
 
     /**
@@ -95,7 +115,11 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getUnknownCount(): ?int {
-        return $this->getBackingStore()->get('unknownCount');
+        $val = $this->getBackingStore()->get('unknownCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'unknownCount'");
     }
 
     /**

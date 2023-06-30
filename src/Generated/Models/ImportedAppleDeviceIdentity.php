@@ -40,7 +40,11 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -48,7 +52,11 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -56,7 +64,11 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
      * @return DiscoverySource|null
     */
     public function getDiscoverySource(): ?DiscoverySource {
-        return $this->getBackingStore()->get('discoverySource');
+        $val = $this->getBackingStore()->get('discoverySource');
+        if (is_null($val) || $val instanceof DiscoverySource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'discoverySource'");
     }
 
     /**
@@ -64,12 +76,16 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
      * @return EnrollmentState|null
     */
     public function getEnrollmentState(): ?EnrollmentState {
-        return $this->getBackingStore()->get('enrollmentState');
+        $val = $this->getBackingStore()->get('enrollmentState');
+        if (is_null($val) || $val instanceof EnrollmentState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrollmentState'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -93,7 +109,11 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDeleted(): ?bool {
-        return $this->getBackingStore()->get('isDeleted');
+        $val = $this->getBackingStore()->get('isDeleted');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDeleted'");
     }
 
     /**
@@ -101,7 +121,11 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsSupervised(): ?bool {
-        return $this->getBackingStore()->get('isSupervised');
+        $val = $this->getBackingStore()->get('isSupervised');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isSupervised'");
     }
 
     /**
@@ -109,7 +133,11 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastContactedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastContactedDateTime');
+        $val = $this->getBackingStore()->get('lastContactedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastContactedDateTime'");
     }
 
     /**
@@ -117,7 +145,11 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
      * @return Platform|null
     */
     public function getPlatform(): ?Platform {
-        return $this->getBackingStore()->get('platform');
+        $val = $this->getBackingStore()->get('platform');
+        if (is_null($val) || $val instanceof Platform) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'platform'");
     }
 
     /**
@@ -125,7 +157,11 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getRequestedEnrollmentProfileAssignmentDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('requestedEnrollmentProfileAssignmentDateTime');
+        $val = $this->getBackingStore()->get('requestedEnrollmentProfileAssignmentDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requestedEnrollmentProfileAssignmentDateTime'");
     }
 
     /**
@@ -133,7 +169,11 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getRequestedEnrollmentProfileId(): ?string {
-        return $this->getBackingStore()->get('requestedEnrollmentProfileId');
+        $val = $this->getBackingStore()->get('requestedEnrollmentProfileId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requestedEnrollmentProfileId'");
     }
 
     /**
@@ -141,7 +181,11 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getSerialNumber(): ?string {
-        return $this->getBackingStore()->get('serialNumber');
+        $val = $this->getBackingStore()->get('serialNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'serialNumber'");
     }
 
     /**

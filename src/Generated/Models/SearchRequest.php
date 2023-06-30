@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +53,13 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getAggregationFilters(): ?array {
-        return $this->getBackingStore()->get('aggregationFilters');
+        $val = $this->getBackingStore()->get('aggregationFilters');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'aggregationFilters'");
     }
 
     /**
@@ -55,7 +67,13 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<AggregationOption>|null
     */
     public function getAggregations(): ?array {
-        return $this->getBackingStore()->get('aggregations');
+        $val = $this->getBackingStore()->get('aggregations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AggregationOption::class);
+            /** @var array<AggregationOption>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'aggregations'");
     }
 
     /**
@@ -71,7 +89,13 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<CollapseProperty>|null
     */
     public function getCollapseProperties(): ?array {
-        return $this->getBackingStore()->get('collapseProperties');
+        $val = $this->getBackingStore()->get('collapseProperties');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CollapseProperty::class);
+            /** @var array<CollapseProperty>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'collapseProperties'");
     }
 
     /**
@@ -79,7 +103,13 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getContentSources(): ?array {
-        return $this->getBackingStore()->get('contentSources');
+        $val = $this->getBackingStore()->get('contentSources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentSources'");
     }
 
     /**
@@ -87,7 +117,11 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getEnableTopResults(): ?bool {
-        return $this->getBackingStore()->get('enableTopResults');
+        $val = $this->getBackingStore()->get('enableTopResults');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableTopResults'");
     }
 
     /**
@@ -95,23 +129,50 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<EntityType>|null
     */
     public function getEntityTypes(): ?array {
-        return $this->getBackingStore()->get('entityTypes');
+        $val = $this->getBackingStore()->get('entityTypes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, EntityType::class);
+            /** @var array<EntityType>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'entityTypes'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'aggregationFilters' => fn(ParseNode $n) => $o->setAggregationFilters($n->getCollectionOfPrimitiveValues()),
+            'aggregationFilters' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAggregationFilters($val);
+            },
             'aggregations' => fn(ParseNode $n) => $o->setAggregations($n->getCollectionOfObjectValues([AggregationOption::class, 'createFromDiscriminatorValue'])),
             'collapseProperties' => fn(ParseNode $n) => $o->setCollapseProperties($n->getCollectionOfObjectValues([CollapseProperty::class, 'createFromDiscriminatorValue'])),
-            'contentSources' => fn(ParseNode $n) => $o->setContentSources($n->getCollectionOfPrimitiveValues()),
+            'contentSources' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setContentSources($val);
+            },
             'enableTopResults' => fn(ParseNode $n) => $o->setEnableTopResults($n->getBooleanValue()),
             'entityTypes' => fn(ParseNode $n) => $o->setEntityTypes($n->getCollectionOfEnumValues(EntityType::class)),
-            'fields' => fn(ParseNode $n) => $o->setFields($n->getCollectionOfPrimitiveValues()),
+            'fields' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setFields($val);
+            },
             'from' => fn(ParseNode $n) => $o->setFrom($n->getIntegerValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'query' => fn(ParseNode $n) => $o->setQuery($n->getObjectValue([SearchQuery::class, 'createFromDiscriminatorValue'])),
@@ -121,7 +182,14 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
             'sharePointOneDriveOptions' => fn(ParseNode $n) => $o->setSharePointOneDriveOptions($n->getObjectValue([SharePointOneDriveOptions::class, 'createFromDiscriminatorValue'])),
             'size' => fn(ParseNode $n) => $o->setSize($n->getIntegerValue()),
             'sortProperties' => fn(ParseNode $n) => $o->setSortProperties($n->getCollectionOfObjectValues([SortProperty::class, 'createFromDiscriminatorValue'])),
-            'stored_fields' => fn(ParseNode $n) => $o->setStoredFields($n->getCollectionOfPrimitiveValues()),
+            'stored_fields' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setStoredFields($val);
+            },
             'trimDuplicates' => fn(ParseNode $n) => $o->setTrimDuplicates($n->getBooleanValue()),
         ];
     }
@@ -131,7 +199,13 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getFields(): ?array {
-        return $this->getBackingStore()->get('fields');
+        $val = $this->getBackingStore()->get('fields');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fields'");
     }
 
     /**
@@ -139,7 +213,11 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getFrom(): ?int {
-        return $this->getBackingStore()->get('from');
+        $val = $this->getBackingStore()->get('from');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'from'");
     }
 
     /**
@@ -147,7 +225,11 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -155,7 +237,11 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
      * @return SearchQuery|null
     */
     public function getQuery(): ?SearchQuery {
-        return $this->getBackingStore()->get('query');
+        $val = $this->getBackingStore()->get('query');
+        if (is_null($val) || $val instanceof SearchQuery) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'query'");
     }
 
     /**
@@ -163,7 +249,11 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
      * @return SearchAlterationOptions|null
     */
     public function getQueryAlterationOptions(): ?SearchAlterationOptions {
-        return $this->getBackingStore()->get('queryAlterationOptions');
+        $val = $this->getBackingStore()->get('queryAlterationOptions');
+        if (is_null($val) || $val instanceof SearchAlterationOptions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'queryAlterationOptions'");
     }
 
     /**
@@ -171,7 +261,11 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getRegion(): ?string {
-        return $this->getBackingStore()->get('region');
+        $val = $this->getBackingStore()->get('region');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'region'");
     }
 
     /**
@@ -179,7 +273,11 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
      * @return ResultTemplateOption|null
     */
     public function getResultTemplateOptions(): ?ResultTemplateOption {
-        return $this->getBackingStore()->get('resultTemplateOptions');
+        $val = $this->getBackingStore()->get('resultTemplateOptions');
+        if (is_null($val) || $val instanceof ResultTemplateOption) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resultTemplateOptions'");
     }
 
     /**
@@ -187,7 +285,11 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
      * @return SharePointOneDriveOptions|null
     */
     public function getSharePointOneDriveOptions(): ?SharePointOneDriveOptions {
-        return $this->getBackingStore()->get('sharePointOneDriveOptions');
+        $val = $this->getBackingStore()->get('sharePointOneDriveOptions');
+        if (is_null($val) || $val instanceof SharePointOneDriveOptions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sharePointOneDriveOptions'");
     }
 
     /**
@@ -195,7 +297,11 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getSize(): ?int {
-        return $this->getBackingStore()->get('size');
+        $val = $this->getBackingStore()->get('size');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'size'");
     }
 
     /**
@@ -203,7 +309,13 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<SortProperty>|null
     */
     public function getSortProperties(): ?array {
-        return $this->getBackingStore()->get('sortProperties');
+        $val = $this->getBackingStore()->get('sortProperties');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SortProperty::class);
+            /** @var array<SortProperty>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sortProperties'");
     }
 
     /**
@@ -211,7 +323,13 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getStoredFields(): ?array {
-        return $this->getBackingStore()->get('stored_fields');
+        $val = $this->getBackingStore()->get('stored_fields');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'stored_fields'");
     }
 
     /**
@@ -219,7 +337,11 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getTrimDuplicates(): ?bool {
-        return $this->getBackingStore()->get('trimDuplicates');
+        $val = $this->getBackingStore()->get('trimDuplicates');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'trimDuplicates'");
     }
 
     /**

@@ -11,6 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class WorkloadActionDeploymentStatus implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -41,7 +42,11 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getActionId(): ?string {
-        return $this->getBackingStore()->get('actionId');
+        $val = $this->getBackingStore()->get('actionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'actionId'");
     }
 
     /**
@@ -49,7 +54,12 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, BackedMode
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -65,7 +75,11 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getDeployedPolicyId(): ?string {
-        return $this->getBackingStore()->get('deployedPolicyId');
+        $val = $this->getBackingStore()->get('deployedPolicyId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deployedPolicyId'");
     }
 
     /**
@@ -73,7 +87,11 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, BackedMode
      * @return GenericError|null
     */
     public function getError(): ?GenericError {
-        return $this->getBackingStore()->get('error');
+        $val = $this->getBackingStore()->get('error');
+        if (is_null($val) || $val instanceof GenericError) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'error'");
     }
 
     /**
@@ -81,12 +99,18 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, BackedMode
      * @return array<string>|null
     */
     public function getExcludeGroups(): ?array {
-        return $this->getBackingStore()->get('excludeGroups');
+        $val = $this->getBackingStore()->get('excludeGroups');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'excludeGroups'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -94,9 +118,23 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, BackedMode
             'actionId' => fn(ParseNode $n) => $o->setActionId($n->getStringValue()),
             'deployedPolicyId' => fn(ParseNode $n) => $o->setDeployedPolicyId($n->getStringValue()),
             'error' => fn(ParseNode $n) => $o->setError($n->getObjectValue([GenericError::class, 'createFromDiscriminatorValue'])),
-            'excludeGroups' => fn(ParseNode $n) => $o->setExcludeGroups($n->getCollectionOfPrimitiveValues()),
+            'excludeGroups' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setExcludeGroups($val);
+            },
             'includeAllUsers' => fn(ParseNode $n) => $o->setIncludeAllUsers($n->getBooleanValue()),
-            'includeGroups' => fn(ParseNode $n) => $o->setIncludeGroups($n->getCollectionOfPrimitiveValues()),
+            'includeGroups' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setIncludeGroups($val);
+            },
             'lastDeploymentDateTime' => fn(ParseNode $n) => $o->setLastDeploymentDateTime($n->getDateTimeValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(WorkloadActionStatus::class)),
@@ -108,7 +146,11 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, BackedMode
      * @return bool|null
     */
     public function getIncludeAllUsers(): ?bool {
-        return $this->getBackingStore()->get('includeAllUsers');
+        $val = $this->getBackingStore()->get('includeAllUsers');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'includeAllUsers'");
     }
 
     /**
@@ -116,7 +158,13 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, BackedMode
      * @return array<string>|null
     */
     public function getIncludeGroups(): ?array {
-        return $this->getBackingStore()->get('includeGroups');
+        $val = $this->getBackingStore()->get('includeGroups');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'includeGroups'");
     }
 
     /**
@@ -124,7 +172,11 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, BackedMode
      * @return DateTime|null
     */
     public function getLastDeploymentDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastDeploymentDateTime');
+        $val = $this->getBackingStore()->get('lastDeploymentDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastDeploymentDateTime'");
     }
 
     /**
@@ -132,7 +184,11 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -140,7 +196,11 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, BackedMode
      * @return WorkloadActionStatus|null
     */
     public function getStatus(): ?WorkloadActionStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof WorkloadActionStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

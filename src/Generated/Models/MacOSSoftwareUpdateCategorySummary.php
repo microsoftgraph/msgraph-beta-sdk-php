@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * MacOS software update category summary report for a device and user
@@ -33,7 +34,11 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->getBackingStore()->get('deviceId');
+        $val = $this->getBackingStore()->get('deviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceId'");
     }
 
     /**
@@ -41,7 +46,11 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -49,12 +58,16 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
      * @return int|null
     */
     public function getFailedUpdateCount(): ?int {
-        return $this->getBackingStore()->get('failedUpdateCount');
+        $val = $this->getBackingStore()->get('failedUpdateCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'failedUpdateCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -76,7 +89,11 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastUpdatedDateTime');
+        $val = $this->getBackingStore()->get('lastUpdatedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastUpdatedDateTime'");
     }
 
     /**
@@ -84,7 +101,11 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
      * @return int|null
     */
     public function getSuccessfulUpdateCount(): ?int {
-        return $this->getBackingStore()->get('successfulUpdateCount');
+        $val = $this->getBackingStore()->get('successfulUpdateCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'successfulUpdateCount'");
     }
 
     /**
@@ -92,7 +113,11 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
      * @return int|null
     */
     public function getTotalUpdateCount(): ?int {
-        return $this->getBackingStore()->get('totalUpdateCount');
+        $val = $this->getBackingStore()->get('totalUpdateCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalUpdateCount'");
     }
 
     /**
@@ -100,7 +125,11 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
      * @return MacOSSoftwareUpdateCategory|null
     */
     public function getUpdateCategory(): ?MacOSSoftwareUpdateCategory {
-        return $this->getBackingStore()->get('updateCategory');
+        $val = $this->getBackingStore()->get('updateCategory');
+        if (is_null($val) || $val instanceof MacOSSoftwareUpdateCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'updateCategory'");
     }
 
     /**
@@ -108,7 +137,13 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
      * @return array<MacOSSoftwareUpdateStateSummary>|null
     */
     public function getUpdateStateSummaries(): ?array {
-        return $this->getBackingStore()->get('updateStateSummaries');
+        $val = $this->getBackingStore()->get('updateStateSummaries');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MacOSSoftwareUpdateStateSummary::class);
+            /** @var array<MacOSSoftwareUpdateStateSummary>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'updateStateSummaries'");
     }
 
     /**
@@ -116,7 +151,11 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->getBackingStore()->get('userId');
+        $val = $this->getBackingStore()->get('userId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
     }
 
     /**

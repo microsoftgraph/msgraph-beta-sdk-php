@@ -27,32 +27,44 @@ class RedundantAssignmentAlertIncident extends UnifiedRoleManagementAlertInciden
     }
 
     /**
-     * Gets the assigneeDisplayName property value. The assigneeDisplayName property
+     * Gets the assigneeDisplayName property value. Display name of the subject that the incident applies to.
      * @return string|null
     */
     public function getAssigneeDisplayName(): ?string {
-        return $this->getBackingStore()->get('assigneeDisplayName');
+        $val = $this->getBackingStore()->get('assigneeDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assigneeDisplayName'");
     }
 
     /**
-     * Gets the assigneeId property value. The assigneeId property
+     * Gets the assigneeId property value. The identifier of the subject that the incident applies to.
      * @return string|null
     */
     public function getAssigneeId(): ?string {
-        return $this->getBackingStore()->get('assigneeId');
+        $val = $this->getBackingStore()->get('assigneeId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assigneeId'");
     }
 
     /**
-     * Gets the assigneeUserPrincipalName property value. The assigneeUserPrincipalName property
+     * Gets the assigneeUserPrincipalName property value. User principal name of the subject that the incident applies to. Applies to user principals only.
      * @return string|null
     */
     public function getAssigneeUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('assigneeUserPrincipalName');
+        $val = $this->getBackingStore()->get('assigneeUserPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assigneeUserPrincipalName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -68,35 +80,51 @@ class RedundantAssignmentAlertIncident extends UnifiedRoleManagementAlertInciden
     }
 
     /**
-     * Gets the lastActivationDateTime property value. The lastActivationDateTime property
+     * Gets the lastActivationDateTime property value. Date and time of the last activation of the eligible assignment.
      * @return DateTime|null
     */
     public function getLastActivationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastActivationDateTime');
+        $val = $this->getBackingStore()->get('lastActivationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastActivationDateTime'");
     }
 
     /**
-     * Gets the roleDefinitionId property value. The roleDefinitionId property
+     * Gets the roleDefinitionId property value. The identifier for the directory role definition that's in scope of this incident.
      * @return string|null
     */
     public function getRoleDefinitionId(): ?string {
-        return $this->getBackingStore()->get('roleDefinitionId');
+        $val = $this->getBackingStore()->get('roleDefinitionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleDefinitionId'");
     }
 
     /**
-     * Gets the roleDisplayName property value. The roleDisplayName property
+     * Gets the roleDisplayName property value. The display name for the directory role.
      * @return string|null
     */
     public function getRoleDisplayName(): ?string {
-        return $this->getBackingStore()->get('roleDisplayName');
+        $val = $this->getBackingStore()->get('roleDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleDisplayName'");
     }
 
     /**
-     * Gets the roleTemplateId property value. The roleTemplateId property
+     * Gets the roleTemplateId property value. The globally unique identifier for the directory role.
      * @return string|null
     */
     public function getRoleTemplateId(): ?string {
-        return $this->getBackingStore()->get('roleTemplateId');
+        $val = $this->getBackingStore()->get('roleTemplateId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleTemplateId'");
     }
 
     /**
@@ -115,7 +143,7 @@ class RedundantAssignmentAlertIncident extends UnifiedRoleManagementAlertInciden
     }
 
     /**
-     * Sets the assigneeDisplayName property value. The assigneeDisplayName property
+     * Sets the assigneeDisplayName property value. Display name of the subject that the incident applies to.
      * @param string|null $value Value to set for the assigneeDisplayName property.
     */
     public function setAssigneeDisplayName(?string $value): void {
@@ -123,7 +151,7 @@ class RedundantAssignmentAlertIncident extends UnifiedRoleManagementAlertInciden
     }
 
     /**
-     * Sets the assigneeId property value. The assigneeId property
+     * Sets the assigneeId property value. The identifier of the subject that the incident applies to.
      * @param string|null $value Value to set for the assigneeId property.
     */
     public function setAssigneeId(?string $value): void {
@@ -131,7 +159,7 @@ class RedundantAssignmentAlertIncident extends UnifiedRoleManagementAlertInciden
     }
 
     /**
-     * Sets the assigneeUserPrincipalName property value. The assigneeUserPrincipalName property
+     * Sets the assigneeUserPrincipalName property value. User principal name of the subject that the incident applies to. Applies to user principals only.
      * @param string|null $value Value to set for the assigneeUserPrincipalName property.
     */
     public function setAssigneeUserPrincipalName(?string $value): void {
@@ -139,7 +167,7 @@ class RedundantAssignmentAlertIncident extends UnifiedRoleManagementAlertInciden
     }
 
     /**
-     * Sets the lastActivationDateTime property value. The lastActivationDateTime property
+     * Sets the lastActivationDateTime property value. Date and time of the last activation of the eligible assignment.
      * @param DateTime|null $value Value to set for the lastActivationDateTime property.
     */
     public function setLastActivationDateTime(?DateTime $value): void {
@@ -147,7 +175,7 @@ class RedundantAssignmentAlertIncident extends UnifiedRoleManagementAlertInciden
     }
 
     /**
-     * Sets the roleDefinitionId property value. The roleDefinitionId property
+     * Sets the roleDefinitionId property value. The identifier for the directory role definition that's in scope of this incident.
      * @param string|null $value Value to set for the roleDefinitionId property.
     */
     public function setRoleDefinitionId(?string $value): void {
@@ -155,7 +183,7 @@ class RedundantAssignmentAlertIncident extends UnifiedRoleManagementAlertInciden
     }
 
     /**
-     * Sets the roleDisplayName property value. The roleDisplayName property
+     * Sets the roleDisplayName property value. The display name for the directory role.
      * @param string|null $value Value to set for the roleDisplayName property.
     */
     public function setRoleDisplayName(?string $value): void {
@@ -163,7 +191,7 @@ class RedundantAssignmentAlertIncident extends UnifiedRoleManagementAlertInciden
     }
 
     /**
-     * Sets the roleTemplateId property value. The roleTemplateId property
+     * Sets the roleTemplateId property value. The globally unique identifier for the directory role.
      * @param string|null $value Value to set for the roleTemplateId property.
     */
     public function setRoleTemplateId(?string $value): void {

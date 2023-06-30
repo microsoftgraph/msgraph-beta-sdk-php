@@ -82,7 +82,7 @@ class UnifiedRoleManagementAlertItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get alerts from identityGovernance
+     * Represents the alert entity.
      * @param UnifiedRoleManagementAlertItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -136,7 +136,7 @@ class UnifiedRoleManagementAlertItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get alerts from identityGovernance
+     * Represents the alert entity.
      * @param UnifiedRoleManagementAlertItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

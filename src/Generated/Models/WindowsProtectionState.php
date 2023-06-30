@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class WindowsProtectionState extends Entity implements Parsable 
 {
@@ -30,7 +31,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return string|null
     */
     public function getAntiMalwareVersion(): ?string {
-        return $this->getBackingStore()->get('antiMalwareVersion');
+        $val = $this->getBackingStore()->get('antiMalwareVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'antiMalwareVersion'");
     }
 
     /**
@@ -38,15 +43,25 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return array<WindowsDeviceMalwareState>|null
     */
     public function getDetectedMalwareState(): ?array {
-        return $this->getBackingStore()->get('detectedMalwareState');
+        $val = $this->getBackingStore()->get('detectedMalwareState');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WindowsDeviceMalwareState::class);
+            /** @var array<WindowsDeviceMalwareState>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detectedMalwareState'");
     }
 
     /**
-     * Gets the deviceState property value. Computer's state (like clean or pending full scan or pending reboot etc). Possible values are: clean, fullScanPending, rebootPending, manualStepsPending, offlineScanPending, critical.
+     * Gets the deviceState property value. Indicates device's health state. Possible values are: clean, fullScanPending, rebootPending, manualStepsPending, offlineScanPending, critical. Possible values are: clean, fullScanPending, rebootPending, manualStepsPending, offlineScanPending, critical.
      * @return WindowsDeviceHealthState|null
     */
     public function getDeviceState(): ?WindowsDeviceHealthState {
-        return $this->getBackingStore()->get('deviceState');
+        $val = $this->getBackingStore()->get('deviceState');
+        if (is_null($val) || $val instanceof WindowsDeviceHealthState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceState'");
     }
 
     /**
@@ -54,12 +69,16 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return string|null
     */
     public function getEngineVersion(): ?string {
-        return $this->getBackingStore()->get('engineVersion');
+        $val = $this->getBackingStore()->get('engineVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'engineVersion'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -89,27 +108,39 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Gets the fullScanOverdue property value. Full scan overdue or not?
+     * Gets the fullScanOverdue property value. When TRUE indicates full scan is overdue, when FALSE indicates full scan is not overdue. Defaults to setting on client device.
      * @return bool|null
     */
     public function getFullScanOverdue(): ?bool {
-        return $this->getBackingStore()->get('fullScanOverdue');
+        $val = $this->getBackingStore()->get('fullScanOverdue');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fullScanOverdue'");
     }
 
     /**
-     * Gets the fullScanRequired property value. Full scan required or not?
+     * Gets the fullScanRequired property value. When TRUE indicates full scan is required, when FALSE indicates full scan is not required. Defaults to setting on client device.
      * @return bool|null
     */
     public function getFullScanRequired(): ?bool {
-        return $this->getBackingStore()->get('fullScanRequired');
+        $val = $this->getBackingStore()->get('fullScanRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fullScanRequired'");
     }
 
     /**
-     * Gets the isVirtualMachine property value. Indicates whether the device is a virtual machine.
+     * Gets the isVirtualMachine property value. When TRUE indicates the device is a virtual machine, when FALSE indicates the device is not a virtual machine. Defaults to setting on client device.
      * @return bool|null
     */
     public function getIsVirtualMachine(): ?bool {
-        return $this->getBackingStore()->get('isVirtualMachine');
+        $val = $this->getBackingStore()->get('isVirtualMachine');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isVirtualMachine'");
     }
 
     /**
@@ -117,7 +148,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastFullScanDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastFullScanDateTime');
+        $val = $this->getBackingStore()->get('lastFullScanDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastFullScanDateTime'");
     }
 
     /**
@@ -125,7 +160,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return string|null
     */
     public function getLastFullScanSignatureVersion(): ?string {
-        return $this->getBackingStore()->get('lastFullScanSignatureVersion');
+        $val = $this->getBackingStore()->get('lastFullScanSignatureVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastFullScanSignatureVersion'");
     }
 
     /**
@@ -133,7 +172,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastQuickScanDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastQuickScanDateTime');
+        $val = $this->getBackingStore()->get('lastQuickScanDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastQuickScanDateTime'");
     }
 
     /**
@@ -141,7 +184,11 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return string|null
     */
     public function getLastQuickScanSignatureVersion(): ?string {
-        return $this->getBackingStore()->get('lastQuickScanSignatureVersion');
+        $val = $this->getBackingStore()->get('lastQuickScanSignatureVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastQuickScanSignatureVersion'");
     }
 
     /**
@@ -149,63 +196,95 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastReportedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastReportedDateTime');
+        $val = $this->getBackingStore()->get('lastReportedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastReportedDateTime'");
     }
 
     /**
-     * Gets the malwareProtectionEnabled property value. Anti malware is enabled or not
+     * Gets the malwareProtectionEnabled property value. When TRUE indicates anti malware is enabled when FALSE indicates anti malware is not enabled.
      * @return bool|null
     */
     public function getMalwareProtectionEnabled(): ?bool {
-        return $this->getBackingStore()->get('malwareProtectionEnabled');
+        $val = $this->getBackingStore()->get('malwareProtectionEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'malwareProtectionEnabled'");
     }
 
     /**
-     * Gets the networkInspectionSystemEnabled property value. Network inspection system enabled or not?
+     * Gets the networkInspectionSystemEnabled property value. When TRUE indicates network inspection system enabled, when FALSE indicates network inspection system is not enabled. Defaults to setting on client device.
      * @return bool|null
     */
     public function getNetworkInspectionSystemEnabled(): ?bool {
-        return $this->getBackingStore()->get('networkInspectionSystemEnabled');
+        $val = $this->getBackingStore()->get('networkInspectionSystemEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkInspectionSystemEnabled'");
     }
 
     /**
-     * Gets the productStatus property value. Product Status of Windows Defender Antivirus. Possible values are: noStatus, serviceNotRunning, serviceStartedWithoutMalwareProtection, pendingFullScanDueToThreatAction, pendingRebootDueToThreatAction, pendingManualStepsDueToThreatAction, avSignaturesOutOfDate, asSignaturesOutOfDate, noQuickScanHappenedForSpecifiedPeriod, noFullScanHappenedForSpecifiedPeriod, systemInitiatedScanInProgress, systemInitiatedCleanInProgress, samplesPendingSubmission, productRunningInEvaluationMode, productRunningInNonGenuineMode, productExpired, offlineScanRequired, serviceShutdownAsPartOfSystemShutdown, threatRemediationFailedCritically, threatRemediationFailedNonCritically, noStatusFlagsSet, platformOutOfDate, platformUpdateInProgress, platformAboutToBeOutdated, signatureOrPlatformEndOfLifeIsPastOrIsImpending, windowsSModeSignaturesInUseOnNonWin10SInstall.
+     * Gets the productStatus property value. Product Status of Windows Defender Antivirus. Possible values are: noStatus, serviceNotRunning, serviceStartedWithoutMalwareProtection, pendingFullScanDueToThreatAction, pendingRebootDueToThreatAction, pendingManualStepsDueToThreatAction, avSignaturesOutOfDate, asSignaturesOutOfDate, noQuickScanHappenedForSpecifiedPeriod, noFullScanHappenedForSpecifiedPeriod, systemInitiatedScanInProgress, systemInitiatedCleanInProgress, samplesPendingSubmission, productRunningInEvaluationMode, productRunningInNonGenuineMode, productExpired, offlineScanRequired, serviceShutdownAsPartOfSystemShutdown, threatRemediationFailedCritically, threatRemediationFailedNonCritically, noStatusFlagsSet, platformOutOfDate, platformUpdateInProgress, platformAboutToBeOutdated, signatureOrPlatformEndOfLifeIsPastOrIsImpending, windowsSModeSignaturesInUseOnNonWin10SInstall. Possible values are: noStatus, serviceNotRunning, serviceStartedWithoutMalwareProtection, pendingFullScanDueToThreatAction, pendingRebootDueToThreatAction, pendingManualStepsDueToThreatAction, avSignaturesOutOfDate, asSignaturesOutOfDate, noQuickScanHappenedForSpecifiedPeriod, noFullScanHappenedForSpecifiedPeriod, systemInitiatedScanInProgress, systemInitiatedCleanInProgress, samplesPendingSubmission, productRunningInEvaluationMode, productRunningInNonGenuineMode, productExpired, offlineScanRequired, serviceShutdownAsPartOfSystemShutdown, threatRemediationFailedCritically, threatRemediationFailedNonCritically, noStatusFlagsSet, platformOutOfDate, platformUpdateInProgress, platformAboutToBeOutdated, signatureOrPlatformEndOfLifeIsPastOrIsImpending, windowsSModeSignaturesInUseOnNonWin10SInstall.
      * @return WindowsDefenderProductStatus|null
     */
     public function getProductStatus(): ?WindowsDefenderProductStatus {
-        return $this->getBackingStore()->get('productStatus');
+        $val = $this->getBackingStore()->get('productStatus');
+        if (is_null($val) || $val instanceof WindowsDefenderProductStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'productStatus'");
     }
 
     /**
-     * Gets the quickScanOverdue property value. Quick scan overdue or not?
+     * Gets the quickScanOverdue property value. When TRUE indicates quick scan is overdue, when FALSE indicates quick scan is not overdue. Defaults to setting on client device.
      * @return bool|null
     */
     public function getQuickScanOverdue(): ?bool {
-        return $this->getBackingStore()->get('quickScanOverdue');
+        $val = $this->getBackingStore()->get('quickScanOverdue');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'quickScanOverdue'");
     }
 
     /**
-     * Gets the realTimeProtectionEnabled property value. Real time protection is enabled or not?
+     * Gets the realTimeProtectionEnabled property value. When TRUE indicates real time protection is enabled, when FALSE indicates real time protection is not enabled. Defaults to setting on client device.
      * @return bool|null
     */
     public function getRealTimeProtectionEnabled(): ?bool {
-        return $this->getBackingStore()->get('realTimeProtectionEnabled');
+        $val = $this->getBackingStore()->get('realTimeProtectionEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'realTimeProtectionEnabled'");
     }
 
     /**
-     * Gets the rebootRequired property value. Reboot required or not?
+     * Gets the rebootRequired property value. When TRUE indicates reboot is required, when FALSE indicates when TRUE indicates reboot is not required. Defaults to setting on client device.
      * @return bool|null
     */
     public function getRebootRequired(): ?bool {
-        return $this->getBackingStore()->get('rebootRequired');
+        $val = $this->getBackingStore()->get('rebootRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rebootRequired'");
     }
 
     /**
-     * Gets the signatureUpdateOverdue property value. Signature out of date or not?
+     * Gets the signatureUpdateOverdue property value. When TRUE indicates signature is out of date, when FALSE indicates signature is not out of date. Defaults to setting on client device.
      * @return bool|null
     */
     public function getSignatureUpdateOverdue(): ?bool {
-        return $this->getBackingStore()->get('signatureUpdateOverdue');
+        $val = $this->getBackingStore()->get('signatureUpdateOverdue');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signatureUpdateOverdue'");
     }
 
     /**
@@ -213,15 +292,23 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return string|null
     */
     public function getSignatureVersion(): ?string {
-        return $this->getBackingStore()->get('signatureVersion');
+        $val = $this->getBackingStore()->get('signatureVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signatureVersion'");
     }
 
     /**
-     * Gets the tamperProtectionEnabled property value. Indicates whether the Windows Defender tamper protection feature is enabled.
+     * Gets the tamperProtectionEnabled property value. When TRUE indicates the Windows Defender tamper protection feature is enabled, when FALSE indicates the Windows Defender tamper protection feature is not enabled. Defaults to setting on client device.
      * @return bool|null
     */
     public function getTamperProtectionEnabled(): ?bool {
-        return $this->getBackingStore()->get('tamperProtectionEnabled');
+        $val = $this->getBackingStore()->get('tamperProtectionEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tamperProtectionEnabled'");
     }
 
     /**
@@ -270,7 +357,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceState property value. Computer's state (like clean or pending full scan or pending reboot etc). Possible values are: clean, fullScanPending, rebootPending, manualStepsPending, offlineScanPending, critical.
+     * Sets the deviceState property value. Indicates device's health state. Possible values are: clean, fullScanPending, rebootPending, manualStepsPending, offlineScanPending, critical. Possible values are: clean, fullScanPending, rebootPending, manualStepsPending, offlineScanPending, critical.
      * @param WindowsDeviceHealthState|null $value Value to set for the deviceState property.
     */
     public function setDeviceState(?WindowsDeviceHealthState $value): void {
@@ -286,7 +373,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the fullScanOverdue property value. Full scan overdue or not?
+     * Sets the fullScanOverdue property value. When TRUE indicates full scan is overdue, when FALSE indicates full scan is not overdue. Defaults to setting on client device.
      * @param bool|null $value Value to set for the fullScanOverdue property.
     */
     public function setFullScanOverdue(?bool $value): void {
@@ -294,7 +381,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the fullScanRequired property value. Full scan required or not?
+     * Sets the fullScanRequired property value. When TRUE indicates full scan is required, when FALSE indicates full scan is not required. Defaults to setting on client device.
      * @param bool|null $value Value to set for the fullScanRequired property.
     */
     public function setFullScanRequired(?bool $value): void {
@@ -302,7 +389,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the isVirtualMachine property value. Indicates whether the device is a virtual machine.
+     * Sets the isVirtualMachine property value. When TRUE indicates the device is a virtual machine, when FALSE indicates the device is not a virtual machine. Defaults to setting on client device.
      * @param bool|null $value Value to set for the isVirtualMachine property.
     */
     public function setIsVirtualMachine(?bool $value): void {
@@ -350,7 +437,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the malwareProtectionEnabled property value. Anti malware is enabled or not
+     * Sets the malwareProtectionEnabled property value. When TRUE indicates anti malware is enabled when FALSE indicates anti malware is not enabled.
      * @param bool|null $value Value to set for the malwareProtectionEnabled property.
     */
     public function setMalwareProtectionEnabled(?bool $value): void {
@@ -358,7 +445,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the networkInspectionSystemEnabled property value. Network inspection system enabled or not?
+     * Sets the networkInspectionSystemEnabled property value. When TRUE indicates network inspection system enabled, when FALSE indicates network inspection system is not enabled. Defaults to setting on client device.
      * @param bool|null $value Value to set for the networkInspectionSystemEnabled property.
     */
     public function setNetworkInspectionSystemEnabled(?bool $value): void {
@@ -366,7 +453,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the productStatus property value. Product Status of Windows Defender Antivirus. Possible values are: noStatus, serviceNotRunning, serviceStartedWithoutMalwareProtection, pendingFullScanDueToThreatAction, pendingRebootDueToThreatAction, pendingManualStepsDueToThreatAction, avSignaturesOutOfDate, asSignaturesOutOfDate, noQuickScanHappenedForSpecifiedPeriod, noFullScanHappenedForSpecifiedPeriod, systemInitiatedScanInProgress, systemInitiatedCleanInProgress, samplesPendingSubmission, productRunningInEvaluationMode, productRunningInNonGenuineMode, productExpired, offlineScanRequired, serviceShutdownAsPartOfSystemShutdown, threatRemediationFailedCritically, threatRemediationFailedNonCritically, noStatusFlagsSet, platformOutOfDate, platformUpdateInProgress, platformAboutToBeOutdated, signatureOrPlatformEndOfLifeIsPastOrIsImpending, windowsSModeSignaturesInUseOnNonWin10SInstall.
+     * Sets the productStatus property value. Product Status of Windows Defender Antivirus. Possible values are: noStatus, serviceNotRunning, serviceStartedWithoutMalwareProtection, pendingFullScanDueToThreatAction, pendingRebootDueToThreatAction, pendingManualStepsDueToThreatAction, avSignaturesOutOfDate, asSignaturesOutOfDate, noQuickScanHappenedForSpecifiedPeriod, noFullScanHappenedForSpecifiedPeriod, systemInitiatedScanInProgress, systemInitiatedCleanInProgress, samplesPendingSubmission, productRunningInEvaluationMode, productRunningInNonGenuineMode, productExpired, offlineScanRequired, serviceShutdownAsPartOfSystemShutdown, threatRemediationFailedCritically, threatRemediationFailedNonCritically, noStatusFlagsSet, platformOutOfDate, platformUpdateInProgress, platformAboutToBeOutdated, signatureOrPlatformEndOfLifeIsPastOrIsImpending, windowsSModeSignaturesInUseOnNonWin10SInstall. Possible values are: noStatus, serviceNotRunning, serviceStartedWithoutMalwareProtection, pendingFullScanDueToThreatAction, pendingRebootDueToThreatAction, pendingManualStepsDueToThreatAction, avSignaturesOutOfDate, asSignaturesOutOfDate, noQuickScanHappenedForSpecifiedPeriod, noFullScanHappenedForSpecifiedPeriod, systemInitiatedScanInProgress, systemInitiatedCleanInProgress, samplesPendingSubmission, productRunningInEvaluationMode, productRunningInNonGenuineMode, productExpired, offlineScanRequired, serviceShutdownAsPartOfSystemShutdown, threatRemediationFailedCritically, threatRemediationFailedNonCritically, noStatusFlagsSet, platformOutOfDate, platformUpdateInProgress, platformAboutToBeOutdated, signatureOrPlatformEndOfLifeIsPastOrIsImpending, windowsSModeSignaturesInUseOnNonWin10SInstall.
      * @param WindowsDefenderProductStatus|null $value Value to set for the productStatus property.
     */
     public function setProductStatus(?WindowsDefenderProductStatus $value): void {
@@ -374,7 +461,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the quickScanOverdue property value. Quick scan overdue or not?
+     * Sets the quickScanOverdue property value. When TRUE indicates quick scan is overdue, when FALSE indicates quick scan is not overdue. Defaults to setting on client device.
      * @param bool|null $value Value to set for the quickScanOverdue property.
     */
     public function setQuickScanOverdue(?bool $value): void {
@@ -382,7 +469,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the realTimeProtectionEnabled property value. Real time protection is enabled or not?
+     * Sets the realTimeProtectionEnabled property value. When TRUE indicates real time protection is enabled, when FALSE indicates real time protection is not enabled. Defaults to setting on client device.
      * @param bool|null $value Value to set for the realTimeProtectionEnabled property.
     */
     public function setRealTimeProtectionEnabled(?bool $value): void {
@@ -390,7 +477,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the rebootRequired property value. Reboot required or not?
+     * Sets the rebootRequired property value. When TRUE indicates reboot is required, when FALSE indicates when TRUE indicates reboot is not required. Defaults to setting on client device.
      * @param bool|null $value Value to set for the rebootRequired property.
     */
     public function setRebootRequired(?bool $value): void {
@@ -398,7 +485,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the signatureUpdateOverdue property value. Signature out of date or not?
+     * Sets the signatureUpdateOverdue property value. When TRUE indicates signature is out of date, when FALSE indicates signature is not out of date. Defaults to setting on client device.
      * @param bool|null $value Value to set for the signatureUpdateOverdue property.
     */
     public function setSignatureUpdateOverdue(?bool $value): void {
@@ -414,7 +501,7 @@ class WindowsProtectionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the tamperProtectionEnabled property value. Indicates whether the Windows Defender tamper protection feature is enabled.
+     * Sets the tamperProtectionEnabled property value. When TRUE indicates the Windows Defender tamper protection feature is enabled, when FALSE indicates the Windows Defender tamper protection feature is not enabled. Defaults to setting on client device.
      * @param bool|null $value Value to set for the tamperProtectionEnabled property.
     */
     public function setTamperProtectionEnabled(?bool $value): void {

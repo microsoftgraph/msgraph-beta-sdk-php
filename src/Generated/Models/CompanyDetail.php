@@ -39,7 +39,12 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +52,11 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
      * @return PhysicalAddress|null
     */
     public function getAddress(): ?PhysicalAddress {
-        return $this->getBackingStore()->get('address');
+        $val = $this->getBackingStore()->get('address');
+        if (is_null($val) || $val instanceof PhysicalAddress) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'address'");
     }
 
     /**
@@ -63,7 +72,11 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDepartment(): ?string {
-        return $this->getBackingStore()->get('department');
+        $val = $this->getBackingStore()->get('department');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'department'");
     }
 
     /**
@@ -71,12 +84,16 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -96,7 +113,11 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -104,7 +125,11 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOfficeLocation(): ?string {
-        return $this->getBackingStore()->get('officeLocation');
+        $val = $this->getBackingStore()->get('officeLocation');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'officeLocation'");
     }
 
     /**
@@ -112,7 +137,11 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getPronunciation(): ?string {
-        return $this->getBackingStore()->get('pronunciation');
+        $val = $this->getBackingStore()->get('pronunciation');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pronunciation'");
     }
 
     /**
@@ -120,7 +149,11 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getWebUrl(): ?string {
-        return $this->getBackingStore()->get('webUrl');
+        $val = $this->getBackingStore()->get('webUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'webUrl'");
     }
 
     /**

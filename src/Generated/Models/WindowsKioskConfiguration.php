@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class WindowsKioskConfiguration extends DeviceConfiguration implements Parsable 
 {
@@ -30,19 +31,37 @@ class WindowsKioskConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getEdgeKioskEnablePublicBrowsing(): ?bool {
-        return $this->getBackingStore()->get('edgeKioskEnablePublicBrowsing');
+        $val = $this->getBackingStore()->get('edgeKioskEnablePublicBrowsing');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeKioskEnablePublicBrowsing'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'edgeKioskEnablePublicBrowsing' => fn(ParseNode $n) => $o->setEdgeKioskEnablePublicBrowsing($n->getBooleanValue()),
-            'kioskBrowserBlockedUrlExceptions' => fn(ParseNode $n) => $o->setKioskBrowserBlockedUrlExceptions($n->getCollectionOfPrimitiveValues()),
-            'kioskBrowserBlockedURLs' => fn(ParseNode $n) => $o->setKioskBrowserBlockedURLs($n->getCollectionOfPrimitiveValues()),
+            'kioskBrowserBlockedUrlExceptions' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setKioskBrowserBlockedUrlExceptions($val);
+            },
+            'kioskBrowserBlockedURLs' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setKioskBrowserBlockedURLs($val);
+            },
             'kioskBrowserDefaultUrl' => fn(ParseNode $n) => $o->setKioskBrowserDefaultUrl($n->getStringValue()),
             'kioskBrowserEnableEndSessionButton' => fn(ParseNode $n) => $o->setKioskBrowserEnableEndSessionButton($n->getBooleanValue()),
             'kioskBrowserEnableHomeButton' => fn(ParseNode $n) => $o->setKioskBrowserEnableHomeButton($n->getBooleanValue()),
@@ -58,7 +77,13 @@ class WindowsKioskConfiguration extends DeviceConfiguration implements Parsable
      * @return array<string>|null
     */
     public function getKioskBrowserBlockedUrlExceptions(): ?array {
-        return $this->getBackingStore()->get('kioskBrowserBlockedUrlExceptions');
+        $val = $this->getBackingStore()->get('kioskBrowserBlockedUrlExceptions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskBrowserBlockedUrlExceptions'");
     }
 
     /**
@@ -66,7 +91,13 @@ class WindowsKioskConfiguration extends DeviceConfiguration implements Parsable
      * @return array<string>|null
     */
     public function getKioskBrowserBlockedURLs(): ?array {
-        return $this->getBackingStore()->get('kioskBrowserBlockedURLs');
+        $val = $this->getBackingStore()->get('kioskBrowserBlockedURLs');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskBrowserBlockedURLs'");
     }
 
     /**
@@ -74,7 +105,11 @@ class WindowsKioskConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getKioskBrowserDefaultUrl(): ?string {
-        return $this->getBackingStore()->get('kioskBrowserDefaultUrl');
+        $val = $this->getBackingStore()->get('kioskBrowserDefaultUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskBrowserDefaultUrl'");
     }
 
     /**
@@ -82,7 +117,11 @@ class WindowsKioskConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getKioskBrowserEnableEndSessionButton(): ?bool {
-        return $this->getBackingStore()->get('kioskBrowserEnableEndSessionButton');
+        $val = $this->getBackingStore()->get('kioskBrowserEnableEndSessionButton');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskBrowserEnableEndSessionButton'");
     }
 
     /**
@@ -90,7 +129,11 @@ class WindowsKioskConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getKioskBrowserEnableHomeButton(): ?bool {
-        return $this->getBackingStore()->get('kioskBrowserEnableHomeButton');
+        $val = $this->getBackingStore()->get('kioskBrowserEnableHomeButton');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskBrowserEnableHomeButton'");
     }
 
     /**
@@ -98,7 +141,11 @@ class WindowsKioskConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getKioskBrowserEnableNavigationButtons(): ?bool {
-        return $this->getBackingStore()->get('kioskBrowserEnableNavigationButtons');
+        $val = $this->getBackingStore()->get('kioskBrowserEnableNavigationButtons');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskBrowserEnableNavigationButtons'");
     }
 
     /**
@@ -106,7 +153,11 @@ class WindowsKioskConfiguration extends DeviceConfiguration implements Parsable
      * @return int|null
     */
     public function getKioskBrowserRestartOnIdleTimeInMinutes(): ?int {
-        return $this->getBackingStore()->get('kioskBrowserRestartOnIdleTimeInMinutes');
+        $val = $this->getBackingStore()->get('kioskBrowserRestartOnIdleTimeInMinutes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskBrowserRestartOnIdleTimeInMinutes'");
     }
 
     /**
@@ -114,7 +165,13 @@ class WindowsKioskConfiguration extends DeviceConfiguration implements Parsable
      * @return array<WindowsKioskProfile>|null
     */
     public function getKioskProfiles(): ?array {
-        return $this->getBackingStore()->get('kioskProfiles');
+        $val = $this->getBackingStore()->get('kioskProfiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WindowsKioskProfile::class);
+            /** @var array<WindowsKioskProfile>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskProfiles'");
     }
 
     /**
@@ -122,7 +179,11 @@ class WindowsKioskConfiguration extends DeviceConfiguration implements Parsable
      * @return WindowsKioskForceUpdateSchedule|null
     */
     public function getWindowsKioskForceUpdateSchedule(): ?WindowsKioskForceUpdateSchedule {
-        return $this->getBackingStore()->get('windowsKioskForceUpdateSchedule');
+        $val = $this->getBackingStore()->get('windowsKioskForceUpdateSchedule');
+        if (is_null($val) || $val instanceof WindowsKioskForceUpdateSchedule) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsKioskForceUpdateSchedule'");
     }
 
     /**

@@ -27,7 +27,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -46,7 +46,11 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
      * @return string|null
     */
     public function getFontColor(): ?string {
-        return $this->getBackingStore()->get('fontColor');
+        $val = $this->getBackingStore()->get('fontColor');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fontColor'");
     }
 
     /**
@@ -54,7 +58,11 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
      * @return string|null
     */
     public function getFontName(): ?string {
-        return $this->getBackingStore()->get('fontName');
+        $val = $this->getBackingStore()->get('fontName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fontName'");
     }
 
     /**
@@ -62,7 +70,11 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
      * @return int|null
     */
     public function getFontSize(): ?int {
-        return $this->getBackingStore()->get('fontSize');
+        $val = $this->getBackingStore()->get('fontSize');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fontSize'");
     }
 
     /**
@@ -70,7 +82,11 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
      * @return WatermarkLayout|null
     */
     public function getLayout(): ?WatermarkLayout {
-        return $this->getBackingStore()->get('layout');
+        $val = $this->getBackingStore()->get('layout');
+        if (is_null($val) || $val instanceof WatermarkLayout) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'layout'");
     }
 
     /**
@@ -78,7 +94,11 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
      * @return string|null
     */
     public function getText(): ?string {
-        return $this->getBackingStore()->get('text');
+        $val = $this->getBackingStore()->get('text');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'text'");
     }
 
     /**
@@ -86,7 +106,11 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
      * @return string|null
     */
     public function getUiElementName(): ?string {
-        return $this->getBackingStore()->get('uiElementName');
+        $val = $this->getBackingStore()->get('uiElementName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'uiElementName'");
     }
 
     /**

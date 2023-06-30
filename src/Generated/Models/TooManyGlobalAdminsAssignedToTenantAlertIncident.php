@@ -26,32 +26,44 @@ class TooManyGlobalAdminsAssignedToTenantAlertIncident extends UnifiedRoleManage
     }
 
     /**
-     * Gets the assigneeDisplayName property value. The assigneeDisplayName property
+     * Gets the assigneeDisplayName property value. Display name of the subject that the incident applies to.
      * @return string|null
     */
     public function getAssigneeDisplayName(): ?string {
-        return $this->getBackingStore()->get('assigneeDisplayName');
+        $val = $this->getBackingStore()->get('assigneeDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assigneeDisplayName'");
     }
 
     /**
-     * Gets the assigneeId property value. The assigneeId property
+     * Gets the assigneeId property value. The identifier of the subject that the incident applies to.
      * @return string|null
     */
     public function getAssigneeId(): ?string {
-        return $this->getBackingStore()->get('assigneeId');
+        $val = $this->getBackingStore()->get('assigneeId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assigneeId'");
     }
 
     /**
-     * Gets the assigneeUserPrincipalName property value. The assigneeUserPrincipalName property
+     * Gets the assigneeUserPrincipalName property value. User principal name of the subject that the incident applies to. Applies to user principals.
      * @return string|null
     */
     public function getAssigneeUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('assigneeUserPrincipalName');
+        $val = $this->getBackingStore()->get('assigneeUserPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assigneeUserPrincipalName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -74,7 +86,7 @@ class TooManyGlobalAdminsAssignedToTenantAlertIncident extends UnifiedRoleManage
     }
 
     /**
-     * Sets the assigneeDisplayName property value. The assigneeDisplayName property
+     * Sets the assigneeDisplayName property value. Display name of the subject that the incident applies to.
      * @param string|null $value Value to set for the assigneeDisplayName property.
     */
     public function setAssigneeDisplayName(?string $value): void {
@@ -82,7 +94,7 @@ class TooManyGlobalAdminsAssignedToTenantAlertIncident extends UnifiedRoleManage
     }
 
     /**
-     * Sets the assigneeId property value. The assigneeId property
+     * Sets the assigneeId property value. The identifier of the subject that the incident applies to.
      * @param string|null $value Value to set for the assigneeId property.
     */
     public function setAssigneeId(?string $value): void {
@@ -90,7 +102,7 @@ class TooManyGlobalAdminsAssignedToTenantAlertIncident extends UnifiedRoleManage
     }
 
     /**
-     * Sets the assigneeUserPrincipalName property value. The assigneeUserPrincipalName property
+     * Sets the assigneeUserPrincipalName property value. User principal name of the subject that the incident applies to. Applies to user principals.
      * @param string|null $value Value to set for the assigneeUserPrincipalName property.
     */
     public function setAssigneeUserPrincipalName(?string $value): void {

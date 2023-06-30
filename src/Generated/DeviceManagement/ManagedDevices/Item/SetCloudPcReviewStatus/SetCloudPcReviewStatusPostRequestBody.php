@@ -40,7 +40,12 @@ class SetCloudPcReviewStatusPostRequestBody implements AdditionalDataHolder, Bac
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -53,7 +58,7 @@ class SetCloudPcReviewStatusPostRequestBody implements AdditionalDataHolder, Bac
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -67,7 +72,11 @@ class SetCloudPcReviewStatusPostRequestBody implements AdditionalDataHolder, Bac
      * @return CloudPcReviewStatus|null
     */
     public function getReviewStatus(): ?CloudPcReviewStatus {
-        return $this->getBackingStore()->get('reviewStatus');
+        $val = $this->getBackingStore()->get('reviewStatus');
+        if (is_null($val) || $val instanceof CloudPcReviewStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reviewStatus'");
     }
 
     /**

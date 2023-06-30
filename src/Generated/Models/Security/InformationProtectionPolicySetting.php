@@ -30,12 +30,16 @@ class InformationProtectionPolicySetting extends Entity implements Parsable
      * @return string|null
     */
     public function getDefaultLabelId(): ?string {
-        return $this->getBackingStore()->get('defaultLabelId');
+        $val = $this->getBackingStore()->get('defaultLabelId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultLabelId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -52,7 +56,11 @@ class InformationProtectionPolicySetting extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDowngradeJustificationRequired(): ?bool {
-        return $this->getBackingStore()->get('isDowngradeJustificationRequired');
+        $val = $this->getBackingStore()->get('isDowngradeJustificationRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDowngradeJustificationRequired'");
     }
 
     /**
@@ -60,7 +68,11 @@ class InformationProtectionPolicySetting extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsMandatory(): ?bool {
-        return $this->getBackingStore()->get('isMandatory');
+        $val = $this->getBackingStore()->get('isMandatory');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isMandatory'");
     }
 
     /**
@@ -68,7 +80,11 @@ class InformationProtectionPolicySetting extends Entity implements Parsable
      * @return string|null
     */
     public function getMoreInfoUrl(): ?string {
-        return $this->getBackingStore()->get('moreInfoUrl');
+        $val = $this->getBackingStore()->get('moreInfoUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'moreInfoUrl'");
     }
 
     /**

@@ -27,7 +27,7 @@ class AccessPackageResourceAttributeQuestion extends AccessPackageResourceAttrib
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class AccessPackageResourceAttributeQuestion extends AccessPackageResourceAttrib
      * @return AccessPackageQuestion|null
     */
     public function getQuestion(): ?AccessPackageQuestion {
-        return $this->getBackingStore()->get('question');
+        $val = $this->getBackingStore()->get('question');
+        if (is_null($val) || $val instanceof AccessPackageQuestion) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'question'");
     }
 
     /**

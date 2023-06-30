@@ -29,12 +29,16 @@ class PlayPromptOperation extends CommsOperation implements Parsable
      * @return PlayPromptCompletionReason|null
     */
     public function getCompletionReason(): ?PlayPromptCompletionReason {
-        return $this->getBackingStore()->get('completionReason');
+        $val = $this->getBackingStore()->get('completionReason');
+        if (is_null($val) || $val instanceof PlayPromptCompletionReason) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'completionReason'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

@@ -7,11 +7,15 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Represents an Autopilot flow event.
+*/
 class DeviceManagementAutopilotEvent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementAutopilotEvent and sets the default values.
+     * Instantiates a new deviceManagementAutopilotEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -31,7 +35,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return DateInterval|null
     */
     public function getAccountSetupDuration(): ?DateInterval {
-        return $this->getBackingStore()->get('accountSetupDuration');
+        $val = $this->getBackingStore()->get('accountSetupDuration');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accountSetupDuration'");
     }
 
     /**
@@ -39,7 +47,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return WindowsAutopilotDeploymentState|null
     */
     public function getAccountSetupStatus(): ?WindowsAutopilotDeploymentState {
-        return $this->getBackingStore()->get('accountSetupStatus');
+        $val = $this->getBackingStore()->get('accountSetupStatus');
+        if (is_null($val) || $val instanceof WindowsAutopilotDeploymentState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accountSetupStatus'");
     }
 
     /**
@@ -47,7 +59,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return DateInterval|null
     */
     public function getDeploymentDuration(): ?DateInterval {
-        return $this->getBackingStore()->get('deploymentDuration');
+        $val = $this->getBackingStore()->get('deploymentDuration');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deploymentDuration'");
     }
 
     /**
@@ -55,7 +71,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDeploymentEndDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('deploymentEndDateTime');
+        $val = $this->getBackingStore()->get('deploymentEndDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deploymentEndDateTime'");
     }
 
     /**
@@ -63,7 +83,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDeploymentStartDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('deploymentStartDateTime');
+        $val = $this->getBackingStore()->get('deploymentStartDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deploymentStartDateTime'");
     }
 
     /**
@@ -71,7 +95,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return WindowsAutopilotDeploymentState|null
     */
     public function getDeploymentState(): ?WindowsAutopilotDeploymentState {
-        return $this->getBackingStore()->get('deploymentState');
+        $val = $this->getBackingStore()->get('deploymentState');
+        if (is_null($val) || $val instanceof WindowsAutopilotDeploymentState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deploymentState'");
     }
 
     /**
@@ -79,7 +107,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return DateInterval|null
     */
     public function getDeploymentTotalDuration(): ?DateInterval {
-        return $this->getBackingStore()->get('deploymentTotalDuration');
+        $val = $this->getBackingStore()->get('deploymentTotalDuration');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deploymentTotalDuration'");
     }
 
     /**
@@ -87,7 +119,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->getBackingStore()->get('deviceId');
+        $val = $this->getBackingStore()->get('deviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceId'");
     }
 
     /**
@@ -95,7 +131,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return DateInterval|null
     */
     public function getDevicePreparationDuration(): ?DateInterval {
-        return $this->getBackingStore()->get('devicePreparationDuration');
+        $val = $this->getBackingStore()->get('devicePreparationDuration');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'devicePreparationDuration'");
     }
 
     /**
@@ -103,7 +143,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDeviceRegisteredDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('deviceRegisteredDateTime');
+        $val = $this->getBackingStore()->get('deviceRegisteredDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceRegisteredDateTime'");
     }
 
     /**
@@ -111,7 +155,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceSerialNumber(): ?string {
-        return $this->getBackingStore()->get('deviceSerialNumber');
+        $val = $this->getBackingStore()->get('deviceSerialNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceSerialNumber'");
     }
 
     /**
@@ -119,7 +167,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return DateInterval|null
     */
     public function getDeviceSetupDuration(): ?DateInterval {
-        return $this->getBackingStore()->get('deviceSetupDuration');
+        $val = $this->getBackingStore()->get('deviceSetupDuration');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceSetupDuration'");
     }
 
     /**
@@ -127,7 +179,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return WindowsAutopilotDeploymentState|null
     */
     public function getDeviceSetupStatus(): ?WindowsAutopilotDeploymentState {
-        return $this->getBackingStore()->get('deviceSetupStatus');
+        $val = $this->getBackingStore()->get('deviceSetupStatus');
+        if (is_null($val) || $val instanceof WindowsAutopilotDeploymentState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceSetupStatus'");
     }
 
     /**
@@ -135,7 +191,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getEnrollmentFailureDetails(): ?string {
-        return $this->getBackingStore()->get('enrollmentFailureDetails');
+        $val = $this->getBackingStore()->get('enrollmentFailureDetails');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrollmentFailureDetails'");
     }
 
     /**
@@ -143,7 +203,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getEnrollmentStartDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('enrollmentStartDateTime');
+        $val = $this->getBackingStore()->get('enrollmentStartDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrollmentStartDateTime'");
     }
 
     /**
@@ -151,7 +215,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return EnrollmentState|null
     */
     public function getEnrollmentState(): ?EnrollmentState {
-        return $this->getBackingStore()->get('enrollmentState');
+        $val = $this->getBackingStore()->get('enrollmentState');
+        if (is_null($val) || $val instanceof EnrollmentState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrollmentState'");
     }
 
     /**
@@ -159,7 +227,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return WindowsAutopilotEnrollmentType|null
     */
     public function getEnrollmentType(): ?WindowsAutopilotEnrollmentType {
-        return $this->getBackingStore()->get('enrollmentType');
+        $val = $this->getBackingStore()->get('enrollmentType');
+        if (is_null($val) || $val instanceof WindowsAutopilotEnrollmentType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrollmentType'");
     }
 
     /**
@@ -167,12 +239,16 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getEventDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('eventDateTime');
+        $val = $this->getBackingStore()->get('eventDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eventDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -212,7 +288,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getManagedDeviceName(): ?string {
-        return $this->getBackingStore()->get('managedDeviceName');
+        $val = $this->getBackingStore()->get('managedDeviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceName'");
     }
 
     /**
@@ -220,7 +300,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getOsVersion(): ?string {
-        return $this->getBackingStore()->get('osVersion');
+        $val = $this->getBackingStore()->get('osVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osVersion'");
     }
 
     /**
@@ -228,7 +312,13 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return array<DeviceManagementAutopilotPolicyStatusDetail>|null
     */
     public function getPolicyStatusDetails(): ?array {
-        return $this->getBackingStore()->get('policyStatusDetails');
+        $val = $this->getBackingStore()->get('policyStatusDetails');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementAutopilotPolicyStatusDetail::class);
+            /** @var array<DeviceManagementAutopilotPolicyStatusDetail>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyStatusDetails'");
     }
 
     /**
@@ -236,7 +326,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return int|null
     */
     public function getTargetedAppCount(): ?int {
-        return $this->getBackingStore()->get('targetedAppCount');
+        $val = $this->getBackingStore()->get('targetedAppCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetedAppCount'");
     }
 
     /**
@@ -244,7 +338,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return int|null
     */
     public function getTargetedPolicyCount(): ?int {
-        return $this->getBackingStore()->get('targetedPolicyCount');
+        $val = $this->getBackingStore()->get('targetedPolicyCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetedPolicyCount'");
     }
 
     /**
@@ -252,7 +350,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('userPrincipalName');
+        $val = $this->getBackingStore()->get('userPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
     }
 
     /**
@@ -260,7 +362,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getWindows10EnrollmentCompletionPageConfigurationDisplayName(): ?string {
-        return $this->getBackingStore()->get('windows10EnrollmentCompletionPageConfigurationDisplayName');
+        $val = $this->getBackingStore()->get('windows10EnrollmentCompletionPageConfigurationDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windows10EnrollmentCompletionPageConfigurationDisplayName'");
     }
 
     /**
@@ -268,7 +374,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getWindows10EnrollmentCompletionPageConfigurationId(): ?string {
-        return $this->getBackingStore()->get('windows10EnrollmentCompletionPageConfigurationId');
+        $val = $this->getBackingStore()->get('windows10EnrollmentCompletionPageConfigurationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windows10EnrollmentCompletionPageConfigurationId'");
     }
 
     /**
@@ -276,7 +386,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getWindowsAutopilotDeploymentProfileDisplayName(): ?string {
-        return $this->getBackingStore()->get('windowsAutopilotDeploymentProfileDisplayName');
+        $val = $this->getBackingStore()->get('windowsAutopilotDeploymentProfileDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsAutopilotDeploymentProfileDisplayName'");
     }
 
     /**

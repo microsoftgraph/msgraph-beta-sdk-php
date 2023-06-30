@@ -29,7 +29,11 @@ class CredentialUsageSummary extends Entity implements Parsable
      * @return UsageAuthMethod|null
     */
     public function getAuthMethod(): ?UsageAuthMethod {
-        return $this->getBackingStore()->get('authMethod');
+        $val = $this->getBackingStore()->get('authMethod');
+        if (is_null($val) || $val instanceof UsageAuthMethod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authMethod'");
     }
 
     /**
@@ -37,7 +41,11 @@ class CredentialUsageSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getFailureActivityCount(): ?int {
-        return $this->getBackingStore()->get('failureActivityCount');
+        $val = $this->getBackingStore()->get('failureActivityCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'failureActivityCount'");
     }
 
     /**
@@ -45,12 +53,16 @@ class CredentialUsageSummary extends Entity implements Parsable
      * @return FeatureType|null
     */
     public function getFeature(): ?FeatureType {
-        return $this->getBackingStore()->get('feature');
+        $val = $this->getBackingStore()->get('feature');
+        if (is_null($val) || $val instanceof FeatureType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'feature'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -67,7 +79,11 @@ class CredentialUsageSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getSuccessfulActivityCount(): ?int {
-        return $this->getBackingStore()->get('successfulActivityCount');
+        $val = $this->getBackingStore()->get('successfulActivityCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'successfulActivityCount'");
     }
 
     /**

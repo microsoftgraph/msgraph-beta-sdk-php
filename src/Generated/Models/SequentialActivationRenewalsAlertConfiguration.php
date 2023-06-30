@@ -28,7 +28,7 @@ class SequentialActivationRenewalsAlertConfiguration extends UnifiedRoleManageme
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -39,19 +39,27 @@ class SequentialActivationRenewalsAlertConfiguration extends UnifiedRoleManageme
     }
 
     /**
-     * Gets the sequentialActivationCounterThreshold property value. The sequentialActivationCounterThreshold property
+     * Gets the sequentialActivationCounterThreshold property value. The minimum number of activations within the timeIntervalBetweenActivations period to trigger an alert.
      * @return int|null
     */
     public function getSequentialActivationCounterThreshold(): ?int {
-        return $this->getBackingStore()->get('sequentialActivationCounterThreshold');
+        $val = $this->getBackingStore()->get('sequentialActivationCounterThreshold');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sequentialActivationCounterThreshold'");
     }
 
     /**
-     * Gets the timeIntervalBetweenActivations property value. The timeIntervalBetweenActivations property
+     * Gets the timeIntervalBetweenActivations property value. Time interval between activations to trigger an alert.
      * @return DateInterval|null
     */
     public function getTimeIntervalBetweenActivations(): ?DateInterval {
-        return $this->getBackingStore()->get('timeIntervalBetweenActivations');
+        $val = $this->getBackingStore()->get('timeIntervalBetweenActivations');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'timeIntervalBetweenActivations'");
     }
 
     /**
@@ -65,7 +73,7 @@ class SequentialActivationRenewalsAlertConfiguration extends UnifiedRoleManageme
     }
 
     /**
-     * Sets the sequentialActivationCounterThreshold property value. The sequentialActivationCounterThreshold property
+     * Sets the sequentialActivationCounterThreshold property value. The minimum number of activations within the timeIntervalBetweenActivations period to trigger an alert.
      * @param int|null $value Value to set for the sequentialActivationCounterThreshold property.
     */
     public function setSequentialActivationCounterThreshold(?int $value): void {
@@ -73,7 +81,7 @@ class SequentialActivationRenewalsAlertConfiguration extends UnifiedRoleManageme
     }
 
     /**
-     * Sets the timeIntervalBetweenActivations property value. The timeIntervalBetweenActivations property
+     * Sets the timeIntervalBetweenActivations property value. Time interval between activations to trigger an alert.
      * @param DateInterval|null $value Value to set for the timeIntervalBetweenActivations property.
     */
     public function setTimeIntervalBetweenActivations(?DateInterval $value): void {

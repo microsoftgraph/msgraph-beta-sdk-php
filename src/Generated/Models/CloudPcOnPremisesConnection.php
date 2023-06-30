@@ -29,7 +29,11 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getAdDomainName(): ?string {
-        return $this->getBackingStore()->get('adDomainName');
+        $val = $this->getBackingStore()->get('adDomainName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'adDomainName'");
     }
 
     /**
@@ -37,7 +41,11 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getAdDomainPassword(): ?string {
-        return $this->getBackingStore()->get('adDomainPassword');
+        $val = $this->getBackingStore()->get('adDomainPassword');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'adDomainPassword'");
     }
 
     /**
@@ -45,7 +53,11 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getAdDomainUsername(): ?string {
-        return $this->getBackingStore()->get('adDomainUsername');
+        $val = $this->getBackingStore()->get('adDomainUsername');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'adDomainUsername'");
     }
 
     /**
@@ -53,7 +65,11 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getAlternateResourceUrl(): ?string {
-        return $this->getBackingStore()->get('alternateResourceUrl');
+        $val = $this->getBackingStore()->get('alternateResourceUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'alternateResourceUrl'");
     }
 
     /**
@@ -61,12 +77,16 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -96,7 +116,11 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return CloudPcOnPremisesConnectionStatus|null
     */
     public function getHealthCheckStatus(): ?CloudPcOnPremisesConnectionStatus {
-        return $this->getBackingStore()->get('healthCheckStatus');
+        $val = $this->getBackingStore()->get('healthCheckStatus');
+        if (is_null($val) || $val instanceof CloudPcOnPremisesConnectionStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'healthCheckStatus'");
     }
 
     /**
@@ -104,7 +128,11 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return CloudPcOnPremisesConnectionStatusDetails|null
     */
     public function getHealthCheckStatusDetails(): ?CloudPcOnPremisesConnectionStatusDetails {
-        return $this->getBackingStore()->get('healthCheckStatusDetails');
+        $val = $this->getBackingStore()->get('healthCheckStatusDetails');
+        if (is_null($val) || $val instanceof CloudPcOnPremisesConnectionStatusDetails) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'healthCheckStatusDetails'");
     }
 
     /**
@@ -112,7 +140,11 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return bool|null
     */
     public function getInUse(): ?bool {
-        return $this->getBackingStore()->get('inUse');
+        $val = $this->getBackingStore()->get('inUse');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inUse'");
     }
 
     /**
@@ -120,7 +152,11 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return CloudPcManagementService|null
     */
     public function getManagedBy(): ?CloudPcManagementService {
-        return $this->getBackingStore()->get('managedBy');
+        $val = $this->getBackingStore()->get('managedBy');
+        if (is_null($val) || $val instanceof CloudPcManagementService) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedBy'");
     }
 
     /**
@@ -128,7 +164,11 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getOrganizationalUnit(): ?string {
-        return $this->getBackingStore()->get('organizationalUnit');
+        $val = $this->getBackingStore()->get('organizationalUnit');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'organizationalUnit'");
     }
 
     /**
@@ -136,7 +176,11 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getResourceGroupId(): ?string {
-        return $this->getBackingStore()->get('resourceGroupId');
+        $val = $this->getBackingStore()->get('resourceGroupId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resourceGroupId'");
     }
 
     /**
@@ -144,7 +188,11 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getSubnetId(): ?string {
-        return $this->getBackingStore()->get('subnetId');
+        $val = $this->getBackingStore()->get('subnetId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subnetId'");
     }
 
     /**
@@ -152,7 +200,11 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getSubscriptionId(): ?string {
-        return $this->getBackingStore()->get('subscriptionId');
+        $val = $this->getBackingStore()->get('subscriptionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subscriptionId'");
     }
 
     /**
@@ -160,7 +212,11 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getSubscriptionName(): ?string {
-        return $this->getBackingStore()->get('subscriptionName');
+        $val = $this->getBackingStore()->get('subscriptionName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subscriptionName'");
     }
 
     /**
@@ -168,7 +224,11 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return CloudPcOnPremisesConnectionType|null
     */
     public function getType(): ?CloudPcOnPremisesConnectionType {
-        return $this->getBackingStore()->get('type');
+        $val = $this->getBackingStore()->get('type');
+        if (is_null($val) || $val instanceof CloudPcOnPremisesConnectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
     }
 
     /**
@@ -176,7 +236,11 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getVirtualNetworkId(): ?string {
-        return $this->getBackingStore()->get('virtualNetworkId');
+        $val = $this->getBackingStore()->get('virtualNetworkId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'virtualNetworkId'");
     }
 
     /**
@@ -184,7 +248,11 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getVirtualNetworkLocation(): ?string {
-        return $this->getBackingStore()->get('virtualNetworkLocation');
+        $val = $this->getBackingStore()->get('virtualNetworkLocation');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'virtualNetworkLocation'");
     }
 
     /**

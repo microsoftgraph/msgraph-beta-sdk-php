@@ -33,7 +33,11 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
      * @return int|null
     */
     public function getApplicableDeviceCount(): ?int {
-        return $this->getBackingStore()->get('applicableDeviceCount');
+        $val = $this->getBackingStore()->get('applicableDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicableDeviceCount'");
     }
 
     /**
@@ -41,7 +45,11 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
      * @return DriverApprovalStatus|null
     */
     public function getApprovalStatus(): ?DriverApprovalStatus {
-        return $this->getBackingStore()->get('approvalStatus');
+        $val = $this->getBackingStore()->get('approvalStatus');
+        if (is_null($val) || $val instanceof DriverApprovalStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'approvalStatus'");
     }
 
     /**
@@ -49,7 +57,11 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
      * @return DriverCategory|null
     */
     public function getCategory(): ?DriverCategory {
-        return $this->getBackingStore()->get('category');
+        $val = $this->getBackingStore()->get('category');
+        if (is_null($val) || $val instanceof DriverCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'category'");
     }
 
     /**
@@ -57,7 +69,11 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDeployDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('deployDateTime');
+        $val = $this->getBackingStore()->get('deployDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deployDateTime'");
     }
 
     /**
@@ -65,12 +81,16 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
      * @return string|null
     */
     public function getDriverClass(): ?string {
-        return $this->getBackingStore()->get('driverClass');
+        $val = $this->getBackingStore()->get('driverClass');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'driverClass'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -92,7 +112,11 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
      * @return string|null
     */
     public function getManufacturer(): ?string {
-        return $this->getBackingStore()->get('manufacturer');
+        $val = $this->getBackingStore()->get('manufacturer');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'manufacturer'");
     }
 
     /**
@@ -100,7 +124,11 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -108,7 +136,11 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getReleaseDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('releaseDateTime');
+        $val = $this->getBackingStore()->get('releaseDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'releaseDateTime'");
     }
 
     /**
@@ -116,7 +148,11 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
      * @return string|null
     */
     public function getVersion(): ?string {
-        return $this->getBackingStore()->get('version');
+        $val = $this->getBackingStore()->get('version');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'version'");
     }
 
     /**

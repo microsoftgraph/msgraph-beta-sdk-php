@@ -30,7 +30,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return string|null
     */
     public function getAccountName(): ?string {
-        return $this->getBackingStore()->get('accountName');
+        $val = $this->getBackingStore()->get('accountName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accountName'");
     }
 
     /**
@@ -38,7 +42,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return EasAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?EasAuthenticationMethod {
-        return $this->getBackingStore()->get('authenticationMethod');
+        $val = $this->getBackingStore()->get('authenticationMethod');
+        if (is_null($val) || $val instanceof EasAuthenticationMethod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationMethod'");
     }
 
     /**
@@ -46,7 +54,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return bool|null
     */
     public function getBlockMovingMessagesToOtherEmailAccounts(): ?bool {
-        return $this->getBackingStore()->get('blockMovingMessagesToOtherEmailAccounts');
+        $val = $this->getBackingStore()->get('blockMovingMessagesToOtherEmailAccounts');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockMovingMessagesToOtherEmailAccounts'");
     }
 
     /**
@@ -54,7 +66,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return bool|null
     */
     public function getBlockSendingEmailFromThirdPartyApps(): ?bool {
-        return $this->getBackingStore()->get('blockSendingEmailFromThirdPartyApps');
+        $val = $this->getBackingStore()->get('blockSendingEmailFromThirdPartyApps');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockSendingEmailFromThirdPartyApps'");
     }
 
     /**
@@ -62,7 +78,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return bool|null
     */
     public function getBlockSyncingRecentlyUsedEmailAddresses(): ?bool {
-        return $this->getBackingStore()->get('blockSyncingRecentlyUsedEmailAddresses');
+        $val = $this->getBackingStore()->get('blockSyncingRecentlyUsedEmailAddresses');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockSyncingRecentlyUsedEmailAddresses'");
     }
 
     /**
@@ -70,7 +90,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return DeviceManagementDerivedCredentialSettings|null
     */
     public function getDerivedCredentialSettings(): ?DeviceManagementDerivedCredentialSettings {
-        return $this->getBackingStore()->get('derivedCredentialSettings');
+        $val = $this->getBackingStore()->get('derivedCredentialSettings');
+        if (is_null($val) || $val instanceof DeviceManagementDerivedCredentialSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'derivedCredentialSettings'");
     }
 
     /**
@@ -78,7 +102,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return EmailSyncDuration|null
     */
     public function getDurationOfEmailToSync(): ?EmailSyncDuration {
-        return $this->getBackingStore()->get('durationOfEmailToSync');
+        $val = $this->getBackingStore()->get('durationOfEmailToSync');
+        if (is_null($val) || $val instanceof EmailSyncDuration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'durationOfEmailToSync'");
     }
 
     /**
@@ -86,7 +114,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return EasServices|null
     */
     public function getEasServices(): ?EasServices {
-        return $this->getBackingStore()->get('easServices');
+        $val = $this->getBackingStore()->get('easServices');
+        if (is_null($val) || $val instanceof EasServices) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'easServices'");
     }
 
     /**
@@ -94,7 +126,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return bool|null
     */
     public function getEasServicesUserOverrideEnabled(): ?bool {
-        return $this->getBackingStore()->get('easServicesUserOverrideEnabled');
+        $val = $this->getBackingStore()->get('easServicesUserOverrideEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'easServicesUserOverrideEnabled'");
     }
 
     /**
@@ -102,7 +138,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return UserEmailSource|null
     */
     public function getEmailAddressSource(): ?UserEmailSource {
-        return $this->getBackingStore()->get('emailAddressSource');
+        $val = $this->getBackingStore()->get('emailAddressSource');
+        if (is_null($val) || $val instanceof UserEmailSource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailAddressSource'");
     }
 
     /**
@@ -110,12 +150,16 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return EmailCertificateType|null
     */
     public function getEncryptionCertificateType(): ?EmailCertificateType {
-        return $this->getBackingStore()->get('encryptionCertificateType');
+        $val = $this->getBackingStore()->get('encryptionCertificateType');
+        if (is_null($val) || $val instanceof EmailCertificateType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'encryptionCertificateType'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -155,7 +199,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return string|null
     */
     public function getHostName(): ?string {
-        return $this->getBackingStore()->get('hostName');
+        $val = $this->getBackingStore()->get('hostName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hostName'");
     }
 
     /**
@@ -163,7 +211,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return IosCertificateProfileBase|null
     */
     public function getIdentityCertificate(): ?IosCertificateProfileBase {
-        return $this->getBackingStore()->get('identityCertificate');
+        $val = $this->getBackingStore()->get('identityCertificate');
+        if (is_null($val) || $val instanceof IosCertificateProfileBase) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityCertificate'");
     }
 
     /**
@@ -171,7 +223,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return string|null
     */
     public function getPerAppVPNProfileId(): ?string {
-        return $this->getBackingStore()->get('perAppVPNProfileId');
+        $val = $this->getBackingStore()->get('perAppVPNProfileId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'perAppVPNProfileId'");
     }
 
     /**
@@ -179,7 +235,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return bool|null
     */
     public function getRequireSmime(): ?bool {
-        return $this->getBackingStore()->get('requireSmime');
+        $val = $this->getBackingStore()->get('requireSmime');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requireSmime'");
     }
 
     /**
@@ -187,7 +247,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return bool|null
     */
     public function getRequireSsl(): ?bool {
-        return $this->getBackingStore()->get('requireSsl');
+        $val = $this->getBackingStore()->get('requireSsl');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requireSsl'");
     }
 
     /**
@@ -195,7 +259,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return EmailCertificateType|null
     */
     public function getSigningCertificateType(): ?EmailCertificateType {
-        return $this->getBackingStore()->get('signingCertificateType');
+        $val = $this->getBackingStore()->get('signingCertificateType');
+        if (is_null($val) || $val instanceof EmailCertificateType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signingCertificateType'");
     }
 
     /**
@@ -203,7 +271,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return bool|null
     */
     public function getSmimeEnablePerMessageSwitch(): ?bool {
-        return $this->getBackingStore()->get('smimeEnablePerMessageSwitch');
+        $val = $this->getBackingStore()->get('smimeEnablePerMessageSwitch');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'smimeEnablePerMessageSwitch'");
     }
 
     /**
@@ -211,7 +283,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return bool|null
     */
     public function getSmimeEncryptByDefaultEnabled(): ?bool {
-        return $this->getBackingStore()->get('smimeEncryptByDefaultEnabled');
+        $val = $this->getBackingStore()->get('smimeEncryptByDefaultEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'smimeEncryptByDefaultEnabled'");
     }
 
     /**
@@ -219,7 +295,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return bool|null
     */
     public function getSmimeEncryptByDefaultUserOverrideEnabled(): ?bool {
-        return $this->getBackingStore()->get('smimeEncryptByDefaultUserOverrideEnabled');
+        $val = $this->getBackingStore()->get('smimeEncryptByDefaultUserOverrideEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'smimeEncryptByDefaultUserOverrideEnabled'");
     }
 
     /**
@@ -227,7 +307,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return IosCertificateProfile|null
     */
     public function getSmimeEncryptionCertificate(): ?IosCertificateProfile {
-        return $this->getBackingStore()->get('smimeEncryptionCertificate');
+        $val = $this->getBackingStore()->get('smimeEncryptionCertificate');
+        if (is_null($val) || $val instanceof IosCertificateProfile) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'smimeEncryptionCertificate'");
     }
 
     /**
@@ -235,7 +319,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return bool|null
     */
     public function getSmimeEncryptionCertificateUserOverrideEnabled(): ?bool {
-        return $this->getBackingStore()->get('smimeEncryptionCertificateUserOverrideEnabled');
+        $val = $this->getBackingStore()->get('smimeEncryptionCertificateUserOverrideEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'smimeEncryptionCertificateUserOverrideEnabled'");
     }
 
     /**
@@ -243,7 +331,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return IosCertificateProfile|null
     */
     public function getSmimeSigningCertificate(): ?IosCertificateProfile {
-        return $this->getBackingStore()->get('smimeSigningCertificate');
+        $val = $this->getBackingStore()->get('smimeSigningCertificate');
+        if (is_null($val) || $val instanceof IosCertificateProfile) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'smimeSigningCertificate'");
     }
 
     /**
@@ -251,7 +343,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return bool|null
     */
     public function getSmimeSigningCertificateUserOverrideEnabled(): ?bool {
-        return $this->getBackingStore()->get('smimeSigningCertificateUserOverrideEnabled');
+        $val = $this->getBackingStore()->get('smimeSigningCertificateUserOverrideEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'smimeSigningCertificateUserOverrideEnabled'");
     }
 
     /**
@@ -259,7 +355,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return bool|null
     */
     public function getSmimeSigningEnabled(): ?bool {
-        return $this->getBackingStore()->get('smimeSigningEnabled');
+        $val = $this->getBackingStore()->get('smimeSigningEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'smimeSigningEnabled'");
     }
 
     /**
@@ -267,7 +367,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return bool|null
     */
     public function getSmimeSigningUserOverrideEnabled(): ?bool {
-        return $this->getBackingStore()->get('smimeSigningUserOverrideEnabled');
+        $val = $this->getBackingStore()->get('smimeSigningUserOverrideEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'smimeSigningUserOverrideEnabled'");
     }
 
     /**
@@ -275,7 +379,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
      * @return bool|null
     */
     public function getUseOAuth(): ?bool {
-        return $this->getBackingStore()->get('useOAuth');
+        $val = $this->getBackingStore()->get('useOAuth');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'useOAuth'");
     }
 
     /**

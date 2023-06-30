@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ProvisioningObjectSummary extends Entity implements Parsable 
 {
@@ -30,7 +31,11 @@ class ProvisioningObjectSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getAction(): ?string {
-        return $this->getBackingStore()->get('action');
+        $val = $this->getBackingStore()->get('action');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'action'");
     }
 
     /**
@@ -38,7 +43,11 @@ class ProvisioningObjectSummary extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getActivityDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('activityDateTime');
+        $val = $this->getBackingStore()->get('activityDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activityDateTime'");
     }
 
     /**
@@ -46,7 +55,11 @@ class ProvisioningObjectSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getChangeId(): ?string {
-        return $this->getBackingStore()->get('changeId');
+        $val = $this->getBackingStore()->get('changeId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'changeId'");
     }
 
     /**
@@ -54,7 +67,11 @@ class ProvisioningObjectSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getCycleId(): ?string {
-        return $this->getBackingStore()->get('cycleId');
+        $val = $this->getBackingStore()->get('cycleId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cycleId'");
     }
 
     /**
@@ -62,12 +79,16 @@ class ProvisioningObjectSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getDurationInMilliseconds(): ?int {
-        return $this->getBackingStore()->get('durationInMilliseconds');
+        $val = $this->getBackingStore()->get('durationInMilliseconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'durationInMilliseconds'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -98,7 +119,11 @@ class ProvisioningObjectSummary extends Entity implements Parsable
      * @return Initiator|null
     */
     public function getInitiatedBy(): ?Initiator {
-        return $this->getBackingStore()->get('initiatedBy');
+        $val = $this->getBackingStore()->get('initiatedBy');
+        if (is_null($val) || $val instanceof Initiator) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'initiatedBy'");
     }
 
     /**
@@ -106,7 +131,11 @@ class ProvisioningObjectSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getJobId(): ?string {
-        return $this->getBackingStore()->get('jobId');
+        $val = $this->getBackingStore()->get('jobId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'jobId'");
     }
 
     /**
@@ -114,7 +143,13 @@ class ProvisioningObjectSummary extends Entity implements Parsable
      * @return array<ModifiedProperty>|null
     */
     public function getModifiedProperties(): ?array {
-        return $this->getBackingStore()->get('modifiedProperties');
+        $val = $this->getBackingStore()->get('modifiedProperties');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ModifiedProperty::class);
+            /** @var array<ModifiedProperty>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'modifiedProperties'");
     }
 
     /**
@@ -122,7 +157,11 @@ class ProvisioningObjectSummary extends Entity implements Parsable
      * @return ProvisioningAction|null
     */
     public function getProvisioningAction(): ?ProvisioningAction {
-        return $this->getBackingStore()->get('provisioningAction');
+        $val = $this->getBackingStore()->get('provisioningAction');
+        if (is_null($val) || $val instanceof ProvisioningAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'provisioningAction'");
     }
 
     /**
@@ -130,7 +169,11 @@ class ProvisioningObjectSummary extends Entity implements Parsable
      * @return ProvisioningStatusInfo|null
     */
     public function getProvisioningStatusInfo(): ?ProvisioningStatusInfo {
-        return $this->getBackingStore()->get('provisioningStatusInfo');
+        $val = $this->getBackingStore()->get('provisioningStatusInfo');
+        if (is_null($val) || $val instanceof ProvisioningStatusInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'provisioningStatusInfo'");
     }
 
     /**
@@ -138,7 +181,13 @@ class ProvisioningObjectSummary extends Entity implements Parsable
      * @return array<ProvisioningStep>|null
     */
     public function getProvisioningSteps(): ?array {
-        return $this->getBackingStore()->get('provisioningSteps');
+        $val = $this->getBackingStore()->get('provisioningSteps');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ProvisioningStep::class);
+            /** @var array<ProvisioningStep>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'provisioningSteps'");
     }
 
     /**
@@ -146,7 +195,11 @@ class ProvisioningObjectSummary extends Entity implements Parsable
      * @return ProvisioningServicePrincipal|null
     */
     public function getServicePrincipal(): ?ProvisioningServicePrincipal {
-        return $this->getBackingStore()->get('servicePrincipal');
+        $val = $this->getBackingStore()->get('servicePrincipal');
+        if (is_null($val) || $val instanceof ProvisioningServicePrincipal) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'servicePrincipal'");
     }
 
     /**
@@ -154,7 +207,11 @@ class ProvisioningObjectSummary extends Entity implements Parsable
      * @return ProvisionedIdentity|null
     */
     public function getSourceIdentity(): ?ProvisionedIdentity {
-        return $this->getBackingStore()->get('sourceIdentity');
+        $val = $this->getBackingStore()->get('sourceIdentity');
+        if (is_null($val) || $val instanceof ProvisionedIdentity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sourceIdentity'");
     }
 
     /**
@@ -162,7 +219,11 @@ class ProvisioningObjectSummary extends Entity implements Parsable
      * @return ProvisioningSystem|null
     */
     public function getSourceSystem(): ?ProvisioningSystem {
-        return $this->getBackingStore()->get('sourceSystem');
+        $val = $this->getBackingStore()->get('sourceSystem');
+        if (is_null($val) || $val instanceof ProvisioningSystem) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sourceSystem'");
     }
 
     /**
@@ -170,7 +231,11 @@ class ProvisioningObjectSummary extends Entity implements Parsable
      * @return StatusBase|null
     */
     public function getStatusInfo(): ?StatusBase {
-        return $this->getBackingStore()->get('statusInfo');
+        $val = $this->getBackingStore()->get('statusInfo');
+        if (is_null($val) || $val instanceof StatusBase) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'statusInfo'");
     }
 
     /**
@@ -178,7 +243,11 @@ class ProvisioningObjectSummary extends Entity implements Parsable
      * @return ProvisionedIdentity|null
     */
     public function getTargetIdentity(): ?ProvisionedIdentity {
-        return $this->getBackingStore()->get('targetIdentity');
+        $val = $this->getBackingStore()->get('targetIdentity');
+        if (is_null($val) || $val instanceof ProvisionedIdentity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetIdentity'");
     }
 
     /**
@@ -186,7 +255,11 @@ class ProvisioningObjectSummary extends Entity implements Parsable
      * @return ProvisioningSystem|null
     */
     public function getTargetSystem(): ?ProvisioningSystem {
-        return $this->getBackingStore()->get('targetSystem');
+        $val = $this->getBackingStore()->get('targetSystem');
+        if (is_null($val) || $val instanceof ProvisioningSystem) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetSystem'");
     }
 
     /**
@@ -194,7 +267,11 @@ class ProvisioningObjectSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->getBackingStore()->get('tenantId');
+        $val = $this->getBackingStore()->get('tenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantId'");
     }
 
     /**

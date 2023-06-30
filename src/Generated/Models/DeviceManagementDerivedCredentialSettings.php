@@ -29,12 +29,16 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -52,7 +56,11 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
      * @return string|null
     */
     public function getHelpUrl(): ?string {
-        return $this->getBackingStore()->get('helpUrl');
+        $val = $this->getBackingStore()->get('helpUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'helpUrl'");
     }
 
     /**
@@ -60,7 +68,11 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
      * @return DeviceManagementDerivedCredentialIssuer|null
     */
     public function getIssuer(): ?DeviceManagementDerivedCredentialIssuer {
-        return $this->getBackingStore()->get('issuer');
+        $val = $this->getBackingStore()->get('issuer');
+        if (is_null($val) || $val instanceof DeviceManagementDerivedCredentialIssuer) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'issuer'");
     }
 
     /**
@@ -68,7 +80,11 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
      * @return DeviceManagementDerivedCredentialNotificationType|null
     */
     public function getNotificationType(): ?DeviceManagementDerivedCredentialNotificationType {
-        return $this->getBackingStore()->get('notificationType');
+        $val = $this->getBackingStore()->get('notificationType');
+        if (is_null($val) || $val instanceof DeviceManagementDerivedCredentialNotificationType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notificationType'");
     }
 
     /**
@@ -76,7 +92,11 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
      * @return int|null
     */
     public function getRenewalThresholdPercentage(): ?int {
-        return $this->getBackingStore()->get('renewalThresholdPercentage');
+        $val = $this->getBackingStore()->get('renewalThresholdPercentage');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'renewalThresholdPercentage'");
     }
 
     /**

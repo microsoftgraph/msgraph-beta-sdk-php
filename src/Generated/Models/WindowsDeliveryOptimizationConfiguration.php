@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration implements Parsable 
 {
@@ -30,7 +31,11 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return int|null
     */
     public function getBackgroundDownloadFromHttpDelayInSeconds(): ?int {
-        return $this->getBackingStore()->get('backgroundDownloadFromHttpDelayInSeconds');
+        $val = $this->getBackingStore()->get('backgroundDownloadFromHttpDelayInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'backgroundDownloadFromHttpDelayInSeconds'");
     }
 
     /**
@@ -38,7 +43,11 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return DeliveryOptimizationBandwidth|null
     */
     public function getBandwidthMode(): ?DeliveryOptimizationBandwidth {
-        return $this->getBackingStore()->get('bandwidthMode');
+        $val = $this->getBackingStore()->get('bandwidthMode');
+        if (is_null($val) || $val instanceof DeliveryOptimizationBandwidth) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bandwidthMode'");
     }
 
     /**
@@ -46,7 +55,11 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return int|null
     */
     public function getCacheServerBackgroundDownloadFallbackToHttpDelayInSeconds(): ?int {
-        return $this->getBackingStore()->get('cacheServerBackgroundDownloadFallbackToHttpDelayInSeconds');
+        $val = $this->getBackingStore()->get('cacheServerBackgroundDownloadFallbackToHttpDelayInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cacheServerBackgroundDownloadFallbackToHttpDelayInSeconds'");
     }
 
     /**
@@ -54,7 +67,11 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return int|null
     */
     public function getCacheServerForegroundDownloadFallbackToHttpDelayInSeconds(): ?int {
-        return $this->getBackingStore()->get('cacheServerForegroundDownloadFallbackToHttpDelayInSeconds');
+        $val = $this->getBackingStore()->get('cacheServerForegroundDownloadFallbackToHttpDelayInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cacheServerForegroundDownloadFallbackToHttpDelayInSeconds'");
     }
 
     /**
@@ -62,7 +79,13 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return array<string>|null
     */
     public function getCacheServerHostNames(): ?array {
-        return $this->getBackingStore()->get('cacheServerHostNames');
+        $val = $this->getBackingStore()->get('cacheServerHostNames');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cacheServerHostNames'");
     }
 
     /**
@@ -70,12 +93,16 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return WindowsDeliveryOptimizationMode|null
     */
     public function getDeliveryOptimizationMode(): ?WindowsDeliveryOptimizationMode {
-        return $this->getBackingStore()->get('deliveryOptimizationMode');
+        $val = $this->getBackingStore()->get('deliveryOptimizationMode');
+        if (is_null($val) || $val instanceof WindowsDeliveryOptimizationMode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deliveryOptimizationMode'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -84,7 +111,14 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
             'bandwidthMode' => fn(ParseNode $n) => $o->setBandwidthMode($n->getObjectValue([DeliveryOptimizationBandwidth::class, 'createFromDiscriminatorValue'])),
             'cacheServerBackgroundDownloadFallbackToHttpDelayInSeconds' => fn(ParseNode $n) => $o->setCacheServerBackgroundDownloadFallbackToHttpDelayInSeconds($n->getIntegerValue()),
             'cacheServerForegroundDownloadFallbackToHttpDelayInSeconds' => fn(ParseNode $n) => $o->setCacheServerForegroundDownloadFallbackToHttpDelayInSeconds($n->getIntegerValue()),
-            'cacheServerHostNames' => fn(ParseNode $n) => $o->setCacheServerHostNames($n->getCollectionOfPrimitiveValues()),
+            'cacheServerHostNames' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setCacheServerHostNames($val);
+            },
             'deliveryOptimizationMode' => fn(ParseNode $n) => $o->setDeliveryOptimizationMode($n->getEnumValue(WindowsDeliveryOptimizationMode::class)),
             'foregroundDownloadFromHttpDelayInSeconds' => fn(ParseNode $n) => $o->setForegroundDownloadFromHttpDelayInSeconds($n->getIntegerValue()),
             'groupIdSource' => fn(ParseNode $n) => $o->setGroupIdSource($n->getObjectValue([DeliveryOptimizationGroupIdSource::class, 'createFromDiscriminatorValue'])),
@@ -105,7 +139,11 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return int|null
     */
     public function getForegroundDownloadFromHttpDelayInSeconds(): ?int {
-        return $this->getBackingStore()->get('foregroundDownloadFromHttpDelayInSeconds');
+        $val = $this->getBackingStore()->get('foregroundDownloadFromHttpDelayInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'foregroundDownloadFromHttpDelayInSeconds'");
     }
 
     /**
@@ -113,7 +151,11 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return DeliveryOptimizationGroupIdSource|null
     */
     public function getGroupIdSource(): ?DeliveryOptimizationGroupIdSource {
-        return $this->getBackingStore()->get('groupIdSource');
+        $val = $this->getBackingStore()->get('groupIdSource');
+        if (is_null($val) || $val instanceof DeliveryOptimizationGroupIdSource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupIdSource'");
     }
 
     /**
@@ -121,7 +163,11 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return int|null
     */
     public function getMaximumCacheAgeInDays(): ?int {
-        return $this->getBackingStore()->get('maximumCacheAgeInDays');
+        $val = $this->getBackingStore()->get('maximumCacheAgeInDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maximumCacheAgeInDays'");
     }
 
     /**
@@ -129,7 +175,11 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return DeliveryOptimizationMaxCacheSize|null
     */
     public function getMaximumCacheSize(): ?DeliveryOptimizationMaxCacheSize {
-        return $this->getBackingStore()->get('maximumCacheSize');
+        $val = $this->getBackingStore()->get('maximumCacheSize');
+        if (is_null($val) || $val instanceof DeliveryOptimizationMaxCacheSize) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maximumCacheSize'");
     }
 
     /**
@@ -137,7 +187,11 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return int|null
     */
     public function getMinimumBatteryPercentageAllowedToUpload(): ?int {
-        return $this->getBackingStore()->get('minimumBatteryPercentageAllowedToUpload');
+        $val = $this->getBackingStore()->get('minimumBatteryPercentageAllowedToUpload');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumBatteryPercentageAllowedToUpload'");
     }
 
     /**
@@ -145,7 +199,11 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return int|null
     */
     public function getMinimumDiskSizeAllowedToPeerInGigabytes(): ?int {
-        return $this->getBackingStore()->get('minimumDiskSizeAllowedToPeerInGigabytes');
+        $val = $this->getBackingStore()->get('minimumDiskSizeAllowedToPeerInGigabytes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumDiskSizeAllowedToPeerInGigabytes'");
     }
 
     /**
@@ -153,7 +211,11 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return int|null
     */
     public function getMinimumFileSizeToCacheInMegabytes(): ?int {
-        return $this->getBackingStore()->get('minimumFileSizeToCacheInMegabytes');
+        $val = $this->getBackingStore()->get('minimumFileSizeToCacheInMegabytes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumFileSizeToCacheInMegabytes'");
     }
 
     /**
@@ -161,7 +223,11 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return int|null
     */
     public function getMinimumRamAllowedToPeerInGigabytes(): ?int {
-        return $this->getBackingStore()->get('minimumRamAllowedToPeerInGigabytes');
+        $val = $this->getBackingStore()->get('minimumRamAllowedToPeerInGigabytes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumRamAllowedToPeerInGigabytes'");
     }
 
     /**
@@ -169,7 +235,11 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return string|null
     */
     public function getModifyCacheLocation(): ?string {
-        return $this->getBackingStore()->get('modifyCacheLocation');
+        $val = $this->getBackingStore()->get('modifyCacheLocation');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'modifyCacheLocation'");
     }
 
     /**
@@ -177,7 +247,11 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return DeliveryOptimizationRestrictPeerSelectionByOptions|null
     */
     public function getRestrictPeerSelectionBy(): ?DeliveryOptimizationRestrictPeerSelectionByOptions {
-        return $this->getBackingStore()->get('restrictPeerSelectionBy');
+        $val = $this->getBackingStore()->get('restrictPeerSelectionBy');
+        if (is_null($val) || $val instanceof DeliveryOptimizationRestrictPeerSelectionByOptions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'restrictPeerSelectionBy'");
     }
 
     /**
@@ -185,7 +259,11 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return Enablement|null
     */
     public function getVpnPeerCaching(): ?Enablement {
-        return $this->getBackingStore()->get('vpnPeerCaching');
+        $val = $this->getBackingStore()->get('vpnPeerCaching');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vpnPeerCaching'");
     }
 
     /**

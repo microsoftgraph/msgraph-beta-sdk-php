@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class TextClassificationRequest extends Entity implements Parsable 
 {
@@ -29,12 +30,16 @@ class TextClassificationRequest extends Entity implements Parsable
      * @return ClassificationRequestContentMetaData|null
     */
     public function getContentMetaData(): ?ClassificationRequestContentMetaData {
-        return $this->getBackingStore()->get('contentMetaData');
+        $val = $this->getBackingStore()->get('contentMetaData');
+        if (is_null($val) || $val instanceof ClassificationRequestContentMetaData) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentMetaData'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -43,7 +48,14 @@ class TextClassificationRequest extends Entity implements Parsable
             'fileExtension' => fn(ParseNode $n) => $o->setFileExtension($n->getStringValue()),
             'matchTolerancesToInclude' => fn(ParseNode $n) => $o->setMatchTolerancesToInclude($n->getEnumValue(MlClassificationMatchTolerance::class)),
             'scopesToRun' => fn(ParseNode $n) => $o->setScopesToRun($n->getEnumValue(SensitiveTypeScope::class)),
-            'sensitiveTypeIds' => fn(ParseNode $n) => $o->setSensitiveTypeIds($n->getCollectionOfPrimitiveValues()),
+            'sensitiveTypeIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSensitiveTypeIds($val);
+            },
             'text' => fn(ParseNode $n) => $o->setText($n->getStringValue()),
         ]);
     }
@@ -53,7 +65,11 @@ class TextClassificationRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getFileExtension(): ?string {
-        return $this->getBackingStore()->get('fileExtension');
+        $val = $this->getBackingStore()->get('fileExtension');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileExtension'");
     }
 
     /**
@@ -61,7 +77,11 @@ class TextClassificationRequest extends Entity implements Parsable
      * @return MlClassificationMatchTolerance|null
     */
     public function getMatchTolerancesToInclude(): ?MlClassificationMatchTolerance {
-        return $this->getBackingStore()->get('matchTolerancesToInclude');
+        $val = $this->getBackingStore()->get('matchTolerancesToInclude');
+        if (is_null($val) || $val instanceof MlClassificationMatchTolerance) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'matchTolerancesToInclude'");
     }
 
     /**
@@ -69,7 +89,11 @@ class TextClassificationRequest extends Entity implements Parsable
      * @return SensitiveTypeScope|null
     */
     public function getScopesToRun(): ?SensitiveTypeScope {
-        return $this->getBackingStore()->get('scopesToRun');
+        $val = $this->getBackingStore()->get('scopesToRun');
+        if (is_null($val) || $val instanceof SensitiveTypeScope) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scopesToRun'");
     }
 
     /**
@@ -77,7 +101,13 @@ class TextClassificationRequest extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getSensitiveTypeIds(): ?array {
-        return $this->getBackingStore()->get('sensitiveTypeIds');
+        $val = $this->getBackingStore()->get('sensitiveTypeIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sensitiveTypeIds'");
     }
 
     /**
@@ -85,7 +115,11 @@ class TextClassificationRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getText(): ?string {
-        return $this->getBackingStore()->get('text');
+        $val = $this->getBackingStore()->get('text');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'text'");
     }
 
     /**

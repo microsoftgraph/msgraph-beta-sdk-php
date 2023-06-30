@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class IosVppApp extends MobileApp implements Parsable 
 {
@@ -31,7 +32,11 @@ class IosVppApp extends MobileApp implements Parsable
      * @return IosDeviceType|null
     */
     public function getApplicableDeviceType(): ?IosDeviceType {
-        return $this->getBackingStore()->get('applicableDeviceType');
+        $val = $this->getBackingStore()->get('applicableDeviceType');
+        if (is_null($val) || $val instanceof IosDeviceType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicableDeviceType'");
     }
 
     /**
@@ -39,7 +44,11 @@ class IosVppApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getAppStoreUrl(): ?string {
-        return $this->getBackingStore()->get('appStoreUrl');
+        $val = $this->getBackingStore()->get('appStoreUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appStoreUrl'");
     }
 
     /**
@@ -47,7 +56,13 @@ class IosVppApp extends MobileApp implements Parsable
      * @return array<IosVppAppAssignedLicense>|null
     */
     public function getAssignedLicenses(): ?array {
-        return $this->getBackingStore()->get('assignedLicenses');
+        $val = $this->getBackingStore()->get('assignedLicenses');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IosVppAppAssignedLicense::class);
+            /** @var array<IosVppAppAssignedLicense>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignedLicenses'");
     }
 
     /**
@@ -55,12 +70,16 @@ class IosVppApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getBundleId(): ?string {
-        return $this->getBackingStore()->get('bundleId');
+        $val = $this->getBackingStore()->get('bundleId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bundleId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -86,7 +105,11 @@ class IosVppApp extends MobileApp implements Parsable
      * @return VppLicensingType|null
     */
     public function getLicensingType(): ?VppLicensingType {
-        return $this->getBackingStore()->get('licensingType');
+        $val = $this->getBackingStore()->get('licensingType');
+        if (is_null($val) || $val instanceof VppLicensingType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'licensingType'");
     }
 
     /**
@@ -94,7 +117,11 @@ class IosVppApp extends MobileApp implements Parsable
      * @return DateTime|null
     */
     public function getReleaseDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('releaseDateTime');
+        $val = $this->getBackingStore()->get('releaseDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'releaseDateTime'");
     }
 
     /**
@@ -102,7 +129,13 @@ class IosVppApp extends MobileApp implements Parsable
      * @return array<IosVppAppRevokeLicensesActionResult>|null
     */
     public function getRevokeLicenseActionResults(): ?array {
-        return $this->getBackingStore()->get('revokeLicenseActionResults');
+        $val = $this->getBackingStore()->get('revokeLicenseActionResults');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IosVppAppRevokeLicensesActionResult::class);
+            /** @var array<IosVppAppRevokeLicensesActionResult>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'revokeLicenseActionResults'");
     }
 
     /**
@@ -110,7 +143,11 @@ class IosVppApp extends MobileApp implements Parsable
      * @return int|null
     */
     public function getTotalLicenseCount(): ?int {
-        return $this->getBackingStore()->get('totalLicenseCount');
+        $val = $this->getBackingStore()->get('totalLicenseCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalLicenseCount'");
     }
 
     /**
@@ -118,7 +155,11 @@ class IosVppApp extends MobileApp implements Parsable
      * @return int|null
     */
     public function getUsedLicenseCount(): ?int {
-        return $this->getBackingStore()->get('usedLicenseCount');
+        $val = $this->getBackingStore()->get('usedLicenseCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'usedLicenseCount'");
     }
 
     /**
@@ -126,7 +167,11 @@ class IosVppApp extends MobileApp implements Parsable
      * @return VppTokenAccountType|null
     */
     public function getVppTokenAccountType(): ?VppTokenAccountType {
-        return $this->getBackingStore()->get('vppTokenAccountType');
+        $val = $this->getBackingStore()->get('vppTokenAccountType');
+        if (is_null($val) || $val instanceof VppTokenAccountType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vppTokenAccountType'");
     }
 
     /**
@@ -134,7 +179,11 @@ class IosVppApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getVppTokenAppleId(): ?string {
-        return $this->getBackingStore()->get('vppTokenAppleId');
+        $val = $this->getBackingStore()->get('vppTokenAppleId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vppTokenAppleId'");
     }
 
     /**
@@ -142,7 +191,11 @@ class IosVppApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getVppTokenId(): ?string {
-        return $this->getBackingStore()->get('vppTokenId');
+        $val = $this->getBackingStore()->get('vppTokenId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vppTokenId'");
     }
 
     /**
@@ -150,7 +203,11 @@ class IosVppApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getVppTokenOrganizationName(): ?string {
-        return $this->getBackingStore()->get('vppTokenOrganizationName');
+        $val = $this->getBackingStore()->get('vppTokenOrganizationName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vppTokenOrganizationName'");
     }
 
     /**

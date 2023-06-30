@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DepEnrollmentProfile extends EnrollmentProfile implements Parsable 
 {
@@ -30,7 +31,11 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getAppleIdDisabled(): ?bool {
-        return $this->getBackingStore()->get('appleIdDisabled');
+        $val = $this->getBackingStore()->get('appleIdDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appleIdDisabled'");
     }
 
     /**
@@ -38,7 +43,11 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getApplePayDisabled(): ?bool {
-        return $this->getBackingStore()->get('applePayDisabled');
+        $val = $this->getBackingStore()->get('applePayDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applePayDisabled'");
     }
 
     /**
@@ -46,7 +55,11 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getAwaitDeviceConfiguredConfirmation(): ?bool {
-        return $this->getBackingStore()->get('awaitDeviceConfiguredConfirmation');
+        $val = $this->getBackingStore()->get('awaitDeviceConfiguredConfirmation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'awaitDeviceConfiguredConfirmation'");
     }
 
     /**
@@ -54,7 +67,11 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getDiagnosticsDisabled(): ?bool {
-        return $this->getBackingStore()->get('diagnosticsDisabled');
+        $val = $this->getBackingStore()->get('diagnosticsDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'diagnosticsDisabled'");
     }
 
     /**
@@ -62,12 +79,16 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getEnableSharedIPad(): ?bool {
-        return $this->getBackingStore()->get('enableSharedIPad');
+        $val = $this->getBackingStore()->get('enableSharedIPad');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableSharedIPad'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -104,7 +125,11 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getIsDefault(): ?bool {
-        return $this->getBackingStore()->get('isDefault');
+        $val = $this->getBackingStore()->get('isDefault');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDefault'");
     }
 
     /**
@@ -112,7 +137,11 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getIsMandatory(): ?bool {
-        return $this->getBackingStore()->get('isMandatory');
+        $val = $this->getBackingStore()->get('isMandatory');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isMandatory'");
     }
 
     /**
@@ -120,7 +149,11 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
      * @return ITunesPairingMode|null
     */
     public function getITunesPairingMode(): ?ITunesPairingMode {
-        return $this->getBackingStore()->get('iTunesPairingMode');
+        $val = $this->getBackingStore()->get('iTunesPairingMode');
+        if (is_null($val) || $val instanceof ITunesPairingMode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'iTunesPairingMode'");
     }
 
     /**
@@ -128,7 +161,11 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getLocationDisabled(): ?bool {
-        return $this->getBackingStore()->get('locationDisabled');
+        $val = $this->getBackingStore()->get('locationDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'locationDisabled'");
     }
 
     /**
@@ -136,7 +173,11 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getMacOSFileVaultDisabled(): ?bool {
-        return $this->getBackingStore()->get('macOSFileVaultDisabled');
+        $val = $this->getBackingStore()->get('macOSFileVaultDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'macOSFileVaultDisabled'");
     }
 
     /**
@@ -144,7 +185,11 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getMacOSRegistrationDisabled(): ?bool {
-        return $this->getBackingStore()->get('macOSRegistrationDisabled');
+        $val = $this->getBackingStore()->get('macOSRegistrationDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'macOSRegistrationDisabled'");
     }
 
     /**
@@ -152,7 +197,13 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
      * @return array<ManagementCertificateWithThumbprint>|null
     */
     public function getManagementCertificates(): ?array {
-        return $this->getBackingStore()->get('managementCertificates');
+        $val = $this->getBackingStore()->get('managementCertificates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagementCertificateWithThumbprint::class);
+            /** @var array<ManagementCertificateWithThumbprint>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managementCertificates'");
     }
 
     /**
@@ -160,7 +211,11 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getPassCodeDisabled(): ?bool {
-        return $this->getBackingStore()->get('passCodeDisabled');
+        $val = $this->getBackingStore()->get('passCodeDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passCodeDisabled'");
     }
 
     /**
@@ -168,7 +223,11 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getProfileRemovalDisabled(): ?bool {
-        return $this->getBackingStore()->get('profileRemovalDisabled');
+        $val = $this->getBackingStore()->get('profileRemovalDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'profileRemovalDisabled'");
     }
 
     /**
@@ -176,7 +235,11 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getRestoreBlocked(): ?bool {
-        return $this->getBackingStore()->get('restoreBlocked');
+        $val = $this->getBackingStore()->get('restoreBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'restoreBlocked'");
     }
 
     /**
@@ -184,7 +247,11 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getRestoreFromAndroidDisabled(): ?bool {
-        return $this->getBackingStore()->get('restoreFromAndroidDisabled');
+        $val = $this->getBackingStore()->get('restoreFromAndroidDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'restoreFromAndroidDisabled'");
     }
 
     /**
@@ -192,7 +259,11 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
      * @return int|null
     */
     public function getSharedIPadMaximumUserCount(): ?int {
-        return $this->getBackingStore()->get('sharedIPadMaximumUserCount');
+        $val = $this->getBackingStore()->get('sharedIPadMaximumUserCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sharedIPadMaximumUserCount'");
     }
 
     /**
@@ -200,7 +271,11 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getSiriDisabled(): ?bool {
-        return $this->getBackingStore()->get('siriDisabled');
+        $val = $this->getBackingStore()->get('siriDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'siriDisabled'");
     }
 
     /**
@@ -208,7 +283,11 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getSupervisedModeEnabled(): ?bool {
-        return $this->getBackingStore()->get('supervisedModeEnabled');
+        $val = $this->getBackingStore()->get('supervisedModeEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supervisedModeEnabled'");
     }
 
     /**
@@ -216,7 +295,11 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
      * @return string|null
     */
     public function getSupportDepartment(): ?string {
-        return $this->getBackingStore()->get('supportDepartment');
+        $val = $this->getBackingStore()->get('supportDepartment');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportDepartment'");
     }
 
     /**
@@ -224,7 +307,11 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
      * @return string|null
     */
     public function getSupportPhoneNumber(): ?string {
-        return $this->getBackingStore()->get('supportPhoneNumber');
+        $val = $this->getBackingStore()->get('supportPhoneNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportPhoneNumber'");
     }
 
     /**
@@ -232,7 +319,11 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getTermsAndConditionsDisabled(): ?bool {
-        return $this->getBackingStore()->get('termsAndConditionsDisabled');
+        $val = $this->getBackingStore()->get('termsAndConditionsDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'termsAndConditionsDisabled'");
     }
 
     /**
@@ -240,7 +331,11 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getTouchIdDisabled(): ?bool {
-        return $this->getBackingStore()->get('touchIdDisabled');
+        $val = $this->getBackingStore()->get('touchIdDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'touchIdDisabled'");
     }
 
     /**
@@ -248,7 +343,11 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getZoomDisabled(): ?bool {
-        return $this->getBackingStore()->get('zoomDisabled');
+        $val = $this->getBackingStore()->get('zoomDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'zoomDisabled'");
     }
 
     /**

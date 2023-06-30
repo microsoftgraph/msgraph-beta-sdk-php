@@ -30,12 +30,16 @@ class ChatMessageMentionedIdentitySet extends IdentitySet implements Parsable
      * @return TeamworkConversationIdentity|null
     */
     public function getConversation(): ?TeamworkConversationIdentity {
-        return $this->getBackingStore()->get('conversation');
+        $val = $this->getBackingStore()->get('conversation');
+        if (is_null($val) || $val instanceof TeamworkConversationIdentity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'conversation'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -50,7 +54,11 @@ class ChatMessageMentionedIdentitySet extends IdentitySet implements Parsable
      * @return TeamworkTagIdentity|null
     */
     public function getTag(): ?TeamworkTagIdentity {
-        return $this->getBackingStore()->get('tag');
+        $val = $this->getBackingStore()->get('tag');
+        if (is_null($val) || $val instanceof TeamworkTagIdentity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tag'");
     }
 
     /**

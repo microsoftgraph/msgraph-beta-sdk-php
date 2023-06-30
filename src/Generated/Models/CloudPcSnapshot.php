@@ -30,7 +30,11 @@ class CloudPcSnapshot extends Entity implements Parsable
      * @return string|null
     */
     public function getCloudPcId(): ?string {
-        return $this->getBackingStore()->get('cloudPcId');
+        $val = $this->getBackingStore()->get('cloudPcId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudPcId'");
     }
 
     /**
@@ -38,7 +42,11 @@ class CloudPcSnapshot extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -46,12 +54,16 @@ class CloudPcSnapshot extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('expirationDateTime');
+        $val = $this->getBackingStore()->get('expirationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expirationDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -70,7 +82,11 @@ class CloudPcSnapshot extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastRestoredDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastRestoredDateTime');
+        $val = $this->getBackingStore()->get('lastRestoredDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastRestoredDateTime'");
     }
 
     /**
@@ -78,7 +94,11 @@ class CloudPcSnapshot extends Entity implements Parsable
      * @return CloudPcSnapshotType|null
     */
     public function getSnapshotType(): ?CloudPcSnapshotType {
-        return $this->getBackingStore()->get('snapshotType');
+        $val = $this->getBackingStore()->get('snapshotType');
+        if (is_null($val) || $val instanceof CloudPcSnapshotType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'snapshotType'");
     }
 
     /**
@@ -86,7 +106,11 @@ class CloudPcSnapshot extends Entity implements Parsable
      * @return CloudPcSnapshotStatus|null
     */
     public function getStatus(): ?CloudPcSnapshotStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof CloudPcSnapshotStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class InformationProtectionPolicy extends Entity implements Parsable 
 {
@@ -26,7 +27,7 @@ class InformationProtectionPolicy extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -40,7 +41,13 @@ class InformationProtectionPolicy extends Entity implements Parsable
      * @return array<InformationProtectionLabel>|null
     */
     public function getLabels(): ?array {
-        return $this->getBackingStore()->get('labels');
+        $val = $this->getBackingStore()->get('labels');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, InformationProtectionLabel::class);
+            /** @var array<InformationProtectionLabel>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'labels'");
     }
 
     /**

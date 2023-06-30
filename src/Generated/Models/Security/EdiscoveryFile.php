@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models\Security;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class EdiscoveryFile extends File implements Parsable 
 {
@@ -29,12 +30,16 @@ class EdiscoveryFile extends File implements Parsable
      * @return EdiscoveryCustodian|null
     */
     public function getCustodian(): ?EdiscoveryCustodian {
-        return $this->getBackingStore()->get('custodian');
+        $val = $this->getBackingStore()->get('custodian');
+        if (is_null($val) || $val instanceof EdiscoveryCustodian) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'custodian'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -49,7 +54,13 @@ class EdiscoveryFile extends File implements Parsable
      * @return array<EdiscoveryReviewTag>|null
     */
     public function getTags(): ?array {
-        return $this->getBackingStore()->get('tags');
+        $val = $this->getBackingStore()->get('tags');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, EdiscoveryReviewTag::class);
+            /** @var array<EdiscoveryReviewTag>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tags'");
     }
 
     /**

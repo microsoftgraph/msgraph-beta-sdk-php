@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Models and Manufactures meatadata for managed devices in the account
@@ -42,7 +43,12 @@ class ManagedDeviceModelsAndManufacturers implements AdditionalDataHolder, Backe
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -58,7 +64,13 @@ class ManagedDeviceModelsAndManufacturers implements AdditionalDataHolder, Backe
      * @return array<string>|null
     */
     public function getDeviceManufacturers(): ?array {
-        return $this->getBackingStore()->get('deviceManufacturers');
+        $val = $this->getBackingStore()->get('deviceManufacturers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceManufacturers'");
     }
 
     /**
@@ -66,18 +78,38 @@ class ManagedDeviceModelsAndManufacturers implements AdditionalDataHolder, Backe
      * @return array<string>|null
     */
     public function getDeviceModels(): ?array {
-        return $this->getBackingStore()->get('deviceModels');
+        $val = $this->getBackingStore()->get('deviceModels');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceModels'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'deviceManufacturers' => fn(ParseNode $n) => $o->setDeviceManufacturers($n->getCollectionOfPrimitiveValues()),
-            'deviceModels' => fn(ParseNode $n) => $o->setDeviceModels($n->getCollectionOfPrimitiveValues()),
+            'deviceManufacturers' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDeviceManufacturers($val);
+            },
+            'deviceModels' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDeviceModels($val);
+            },
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
@@ -87,7 +119,11 @@ class ManagedDeviceModelsAndManufacturers implements AdditionalDataHolder, Backe
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

@@ -6,11 +6,15 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Graph model for a reusable setting
+*/
 class DeviceManagementReusablePolicySetting extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementReusablePolicySetting and sets the default values.
+     * Instantiates a new deviceManagementReusablePolicySetting and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -30,7 +34,11 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -38,7 +46,11 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -46,12 +58,16 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -73,7 +89,11 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -81,7 +101,13 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
      * @return array<DeviceManagementConfigurationPolicy>|null
     */
     public function getReferencingConfigurationPolicies(): ?array {
-        return $this->getBackingStore()->get('referencingConfigurationPolicies');
+        $val = $this->getBackingStore()->get('referencingConfigurationPolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementConfigurationPolicy::class);
+            /** @var array<DeviceManagementConfigurationPolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'referencingConfigurationPolicies'");
     }
 
     /**
@@ -89,7 +115,11 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
      * @return int|null
     */
     public function getReferencingConfigurationPolicyCount(): ?int {
-        return $this->getBackingStore()->get('referencingConfigurationPolicyCount');
+        $val = $this->getBackingStore()->get('referencingConfigurationPolicyCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'referencingConfigurationPolicyCount'");
     }
 
     /**
@@ -97,7 +127,11 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
      * @return string|null
     */
     public function getSettingDefinitionId(): ?string {
-        return $this->getBackingStore()->get('settingDefinitionId');
+        $val = $this->getBackingStore()->get('settingDefinitionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingDefinitionId'");
     }
 
     /**
@@ -105,7 +139,11 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
      * @return DeviceManagementConfigurationSettingInstance|null
     */
     public function getSettingInstance(): ?DeviceManagementConfigurationSettingInstance {
-        return $this->getBackingStore()->get('settingInstance');
+        $val = $this->getBackingStore()->get('settingInstance');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationSettingInstance) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingInstance'");
     }
 
     /**
@@ -113,7 +151,11 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
      * @return int|null
     */
     public function getVersion(): ?int {
-        return $this->getBackingStore()->get('version');
+        $val = $this->getBackingStore()->get('version');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'version'");
     }
 
     /**

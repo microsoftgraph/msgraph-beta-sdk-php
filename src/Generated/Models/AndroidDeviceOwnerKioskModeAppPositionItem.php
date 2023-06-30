@@ -42,7 +42,12 @@ class AndroidDeviceOwnerKioskModeAppPositionItem implements AdditionalDataHolder
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +60,7 @@ class AndroidDeviceOwnerKioskModeAppPositionItem implements AdditionalDataHolder
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -71,7 +76,11 @@ class AndroidDeviceOwnerKioskModeAppPositionItem implements AdditionalDataHolder
      * @return AndroidDeviceOwnerKioskModeHomeScreenItem|null
     */
     public function getItem(): ?AndroidDeviceOwnerKioskModeHomeScreenItem {
-        return $this->getBackingStore()->get('item');
+        $val = $this->getBackingStore()->get('item');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerKioskModeHomeScreenItem) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'item'");
     }
 
     /**
@@ -79,7 +88,11 @@ class AndroidDeviceOwnerKioskModeAppPositionItem implements AdditionalDataHolder
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -87,7 +100,11 @@ class AndroidDeviceOwnerKioskModeAppPositionItem implements AdditionalDataHolder
      * @return int|null
     */
     public function getPosition(): ?int {
-        return $this->getBackingStore()->get('position');
+        $val = $this->getBackingStore()->get('position');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'position'");
     }
 
     /**

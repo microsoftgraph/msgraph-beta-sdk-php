@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics metric history.
+*/
 class UserExperienceAnalyticsMetricHistory extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsMetricHistory and sets the default values.
+     * Instantiates a new userExperienceAnalyticsMetricHistory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -26,16 +29,20 @@ class UserExperienceAnalyticsMetricHistory extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceId property value. The user experience analytics device id.
+     * Gets the deviceId property value. The Intune device id of the device.
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->getBackingStore()->get('deviceId');
+        $val = $this->getBackingStore()->get('deviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -47,11 +54,15 @@ class UserExperienceAnalyticsMetricHistory extends Entity implements Parsable
     }
 
     /**
-     * Gets the metricDateTime property value. The user experience analytics metric date time.
+     * Gets the metricDateTime property value. The metric date time. The value cannot be modified and is automatically populated when the metric is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default.
      * @return DateTime|null
     */
     public function getMetricDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('metricDateTime');
+        $val = $this->getBackingStore()->get('metricDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'metricDateTime'");
     }
 
     /**
@@ -59,7 +70,11 @@ class UserExperienceAnalyticsMetricHistory extends Entity implements Parsable
      * @return string|null
     */
     public function getMetricType(): ?string {
-        return $this->getBackingStore()->get('metricType');
+        $val = $this->getBackingStore()->get('metricType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'metricType'");
     }
 
     /**
@@ -74,7 +89,7 @@ class UserExperienceAnalyticsMetricHistory extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceId property value. The user experience analytics device id.
+     * Sets the deviceId property value. The Intune device id of the device.
      * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
@@ -82,7 +97,7 @@ class UserExperienceAnalyticsMetricHistory extends Entity implements Parsable
     }
 
     /**
-     * Sets the metricDateTime property value. The user experience analytics metric date time.
+     * Sets the metricDateTime property value. The metric date time. The value cannot be modified and is automatically populated when the metric is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default.
      * @param DateTime|null $value Value to set for the metricDateTime property.
     */
     public function setMetricDateTime(?DateTime $value): void {

@@ -33,7 +33,11 @@ class ServiceNowConnection extends Entity implements Parsable
      * @return ServiceNowAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?ServiceNowAuthenticationMethod {
-        return $this->getBackingStore()->get('authenticationMethod');
+        $val = $this->getBackingStore()->get('authenticationMethod');
+        if (is_null($val) || $val instanceof ServiceNowAuthenticationMethod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationMethod'");
     }
 
     /**
@@ -41,12 +45,16 @@ class ServiceNowConnection extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -66,7 +74,11 @@ class ServiceNowConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getIncidentApiUrl(): ?string {
-        return $this->getBackingStore()->get('incidentApiUrl');
+        $val = $this->getBackingStore()->get('incidentApiUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'incidentApiUrl'");
     }
 
     /**
@@ -74,7 +86,11 @@ class ServiceNowConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getInstanceUrl(): ?string {
-        return $this->getBackingStore()->get('instanceUrl');
+        $val = $this->getBackingStore()->get('instanceUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'instanceUrl'");
     }
 
     /**
@@ -82,7 +98,11 @@ class ServiceNowConnection extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -90,7 +110,11 @@ class ServiceNowConnection extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastQueriedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastQueriedDateTime');
+        $val = $this->getBackingStore()->get('lastQueriedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastQueriedDateTime'");
     }
 
     /**
@@ -98,7 +122,11 @@ class ServiceNowConnection extends Entity implements Parsable
      * @return ServiceNowConnectionStatus|null
     */
     public function getServiceNowConnectionStatus(): ?ServiceNowConnectionStatus {
-        return $this->getBackingStore()->get('serviceNowConnectionStatus');
+        $val = $this->getBackingStore()->get('serviceNowConnectionStatus');
+        if (is_null($val) || $val instanceof ServiceNowConnectionStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'serviceNowConnectionStatus'");
     }
 
     /**

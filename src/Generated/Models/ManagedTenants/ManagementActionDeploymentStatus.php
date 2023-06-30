@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ManagementActionDeploymentStatus implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, BackedMo
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +58,7 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, BackedMo
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -71,7 +77,11 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, BackedMo
      * @return string|null
     */
     public function getManagementActionId(): ?string {
-        return $this->getBackingStore()->get('managementActionId');
+        $val = $this->getBackingStore()->get('managementActionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managementActionId'");
     }
 
     /**
@@ -79,7 +89,11 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, BackedMo
      * @return string|null
     */
     public function getManagementTemplateId(): ?string {
-        return $this->getBackingStore()->get('managementTemplateId');
+        $val = $this->getBackingStore()->get('managementTemplateId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managementTemplateId'");
     }
 
     /**
@@ -87,7 +101,11 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, BackedMo
      * @return int|null
     */
     public function getManagementTemplateVersion(): ?int {
-        return $this->getBackingStore()->get('managementTemplateVersion');
+        $val = $this->getBackingStore()->get('managementTemplateVersion');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managementTemplateVersion'");
     }
 
     /**
@@ -95,7 +113,11 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, BackedMo
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -103,7 +125,11 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, BackedMo
      * @return ManagementActionStatus|null
     */
     public function getStatus(): ?ManagementActionStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof ManagementActionStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**
@@ -111,7 +137,13 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, BackedMo
      * @return array<WorkloadActionDeploymentStatus>|null
     */
     public function getWorkloadActionDeploymentStatuses(): ?array {
-        return $this->getBackingStore()->get('workloadActionDeploymentStatuses');
+        $val = $this->getBackingStore()->get('workloadActionDeploymentStatuses');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WorkloadActionDeploymentStatus::class);
+            /** @var array<WorkloadActionDeploymentStatus>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workloadActionDeploymentStatuses'");
     }
 
     /**

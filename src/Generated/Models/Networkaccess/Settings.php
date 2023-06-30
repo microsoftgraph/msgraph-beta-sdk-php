@@ -30,7 +30,11 @@ class Settings extends Entity implements Parsable
      * @return ConditionalAccessSettings|null
     */
     public function getConditionalAccess(): ?ConditionalAccessSettings {
-        return $this->getBackingStore()->get('conditionalAccess');
+        $val = $this->getBackingStore()->get('conditionalAccess');
+        if (is_null($val) || $val instanceof ConditionalAccessSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'conditionalAccess'");
     }
 
     /**
@@ -38,7 +42,11 @@ class Settings extends Entity implements Parsable
      * @return CrossTenantAccessSettings|null
     */
     public function getCrossTenantAccess(): ?CrossTenantAccessSettings {
-        return $this->getBackingStore()->get('crossTenantAccess');
+        $val = $this->getBackingStore()->get('crossTenantAccess');
+        if (is_null($val) || $val instanceof CrossTenantAccessSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'crossTenantAccess'");
     }
 
     /**
@@ -46,12 +54,16 @@ class Settings extends Entity implements Parsable
      * @return EnrichedAuditLogs|null
     */
     public function getEnrichedAuditLogs(): ?EnrichedAuditLogs {
-        return $this->getBackingStore()->get('enrichedAuditLogs');
+        $val = $this->getBackingStore()->get('enrichedAuditLogs');
+        if (is_null($val) || $val instanceof EnrichedAuditLogs) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrichedAuditLogs'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -68,7 +80,11 @@ class Settings extends Entity implements Parsable
      * @return ForwardingOptions|null
     */
     public function getForwardingOptions(): ?ForwardingOptions {
-        return $this->getBackingStore()->get('forwardingOptions');
+        $val = $this->getBackingStore()->get('forwardingOptions');
+        if (is_null($val) || $val instanceof ForwardingOptions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'forwardingOptions'");
     }
 
     /**

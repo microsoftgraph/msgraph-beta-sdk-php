@@ -30,7 +30,11 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return DeviceThreatProtectionLevel|null
     */
     public function getAdvancedThreatProtectionRequiredSecurityLevel(): ?DeviceThreatProtectionLevel {
-        return $this->getBackingStore()->get('advancedThreatProtectionRequiredSecurityLevel');
+        $val = $this->getBackingStore()->get('advancedThreatProtectionRequiredSecurityLevel');
+        if (is_null($val) || $val instanceof DeviceThreatProtectionLevel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'advancedThreatProtectionRequiredSecurityLevel'");
     }
 
     /**
@@ -38,7 +42,11 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return bool|null
     */
     public function getDeviceThreatProtectionEnabled(): ?bool {
-        return $this->getBackingStore()->get('deviceThreatProtectionEnabled');
+        $val = $this->getBackingStore()->get('deviceThreatProtectionEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceThreatProtectionEnabled'");
     }
 
     /**
@@ -46,12 +54,16 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return DeviceThreatProtectionLevel|null
     */
     public function getDeviceThreatProtectionRequiredSecurityLevel(): ?DeviceThreatProtectionLevel {
-        return $this->getBackingStore()->get('deviceThreatProtectionRequiredSecurityLevel');
+        $val = $this->getBackingStore()->get('deviceThreatProtectionRequiredSecurityLevel');
+        if (is_null($val) || $val instanceof DeviceThreatProtectionLevel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceThreatProtectionRequiredSecurityLevel'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -85,7 +97,11 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return bool|null
     */
     public function getFirewallBlockAllIncoming(): ?bool {
-        return $this->getBackingStore()->get('firewallBlockAllIncoming');
+        $val = $this->getBackingStore()->get('firewallBlockAllIncoming');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firewallBlockAllIncoming'");
     }
 
     /**
@@ -93,7 +109,11 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return bool|null
     */
     public function getFirewallEnabled(): ?bool {
-        return $this->getBackingStore()->get('firewallEnabled');
+        $val = $this->getBackingStore()->get('firewallEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firewallEnabled'");
     }
 
     /**
@@ -101,7 +121,11 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return bool|null
     */
     public function getFirewallEnableStealthMode(): ?bool {
-        return $this->getBackingStore()->get('firewallEnableStealthMode');
+        $val = $this->getBackingStore()->get('firewallEnableStealthMode');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firewallEnableStealthMode'");
     }
 
     /**
@@ -109,7 +133,11 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return MacOSGatekeeperAppSources|null
     */
     public function getGatekeeperAllowedAppSource(): ?MacOSGatekeeperAppSources {
-        return $this->getBackingStore()->get('gatekeeperAllowedAppSource');
+        $val = $this->getBackingStore()->get('gatekeeperAllowedAppSource');
+        if (is_null($val) || $val instanceof MacOSGatekeeperAppSources) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'gatekeeperAllowedAppSource'");
     }
 
     /**
@@ -117,7 +145,11 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return string|null
     */
     public function getOsMaximumBuildVersion(): ?string {
-        return $this->getBackingStore()->get('osMaximumBuildVersion');
+        $val = $this->getBackingStore()->get('osMaximumBuildVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osMaximumBuildVersion'");
     }
 
     /**
@@ -125,7 +157,11 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return string|null
     */
     public function getOsMaximumVersion(): ?string {
-        return $this->getBackingStore()->get('osMaximumVersion');
+        $val = $this->getBackingStore()->get('osMaximumVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osMaximumVersion'");
     }
 
     /**
@@ -133,7 +169,11 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return string|null
     */
     public function getOsMinimumBuildVersion(): ?string {
-        return $this->getBackingStore()->get('osMinimumBuildVersion');
+        $val = $this->getBackingStore()->get('osMinimumBuildVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osMinimumBuildVersion'");
     }
 
     /**
@@ -141,7 +181,11 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return string|null
     */
     public function getOsMinimumVersion(): ?string {
-        return $this->getBackingStore()->get('osMinimumVersion');
+        $val = $this->getBackingStore()->get('osMinimumVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osMinimumVersion'");
     }
 
     /**
@@ -149,7 +193,11 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return bool|null
     */
     public function getPasswordBlockSimple(): ?bool {
-        return $this->getBackingStore()->get('passwordBlockSimple');
+        $val = $this->getBackingStore()->get('passwordBlockSimple');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordBlockSimple'");
     }
 
     /**
@@ -157,7 +205,11 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return int|null
     */
     public function getPasswordExpirationDays(): ?int {
-        return $this->getBackingStore()->get('passwordExpirationDays');
+        $val = $this->getBackingStore()->get('passwordExpirationDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordExpirationDays'");
     }
 
     /**
@@ -165,7 +217,11 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return int|null
     */
     public function getPasswordMinimumCharacterSetCount(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumCharacterSetCount');
+        $val = $this->getBackingStore()->get('passwordMinimumCharacterSetCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumCharacterSetCount'");
     }
 
     /**
@@ -173,7 +229,11 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return int|null
     */
     public function getPasswordMinimumLength(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumLength');
+        $val = $this->getBackingStore()->get('passwordMinimumLength');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumLength'");
     }
 
     /**
@@ -181,7 +241,11 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return int|null
     */
     public function getPasswordMinutesOfInactivityBeforeLock(): ?int {
-        return $this->getBackingStore()->get('passwordMinutesOfInactivityBeforeLock');
+        $val = $this->getBackingStore()->get('passwordMinutesOfInactivityBeforeLock');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinutesOfInactivityBeforeLock'");
     }
 
     /**
@@ -189,7 +253,11 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return int|null
     */
     public function getPasswordPreviousPasswordBlockCount(): ?int {
-        return $this->getBackingStore()->get('passwordPreviousPasswordBlockCount');
+        $val = $this->getBackingStore()->get('passwordPreviousPasswordBlockCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordPreviousPasswordBlockCount'");
     }
 
     /**
@@ -197,7 +265,11 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return bool|null
     */
     public function getPasswordRequired(): ?bool {
-        return $this->getBackingStore()->get('passwordRequired');
+        $val = $this->getBackingStore()->get('passwordRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordRequired'");
     }
 
     /**
@@ -205,7 +277,11 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return RequiredPasswordType|null
     */
     public function getPasswordRequiredType(): ?RequiredPasswordType {
-        return $this->getBackingStore()->get('passwordRequiredType');
+        $val = $this->getBackingStore()->get('passwordRequiredType');
+        if (is_null($val) || $val instanceof RequiredPasswordType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordRequiredType'");
     }
 
     /**
@@ -213,7 +289,11 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return bool|null
     */
     public function getStorageRequireEncryption(): ?bool {
-        return $this->getBackingStore()->get('storageRequireEncryption');
+        $val = $this->getBackingStore()->get('storageRequireEncryption');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'storageRequireEncryption'");
     }
 
     /**
@@ -221,7 +301,11 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return bool|null
     */
     public function getSystemIntegrityProtectionEnabled(): ?bool {
-        return $this->getBackingStore()->get('systemIntegrityProtectionEnabled');
+        $val = $this->getBackingStore()->get('systemIntegrityProtectionEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'systemIntegrityProtectionEnabled'");
     }
 
     /**

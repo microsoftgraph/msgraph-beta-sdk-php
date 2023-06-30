@@ -33,7 +33,7 @@ class AuthenticationListener extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -48,7 +48,11 @@ class AuthenticationListener extends Entity implements Parsable
      * @return int|null
     */
     public function getPriority(): ?int {
-        return $this->getBackingStore()->get('priority');
+        $val = $this->getBackingStore()->get('priority');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'priority'");
     }
 
     /**
@@ -56,7 +60,11 @@ class AuthenticationListener extends Entity implements Parsable
      * @return AuthenticationSourceFilter|null
     */
     public function getSourceFilter(): ?AuthenticationSourceFilter {
-        return $this->getBackingStore()->get('sourceFilter');
+        $val = $this->getBackingStore()->get('sourceFilter');
+        if (is_null($val) || $val instanceof AuthenticationSourceFilter) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sourceFilter'");
     }
 
     /**

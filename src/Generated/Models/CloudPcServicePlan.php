@@ -29,12 +29,16 @@ class CloudPcServicePlan extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -55,7 +59,11 @@ class CloudPcServicePlan extends Entity implements Parsable
      * @return CloudPcProvisioningType|null
     */
     public function getProvisioningType(): ?CloudPcProvisioningType {
-        return $this->getBackingStore()->get('provisioningType');
+        $val = $this->getBackingStore()->get('provisioningType');
+        if (is_null($val) || $val instanceof CloudPcProvisioningType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'provisioningType'");
     }
 
     /**
@@ -63,7 +71,11 @@ class CloudPcServicePlan extends Entity implements Parsable
      * @return int|null
     */
     public function getRamInGB(): ?int {
-        return $this->getBackingStore()->get('ramInGB');
+        $val = $this->getBackingStore()->get('ramInGB');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ramInGB'");
     }
 
     /**
@@ -71,7 +83,11 @@ class CloudPcServicePlan extends Entity implements Parsable
      * @return int|null
     */
     public function getStorageInGB(): ?int {
-        return $this->getBackingStore()->get('storageInGB');
+        $val = $this->getBackingStore()->get('storageInGB');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'storageInGB'");
     }
 
     /**
@@ -79,7 +95,11 @@ class CloudPcServicePlan extends Entity implements Parsable
      * @return CloudPcManagementService|null
     */
     public function getSupportedSolution(): ?CloudPcManagementService {
-        return $this->getBackingStore()->get('supportedSolution');
+        $val = $this->getBackingStore()->get('supportedSolution');
+        if (is_null($val) || $val instanceof CloudPcManagementService) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedSolution'");
     }
 
     /**
@@ -87,7 +107,11 @@ class CloudPcServicePlan extends Entity implements Parsable
      * @return CloudPcServicePlanType|null
     */
     public function getType(): ?CloudPcServicePlanType {
-        return $this->getBackingStore()->get('type');
+        $val = $this->getBackingStore()->get('type');
+        if (is_null($val) || $val instanceof CloudPcServicePlanType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
     }
 
     /**
@@ -95,7 +119,11 @@ class CloudPcServicePlan extends Entity implements Parsable
      * @return int|null
     */
     public function getUserProfileInGB(): ?int {
-        return $this->getBackingStore()->get('userProfileInGB');
+        $val = $this->getBackingStore()->get('userProfileInGB');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userProfileInGB'");
     }
 
     /**
@@ -103,7 +131,11 @@ class CloudPcServicePlan extends Entity implements Parsable
      * @return int|null
     */
     public function getVCpuCount(): ?int {
-        return $this->getBackingStore()->get('vCpuCount');
+        $val = $this->getBackingStore()->get('vCpuCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vCpuCount'");
     }
 
     /**

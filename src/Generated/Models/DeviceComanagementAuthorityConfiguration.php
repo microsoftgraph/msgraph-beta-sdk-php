@@ -30,12 +30,16 @@ class DeviceComanagementAuthorityConfiguration extends DeviceEnrollmentConfigura
      * @return string|null
     */
     public function getConfigurationManagerAgentCommandLineArgument(): ?string {
-        return $this->getBackingStore()->get('configurationManagerAgentCommandLineArgument');
+        $val = $this->getBackingStore()->get('configurationManagerAgentCommandLineArgument');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configurationManagerAgentCommandLineArgument'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -51,7 +55,11 @@ class DeviceComanagementAuthorityConfiguration extends DeviceEnrollmentConfigura
      * @return bool|null
     */
     public function getInstallConfigurationManagerAgent(): ?bool {
-        return $this->getBackingStore()->get('installConfigurationManagerAgent');
+        $val = $this->getBackingStore()->get('installConfigurationManagerAgent');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'installConfigurationManagerAgent'");
     }
 
     /**
@@ -59,7 +67,11 @@ class DeviceComanagementAuthorityConfiguration extends DeviceEnrollmentConfigura
      * @return int|null
     */
     public function getManagedDeviceAuthority(): ?int {
-        return $this->getBackingStore()->get('managedDeviceAuthority');
+        $val = $this->getBackingStore()->get('managedDeviceAuthority');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceAuthority'");
     }
 
     /**

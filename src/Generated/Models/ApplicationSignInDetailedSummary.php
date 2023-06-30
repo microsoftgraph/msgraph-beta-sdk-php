@@ -30,7 +30,11 @@ class ApplicationSignInDetailedSummary extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getAggregatedEventDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('aggregatedEventDateTime');
+        $val = $this->getBackingStore()->get('aggregatedEventDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'aggregatedEventDateTime'");
     }
 
     /**
@@ -38,7 +42,11 @@ class ApplicationSignInDetailedSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getAppDisplayName(): ?string {
-        return $this->getBackingStore()->get('appDisplayName');
+        $val = $this->getBackingStore()->get('appDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appDisplayName'");
     }
 
     /**
@@ -46,12 +54,16 @@ class ApplicationSignInDetailedSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getAppId(): ?string {
-        return $this->getBackingStore()->get('appId');
+        $val = $this->getBackingStore()->get('appId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -69,7 +81,11 @@ class ApplicationSignInDetailedSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getSignInCount(): ?int {
-        return $this->getBackingStore()->get('signInCount');
+        $val = $this->getBackingStore()->get('signInCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signInCount'");
     }
 
     /**
@@ -77,7 +93,11 @@ class ApplicationSignInDetailedSummary extends Entity implements Parsable
      * @return SignInStatus|null
     */
     public function getStatus(): ?SignInStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof SignInStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

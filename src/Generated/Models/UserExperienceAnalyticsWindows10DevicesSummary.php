@@ -42,7 +42,12 @@ class UserExperienceAnalyticsWindows10DevicesSummary implements AdditionalDataHo
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +60,7 @@ class UserExperienceAnalyticsWindows10DevicesSummary implements AdditionalDataHo
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -70,15 +75,23 @@ class UserExperienceAnalyticsWindows10DevicesSummary implements AdditionalDataHo
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
-     * Gets the unsupportedOSversionDeviceCount property value. The count of Windows 10 devices that have unsupported OS versions.
+     * Gets the unsupportedOSversionDeviceCount property value. The count of Windows 10 devices that have unsupported OS versions. Read-only.
      * @return int|null
     */
     public function getUnsupportedOSversionDeviceCount(): ?int {
-        return $this->getBackingStore()->get('unsupportedOSversionDeviceCount');
+        $val = $this->getBackingStore()->get('unsupportedOSversionDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'unsupportedOSversionDeviceCount'");
     }
 
     /**
@@ -116,7 +129,7 @@ class UserExperienceAnalyticsWindows10DevicesSummary implements AdditionalDataHo
     }
 
     /**
-     * Sets the unsupportedOSversionDeviceCount property value. The count of Windows 10 devices that have unsupported OS versions.
+     * Sets the unsupportedOSversionDeviceCount property value. The count of Windows 10 devices that have unsupported OS versions. Read-only.
      * @param int|null $value Value to set for the unsupportedOSversionDeviceCount property.
     */
     public function setUnsupportedOSversionDeviceCount(?int $value): void {

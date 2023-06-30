@@ -30,7 +30,11 @@ class WorkforceIntegration extends ChangeTrackedEntity implements Parsable
      * @return int|null
     */
     public function getApiVersion(): ?int {
-        return $this->getBackingStore()->get('apiVersion');
+        $val = $this->getBackingStore()->get('apiVersion');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'apiVersion'");
     }
 
     /**
@@ -38,7 +42,11 @@ class WorkforceIntegration extends ChangeTrackedEntity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -46,7 +54,11 @@ class WorkforceIntegration extends ChangeTrackedEntity implements Parsable
      * @return EligibilityFilteringEnabledEntities|null
     */
     public function getEligibilityFilteringEnabledEntities(): ?EligibilityFilteringEnabledEntities {
-        return $this->getBackingStore()->get('eligibilityFilteringEnabledEntities');
+        $val = $this->getBackingStore()->get('eligibilityFilteringEnabledEntities');
+        if (is_null($val) || $val instanceof EligibilityFilteringEnabledEntities) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eligibilityFilteringEnabledEntities'");
     }
 
     /**
@@ -54,12 +66,16 @@ class WorkforceIntegration extends ChangeTrackedEntity implements Parsable
      * @return WorkforceIntegrationEncryption|null
     */
     public function getEncryption(): ?WorkforceIntegrationEncryption {
-        return $this->getBackingStore()->get('encryption');
+        $val = $this->getBackingStore()->get('encryption');
+        if (is_null($val) || $val instanceof WorkforceIntegrationEncryption) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'encryption'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -80,7 +96,11 @@ class WorkforceIntegration extends ChangeTrackedEntity implements Parsable
      * @return bool|null
     */
     public function getIsActive(): ?bool {
-        return $this->getBackingStore()->get('isActive');
+        $val = $this->getBackingStore()->get('isActive');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isActive'");
     }
 
     /**
@@ -88,7 +108,11 @@ class WorkforceIntegration extends ChangeTrackedEntity implements Parsable
      * @return WorkforceIntegrationSupportedEntities|null
     */
     public function getSupportedEntities(): ?WorkforceIntegrationSupportedEntities {
-        return $this->getBackingStore()->get('supportedEntities');
+        $val = $this->getBackingStore()->get('supportedEntities');
+        if (is_null($val) || $val instanceof WorkforceIntegrationSupportedEntities) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedEntities'");
     }
 
     /**
@@ -96,7 +120,11 @@ class WorkforceIntegration extends ChangeTrackedEntity implements Parsable
      * @return WorkforceIntegrationSupportedEntities|null
     */
     public function getSupports(): ?WorkforceIntegrationSupportedEntities {
-        return $this->getBackingStore()->get('supports');
+        $val = $this->getBackingStore()->get('supports');
+        if (is_null($val) || $val instanceof WorkforceIntegrationSupportedEntities) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supports'");
     }
 
     /**
@@ -104,7 +132,11 @@ class WorkforceIntegration extends ChangeTrackedEntity implements Parsable
      * @return string|null
     */
     public function getUrl(): ?string {
-        return $this->getBackingStore()->get('url');
+        $val = $this->getBackingStore()->get('url');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'url'");
     }
 
     /**

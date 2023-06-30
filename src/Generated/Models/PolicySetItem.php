@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * A class containing the properties used for PolicySet Item.
@@ -52,7 +53,11 @@ class PolicySetItem extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -60,7 +65,11 @@ class PolicySetItem extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -68,12 +77,16 @@ class PolicySetItem extends Entity implements Parsable
      * @return ErrorCode|null
     */
     public function getErrorCode(): ?ErrorCode {
-        return $this->getBackingStore()->get('errorCode');
+        $val = $this->getBackingStore()->get('errorCode');
+        if (is_null($val) || $val instanceof ErrorCode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorCode'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -81,7 +94,14 @@ class PolicySetItem extends Entity implements Parsable
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getEnumValue(ErrorCode::class)),
-            'guidedDeploymentTags' => fn(ParseNode $n) => $o->setGuidedDeploymentTags($n->getCollectionOfPrimitiveValues()),
+            'guidedDeploymentTags' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setGuidedDeploymentTags($val);
+            },
             'itemType' => fn(ParseNode $n) => $o->setItemType($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'payloadId' => fn(ParseNode $n) => $o->setPayloadId($n->getStringValue()),
@@ -94,7 +114,13 @@ class PolicySetItem extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getGuidedDeploymentTags(): ?array {
-        return $this->getBackingStore()->get('guidedDeploymentTags');
+        $val = $this->getBackingStore()->get('guidedDeploymentTags');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'guidedDeploymentTags'");
     }
 
     /**
@@ -102,7 +128,11 @@ class PolicySetItem extends Entity implements Parsable
      * @return string|null
     */
     public function getItemType(): ?string {
-        return $this->getBackingStore()->get('itemType');
+        $val = $this->getBackingStore()->get('itemType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'itemType'");
     }
 
     /**
@@ -110,7 +140,11 @@ class PolicySetItem extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -118,7 +152,11 @@ class PolicySetItem extends Entity implements Parsable
      * @return string|null
     */
     public function getPayloadId(): ?string {
-        return $this->getBackingStore()->get('payloadId');
+        $val = $this->getBackingStore()->get('payloadId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'payloadId'");
     }
 
     /**
@@ -126,7 +164,11 @@ class PolicySetItem extends Entity implements Parsable
      * @return PolicySetStatus|null
     */
     public function getStatus(): ?PolicySetStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof PolicySetStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

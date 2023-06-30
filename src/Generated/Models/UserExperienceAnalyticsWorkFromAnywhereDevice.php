@@ -28,96 +28,140 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the autoPilotProfileAssigned property value. The user experience analytics work from anywhere intune device's autopilotProfileAssigned.
+     * Gets the autoPilotProfileAssigned property value. When TRUE, indicates the intune device's autopilot profile is assigned. When FALSE, indicates it's not Assigned. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getAutoPilotProfileAssigned(): ?bool {
-        return $this->getBackingStore()->get('autoPilotProfileAssigned');
+        $val = $this->getBackingStore()->get('autoPilotProfileAssigned');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'autoPilotProfileAssigned'");
     }
 
     /**
-     * Gets the autoPilotRegistered property value. The user experience work from anywhere intune device's autopilotRegistered.
+     * Gets the autoPilotRegistered property value. When TRUE, indicates the intune device's autopilot is registered. When FALSE, indicates it's not registered. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getAutoPilotRegistered(): ?bool {
-        return $this->getBackingStore()->get('autoPilotRegistered');
+        $val = $this->getBackingStore()->get('autoPilotRegistered');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'autoPilotRegistered'");
     }
 
     /**
-     * Gets the azureAdDeviceId property value. The user experience work from anywhere azure Ad device Id.
+     * Gets the azureAdDeviceId property value. The Azure Active Directory (Azure AD) device Id. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getAzureAdDeviceId(): ?string {
-        return $this->getBackingStore()->get('azureAdDeviceId');
+        $val = $this->getBackingStore()->get('azureAdDeviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureAdDeviceId'");
     }
 
     /**
-     * Gets the azureAdJoinType property value. The user experience work from anywhere device's azure Ad joinType.
+     * Gets the azureAdJoinType property value. The work from anywhere device's Azure Active Directory (Azure AD) join type. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getAzureAdJoinType(): ?string {
-        return $this->getBackingStore()->get('azureAdJoinType');
+        $val = $this->getBackingStore()->get('azureAdJoinType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureAdJoinType'");
     }
 
     /**
-     * Gets the azureAdRegistered property value. The user experience work from anywhere device's azureAdRegistered.
+     * Gets the azureAdRegistered property value. When TRUE, indicates the device's Azure Active Directory (Azure AD) is registered. When False, indicates it's not registered. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getAzureAdRegistered(): ?bool {
-        return $this->getBackingStore()->get('azureAdRegistered');
+        $val = $this->getBackingStore()->get('azureAdRegistered');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureAdRegistered'");
     }
 
     /**
-     * Gets the cloudIdentityScore property value. The user experience work from anywhere per device cloud identity score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the cloudIdentityScore property value. Indicates per device cloud identity score. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getCloudIdentityScore(): ?float {
-        return $this->getBackingStore()->get('cloudIdentityScore');
+        $val = $this->getBackingStore()->get('cloudIdentityScore');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudIdentityScore'");
     }
 
     /**
-     * Gets the cloudManagementScore property value. The user experience work from anywhere per device cloud management score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the cloudManagementScore property value. Indicates per device cloud management score. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getCloudManagementScore(): ?float {
-        return $this->getBackingStore()->get('cloudManagementScore');
+        $val = $this->getBackingStore()->get('cloudManagementScore');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudManagementScore'");
     }
 
     /**
-     * Gets the cloudProvisioningScore property value. The user experience work from anywhere per device cloud provisioning score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the cloudProvisioningScore property value. Indicates per device cloud provisioning score. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getCloudProvisioningScore(): ?float {
-        return $this->getBackingStore()->get('cloudProvisioningScore');
+        $val = $this->getBackingStore()->get('cloudProvisioningScore');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudProvisioningScore'");
     }
 
     /**
-     * Gets the compliancePolicySetToIntune property value. The user experience work from anywhere device's compliancePolicySetToIntune.
+     * Gets the compliancePolicySetToIntune property value. When TRUE, indicates the device's compliance policy is set to intune. When FALSE, indicates it's not set to intune. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getCompliancePolicySetToIntune(): ?bool {
-        return $this->getBackingStore()->get('compliancePolicySetToIntune');
+        $val = $this->getBackingStore()->get('compliancePolicySetToIntune');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'compliancePolicySetToIntune'");
     }
 
     /**
-     * Gets the deviceId property value. The user experience work from anywhere device Id.
+     * Gets the deviceId property value. The Intune device id of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->getBackingStore()->get('deviceId');
+        $val = $this->getBackingStore()->get('deviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceId'");
     }
 
     /**
-     * Gets the deviceName property value. The work from anywhere device's name.
+     * Gets the deviceName property value. The name of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->getBackingStore()->get('deviceName');
+        $val = $this->getBackingStore()->get('deviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -164,159 +208,239 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
      * @return UserExperienceAnalyticsHealthState|null
     */
     public function getHealthStatus(): ?UserExperienceAnalyticsHealthState {
-        return $this->getBackingStore()->get('healthStatus');
+        $val = $this->getBackingStore()->get('healthStatus');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsHealthState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'healthStatus'");
     }
 
     /**
-     * Gets the isCloudManagedGatewayEnabled property value. The user experience work from anywhere device's Cloud Management Gateway for Configuration Manager is enabled.
+     * Gets the isCloudManagedGatewayEnabled property value. When TRUE, indicates the device's Cloud Management Gateway for Configuration Manager is enabled. When FALSE, indicates it's not enabled. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getIsCloudManagedGatewayEnabled(): ?bool {
-        return $this->getBackingStore()->get('isCloudManagedGatewayEnabled');
+        $val = $this->getBackingStore()->get('isCloudManagedGatewayEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isCloudManagedGatewayEnabled'");
     }
 
     /**
-     * Gets the managedBy property value. The user experience work from anywhere management agent of the device.
+     * Gets the managedBy property value. The management agent of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getManagedBy(): ?string {
-        return $this->getBackingStore()->get('managedBy');
+        $val = $this->getBackingStore()->get('managedBy');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedBy'");
     }
 
     /**
-     * Gets the manufacturer property value. The user experience work from anywhere device's manufacturer.
+     * Gets the manufacturer property value. The manufacturer name of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getManufacturer(): ?string {
-        return $this->getBackingStore()->get('manufacturer');
+        $val = $this->getBackingStore()->get('manufacturer');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'manufacturer'");
     }
 
     /**
-     * Gets the model property value. The user experience work from anywhere device's model.
+     * Gets the model property value. The model name of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getModel(): ?string {
-        return $this->getBackingStore()->get('model');
+        $val = $this->getBackingStore()->get('model');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'model'");
     }
 
     /**
-     * Gets the osCheckFailed property value. The user experience work from anywhere device, Is OS check failed for device to upgrade to the latest version of windows.
+     * Gets the osCheckFailed property value. When TRUE, indicates OS check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getOsCheckFailed(): ?bool {
-        return $this->getBackingStore()->get('osCheckFailed');
+        $val = $this->getBackingStore()->get('osCheckFailed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osCheckFailed'");
     }
 
     /**
-     * Gets the osDescription property value. The user experience work from anywhere device's OS Description.
+     * Gets the osDescription property value. The OS description of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getOsDescription(): ?string {
-        return $this->getBackingStore()->get('osDescription');
+        $val = $this->getBackingStore()->get('osDescription');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osDescription'");
     }
 
     /**
-     * Gets the osVersion property value. The user experience work from anywhere device's OS Version.
+     * Gets the osVersion property value. The OS version of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getOsVersion(): ?string {
-        return $this->getBackingStore()->get('osVersion');
+        $val = $this->getBackingStore()->get('osVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osVersion'");
     }
 
     /**
-     * Gets the otherWorkloadsSetToIntune property value. The user experience work from anywhere device's otherWorkloadsSetToIntune.
+     * Gets the otherWorkloadsSetToIntune property value. When TRUE, indicates the device's other workloads is set to intune. When FALSE, indicates it's not set to intune. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getOtherWorkloadsSetToIntune(): ?bool {
-        return $this->getBackingStore()->get('otherWorkloadsSetToIntune');
+        $val = $this->getBackingStore()->get('otherWorkloadsSetToIntune');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'otherWorkloadsSetToIntune'");
     }
 
     /**
-     * Gets the ownership property value. The user experience work from anywhere device's ownership.
+     * Gets the ownership property value. Ownership of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getOwnership(): ?string {
-        return $this->getBackingStore()->get('ownership');
+        $val = $this->getBackingStore()->get('ownership');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ownership'");
     }
 
     /**
-     * Gets the processor64BitCheckFailed property value. The user experience work from anywhere device, Is processor hardware 64-bit architecture check failed for device to upgrade to the latest version of windows.
+     * Gets the processor64BitCheckFailed property value. When TRUE, indicates processor hardware 64-bit architecture check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getProcessor64BitCheckFailed(): ?bool {
-        return $this->getBackingStore()->get('processor64BitCheckFailed');
+        $val = $this->getBackingStore()->get('processor64BitCheckFailed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'processor64BitCheckFailed'");
     }
 
     /**
-     * Gets the processorCoreCountCheckFailed property value. The user experience work from anywhere device, Is processor hardware core count check failed for device to upgrade to the latest version of windows.
+     * Gets the processorCoreCountCheckFailed property value. When TRUE, indicates processor hardware core count check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getProcessorCoreCountCheckFailed(): ?bool {
-        return $this->getBackingStore()->get('processorCoreCountCheckFailed');
+        $val = $this->getBackingStore()->get('processorCoreCountCheckFailed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'processorCoreCountCheckFailed'");
     }
 
     /**
-     * Gets the processorFamilyCheckFailed property value. The user experience work from anywhere device, Is processor hardware family check failed for device to upgrade to the latest version of windows.
+     * Gets the processorFamilyCheckFailed property value. When TRUE, indicates processor hardware family check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getProcessorFamilyCheckFailed(): ?bool {
-        return $this->getBackingStore()->get('processorFamilyCheckFailed');
+        $val = $this->getBackingStore()->get('processorFamilyCheckFailed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'processorFamilyCheckFailed'");
     }
 
     /**
-     * Gets the processorSpeedCheckFailed property value. The user experience work from anywhere device, Is processor hardware speed check failed for device to upgrade to the latest version of windows.
+     * Gets the processorSpeedCheckFailed property value. When TRUE, indicates processor hardware speed check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getProcessorSpeedCheckFailed(): ?bool {
-        return $this->getBackingStore()->get('processorSpeedCheckFailed');
+        $val = $this->getBackingStore()->get('processorSpeedCheckFailed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'processorSpeedCheckFailed'");
     }
 
     /**
-     * Gets the ramCheckFailed property value. Is the user experience analytics work from anywhere device RAM hardware check failed for device to upgrade to the latest version of windows
+     * Gets the ramCheckFailed property value. When TRUE, indicates RAM hardware check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getRamCheckFailed(): ?bool {
-        return $this->getBackingStore()->get('ramCheckFailed');
+        $val = $this->getBackingStore()->get('ramCheckFailed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ramCheckFailed'");
     }
 
     /**
-     * Gets the secureBootCheckFailed property value. The user experience work from anywhere device, Is secure boot hardware check failed for device to upgrade to the latest version of windows.
+     * Gets the secureBootCheckFailed property value. When TRUE, indicates secure boot hardware check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getSecureBootCheckFailed(): ?bool {
-        return $this->getBackingStore()->get('secureBootCheckFailed');
+        $val = $this->getBackingStore()->get('secureBootCheckFailed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'secureBootCheckFailed'");
     }
 
     /**
-     * Gets the serialNumber property value. The user experience work from anywhere device's serial number.
+     * Gets the serialNumber property value. The serial number of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getSerialNumber(): ?string {
-        return $this->getBackingStore()->get('serialNumber');
+        $val = $this->getBackingStore()->get('serialNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'serialNumber'");
     }
 
     /**
-     * Gets the storageCheckFailed property value. The user experience work from anywhere device, Is storage hardware check failed for device to upgrade to the latest version of windows.
+     * Gets the storageCheckFailed property value. When TRUE, indicates storage hardware check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getStorageCheckFailed(): ?bool {
-        return $this->getBackingStore()->get('storageCheckFailed');
+        $val = $this->getBackingStore()->get('storageCheckFailed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'storageCheckFailed'");
     }
 
     /**
-     * Gets the tenantAttached property value. The user experience work from anywhere device's tenantAttached.
+     * Gets the tenantAttached property value. When TRUE, indicates the device is Tenant Attached. When FALSE, indicates it's not Tenant Attached. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getTenantAttached(): ?bool {
-        return $this->getBackingStore()->get('tenantAttached');
+        $val = $this->getBackingStore()->get('tenantAttached');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantAttached'");
     }
 
     /**
-     * Gets the tpmCheckFailed property value. The user experience work from anywhere device, Is Trusted Platform Module (TPM) hardware check failed for device to the latest version of upgrade to windows.
+     * Gets the tpmCheckFailed property value. When TRUE, indicates Trusted Platform Module (TPM) hardware check failed for device to the latest version of upgrade to windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getTpmCheckFailed(): ?bool {
-        return $this->getBackingStore()->get('tpmCheckFailed');
+        $val = $this->getBackingStore()->get('tpmCheckFailed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tpmCheckFailed'");
     }
 
     /**
@@ -324,23 +448,35 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
      * @return OperatingSystemUpgradeEligibility|null
     */
     public function getUpgradeEligibility(): ?OperatingSystemUpgradeEligibility {
-        return $this->getBackingStore()->get('upgradeEligibility');
+        $val = $this->getBackingStore()->get('upgradeEligibility');
+        if (is_null($val) || $val instanceof OperatingSystemUpgradeEligibility) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'upgradeEligibility'");
     }
 
     /**
-     * Gets the windowsScore property value. The user experience work from anywhere per device windows score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the windowsScore property value. Indicates per device windows score. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getWindowsScore(): ?float {
-        return $this->getBackingStore()->get('windowsScore');
+        $val = $this->getBackingStore()->get('windowsScore');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsScore'");
     }
 
     /**
-     * Gets the workFromAnywhereScore property value. The user experience work from anywhere per device overall score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the workFromAnywhereScore property value. Indicates work from anywhere per device overall score. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getWorkFromAnywhereScore(): ?float {
-        return $this->getBackingStore()->get('workFromAnywhereScore');
+        $val = $this->getBackingStore()->get('workFromAnywhereScore');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workFromAnywhereScore'");
     }
 
     /**
@@ -386,7 +522,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the autoPilotProfileAssigned property value. The user experience analytics work from anywhere intune device's autopilotProfileAssigned.
+     * Sets the autoPilotProfileAssigned property value. When TRUE, indicates the intune device's autopilot profile is assigned. When FALSE, indicates it's not Assigned. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the autoPilotProfileAssigned property.
     */
     public function setAutoPilotProfileAssigned(?bool $value): void {
@@ -394,7 +530,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the autoPilotRegistered property value. The user experience work from anywhere intune device's autopilotRegistered.
+     * Sets the autoPilotRegistered property value. When TRUE, indicates the intune device's autopilot is registered. When FALSE, indicates it's not registered. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the autoPilotRegistered property.
     */
     public function setAutoPilotRegistered(?bool $value): void {
@@ -402,7 +538,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the azureAdDeviceId property value. The user experience work from anywhere azure Ad device Id.
+     * Sets the azureAdDeviceId property value. The Azure Active Directory (Azure AD) device Id. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the azureAdDeviceId property.
     */
     public function setAzureAdDeviceId(?string $value): void {
@@ -410,7 +546,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the azureAdJoinType property value. The user experience work from anywhere device's azure Ad joinType.
+     * Sets the azureAdJoinType property value. The work from anywhere device's Azure Active Directory (Azure AD) join type. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the azureAdJoinType property.
     */
     public function setAzureAdJoinType(?string $value): void {
@@ -418,7 +554,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the azureAdRegistered property value. The user experience work from anywhere device's azureAdRegistered.
+     * Sets the azureAdRegistered property value. When TRUE, indicates the device's Azure Active Directory (Azure AD) is registered. When False, indicates it's not registered. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the azureAdRegistered property.
     */
     public function setAzureAdRegistered(?bool $value): void {
@@ -426,7 +562,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the cloudIdentityScore property value. The user experience work from anywhere per device cloud identity score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the cloudIdentityScore property value. Indicates per device cloud identity score. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the cloudIdentityScore property.
     */
     public function setCloudIdentityScore(?float $value): void {
@@ -434,7 +570,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the cloudManagementScore property value. The user experience work from anywhere per device cloud management score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the cloudManagementScore property value. Indicates per device cloud management score. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the cloudManagementScore property.
     */
     public function setCloudManagementScore(?float $value): void {
@@ -442,7 +578,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the cloudProvisioningScore property value. The user experience work from anywhere per device cloud provisioning score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the cloudProvisioningScore property value. Indicates per device cloud provisioning score. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the cloudProvisioningScore property.
     */
     public function setCloudProvisioningScore(?float $value): void {
@@ -450,7 +586,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the compliancePolicySetToIntune property value. The user experience work from anywhere device's compliancePolicySetToIntune.
+     * Sets the compliancePolicySetToIntune property value. When TRUE, indicates the device's compliance policy is set to intune. When FALSE, indicates it's not set to intune. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the compliancePolicySetToIntune property.
     */
     public function setCompliancePolicySetToIntune(?bool $value): void {
@@ -458,7 +594,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the deviceId property value. The user experience work from anywhere device Id.
+     * Sets the deviceId property value. The Intune device id of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
@@ -466,7 +602,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the deviceName property value. The work from anywhere device's name.
+     * Sets the deviceName property value. The name of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
@@ -482,7 +618,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the isCloudManagedGatewayEnabled property value. The user experience work from anywhere device's Cloud Management Gateway for Configuration Manager is enabled.
+     * Sets the isCloudManagedGatewayEnabled property value. When TRUE, indicates the device's Cloud Management Gateway for Configuration Manager is enabled. When FALSE, indicates it's not enabled. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the isCloudManagedGatewayEnabled property.
     */
     public function setIsCloudManagedGatewayEnabled(?bool $value): void {
@@ -490,7 +626,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the managedBy property value. The user experience work from anywhere management agent of the device.
+     * Sets the managedBy property value. The management agent of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the managedBy property.
     */
     public function setManagedBy(?string $value): void {
@@ -498,7 +634,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the manufacturer property value. The user experience work from anywhere device's manufacturer.
+     * Sets the manufacturer property value. The manufacturer name of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
@@ -506,7 +642,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the model property value. The user experience work from anywhere device's model.
+     * Sets the model property value. The model name of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value): void {
@@ -514,7 +650,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the osCheckFailed property value. The user experience work from anywhere device, Is OS check failed for device to upgrade to the latest version of windows.
+     * Sets the osCheckFailed property value. When TRUE, indicates OS check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the osCheckFailed property.
     */
     public function setOsCheckFailed(?bool $value): void {
@@ -522,7 +658,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the osDescription property value. The user experience work from anywhere device's OS Description.
+     * Sets the osDescription property value. The OS description of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the osDescription property.
     */
     public function setOsDescription(?string $value): void {
@@ -530,7 +666,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the osVersion property value. The user experience work from anywhere device's OS Version.
+     * Sets the osVersion property value. The OS version of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the osVersion property.
     */
     public function setOsVersion(?string $value): void {
@@ -538,7 +674,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the otherWorkloadsSetToIntune property value. The user experience work from anywhere device's otherWorkloadsSetToIntune.
+     * Sets the otherWorkloadsSetToIntune property value. When TRUE, indicates the device's other workloads is set to intune. When FALSE, indicates it's not set to intune. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the otherWorkloadsSetToIntune property.
     */
     public function setOtherWorkloadsSetToIntune(?bool $value): void {
@@ -546,7 +682,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the ownership property value. The user experience work from anywhere device's ownership.
+     * Sets the ownership property value. Ownership of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the ownership property.
     */
     public function setOwnership(?string $value): void {
@@ -554,7 +690,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the processor64BitCheckFailed property value. The user experience work from anywhere device, Is processor hardware 64-bit architecture check failed for device to upgrade to the latest version of windows.
+     * Sets the processor64BitCheckFailed property value. When TRUE, indicates processor hardware 64-bit architecture check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the processor64BitCheckFailed property.
     */
     public function setProcessor64BitCheckFailed(?bool $value): void {
@@ -562,7 +698,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the processorCoreCountCheckFailed property value. The user experience work from anywhere device, Is processor hardware core count check failed for device to upgrade to the latest version of windows.
+     * Sets the processorCoreCountCheckFailed property value. When TRUE, indicates processor hardware core count check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the processorCoreCountCheckFailed property.
     */
     public function setProcessorCoreCountCheckFailed(?bool $value): void {
@@ -570,7 +706,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the processorFamilyCheckFailed property value. The user experience work from anywhere device, Is processor hardware family check failed for device to upgrade to the latest version of windows.
+     * Sets the processorFamilyCheckFailed property value. When TRUE, indicates processor hardware family check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the processorFamilyCheckFailed property.
     */
     public function setProcessorFamilyCheckFailed(?bool $value): void {
@@ -578,7 +714,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the processorSpeedCheckFailed property value. The user experience work from anywhere device, Is processor hardware speed check failed for device to upgrade to the latest version of windows.
+     * Sets the processorSpeedCheckFailed property value. When TRUE, indicates processor hardware speed check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the processorSpeedCheckFailed property.
     */
     public function setProcessorSpeedCheckFailed(?bool $value): void {
@@ -586,7 +722,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the ramCheckFailed property value. Is the user experience analytics work from anywhere device RAM hardware check failed for device to upgrade to the latest version of windows
+     * Sets the ramCheckFailed property value. When TRUE, indicates RAM hardware check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the ramCheckFailed property.
     */
     public function setRamCheckFailed(?bool $value): void {
@@ -594,7 +730,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the secureBootCheckFailed property value. The user experience work from anywhere device, Is secure boot hardware check failed for device to upgrade to the latest version of windows.
+     * Sets the secureBootCheckFailed property value. When TRUE, indicates secure boot hardware check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the secureBootCheckFailed property.
     */
     public function setSecureBootCheckFailed(?bool $value): void {
@@ -602,7 +738,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the serialNumber property value. The user experience work from anywhere device's serial number.
+     * Sets the serialNumber property value. The serial number of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the serialNumber property.
     */
     public function setSerialNumber(?string $value): void {
@@ -610,7 +746,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the storageCheckFailed property value. The user experience work from anywhere device, Is storage hardware check failed for device to upgrade to the latest version of windows.
+     * Sets the storageCheckFailed property value. When TRUE, indicates storage hardware check failed for device to upgrade to the latest version of windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the storageCheckFailed property.
     */
     public function setStorageCheckFailed(?bool $value): void {
@@ -618,7 +754,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the tenantAttached property value. The user experience work from anywhere device's tenantAttached.
+     * Sets the tenantAttached property value. When TRUE, indicates the device is Tenant Attached. When FALSE, indicates it's not Tenant Attached. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the tenantAttached property.
     */
     public function setTenantAttached(?bool $value): void {
@@ -626,7 +762,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the tpmCheckFailed property value. The user experience work from anywhere device, Is Trusted Platform Module (TPM) hardware check failed for device to the latest version of upgrade to windows.
+     * Sets the tpmCheckFailed property value. When TRUE, indicates Trusted Platform Module (TPM) hardware check failed for device to the latest version of upgrade to windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the tpmCheckFailed property.
     */
     public function setTpmCheckFailed(?bool $value): void {
@@ -642,7 +778,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the windowsScore property value. The user experience work from anywhere per device windows score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the windowsScore property value. Indicates per device windows score. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the windowsScore property.
     */
     public function setWindowsScore(?float $value): void {
@@ -650,7 +786,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the workFromAnywhereScore property value. The user experience work from anywhere per device overall score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the workFromAnywhereScore property value. Indicates work from anywhere per device overall score. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the workFromAnywhereScore property.
     */
     public function setWorkFromAnywhereScore(?float $value): void {

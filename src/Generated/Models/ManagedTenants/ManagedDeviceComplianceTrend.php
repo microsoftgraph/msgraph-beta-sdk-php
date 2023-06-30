@@ -30,7 +30,11 @@ class ManagedDeviceComplianceTrend extends Entity implements Parsable
      * @return int|null
     */
     public function getCompliantDeviceCount(): ?int {
-        return $this->getBackingStore()->get('compliantDeviceCount');
+        $val = $this->getBackingStore()->get('compliantDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'compliantDeviceCount'");
     }
 
     /**
@@ -38,7 +42,11 @@ class ManagedDeviceComplianceTrend extends Entity implements Parsable
      * @return int|null
     */
     public function getConfigManagerDeviceCount(): ?int {
-        return $this->getBackingStore()->get('configManagerDeviceCount');
+        $val = $this->getBackingStore()->get('configManagerDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configManagerDeviceCount'");
     }
 
     /**
@@ -46,7 +54,11 @@ class ManagedDeviceComplianceTrend extends Entity implements Parsable
      * @return string|null
     */
     public function getCountDateTime(): ?string {
-        return $this->getBackingStore()->get('countDateTime');
+        $val = $this->getBackingStore()->get('countDateTime');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'countDateTime'");
     }
 
     /**
@@ -54,12 +66,16 @@ class ManagedDeviceComplianceTrend extends Entity implements Parsable
      * @return int|null
     */
     public function getErrorDeviceCount(): ?int {
-        return $this->getBackingStore()->get('errorDeviceCount');
+        $val = $this->getBackingStore()->get('errorDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorDeviceCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -81,7 +97,11 @@ class ManagedDeviceComplianceTrend extends Entity implements Parsable
      * @return int|null
     */
     public function getInGracePeriodDeviceCount(): ?int {
-        return $this->getBackingStore()->get('inGracePeriodDeviceCount');
+        $val = $this->getBackingStore()->get('inGracePeriodDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inGracePeriodDeviceCount'");
     }
 
     /**
@@ -89,7 +109,11 @@ class ManagedDeviceComplianceTrend extends Entity implements Parsable
      * @return int|null
     */
     public function getNoncompliantDeviceCount(): ?int {
-        return $this->getBackingStore()->get('noncompliantDeviceCount');
+        $val = $this->getBackingStore()->get('noncompliantDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'noncompliantDeviceCount'");
     }
 
     /**
@@ -97,7 +121,11 @@ class ManagedDeviceComplianceTrend extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantDisplayName(): ?string {
-        return $this->getBackingStore()->get('tenantDisplayName');
+        $val = $this->getBackingStore()->get('tenantDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantDisplayName'");
     }
 
     /**
@@ -105,7 +133,11 @@ class ManagedDeviceComplianceTrend extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->getBackingStore()->get('tenantId');
+        $val = $this->getBackingStore()->get('tenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantId'");
     }
 
     /**
@@ -113,7 +145,11 @@ class ManagedDeviceComplianceTrend extends Entity implements Parsable
      * @return int|null
     */
     public function getUnknownDeviceCount(): ?int {
-        return $this->getBackingStore()->get('unknownDeviceCount');
+        $val = $this->getBackingStore()->get('unknownDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'unknownDeviceCount'");
     }
 
     /**

@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
 class WindowsAssignedAccessProfile extends Entity implements Parsable 
@@ -30,7 +31,13 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getAppUserModelIds(): ?array {
-        return $this->getBackingStore()->get('appUserModelIds');
+        $val = $this->getBackingStore()->get('appUserModelIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appUserModelIds'");
     }
 
     /**
@@ -38,22 +45,49 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getDesktopAppPaths(): ?array {
-        return $this->getBackingStore()->get('desktopAppPaths');
+        $val = $this->getBackingStore()->get('desktopAppPaths');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'desktopAppPaths'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appUserModelIds' => fn(ParseNode $n) => $o->setAppUserModelIds($n->getCollectionOfPrimitiveValues()),
-            'desktopAppPaths' => fn(ParseNode $n) => $o->setDesktopAppPaths($n->getCollectionOfPrimitiveValues()),
+            'appUserModelIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAppUserModelIds($val);
+            },
+            'desktopAppPaths' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDesktopAppPaths($val);
+            },
             'profileName' => fn(ParseNode $n) => $o->setProfileName($n->getStringValue()),
             'showTaskBar' => fn(ParseNode $n) => $o->setShowTaskBar($n->getBooleanValue()),
             'startMenuLayoutXml' => fn(ParseNode $n) => $o->setStartMenuLayoutXml($n->getBinaryContent()),
-            'userAccounts' => fn(ParseNode $n) => $o->setUserAccounts($n->getCollectionOfPrimitiveValues()),
+            'userAccounts' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setUserAccounts($val);
+            },
         ]);
     }
 
@@ -62,7 +96,11 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getProfileName(): ?string {
-        return $this->getBackingStore()->get('profileName');
+        $val = $this->getBackingStore()->get('profileName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'profileName'");
     }
 
     /**
@@ -70,7 +108,11 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getShowTaskBar(): ?bool {
-        return $this->getBackingStore()->get('showTaskBar');
+        $val = $this->getBackingStore()->get('showTaskBar');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'showTaskBar'");
     }
 
     /**
@@ -78,7 +120,11 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
      * @return StreamInterface|null
     */
     public function getStartMenuLayoutXml(): ?StreamInterface {
-        return $this->getBackingStore()->get('startMenuLayoutXml');
+        $val = $this->getBackingStore()->get('startMenuLayoutXml');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuLayoutXml'");
     }
 
     /**
@@ -86,7 +132,13 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getUserAccounts(): ?array {
-        return $this->getBackingStore()->get('userAccounts');
+        $val = $this->getBackingStore()->get('userAccounts');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userAccounts'");
     }
 
     /**

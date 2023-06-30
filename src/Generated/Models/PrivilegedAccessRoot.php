@@ -26,7 +26,7 @@ class PrivilegedAccessRoot extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -40,7 +40,11 @@ class PrivilegedAccessRoot extends Entity implements Parsable
      * @return PrivilegedAccessGroup|null
     */
     public function getGroup(): ?PrivilegedAccessGroup {
-        return $this->getBackingStore()->get('group');
+        $val = $this->getBackingStore()->get('group');
+        if (is_null($val) || $val instanceof PrivilegedAccessGroup) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'group'");
     }
 
     /**

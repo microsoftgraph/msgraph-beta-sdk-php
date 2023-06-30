@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Models\IdentitySet;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class LegalHold extends Entity implements Parsable 
 {
@@ -32,7 +33,11 @@ class LegalHold extends Entity implements Parsable
      * @return string|null
     */
     public function getContentQuery(): ?string {
-        return $this->getBackingStore()->get('contentQuery');
+        $val = $this->getBackingStore()->get('contentQuery');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentQuery'");
     }
 
     /**
@@ -40,7 +45,11 @@ class LegalHold extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
-        return $this->getBackingStore()->get('createdBy');
+        $val = $this->getBackingStore()->get('createdBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdBy'");
     }
 
     /**
@@ -48,7 +57,11 @@ class LegalHold extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -56,7 +69,11 @@ class LegalHold extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -64,7 +81,11 @@ class LegalHold extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -72,12 +93,18 @@ class LegalHold extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getErrors(): ?array {
-        return $this->getBackingStore()->get('errors');
+        $val = $this->getBackingStore()->get('errors');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errors'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -87,7 +114,14 @@ class LegalHold extends Entity implements Parsable
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'errors' => fn(ParseNode $n) => $o->setErrors($n->getCollectionOfPrimitiveValues()),
+            'errors' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setErrors($val);
+            },
             'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
@@ -103,7 +137,11 @@ class LegalHold extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
-        return $this->getBackingStore()->get('isEnabled');
+        $val = $this->getBackingStore()->get('isEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isEnabled'");
     }
 
     /**
@@ -111,7 +149,11 @@ class LegalHold extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
-        return $this->getBackingStore()->get('lastModifiedBy');
+        $val = $this->getBackingStore()->get('lastModifiedBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedBy'");
     }
 
     /**
@@ -119,7 +161,11 @@ class LegalHold extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -127,7 +173,13 @@ class LegalHold extends Entity implements Parsable
      * @return array<SiteSource>|null
     */
     public function getSiteSources(): ?array {
-        return $this->getBackingStore()->get('siteSources');
+        $val = $this->getBackingStore()->get('siteSources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SiteSource::class);
+            /** @var array<SiteSource>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'siteSources'");
     }
 
     /**
@@ -135,7 +187,11 @@ class LegalHold extends Entity implements Parsable
      * @return LegalHoldStatus|null
     */
     public function getStatus(): ?LegalHoldStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof LegalHoldStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**
@@ -143,7 +199,13 @@ class LegalHold extends Entity implements Parsable
      * @return array<UnifiedGroupSource>|null
     */
     public function getUnifiedGroupSources(): ?array {
-        return $this->getBackingStore()->get('unifiedGroupSources');
+        $val = $this->getBackingStore()->get('unifiedGroupSources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UnifiedGroupSource::class);
+            /** @var array<UnifiedGroupSource>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'unifiedGroupSources'");
     }
 
     /**
@@ -151,7 +213,13 @@ class LegalHold extends Entity implements Parsable
      * @return array<UserSource>|null
     */
     public function getUserSources(): ?array {
-        return $this->getBackingStore()->get('userSources');
+        $val = $this->getBackingStore()->get('userSources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserSource::class);
+            /** @var array<UserSource>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userSources'");
     }
 
     /**

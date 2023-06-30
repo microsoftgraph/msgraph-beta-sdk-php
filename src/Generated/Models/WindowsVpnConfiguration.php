@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
 class WindowsVpnConfiguration extends DeviceConfiguration implements Parsable 
@@ -40,7 +41,11 @@ class WindowsVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getConnectionName(): ?string {
-        return $this->getBackingStore()->get('connectionName');
+        $val = $this->getBackingStore()->get('connectionName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectionName'");
     }
 
     /**
@@ -48,12 +53,16 @@ class WindowsVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return StreamInterface|null
     */
     public function getCustomXml(): ?StreamInterface {
-        return $this->getBackingStore()->get('customXml');
+        $val = $this->getBackingStore()->get('customXml');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customXml'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -69,7 +78,13 @@ class WindowsVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return array<VpnServer>|null
     */
     public function getServers(): ?array {
-        return $this->getBackingStore()->get('servers');
+        $val = $this->getBackingStore()->get('servers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, VpnServer::class);
+            /** @var array<VpnServer>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'servers'");
     }
 
     /**

@@ -40,7 +40,12 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -48,7 +53,11 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
      * @return string|null
     */
     public function getAdditionalDetails(): ?string {
-        return $this->getBackingStore()->get('additionalDetails');
+        $val = $this->getBackingStore()->get('additionalDetails');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalDetails'");
     }
 
     /**
@@ -64,7 +73,11 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
      * @return string|null
     */
     public function getCorrelationId(): ?string {
-        return $this->getBackingStore()->get('correlationId');
+        $val = $this->getBackingStore()->get('correlationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'correlationId'");
     }
 
     /**
@@ -72,7 +85,11 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -80,7 +97,11 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('endDateTime');
+        $val = $this->getBackingStore()->get('endDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endDateTime'");
     }
 
     /**
@@ -88,12 +109,16 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
      * @return CloudPcOnPremisesConnectionHealthCheckErrorType|null
     */
     public function getErrorType(): ?CloudPcOnPremisesConnectionHealthCheckErrorType {
-        return $this->getBackingStore()->get('errorType');
+        $val = $this->getBackingStore()->get('errorType');
+        if (is_null($val) || $val instanceof CloudPcOnPremisesConnectionHealthCheckErrorType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorType'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -115,7 +140,11 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -123,7 +152,11 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
      * @return string|null
     */
     public function getRecommendedAction(): ?string {
-        return $this->getBackingStore()->get('recommendedAction');
+        $val = $this->getBackingStore()->get('recommendedAction');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recommendedAction'");
     }
 
     /**
@@ -131,7 +164,11 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('startDateTime');
+        $val = $this->getBackingStore()->get('startDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startDateTime'");
     }
 
     /**
@@ -139,7 +176,11 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
      * @return CloudPcOnPremisesConnectionStatus|null
     */
     public function getStatus(): ?CloudPcOnPremisesConnectionStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof CloudPcOnPremisesConnectionStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

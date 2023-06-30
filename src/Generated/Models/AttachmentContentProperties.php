@@ -30,12 +30,16 @@ class AttachmentContentProperties extends ContentProperties implements Parsable
      * @return CurrentLabel|null
     */
     public function getCurrentLabel(): ?CurrentLabel {
-        return $this->getBackingStore()->get('currentLabel');
+        $val = $this->getBackingStore()->get('currentLabel');
+        if (is_null($val) || $val instanceof CurrentLabel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'currentLabel'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

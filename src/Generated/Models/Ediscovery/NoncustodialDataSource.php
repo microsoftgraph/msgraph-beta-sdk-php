@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class NoncustodialDataSource extends DataSourceContainer implements Parsable 
 {
     /**
-     * Instantiates a new NoncustodialDataSource and sets the default values.
+     * Instantiates a new noncustodialDataSource and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -30,7 +30,11 @@ class NoncustodialDataSource extends DataSourceContainer implements Parsable
      * @return bool|null
     */
     public function getApplyHoldToSource(): ?bool {
-        return $this->getBackingStore()->get('applyHoldToSource');
+        $val = $this->getBackingStore()->get('applyHoldToSource');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applyHoldToSource'");
     }
 
     /**
@@ -38,12 +42,16 @@ class NoncustodialDataSource extends DataSourceContainer implements Parsable
      * @return DataSource|null
     */
     public function getDataSource(): ?DataSource {
-        return $this->getBackingStore()->get('dataSource');
+        $val = $this->getBackingStore()->get('dataSource');
+        if (is_null($val) || $val instanceof DataSource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dataSource'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

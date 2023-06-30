@@ -6,6 +6,7 @@ use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class NetworkAccessRoot extends Entity implements Parsable 
 {
@@ -30,12 +31,16 @@ class NetworkAccessRoot extends Entity implements Parsable
      * @return Connectivity|null
     */
     public function getConnectivity(): ?Connectivity {
-        return $this->getBackingStore()->get('connectivity');
+        $val = $this->getBackingStore()->get('connectivity');
+        if (is_null($val) || $val instanceof Connectivity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectivity'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -55,7 +60,13 @@ class NetworkAccessRoot extends Entity implements Parsable
      * @return array<ForwardingPolicy>|null
     */
     public function getForwardingPolicies(): ?array {
-        return $this->getBackingStore()->get('forwardingPolicies');
+        $val = $this->getBackingStore()->get('forwardingPolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ForwardingPolicy::class);
+            /** @var array<ForwardingPolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'forwardingPolicies'");
     }
 
     /**
@@ -63,7 +74,13 @@ class NetworkAccessRoot extends Entity implements Parsable
      * @return array<ForwardingProfile>|null
     */
     public function getForwardingProfiles(): ?array {
-        return $this->getBackingStore()->get('forwardingProfiles');
+        $val = $this->getBackingStore()->get('forwardingProfiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ForwardingProfile::class);
+            /** @var array<ForwardingProfile>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'forwardingProfiles'");
     }
 
     /**
@@ -71,7 +88,11 @@ class NetworkAccessRoot extends Entity implements Parsable
      * @return Logs|null
     */
     public function getLogs(): ?Logs {
-        return $this->getBackingStore()->get('logs');
+        $val = $this->getBackingStore()->get('logs');
+        if (is_null($val) || $val instanceof Logs) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'logs'");
     }
 
     /**
@@ -79,7 +100,11 @@ class NetworkAccessRoot extends Entity implements Parsable
      * @return Reports|null
     */
     public function getReports(): ?Reports {
-        return $this->getBackingStore()->get('reports');
+        $val = $this->getBackingStore()->get('reports');
+        if (is_null($val) || $val instanceof Reports) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reports'");
     }
 
     /**
@@ -87,7 +112,11 @@ class NetworkAccessRoot extends Entity implements Parsable
      * @return Settings|null
     */
     public function getSettings(): ?Settings {
-        return $this->getBackingStore()->get('settings');
+        $val = $this->getBackingStore()->get('settings');
+        if (is_null($val) || $val instanceof Settings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settings'");
     }
 
     /**
@@ -95,7 +124,11 @@ class NetworkAccessRoot extends Entity implements Parsable
      * @return TenantStatus|null
     */
     public function getTenantStatus(): ?TenantStatus {
-        return $this->getBackingStore()->get('tenantStatus');
+        $val = $this->getBackingStore()->get('tenantStatus');
+        if (is_null($val) || $val instanceof TenantStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantStatus'");
     }
 
     /**

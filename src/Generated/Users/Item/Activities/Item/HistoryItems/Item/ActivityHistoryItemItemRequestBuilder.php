@@ -58,7 +58,7 @@ class ActivityHistoryItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get historyItems from users
+     * Optional. NavigationProperty/Containment; navigation property to the activity's historyItems.
      * @param ActivityHistoryItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -113,7 +113,7 @@ class ActivityHistoryItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get historyItems from users
+     * Optional. NavigationProperty/Containment; navigation property to the activity's historyItems.
      * @param ActivityHistoryItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -30,7 +30,11 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfigu
      * @return bool|null
     */
     public function getAdvancedThreatProtectionAutoPopulateOnboardingBlob(): ?bool {
-        return $this->getBackingStore()->get('advancedThreatProtectionAutoPopulateOnboardingBlob');
+        $val = $this->getBackingStore()->get('advancedThreatProtectionAutoPopulateOnboardingBlob');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'advancedThreatProtectionAutoPopulateOnboardingBlob'");
     }
 
     /**
@@ -38,7 +42,11 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfigu
      * @return string|null
     */
     public function getAdvancedThreatProtectionOffboardingBlob(): ?string {
-        return $this->getBackingStore()->get('advancedThreatProtectionOffboardingBlob');
+        $val = $this->getBackingStore()->get('advancedThreatProtectionOffboardingBlob');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'advancedThreatProtectionOffboardingBlob'");
     }
 
     /**
@@ -46,7 +54,11 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfigu
      * @return string|null
     */
     public function getAdvancedThreatProtectionOffboardingFilename(): ?string {
-        return $this->getBackingStore()->get('advancedThreatProtectionOffboardingFilename');
+        $val = $this->getBackingStore()->get('advancedThreatProtectionOffboardingFilename');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'advancedThreatProtectionOffboardingFilename'");
     }
 
     /**
@@ -54,7 +66,11 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfigu
      * @return string|null
     */
     public function getAdvancedThreatProtectionOnboardingBlob(): ?string {
-        return $this->getBackingStore()->get('advancedThreatProtectionOnboardingBlob');
+        $val = $this->getBackingStore()->get('advancedThreatProtectionOnboardingBlob');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'advancedThreatProtectionOnboardingBlob'");
     }
 
     /**
@@ -62,7 +78,11 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfigu
      * @return string|null
     */
     public function getAdvancedThreatProtectionOnboardingFilename(): ?string {
-        return $this->getBackingStore()->get('advancedThreatProtectionOnboardingFilename');
+        $val = $this->getBackingStore()->get('advancedThreatProtectionOnboardingFilename');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'advancedThreatProtectionOnboardingFilename'");
     }
 
     /**
@@ -70,7 +90,11 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfigu
      * @return bool|null
     */
     public function getAllowSampleSharing(): ?bool {
-        return $this->getBackingStore()->get('allowSampleSharing');
+        $val = $this->getBackingStore()->get('allowSampleSharing');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowSampleSharing'");
     }
 
     /**
@@ -78,12 +102,16 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfigu
      * @return bool|null
     */
     public function getEnableExpeditedTelemetryReporting(): ?bool {
-        return $this->getBackingStore()->get('enableExpeditedTelemetryReporting');
+        $val = $this->getBackingStore()->get('enableExpeditedTelemetryReporting');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableExpeditedTelemetryReporting'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

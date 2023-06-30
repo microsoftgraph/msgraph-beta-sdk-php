@@ -40,7 +40,12 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -56,12 +61,16 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
      * @return DateTime|null
     */
     public function getExpiryDate(): ?DateTime {
-        return $this->getBackingStore()->get('expiryDate');
+        $val = $this->getBackingStore()->get('expiryDate');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expiryDate'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -80,7 +89,11 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
      * @return DateTime|null
     */
     public function getIssueDate(): ?DateTime {
-        return $this->getBackingStore()->get('issueDate');
+        $val = $this->getBackingStore()->get('issueDate');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'issueDate'");
     }
 
     /**
@@ -88,7 +101,11 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
      * @return string|null
     */
     public function getIssuerName(): ?string {
-        return $this->getBackingStore()->get('issuerName');
+        $val = $this->getBackingStore()->get('issuerName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'issuerName'");
     }
 
     /**
@@ -96,7 +113,11 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -104,7 +125,11 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
      * @return string|null
     */
     public function getSubjectName(): ?string {
-        return $this->getBackingStore()->get('subjectName');
+        $val = $this->getBackingStore()->get('subjectName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subjectName'");
     }
 
     /**
@@ -112,7 +137,11 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
      * @return string|null
     */
     public function getThumbprint(): ?string {
-        return $this->getBackingStore()->get('thumbprint');
+        $val = $this->getBackingStore()->get('thumbprint');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'thumbprint'");
     }
 
     /**

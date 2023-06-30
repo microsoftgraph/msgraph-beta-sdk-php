@@ -39,7 +39,12 @@ class CloudPcLaunchInfo implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +60,11 @@ class CloudPcLaunchInfo implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getCloudPcId(): ?string {
-        return $this->getBackingStore()->get('cloudPcId');
+        $val = $this->getBackingStore()->get('cloudPcId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudPcId'");
     }
 
     /**
@@ -63,12 +72,16 @@ class CloudPcLaunchInfo implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getCloudPcLaunchUrl(): ?string {
-        return $this->getBackingStore()->get('cloudPcLaunchUrl');
+        $val = $this->getBackingStore()->get('cloudPcLaunchUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudPcLaunchUrl'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -86,7 +99,11 @@ class CloudPcLaunchInfo implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -94,7 +111,11 @@ class CloudPcLaunchInfo implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getWindows365SwitchCompatible(): ?bool {
-        return $this->getBackingStore()->get('windows365SwitchCompatible');
+        $val = $this->getBackingStore()->get('windows365SwitchCompatible');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windows365SwitchCompatible'");
     }
 
     /**
@@ -102,7 +123,11 @@ class CloudPcLaunchInfo implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getWindows365SwitchNotCompatibleReason(): ?string {
-        return $this->getBackingStore()->get('windows365SwitchNotCompatibleReason');
+        $val = $this->getBackingStore()->get('windows365SwitchNotCompatibleReason');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windows365SwitchNotCompatibleReason'");
     }
 
     /**

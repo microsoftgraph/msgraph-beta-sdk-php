@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class TeamworkSpeakerConfiguration implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, BackedModel,
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +61,11 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, BackedModel,
      * @return TeamworkPeripheral|null
     */
     public function getDefaultCommunicationSpeaker(): ?TeamworkPeripheral {
-        return $this->getBackingStore()->get('defaultCommunicationSpeaker');
+        $val = $this->getBackingStore()->get('defaultCommunicationSpeaker');
+        if (is_null($val) || $val instanceof TeamworkPeripheral) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultCommunicationSpeaker'");
     }
 
     /**
@@ -63,12 +73,16 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, BackedModel,
      * @return TeamworkPeripheral|null
     */
     public function getDefaultSpeaker(): ?TeamworkPeripheral {
-        return $this->getBackingStore()->get('defaultSpeaker');
+        $val = $this->getBackingStore()->get('defaultSpeaker');
+        if (is_null($val) || $val instanceof TeamworkPeripheral) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultSpeaker'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -87,7 +101,11 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, BackedModel,
      * @return bool|null
     */
     public function getIsCommunicationSpeakerOptional(): ?bool {
-        return $this->getBackingStore()->get('isCommunicationSpeakerOptional');
+        $val = $this->getBackingStore()->get('isCommunicationSpeakerOptional');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isCommunicationSpeakerOptional'");
     }
 
     /**
@@ -95,7 +113,11 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, BackedModel,
      * @return bool|null
     */
     public function getIsSpeakerOptional(): ?bool {
-        return $this->getBackingStore()->get('isSpeakerOptional');
+        $val = $this->getBackingStore()->get('isSpeakerOptional');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isSpeakerOptional'");
     }
 
     /**
@@ -103,7 +125,11 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -111,7 +137,13 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, BackedModel,
      * @return array<TeamworkPeripheral>|null
     */
     public function getSpeakers(): ?array {
-        return $this->getBackingStore()->get('speakers');
+        $val = $this->getBackingStore()->get('speakers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, TeamworkPeripheral::class);
+            /** @var array<TeamworkPeripheral>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'speakers'");
     }
 
     /**

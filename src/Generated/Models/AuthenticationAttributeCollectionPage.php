@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AuthenticationAttributeCollectionPage implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class AuthenticationAttributeCollectionPage implements AdditionalDataHolder, Bac
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,12 +61,16 @@ class AuthenticationAttributeCollectionPage implements AdditionalDataHolder, Bac
      * @return string|null
     */
     public function getCustomStringsFileId(): ?string {
-        return $this->getBackingStore()->get('customStringsFileId');
+        $val = $this->getBackingStore()->get('customStringsFileId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customStringsFileId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -76,7 +86,11 @@ class AuthenticationAttributeCollectionPage implements AdditionalDataHolder, Bac
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -84,7 +98,13 @@ class AuthenticationAttributeCollectionPage implements AdditionalDataHolder, Bac
      * @return array<AuthenticationAttributeCollectionPageViewConfiguration>|null
     */
     public function getViews(): ?array {
-        return $this->getBackingStore()->get('views');
+        $val = $this->getBackingStore()->get('views');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AuthenticationAttributeCollectionPageViewConfiguration::class);
+            /** @var array<AuthenticationAttributeCollectionPageViewConfiguration>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'views'");
     }
 
     /**

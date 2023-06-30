@@ -80,6 +80,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\OwnedDevices\OwnedDevicesRequestBu
 use Microsoft\Graph\Beta\Generated\Users\Item\OwnedObjects\OwnedObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\PendingAccessReviewInstancesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\People\PeopleRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\PermissionGrants\PermissionGrantsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Photo\PhotoRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Photos\PhotosRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Planner\PlannerRequestBuilder;
@@ -96,6 +97,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\ScopedRoleMemberOf\ScopedRoleMembe
 use Microsoft\Graph\Beta\Generated\Users\Item\Security\SecurityRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\SendMail\SendMailRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Settings\SettingsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Sponsors\SponsorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Teamwork\TeamworkRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Todo\TodoRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\TransitiveMemberOf\TransitiveMemberOfRequestBuilder;
@@ -616,6 +618,13 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the permissionGrants property of the microsoft.graph.user entity.
+    */
+    public function permissionGrants(): PermissionGrantsRequestBuilder {
+        return new PermissionGrantsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the photo property of the microsoft.graph.user entity.
     */
     public function photo(): PhotoRequestBuilder {
@@ -718,6 +727,13 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     */
     public function settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the sponsors property of the microsoft.graph.user entity.
+    */
+    public function sponsors(): SponsorsRequestBuilder {
+        return new SponsorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

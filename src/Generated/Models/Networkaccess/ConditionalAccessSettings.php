@@ -27,7 +27,7 @@ class ConditionalAccessSettings extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class ConditionalAccessSettings extends Entity implements Parsable
      * @return Status|null
     */
     public function getSignalingStatus(): ?Status {
-        return $this->getBackingStore()->get('signalingStatus');
+        $val = $this->getBackingStore()->get('signalingStatus');
+        if (is_null($val) || $val instanceof Status) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signalingStatus'");
     }
 
     /**

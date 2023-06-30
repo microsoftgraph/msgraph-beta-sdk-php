@@ -30,7 +30,11 @@ class EncryptWithUserDefinedRights extends EncryptContent implements Parsable
      * @return bool|null
     */
     public function getAllowAdHocPermissions(): ?bool {
-        return $this->getBackingStore()->get('allowAdHocPermissions');
+        $val = $this->getBackingStore()->get('allowAdHocPermissions');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowAdHocPermissions'");
     }
 
     /**
@@ -38,7 +42,11 @@ class EncryptWithUserDefinedRights extends EncryptContent implements Parsable
      * @return bool|null
     */
     public function getAllowMailForwarding(): ?bool {
-        return $this->getBackingStore()->get('allowMailForwarding');
+        $val = $this->getBackingStore()->get('allowMailForwarding');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowMailForwarding'");
     }
 
     /**
@@ -46,12 +54,16 @@ class EncryptWithUserDefinedRights extends EncryptContent implements Parsable
      * @return string|null
     */
     public function getDecryptionRightsManagementTemplateId(): ?string {
-        return $this->getBackingStore()->get('decryptionRightsManagementTemplateId');
+        $val = $this->getBackingStore()->get('decryptionRightsManagementTemplateId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'decryptionRightsManagementTemplateId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

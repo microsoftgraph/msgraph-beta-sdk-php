@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * MobileApp Intent and Install State for a given device.
@@ -29,7 +30,7 @@ class MobileAppIntentAndState extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -45,7 +46,11 @@ class MobileAppIntentAndState extends Entity implements Parsable
      * @return string|null
     */
     public function getManagedDeviceIdentifier(): ?string {
-        return $this->getBackingStore()->get('managedDeviceIdentifier');
+        $val = $this->getBackingStore()->get('managedDeviceIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceIdentifier'");
     }
 
     /**
@@ -53,7 +58,13 @@ class MobileAppIntentAndState extends Entity implements Parsable
      * @return array<MobileAppIntentAndStateDetail>|null
     */
     public function getMobileAppList(): ?array {
-        return $this->getBackingStore()->get('mobileAppList');
+        $val = $this->getBackingStore()->get('mobileAppList');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MobileAppIntentAndStateDetail::class);
+            /** @var array<MobileAppIntentAndStateDetail>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mobileAppList'");
     }
 
     /**
@@ -61,7 +72,11 @@ class MobileAppIntentAndState extends Entity implements Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->getBackingStore()->get('userId');
+        $val = $this->getBackingStore()->get('userId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
     }
 
     /**

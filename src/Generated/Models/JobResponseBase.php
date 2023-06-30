@@ -39,7 +39,11 @@ class JobResponseBase extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('creationDateTime');
+        $val = $this->getBackingStore()->get('creationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'creationDateTime'");
     }
 
     /**
@@ -47,7 +51,11 @@ class JobResponseBase extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('endDateTime');
+        $val = $this->getBackingStore()->get('endDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endDateTime'");
     }
 
     /**
@@ -55,12 +63,16 @@ class JobResponseBase extends Entity implements Parsable
      * @return ClassificationError|null
     */
     public function getError(): ?ClassificationError {
-        return $this->getBackingStore()->get('error');
+        $val = $this->getBackingStore()->get('error');
+        if (is_null($val) || $val instanceof ClassificationError) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'error'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -81,7 +93,11 @@ class JobResponseBase extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('startDateTime');
+        $val = $this->getBackingStore()->get('startDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startDateTime'");
     }
 
     /**
@@ -89,7 +105,11 @@ class JobResponseBase extends Entity implements Parsable
      * @return string|null
     */
     public function getStatus(): ?string {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**
@@ -97,7 +117,11 @@ class JobResponseBase extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->getBackingStore()->get('tenantId');
+        $val = $this->getBackingStore()->get('tenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantId'");
     }
 
     /**
@@ -105,7 +129,11 @@ class JobResponseBase extends Entity implements Parsable
      * @return string|null
     */
     public function getType(): ?string {
-        return $this->getBackingStore()->get('type');
+        $val = $this->getBackingStore()->get('type');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
     }
 
     /**
@@ -113,7 +141,11 @@ class JobResponseBase extends Entity implements Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->getBackingStore()->get('userId');
+        $val = $this->getBackingStore()->get('userId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
     }
 
     /**

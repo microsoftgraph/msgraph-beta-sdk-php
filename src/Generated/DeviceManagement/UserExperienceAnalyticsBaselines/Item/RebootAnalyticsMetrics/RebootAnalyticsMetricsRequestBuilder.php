@@ -32,7 +32,7 @@ class RebootAnalyticsMetricsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The user experience analytics reboot analytics metrics.
+     * The scores and insights for the reboot analytics metrics.
      * @param RebootAnalyticsMetricsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -50,7 +50,7 @@ class RebootAnalyticsMetricsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The user experience analytics reboot analytics metrics.
+     * The scores and insights for the reboot analytics metrics.
      * @param RebootAnalyticsMetricsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

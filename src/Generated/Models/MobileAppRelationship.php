@@ -37,7 +37,7 @@ class MobileAppRelationship extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -55,7 +55,11 @@ class MobileAppRelationship extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetDisplayName(): ?string {
-        return $this->getBackingStore()->get('targetDisplayName');
+        $val = $this->getBackingStore()->get('targetDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetDisplayName'");
     }
 
     /**
@@ -63,7 +67,11 @@ class MobileAppRelationship extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetDisplayVersion(): ?string {
-        return $this->getBackingStore()->get('targetDisplayVersion');
+        $val = $this->getBackingStore()->get('targetDisplayVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetDisplayVersion'");
     }
 
     /**
@@ -71,7 +79,11 @@ class MobileAppRelationship extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetId(): ?string {
-        return $this->getBackingStore()->get('targetId');
+        $val = $this->getBackingStore()->get('targetId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetId'");
     }
 
     /**
@@ -79,7 +91,11 @@ class MobileAppRelationship extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetPublisher(): ?string {
-        return $this->getBackingStore()->get('targetPublisher');
+        $val = $this->getBackingStore()->get('targetPublisher');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetPublisher'");
     }
 
     /**
@@ -87,7 +103,11 @@ class MobileAppRelationship extends Entity implements Parsable
      * @return MobileAppRelationshipType|null
     */
     public function getTargetType(): ?MobileAppRelationshipType {
-        return $this->getBackingStore()->get('targetType');
+        $val = $this->getBackingStore()->get('targetType');
+        if (is_null($val) || $val instanceof MobileAppRelationshipType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetType'");
     }
 
     /**

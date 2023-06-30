@@ -37,7 +37,11 @@ class ImportedDeviceIdentity extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -45,7 +49,11 @@ class ImportedDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -53,12 +61,16 @@ class ImportedDeviceIdentity extends Entity implements Parsable
      * @return EnrollmentState|null
     */
     public function getEnrollmentState(): ?EnrollmentState {
-        return $this->getBackingStore()->get('enrollmentState');
+        $val = $this->getBackingStore()->get('enrollmentState');
+        if (is_null($val) || $val instanceof EnrollmentState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrollmentState'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -79,7 +91,11 @@ class ImportedDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getImportedDeviceIdentifier(): ?string {
-        return $this->getBackingStore()->get('importedDeviceIdentifier');
+        $val = $this->getBackingStore()->get('importedDeviceIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'importedDeviceIdentifier'");
     }
 
     /**
@@ -87,7 +103,11 @@ class ImportedDeviceIdentity extends Entity implements Parsable
      * @return ImportedDeviceIdentityType|null
     */
     public function getImportedDeviceIdentityType(): ?ImportedDeviceIdentityType {
-        return $this->getBackingStore()->get('importedDeviceIdentityType');
+        $val = $this->getBackingStore()->get('importedDeviceIdentityType');
+        if (is_null($val) || $val instanceof ImportedDeviceIdentityType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'importedDeviceIdentityType'");
     }
 
     /**
@@ -95,7 +115,11 @@ class ImportedDeviceIdentity extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastContactedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastContactedDateTime');
+        $val = $this->getBackingStore()->get('lastContactedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastContactedDateTime'");
     }
 
     /**
@@ -103,7 +127,11 @@ class ImportedDeviceIdentity extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -111,7 +139,11 @@ class ImportedDeviceIdentity extends Entity implements Parsable
      * @return Platform|null
     */
     public function getPlatform(): ?Platform {
-        return $this->getBackingStore()->get('platform');
+        $val = $this->getBackingStore()->get('platform');
+        if (is_null($val) || $val instanceof Platform) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'platform'");
     }
 
     /**

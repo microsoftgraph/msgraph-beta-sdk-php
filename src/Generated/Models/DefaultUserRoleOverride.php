@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DefaultUserRoleOverride extends Entity implements Parsable 
 {
@@ -26,7 +27,7 @@ class DefaultUserRoleOverride extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +42,11 @@ class DefaultUserRoleOverride extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDefault(): ?bool {
-        return $this->getBackingStore()->get('isDefault');
+        $val = $this->getBackingStore()->get('isDefault');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDefault'");
     }
 
     /**
@@ -49,7 +54,13 @@ class DefaultUserRoleOverride extends Entity implements Parsable
      * @return array<UnifiedRolePermission>|null
     */
     public function getRolePermissions(): ?array {
-        return $this->getBackingStore()->get('rolePermissions');
+        $val = $this->getBackingStore()->get('rolePermissions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UnifiedRolePermission::class);
+            /** @var array<UnifiedRolePermission>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rolePermissions'");
     }
 
     /**

@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ExactMatchSession extends ExactMatchSessionBase implements Parsable 
 {
@@ -29,7 +30,11 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
      * @return string|null
     */
     public function getChecksum(): ?string {
-        return $this->getBackingStore()->get('checksum');
+        $val = $this->getBackingStore()->get('checksum');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'checksum'");
     }
 
     /**
@@ -37,19 +42,30 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
      * @return string|null
     */
     public function getDataUploadURI(): ?string {
-        return $this->getBackingStore()->get('dataUploadURI');
+        $val = $this->getBackingStore()->get('dataUploadURI');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dataUploadURI'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'checksum' => fn(ParseNode $n) => $o->setChecksum($n->getStringValue()),
             'dataUploadURI' => fn(ParseNode $n) => $o->setDataUploadURI($n->getStringValue()),
-            'fields' => fn(ParseNode $n) => $o->setFields($n->getCollectionOfPrimitiveValues()),
+            'fields' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setFields($val);
+            },
             'fileName' => fn(ParseNode $n) => $o->setFileName($n->getStringValue()),
             'rowsPerBlock' => fn(ParseNode $n) => $o->setRowsPerBlock($n->getIntegerValue()),
             'salt' => fn(ParseNode $n) => $o->setSalt($n->getStringValue()),
@@ -63,7 +79,13 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
      * @return array<string>|null
     */
     public function getFields(): ?array {
-        return $this->getBackingStore()->get('fields');
+        $val = $this->getBackingStore()->get('fields');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fields'");
     }
 
     /**
@@ -71,7 +93,11 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
      * @return string|null
     */
     public function getFileName(): ?string {
-        return $this->getBackingStore()->get('fileName');
+        $val = $this->getBackingStore()->get('fileName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileName'");
     }
 
     /**
@@ -79,7 +105,11 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
      * @return int|null
     */
     public function getRowsPerBlock(): ?int {
-        return $this->getBackingStore()->get('rowsPerBlock');
+        $val = $this->getBackingStore()->get('rowsPerBlock');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rowsPerBlock'");
     }
 
     /**
@@ -87,7 +117,11 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
      * @return string|null
     */
     public function getSalt(): ?string {
-        return $this->getBackingStore()->get('salt');
+        $val = $this->getBackingStore()->get('salt');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'salt'");
     }
 
     /**
@@ -95,7 +129,11 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
      * @return ExactMatchUploadAgent|null
     */
     public function getUploadAgent(): ?ExactMatchUploadAgent {
-        return $this->getBackingStore()->get('uploadAgent');
+        $val = $this->getBackingStore()->get('uploadAgent');
+        if (is_null($val) || $val instanceof ExactMatchUploadAgent) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'uploadAgent'");
     }
 
     /**
@@ -103,7 +141,11 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
      * @return string|null
     */
     public function getUploadAgentId(): ?string {
-        return $this->getBackingStore()->get('uploadAgentId');
+        $val = $this->getBackingStore()->get('uploadAgentId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'uploadAgentId'");
     }
 
     /**

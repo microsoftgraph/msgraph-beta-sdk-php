@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagementConfigurationSettingDefinition implements Parsable 
 {
@@ -32,16 +33,20 @@ class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Gets the defaultOptionId property value. Default option for the choice setting.
+     * Gets the defaultOptionId property value. Default option for choice setting
      * @return string|null
     */
     public function getDefaultOptionId(): ?string {
-        return $this->getBackingStore()->get('defaultOptionId');
+        $val = $this->getBackingStore()->get('defaultOptionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultOptionId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -52,11 +57,17 @@ class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Gets the options property value. Options for the setting that can be selected.
+     * Gets the options property value. Options for the setting that can be selected
      * @return array<DeviceManagementConfigurationOptionDefinition>|null
     */
     public function getOptions(): ?array {
-        return $this->getBackingStore()->get('options');
+        $val = $this->getBackingStore()->get('options');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementConfigurationOptionDefinition::class);
+            /** @var array<DeviceManagementConfigurationOptionDefinition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'options'");
     }
 
     /**
@@ -70,7 +81,7 @@ class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Sets the defaultOptionId property value. Default option for the choice setting.
+     * Sets the defaultOptionId property value. Default option for choice setting
      * @param string|null $value Value to set for the defaultOptionId property.
     */
     public function setDefaultOptionId(?string $value): void {
@@ -78,7 +89,7 @@ class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Sets the options property value. Options for the setting that can be selected.
+     * Sets the options property value. Options for the setting that can be selected
      * @param array<DeviceManagementConfigurationOptionDefinition>|null $value Value to set for the options property.
     */
     public function setOptions(?array $value): void {

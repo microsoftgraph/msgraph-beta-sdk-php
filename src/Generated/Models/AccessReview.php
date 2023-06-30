@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AccessReview extends Entity implements Parsable 
 {
@@ -30,7 +31,11 @@ class AccessReview extends Entity implements Parsable
      * @return string|null
     */
     public function getBusinessFlowTemplateId(): ?string {
-        return $this->getBackingStore()->get('businessFlowTemplateId');
+        $val = $this->getBackingStore()->get('businessFlowTemplateId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'businessFlowTemplateId'");
     }
 
     /**
@@ -38,7 +43,11 @@ class AccessReview extends Entity implements Parsable
      * @return UserIdentity|null
     */
     public function getCreatedBy(): ?UserIdentity {
-        return $this->getBackingStore()->get('createdBy');
+        $val = $this->getBackingStore()->get('createdBy');
+        if (is_null($val) || $val instanceof UserIdentity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdBy'");
     }
 
     /**
@@ -46,7 +55,13 @@ class AccessReview extends Entity implements Parsable
      * @return array<AccessReviewDecision>|null
     */
     public function getDecisions(): ?array {
-        return $this->getBackingStore()->get('decisions');
+        $val = $this->getBackingStore()->get('decisions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AccessReviewDecision::class);
+            /** @var array<AccessReviewDecision>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'decisions'");
     }
 
     /**
@@ -54,7 +69,11 @@ class AccessReview extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -62,7 +81,11 @@ class AccessReview extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -70,12 +93,16 @@ class AccessReview extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('endDateTime');
+        $val = $this->getBackingStore()->get('endDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -102,7 +129,13 @@ class AccessReview extends Entity implements Parsable
      * @return array<AccessReview>|null
     */
     public function getInstances(): ?array {
-        return $this->getBackingStore()->get('instances');
+        $val = $this->getBackingStore()->get('instances');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AccessReview::class);
+            /** @var array<AccessReview>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'instances'");
     }
 
     /**
@@ -110,7 +143,13 @@ class AccessReview extends Entity implements Parsable
      * @return array<AccessReviewDecision>|null
     */
     public function getMyDecisions(): ?array {
-        return $this->getBackingStore()->get('myDecisions');
+        $val = $this->getBackingStore()->get('myDecisions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AccessReviewDecision::class);
+            /** @var array<AccessReviewDecision>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'myDecisions'");
     }
 
     /**
@@ -118,7 +157,11 @@ class AccessReview extends Entity implements Parsable
      * @return Identity|null
     */
     public function getReviewedEntity(): ?Identity {
-        return $this->getBackingStore()->get('reviewedEntity');
+        $val = $this->getBackingStore()->get('reviewedEntity');
+        if (is_null($val) || $val instanceof Identity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reviewedEntity'");
     }
 
     /**
@@ -126,7 +169,13 @@ class AccessReview extends Entity implements Parsable
      * @return array<AccessReviewReviewer>|null
     */
     public function getReviewers(): ?array {
-        return $this->getBackingStore()->get('reviewers');
+        $val = $this->getBackingStore()->get('reviewers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AccessReviewReviewer::class);
+            /** @var array<AccessReviewReviewer>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reviewers'");
     }
 
     /**
@@ -134,7 +183,11 @@ class AccessReview extends Entity implements Parsable
      * @return string|null
     */
     public function getReviewerType(): ?string {
-        return $this->getBackingStore()->get('reviewerType');
+        $val = $this->getBackingStore()->get('reviewerType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reviewerType'");
     }
 
     /**
@@ -142,7 +195,11 @@ class AccessReview extends Entity implements Parsable
      * @return AccessReviewSettings|null
     */
     public function getSettings(): ?AccessReviewSettings {
-        return $this->getBackingStore()->get('settings');
+        $val = $this->getBackingStore()->get('settings');
+        if (is_null($val) || $val instanceof AccessReviewSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settings'");
     }
 
     /**
@@ -150,7 +207,11 @@ class AccessReview extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('startDateTime');
+        $val = $this->getBackingStore()->get('startDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startDateTime'");
     }
 
     /**
@@ -158,7 +219,11 @@ class AccessReview extends Entity implements Parsable
      * @return string|null
     */
     public function getStatus(): ?string {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

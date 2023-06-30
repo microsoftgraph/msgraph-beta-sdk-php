@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics battery health model performance entity contains battery related information for all unique device models in their organization.
+*/
 class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsBatteryHealthModelPerformance and sets the default values.
+     * Instantiates a new userExperienceAnalyticsBatteryHealthModelPerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -29,7 +32,11 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
      * @return int|null
     */
     public function getActiveDevices(): ?int {
-        return $this->getBackingStore()->get('activeDevices');
+        $val = $this->getBackingStore()->get('activeDevices');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activeDevices'");
     }
 
     /**
@@ -37,7 +44,11 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
      * @return int|null
     */
     public function getAverageBatteryAgeInDays(): ?int {
-        return $this->getBackingStore()->get('averageBatteryAgeInDays');
+        $val = $this->getBackingStore()->get('averageBatteryAgeInDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'averageBatteryAgeInDays'");
     }
 
     /**
@@ -45,7 +56,11 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
      * @return int|null
     */
     public function getAverageEstimatedRuntimeInMinutes(): ?int {
-        return $this->getBackingStore()->get('averageEstimatedRuntimeInMinutes');
+        $val = $this->getBackingStore()->get('averageEstimatedRuntimeInMinutes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'averageEstimatedRuntimeInMinutes'");
     }
 
     /**
@@ -53,12 +68,16 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
      * @return int|null
     */
     public function getAverageMaxCapacityPercentage(): ?int {
-        return $this->getBackingStore()->get('averageMaxCapacityPercentage');
+        $val = $this->getBackingStore()->get('averageMaxCapacityPercentage');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'averageMaxCapacityPercentage'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -78,7 +97,11 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
      * @return string|null
     */
     public function getManufacturer(): ?string {
-        return $this->getBackingStore()->get('manufacturer');
+        $val = $this->getBackingStore()->get('manufacturer');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'manufacturer'");
     }
 
     /**
@@ -86,7 +109,11 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
      * @return string|null
     */
     public function getModel(): ?string {
-        return $this->getBackingStore()->get('model');
+        $val = $this->getBackingStore()->get('model');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'model'");
     }
 
     /**
@@ -94,7 +121,11 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
      * @return int|null
     */
     public function getModelBatteryHealthScore(): ?int {
-        return $this->getBackingStore()->get('modelBatteryHealthScore');
+        $val = $this->getBackingStore()->get('modelBatteryHealthScore');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'modelBatteryHealthScore'");
     }
 
     /**

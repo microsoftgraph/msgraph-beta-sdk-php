@@ -29,7 +29,11 @@ class AllowedDataLocation extends Entity implements Parsable
      * @return string|null
     */
     public function getAppId(): ?string {
-        return $this->getBackingStore()->get('appId');
+        $val = $this->getBackingStore()->get('appId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appId'");
     }
 
     /**
@@ -37,12 +41,16 @@ class AllowedDataLocation extends Entity implements Parsable
      * @return string|null
     */
     public function getDomain(): ?string {
-        return $this->getBackingStore()->get('domain');
+        $val = $this->getBackingStore()->get('domain');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'domain'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -59,7 +67,11 @@ class AllowedDataLocation extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDefault(): ?bool {
-        return $this->getBackingStore()->get('isDefault');
+        $val = $this->getBackingStore()->get('isDefault');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDefault'");
     }
 
     /**
@@ -67,7 +79,11 @@ class AllowedDataLocation extends Entity implements Parsable
      * @return string|null
     */
     public function getLocation(): ?string {
-        return $this->getBackingStore()->get('location');
+        $val = $this->getBackingStore()->get('location');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'location'");
     }
 
     /**

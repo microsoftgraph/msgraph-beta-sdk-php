@@ -6,6 +6,7 @@ use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class LabelsRoot extends Entity implements Parsable 
 {
@@ -27,7 +28,7 @@ class LabelsRoot extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +42,13 @@ class LabelsRoot extends Entity implements Parsable
      * @return array<RetentionLabel>|null
     */
     public function getRetentionLabels(): ?array {
-        return $this->getBackingStore()->get('retentionLabels');
+        $val = $this->getBackingStore()->get('retentionLabels');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RetentionLabel::class);
+            /** @var array<RetentionLabel>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'retentionLabels'");
     }
 
     /**

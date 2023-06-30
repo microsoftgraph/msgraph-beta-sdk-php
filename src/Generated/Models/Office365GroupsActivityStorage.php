@@ -27,7 +27,7 @@ class Office365GroupsActivityStorage extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -45,7 +45,11 @@ class Office365GroupsActivityStorage extends Entity implements Parsable
      * @return int|null
     */
     public function getMailboxStorageUsedInBytes(): ?int {
-        return $this->getBackingStore()->get('mailboxStorageUsedInBytes');
+        $val = $this->getBackingStore()->get('mailboxStorageUsedInBytes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mailboxStorageUsedInBytes'");
     }
 
     /**
@@ -53,7 +57,11 @@ class Office365GroupsActivityStorage extends Entity implements Parsable
      * @return Date|null
     */
     public function getReportDate(): ?Date {
-        return $this->getBackingStore()->get('reportDate');
+        $val = $this->getBackingStore()->get('reportDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reportDate'");
     }
 
     /**
@@ -61,7 +69,11 @@ class Office365GroupsActivityStorage extends Entity implements Parsable
      * @return string|null
     */
     public function getReportPeriod(): ?string {
-        return $this->getBackingStore()->get('reportPeriod');
+        $val = $this->getBackingStore()->get('reportPeriod');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reportPeriod'");
     }
 
     /**
@@ -69,7 +81,11 @@ class Office365GroupsActivityStorage extends Entity implements Parsable
      * @return Date|null
     */
     public function getReportRefreshDate(): ?Date {
-        return $this->getBackingStore()->get('reportRefreshDate');
+        $val = $this->getBackingStore()->get('reportRefreshDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reportRefreshDate'");
     }
 
     /**
@@ -77,7 +93,11 @@ class Office365GroupsActivityStorage extends Entity implements Parsable
      * @return int|null
     */
     public function getSiteStorageUsedInBytes(): ?int {
-        return $this->getBackingStore()->get('siteStorageUsedInBytes');
+        $val = $this->getBackingStore()->get('siteStorageUsedInBytes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'siteStorageUsedInBytes'");
     }
 
     /**

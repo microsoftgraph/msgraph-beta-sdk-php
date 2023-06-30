@@ -40,7 +40,12 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, BackedMode
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -56,12 +61,16 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getErrorMessage(): ?string {
-        return $this->getBackingStore()->get('errorMessage');
+        $val = $this->getBackingStore()->get('errorMessage');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorMessage'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -78,7 +87,11 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, BackedMode
      * @return DateTime|null
     */
     public function getLastMembershipUpdated(): ?DateTime {
-        return $this->getBackingStore()->get('lastMembershipUpdated');
+        $val = $this->getBackingStore()->get('lastMembershipUpdated');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastMembershipUpdated'");
     }
 
     /**
@@ -86,7 +99,11 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -94,7 +111,11 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, BackedMode
      * @return MembershipRuleProcessingStatusDetails|null
     */
     public function getStatus(): ?MembershipRuleProcessingStatusDetails {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof MembershipRuleProcessingStatusDetails) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

@@ -32,12 +32,16 @@ class UnsupportedGroupPolicyExtension extends Entity implements Parsable
      * @return string|null
     */
     public function getExtensionType(): ?string {
-        return $this->getBackingStore()->get('extensionType');
+        $val = $this->getBackingStore()->get('extensionType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'extensionType'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -54,7 +58,11 @@ class UnsupportedGroupPolicyExtension extends Entity implements Parsable
      * @return string|null
     */
     public function getNamespaceUrl(): ?string {
-        return $this->getBackingStore()->get('namespaceUrl');
+        $val = $this->getBackingStore()->get('namespaceUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'namespaceUrl'");
     }
 
     /**
@@ -62,7 +70,11 @@ class UnsupportedGroupPolicyExtension extends Entity implements Parsable
      * @return string|null
     */
     public function getNodeName(): ?string {
-        return $this->getBackingStore()->get('nodeName');
+        $val = $this->getBackingStore()->get('nodeName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'nodeName'");
     }
 
     /**
@@ -70,7 +82,11 @@ class UnsupportedGroupPolicyExtension extends Entity implements Parsable
      * @return GroupPolicySettingScope|null
     */
     public function getSettingScope(): ?GroupPolicySettingScope {
-        return $this->getBackingStore()->get('settingScope');
+        $val = $this->getBackingStore()->get('settingScope');
+        if (is_null($val) || $val instanceof GroupPolicySettingScope) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingScope'");
     }
 
     /**

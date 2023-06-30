@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics battery health runtime history entity contains the trend of runtime of a device over a period of 30 days
+*/
 class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory and sets the default values.
+     * Instantiates a new userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -29,7 +32,11 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity im
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->getBackingStore()->get('deviceId');
+        $val = $this->getBackingStore()->get('deviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceId'");
     }
 
     /**
@@ -37,12 +44,16 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity im
      * @return int|null
     */
     public function getEstimatedRuntimeInMinutes(): ?int {
-        return $this->getBackingStore()->get('estimatedRuntimeInMinutes');
+        $val = $this->getBackingStore()->get('estimatedRuntimeInMinutes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'estimatedRuntimeInMinutes'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -58,7 +69,11 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity im
      * @return string|null
     */
     public function getRuntimeDateTime(): ?string {
-        return $this->getBackingStore()->get('runtimeDateTime');
+        $val = $this->getBackingStore()->get('runtimeDateTime');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'runtimeDateTime'");
     }
 
     /**

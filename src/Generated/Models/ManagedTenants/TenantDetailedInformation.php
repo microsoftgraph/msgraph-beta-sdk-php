@@ -30,7 +30,11 @@ class TenantDetailedInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getCity(): ?string {
-        return $this->getBackingStore()->get('city');
+        $val = $this->getBackingStore()->get('city');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'city'");
     }
 
     /**
@@ -38,7 +42,11 @@ class TenantDetailedInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getCountryCode(): ?string {
-        return $this->getBackingStore()->get('countryCode');
+        $val = $this->getBackingStore()->get('countryCode');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'countryCode'");
     }
 
     /**
@@ -46,7 +54,11 @@ class TenantDetailedInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getCountryName(): ?string {
-        return $this->getBackingStore()->get('countryName');
+        $val = $this->getBackingStore()->get('countryName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'countryName'");
     }
 
     /**
@@ -54,7 +66,11 @@ class TenantDetailedInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getDefaultDomainName(): ?string {
-        return $this->getBackingStore()->get('defaultDomainName');
+        $val = $this->getBackingStore()->get('defaultDomainName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultDomainName'");
     }
 
     /**
@@ -62,12 +78,16 @@ class TenantDetailedInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -90,7 +110,11 @@ class TenantDetailedInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getIndustryName(): ?string {
-        return $this->getBackingStore()->get('industryName');
+        $val = $this->getBackingStore()->get('industryName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'industryName'");
     }
 
     /**
@@ -98,7 +122,11 @@ class TenantDetailedInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getRegion(): ?string {
-        return $this->getBackingStore()->get('region');
+        $val = $this->getBackingStore()->get('region');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'region'");
     }
 
     /**
@@ -106,7 +134,11 @@ class TenantDetailedInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getSegmentName(): ?string {
-        return $this->getBackingStore()->get('segmentName');
+        $val = $this->getBackingStore()->get('segmentName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'segmentName'");
     }
 
     /**
@@ -114,7 +146,11 @@ class TenantDetailedInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->getBackingStore()->get('tenantId');
+        $val = $this->getBackingStore()->get('tenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantId'");
     }
 
     /**
@@ -122,7 +158,11 @@ class TenantDetailedInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getVerticalName(): ?string {
-        return $this->getBackingStore()->get('verticalName');
+        $val = $this->getBackingStore()->get('verticalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'verticalName'");
     }
 
     /**

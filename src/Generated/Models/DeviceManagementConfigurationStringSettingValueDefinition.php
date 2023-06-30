@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceManagementConfigurationSettingValueDefinition implements Parsable 
 {
@@ -27,12 +28,19 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'fileTypes' => fn(ParseNode $n) => $o->setFileTypes($n->getCollectionOfPrimitiveValues()),
+            'fileTypes' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setFileTypes($val);
+            },
             'format' => fn(ParseNode $n) => $o->setFormat($n->getEnumValue(DeviceManagementConfigurationStringFormat::class)),
             'inputValidationSchema' => fn(ParseNode $n) => $o->setInputValidationSchema($n->getStringValue()),
             'isSecret' => fn(ParseNode $n) => $o->setIsSecret($n->getBooleanValue()),
@@ -46,7 +54,13 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
      * @return array<string>|null
     */
     public function getFileTypes(): ?array {
-        return $this->getBackingStore()->get('fileTypes');
+        $val = $this->getBackingStore()->get('fileTypes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileTypes'");
     }
 
     /**
@@ -54,7 +68,11 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
      * @return DeviceManagementConfigurationStringFormat|null
     */
     public function getFormat(): ?DeviceManagementConfigurationStringFormat {
-        return $this->getBackingStore()->get('format');
+        $val = $this->getBackingStore()->get('format');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationStringFormat) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'format'");
     }
 
     /**
@@ -62,7 +80,11 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
      * @return string|null
     */
     public function getInputValidationSchema(): ?string {
-        return $this->getBackingStore()->get('inputValidationSchema');
+        $val = $this->getBackingStore()->get('inputValidationSchema');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inputValidationSchema'");
     }
 
     /**
@@ -70,7 +92,11 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
      * @return bool|null
     */
     public function getIsSecret(): ?bool {
-        return $this->getBackingStore()->get('isSecret');
+        $val = $this->getBackingStore()->get('isSecret');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isSecret'");
     }
 
     /**
@@ -78,7 +104,11 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
      * @return int|null
     */
     public function getMaximumLength(): ?int {
-        return $this->getBackingStore()->get('maximumLength');
+        $val = $this->getBackingStore()->get('maximumLength');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maximumLength'");
     }
 
     /**
@@ -86,7 +116,11 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
      * @return int|null
     */
     public function getMinimumLength(): ?int {
-        return $this->getBackingStore()->get('minimumLength');
+        $val = $this->getBackingStore()->get('minimumLength');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumLength'");
     }
 
     /**

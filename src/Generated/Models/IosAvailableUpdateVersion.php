@@ -10,6 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * iOS available update version details
@@ -43,7 +44,12 @@ class IosAvailableUpdateVersion implements AdditionalDataHolder, BackedModel, Pa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -59,12 +65,16 @@ class IosAvailableUpdateVersion implements AdditionalDataHolder, BackedModel, Pa
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('expirationDateTime');
+        $val = $this->getBackingStore()->get('expirationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expirationDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -73,7 +83,14 @@ class IosAvailableUpdateVersion implements AdditionalDataHolder, BackedModel, Pa
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'postingDateTime' => fn(ParseNode $n) => $o->setPostingDateTime($n->getDateTimeValue()),
             'productVersion' => fn(ParseNode $n) => $o->setProductVersion($n->getStringValue()),
-            'supportedDevices' => fn(ParseNode $n) => $o->setSupportedDevices($n->getCollectionOfPrimitiveValues()),
+            'supportedDevices' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSupportedDevices($val);
+            },
         ];
     }
 
@@ -82,7 +99,11 @@ class IosAvailableUpdateVersion implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -90,7 +111,11 @@ class IosAvailableUpdateVersion implements AdditionalDataHolder, BackedModel, Pa
      * @return DateTime|null
     */
     public function getPostingDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('postingDateTime');
+        $val = $this->getBackingStore()->get('postingDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'postingDateTime'");
     }
 
     /**
@@ -98,7 +123,11 @@ class IosAvailableUpdateVersion implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getProductVersion(): ?string {
-        return $this->getBackingStore()->get('productVersion');
+        $val = $this->getBackingStore()->get('productVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'productVersion'");
     }
 
     /**
@@ -106,7 +135,13 @@ class IosAvailableUpdateVersion implements AdditionalDataHolder, BackedModel, Pa
      * @return array<string>|null
     */
     public function getSupportedDevices(): ?array {
-        return $this->getBackingStore()->get('supportedDevices');
+        $val = $this->getBackingStore()->get('supportedDevices');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedDevices'");
     }
 
     /**

@@ -39,7 +39,12 @@ class TeamworkContentCameraConfiguration implements AdditionalDataHolder, Backed
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +57,7 @@ class TeamworkContentCameraConfiguration implements AdditionalDataHolder, Backed
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -69,7 +74,11 @@ class TeamworkContentCameraConfiguration implements AdditionalDataHolder, Backed
      * @return bool|null
     */
     public function getIsContentCameraInverted(): ?bool {
-        return $this->getBackingStore()->get('isContentCameraInverted');
+        $val = $this->getBackingStore()->get('isContentCameraInverted');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isContentCameraInverted'");
     }
 
     /**
@@ -77,7 +86,11 @@ class TeamworkContentCameraConfiguration implements AdditionalDataHolder, Backed
      * @return bool|null
     */
     public function getIsContentCameraOptional(): ?bool {
-        return $this->getBackingStore()->get('isContentCameraOptional');
+        $val = $this->getBackingStore()->get('isContentCameraOptional');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isContentCameraOptional'");
     }
 
     /**
@@ -85,7 +98,11 @@ class TeamworkContentCameraConfiguration implements AdditionalDataHolder, Backed
      * @return bool|null
     */
     public function getIsContentEnhancementEnabled(): ?bool {
-        return $this->getBackingStore()->get('isContentEnhancementEnabled');
+        $val = $this->getBackingStore()->get('isContentEnhancementEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isContentEnhancementEnabled'");
     }
 
     /**
@@ -93,7 +110,11 @@ class TeamworkContentCameraConfiguration implements AdditionalDataHolder, Backed
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

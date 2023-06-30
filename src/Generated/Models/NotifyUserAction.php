@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class NotifyUserAction extends DlpActionInfo implements Parsable 
 {
@@ -30,7 +31,11 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
      * @return DateTime|null
     */
     public function getActionLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('actionLastModifiedDateTime');
+        $val = $this->getBackingStore()->get('actionLastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'actionLastModifiedDateTime'");
     }
 
     /**
@@ -38,12 +43,16 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
      * @return string|null
     */
     public function getEmailText(): ?string {
-        return $this->getBackingStore()->get('emailText');
+        $val = $this->getBackingStore()->get('emailText');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailText'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -51,7 +60,14 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
             'actionLastModifiedDateTime' => fn(ParseNode $n) => $o->setActionLastModifiedDateTime($n->getDateTimeValue()),
             'emailText' => fn(ParseNode $n) => $o->setEmailText($n->getStringValue()),
             'policyTip' => fn(ParseNode $n) => $o->setPolicyTip($n->getStringValue()),
-            'recipients' => fn(ParseNode $n) => $o->setRecipients($n->getCollectionOfPrimitiveValues()),
+            'recipients' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRecipients($val);
+            },
         ]);
     }
 
@@ -60,7 +76,11 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
      * @return string|null
     */
     public function getPolicyTip(): ?string {
-        return $this->getBackingStore()->get('policyTip');
+        $val = $this->getBackingStore()->get('policyTip');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyTip'");
     }
 
     /**
@@ -68,7 +88,13 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
      * @return array<string>|null
     */
     public function getRecipients(): ?array {
-        return $this->getBackingStore()->get('recipients');
+        $val = $this->getBackingStore()->get('recipients');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recipients'");
     }
 
     /**

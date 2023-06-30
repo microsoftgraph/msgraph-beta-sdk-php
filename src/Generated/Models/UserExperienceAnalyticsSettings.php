@@ -42,7 +42,12 @@ class UserExperienceAnalyticsSettings implements AdditionalDataHolder, BackedMod
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -54,16 +59,20 @@ class UserExperienceAnalyticsSettings implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Gets the configurationManagerDataConnectorConfigured property value. True if Tenant attach is configured. If configured then SCCM tenant attached devices will show up in UXA reporting.
+     * Gets the configurationManagerDataConnectorConfigured property value. When TRUE, indicates Tenant attach is configured properly and System Center Configuration Manager (SCCM) tenant attached devices will show up in endpoint analytics reporting. When FALSE, indicates Tenant attach is not configured. FALSE by default.
      * @return bool|null
     */
     public function getConfigurationManagerDataConnectorConfigured(): ?bool {
-        return $this->getBackingStore()->get('configurationManagerDataConnectorConfigured');
+        $val = $this->getBackingStore()->get('configurationManagerDataConnectorConfigured');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configurationManagerDataConnectorConfigured'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -78,7 +87,11 @@ class UserExperienceAnalyticsSettings implements AdditionalDataHolder, BackedMod
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -108,7 +121,7 @@ class UserExperienceAnalyticsSettings implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Sets the configurationManagerDataConnectorConfigured property value. True if Tenant attach is configured. If configured then SCCM tenant attached devices will show up in UXA reporting.
+     * Sets the configurationManagerDataConnectorConfigured property value. When TRUE, indicates Tenant attach is configured properly and System Center Configuration Manager (SCCM) tenant attached devices will show up in endpoint analytics reporting. When FALSE, indicates Tenant attach is not configured. FALSE by default.
      * @param bool|null $value Value to set for the configurationManagerDataConnectorConfigured property.
     */
     public function setConfigurationManagerDataConnectorConfigured(?bool $value): void {

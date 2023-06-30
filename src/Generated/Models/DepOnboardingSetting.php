@@ -6,11 +6,15 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * The depOnboardingSetting represents an instance of the Apple DEP service being onboarded to Intune. The onboarded service instance manages an Apple Token used to synchronize data between Apple and Intune.
+*/
 class DepOnboardingSetting extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DepOnboardingSetting and sets the default values.
+     * Instantiates a new depOnboardingSetting and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -30,7 +34,11 @@ class DepOnboardingSetting extends Entity implements Parsable
      * @return string|null
     */
     public function getAppleIdentifier(): ?string {
-        return $this->getBackingStore()->get('appleIdentifier');
+        $val = $this->getBackingStore()->get('appleIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appleIdentifier'");
     }
 
     /**
@@ -38,7 +46,11 @@ class DepOnboardingSetting extends Entity implements Parsable
      * @return bool|null
     */
     public function getDataSharingConsentGranted(): ?bool {
-        return $this->getBackingStore()->get('dataSharingConsentGranted');
+        $val = $this->getBackingStore()->get('dataSharingConsentGranted');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dataSharingConsentGranted'");
     }
 
     /**
@@ -46,7 +58,11 @@ class DepOnboardingSetting extends Entity implements Parsable
      * @return DepIOSEnrollmentProfile|null
     */
     public function getDefaultIosEnrollmentProfile(): ?DepIOSEnrollmentProfile {
-        return $this->getBackingStore()->get('defaultIosEnrollmentProfile');
+        $val = $this->getBackingStore()->get('defaultIosEnrollmentProfile');
+        if (is_null($val) || $val instanceof DepIOSEnrollmentProfile) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultIosEnrollmentProfile'");
     }
 
     /**
@@ -54,7 +70,11 @@ class DepOnboardingSetting extends Entity implements Parsable
      * @return DepMacOSEnrollmentProfile|null
     */
     public function getDefaultMacOsEnrollmentProfile(): ?DepMacOSEnrollmentProfile {
-        return $this->getBackingStore()->get('defaultMacOsEnrollmentProfile');
+        $val = $this->getBackingStore()->get('defaultMacOsEnrollmentProfile');
+        if (is_null($val) || $val instanceof DepMacOSEnrollmentProfile) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultMacOsEnrollmentProfile'");
     }
 
     /**
@@ -62,12 +82,18 @@ class DepOnboardingSetting extends Entity implements Parsable
      * @return array<EnrollmentProfile>|null
     */
     public function getEnrollmentProfiles(): ?array {
-        return $this->getBackingStore()->get('enrollmentProfiles');
+        $val = $this->getBackingStore()->get('enrollmentProfiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, EnrollmentProfile::class);
+            /** @var array<EnrollmentProfile>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrollmentProfiles'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -82,7 +108,14 @@ class DepOnboardingSetting extends Entity implements Parsable
             'lastSuccessfulSyncDateTime' => fn(ParseNode $n) => $o->setLastSuccessfulSyncDateTime($n->getDateTimeValue()),
             'lastSyncErrorCode' => fn(ParseNode $n) => $o->setLastSyncErrorCode($n->getIntegerValue()),
             'lastSyncTriggeredDateTime' => fn(ParseNode $n) => $o->setLastSyncTriggeredDateTime($n->getDateTimeValue()),
-            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
+            'roleScopeTagIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoleScopeTagIds($val);
+            },
             'shareTokenWithSchoolDataSyncService' => fn(ParseNode $n) => $o->setShareTokenWithSchoolDataSyncService($n->getBooleanValue()),
             'syncedDeviceCount' => fn(ParseNode $n) => $o->setSyncedDeviceCount($n->getIntegerValue()),
             'tokenExpirationDateTime' => fn(ParseNode $n) => $o->setTokenExpirationDateTime($n->getDateTimeValue()),
@@ -96,7 +129,13 @@ class DepOnboardingSetting extends Entity implements Parsable
      * @return array<ImportedAppleDeviceIdentity>|null
     */
     public function getImportedAppleDeviceIdentities(): ?array {
-        return $this->getBackingStore()->get('importedAppleDeviceIdentities');
+        $val = $this->getBackingStore()->get('importedAppleDeviceIdentities');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ImportedAppleDeviceIdentity::class);
+            /** @var array<ImportedAppleDeviceIdentity>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'importedAppleDeviceIdentities'");
     }
 
     /**
@@ -104,7 +143,11 @@ class DepOnboardingSetting extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -112,7 +155,11 @@ class DepOnboardingSetting extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastSuccessfulSyncDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastSuccessfulSyncDateTime');
+        $val = $this->getBackingStore()->get('lastSuccessfulSyncDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSuccessfulSyncDateTime'");
     }
 
     /**
@@ -120,7 +167,11 @@ class DepOnboardingSetting extends Entity implements Parsable
      * @return int|null
     */
     public function getLastSyncErrorCode(): ?int {
-        return $this->getBackingStore()->get('lastSyncErrorCode');
+        $val = $this->getBackingStore()->get('lastSyncErrorCode');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSyncErrorCode'");
     }
 
     /**
@@ -128,7 +179,11 @@ class DepOnboardingSetting extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastSyncTriggeredDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastSyncTriggeredDateTime');
+        $val = $this->getBackingStore()->get('lastSyncTriggeredDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSyncTriggeredDateTime'");
     }
 
     /**
@@ -136,7 +191,13 @@ class DepOnboardingSetting extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->getBackingStore()->get('roleScopeTagIds');
+        $val = $this->getBackingStore()->get('roleScopeTagIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleScopeTagIds'");
     }
 
     /**
@@ -144,7 +205,11 @@ class DepOnboardingSetting extends Entity implements Parsable
      * @return bool|null
     */
     public function getShareTokenWithSchoolDataSyncService(): ?bool {
-        return $this->getBackingStore()->get('shareTokenWithSchoolDataSyncService');
+        $val = $this->getBackingStore()->get('shareTokenWithSchoolDataSyncService');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'shareTokenWithSchoolDataSyncService'");
     }
 
     /**
@@ -152,7 +217,11 @@ class DepOnboardingSetting extends Entity implements Parsable
      * @return int|null
     */
     public function getSyncedDeviceCount(): ?int {
-        return $this->getBackingStore()->get('syncedDeviceCount');
+        $val = $this->getBackingStore()->get('syncedDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'syncedDeviceCount'");
     }
 
     /**
@@ -160,7 +229,11 @@ class DepOnboardingSetting extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getTokenExpirationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('tokenExpirationDateTime');
+        $val = $this->getBackingStore()->get('tokenExpirationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tokenExpirationDateTime'");
     }
 
     /**
@@ -168,7 +241,11 @@ class DepOnboardingSetting extends Entity implements Parsable
      * @return string|null
     */
     public function getTokenName(): ?string {
-        return $this->getBackingStore()->get('tokenName');
+        $val = $this->getBackingStore()->get('tokenName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tokenName'");
     }
 
     /**
@@ -176,7 +253,11 @@ class DepOnboardingSetting extends Entity implements Parsable
      * @return DepTokenType|null
     */
     public function getTokenType(): ?DepTokenType {
-        return $this->getBackingStore()->get('tokenType');
+        $val = $this->getBackingStore()->get('tokenType');
+        if (is_null($val) || $val instanceof DepTokenType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tokenType'");
     }
 
     /**

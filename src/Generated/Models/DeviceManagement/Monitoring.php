@@ -6,6 +6,7 @@ use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class Monitoring extends Entity implements Parsable 
 {
@@ -30,7 +31,13 @@ class Monitoring extends Entity implements Parsable
      * @return array<AlertRecord>|null
     */
     public function getAlertRecords(): ?array {
-        return $this->getBackingStore()->get('alertRecords');
+        $val = $this->getBackingStore()->get('alertRecords');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AlertRecord::class);
+            /** @var array<AlertRecord>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'alertRecords'");
     }
 
     /**
@@ -38,12 +45,18 @@ class Monitoring extends Entity implements Parsable
      * @return array<AlertRule>|null
     */
     public function getAlertRules(): ?array {
-        return $this->getBackingStore()->get('alertRules');
+        $val = $this->getBackingStore()->get('alertRules');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AlertRule::class);
+            /** @var array<AlertRule>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'alertRules'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

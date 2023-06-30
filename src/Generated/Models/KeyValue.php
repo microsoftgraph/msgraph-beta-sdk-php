@@ -39,7 +39,12 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +57,7 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -64,11 +69,15 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the key property value. Key.
+     * Gets the key property value. Contains the name of the field that a value is associated with.
      * @return string|null
     */
     public function getKey(): ?string {
-        return $this->getBackingStore()->get('key');
+        $val = $this->getBackingStore()->get('key');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'key'");
     }
 
     /**
@@ -76,15 +85,23 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
-     * Gets the value property value. Value.
+     * Gets the value property value. Contains the corresponding value for the specified key.
      * @return string|null
     */
     public function getValue(): ?string {
-        return $this->getBackingStore()->get('value');
+        $val = $this->getBackingStore()->get('value');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'value'");
     }
 
     /**
@@ -115,7 +132,7 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the key property value. Key.
+     * Sets the key property value. Contains the name of the field that a value is associated with.
      * @param string|null $value Value to set for the key property.
     */
     public function setKey(?string $value): void {
@@ -131,7 +148,7 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the value property value. Value.
+     * Sets the value property value. Contains the corresponding value for the specified key.
      * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {

@@ -31,7 +31,11 @@ class MacOSCustomAppConfiguration extends DeviceConfiguration implements Parsabl
      * @return string|null
     */
     public function getBundleId(): ?string {
-        return $this->getBackingStore()->get('bundleId');
+        $val = $this->getBackingStore()->get('bundleId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bundleId'");
     }
 
     /**
@@ -39,12 +43,16 @@ class MacOSCustomAppConfiguration extends DeviceConfiguration implements Parsabl
      * @return StreamInterface|null
     */
     public function getConfigurationXml(): ?StreamInterface {
-        return $this->getBackingStore()->get('configurationXml');
+        $val = $this->getBackingStore()->get('configurationXml');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configurationXml'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -60,7 +68,11 @@ class MacOSCustomAppConfiguration extends DeviceConfiguration implements Parsabl
      * @return string|null
     */
     public function getFileName(): ?string {
-        return $this->getBackingStore()->get('fileName');
+        $val = $this->getBackingStore()->get('fileName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileName'");
     }
 
     /**

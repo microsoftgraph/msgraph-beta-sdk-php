@@ -10,6 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class External implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -40,7 +41,12 @@ class External implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -56,12 +62,18 @@ class External implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<ExternalConnection>|null
     */
     public function getConnections(): ?array {
-        return $this->getBackingStore()->get('connections');
+        $val = $this->getBackingStore()->get('connections');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ExternalConnection::class);
+            /** @var array<ExternalConnection>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connections'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -77,7 +89,11 @@ class External implements AdditionalDataHolder, BackedModel, Parsable
      * @return IndustryDataRoot|null
     */
     public function getIndustryData(): ?IndustryDataRoot {
-        return $this->getBackingStore()->get('industryData');
+        $val = $this->getBackingStore()->get('industryData');
+        if (is_null($val) || $val instanceof IndustryDataRoot) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'industryData'");
     }
 
     /**
@@ -85,7 +101,11 @@ class External implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

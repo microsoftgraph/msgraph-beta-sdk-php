@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AttackSimulationRoot extends Entity implements Parsable 
 {
@@ -26,7 +27,7 @@ class AttackSimulationRoot extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -43,7 +44,13 @@ class AttackSimulationRoot extends Entity implements Parsable
      * @return array<AttackSimulationOperation>|null
     */
     public function getOperations(): ?array {
-        return $this->getBackingStore()->get('operations');
+        $val = $this->getBackingStore()->get('operations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AttackSimulationOperation::class);
+            /** @var array<AttackSimulationOperation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'operations'");
     }
 
     /**
@@ -51,7 +58,13 @@ class AttackSimulationRoot extends Entity implements Parsable
      * @return array<Payload>|null
     */
     public function getPayloads(): ?array {
-        return $this->getBackingStore()->get('payloads');
+        $val = $this->getBackingStore()->get('payloads');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Payload::class);
+            /** @var array<Payload>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'payloads'");
     }
 
     /**
@@ -59,7 +72,13 @@ class AttackSimulationRoot extends Entity implements Parsable
      * @return array<SimulationAutomation>|null
     */
     public function getSimulationAutomations(): ?array {
-        return $this->getBackingStore()->get('simulationAutomations');
+        $val = $this->getBackingStore()->get('simulationAutomations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SimulationAutomation::class);
+            /** @var array<SimulationAutomation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'simulationAutomations'");
     }
 
     /**
@@ -67,7 +86,13 @@ class AttackSimulationRoot extends Entity implements Parsable
      * @return array<Simulation>|null
     */
     public function getSimulations(): ?array {
-        return $this->getBackingStore()->get('simulations');
+        $val = $this->getBackingStore()->get('simulations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Simulation::class);
+            /** @var array<Simulation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'simulations'");
     }
 
     /**

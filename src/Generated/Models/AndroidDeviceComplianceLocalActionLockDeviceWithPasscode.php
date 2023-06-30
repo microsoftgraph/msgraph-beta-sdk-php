@@ -27,7 +27,7 @@ class AndroidDeviceComplianceLocalActionLockDeviceWithPasscode extends AndroidDe
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -42,7 +42,11 @@ class AndroidDeviceComplianceLocalActionLockDeviceWithPasscode extends AndroidDe
      * @return string|null
     */
     public function getPasscode(): ?string {
-        return $this->getBackingStore()->get('passcode');
+        $val = $this->getBackingStore()->get('passcode');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passcode'");
     }
 
     /**
@@ -50,7 +54,11 @@ class AndroidDeviceComplianceLocalActionLockDeviceWithPasscode extends AndroidDe
      * @return int|null
     */
     public function getPasscodeSignInFailureCountBeforeWipe(): ?int {
-        return $this->getBackingStore()->get('passcodeSignInFailureCountBeforeWipe');
+        $val = $this->getBackingStore()->get('passcodeSignInFailureCountBeforeWipe');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passcodeSignInFailureCountBeforeWipe'");
     }
 
     /**

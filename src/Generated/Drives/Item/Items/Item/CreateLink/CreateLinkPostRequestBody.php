@@ -11,6 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -41,7 +42,12 @@ class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -57,12 +63,16 @@ class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('expirationDateTime');
+        $val = $this->getBackingStore()->get('expirationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expirationDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -83,7 +93,11 @@ class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getMessage(): ?string {
-        return $this->getBackingStore()->get('message');
+        $val = $this->getBackingStore()->get('message');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'message'");
     }
 
     /**
@@ -91,7 +105,11 @@ class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getPassword(): ?string {
-        return $this->getBackingStore()->get('password');
+        $val = $this->getBackingStore()->get('password');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'password'");
     }
 
     /**
@@ -99,7 +117,13 @@ class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
      * @return array<DriveRecipient>|null
     */
     public function getRecipients(): ?array {
-        return $this->getBackingStore()->get('recipients');
+        $val = $this->getBackingStore()->get('recipients');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DriveRecipient::class);
+            /** @var array<DriveRecipient>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recipients'");
     }
 
     /**
@@ -107,7 +131,11 @@ class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
      * @return bool|null
     */
     public function getRetainInheritedPermissions(): ?bool {
-        return $this->getBackingStore()->get('retainInheritedPermissions');
+        $val = $this->getBackingStore()->get('retainInheritedPermissions');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'retainInheritedPermissions'");
     }
 
     /**
@@ -115,7 +143,11 @@ class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getScope(): ?string {
-        return $this->getBackingStore()->get('scope');
+        $val = $this->getBackingStore()->get('scope');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scope'");
     }
 
     /**
@@ -123,7 +155,11 @@ class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
      * @return bool|null
     */
     public function getSendNotification(): ?bool {
-        return $this->getBackingStore()->get('sendNotification');
+        $val = $this->getBackingStore()->get('sendNotification');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sendNotification'");
     }
 
     /**
@@ -131,7 +167,11 @@ class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getType(): ?string {
-        return $this->getBackingStore()->get('type');
+        $val = $this->getBackingStore()->get('type');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
     }
 
     /**

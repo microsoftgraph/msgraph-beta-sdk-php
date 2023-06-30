@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class VirtualEventRegistrationQuestionAnswer implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class VirtualEventRegistrationQuestionAnswer implements AdditionalDataHolder, Ba
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +61,11 @@ class VirtualEventRegistrationQuestionAnswer implements AdditionalDataHolder, Ba
      * @return bool|null
     */
     public function getBooleanValue(): ?bool {
-        return $this->getBackingStore()->get('booleanValue');
+        $val = $this->getBackingStore()->get('booleanValue');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'booleanValue'");
     }
 
     /**
@@ -63,19 +73,30 @@ class VirtualEventRegistrationQuestionAnswer implements AdditionalDataHolder, Ba
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
             'booleanValue' => fn(ParseNode $n) => $o->setBooleanValue($n->getBooleanValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'multiChoiceValues' => fn(ParseNode $n) => $o->setMultiChoiceValues($n->getCollectionOfPrimitiveValues()),
+            'multiChoiceValues' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setMultiChoiceValues($val);
+            },
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'questionId' => fn(ParseNode $n) => $o->setQuestionId($n->getStringValue()),
             'value' => fn(ParseNode $n) => $o->setValue($n->getStringValue()),
@@ -87,7 +108,13 @@ class VirtualEventRegistrationQuestionAnswer implements AdditionalDataHolder, Ba
      * @return array<string>|null
     */
     public function getMultiChoiceValues(): ?array {
-        return $this->getBackingStore()->get('multiChoiceValues');
+        $val = $this->getBackingStore()->get('multiChoiceValues');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'multiChoiceValues'");
     }
 
     /**
@@ -95,7 +122,11 @@ class VirtualEventRegistrationQuestionAnswer implements AdditionalDataHolder, Ba
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -103,7 +134,11 @@ class VirtualEventRegistrationQuestionAnswer implements AdditionalDataHolder, Ba
      * @return string|null
     */
     public function getQuestionId(): ?string {
-        return $this->getBackingStore()->get('questionId');
+        $val = $this->getBackingStore()->get('questionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'questionId'");
     }
 
     /**
@@ -111,7 +146,11 @@ class VirtualEventRegistrationQuestionAnswer implements AdditionalDataHolder, Ba
      * @return string|null
     */
     public function getValue(): ?string {
-        return $this->getBackingStore()->get('value');
+        $val = $this->getBackingStore()->get('value');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'value'");
     }
 
     /**

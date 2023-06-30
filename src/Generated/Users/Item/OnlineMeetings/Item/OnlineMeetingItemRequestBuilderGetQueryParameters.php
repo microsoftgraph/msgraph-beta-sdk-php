@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get onlineMeetings from users
+ * Information about a meeting, including the URL used to join a meeting, the attendees' list, and the description.
 */
 class OnlineMeetingItemRequestBuilderGetQueryParameters 
 {

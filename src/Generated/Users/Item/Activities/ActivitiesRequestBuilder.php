@@ -61,7 +61,7 @@ class ActivitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get activities from users
+     * The user's activities across devices. Read-only. Nullable.
      * @param ActivitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -98,7 +98,7 @@ class ActivitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get activities from users
+     * The user's activities across devices. Read-only. Nullable.
      * @param ActivitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -29,7 +29,11 @@ class ItemActivityOLD extends Entity implements Parsable
      * @return ItemActionSet|null
     */
     public function getAction(): ?ItemActionSet {
-        return $this->getBackingStore()->get('action');
+        $val = $this->getBackingStore()->get('action');
+        if (is_null($val) || $val instanceof ItemActionSet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'action'");
     }
 
     /**
@@ -37,7 +41,11 @@ class ItemActivityOLD extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getActor(): ?IdentitySet {
-        return $this->getBackingStore()->get('actor');
+        $val = $this->getBackingStore()->get('actor');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'actor'");
     }
 
     /**
@@ -45,12 +53,16 @@ class ItemActivityOLD extends Entity implements Parsable
      * @return DriveItem|null
     */
     public function getDriveItem(): ?DriveItem {
-        return $this->getBackingStore()->get('driveItem');
+        $val = $this->getBackingStore()->get('driveItem');
+        if (is_null($val) || $val instanceof DriveItem) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'driveItem'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -68,7 +80,11 @@ class ItemActivityOLD extends Entity implements Parsable
      * @return ListItem|null
     */
     public function getListItem(): ?ListItem {
-        return $this->getBackingStore()->get('listItem');
+        $val = $this->getBackingStore()->get('listItem');
+        if (is_null($val) || $val instanceof ListItem) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'listItem'");
     }
 
     /**
@@ -76,7 +92,11 @@ class ItemActivityOLD extends Entity implements Parsable
      * @return ItemActivityTimeSet|null
     */
     public function getTimes(): ?ItemActivityTimeSet {
-        return $this->getBackingStore()->get('times');
+        $val = $this->getBackingStore()->get('times');
+        if (is_null($val) || $val instanceof ItemActivityTimeSet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'times'");
     }
 
     /**

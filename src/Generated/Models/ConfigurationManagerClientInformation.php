@@ -42,7 +42,12 @@ class ConfigurationManagerClientInformation implements AdditionalDataHolder, Bac
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -58,7 +63,11 @@ class ConfigurationManagerClientInformation implements AdditionalDataHolder, Bac
      * @return string|null
     */
     public function getClientIdentifier(): ?string {
-        return $this->getBackingStore()->get('clientIdentifier');
+        $val = $this->getBackingStore()->get('clientIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clientIdentifier'");
     }
 
     /**
@@ -66,12 +75,16 @@ class ConfigurationManagerClientInformation implements AdditionalDataHolder, Bac
      * @return string|null
     */
     public function getClientVersion(): ?string {
-        return $this->getBackingStore()->get('clientVersion');
+        $val = $this->getBackingStore()->get('clientVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clientVersion'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -88,7 +101,11 @@ class ConfigurationManagerClientInformation implements AdditionalDataHolder, Bac
      * @return bool|null
     */
     public function getIsBlocked(): ?bool {
-        return $this->getBackingStore()->get('isBlocked');
+        $val = $this->getBackingStore()->get('isBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isBlocked'");
     }
 
     /**
@@ -96,7 +113,11 @@ class ConfigurationManagerClientInformation implements AdditionalDataHolder, Bac
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

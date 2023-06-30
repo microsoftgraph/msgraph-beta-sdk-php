@@ -42,7 +42,12 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Bac
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -50,7 +55,11 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Bac
      * @return bool|null
     */
     public function getAllowDeviceUseBeforeProfileAndAppInstallComplete(): ?bool {
-        return $this->getBackingStore()->get('allowDeviceUseBeforeProfileAndAppInstallComplete');
+        $val = $this->getBackingStore()->get('allowDeviceUseBeforeProfileAndAppInstallComplete');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowDeviceUseBeforeProfileAndAppInstallComplete'");
     }
 
     /**
@@ -58,7 +67,11 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Bac
      * @return bool|null
     */
     public function getAllowDeviceUseOnInstallFailure(): ?bool {
-        return $this->getBackingStore()->get('allowDeviceUseOnInstallFailure');
+        $val = $this->getBackingStore()->get('allowDeviceUseOnInstallFailure');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowDeviceUseOnInstallFailure'");
     }
 
     /**
@@ -66,7 +79,11 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Bac
      * @return bool|null
     */
     public function getAllowLogCollectionOnInstallFailure(): ?bool {
-        return $this->getBackingStore()->get('allowLogCollectionOnInstallFailure');
+        $val = $this->getBackingStore()->get('allowLogCollectionOnInstallFailure');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowLogCollectionOnInstallFailure'");
     }
 
     /**
@@ -82,7 +99,11 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Bac
      * @return bool|null
     */
     public function getBlockDeviceSetupRetryByUser(): ?bool {
-        return $this->getBackingStore()->get('blockDeviceSetupRetryByUser');
+        $val = $this->getBackingStore()->get('blockDeviceSetupRetryByUser');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockDeviceSetupRetryByUser'");
     }
 
     /**
@@ -90,12 +111,16 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Bac
      * @return string|null
     */
     public function getCustomErrorMessage(): ?string {
-        return $this->getBackingStore()->get('customErrorMessage');
+        $val = $this->getBackingStore()->get('customErrorMessage');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customErrorMessage'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -116,7 +141,11 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Bac
      * @return bool|null
     */
     public function getHideInstallationProgress(): ?bool {
-        return $this->getBackingStore()->get('hideInstallationProgress');
+        $val = $this->getBackingStore()->get('hideInstallationProgress');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hideInstallationProgress'");
     }
 
     /**
@@ -124,7 +153,11 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Bac
      * @return int|null
     */
     public function getInstallProgressTimeoutInMinutes(): ?int {
-        return $this->getBackingStore()->get('installProgressTimeoutInMinutes');
+        $val = $this->getBackingStore()->get('installProgressTimeoutInMinutes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'installProgressTimeoutInMinutes'");
     }
 
     /**
@@ -132,7 +165,11 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Bac
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

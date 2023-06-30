@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AndroidWorkProfileEnterpriseWiFiConfiguration extends AndroidWorkProfileWiFiConfiguration implements Parsable 
 {
@@ -30,7 +31,11 @@ class AndroidWorkProfileEnterpriseWiFiConfiguration extends AndroidWorkProfileWi
      * @return WiFiAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?WiFiAuthenticationMethod {
-        return $this->getBackingStore()->get('authenticationMethod');
+        $val = $this->getBackingStore()->get('authenticationMethod');
+        if (is_null($val) || $val instanceof WiFiAuthenticationMethod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationMethod'");
     }
 
     /**
@@ -38,12 +43,16 @@ class AndroidWorkProfileEnterpriseWiFiConfiguration extends AndroidWorkProfileWi
      * @return AndroidEapType|null
     */
     public function getEapType(): ?AndroidEapType {
-        return $this->getBackingStore()->get('eapType');
+        $val = $this->getBackingStore()->get('eapType');
+        if (is_null($val) || $val instanceof AndroidEapType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eapType'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -57,7 +66,14 @@ class AndroidWorkProfileEnterpriseWiFiConfiguration extends AndroidWorkProfileWi
             'proxyAutomaticConfigurationUrl' => fn(ParseNode $n) => $o->setProxyAutomaticConfigurationUrl($n->getStringValue()),
             'proxySettings' => fn(ParseNode $n) => $o->setProxySettings($n->getEnumValue(WiFiProxySetting::class)),
             'rootCertificateForServerValidation' => fn(ParseNode $n) => $o->setRootCertificateForServerValidation($n->getObjectValue([AndroidWorkProfileTrustedRootCertificate::class, 'createFromDiscriminatorValue'])),
-            'trustedServerCertificateNames' => fn(ParseNode $n) => $o->setTrustedServerCertificateNames($n->getCollectionOfPrimitiveValues()),
+            'trustedServerCertificateNames' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setTrustedServerCertificateNames($val);
+            },
         ]);
     }
 
@@ -66,7 +82,11 @@ class AndroidWorkProfileEnterpriseWiFiConfiguration extends AndroidWorkProfileWi
      * @return AndroidWorkProfileCertificateProfileBase|null
     */
     public function getIdentityCertificateForClientAuthentication(): ?AndroidWorkProfileCertificateProfileBase {
-        return $this->getBackingStore()->get('identityCertificateForClientAuthentication');
+        $val = $this->getBackingStore()->get('identityCertificateForClientAuthentication');
+        if (is_null($val) || $val instanceof AndroidWorkProfileCertificateProfileBase) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityCertificateForClientAuthentication'");
     }
 
     /**
@@ -74,7 +94,11 @@ class AndroidWorkProfileEnterpriseWiFiConfiguration extends AndroidWorkProfileWi
      * @return NonEapAuthenticationMethodForEapTtlsType|null
     */
     public function getInnerAuthenticationProtocolForEapTtls(): ?NonEapAuthenticationMethodForEapTtlsType {
-        return $this->getBackingStore()->get('innerAuthenticationProtocolForEapTtls');
+        $val = $this->getBackingStore()->get('innerAuthenticationProtocolForEapTtls');
+        if (is_null($val) || $val instanceof NonEapAuthenticationMethodForEapTtlsType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'innerAuthenticationProtocolForEapTtls'");
     }
 
     /**
@@ -82,7 +106,11 @@ class AndroidWorkProfileEnterpriseWiFiConfiguration extends AndroidWorkProfileWi
      * @return NonEapAuthenticationMethodForPeap|null
     */
     public function getInnerAuthenticationProtocolForPeap(): ?NonEapAuthenticationMethodForPeap {
-        return $this->getBackingStore()->get('innerAuthenticationProtocolForPeap');
+        $val = $this->getBackingStore()->get('innerAuthenticationProtocolForPeap');
+        if (is_null($val) || $val instanceof NonEapAuthenticationMethodForPeap) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'innerAuthenticationProtocolForPeap'");
     }
 
     /**
@@ -90,7 +118,11 @@ class AndroidWorkProfileEnterpriseWiFiConfiguration extends AndroidWorkProfileWi
      * @return string|null
     */
     public function getOuterIdentityPrivacyTemporaryValue(): ?string {
-        return $this->getBackingStore()->get('outerIdentityPrivacyTemporaryValue');
+        $val = $this->getBackingStore()->get('outerIdentityPrivacyTemporaryValue');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'outerIdentityPrivacyTemporaryValue'");
     }
 
     /**
@@ -98,7 +130,11 @@ class AndroidWorkProfileEnterpriseWiFiConfiguration extends AndroidWorkProfileWi
      * @return string|null
     */
     public function getProxyAutomaticConfigurationUrl(): ?string {
-        return $this->getBackingStore()->get('proxyAutomaticConfigurationUrl');
+        $val = $this->getBackingStore()->get('proxyAutomaticConfigurationUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'proxyAutomaticConfigurationUrl'");
     }
 
     /**
@@ -106,7 +142,11 @@ class AndroidWorkProfileEnterpriseWiFiConfiguration extends AndroidWorkProfileWi
      * @return WiFiProxySetting|null
     */
     public function getProxySettings(): ?WiFiProxySetting {
-        return $this->getBackingStore()->get('proxySettings');
+        $val = $this->getBackingStore()->get('proxySettings');
+        if (is_null($val) || $val instanceof WiFiProxySetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'proxySettings'");
     }
 
     /**
@@ -114,7 +154,11 @@ class AndroidWorkProfileEnterpriseWiFiConfiguration extends AndroidWorkProfileWi
      * @return AndroidWorkProfileTrustedRootCertificate|null
     */
     public function getRootCertificateForServerValidation(): ?AndroidWorkProfileTrustedRootCertificate {
-        return $this->getBackingStore()->get('rootCertificateForServerValidation');
+        $val = $this->getBackingStore()->get('rootCertificateForServerValidation');
+        if (is_null($val) || $val instanceof AndroidWorkProfileTrustedRootCertificate) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rootCertificateForServerValidation'");
     }
 
     /**
@@ -122,7 +166,13 @@ class AndroidWorkProfileEnterpriseWiFiConfiguration extends AndroidWorkProfileWi
      * @return array<string>|null
     */
     public function getTrustedServerCertificateNames(): ?array {
-        return $this->getBackingStore()->get('trustedServerCertificateNames');
+        $val = $this->getBackingStore()->get('trustedServerCertificateNames');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'trustedServerCertificateNames'");
     }
 
     /**

@@ -42,7 +42,12 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -58,12 +63,16 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
      * @return BitLockerEncryptionMethod|null
     */
     public function getEncryptionMethod(): ?BitLockerEncryptionMethod {
-        return $this->getBackingStore()->get('encryptionMethod');
+        $val = $this->getBackingStore()->get('encryptionMethod');
+        if (is_null($val) || $val instanceof BitLockerEncryptionMethod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'encryptionMethod'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -89,7 +98,11 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
      * @return int|null
     */
     public function getMinimumPinLength(): ?int {
-        return $this->getBackingStore()->get('minimumPinLength');
+        $val = $this->getBackingStore()->get('minimumPinLength');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumPinLength'");
     }
 
     /**
@@ -97,7 +110,11 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -105,7 +122,11 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
      * @return bool|null
     */
     public function getPrebootRecoveryEnableMessageAndUrl(): ?bool {
-        return $this->getBackingStore()->get('prebootRecoveryEnableMessageAndUrl');
+        $val = $this->getBackingStore()->get('prebootRecoveryEnableMessageAndUrl');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'prebootRecoveryEnableMessageAndUrl'");
     }
 
     /**
@@ -113,7 +134,11 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
      * @return string|null
     */
     public function getPrebootRecoveryMessage(): ?string {
-        return $this->getBackingStore()->get('prebootRecoveryMessage');
+        $val = $this->getBackingStore()->get('prebootRecoveryMessage');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'prebootRecoveryMessage'");
     }
 
     /**
@@ -121,7 +146,11 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
      * @return string|null
     */
     public function getPrebootRecoveryUrl(): ?string {
-        return $this->getBackingStore()->get('prebootRecoveryUrl');
+        $val = $this->getBackingStore()->get('prebootRecoveryUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'prebootRecoveryUrl'");
     }
 
     /**
@@ -129,7 +158,11 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
      * @return BitLockerRecoveryOptions|null
     */
     public function getRecoveryOptions(): ?BitLockerRecoveryOptions {
-        return $this->getBackingStore()->get('recoveryOptions');
+        $val = $this->getBackingStore()->get('recoveryOptions');
+        if (is_null($val) || $val instanceof BitLockerRecoveryOptions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recoveryOptions'");
     }
 
     /**
@@ -137,7 +170,11 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
      * @return bool|null
     */
     public function getStartupAuthenticationBlockWithoutTpmChip(): ?bool {
-        return $this->getBackingStore()->get('startupAuthenticationBlockWithoutTpmChip');
+        $val = $this->getBackingStore()->get('startupAuthenticationBlockWithoutTpmChip');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startupAuthenticationBlockWithoutTpmChip'");
     }
 
     /**
@@ -145,7 +182,11 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
      * @return bool|null
     */
     public function getStartupAuthenticationRequired(): ?bool {
-        return $this->getBackingStore()->get('startupAuthenticationRequired');
+        $val = $this->getBackingStore()->get('startupAuthenticationRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startupAuthenticationRequired'");
     }
 
     /**
@@ -153,7 +194,11 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
      * @return ConfigurationUsage|null
     */
     public function getStartupAuthenticationTpmKeyUsage(): ?ConfigurationUsage {
-        return $this->getBackingStore()->get('startupAuthenticationTpmKeyUsage');
+        $val = $this->getBackingStore()->get('startupAuthenticationTpmKeyUsage');
+        if (is_null($val) || $val instanceof ConfigurationUsage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startupAuthenticationTpmKeyUsage'");
     }
 
     /**
@@ -161,7 +206,11 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
      * @return ConfigurationUsage|null
     */
     public function getStartupAuthenticationTpmPinAndKeyUsage(): ?ConfigurationUsage {
-        return $this->getBackingStore()->get('startupAuthenticationTpmPinAndKeyUsage');
+        $val = $this->getBackingStore()->get('startupAuthenticationTpmPinAndKeyUsage');
+        if (is_null($val) || $val instanceof ConfigurationUsage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startupAuthenticationTpmPinAndKeyUsage'");
     }
 
     /**
@@ -169,7 +218,11 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
      * @return ConfigurationUsage|null
     */
     public function getStartupAuthenticationTpmPinUsage(): ?ConfigurationUsage {
-        return $this->getBackingStore()->get('startupAuthenticationTpmPinUsage');
+        $val = $this->getBackingStore()->get('startupAuthenticationTpmPinUsage');
+        if (is_null($val) || $val instanceof ConfigurationUsage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startupAuthenticationTpmPinUsage'");
     }
 
     /**
@@ -177,7 +230,11 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
      * @return ConfigurationUsage|null
     */
     public function getStartupAuthenticationTpmUsage(): ?ConfigurationUsage {
-        return $this->getBackingStore()->get('startupAuthenticationTpmUsage');
+        $val = $this->getBackingStore()->get('startupAuthenticationTpmUsage');
+        if (is_null($val) || $val instanceof ConfigurationUsage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startupAuthenticationTpmUsage'");
     }
 
     /**

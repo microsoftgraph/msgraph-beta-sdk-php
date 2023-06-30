@@ -27,7 +27,7 @@ class WindowsKioskSingleUWPApp extends WindowsKioskAppConfiguration implements P
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class WindowsKioskSingleUWPApp extends WindowsKioskAppConfiguration implements P
      * @return WindowsKioskUWPApp|null
     */
     public function getUwpApp(): ?WindowsKioskUWPApp {
-        return $this->getBackingStore()->get('uwpApp');
+        $val = $this->getBackingStore()->get('uwpApp');
+        if (is_null($val) || $val instanceof WindowsKioskUWPApp) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'uwpApp'");
     }
 
     /**

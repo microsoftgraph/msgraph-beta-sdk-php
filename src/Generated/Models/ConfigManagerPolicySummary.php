@@ -42,7 +42,12 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, BackedModel, P
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -58,7 +63,11 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, BackedModel, P
      * @return int|null
     */
     public function getCompliantDeviceCount(): ?int {
-        return $this->getBackingStore()->get('compliantDeviceCount');
+        $val = $this->getBackingStore()->get('compliantDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'compliantDeviceCount'");
     }
 
     /**
@@ -66,7 +75,11 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, BackedModel, P
      * @return int|null
     */
     public function getEnforcedDeviceCount(): ?int {
-        return $this->getBackingStore()->get('enforcedDeviceCount');
+        $val = $this->getBackingStore()->get('enforcedDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enforcedDeviceCount'");
     }
 
     /**
@@ -74,12 +87,16 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, BackedModel, P
      * @return int|null
     */
     public function getFailedDeviceCount(): ?int {
-        return $this->getBackingStore()->get('failedDeviceCount');
+        $val = $this->getBackingStore()->get('failedDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'failedDeviceCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -99,7 +116,11 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, BackedModel, P
      * @return int|null
     */
     public function getNonCompliantDeviceCount(): ?int {
-        return $this->getBackingStore()->get('nonCompliantDeviceCount');
+        $val = $this->getBackingStore()->get('nonCompliantDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'nonCompliantDeviceCount'");
     }
 
     /**
@@ -107,7 +128,11 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, BackedModel, P
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -115,7 +140,11 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, BackedModel, P
      * @return int|null
     */
     public function getPendingDeviceCount(): ?int {
-        return $this->getBackingStore()->get('pendingDeviceCount');
+        $val = $this->getBackingStore()->get('pendingDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pendingDeviceCount'");
     }
 
     /**
@@ -123,7 +152,11 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, BackedModel, P
      * @return int|null
     */
     public function getTargetedDeviceCount(): ?int {
-        return $this->getBackingStore()->get('targetedDeviceCount');
+        $val = $this->getBackingStore()->get('targetedDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetedDeviceCount'");
     }
 
     /**

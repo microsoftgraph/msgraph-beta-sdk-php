@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration implements Parsable 
 {
@@ -30,7 +31,11 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration implement
      * @return VpnAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?VpnAuthenticationMethod {
-        return $this->getBackingStore()->get('authenticationMethod');
+        $val = $this->getBackingStore()->get('authenticationMethod');
+        if (is_null($val) || $val instanceof VpnAuthenticationMethod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationMethod'");
     }
 
     /**
@@ -38,7 +43,11 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration implement
      * @return bool|null
     */
     public function getBypassVpnOnCompanyWifi(): ?bool {
-        return $this->getBackingStore()->get('bypassVpnOnCompanyWifi');
+        $val = $this->getBackingStore()->get('bypassVpnOnCompanyWifi');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bypassVpnOnCompanyWifi'");
     }
 
     /**
@@ -46,7 +55,11 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration implement
      * @return bool|null
     */
     public function getBypassVpnOnHomeWifi(): ?bool {
-        return $this->getBackingStore()->get('bypassVpnOnHomeWifi');
+        $val = $this->getBackingStore()->get('bypassVpnOnHomeWifi');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bypassVpnOnHomeWifi'");
     }
 
     /**
@@ -54,12 +67,18 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration implement
      * @return array<string>|null
     */
     public function getDnsSuffixSearchList(): ?array {
-        return $this->getBackingStore()->get('dnsSuffixSearchList');
+        $val = $this->getBackingStore()->get('dnsSuffixSearchList');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dnsSuffixSearchList'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -67,7 +86,14 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration implement
             'authenticationMethod' => fn(ParseNode $n) => $o->setAuthenticationMethod($n->getEnumValue(VpnAuthenticationMethod::class)),
             'bypassVpnOnCompanyWifi' => fn(ParseNode $n) => $o->setBypassVpnOnCompanyWifi($n->getBooleanValue()),
             'bypassVpnOnHomeWifi' => fn(ParseNode $n) => $o->setBypassVpnOnHomeWifi($n->getBooleanValue()),
-            'dnsSuffixSearchList' => fn(ParseNode $n) => $o->setDnsSuffixSearchList($n->getCollectionOfPrimitiveValues()),
+            'dnsSuffixSearchList' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDnsSuffixSearchList($val);
+            },
             'identityCertificate' => fn(ParseNode $n) => $o->setIdentityCertificate($n->getObjectValue([WindowsPhone81CertificateProfileBase::class, 'createFromDiscriminatorValue'])),
             'rememberUserCredentials' => fn(ParseNode $n) => $o->setRememberUserCredentials($n->getBooleanValue()),
         ]);
@@ -78,7 +104,11 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration implement
      * @return WindowsPhone81CertificateProfileBase|null
     */
     public function getIdentityCertificate(): ?WindowsPhone81CertificateProfileBase {
-        return $this->getBackingStore()->get('identityCertificate');
+        $val = $this->getBackingStore()->get('identityCertificate');
+        if (is_null($val) || $val instanceof WindowsPhone81CertificateProfileBase) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityCertificate'");
     }
 
     /**
@@ -86,7 +116,11 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration implement
      * @return bool|null
     */
     public function getRememberUserCredentials(): ?bool {
-        return $this->getBackingStore()->get('rememberUserCredentials');
+        $val = $this->getBackingStore()->get('rememberUserCredentials');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rememberUserCredentials'");
     }
 
     /**

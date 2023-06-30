@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics top impacting process entity.
+*/
 class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsImpactingProcess and sets the default values.
+     * Instantiates a new userExperienceAnalyticsImpactingProcess and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -29,7 +32,11 @@ class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable
      * @return string|null
     */
     public function getCategory(): ?string {
-        return $this->getBackingStore()->get('category');
+        $val = $this->getBackingStore()->get('category');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'category'");
     }
 
     /**
@@ -37,7 +44,11 @@ class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -45,12 +56,16 @@ class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->getBackingStore()->get('deviceId');
+        $val = $this->getBackingStore()->get('deviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -69,7 +84,11 @@ class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable
      * @return float|null
     */
     public function getImpactValue(): ?float {
-        return $this->getBackingStore()->get('impactValue');
+        $val = $this->getBackingStore()->get('impactValue');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'impactValue'");
     }
 
     /**
@@ -77,7 +96,11 @@ class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable
      * @return string|null
     */
     public function getProcessName(): ?string {
-        return $this->getBackingStore()->get('processName');
+        $val = $this->getBackingStore()->get('processName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'processName'");
     }
 
     /**
@@ -85,7 +108,11 @@ class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable
      * @return string|null
     */
     public function getPublisher(): ?string {
-        return $this->getBackingStore()->get('publisher');
+        $val = $this->getBackingStore()->get('publisher');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publisher'");
     }
 
     /**

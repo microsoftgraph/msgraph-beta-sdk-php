@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AzureADRegistrationPolicy implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class AzureADRegistrationPolicy implements AdditionalDataHolder, BackedModel, Pa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +53,13 @@ class AzureADRegistrationPolicy implements AdditionalDataHolder, BackedModel, Pa
      * @return array<string>|null
     */
     public function getAllowedGroups(): ?array {
-        return $this->getBackingStore()->get('allowedGroups');
+        $val = $this->getBackingStore()->get('allowedGroups');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedGroups'");
     }
 
     /**
@@ -55,7 +67,13 @@ class AzureADRegistrationPolicy implements AdditionalDataHolder, BackedModel, Pa
      * @return array<string>|null
     */
     public function getAllowedUsers(): ?array {
-        return $this->getBackingStore()->get('allowedUsers');
+        $val = $this->getBackingStore()->get('allowedUsers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedUsers'");
     }
 
     /**
@@ -63,7 +81,11 @@ class AzureADRegistrationPolicy implements AdditionalDataHolder, BackedModel, Pa
      * @return PolicyScope|null
     */
     public function getAppliesTo(): ?PolicyScope {
-        return $this->getBackingStore()->get('appliesTo');
+        $val = $this->getBackingStore()->get('appliesTo');
+        if (is_null($val) || $val instanceof PolicyScope) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appliesTo'");
     }
 
     /**
@@ -76,13 +98,27 @@ class AzureADRegistrationPolicy implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'allowedGroups' => fn(ParseNode $n) => $o->setAllowedGroups($n->getCollectionOfPrimitiveValues()),
-            'allowedUsers' => fn(ParseNode $n) => $o->setAllowedUsers($n->getCollectionOfPrimitiveValues()),
+            'allowedGroups' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAllowedGroups($val);
+            },
+            'allowedUsers' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAllowedUsers($val);
+            },
             'appliesTo' => fn(ParseNode $n) => $o->setAppliesTo($n->getEnumValue(PolicyScope::class)),
             'isAdminConfigurable' => fn(ParseNode $n) => $o->setIsAdminConfigurable($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -94,7 +130,11 @@ class AzureADRegistrationPolicy implements AdditionalDataHolder, BackedModel, Pa
      * @return bool|null
     */
     public function getIsAdminConfigurable(): ?bool {
-        return $this->getBackingStore()->get('isAdminConfigurable');
+        $val = $this->getBackingStore()->get('isAdminConfigurable');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isAdminConfigurable'");
     }
 
     /**
@@ -102,7 +142,11 @@ class AzureADRegistrationPolicy implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

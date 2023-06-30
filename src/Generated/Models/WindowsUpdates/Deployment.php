@@ -31,7 +31,11 @@ class Deployment extends Entity implements Parsable
      * @return DeploymentAudience|null
     */
     public function getAudience(): ?DeploymentAudience {
-        return $this->getBackingStore()->get('audience');
+        $val = $this->getBackingStore()->get('audience');
+        if (is_null($val) || $val instanceof DeploymentAudience) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'audience'");
     }
 
     /**
@@ -39,7 +43,11 @@ class Deployment extends Entity implements Parsable
      * @return DeployableContent|null
     */
     public function getContent(): ?DeployableContent {
-        return $this->getBackingStore()->get('content');
+        $val = $this->getBackingStore()->get('content');
+        if (is_null($val) || $val instanceof DeployableContent) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'content'");
     }
 
     /**
@@ -47,12 +55,16 @@ class Deployment extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -71,7 +83,11 @@ class Deployment extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -79,7 +95,11 @@ class Deployment extends Entity implements Parsable
      * @return DeploymentSettings|null
     */
     public function getSettings(): ?DeploymentSettings {
-        return $this->getBackingStore()->get('settings');
+        $val = $this->getBackingStore()->get('settings');
+        if (is_null($val) || $val instanceof DeploymentSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settings'");
     }
 
     /**
@@ -87,7 +107,11 @@ class Deployment extends Entity implements Parsable
      * @return DeploymentState|null
     */
     public function getState(): ?DeploymentState {
-        return $this->getBackingStore()->get('state');
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || $val instanceof DeploymentState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
     }
 
     /**

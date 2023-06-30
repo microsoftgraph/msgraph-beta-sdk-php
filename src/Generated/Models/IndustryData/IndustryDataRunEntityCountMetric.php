@@ -39,7 +39,11 @@ class IndustryDataRunEntityCountMetric implements AdditionalDataHolder, BackedMo
      * @return int|null
     */
     public function getActive(): ?int {
-        return $this->getBackingStore()->get('active');
+        $val = $this->getBackingStore()->get('active');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'active'");
     }
 
     /**
@@ -47,7 +51,12 @@ class IndustryDataRunEntityCountMetric implements AdditionalDataHolder, BackedMo
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -60,7 +69,7 @@ class IndustryDataRunEntityCountMetric implements AdditionalDataHolder, BackedMo
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -77,7 +86,11 @@ class IndustryDataRunEntityCountMetric implements AdditionalDataHolder, BackedMo
      * @return int|null
     */
     public function getInactive(): ?int {
-        return $this->getBackingStore()->get('inactive');
+        $val = $this->getBackingStore()->get('inactive');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inactive'");
     }
 
     /**
@@ -85,7 +98,11 @@ class IndustryDataRunEntityCountMetric implements AdditionalDataHolder, BackedMo
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -93,7 +110,11 @@ class IndustryDataRunEntityCountMetric implements AdditionalDataHolder, BackedMo
      * @return int|null
     */
     public function getTotal(): ?int {
-        return $this->getBackingStore()->get('total');
+        $val = $this->getBackingStore()->get('total');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'total'");
     }
 
     /**

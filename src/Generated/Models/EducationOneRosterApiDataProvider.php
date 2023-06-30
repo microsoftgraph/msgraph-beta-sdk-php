@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProvider implements Parsable 
 {
@@ -30,7 +31,11 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
      * @return EducationSynchronizationConnectionSettings|null
     */
     public function getConnectionSettings(): ?EducationSynchronizationConnectionSettings {
-        return $this->getBackingStore()->get('connectionSettings');
+        $val = $this->getBackingStore()->get('connectionSettings');
+        if (is_null($val) || $val instanceof EducationSynchronizationConnectionSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectionSettings'");
     }
 
     /**
@@ -38,7 +43,11 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
      * @return string|null
     */
     public function getConnectionUrl(): ?string {
-        return $this->getBackingStore()->get('connectionUrl');
+        $val = $this->getBackingStore()->get('connectionUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectionUrl'");
     }
 
     /**
@@ -46,12 +55,16 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
      * @return EducationSynchronizationCustomizations|null
     */
     public function getCustomizations(): ?EducationSynchronizationCustomizations {
-        return $this->getBackingStore()->get('customizations');
+        $val = $this->getBackingStore()->get('customizations');
+        if (is_null($val) || $val instanceof EducationSynchronizationCustomizations) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customizations'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -60,8 +73,22 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
             'connectionUrl' => fn(ParseNode $n) => $o->setConnectionUrl($n->getStringValue()),
             'customizations' => fn(ParseNode $n) => $o->setCustomizations($n->getObjectValue([EducationSynchronizationCustomizations::class, 'createFromDiscriminatorValue'])),
             'providerName' => fn(ParseNode $n) => $o->setProviderName($n->getStringValue()),
-            'schoolsIds' => fn(ParseNode $n) => $o->setSchoolsIds($n->getCollectionOfPrimitiveValues()),
-            'termIds' => fn(ParseNode $n) => $o->setTermIds($n->getCollectionOfPrimitiveValues()),
+            'schoolsIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSchoolsIds($val);
+            },
+            'termIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setTermIds($val);
+            },
         ]);
     }
 
@@ -70,7 +97,11 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
      * @return string|null
     */
     public function getProviderName(): ?string {
-        return $this->getBackingStore()->get('providerName');
+        $val = $this->getBackingStore()->get('providerName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'providerName'");
     }
 
     /**
@@ -78,7 +109,13 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
      * @return array<string>|null
     */
     public function getSchoolsIds(): ?array {
-        return $this->getBackingStore()->get('schoolsIds');
+        $val = $this->getBackingStore()->get('schoolsIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'schoolsIds'");
     }
 
     /**
@@ -86,7 +123,13 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
      * @return array<string>|null
     */
     public function getTermIds(): ?array {
-        return $this->getBackingStore()->get('termIds');
+        $val = $this->getBackingStore()->get('termIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'termIds'");
     }
 
     /**

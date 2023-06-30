@@ -32,7 +32,11 @@ class DeviceManagementIntentDeviceSettingStateSummary extends Entity implements 
      * @return int|null
     */
     public function getCompliantCount(): ?int {
-        return $this->getBackingStore()->get('compliantCount');
+        $val = $this->getBackingStore()->get('compliantCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'compliantCount'");
     }
 
     /**
@@ -40,7 +44,11 @@ class DeviceManagementIntentDeviceSettingStateSummary extends Entity implements 
      * @return int|null
     */
     public function getConflictCount(): ?int {
-        return $this->getBackingStore()->get('conflictCount');
+        $val = $this->getBackingStore()->get('conflictCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'conflictCount'");
     }
 
     /**
@@ -48,12 +56,16 @@ class DeviceManagementIntentDeviceSettingStateSummary extends Entity implements 
      * @return int|null
     */
     public function getErrorCount(): ?int {
-        return $this->getBackingStore()->get('errorCount');
+        $val = $this->getBackingStore()->get('errorCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -73,7 +85,11 @@ class DeviceManagementIntentDeviceSettingStateSummary extends Entity implements 
      * @return int|null
     */
     public function getNonCompliantCount(): ?int {
-        return $this->getBackingStore()->get('nonCompliantCount');
+        $val = $this->getBackingStore()->get('nonCompliantCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'nonCompliantCount'");
     }
 
     /**
@@ -81,7 +97,11 @@ class DeviceManagementIntentDeviceSettingStateSummary extends Entity implements 
      * @return int|null
     */
     public function getNotApplicableCount(): ?int {
-        return $this->getBackingStore()->get('notApplicableCount');
+        $val = $this->getBackingStore()->get('notApplicableCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notApplicableCount'");
     }
 
     /**
@@ -89,7 +109,11 @@ class DeviceManagementIntentDeviceSettingStateSummary extends Entity implements 
      * @return int|null
     */
     public function getRemediatedCount(): ?int {
-        return $this->getBackingStore()->get('remediatedCount');
+        $val = $this->getBackingStore()->get('remediatedCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remediatedCount'");
     }
 
     /**
@@ -97,7 +121,11 @@ class DeviceManagementIntentDeviceSettingStateSummary extends Entity implements 
      * @return string|null
     */
     public function getSettingName(): ?string {
-        return $this->getBackingStore()->get('settingName');
+        $val = $this->getBackingStore()->get('settingName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingName'");
     }
 
     /**

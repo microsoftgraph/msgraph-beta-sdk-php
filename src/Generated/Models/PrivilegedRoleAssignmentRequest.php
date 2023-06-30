@@ -30,7 +30,11 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getAssignmentState(): ?string {
-        return $this->getBackingStore()->get('assignmentState');
+        $val = $this->getBackingStore()->get('assignmentState');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignmentState'");
     }
 
     /**
@@ -38,12 +42,16 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getDuration(): ?string {
-        return $this->getBackingStore()->get('duration');
+        $val = $this->getBackingStore()->get('duration');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'duration'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -68,7 +76,11 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getReason(): ?string {
-        return $this->getBackingStore()->get('reason');
+        $val = $this->getBackingStore()->get('reason');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reason'");
     }
 
     /**
@@ -76,7 +88,11 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getRequestedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('requestedDateTime');
+        $val = $this->getBackingStore()->get('requestedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requestedDateTime'");
     }
 
     /**
@@ -84,7 +100,11 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getRoleId(): ?string {
-        return $this->getBackingStore()->get('roleId');
+        $val = $this->getBackingStore()->get('roleId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleId'");
     }
 
     /**
@@ -92,7 +112,11 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
      * @return PrivilegedRole|null
     */
     public function getRoleInfo(): ?PrivilegedRole {
-        return $this->getBackingStore()->get('roleInfo');
+        $val = $this->getBackingStore()->get('roleInfo');
+        if (is_null($val) || $val instanceof PrivilegedRole) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleInfo'");
     }
 
     /**
@@ -100,7 +124,11 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
      * @return GovernanceSchedule|null
     */
     public function getSchedule(): ?GovernanceSchedule {
-        return $this->getBackingStore()->get('schedule');
+        $val = $this->getBackingStore()->get('schedule');
+        if (is_null($val) || $val instanceof GovernanceSchedule) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'schedule'");
     }
 
     /**
@@ -108,7 +136,11 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getStatus(): ?string {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**
@@ -116,7 +148,11 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getTicketNumber(): ?string {
-        return $this->getBackingStore()->get('ticketNumber');
+        $val = $this->getBackingStore()->get('ticketNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ticketNumber'");
     }
 
     /**
@@ -124,7 +160,11 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getTicketSystem(): ?string {
-        return $this->getBackingStore()->get('ticketSystem');
+        $val = $this->getBackingStore()->get('ticketSystem');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ticketSystem'");
     }
 
     /**
@@ -132,7 +172,11 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getType(): ?string {
-        return $this->getBackingStore()->get('type');
+        $val = $this->getBackingStore()->get('type');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
     }
 
     /**
@@ -140,7 +184,11 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->getBackingStore()->get('userId');
+        $val = $this->getBackingStore()->get('userId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
     }
 
     /**

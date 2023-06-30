@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ConnectorGroup extends Entity implements Parsable 
 {
@@ -29,7 +30,13 @@ class ConnectorGroup extends Entity implements Parsable
      * @return array<Application>|null
     */
     public function getApplications(): ?array {
-        return $this->getBackingStore()->get('applications');
+        $val = $this->getBackingStore()->get('applications');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Application::class);
+            /** @var array<Application>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applications'");
     }
 
     /**
@@ -37,12 +44,16 @@ class ConnectorGroup extends Entity implements Parsable
      * @return ConnectorGroupType|null
     */
     public function getConnectorGroupType(): ?ConnectorGroupType {
-        return $this->getBackingStore()->get('connectorGroupType');
+        $val = $this->getBackingStore()->get('connectorGroupType');
+        if (is_null($val) || $val instanceof ConnectorGroupType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectorGroupType'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -61,7 +72,11 @@ class ConnectorGroup extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDefault(): ?bool {
-        return $this->getBackingStore()->get('isDefault');
+        $val = $this->getBackingStore()->get('isDefault');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDefault'");
     }
 
     /**
@@ -69,7 +84,13 @@ class ConnectorGroup extends Entity implements Parsable
      * @return array<Connector>|null
     */
     public function getMembers(): ?array {
-        return $this->getBackingStore()->get('members');
+        $val = $this->getBackingStore()->get('members');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Connector::class);
+            /** @var array<Connector>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'members'");
     }
 
     /**
@@ -77,7 +98,11 @@ class ConnectorGroup extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -85,7 +110,11 @@ class ConnectorGroup extends Entity implements Parsable
      * @return ConnectorGroupRegion|null
     */
     public function getRegion(): ?ConnectorGroupRegion {
-        return $this->getBackingStore()->get('region');
+        $val = $this->getBackingStore()->get('region');
+        if (is_null($val) || $val instanceof ConnectorGroupRegion) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'region'");
     }
 
     /**

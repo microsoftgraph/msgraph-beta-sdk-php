@@ -42,7 +42,12 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, BackedModel, Pars
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -58,7 +63,11 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, BackedModel, Pars
      * @return int|null
     */
     public function getCompliancePolicyCount(): ?int {
-        return $this->getBackingStore()->get('compliancePolicyCount');
+        $val = $this->getBackingStore()->get('compliancePolicyCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'compliancePolicyCount'");
     }
 
     /**
@@ -66,7 +75,11 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, BackedModel, Pars
      * @return int|null
     */
     public function getConfigurationSettingsCount(): ?int {
-        return $this->getBackingStore()->get('configurationSettingsCount');
+        $val = $this->getBackingStore()->get('configurationSettingsCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configurationSettingsCount'");
     }
 
     /**
@@ -74,12 +87,16 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, BackedModel, Pars
      * @return int|null
     */
     public function getEndpointProtectionCount(): ?int {
-        return $this->getBackingStore()->get('endpointProtectionCount');
+        $val = $this->getBackingStore()->get('endpointProtectionCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endpointProtectionCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -102,7 +119,11 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, BackedModel, Pars
      * @return int|null
     */
     public function getInventoryCount(): ?int {
-        return $this->getBackingStore()->get('inventoryCount');
+        $val = $this->getBackingStore()->get('inventoryCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inventoryCount'");
     }
 
     /**
@@ -110,7 +131,11 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, BackedModel, Pars
      * @return int|null
     */
     public function getModernAppsCount(): ?int {
-        return $this->getBackingStore()->get('modernAppsCount');
+        $val = $this->getBackingStore()->get('modernAppsCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'modernAppsCount'");
     }
 
     /**
@@ -118,7 +143,11 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, BackedModel, Pars
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -126,7 +155,11 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, BackedModel, Pars
      * @return int|null
     */
     public function getOfficeAppsCount(): ?int {
-        return $this->getBackingStore()->get('officeAppsCount');
+        $val = $this->getBackingStore()->get('officeAppsCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'officeAppsCount'");
     }
 
     /**
@@ -134,7 +167,11 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, BackedModel, Pars
      * @return int|null
     */
     public function getResourceAccessCount(): ?int {
-        return $this->getBackingStore()->get('resourceAccessCount');
+        $val = $this->getBackingStore()->get('resourceAccessCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resourceAccessCount'");
     }
 
     /**
@@ -142,7 +179,11 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, BackedModel, Pars
      * @return int|null
     */
     public function getTotalComanagedCount(): ?int {
-        return $this->getBackingStore()->get('totalComanagedCount');
+        $val = $this->getBackingStore()->get('totalComanagedCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalComanagedCount'");
     }
 
     /**
@@ -150,7 +191,11 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, BackedModel, Pars
      * @return int|null
     */
     public function getWindowsUpdateForBusinessCount(): ?int {
-        return $this->getBackingStore()->get('windowsUpdateForBusinessCount');
+        $val = $this->getBackingStore()->get('windowsUpdateForBusinessCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsUpdateForBusinessCount'");
     }
 
     /**

@@ -33,7 +33,11 @@ class CertificateConnectorDetails extends Entity implements Parsable
      * @return string|null
     */
     public function getConnectorName(): ?string {
-        return $this->getBackingStore()->get('connectorName');
+        $val = $this->getBackingStore()->get('connectorName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectorName'");
     }
 
     /**
@@ -41,7 +45,11 @@ class CertificateConnectorDetails extends Entity implements Parsable
      * @return string|null
     */
     public function getConnectorVersion(): ?string {
-        return $this->getBackingStore()->get('connectorVersion');
+        $val = $this->getBackingStore()->get('connectorVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectorVersion'");
     }
 
     /**
@@ -49,12 +57,16 @@ class CertificateConnectorDetails extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getEnrollmentDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('enrollmentDateTime');
+        $val = $this->getBackingStore()->get('enrollmentDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrollmentDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -72,7 +84,11 @@ class CertificateConnectorDetails extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastCheckinDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastCheckinDateTime');
+        $val = $this->getBackingStore()->get('lastCheckinDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastCheckinDateTime'");
     }
 
     /**
@@ -80,7 +96,11 @@ class CertificateConnectorDetails extends Entity implements Parsable
      * @return string|null
     */
     public function getMachineName(): ?string {
-        return $this->getBackingStore()->get('machineName');
+        $val = $this->getBackingStore()->get('machineName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'machineName'");
     }
 
     /**

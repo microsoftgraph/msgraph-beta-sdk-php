@@ -39,7 +39,12 @@ class ChangeDeploymentStatusPostRequestBody implements AdditionalDataHolder, Bac
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +57,7 @@ class ChangeDeploymentStatusPostRequestBody implements AdditionalDataHolder, Bac
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -71,7 +76,11 @@ class ChangeDeploymentStatusPostRequestBody implements AdditionalDataHolder, Bac
      * @return string|null
     */
     public function getManagementActionId(): ?string {
-        return $this->getBackingStore()->get('managementActionId');
+        $val = $this->getBackingStore()->get('managementActionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managementActionId'");
     }
 
     /**
@@ -79,7 +88,11 @@ class ChangeDeploymentStatusPostRequestBody implements AdditionalDataHolder, Bac
      * @return string|null
     */
     public function getManagementTemplateId(): ?string {
-        return $this->getBackingStore()->get('managementTemplateId');
+        $val = $this->getBackingStore()->get('managementTemplateId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managementTemplateId'");
     }
 
     /**
@@ -87,7 +100,11 @@ class ChangeDeploymentStatusPostRequestBody implements AdditionalDataHolder, Bac
      * @return int|null
     */
     public function getManagementTemplateVersion(): ?int {
-        return $this->getBackingStore()->get('managementTemplateVersion');
+        $val = $this->getBackingStore()->get('managementTemplateVersion');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managementTemplateVersion'");
     }
 
     /**
@@ -95,7 +112,11 @@ class ChangeDeploymentStatusPostRequestBody implements AdditionalDataHolder, Bac
      * @return string|null
     */
     public function getStatus(): ?string {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**
@@ -103,7 +124,11 @@ class ChangeDeploymentStatusPostRequestBody implements AdditionalDataHolder, Bac
      * @return string|null
     */
     public function getTenantGroupId(): ?string {
-        return $this->getBackingStore()->get('tenantGroupId');
+        $val = $this->getBackingStore()->get('tenantGroupId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantGroupId'");
     }
 
     /**
@@ -111,7 +136,11 @@ class ChangeDeploymentStatusPostRequestBody implements AdditionalDataHolder, Bac
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->getBackingStore()->get('tenantId');
+        $val = $this->getBackingStore()->get('tenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantId'");
     }
 
     /**

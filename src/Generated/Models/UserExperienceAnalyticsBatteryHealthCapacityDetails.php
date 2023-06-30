@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsBatteryHealthCapacityDetails and sets the default values.
+     * Instantiates a new userExperienceAnalyticsBatteryHealthCapacityDetails and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -30,7 +30,11 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity impleme
      * @return int|null
     */
     public function getActiveDevices(): ?int {
-        return $this->getBackingStore()->get('activeDevices');
+        $val = $this->getBackingStore()->get('activeDevices');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activeDevices'");
     }
 
     /**
@@ -38,7 +42,11 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity impleme
      * @return int|null
     */
     public function getBatteryCapacityFair(): ?int {
-        return $this->getBackingStore()->get('batteryCapacityFair');
+        $val = $this->getBackingStore()->get('batteryCapacityFair');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'batteryCapacityFair'");
     }
 
     /**
@@ -46,7 +54,11 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity impleme
      * @return int|null
     */
     public function getBatteryCapacityGood(): ?int {
-        return $this->getBackingStore()->get('batteryCapacityGood');
+        $val = $this->getBackingStore()->get('batteryCapacityGood');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'batteryCapacityGood'");
     }
 
     /**
@@ -54,12 +66,16 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity impleme
      * @return int|null
     */
     public function getBatteryCapacityPoor(): ?int {
-        return $this->getBackingStore()->get('batteryCapacityPoor');
+        $val = $this->getBackingStore()->get('batteryCapacityPoor');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'batteryCapacityPoor'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -77,7 +93,11 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity impleme
      * @return DateTime|null
     */
     public function getLastRefreshedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastRefreshedDateTime');
+        $val = $this->getBackingStore()->get('lastRefreshedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastRefreshedDateTime'");
     }
 
     /**

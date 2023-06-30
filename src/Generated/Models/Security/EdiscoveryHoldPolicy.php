@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models\Security;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class EdiscoveryHoldPolicy extends PolicyBase implements Parsable 
 {
@@ -30,7 +31,11 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
      * @return string|null
     */
     public function getContentQuery(): ?string {
-        return $this->getBackingStore()->get('contentQuery');
+        $val = $this->getBackingStore()->get('contentQuery');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentQuery'");
     }
 
     /**
@@ -38,18 +43,31 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
      * @return array<string>|null
     */
     public function getErrors(): ?array {
-        return $this->getBackingStore()->get('errors');
+        $val = $this->getBackingStore()->get('errors');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errors'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'contentQuery' => fn(ParseNode $n) => $o->setContentQuery($n->getStringValue()),
-            'errors' => fn(ParseNode $n) => $o->setErrors($n->getCollectionOfPrimitiveValues()),
+            'errors' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setErrors($val);
+            },
             'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
             'siteSources' => fn(ParseNode $n) => $o->setSiteSources($n->getCollectionOfObjectValues([SiteSource::class, 'createFromDiscriminatorValue'])),
             'userSources' => fn(ParseNode $n) => $o->setUserSources($n->getCollectionOfObjectValues([UserSource::class, 'createFromDiscriminatorValue'])),
@@ -61,7 +79,11 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
-        return $this->getBackingStore()->get('isEnabled');
+        $val = $this->getBackingStore()->get('isEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isEnabled'");
     }
 
     /**
@@ -69,7 +91,13 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
      * @return array<SiteSource>|null
     */
     public function getSiteSources(): ?array {
-        return $this->getBackingStore()->get('siteSources');
+        $val = $this->getBackingStore()->get('siteSources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SiteSource::class);
+            /** @var array<SiteSource>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'siteSources'");
     }
 
     /**
@@ -77,7 +105,13 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
      * @return array<UserSource>|null
     */
     public function getUserSources(): ?array {
-        return $this->getBackingStore()->get('userSources');
+        $val = $this->getBackingStore()->get('userSources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserSource::class);
+            /** @var array<UserSource>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userSources'");
     }
 
     /**

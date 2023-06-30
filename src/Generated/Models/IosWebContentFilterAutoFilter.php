@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class IosWebContentFilterAutoFilter extends IosWebContentFilterBase implements Parsable 
 {
@@ -30,7 +31,13 @@ class IosWebContentFilterAutoFilter extends IosWebContentFilterBase implements P
      * @return array<string>|null
     */
     public function getAllowedUrls(): ?array {
-        return $this->getBackingStore()->get('allowedUrls');
+        $val = $this->getBackingStore()->get('allowedUrls');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedUrls'");
     }
 
     /**
@@ -38,18 +45,38 @@ class IosWebContentFilterAutoFilter extends IosWebContentFilterBase implements P
      * @return array<string>|null
     */
     public function getBlockedUrls(): ?array {
-        return $this->getBackingStore()->get('blockedUrls');
+        $val = $this->getBackingStore()->get('blockedUrls');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockedUrls'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowedUrls' => fn(ParseNode $n) => $o->setAllowedUrls($n->getCollectionOfPrimitiveValues()),
-            'blockedUrls' => fn(ParseNode $n) => $o->setBlockedUrls($n->getCollectionOfPrimitiveValues()),
+            'allowedUrls' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAllowedUrls($val);
+            },
+            'blockedUrls' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setBlockedUrls($val);
+            },
         ]);
     }
 

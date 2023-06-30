@@ -29,12 +29,16 @@ class PlannerTaskConfiguration extends Entity implements Parsable
      * @return PlannerTaskPolicy|null
     */
     public function getEditPolicy(): ?PlannerTaskPolicy {
-        return $this->getBackingStore()->get('editPolicy');
+        $val = $this->getBackingStore()->get('editPolicy');
+        if (is_null($val) || $val instanceof PlannerTaskPolicy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'editPolicy'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

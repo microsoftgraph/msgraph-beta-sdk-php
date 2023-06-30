@@ -33,7 +33,11 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
      * @return string|null
     */
     public function getEnrolledByUser(): ?string {
-        return $this->getBackingStore()->get('enrolledByUser');
+        $val = $this->getBackingStore()->get('enrolledByUser');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrolledByUser'");
     }
 
     /**
@@ -41,7 +45,11 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
      * @return int|null
     */
     public function getErrorCode(): ?int {
-        return $this->getBackingStore()->get('errorCode');
+        $val = $this->getBackingStore()->get('errorCode');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorCode'");
     }
 
     /**
@@ -49,12 +57,16 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getExpirationDateTimeUTC(): ?DateTime {
-        return $this->getBackingStore()->get('expirationDateTimeUTC');
+        $val = $this->getBackingStore()->get('expirationDateTimeUTC');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expirationDateTimeUTC'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -77,7 +89,11 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
      * @return string|null
     */
     public function getInitiatedByUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('initiatedByUserPrincipalName');
+        $val = $this->getBackingStore()->get('initiatedByUserPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'initiatedByUserPrincipalName'");
     }
 
     /**
@@ -85,7 +101,11 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
-        return $this->getBackingStore()->get('managedDeviceId');
+        $val = $this->getBackingStore()->get('managedDeviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceId'");
     }
 
     /**
@@ -93,7 +113,11 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getReceivedDateTimeUTC(): ?DateTime {
-        return $this->getBackingStore()->get('receivedDateTimeUTC');
+        $val = $this->getBackingStore()->get('receivedDateTimeUTC');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'receivedDateTimeUTC'");
     }
 
     /**
@@ -101,7 +125,11 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getRequestedDateTimeUTC(): ?DateTime {
-        return $this->getBackingStore()->get('requestedDateTimeUTC');
+        $val = $this->getBackingStore()->get('requestedDateTimeUTC');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requestedDateTimeUTC'");
     }
 
     /**
@@ -109,7 +137,11 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
      * @return float|null
     */
     public function getSize(): ?float {
-        return $this->getBackingStore()->get('size');
+        $val = $this->getBackingStore()->get('size');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'size'");
     }
 
     /**
@@ -117,7 +149,11 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
      * @return float|null
     */
     public function getSizeInKB(): ?float {
-        return $this->getBackingStore()->get('sizeInKB');
+        $val = $this->getBackingStore()->get('sizeInKB');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sizeInKB'");
     }
 
     /**
@@ -125,7 +161,11 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
      * @return AppLogUploadState|null
     */
     public function getStatus(): ?AppLogUploadState {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof AppLogUploadState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

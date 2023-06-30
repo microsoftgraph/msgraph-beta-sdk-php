@@ -30,12 +30,16 @@ class AccessReviewInstanceDecisionItemServicePrincipalTarget extends AccessRevie
      * @return string|null
     */
     public function getAppId(): ?string {
-        return $this->getBackingStore()->get('appId');
+        $val = $this->getBackingStore()->get('appId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -51,7 +55,11 @@ class AccessReviewInstanceDecisionItemServicePrincipalTarget extends AccessRevie
      * @return string|null
     */
     public function getServicePrincipalDisplayName(): ?string {
-        return $this->getBackingStore()->get('servicePrincipalDisplayName');
+        $val = $this->getBackingStore()->get('servicePrincipalDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'servicePrincipalDisplayName'");
     }
 
     /**
@@ -59,7 +67,11 @@ class AccessReviewInstanceDecisionItemServicePrincipalTarget extends AccessRevie
      * @return string|null
     */
     public function getServicePrincipalId(): ?string {
-        return $this->getBackingStore()->get('servicePrincipalId');
+        $val = $this->getBackingStore()->get('servicePrincipalId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'servicePrincipalId'");
     }
 
     /**

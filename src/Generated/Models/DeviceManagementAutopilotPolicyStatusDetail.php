@@ -33,7 +33,11 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
      * @return DeviceManagementAutopilotPolicyComplianceStatus|null
     */
     public function getComplianceStatus(): ?DeviceManagementAutopilotPolicyComplianceStatus {
-        return $this->getBackingStore()->get('complianceStatus');
+        $val = $this->getBackingStore()->get('complianceStatus');
+        if (is_null($val) || $val instanceof DeviceManagementAutopilotPolicyComplianceStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'complianceStatus'");
     }
 
     /**
@@ -41,7 +45,11 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -49,12 +57,16 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
      * @return int|null
     */
     public function getErrorCode(): ?int {
-        return $this->getBackingStore()->get('errorCode');
+        $val = $this->getBackingStore()->get('errorCode');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorCode'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -73,7 +85,11 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
      * @return DateTime|null
     */
     public function getLastReportedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastReportedDateTime');
+        $val = $this->getBackingStore()->get('lastReportedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastReportedDateTime'");
     }
 
     /**
@@ -81,7 +97,11 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
      * @return DeviceManagementAutopilotPolicyType|null
     */
     public function getPolicyType(): ?DeviceManagementAutopilotPolicyType {
-        return $this->getBackingStore()->get('policyType');
+        $val = $this->getBackingStore()->get('policyType');
+        if (is_null($val) || $val instanceof DeviceManagementAutopilotPolicyType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyType'");
     }
 
     /**
@@ -89,7 +109,11 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
      * @return bool|null
     */
     public function getTrackedOnEnrollmentStatus(): ?bool {
-        return $this->getBackingStore()->get('trackedOnEnrollmentStatus');
+        $val = $this->getBackingStore()->get('trackedOnEnrollmentStatus');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'trackedOnEnrollmentStatus'");
     }
 
     /**

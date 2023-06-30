@@ -6,6 +6,7 @@ use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AlertRule extends Entity implements Parsable 
 {
@@ -30,7 +31,11 @@ class AlertRule extends Entity implements Parsable
      * @return AlertRuleTemplate|null
     */
     public function getAlertRuleTemplate(): ?AlertRuleTemplate {
-        return $this->getBackingStore()->get('alertRuleTemplate');
+        $val = $this->getBackingStore()->get('alertRuleTemplate');
+        if (is_null($val) || $val instanceof AlertRuleTemplate) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'alertRuleTemplate'");
     }
 
     /**
@@ -38,7 +43,11 @@ class AlertRule extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -46,7 +55,11 @@ class AlertRule extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -54,12 +67,16 @@ class AlertRule extends Entity implements Parsable
      * @return bool|null
     */
     public function getEnabled(): ?bool {
-        return $this->getBackingStore()->get('enabled');
+        $val = $this->getBackingStore()->get('enabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enabled'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -80,7 +97,11 @@ class AlertRule extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsSystemRule(): ?bool {
-        return $this->getBackingStore()->get('isSystemRule');
+        $val = $this->getBackingStore()->get('isSystemRule');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isSystemRule'");
     }
 
     /**
@@ -88,7 +109,13 @@ class AlertRule extends Entity implements Parsable
      * @return array<NotificationChannel>|null
     */
     public function getNotificationChannels(): ?array {
-        return $this->getBackingStore()->get('notificationChannels');
+        $val = $this->getBackingStore()->get('notificationChannels');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, NotificationChannel::class);
+            /** @var array<NotificationChannel>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notificationChannels'");
     }
 
     /**
@@ -96,7 +123,11 @@ class AlertRule extends Entity implements Parsable
      * @return RuleSeverityType|null
     */
     public function getSeverity(): ?RuleSeverityType {
-        return $this->getBackingStore()->get('severity');
+        $val = $this->getBackingStore()->get('severity');
+        if (is_null($val) || $val instanceof RuleSeverityType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'severity'");
     }
 
     /**
@@ -104,7 +135,11 @@ class AlertRule extends Entity implements Parsable
      * @return RuleThreshold|null
     */
     public function getThreshold(): ?RuleThreshold {
-        return $this->getBackingStore()->get('threshold');
+        $val = $this->getBackingStore()->get('threshold');
+        if (is_null($val) || $val instanceof RuleThreshold) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'threshold'");
     }
 
     /**

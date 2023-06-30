@@ -39,7 +39,12 @@ class CloudPcBulkActionSummary implements AdditionalDataHolder, BackedModel, Par
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,12 +60,16 @@ class CloudPcBulkActionSummary implements AdditionalDataHolder, BackedModel, Par
      * @return int|null
     */
     public function getFailedCount(): ?int {
-        return $this->getBackingStore()->get('failedCount');
+        $val = $this->getBackingStore()->get('failedCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'failedCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -79,7 +88,11 @@ class CloudPcBulkActionSummary implements AdditionalDataHolder, BackedModel, Par
      * @return int|null
     */
     public function getInProgressCount(): ?int {
-        return $this->getBackingStore()->get('inProgressCount');
+        $val = $this->getBackingStore()->get('inProgressCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inProgressCount'");
     }
 
     /**
@@ -87,7 +100,11 @@ class CloudPcBulkActionSummary implements AdditionalDataHolder, BackedModel, Par
      * @return int|null
     */
     public function getNotSupportedCount(): ?int {
-        return $this->getBackingStore()->get('notSupportedCount');
+        $val = $this->getBackingStore()->get('notSupportedCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notSupportedCount'");
     }
 
     /**
@@ -95,7 +112,11 @@ class CloudPcBulkActionSummary implements AdditionalDataHolder, BackedModel, Par
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -103,7 +124,11 @@ class CloudPcBulkActionSummary implements AdditionalDataHolder, BackedModel, Par
      * @return int|null
     */
     public function getPendingCount(): ?int {
-        return $this->getBackingStore()->get('pendingCount');
+        $val = $this->getBackingStore()->get('pendingCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pendingCount'");
     }
 
     /**
@@ -111,7 +136,11 @@ class CloudPcBulkActionSummary implements AdditionalDataHolder, BackedModel, Par
      * @return int|null
     */
     public function getSuccessfulCount(): ?int {
-        return $this->getBackingStore()->get('successfulCount');
+        $val = $this->getBackingStore()->get('successfulCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'successfulCount'");
     }
 
     /**

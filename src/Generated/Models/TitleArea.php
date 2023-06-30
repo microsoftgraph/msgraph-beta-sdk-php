@@ -39,7 +39,12 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +52,11 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getAlternativeText(): ?string {
-        return $this->getBackingStore()->get('alternativeText');
+        $val = $this->getBackingStore()->get('alternativeText');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'alternativeText'");
     }
 
     /**
@@ -63,12 +72,16 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getEnableGradientEffect(): ?bool {
-        return $this->getBackingStore()->get('enableGradientEffect');
+        $val = $this->getBackingStore()->get('enableGradientEffect');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableGradientEffect'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -92,7 +105,11 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getImageWebUrl(): ?string {
-        return $this->getBackingStore()->get('imageWebUrl');
+        $val = $this->getBackingStore()->get('imageWebUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'imageWebUrl'");
     }
 
     /**
@@ -100,7 +117,11 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
      * @return TitleAreaLayoutType|null
     */
     public function getLayout(): ?TitleAreaLayoutType {
-        return $this->getBackingStore()->get('layout');
+        $val = $this->getBackingStore()->get('layout');
+        if (is_null($val) || $val instanceof TitleAreaLayoutType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'layout'");
     }
 
     /**
@@ -108,7 +129,11 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -116,7 +141,11 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
      * @return ServerProcessedContent|null
     */
     public function getServerProcessedContent(): ?ServerProcessedContent {
-        return $this->getBackingStore()->get('serverProcessedContent');
+        $val = $this->getBackingStore()->get('serverProcessedContent');
+        if (is_null($val) || $val instanceof ServerProcessedContent) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'serverProcessedContent'");
     }
 
     /**
@@ -124,7 +153,11 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getShowAuthor(): ?bool {
-        return $this->getBackingStore()->get('showAuthor');
+        $val = $this->getBackingStore()->get('showAuthor');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'showAuthor'");
     }
 
     /**
@@ -132,7 +165,11 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getShowPublishedDate(): ?bool {
-        return $this->getBackingStore()->get('showPublishedDate');
+        $val = $this->getBackingStore()->get('showPublishedDate');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'showPublishedDate'");
     }
 
     /**
@@ -140,7 +177,11 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getShowTextBlockAboveTitle(): ?bool {
-        return $this->getBackingStore()->get('showTextBlockAboveTitle');
+        $val = $this->getBackingStore()->get('showTextBlockAboveTitle');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'showTextBlockAboveTitle'");
     }
 
     /**
@@ -148,7 +189,11 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getTextAboveTitle(): ?string {
-        return $this->getBackingStore()->get('textAboveTitle');
+        $val = $this->getBackingStore()->get('textAboveTitle');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'textAboveTitle'");
     }
 
     /**
@@ -156,7 +201,11 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
      * @return TitleAreaTextAlignmentType|null
     */
     public function getTextAlignment(): ?TitleAreaTextAlignmentType {
-        return $this->getBackingStore()->get('textAlignment');
+        $val = $this->getBackingStore()->get('textAlignment');
+        if (is_null($val) || $val instanceof TitleAreaTextAlignmentType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'textAlignment'");
     }
 
     /**

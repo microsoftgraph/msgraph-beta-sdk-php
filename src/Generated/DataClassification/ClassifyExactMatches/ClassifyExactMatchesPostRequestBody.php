@@ -10,6 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ClassifyExactMatchesPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -40,7 +41,12 @@ class ClassifyExactMatchesPostRequestBody implements AdditionalDataHolder, Backe
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -56,18 +62,31 @@ class ClassifyExactMatchesPostRequestBody implements AdditionalDataHolder, Backe
      * @return array<ContentClassification>|null
     */
     public function getContentClassifications(): ?array {
-        return $this->getBackingStore()->get('contentClassifications');
+        $val = $this->getBackingStore()->get('contentClassifications');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ContentClassification::class);
+            /** @var array<ContentClassification>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentClassifications'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
             'contentClassifications' => fn(ParseNode $n) => $o->setContentClassifications($n->getCollectionOfObjectValues([ContentClassification::class, 'createFromDiscriminatorValue'])),
-            'sensitiveTypeIds' => fn(ParseNode $n) => $o->setSensitiveTypeIds($n->getCollectionOfPrimitiveValues()),
+            'sensitiveTypeIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSensitiveTypeIds($val);
+            },
             'text' => fn(ParseNode $n) => $o->setText($n->getStringValue()),
             'timeoutInMs' => fn(ParseNode $n) => $o->setTimeoutInMs($n->getStringValue()),
         ];
@@ -78,7 +97,13 @@ class ClassifyExactMatchesPostRequestBody implements AdditionalDataHolder, Backe
      * @return array<string>|null
     */
     public function getSensitiveTypeIds(): ?array {
-        return $this->getBackingStore()->get('sensitiveTypeIds');
+        $val = $this->getBackingStore()->get('sensitiveTypeIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sensitiveTypeIds'");
     }
 
     /**
@@ -86,7 +111,11 @@ class ClassifyExactMatchesPostRequestBody implements AdditionalDataHolder, Backe
      * @return string|null
     */
     public function getText(): ?string {
-        return $this->getBackingStore()->get('text');
+        $val = $this->getBackingStore()->get('text');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'text'");
     }
 
     /**
@@ -94,7 +123,11 @@ class ClassifyExactMatchesPostRequestBody implements AdditionalDataHolder, Backe
      * @return string|null
     */
     public function getTimeoutInMs(): ?string {
-        return $this->getBackingStore()->get('timeoutInMs');
+        $val = $this->getBackingStore()->get('timeoutInMs');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'timeoutInMs'");
     }
 
     /**

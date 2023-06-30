@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class PrinterBase extends Entity implements Parsable 
 {
@@ -37,7 +38,11 @@ class PrinterBase extends Entity implements Parsable
      * @return PrinterCapabilities|null
     */
     public function getCapabilities(): ?PrinterCapabilities {
-        return $this->getBackingStore()->get('capabilities');
+        $val = $this->getBackingStore()->get('capabilities');
+        if (is_null($val) || $val instanceof PrinterCapabilities) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'capabilities'");
     }
 
     /**
@@ -45,7 +50,11 @@ class PrinterBase extends Entity implements Parsable
      * @return PrinterDefaults|null
     */
     public function getDefaults(): ?PrinterDefaults {
-        return $this->getBackingStore()->get('defaults');
+        $val = $this->getBackingStore()->get('defaults');
+        if (is_null($val) || $val instanceof PrinterDefaults) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaults'");
     }
 
     /**
@@ -53,12 +62,16 @@ class PrinterBase extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -81,7 +94,11 @@ class PrinterBase extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsAcceptingJobs(): ?bool {
-        return $this->getBackingStore()->get('isAcceptingJobs');
+        $val = $this->getBackingStore()->get('isAcceptingJobs');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isAcceptingJobs'");
     }
 
     /**
@@ -89,7 +106,13 @@ class PrinterBase extends Entity implements Parsable
      * @return array<PrintJob>|null
     */
     public function getJobs(): ?array {
-        return $this->getBackingStore()->get('jobs');
+        $val = $this->getBackingStore()->get('jobs');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrintJob::class);
+            /** @var array<PrintJob>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'jobs'");
     }
 
     /**
@@ -97,7 +120,11 @@ class PrinterBase extends Entity implements Parsable
      * @return PrinterLocation|null
     */
     public function getLocation(): ?PrinterLocation {
-        return $this->getBackingStore()->get('location');
+        $val = $this->getBackingStore()->get('location');
+        if (is_null($val) || $val instanceof PrinterLocation) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'location'");
     }
 
     /**
@@ -105,7 +132,11 @@ class PrinterBase extends Entity implements Parsable
      * @return string|null
     */
     public function getManufacturer(): ?string {
-        return $this->getBackingStore()->get('manufacturer');
+        $val = $this->getBackingStore()->get('manufacturer');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'manufacturer'");
     }
 
     /**
@@ -113,7 +144,11 @@ class PrinterBase extends Entity implements Parsable
      * @return string|null
     */
     public function getModel(): ?string {
-        return $this->getBackingStore()->get('model');
+        $val = $this->getBackingStore()->get('model');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'model'");
     }
 
     /**
@@ -121,7 +156,11 @@ class PrinterBase extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -129,7 +168,11 @@ class PrinterBase extends Entity implements Parsable
      * @return PrinterStatus|null
     */
     public function getStatus(): ?PrinterStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof PrinterStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

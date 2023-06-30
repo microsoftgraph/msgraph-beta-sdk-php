@@ -40,7 +40,12 @@ class VerifySignaturePostRequestBody implements AdditionalDataHolder, BackedMode
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -56,12 +61,16 @@ class VerifySignaturePostRequestBody implements AdditionalDataHolder, BackedMode
      * @return StreamInterface|null
     */
     public function getDigest(): ?StreamInterface {
-        return $this->getBackingStore()->get('digest');
+        $val = $this->getBackingStore()->get('digest');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'digest'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -77,7 +86,11 @@ class VerifySignaturePostRequestBody implements AdditionalDataHolder, BackedMode
      * @return StreamInterface|null
     */
     public function getSignature(): ?StreamInterface {
-        return $this->getBackingStore()->get('signature');
+        $val = $this->getBackingStore()->get('signature');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signature'");
     }
 
     /**
@@ -85,7 +98,11 @@ class VerifySignaturePostRequestBody implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getSigningKeyId(): ?string {
-        return $this->getBackingStore()->get('signingKeyId');
+        $val = $this->getBackingStore()->get('signingKeyId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signingKeyId'");
     }
 
     /**

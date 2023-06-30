@@ -6,14 +6,12 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
-/**
- * An abstract class for Mobile app configuration for enrolled devices.
-*/
 class ManagedDeviceMobileAppConfiguration extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new managedDeviceMobileAppConfiguration and sets the default values.
+     * Instantiates a new ManagedDeviceMobileAppConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -42,7 +40,13 @@ class ManagedDeviceMobileAppConfiguration extends Entity implements Parsable
      * @return array<ManagedDeviceMobileAppConfigurationAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->getBackingStore()->get('assignments');
+        $val = $this->getBackingStore()->get('assignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagedDeviceMobileAppConfigurationAssignment::class);
+            /** @var array<ManagedDeviceMobileAppConfigurationAssignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignments'");
     }
 
     /**
@@ -50,7 +54,11 @@ class ManagedDeviceMobileAppConfiguration extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -58,7 +66,11 @@ class ManagedDeviceMobileAppConfiguration extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -66,7 +78,13 @@ class ManagedDeviceMobileAppConfiguration extends Entity implements Parsable
      * @return array<ManagedDeviceMobileAppConfigurationDeviceStatus>|null
     */
     public function getDeviceStatuses(): ?array {
-        return $this->getBackingStore()->get('deviceStatuses');
+        $val = $this->getBackingStore()->get('deviceStatuses');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagedDeviceMobileAppConfigurationDeviceStatus::class);
+            /** @var array<ManagedDeviceMobileAppConfigurationDeviceStatus>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceStatuses'");
     }
 
     /**
@@ -74,7 +92,11 @@ class ManagedDeviceMobileAppConfiguration extends Entity implements Parsable
      * @return ManagedDeviceMobileAppConfigurationDeviceSummary|null
     */
     public function getDeviceStatusSummary(): ?ManagedDeviceMobileAppConfigurationDeviceSummary {
-        return $this->getBackingStore()->get('deviceStatusSummary');
+        $val = $this->getBackingStore()->get('deviceStatusSummary');
+        if (is_null($val) || $val instanceof ManagedDeviceMobileAppConfigurationDeviceSummary) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceStatusSummary'");
     }
 
     /**
@@ -82,12 +104,16 @@ class ManagedDeviceMobileAppConfiguration extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -99,8 +125,22 @@ class ManagedDeviceMobileAppConfiguration extends Entity implements Parsable
             'deviceStatusSummary' => fn(ParseNode $n) => $o->setDeviceStatusSummary($n->getObjectValue([ManagedDeviceMobileAppConfigurationDeviceSummary::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
-            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
-            'targetedMobileApps' => fn(ParseNode $n) => $o->setTargetedMobileApps($n->getCollectionOfPrimitiveValues()),
+            'roleScopeTagIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoleScopeTagIds($val);
+            },
+            'targetedMobileApps' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setTargetedMobileApps($val);
+            },
             'userStatuses' => fn(ParseNode $n) => $o->setUserStatuses($n->getCollectionOfObjectValues([ManagedDeviceMobileAppConfigurationUserStatus::class, 'createFromDiscriminatorValue'])),
             'userStatusSummary' => fn(ParseNode $n) => $o->setUserStatusSummary($n->getObjectValue([ManagedDeviceMobileAppConfigurationUserSummary::class, 'createFromDiscriminatorValue'])),
             'version' => fn(ParseNode $n) => $o->setVersion($n->getIntegerValue()),
@@ -112,7 +152,11 @@ class ManagedDeviceMobileAppConfiguration extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -120,7 +164,13 @@ class ManagedDeviceMobileAppConfiguration extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->getBackingStore()->get('roleScopeTagIds');
+        $val = $this->getBackingStore()->get('roleScopeTagIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleScopeTagIds'");
     }
 
     /**
@@ -128,7 +178,13 @@ class ManagedDeviceMobileAppConfiguration extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getTargetedMobileApps(): ?array {
-        return $this->getBackingStore()->get('targetedMobileApps');
+        $val = $this->getBackingStore()->get('targetedMobileApps');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetedMobileApps'");
     }
 
     /**
@@ -136,7 +192,13 @@ class ManagedDeviceMobileAppConfiguration extends Entity implements Parsable
      * @return array<ManagedDeviceMobileAppConfigurationUserStatus>|null
     */
     public function getUserStatuses(): ?array {
-        return $this->getBackingStore()->get('userStatuses');
+        $val = $this->getBackingStore()->get('userStatuses');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagedDeviceMobileAppConfigurationUserStatus::class);
+            /** @var array<ManagedDeviceMobileAppConfigurationUserStatus>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userStatuses'");
     }
 
     /**
@@ -144,7 +206,11 @@ class ManagedDeviceMobileAppConfiguration extends Entity implements Parsable
      * @return ManagedDeviceMobileAppConfigurationUserSummary|null
     */
     public function getUserStatusSummary(): ?ManagedDeviceMobileAppConfigurationUserSummary {
-        return $this->getBackingStore()->get('userStatusSummary');
+        $val = $this->getBackingStore()->get('userStatusSummary');
+        if (is_null($val) || $val instanceof ManagedDeviceMobileAppConfigurationUserSummary) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userStatusSummary'");
     }
 
     /**
@@ -152,7 +218,11 @@ class ManagedDeviceMobileAppConfiguration extends Entity implements Parsable
      * @return int|null
     */
     public function getVersion(): ?int {
-        return $this->getBackingStore()->get('version');
+        $val = $this->getBackingStore()->get('version');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'version'");
     }
 
     /**

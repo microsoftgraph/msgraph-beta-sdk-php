@@ -30,7 +30,11 @@ class DeviceComplianceScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getDetectionScriptErrorDeviceCount(): ?int {
-        return $this->getBackingStore()->get('detectionScriptErrorDeviceCount');
+        $val = $this->getBackingStore()->get('detectionScriptErrorDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detectionScriptErrorDeviceCount'");
     }
 
     /**
@@ -38,12 +42,16 @@ class DeviceComplianceScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getDetectionScriptPendingDeviceCount(): ?int {
-        return $this->getBackingStore()->get('detectionScriptPendingDeviceCount');
+        $val = $this->getBackingStore()->get('detectionScriptPendingDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detectionScriptPendingDeviceCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -61,7 +69,11 @@ class DeviceComplianceScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getIssueDetectedDeviceCount(): ?int {
-        return $this->getBackingStore()->get('issueDetectedDeviceCount');
+        $val = $this->getBackingStore()->get('issueDetectedDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'issueDetectedDeviceCount'");
     }
 
     /**
@@ -69,7 +81,11 @@ class DeviceComplianceScriptRunSummary extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastScriptRunDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastScriptRunDateTime');
+        $val = $this->getBackingStore()->get('lastScriptRunDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastScriptRunDateTime'");
     }
 
     /**
@@ -77,7 +93,11 @@ class DeviceComplianceScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getNoIssueDetectedDeviceCount(): ?int {
-        return $this->getBackingStore()->get('noIssueDetectedDeviceCount');
+        $val = $this->getBackingStore()->get('noIssueDetectedDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'noIssueDetectedDeviceCount'");
     }
 
     /**

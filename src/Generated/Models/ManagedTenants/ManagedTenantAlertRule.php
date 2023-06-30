@@ -7,6 +7,7 @@ use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ManagedTenantAlertRule extends Entity implements Parsable 
 {
@@ -31,7 +32,11 @@ class ManagedTenantAlertRule extends Entity implements Parsable
      * @return string|null
     */
     public function getAlertDisplayName(): ?string {
-        return $this->getBackingStore()->get('alertDisplayName');
+        $val = $this->getBackingStore()->get('alertDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'alertDisplayName'");
     }
 
     /**
@@ -39,7 +44,13 @@ class ManagedTenantAlertRule extends Entity implements Parsable
      * @return array<ManagedTenantAlert>|null
     */
     public function getAlerts(): ?array {
-        return $this->getBackingStore()->get('alerts');
+        $val = $this->getBackingStore()->get('alerts');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagedTenantAlert::class);
+            /** @var array<ManagedTenantAlert>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'alerts'");
     }
 
     /**
@@ -47,7 +58,11 @@ class ManagedTenantAlertRule extends Entity implements Parsable
      * @return int|null
     */
     public function getAlertTTL(): ?int {
-        return $this->getBackingStore()->get('alertTTL');
+        $val = $this->getBackingStore()->get('alertTTL');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'alertTTL'");
     }
 
     /**
@@ -55,7 +70,11 @@ class ManagedTenantAlertRule extends Entity implements Parsable
      * @return string|null
     */
     public function getCreatedByUserId(): ?string {
-        return $this->getBackingStore()->get('createdByUserId');
+        $val = $this->getBackingStore()->get('createdByUserId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdByUserId'");
     }
 
     /**
@@ -63,7 +82,11 @@ class ManagedTenantAlertRule extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -71,7 +94,11 @@ class ManagedTenantAlertRule extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -79,12 +106,16 @@ class ManagedTenantAlertRule extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -112,7 +143,11 @@ class ManagedTenantAlertRule extends Entity implements Parsable
      * @return string|null
     */
     public function getLastActionByUserId(): ?string {
-        return $this->getBackingStore()->get('lastActionByUserId');
+        $val = $this->getBackingStore()->get('lastActionByUserId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastActionByUserId'");
     }
 
     /**
@@ -120,7 +155,11 @@ class ManagedTenantAlertRule extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastActionDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastActionDateTime');
+        $val = $this->getBackingStore()->get('lastActionDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastActionDateTime'");
     }
 
     /**
@@ -128,7 +167,11 @@ class ManagedTenantAlertRule extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastRunDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastRunDateTime');
+        $val = $this->getBackingStore()->get('lastRunDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastRunDateTime'");
     }
 
     /**
@@ -136,7 +179,11 @@ class ManagedTenantAlertRule extends Entity implements Parsable
      * @return NotificationDestination|null
     */
     public function getNotificationFinalDestinations(): ?NotificationDestination {
-        return $this->getBackingStore()->get('notificationFinalDestinations');
+        $val = $this->getBackingStore()->get('notificationFinalDestinations');
+        if (is_null($val) || $val instanceof NotificationDestination) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notificationFinalDestinations'");
     }
 
     /**
@@ -144,7 +191,11 @@ class ManagedTenantAlertRule extends Entity implements Parsable
      * @return ManagedTenantAlertRuleDefinition|null
     */
     public function getRuleDefinition(): ?ManagedTenantAlertRuleDefinition {
-        return $this->getBackingStore()->get('ruleDefinition');
+        $val = $this->getBackingStore()->get('ruleDefinition');
+        if (is_null($val) || $val instanceof ManagedTenantAlertRuleDefinition) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ruleDefinition'");
     }
 
     /**
@@ -152,7 +203,11 @@ class ManagedTenantAlertRule extends Entity implements Parsable
      * @return AlertSeverity|null
     */
     public function getSeverity(): ?AlertSeverity {
-        return $this->getBackingStore()->get('severity');
+        $val = $this->getBackingStore()->get('severity');
+        if (is_null($val) || $val instanceof AlertSeverity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'severity'");
     }
 
     /**
@@ -160,7 +215,13 @@ class ManagedTenantAlertRule extends Entity implements Parsable
      * @return array<NotificationTarget>|null
     */
     public function getTargets(): ?array {
-        return $this->getBackingStore()->get('targets');
+        $val = $this->getBackingStore()->get('targets');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, NotificationTarget::class);
+            /** @var array<NotificationTarget>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targets'");
     }
 
     /**
@@ -168,7 +229,13 @@ class ManagedTenantAlertRule extends Entity implements Parsable
      * @return array<TenantInfo>|null
     */
     public function getTenantIds(): ?array {
-        return $this->getBackingStore()->get('tenantIds');
+        $val = $this->getBackingStore()->get('tenantIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, TenantInfo::class);
+            /** @var array<TenantInfo>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantIds'");
     }
 
     /**

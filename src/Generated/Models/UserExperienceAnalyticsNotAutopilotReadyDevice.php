@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics Device not windows autopilot ready.
+*/
 class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsNotAutopilotReadyDevice and sets the default values.
+     * Instantiates a new userExperienceAnalyticsNotAutopilotReadyDevice and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -29,7 +32,11 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements P
      * @return bool|null
     */
     public function getAutoPilotProfileAssigned(): ?bool {
-        return $this->getBackingStore()->get('autoPilotProfileAssigned');
+        $val = $this->getBackingStore()->get('autoPilotProfileAssigned');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'autoPilotProfileAssigned'");
     }
 
     /**
@@ -37,7 +44,11 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements P
      * @return bool|null
     */
     public function getAutoPilotRegistered(): ?bool {
-        return $this->getBackingStore()->get('autoPilotRegistered');
+        $val = $this->getBackingStore()->get('autoPilotRegistered');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'autoPilotRegistered'");
     }
 
     /**
@@ -45,7 +56,11 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements P
      * @return string|null
     */
     public function getAzureAdJoinType(): ?string {
-        return $this->getBackingStore()->get('azureAdJoinType');
+        $val = $this->getBackingStore()->get('azureAdJoinType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureAdJoinType'");
     }
 
     /**
@@ -53,7 +68,11 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements P
      * @return bool|null
     */
     public function getAzureAdRegistered(): ?bool {
-        return $this->getBackingStore()->get('azureAdRegistered');
+        $val = $this->getBackingStore()->get('azureAdRegistered');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureAdRegistered'");
     }
 
     /**
@@ -61,12 +80,16 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements P
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->getBackingStore()->get('deviceName');
+        $val = $this->getBackingStore()->get('deviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -88,7 +111,11 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements P
      * @return string|null
     */
     public function getManagedBy(): ?string {
-        return $this->getBackingStore()->get('managedBy');
+        $val = $this->getBackingStore()->get('managedBy');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedBy'");
     }
 
     /**
@@ -96,7 +123,11 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements P
      * @return string|null
     */
     public function getManufacturer(): ?string {
-        return $this->getBackingStore()->get('manufacturer');
+        $val = $this->getBackingStore()->get('manufacturer');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'manufacturer'");
     }
 
     /**
@@ -104,7 +135,11 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements P
      * @return string|null
     */
     public function getModel(): ?string {
-        return $this->getBackingStore()->get('model');
+        $val = $this->getBackingStore()->get('model');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'model'");
     }
 
     /**
@@ -112,7 +147,11 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements P
      * @return string|null
     */
     public function getSerialNumber(): ?string {
-        return $this->getBackingStore()->get('serialNumber');
+        $val = $this->getBackingStore()->get('serialNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'serialNumber'");
     }
 
     /**

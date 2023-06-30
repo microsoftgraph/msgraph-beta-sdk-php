@@ -30,7 +30,11 @@ class ProtectGroup extends LabelActionBase implements Parsable
      * @return bool|null
     */
     public function getAllowEmailFromGuestUsers(): ?bool {
-        return $this->getBackingStore()->get('allowEmailFromGuestUsers');
+        $val = $this->getBackingStore()->get('allowEmailFromGuestUsers');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowEmailFromGuestUsers'");
     }
 
     /**
@@ -38,12 +42,16 @@ class ProtectGroup extends LabelActionBase implements Parsable
      * @return bool|null
     */
     public function getAllowGuestUsers(): ?bool {
-        return $this->getBackingStore()->get('allowGuestUsers');
+        $val = $this->getBackingStore()->get('allowGuestUsers');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowGuestUsers'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -59,7 +67,11 @@ class ProtectGroup extends LabelActionBase implements Parsable
      * @return GroupPrivacy|null
     */
     public function getPrivacy(): ?GroupPrivacy {
-        return $this->getBackingStore()->get('privacy');
+        $val = $this->getBackingStore()->get('privacy');
+        if (is_null($val) || $val instanceof GroupPrivacy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'privacy'");
     }
 
     /**

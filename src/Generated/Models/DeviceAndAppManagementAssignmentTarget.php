@@ -54,7 +54,12 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Ba
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -70,7 +75,11 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Ba
      * @return string|null
     */
     public function getDeviceAndAppManagementAssignmentFilterId(): ?string {
-        return $this->getBackingStore()->get('deviceAndAppManagementAssignmentFilterId');
+        $val = $this->getBackingStore()->get('deviceAndAppManagementAssignmentFilterId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceAndAppManagementAssignmentFilterId'");
     }
 
     /**
@@ -78,12 +87,16 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Ba
      * @return DeviceAndAppManagementAssignmentFilterType|null
     */
     public function getDeviceAndAppManagementAssignmentFilterType(): ?DeviceAndAppManagementAssignmentFilterType {
-        return $this->getBackingStore()->get('deviceAndAppManagementAssignmentFilterType');
+        $val = $this->getBackingStore()->get('deviceAndAppManagementAssignmentFilterType');
+        if (is_null($val) || $val instanceof DeviceAndAppManagementAssignmentFilterType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceAndAppManagementAssignmentFilterType'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -99,7 +112,11 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Ba
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

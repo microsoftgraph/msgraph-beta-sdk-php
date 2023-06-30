@@ -6,6 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Time;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
 class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsable 
@@ -32,7 +33,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getAccountsBlockAddingNonMicrosoftAccountEmail(): ?bool {
-        return $this->getBackingStore()->get('accountsBlockAddingNonMicrosoftAccountEmail');
+        $val = $this->getBackingStore()->get('accountsBlockAddingNonMicrosoftAccountEmail');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accountsBlockAddingNonMicrosoftAccountEmail'");
     }
 
     /**
@@ -40,7 +45,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return Enablement|null
     */
     public function getActivateAppsWithVoice(): ?Enablement {
-        return $this->getBackingStore()->get('activateAppsWithVoice');
+        $val = $this->getBackingStore()->get('activateAppsWithVoice');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activateAppsWithVoice'");
     }
 
     /**
@@ -48,7 +57,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getAntiTheftModeBlocked(): ?bool {
-        return $this->getBackingStore()->get('antiTheftModeBlocked');
+        $val = $this->getBackingStore()->get('antiTheftModeBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'antiTheftModeBlocked'");
     }
 
     /**
@@ -56,7 +69,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getAppManagementMSIAllowUserControlOverInstall(): ?bool {
-        return $this->getBackingStore()->get('appManagementMSIAllowUserControlOverInstall');
+        $val = $this->getBackingStore()->get('appManagementMSIAllowUserControlOverInstall');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appManagementMSIAllowUserControlOverInstall'");
     }
 
     /**
@@ -64,7 +81,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getAppManagementMSIAlwaysInstallWithElevatedPrivileges(): ?bool {
-        return $this->getBackingStore()->get('appManagementMSIAlwaysInstallWithElevatedPrivileges');
+        $val = $this->getBackingStore()->get('appManagementMSIAlwaysInstallWithElevatedPrivileges');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appManagementMSIAlwaysInstallWithElevatedPrivileges'");
     }
 
     /**
@@ -72,7 +93,13 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return array<string>|null
     */
     public function getAppManagementPackageFamilyNamesToLaunchAfterLogOn(): ?array {
-        return $this->getBackingStore()->get('appManagementPackageFamilyNamesToLaunchAfterLogOn');
+        $val = $this->getBackingStore()->get('appManagementPackageFamilyNamesToLaunchAfterLogOn');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appManagementPackageFamilyNamesToLaunchAfterLogOn'");
     }
 
     /**
@@ -80,7 +107,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return StateManagementSetting|null
     */
     public function getAppsAllowTrustedAppsSideloading(): ?StateManagementSetting {
-        return $this->getBackingStore()->get('appsAllowTrustedAppsSideloading');
+        $val = $this->getBackingStore()->get('appsAllowTrustedAppsSideloading');
+        if (is_null($val) || $val instanceof StateManagementSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appsAllowTrustedAppsSideloading'");
     }
 
     /**
@@ -88,7 +119,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getAppsBlockWindowsStoreOriginatedApps(): ?bool {
-        return $this->getBackingStore()->get('appsBlockWindowsStoreOriginatedApps');
+        $val = $this->getBackingStore()->get('appsBlockWindowsStoreOriginatedApps');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appsBlockWindowsStoreOriginatedApps'");
     }
 
     /**
@@ -96,7 +131,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getAuthenticationAllowSecondaryDevice(): ?bool {
-        return $this->getBackingStore()->get('authenticationAllowSecondaryDevice');
+        $val = $this->getBackingStore()->get('authenticationAllowSecondaryDevice');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationAllowSecondaryDevice'");
     }
 
     /**
@@ -104,7 +143,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getAuthenticationPreferredAzureADTenantDomainName(): ?string {
-        return $this->getBackingStore()->get('authenticationPreferredAzureADTenantDomainName');
+        $val = $this->getBackingStore()->get('authenticationPreferredAzureADTenantDomainName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationPreferredAzureADTenantDomainName'");
     }
 
     /**
@@ -112,7 +155,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return Enablement|null
     */
     public function getAuthenticationWebSignIn(): ?Enablement {
-        return $this->getBackingStore()->get('authenticationWebSignIn');
+        $val = $this->getBackingStore()->get('authenticationWebSignIn');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationWebSignIn'");
     }
 
     /**
@@ -120,7 +167,13 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return array<string>|null
     */
     public function getBluetoothAllowedServices(): ?array {
-        return $this->getBackingStore()->get('bluetoothAllowedServices');
+        $val = $this->getBackingStore()->get('bluetoothAllowedServices');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bluetoothAllowedServices'");
     }
 
     /**
@@ -128,7 +181,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getBluetoothBlockAdvertising(): ?bool {
-        return $this->getBackingStore()->get('bluetoothBlockAdvertising');
+        $val = $this->getBackingStore()->get('bluetoothBlockAdvertising');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bluetoothBlockAdvertising'");
     }
 
     /**
@@ -136,7 +193,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getBluetoothBlockDiscoverableMode(): ?bool {
-        return $this->getBackingStore()->get('bluetoothBlockDiscoverableMode');
+        $val = $this->getBackingStore()->get('bluetoothBlockDiscoverableMode');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bluetoothBlockDiscoverableMode'");
     }
 
     /**
@@ -144,7 +205,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getBluetoothBlocked(): ?bool {
-        return $this->getBackingStore()->get('bluetoothBlocked');
+        $val = $this->getBackingStore()->get('bluetoothBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bluetoothBlocked'");
     }
 
     /**
@@ -152,7 +217,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getBluetoothBlockPrePairing(): ?bool {
-        return $this->getBackingStore()->get('bluetoothBlockPrePairing');
+        $val = $this->getBackingStore()->get('bluetoothBlockPrePairing');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bluetoothBlockPrePairing'");
     }
 
     /**
@@ -160,7 +229,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getBluetoothBlockPromptedProximalConnections(): ?bool {
-        return $this->getBackingStore()->get('bluetoothBlockPromptedProximalConnections');
+        $val = $this->getBackingStore()->get('bluetoothBlockPromptedProximalConnections');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bluetoothBlockPromptedProximalConnections'");
     }
 
     /**
@@ -168,7 +241,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getCameraBlocked(): ?bool {
-        return $this->getBackingStore()->get('cameraBlocked');
+        $val = $this->getBackingStore()->get('cameraBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cameraBlocked'");
     }
 
     /**
@@ -176,7 +253,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getCellularBlockDataWhenRoaming(): ?bool {
-        return $this->getBackingStore()->get('cellularBlockDataWhenRoaming');
+        $val = $this->getBackingStore()->get('cellularBlockDataWhenRoaming');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cellularBlockDataWhenRoaming'");
     }
 
     /**
@@ -184,7 +265,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getCellularBlockVpn(): ?bool {
-        return $this->getBackingStore()->get('cellularBlockVpn');
+        $val = $this->getBackingStore()->get('cellularBlockVpn');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cellularBlockVpn'");
     }
 
     /**
@@ -192,7 +277,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getCellularBlockVpnWhenRoaming(): ?bool {
-        return $this->getBackingStore()->get('cellularBlockVpnWhenRoaming');
+        $val = $this->getBackingStore()->get('cellularBlockVpnWhenRoaming');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cellularBlockVpnWhenRoaming'");
     }
 
     /**
@@ -200,7 +289,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return ConfigurationUsage|null
     */
     public function getCellularData(): ?ConfigurationUsage {
-        return $this->getBackingStore()->get('cellularData');
+        $val = $this->getBackingStore()->get('cellularData');
+        if (is_null($val) || $val instanceof ConfigurationUsage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cellularData'");
     }
 
     /**
@@ -208,7 +301,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getCertificatesBlockManualRootCertificateInstallation(): ?bool {
-        return $this->getBackingStore()->get('certificatesBlockManualRootCertificateInstallation');
+        $val = $this->getBackingStore()->get('certificatesBlockManualRootCertificateInstallation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificatesBlockManualRootCertificateInstallation'");
     }
 
     /**
@@ -216,7 +313,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getConfigureTimeZone(): ?string {
-        return $this->getBackingStore()->get('configureTimeZone');
+        $val = $this->getBackingStore()->get('configureTimeZone');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configureTimeZone'");
     }
 
     /**
@@ -224,7 +325,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getConnectedDevicesServiceBlocked(): ?bool {
-        return $this->getBackingStore()->get('connectedDevicesServiceBlocked');
+        $val = $this->getBackingStore()->get('connectedDevicesServiceBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectedDevicesServiceBlocked'");
     }
 
     /**
@@ -232,7 +337,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getCopyPasteBlocked(): ?bool {
-        return $this->getBackingStore()->get('copyPasteBlocked');
+        $val = $this->getBackingStore()->get('copyPasteBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'copyPasteBlocked'");
     }
 
     /**
@@ -240,7 +349,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getCortanaBlocked(): ?bool {
-        return $this->getBackingStore()->get('cortanaBlocked');
+        $val = $this->getBackingStore()->get('cortanaBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cortanaBlocked'");
     }
 
     /**
@@ -248,7 +361,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getCryptographyAllowFipsAlgorithmPolicy(): ?bool {
-        return $this->getBackingStore()->get('cryptographyAllowFipsAlgorithmPolicy');
+        $val = $this->getBackingStore()->get('cryptographyAllowFipsAlgorithmPolicy');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cryptographyAllowFipsAlgorithmPolicy'");
     }
 
     /**
@@ -256,7 +373,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDataProtectionBlockDirectMemoryAccess(): ?bool {
-        return $this->getBackingStore()->get('dataProtectionBlockDirectMemoryAccess');
+        $val = $this->getBackingStore()->get('dataProtectionBlockDirectMemoryAccess');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dataProtectionBlockDirectMemoryAccess'");
     }
 
     /**
@@ -264,7 +385,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderBlockEndUserAccess(): ?bool {
-        return $this->getBackingStore()->get('defenderBlockEndUserAccess');
+        $val = $this->getBackingStore()->get('defenderBlockEndUserAccess');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderBlockEndUserAccess'");
     }
 
     /**
@@ -272,7 +397,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderBlockOnAccessProtection(): ?bool {
-        return $this->getBackingStore()->get('defenderBlockOnAccessProtection');
+        $val = $this->getBackingStore()->get('defenderBlockOnAccessProtection');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderBlockOnAccessProtection'");
     }
 
     /**
@@ -280,7 +409,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return DefenderCloudBlockLevelType|null
     */
     public function getDefenderCloudBlockLevel(): ?DefenderCloudBlockLevelType {
-        return $this->getBackingStore()->get('defenderCloudBlockLevel');
+        $val = $this->getBackingStore()->get('defenderCloudBlockLevel');
+        if (is_null($val) || $val instanceof DefenderCloudBlockLevelType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderCloudBlockLevel'");
     }
 
     /**
@@ -288,7 +421,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getDefenderCloudExtendedTimeout(): ?int {
-        return $this->getBackingStore()->get('defenderCloudExtendedTimeout');
+        $val = $this->getBackingStore()->get('defenderCloudExtendedTimeout');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderCloudExtendedTimeout'");
     }
 
     /**
@@ -296,7 +433,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getDefenderCloudExtendedTimeoutInSeconds(): ?int {
-        return $this->getBackingStore()->get('defenderCloudExtendedTimeoutInSeconds');
+        $val = $this->getBackingStore()->get('defenderCloudExtendedTimeoutInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderCloudExtendedTimeoutInSeconds'");
     }
 
     /**
@@ -304,7 +445,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getDefenderDaysBeforeDeletingQuarantinedMalware(): ?int {
-        return $this->getBackingStore()->get('defenderDaysBeforeDeletingQuarantinedMalware');
+        $val = $this->getBackingStore()->get('defenderDaysBeforeDeletingQuarantinedMalware');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderDaysBeforeDeletingQuarantinedMalware'");
     }
 
     /**
@@ -312,7 +457,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return DefenderDetectedMalwareActions|null
     */
     public function getDefenderDetectedMalwareActions(): ?DefenderDetectedMalwareActions {
-        return $this->getBackingStore()->get('defenderDetectedMalwareActions');
+        $val = $this->getBackingStore()->get('defenderDetectedMalwareActions');
+        if (is_null($val) || $val instanceof DefenderDetectedMalwareActions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderDetectedMalwareActions'");
     }
 
     /**
@@ -320,7 +469,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderDisableCatchupFullScan(): ?bool {
-        return $this->getBackingStore()->get('defenderDisableCatchupFullScan');
+        $val = $this->getBackingStore()->get('defenderDisableCatchupFullScan');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderDisableCatchupFullScan'");
     }
 
     /**
@@ -328,7 +481,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderDisableCatchupQuickScan(): ?bool {
-        return $this->getBackingStore()->get('defenderDisableCatchupQuickScan');
+        $val = $this->getBackingStore()->get('defenderDisableCatchupQuickScan');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderDisableCatchupQuickScan'");
     }
 
     /**
@@ -336,7 +493,13 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return array<string>|null
     */
     public function getDefenderFileExtensionsToExclude(): ?array {
-        return $this->getBackingStore()->get('defenderFileExtensionsToExclude');
+        $val = $this->getBackingStore()->get('defenderFileExtensionsToExclude');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderFileExtensionsToExclude'");
     }
 
     /**
@@ -344,7 +507,13 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return array<string>|null
     */
     public function getDefenderFilesAndFoldersToExclude(): ?array {
-        return $this->getBackingStore()->get('defenderFilesAndFoldersToExclude');
+        $val = $this->getBackingStore()->get('defenderFilesAndFoldersToExclude');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderFilesAndFoldersToExclude'");
     }
 
     /**
@@ -352,7 +521,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return DefenderMonitorFileActivity|null
     */
     public function getDefenderMonitorFileActivity(): ?DefenderMonitorFileActivity {
-        return $this->getBackingStore()->get('defenderMonitorFileActivity');
+        $val = $this->getBackingStore()->get('defenderMonitorFileActivity');
+        if (is_null($val) || $val instanceof DefenderMonitorFileActivity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderMonitorFileActivity'");
     }
 
     /**
@@ -360,7 +533,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return DefenderPotentiallyUnwantedAppAction|null
     */
     public function getDefenderPotentiallyUnwantedAppAction(): ?DefenderPotentiallyUnwantedAppAction {
-        return $this->getBackingStore()->get('defenderPotentiallyUnwantedAppAction');
+        $val = $this->getBackingStore()->get('defenderPotentiallyUnwantedAppAction');
+        if (is_null($val) || $val instanceof DefenderPotentiallyUnwantedAppAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderPotentiallyUnwantedAppAction'");
     }
 
     /**
@@ -368,7 +545,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return DefenderProtectionType|null
     */
     public function getDefenderPotentiallyUnwantedAppActionSetting(): ?DefenderProtectionType {
-        return $this->getBackingStore()->get('defenderPotentiallyUnwantedAppActionSetting');
+        $val = $this->getBackingStore()->get('defenderPotentiallyUnwantedAppActionSetting');
+        if (is_null($val) || $val instanceof DefenderProtectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderPotentiallyUnwantedAppActionSetting'");
     }
 
     /**
@@ -376,7 +557,13 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return array<string>|null
     */
     public function getDefenderProcessesToExclude(): ?array {
-        return $this->getBackingStore()->get('defenderProcessesToExclude');
+        $val = $this->getBackingStore()->get('defenderProcessesToExclude');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderProcessesToExclude'");
     }
 
     /**
@@ -384,7 +571,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return DefenderPromptForSampleSubmission|null
     */
     public function getDefenderPromptForSampleSubmission(): ?DefenderPromptForSampleSubmission {
-        return $this->getBackingStore()->get('defenderPromptForSampleSubmission');
+        $val = $this->getBackingStore()->get('defenderPromptForSampleSubmission');
+        if (is_null($val) || $val instanceof DefenderPromptForSampleSubmission) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderPromptForSampleSubmission'");
     }
 
     /**
@@ -392,7 +583,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderRequireBehaviorMonitoring(): ?bool {
-        return $this->getBackingStore()->get('defenderRequireBehaviorMonitoring');
+        $val = $this->getBackingStore()->get('defenderRequireBehaviorMonitoring');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderRequireBehaviorMonitoring'");
     }
 
     /**
@@ -400,7 +595,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderRequireCloudProtection(): ?bool {
-        return $this->getBackingStore()->get('defenderRequireCloudProtection');
+        $val = $this->getBackingStore()->get('defenderRequireCloudProtection');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderRequireCloudProtection'");
     }
 
     /**
@@ -408,7 +607,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderRequireNetworkInspectionSystem(): ?bool {
-        return $this->getBackingStore()->get('defenderRequireNetworkInspectionSystem');
+        $val = $this->getBackingStore()->get('defenderRequireNetworkInspectionSystem');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderRequireNetworkInspectionSystem'");
     }
 
     /**
@@ -416,7 +619,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderRequireRealTimeMonitoring(): ?bool {
-        return $this->getBackingStore()->get('defenderRequireRealTimeMonitoring');
+        $val = $this->getBackingStore()->get('defenderRequireRealTimeMonitoring');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderRequireRealTimeMonitoring'");
     }
 
     /**
@@ -424,7 +631,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderScanArchiveFiles(): ?bool {
-        return $this->getBackingStore()->get('defenderScanArchiveFiles');
+        $val = $this->getBackingStore()->get('defenderScanArchiveFiles');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderScanArchiveFiles'");
     }
 
     /**
@@ -432,7 +643,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderScanDownloads(): ?bool {
-        return $this->getBackingStore()->get('defenderScanDownloads');
+        $val = $this->getBackingStore()->get('defenderScanDownloads');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderScanDownloads'");
     }
 
     /**
@@ -440,7 +655,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderScanIncomingMail(): ?bool {
-        return $this->getBackingStore()->get('defenderScanIncomingMail');
+        $val = $this->getBackingStore()->get('defenderScanIncomingMail');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderScanIncomingMail'");
     }
 
     /**
@@ -448,7 +667,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderScanMappedNetworkDrivesDuringFullScan(): ?bool {
-        return $this->getBackingStore()->get('defenderScanMappedNetworkDrivesDuringFullScan');
+        $val = $this->getBackingStore()->get('defenderScanMappedNetworkDrivesDuringFullScan');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderScanMappedNetworkDrivesDuringFullScan'");
     }
 
     /**
@@ -456,7 +679,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getDefenderScanMaxCpu(): ?int {
-        return $this->getBackingStore()->get('defenderScanMaxCpu');
+        $val = $this->getBackingStore()->get('defenderScanMaxCpu');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderScanMaxCpu'");
     }
 
     /**
@@ -464,7 +691,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderScanNetworkFiles(): ?bool {
-        return $this->getBackingStore()->get('defenderScanNetworkFiles');
+        $val = $this->getBackingStore()->get('defenderScanNetworkFiles');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderScanNetworkFiles'");
     }
 
     /**
@@ -472,7 +703,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderScanRemovableDrivesDuringFullScan(): ?bool {
-        return $this->getBackingStore()->get('defenderScanRemovableDrivesDuringFullScan');
+        $val = $this->getBackingStore()->get('defenderScanRemovableDrivesDuringFullScan');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderScanRemovableDrivesDuringFullScan'");
     }
 
     /**
@@ -480,7 +715,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderScanScriptsLoadedInInternetExplorer(): ?bool {
-        return $this->getBackingStore()->get('defenderScanScriptsLoadedInInternetExplorer');
+        $val = $this->getBackingStore()->get('defenderScanScriptsLoadedInInternetExplorer');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderScanScriptsLoadedInInternetExplorer'");
     }
 
     /**
@@ -488,7 +727,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return DefenderScanType|null
     */
     public function getDefenderScanType(): ?DefenderScanType {
-        return $this->getBackingStore()->get('defenderScanType');
+        $val = $this->getBackingStore()->get('defenderScanType');
+        if (is_null($val) || $val instanceof DefenderScanType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderScanType'");
     }
 
     /**
@@ -496,7 +739,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return Time|null
     */
     public function getDefenderScheduledQuickScanTime(): ?Time {
-        return $this->getBackingStore()->get('defenderScheduledQuickScanTime');
+        $val = $this->getBackingStore()->get('defenderScheduledQuickScanTime');
+        if (is_null($val) || $val instanceof Time) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderScheduledQuickScanTime'");
     }
 
     /**
@@ -504,7 +751,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return Time|null
     */
     public function getDefenderScheduledScanTime(): ?Time {
-        return $this->getBackingStore()->get('defenderScheduledScanTime');
+        $val = $this->getBackingStore()->get('defenderScheduledScanTime');
+        if (is_null($val) || $val instanceof Time) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderScheduledScanTime'");
     }
 
     /**
@@ -512,7 +763,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderScheduleScanEnableLowCpuPriority(): ?bool {
-        return $this->getBackingStore()->get('defenderScheduleScanEnableLowCpuPriority');
+        $val = $this->getBackingStore()->get('defenderScheduleScanEnableLowCpuPriority');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderScheduleScanEnableLowCpuPriority'");
     }
 
     /**
@@ -520,7 +775,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getDefenderSignatureUpdateIntervalInHours(): ?int {
-        return $this->getBackingStore()->get('defenderSignatureUpdateIntervalInHours');
+        $val = $this->getBackingStore()->get('defenderSignatureUpdateIntervalInHours');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSignatureUpdateIntervalInHours'");
     }
 
     /**
@@ -528,7 +787,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return DefenderSubmitSamplesConsentType|null
     */
     public function getDefenderSubmitSamplesConsentType(): ?DefenderSubmitSamplesConsentType {
-        return $this->getBackingStore()->get('defenderSubmitSamplesConsentType');
+        $val = $this->getBackingStore()->get('defenderSubmitSamplesConsentType');
+        if (is_null($val) || $val instanceof DefenderSubmitSamplesConsentType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSubmitSamplesConsentType'");
     }
 
     /**
@@ -536,7 +799,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return WeeklySchedule|null
     */
     public function getDefenderSystemScanSchedule(): ?WeeklySchedule {
-        return $this->getBackingStore()->get('defenderSystemScanSchedule');
+        $val = $this->getBackingStore()->get('defenderSystemScanSchedule');
+        if (is_null($val) || $val instanceof WeeklySchedule) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSystemScanSchedule'");
     }
 
     /**
@@ -544,7 +811,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return StateManagementSetting|null
     */
     public function getDeveloperUnlockSetting(): ?StateManagementSetting {
-        return $this->getBackingStore()->get('developerUnlockSetting');
+        $val = $this->getBackingStore()->get('developerUnlockSetting');
+        if (is_null($val) || $val instanceof StateManagementSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'developerUnlockSetting'");
     }
 
     /**
@@ -552,7 +823,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDeviceManagementBlockFactoryResetOnMobile(): ?bool {
-        return $this->getBackingStore()->get('deviceManagementBlockFactoryResetOnMobile');
+        $val = $this->getBackingStore()->get('deviceManagementBlockFactoryResetOnMobile');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceManagementBlockFactoryResetOnMobile'");
     }
 
     /**
@@ -560,7 +835,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDeviceManagementBlockManualUnenroll(): ?bool {
-        return $this->getBackingStore()->get('deviceManagementBlockManualUnenroll');
+        $val = $this->getBackingStore()->get('deviceManagementBlockManualUnenroll');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceManagementBlockManualUnenroll'");
     }
 
     /**
@@ -568,7 +847,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return DiagnosticDataSubmissionMode|null
     */
     public function getDiagnosticsDataSubmissionMode(): ?DiagnosticDataSubmissionMode {
-        return $this->getBackingStore()->get('diagnosticsDataSubmissionMode');
+        $val = $this->getBackingStore()->get('diagnosticsDataSubmissionMode');
+        if (is_null($val) || $val instanceof DiagnosticDataSubmissionMode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'diagnosticsDataSubmissionMode'");
     }
 
     /**
@@ -576,7 +859,13 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return array<string>|null
     */
     public function getDisplayAppListWithGdiDPIScalingTurnedOff(): ?array {
-        return $this->getBackingStore()->get('displayAppListWithGdiDPIScalingTurnedOff');
+        $val = $this->getBackingStore()->get('displayAppListWithGdiDPIScalingTurnedOff');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayAppListWithGdiDPIScalingTurnedOff'");
     }
 
     /**
@@ -584,7 +873,13 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return array<string>|null
     */
     public function getDisplayAppListWithGdiDPIScalingTurnedOn(): ?array {
-        return $this->getBackingStore()->get('displayAppListWithGdiDPIScalingTurnedOn');
+        $val = $this->getBackingStore()->get('displayAppListWithGdiDPIScalingTurnedOn');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayAppListWithGdiDPIScalingTurnedOn'");
     }
 
     /**
@@ -592,7 +887,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeAllowStartPagesModification(): ?bool {
-        return $this->getBackingStore()->get('edgeAllowStartPagesModification');
+        $val = $this->getBackingStore()->get('edgeAllowStartPagesModification');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeAllowStartPagesModification'");
     }
 
     /**
@@ -600,7 +899,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockAccessToAboutFlags(): ?bool {
-        return $this->getBackingStore()->get('edgeBlockAccessToAboutFlags');
+        $val = $this->getBackingStore()->get('edgeBlockAccessToAboutFlags');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeBlockAccessToAboutFlags'");
     }
 
     /**
@@ -608,7 +911,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockAddressBarDropdown(): ?bool {
-        return $this->getBackingStore()->get('edgeBlockAddressBarDropdown');
+        $val = $this->getBackingStore()->get('edgeBlockAddressBarDropdown');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeBlockAddressBarDropdown'");
     }
 
     /**
@@ -616,7 +923,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockAutofill(): ?bool {
-        return $this->getBackingStore()->get('edgeBlockAutofill');
+        $val = $this->getBackingStore()->get('edgeBlockAutofill');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeBlockAutofill'");
     }
 
     /**
@@ -624,7 +935,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockCompatibilityList(): ?bool {
-        return $this->getBackingStore()->get('edgeBlockCompatibilityList');
+        $val = $this->getBackingStore()->get('edgeBlockCompatibilityList');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeBlockCompatibilityList'");
     }
 
     /**
@@ -632,7 +947,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockDeveloperTools(): ?bool {
-        return $this->getBackingStore()->get('edgeBlockDeveloperTools');
+        $val = $this->getBackingStore()->get('edgeBlockDeveloperTools');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeBlockDeveloperTools'");
     }
 
     /**
@@ -640,7 +959,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlocked(): ?bool {
-        return $this->getBackingStore()->get('edgeBlocked');
+        $val = $this->getBackingStore()->get('edgeBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeBlocked'");
     }
 
     /**
@@ -648,7 +971,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockEditFavorites(): ?bool {
-        return $this->getBackingStore()->get('edgeBlockEditFavorites');
+        $val = $this->getBackingStore()->get('edgeBlockEditFavorites');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeBlockEditFavorites'");
     }
 
     /**
@@ -656,7 +983,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockExtensions(): ?bool {
-        return $this->getBackingStore()->get('edgeBlockExtensions');
+        $val = $this->getBackingStore()->get('edgeBlockExtensions');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeBlockExtensions'");
     }
 
     /**
@@ -664,7 +995,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockFullScreenMode(): ?bool {
-        return $this->getBackingStore()->get('edgeBlockFullScreenMode');
+        $val = $this->getBackingStore()->get('edgeBlockFullScreenMode');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeBlockFullScreenMode'");
     }
 
     /**
@@ -672,7 +1007,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockInPrivateBrowsing(): ?bool {
-        return $this->getBackingStore()->get('edgeBlockInPrivateBrowsing');
+        $val = $this->getBackingStore()->get('edgeBlockInPrivateBrowsing');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeBlockInPrivateBrowsing'");
     }
 
     /**
@@ -680,7 +1019,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockJavaScript(): ?bool {
-        return $this->getBackingStore()->get('edgeBlockJavaScript');
+        $val = $this->getBackingStore()->get('edgeBlockJavaScript');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeBlockJavaScript'");
     }
 
     /**
@@ -688,7 +1031,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockLiveTileDataCollection(): ?bool {
-        return $this->getBackingStore()->get('edgeBlockLiveTileDataCollection');
+        $val = $this->getBackingStore()->get('edgeBlockLiveTileDataCollection');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeBlockLiveTileDataCollection'");
     }
 
     /**
@@ -696,7 +1043,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockPasswordManager(): ?bool {
-        return $this->getBackingStore()->get('edgeBlockPasswordManager');
+        $val = $this->getBackingStore()->get('edgeBlockPasswordManager');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeBlockPasswordManager'");
     }
 
     /**
@@ -704,7 +1055,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockPopups(): ?bool {
-        return $this->getBackingStore()->get('edgeBlockPopups');
+        $val = $this->getBackingStore()->get('edgeBlockPopups');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeBlockPopups'");
     }
 
     /**
@@ -712,7 +1067,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockPrelaunch(): ?bool {
-        return $this->getBackingStore()->get('edgeBlockPrelaunch');
+        $val = $this->getBackingStore()->get('edgeBlockPrelaunch');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeBlockPrelaunch'");
     }
 
     /**
@@ -720,7 +1079,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockPrinting(): ?bool {
-        return $this->getBackingStore()->get('edgeBlockPrinting');
+        $val = $this->getBackingStore()->get('edgeBlockPrinting');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeBlockPrinting'");
     }
 
     /**
@@ -728,7 +1091,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockSavingHistory(): ?bool {
-        return $this->getBackingStore()->get('edgeBlockSavingHistory');
+        $val = $this->getBackingStore()->get('edgeBlockSavingHistory');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeBlockSavingHistory'");
     }
 
     /**
@@ -736,7 +1103,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockSearchEngineCustomization(): ?bool {
-        return $this->getBackingStore()->get('edgeBlockSearchEngineCustomization');
+        $val = $this->getBackingStore()->get('edgeBlockSearchEngineCustomization');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeBlockSearchEngineCustomization'");
     }
 
     /**
@@ -744,7 +1115,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockSearchSuggestions(): ?bool {
-        return $this->getBackingStore()->get('edgeBlockSearchSuggestions');
+        $val = $this->getBackingStore()->get('edgeBlockSearchSuggestions');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeBlockSearchSuggestions'");
     }
 
     /**
@@ -752,7 +1127,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockSendingDoNotTrackHeader(): ?bool {
-        return $this->getBackingStore()->get('edgeBlockSendingDoNotTrackHeader');
+        $val = $this->getBackingStore()->get('edgeBlockSendingDoNotTrackHeader');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeBlockSendingDoNotTrackHeader'");
     }
 
     /**
@@ -760,7 +1139,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockSendingIntranetTrafficToInternetExplorer(): ?bool {
-        return $this->getBackingStore()->get('edgeBlockSendingIntranetTrafficToInternetExplorer');
+        $val = $this->getBackingStore()->get('edgeBlockSendingIntranetTrafficToInternetExplorer');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeBlockSendingIntranetTrafficToInternetExplorer'");
     }
 
     /**
@@ -768,7 +1151,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockSideloadingExtensions(): ?bool {
-        return $this->getBackingStore()->get('edgeBlockSideloadingExtensions');
+        $val = $this->getBackingStore()->get('edgeBlockSideloadingExtensions');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeBlockSideloadingExtensions'");
     }
 
     /**
@@ -776,7 +1163,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockTabPreloading(): ?bool {
-        return $this->getBackingStore()->get('edgeBlockTabPreloading');
+        $val = $this->getBackingStore()->get('edgeBlockTabPreloading');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeBlockTabPreloading'");
     }
 
     /**
@@ -784,7 +1175,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockWebContentOnNewTabPage(): ?bool {
-        return $this->getBackingStore()->get('edgeBlockWebContentOnNewTabPage');
+        $val = $this->getBackingStore()->get('edgeBlockWebContentOnNewTabPage');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeBlockWebContentOnNewTabPage'");
     }
 
     /**
@@ -792,7 +1187,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeClearBrowsingDataOnExit(): ?bool {
-        return $this->getBackingStore()->get('edgeClearBrowsingDataOnExit');
+        $val = $this->getBackingStore()->get('edgeClearBrowsingDataOnExit');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeClearBrowsingDataOnExit'");
     }
 
     /**
@@ -800,7 +1199,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return EdgeCookiePolicy|null
     */
     public function getEdgeCookiePolicy(): ?EdgeCookiePolicy {
-        return $this->getBackingStore()->get('edgeCookiePolicy');
+        $val = $this->getBackingStore()->get('edgeCookiePolicy');
+        if (is_null($val) || $val instanceof EdgeCookiePolicy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeCookiePolicy'");
     }
 
     /**
@@ -808,7 +1211,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeDisableFirstRunPage(): ?bool {
-        return $this->getBackingStore()->get('edgeDisableFirstRunPage');
+        $val = $this->getBackingStore()->get('edgeDisableFirstRunPage');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeDisableFirstRunPage'");
     }
 
     /**
@@ -816,7 +1223,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getEdgeEnterpriseModeSiteListLocation(): ?string {
-        return $this->getBackingStore()->get('edgeEnterpriseModeSiteListLocation');
+        $val = $this->getBackingStore()->get('edgeEnterpriseModeSiteListLocation');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeEnterpriseModeSiteListLocation'");
     }
 
     /**
@@ -824,7 +1235,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return VisibilitySetting|null
     */
     public function getEdgeFavoritesBarVisibility(): ?VisibilitySetting {
-        return $this->getBackingStore()->get('edgeFavoritesBarVisibility');
+        $val = $this->getBackingStore()->get('edgeFavoritesBarVisibility');
+        if (is_null($val) || $val instanceof VisibilitySetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeFavoritesBarVisibility'");
     }
 
     /**
@@ -832,7 +1247,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getEdgeFavoritesListLocation(): ?string {
-        return $this->getBackingStore()->get('edgeFavoritesListLocation');
+        $val = $this->getBackingStore()->get('edgeFavoritesListLocation');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeFavoritesListLocation'");
     }
 
     /**
@@ -840,7 +1259,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getEdgeFirstRunUrl(): ?string {
-        return $this->getBackingStore()->get('edgeFirstRunUrl');
+        $val = $this->getBackingStore()->get('edgeFirstRunUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeFirstRunUrl'");
     }
 
     /**
@@ -848,7 +1271,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return EdgeHomeButtonConfiguration|null
     */
     public function getEdgeHomeButtonConfiguration(): ?EdgeHomeButtonConfiguration {
-        return $this->getBackingStore()->get('edgeHomeButtonConfiguration');
+        $val = $this->getBackingStore()->get('edgeHomeButtonConfiguration');
+        if (is_null($val) || $val instanceof EdgeHomeButtonConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeHomeButtonConfiguration'");
     }
 
     /**
@@ -856,7 +1283,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeHomeButtonConfigurationEnabled(): ?bool {
-        return $this->getBackingStore()->get('edgeHomeButtonConfigurationEnabled');
+        $val = $this->getBackingStore()->get('edgeHomeButtonConfigurationEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeHomeButtonConfigurationEnabled'");
     }
 
     /**
@@ -864,7 +1295,13 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return array<string>|null
     */
     public function getEdgeHomepageUrls(): ?array {
-        return $this->getBackingStore()->get('edgeHomepageUrls');
+        $val = $this->getBackingStore()->get('edgeHomepageUrls');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeHomepageUrls'");
     }
 
     /**
@@ -872,7 +1309,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return EdgeKioskModeRestrictionType|null
     */
     public function getEdgeKioskModeRestriction(): ?EdgeKioskModeRestrictionType {
-        return $this->getBackingStore()->get('edgeKioskModeRestriction');
+        $val = $this->getBackingStore()->get('edgeKioskModeRestriction');
+        if (is_null($val) || $val instanceof EdgeKioskModeRestrictionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeKioskModeRestriction'");
     }
 
     /**
@@ -880,7 +1321,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getEdgeKioskResetAfterIdleTimeInMinutes(): ?int {
-        return $this->getBackingStore()->get('edgeKioskResetAfterIdleTimeInMinutes');
+        $val = $this->getBackingStore()->get('edgeKioskResetAfterIdleTimeInMinutes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeKioskResetAfterIdleTimeInMinutes'");
     }
 
     /**
@@ -888,7 +1333,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getEdgeNewTabPageURL(): ?string {
-        return $this->getBackingStore()->get('edgeNewTabPageURL');
+        $val = $this->getBackingStore()->get('edgeNewTabPageURL');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeNewTabPageURL'");
     }
 
     /**
@@ -896,7 +1345,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return EdgeOpenOptions|null
     */
     public function getEdgeOpensWith(): ?EdgeOpenOptions {
-        return $this->getBackingStore()->get('edgeOpensWith');
+        $val = $this->getBackingStore()->get('edgeOpensWith');
+        if (is_null($val) || $val instanceof EdgeOpenOptions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeOpensWith'");
     }
 
     /**
@@ -904,7 +1357,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgePreventCertificateErrorOverride(): ?bool {
-        return $this->getBackingStore()->get('edgePreventCertificateErrorOverride');
+        $val = $this->getBackingStore()->get('edgePreventCertificateErrorOverride');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgePreventCertificateErrorOverride'");
     }
 
     /**
@@ -912,7 +1369,13 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return array<string>|null
     */
     public function getEdgeRequiredExtensionPackageFamilyNames(): ?array {
-        return $this->getBackingStore()->get('edgeRequiredExtensionPackageFamilyNames');
+        $val = $this->getBackingStore()->get('edgeRequiredExtensionPackageFamilyNames');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeRequiredExtensionPackageFamilyNames'");
     }
 
     /**
@@ -920,7 +1383,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeRequireSmartScreen(): ?bool {
-        return $this->getBackingStore()->get('edgeRequireSmartScreen');
+        $val = $this->getBackingStore()->get('edgeRequireSmartScreen');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeRequireSmartScreen'");
     }
 
     /**
@@ -928,7 +1395,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return EdgeSearchEngineBase|null
     */
     public function getEdgeSearchEngine(): ?EdgeSearchEngineBase {
-        return $this->getBackingStore()->get('edgeSearchEngine');
+        $val = $this->getBackingStore()->get('edgeSearchEngine');
+        if (is_null($val) || $val instanceof EdgeSearchEngineBase) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeSearchEngine'");
     }
 
     /**
@@ -936,7 +1407,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeSendIntranetTrafficToInternetExplorer(): ?bool {
-        return $this->getBackingStore()->get('edgeSendIntranetTrafficToInternetExplorer');
+        $val = $this->getBackingStore()->get('edgeSendIntranetTrafficToInternetExplorer');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeSendIntranetTrafficToInternetExplorer'");
     }
 
     /**
@@ -944,7 +1419,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return InternetExplorerMessageSetting|null
     */
     public function getEdgeShowMessageWhenOpeningInternetExplorerSites(): ?InternetExplorerMessageSetting {
-        return $this->getBackingStore()->get('edgeShowMessageWhenOpeningInternetExplorerSites');
+        $val = $this->getBackingStore()->get('edgeShowMessageWhenOpeningInternetExplorerSites');
+        if (is_null($val) || $val instanceof InternetExplorerMessageSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeShowMessageWhenOpeningInternetExplorerSites'");
     }
 
     /**
@@ -952,7 +1431,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeSyncFavoritesWithInternetExplorer(): ?bool {
-        return $this->getBackingStore()->get('edgeSyncFavoritesWithInternetExplorer');
+        $val = $this->getBackingStore()->get('edgeSyncFavoritesWithInternetExplorer');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeSyncFavoritesWithInternetExplorer'");
     }
 
     /**
@@ -960,7 +1443,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return EdgeTelemetryMode|null
     */
     public function getEdgeTelemetryForMicrosoft365Analytics(): ?EdgeTelemetryMode {
-        return $this->getBackingStore()->get('edgeTelemetryForMicrosoft365Analytics');
+        $val = $this->getBackingStore()->get('edgeTelemetryForMicrosoft365Analytics');
+        if (is_null($val) || $val instanceof EdgeTelemetryMode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeTelemetryForMicrosoft365Analytics'");
     }
 
     /**
@@ -968,7 +1455,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEnableAutomaticRedeployment(): ?bool {
-        return $this->getBackingStore()->get('enableAutomaticRedeployment');
+        $val = $this->getBackingStore()->get('enableAutomaticRedeployment');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableAutomaticRedeployment'");
     }
 
     /**
@@ -976,7 +1467,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getEnergySaverOnBatteryThresholdPercentage(): ?int {
-        return $this->getBackingStore()->get('energySaverOnBatteryThresholdPercentage');
+        $val = $this->getBackingStore()->get('energySaverOnBatteryThresholdPercentage');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'energySaverOnBatteryThresholdPercentage'");
     }
 
     /**
@@ -984,7 +1479,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getEnergySaverPluggedInThresholdPercentage(): ?int {
-        return $this->getBackingStore()->get('energySaverPluggedInThresholdPercentage');
+        $val = $this->getBackingStore()->get('energySaverPluggedInThresholdPercentage');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'energySaverPluggedInThresholdPercentage'");
     }
 
     /**
@@ -992,7 +1491,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getEnterpriseCloudPrintDiscoveryEndPoint(): ?string {
-        return $this->getBackingStore()->get('enterpriseCloudPrintDiscoveryEndPoint');
+        $val = $this->getBackingStore()->get('enterpriseCloudPrintDiscoveryEndPoint');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enterpriseCloudPrintDiscoveryEndPoint'");
     }
 
     /**
@@ -1000,7 +1503,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getEnterpriseCloudPrintDiscoveryMaxLimit(): ?int {
-        return $this->getBackingStore()->get('enterpriseCloudPrintDiscoveryMaxLimit');
+        $val = $this->getBackingStore()->get('enterpriseCloudPrintDiscoveryMaxLimit');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enterpriseCloudPrintDiscoveryMaxLimit'");
     }
 
     /**
@@ -1008,7 +1515,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getEnterpriseCloudPrintMopriaDiscoveryResourceIdentifier(): ?string {
-        return $this->getBackingStore()->get('enterpriseCloudPrintMopriaDiscoveryResourceIdentifier');
+        $val = $this->getBackingStore()->get('enterpriseCloudPrintMopriaDiscoveryResourceIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enterpriseCloudPrintMopriaDiscoveryResourceIdentifier'");
     }
 
     /**
@@ -1016,7 +1527,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getEnterpriseCloudPrintOAuthAuthority(): ?string {
-        return $this->getBackingStore()->get('enterpriseCloudPrintOAuthAuthority');
+        $val = $this->getBackingStore()->get('enterpriseCloudPrintOAuthAuthority');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enterpriseCloudPrintOAuthAuthority'");
     }
 
     /**
@@ -1024,7 +1539,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getEnterpriseCloudPrintOAuthClientIdentifier(): ?string {
-        return $this->getBackingStore()->get('enterpriseCloudPrintOAuthClientIdentifier');
+        $val = $this->getBackingStore()->get('enterpriseCloudPrintOAuthClientIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enterpriseCloudPrintOAuthClientIdentifier'");
     }
 
     /**
@@ -1032,7 +1551,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getEnterpriseCloudPrintResourceIdentifier(): ?string {
-        return $this->getBackingStore()->get('enterpriseCloudPrintResourceIdentifier');
+        $val = $this->getBackingStore()->get('enterpriseCloudPrintResourceIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enterpriseCloudPrintResourceIdentifier'");
     }
 
     /**
@@ -1040,7 +1563,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getExperienceBlockDeviceDiscovery(): ?bool {
-        return $this->getBackingStore()->get('experienceBlockDeviceDiscovery');
+        $val = $this->getBackingStore()->get('experienceBlockDeviceDiscovery');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'experienceBlockDeviceDiscovery'");
     }
 
     /**
@@ -1048,7 +1575,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getExperienceBlockErrorDialogWhenNoSIM(): ?bool {
-        return $this->getBackingStore()->get('experienceBlockErrorDialogWhenNoSIM');
+        $val = $this->getBackingStore()->get('experienceBlockErrorDialogWhenNoSIM');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'experienceBlockErrorDialogWhenNoSIM'");
     }
 
     /**
@@ -1056,7 +1587,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getExperienceBlockTaskSwitcher(): ?bool {
-        return $this->getBackingStore()->get('experienceBlockTaskSwitcher');
+        $val = $this->getBackingStore()->get('experienceBlockTaskSwitcher');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'experienceBlockTaskSwitcher'");
     }
 
     /**
@@ -1064,12 +1599,16 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return BrowserSyncSetting|null
     */
     public function getExperienceDoNotSyncBrowserSettings(): ?BrowserSyncSetting {
-        return $this->getBackingStore()->get('experienceDoNotSyncBrowserSettings');
+        $val = $this->getBackingStore()->get('experienceDoNotSyncBrowserSettings');
+        if (is_null($val) || $val instanceof BrowserSyncSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'experienceDoNotSyncBrowserSettings'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -1079,13 +1618,27 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
             'antiTheftModeBlocked' => fn(ParseNode $n) => $o->setAntiTheftModeBlocked($n->getBooleanValue()),
             'appManagementMSIAllowUserControlOverInstall' => fn(ParseNode $n) => $o->setAppManagementMSIAllowUserControlOverInstall($n->getBooleanValue()),
             'appManagementMSIAlwaysInstallWithElevatedPrivileges' => fn(ParseNode $n) => $o->setAppManagementMSIAlwaysInstallWithElevatedPrivileges($n->getBooleanValue()),
-            'appManagementPackageFamilyNamesToLaunchAfterLogOn' => fn(ParseNode $n) => $o->setAppManagementPackageFamilyNamesToLaunchAfterLogOn($n->getCollectionOfPrimitiveValues()),
+            'appManagementPackageFamilyNamesToLaunchAfterLogOn' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAppManagementPackageFamilyNamesToLaunchAfterLogOn($val);
+            },
             'appsAllowTrustedAppsSideloading' => fn(ParseNode $n) => $o->setAppsAllowTrustedAppsSideloading($n->getEnumValue(StateManagementSetting::class)),
             'appsBlockWindowsStoreOriginatedApps' => fn(ParseNode $n) => $o->setAppsBlockWindowsStoreOriginatedApps($n->getBooleanValue()),
             'authenticationAllowSecondaryDevice' => fn(ParseNode $n) => $o->setAuthenticationAllowSecondaryDevice($n->getBooleanValue()),
             'authenticationPreferredAzureADTenantDomainName' => fn(ParseNode $n) => $o->setAuthenticationPreferredAzureADTenantDomainName($n->getStringValue()),
             'authenticationWebSignIn' => fn(ParseNode $n) => $o->setAuthenticationWebSignIn($n->getEnumValue(Enablement::class)),
-            'bluetoothAllowedServices' => fn(ParseNode $n) => $o->setBluetoothAllowedServices($n->getCollectionOfPrimitiveValues()),
+            'bluetoothAllowedServices' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setBluetoothAllowedServices($val);
+            },
             'bluetoothBlockAdvertising' => fn(ParseNode $n) => $o->setBluetoothBlockAdvertising($n->getBooleanValue()),
             'bluetoothBlockDiscoverableMode' => fn(ParseNode $n) => $o->setBluetoothBlockDiscoverableMode($n->getBooleanValue()),
             'bluetoothBlocked' => fn(ParseNode $n) => $o->setBluetoothBlocked($n->getBooleanValue()),
@@ -1112,12 +1665,33 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
             'defenderDetectedMalwareActions' => fn(ParseNode $n) => $o->setDefenderDetectedMalwareActions($n->getObjectValue([DefenderDetectedMalwareActions::class, 'createFromDiscriminatorValue'])),
             'defenderDisableCatchupFullScan' => fn(ParseNode $n) => $o->setDefenderDisableCatchupFullScan($n->getBooleanValue()),
             'defenderDisableCatchupQuickScan' => fn(ParseNode $n) => $o->setDefenderDisableCatchupQuickScan($n->getBooleanValue()),
-            'defenderFileExtensionsToExclude' => fn(ParseNode $n) => $o->setDefenderFileExtensionsToExclude($n->getCollectionOfPrimitiveValues()),
-            'defenderFilesAndFoldersToExclude' => fn(ParseNode $n) => $o->setDefenderFilesAndFoldersToExclude($n->getCollectionOfPrimitiveValues()),
+            'defenderFileExtensionsToExclude' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDefenderFileExtensionsToExclude($val);
+            },
+            'defenderFilesAndFoldersToExclude' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDefenderFilesAndFoldersToExclude($val);
+            },
             'defenderMonitorFileActivity' => fn(ParseNode $n) => $o->setDefenderMonitorFileActivity($n->getEnumValue(DefenderMonitorFileActivity::class)),
             'defenderPotentiallyUnwantedAppAction' => fn(ParseNode $n) => $o->setDefenderPotentiallyUnwantedAppAction($n->getEnumValue(DefenderPotentiallyUnwantedAppAction::class)),
             'defenderPotentiallyUnwantedAppActionSetting' => fn(ParseNode $n) => $o->setDefenderPotentiallyUnwantedAppActionSetting($n->getEnumValue(DefenderProtectionType::class)),
-            'defenderProcessesToExclude' => fn(ParseNode $n) => $o->setDefenderProcessesToExclude($n->getCollectionOfPrimitiveValues()),
+            'defenderProcessesToExclude' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDefenderProcessesToExclude($val);
+            },
             'defenderPromptForSampleSubmission' => fn(ParseNode $n) => $o->setDefenderPromptForSampleSubmission($n->getEnumValue(DefenderPromptForSampleSubmission::class)),
             'defenderRequireBehaviorMonitoring' => fn(ParseNode $n) => $o->setDefenderRequireBehaviorMonitoring($n->getBooleanValue()),
             'defenderRequireCloudProtection' => fn(ParseNode $n) => $o->setDefenderRequireCloudProtection($n->getBooleanValue()),
@@ -1142,8 +1716,22 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
             'deviceManagementBlockFactoryResetOnMobile' => fn(ParseNode $n) => $o->setDeviceManagementBlockFactoryResetOnMobile($n->getBooleanValue()),
             'deviceManagementBlockManualUnenroll' => fn(ParseNode $n) => $o->setDeviceManagementBlockManualUnenroll($n->getBooleanValue()),
             'diagnosticsDataSubmissionMode' => fn(ParseNode $n) => $o->setDiagnosticsDataSubmissionMode($n->getEnumValue(DiagnosticDataSubmissionMode::class)),
-            'displayAppListWithGdiDPIScalingTurnedOff' => fn(ParseNode $n) => $o->setDisplayAppListWithGdiDPIScalingTurnedOff($n->getCollectionOfPrimitiveValues()),
-            'displayAppListWithGdiDPIScalingTurnedOn' => fn(ParseNode $n) => $o->setDisplayAppListWithGdiDPIScalingTurnedOn($n->getCollectionOfPrimitiveValues()),
+            'displayAppListWithGdiDPIScalingTurnedOff' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDisplayAppListWithGdiDPIScalingTurnedOff($val);
+            },
+            'displayAppListWithGdiDPIScalingTurnedOn' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDisplayAppListWithGdiDPIScalingTurnedOn($val);
+            },
             'edgeAllowStartPagesModification' => fn(ParseNode $n) => $o->setEdgeAllowStartPagesModification($n->getBooleanValue()),
             'edgeBlockAccessToAboutFlags' => fn(ParseNode $n) => $o->setEdgeBlockAccessToAboutFlags($n->getBooleanValue()),
             'edgeBlockAddressBarDropdown' => fn(ParseNode $n) => $o->setEdgeBlockAddressBarDropdown($n->getBooleanValue()),
@@ -1178,13 +1766,27 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
             'edgeFirstRunUrl' => fn(ParseNode $n) => $o->setEdgeFirstRunUrl($n->getStringValue()),
             'edgeHomeButtonConfiguration' => fn(ParseNode $n) => $o->setEdgeHomeButtonConfiguration($n->getObjectValue([EdgeHomeButtonConfiguration::class, 'createFromDiscriminatorValue'])),
             'edgeHomeButtonConfigurationEnabled' => fn(ParseNode $n) => $o->setEdgeHomeButtonConfigurationEnabled($n->getBooleanValue()),
-            'edgeHomepageUrls' => fn(ParseNode $n) => $o->setEdgeHomepageUrls($n->getCollectionOfPrimitiveValues()),
+            'edgeHomepageUrls' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setEdgeHomepageUrls($val);
+            },
             'edgeKioskModeRestriction' => fn(ParseNode $n) => $o->setEdgeKioskModeRestriction($n->getEnumValue(EdgeKioskModeRestrictionType::class)),
             'edgeKioskResetAfterIdleTimeInMinutes' => fn(ParseNode $n) => $o->setEdgeKioskResetAfterIdleTimeInMinutes($n->getIntegerValue()),
             'edgeNewTabPageURL' => fn(ParseNode $n) => $o->setEdgeNewTabPageURL($n->getStringValue()),
             'edgeOpensWith' => fn(ParseNode $n) => $o->setEdgeOpensWith($n->getEnumValue(EdgeOpenOptions::class)),
             'edgePreventCertificateErrorOverride' => fn(ParseNode $n) => $o->setEdgePreventCertificateErrorOverride($n->getBooleanValue()),
-            'edgeRequiredExtensionPackageFamilyNames' => fn(ParseNode $n) => $o->setEdgeRequiredExtensionPackageFamilyNames($n->getCollectionOfPrimitiveValues()),
+            'edgeRequiredExtensionPackageFamilyNames' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setEdgeRequiredExtensionPackageFamilyNames($val);
+            },
             'edgeRequireSmartScreen' => fn(ParseNode $n) => $o->setEdgeRequireSmartScreen($n->getBooleanValue()),
             'edgeSearchEngine' => fn(ParseNode $n) => $o->setEdgeSearchEngine($n->getObjectValue([EdgeSearchEngineBase::class, 'createFromDiscriminatorValue'])),
             'edgeSendIntranetTrafficToInternetExplorer' => fn(ParseNode $n) => $o->setEdgeSendIntranetTrafficToInternetExplorer($n->getBooleanValue()),
@@ -1253,7 +1855,14 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
             'powerSleepButtonActionPluggedIn' => fn(ParseNode $n) => $o->setPowerSleepButtonActionPluggedIn($n->getEnumValue(PowerActionType::class)),
             'printerBlockAddition' => fn(ParseNode $n) => $o->setPrinterBlockAddition($n->getBooleanValue()),
             'printerDefaultName' => fn(ParseNode $n) => $o->setPrinterDefaultName($n->getStringValue()),
-            'printerNames' => fn(ParseNode $n) => $o->setPrinterNames($n->getCollectionOfPrimitiveValues()),
+            'printerNames' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setPrinterNames($val);
+            },
             'privacyAccessControls' => fn(ParseNode $n) => $o->setPrivacyAccessControls($n->getCollectionOfObjectValues([WindowsPrivacyDataAccessControlItem::class, 'createFromDiscriminatorValue'])),
             'privacyAdvertisingId' => fn(ParseNode $n) => $o->setPrivacyAdvertisingId($n->getEnumValue(StateManagementSetting::class)),
             'privacyAutoAcceptPairingAndConsentPrompts' => fn(ParseNode $n) => $o->setPrivacyAutoAcceptPairingAndConsentPrompts($n->getBooleanValue()),
@@ -1365,7 +1974,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return Enablement|null
     */
     public function getFindMyFiles(): ?Enablement {
-        return $this->getBackingStore()->get('findMyFiles');
+        $val = $this->getBackingStore()->get('findMyFiles');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'findMyFiles'");
     }
 
     /**
@@ -1373,7 +1986,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getGameDvrBlocked(): ?bool {
-        return $this->getBackingStore()->get('gameDvrBlocked');
+        $val = $this->getBackingStore()->get('gameDvrBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'gameDvrBlocked'");
     }
 
     /**
@@ -1381,7 +1998,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return InkAccessSetting|null
     */
     public function getInkWorkspaceAccess(): ?InkAccessSetting {
-        return $this->getBackingStore()->get('inkWorkspaceAccess');
+        $val = $this->getBackingStore()->get('inkWorkspaceAccess');
+        if (is_null($val) || $val instanceof InkAccessSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inkWorkspaceAccess'");
     }
 
     /**
@@ -1389,7 +2010,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return StateManagementSetting|null
     */
     public function getInkWorkspaceAccessState(): ?StateManagementSetting {
-        return $this->getBackingStore()->get('inkWorkspaceAccessState');
+        $val = $this->getBackingStore()->get('inkWorkspaceAccessState');
+        if (is_null($val) || $val instanceof StateManagementSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inkWorkspaceAccessState'");
     }
 
     /**
@@ -1397,7 +2022,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getInkWorkspaceBlockSuggestedApps(): ?bool {
-        return $this->getBackingStore()->get('inkWorkspaceBlockSuggestedApps');
+        $val = $this->getBackingStore()->get('inkWorkspaceBlockSuggestedApps');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inkWorkspaceBlockSuggestedApps'");
     }
 
     /**
@@ -1405,7 +2034,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getInternetSharingBlocked(): ?bool {
-        return $this->getBackingStore()->get('internetSharingBlocked');
+        $val = $this->getBackingStore()->get('internetSharingBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'internetSharingBlocked'");
     }
 
     /**
@@ -1413,7 +2046,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getLocationServicesBlocked(): ?bool {
-        return $this->getBackingStore()->get('locationServicesBlocked');
+        $val = $this->getBackingStore()->get('locationServicesBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'locationServicesBlocked'");
     }
 
     /**
@@ -1421,7 +2058,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return Enablement|null
     */
     public function getLockScreenActivateAppsWithVoice(): ?Enablement {
-        return $this->getBackingStore()->get('lockScreenActivateAppsWithVoice');
+        $val = $this->getBackingStore()->get('lockScreenActivateAppsWithVoice');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lockScreenActivateAppsWithVoice'");
     }
 
     /**
@@ -1429,7 +2070,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getLockScreenAllowTimeoutConfiguration(): ?bool {
-        return $this->getBackingStore()->get('lockScreenAllowTimeoutConfiguration');
+        $val = $this->getBackingStore()->get('lockScreenAllowTimeoutConfiguration');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lockScreenAllowTimeoutConfiguration'");
     }
 
     /**
@@ -1437,7 +2082,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getLockScreenBlockActionCenterNotifications(): ?bool {
-        return $this->getBackingStore()->get('lockScreenBlockActionCenterNotifications');
+        $val = $this->getBackingStore()->get('lockScreenBlockActionCenterNotifications');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lockScreenBlockActionCenterNotifications'");
     }
 
     /**
@@ -1445,7 +2094,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getLockScreenBlockCortana(): ?bool {
-        return $this->getBackingStore()->get('lockScreenBlockCortana');
+        $val = $this->getBackingStore()->get('lockScreenBlockCortana');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lockScreenBlockCortana'");
     }
 
     /**
@@ -1453,7 +2106,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getLockScreenBlockToastNotifications(): ?bool {
-        return $this->getBackingStore()->get('lockScreenBlockToastNotifications');
+        $val = $this->getBackingStore()->get('lockScreenBlockToastNotifications');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lockScreenBlockToastNotifications'");
     }
 
     /**
@@ -1461,7 +2118,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getLockScreenTimeoutInSeconds(): ?int {
-        return $this->getBackingStore()->get('lockScreenTimeoutInSeconds');
+        $val = $this->getBackingStore()->get('lockScreenTimeoutInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lockScreenTimeoutInSeconds'");
     }
 
     /**
@@ -1469,7 +2130,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getLogonBlockFastUserSwitching(): ?bool {
-        return $this->getBackingStore()->get('logonBlockFastUserSwitching');
+        $val = $this->getBackingStore()->get('logonBlockFastUserSwitching');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'logonBlockFastUserSwitching'");
     }
 
     /**
@@ -1477,7 +2142,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getMessagingBlockMMS(): ?bool {
-        return $this->getBackingStore()->get('messagingBlockMMS');
+        $val = $this->getBackingStore()->get('messagingBlockMMS');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'messagingBlockMMS'");
     }
 
     /**
@@ -1485,7 +2154,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getMessagingBlockRichCommunicationServices(): ?bool {
-        return $this->getBackingStore()->get('messagingBlockRichCommunicationServices');
+        $val = $this->getBackingStore()->get('messagingBlockRichCommunicationServices');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'messagingBlockRichCommunicationServices'");
     }
 
     /**
@@ -1493,7 +2166,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getMessagingBlockSync(): ?bool {
-        return $this->getBackingStore()->get('messagingBlockSync');
+        $val = $this->getBackingStore()->get('messagingBlockSync');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'messagingBlockSync'");
     }
 
     /**
@@ -1501,7 +2178,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getMicrosoftAccountBlocked(): ?bool {
-        return $this->getBackingStore()->get('microsoftAccountBlocked');
+        $val = $this->getBackingStore()->get('microsoftAccountBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftAccountBlocked'");
     }
 
     /**
@@ -1509,7 +2190,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getMicrosoftAccountBlockSettingsSync(): ?bool {
-        return $this->getBackingStore()->get('microsoftAccountBlockSettingsSync');
+        $val = $this->getBackingStore()->get('microsoftAccountBlockSettingsSync');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftAccountBlockSettingsSync'");
     }
 
     /**
@@ -1517,7 +2202,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return SignInAssistantOptions|null
     */
     public function getMicrosoftAccountSignInAssistantSettings(): ?SignInAssistantOptions {
-        return $this->getBackingStore()->get('microsoftAccountSignInAssistantSettings');
+        $val = $this->getBackingStore()->get('microsoftAccountSignInAssistantSettings');
+        if (is_null($val) || $val instanceof SignInAssistantOptions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftAccountSignInAssistantSettings'");
     }
 
     /**
@@ -1525,7 +2214,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getNetworkProxyApplySettingsDeviceWide(): ?bool {
-        return $this->getBackingStore()->get('networkProxyApplySettingsDeviceWide');
+        $val = $this->getBackingStore()->get('networkProxyApplySettingsDeviceWide');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkProxyApplySettingsDeviceWide'");
     }
 
     /**
@@ -1533,7 +2226,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getNetworkProxyAutomaticConfigurationUrl(): ?string {
-        return $this->getBackingStore()->get('networkProxyAutomaticConfigurationUrl');
+        $val = $this->getBackingStore()->get('networkProxyAutomaticConfigurationUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkProxyAutomaticConfigurationUrl'");
     }
 
     /**
@@ -1541,7 +2238,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getNetworkProxyDisableAutoDetect(): ?bool {
-        return $this->getBackingStore()->get('networkProxyDisableAutoDetect');
+        $val = $this->getBackingStore()->get('networkProxyDisableAutoDetect');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkProxyDisableAutoDetect'");
     }
 
     /**
@@ -1549,7 +2250,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return Windows10NetworkProxyServer|null
     */
     public function getNetworkProxyServer(): ?Windows10NetworkProxyServer {
-        return $this->getBackingStore()->get('networkProxyServer');
+        $val = $this->getBackingStore()->get('networkProxyServer');
+        if (is_null($val) || $val instanceof Windows10NetworkProxyServer) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkProxyServer'");
     }
 
     /**
@@ -1557,7 +2262,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getNfcBlocked(): ?bool {
-        return $this->getBackingStore()->get('nfcBlocked');
+        $val = $this->getBackingStore()->get('nfcBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'nfcBlocked'");
     }
 
     /**
@@ -1565,7 +2274,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getOneDriveDisableFileSync(): ?bool {
-        return $this->getBackingStore()->get('oneDriveDisableFileSync');
+        $val = $this->getBackingStore()->get('oneDriveDisableFileSync');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'oneDriveDisableFileSync'");
     }
 
     /**
@@ -1573,7 +2286,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getPasswordBlockSimple(): ?bool {
-        return $this->getBackingStore()->get('passwordBlockSimple');
+        $val = $this->getBackingStore()->get('passwordBlockSimple');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordBlockSimple'");
     }
 
     /**
@@ -1581,7 +2298,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getPasswordExpirationDays(): ?int {
-        return $this->getBackingStore()->get('passwordExpirationDays');
+        $val = $this->getBackingStore()->get('passwordExpirationDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordExpirationDays'");
     }
 
     /**
@@ -1589,7 +2310,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getPasswordMinimumAgeInDays(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumAgeInDays');
+        $val = $this->getBackingStore()->get('passwordMinimumAgeInDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumAgeInDays'");
     }
 
     /**
@@ -1597,7 +2322,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getPasswordMinimumCharacterSetCount(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumCharacterSetCount');
+        $val = $this->getBackingStore()->get('passwordMinimumCharacterSetCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumCharacterSetCount'");
     }
 
     /**
@@ -1605,7 +2334,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getPasswordMinimumLength(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumLength');
+        $val = $this->getBackingStore()->get('passwordMinimumLength');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumLength'");
     }
 
     /**
@@ -1613,7 +2346,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getPasswordMinutesOfInactivityBeforeScreenTimeout(): ?int {
-        return $this->getBackingStore()->get('passwordMinutesOfInactivityBeforeScreenTimeout');
+        $val = $this->getBackingStore()->get('passwordMinutesOfInactivityBeforeScreenTimeout');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinutesOfInactivityBeforeScreenTimeout'");
     }
 
     /**
@@ -1621,7 +2358,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getPasswordPreviousPasswordBlockCount(): ?int {
-        return $this->getBackingStore()->get('passwordPreviousPasswordBlockCount');
+        $val = $this->getBackingStore()->get('passwordPreviousPasswordBlockCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordPreviousPasswordBlockCount'");
     }
 
     /**
@@ -1629,7 +2370,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getPasswordRequired(): ?bool {
-        return $this->getBackingStore()->get('passwordRequired');
+        $val = $this->getBackingStore()->get('passwordRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordRequired'");
     }
 
     /**
@@ -1637,7 +2382,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return RequiredPasswordType|null
     */
     public function getPasswordRequiredType(): ?RequiredPasswordType {
-        return $this->getBackingStore()->get('passwordRequiredType');
+        $val = $this->getBackingStore()->get('passwordRequiredType');
+        if (is_null($val) || $val instanceof RequiredPasswordType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordRequiredType'");
     }
 
     /**
@@ -1645,7 +2394,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getPasswordRequireWhenResumeFromIdleState(): ?bool {
-        return $this->getBackingStore()->get('passwordRequireWhenResumeFromIdleState');
+        $val = $this->getBackingStore()->get('passwordRequireWhenResumeFromIdleState');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordRequireWhenResumeFromIdleState'");
     }
 
     /**
@@ -1653,7 +2406,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getPasswordSignInFailureCountBeforeFactoryReset(): ?int {
-        return $this->getBackingStore()->get('passwordSignInFailureCountBeforeFactoryReset');
+        $val = $this->getBackingStore()->get('passwordSignInFailureCountBeforeFactoryReset');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordSignInFailureCountBeforeFactoryReset'");
     }
 
     /**
@@ -1661,7 +2418,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getPersonalizationDesktopImageUrl(): ?string {
-        return $this->getBackingStore()->get('personalizationDesktopImageUrl');
+        $val = $this->getBackingStore()->get('personalizationDesktopImageUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'personalizationDesktopImageUrl'");
     }
 
     /**
@@ -1669,7 +2430,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getPersonalizationLockScreenImageUrl(): ?string {
-        return $this->getBackingStore()->get('personalizationLockScreenImageUrl');
+        $val = $this->getBackingStore()->get('personalizationLockScreenImageUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'personalizationLockScreenImageUrl'");
     }
 
     /**
@@ -1677,7 +2442,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return PowerActionType|null
     */
     public function getPowerButtonActionOnBattery(): ?PowerActionType {
-        return $this->getBackingStore()->get('powerButtonActionOnBattery');
+        $val = $this->getBackingStore()->get('powerButtonActionOnBattery');
+        if (is_null($val) || $val instanceof PowerActionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'powerButtonActionOnBattery'");
     }
 
     /**
@@ -1685,7 +2454,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return PowerActionType|null
     */
     public function getPowerButtonActionPluggedIn(): ?PowerActionType {
-        return $this->getBackingStore()->get('powerButtonActionPluggedIn');
+        $val = $this->getBackingStore()->get('powerButtonActionPluggedIn');
+        if (is_null($val) || $val instanceof PowerActionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'powerButtonActionPluggedIn'");
     }
 
     /**
@@ -1693,7 +2466,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return Enablement|null
     */
     public function getPowerHybridSleepOnBattery(): ?Enablement {
-        return $this->getBackingStore()->get('powerHybridSleepOnBattery');
+        $val = $this->getBackingStore()->get('powerHybridSleepOnBattery');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'powerHybridSleepOnBattery'");
     }
 
     /**
@@ -1701,7 +2478,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return Enablement|null
     */
     public function getPowerHybridSleepPluggedIn(): ?Enablement {
-        return $this->getBackingStore()->get('powerHybridSleepPluggedIn');
+        $val = $this->getBackingStore()->get('powerHybridSleepPluggedIn');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'powerHybridSleepPluggedIn'");
     }
 
     /**
@@ -1709,7 +2490,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return PowerActionType|null
     */
     public function getPowerLidCloseActionOnBattery(): ?PowerActionType {
-        return $this->getBackingStore()->get('powerLidCloseActionOnBattery');
+        $val = $this->getBackingStore()->get('powerLidCloseActionOnBattery');
+        if (is_null($val) || $val instanceof PowerActionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'powerLidCloseActionOnBattery'");
     }
 
     /**
@@ -1717,7 +2502,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return PowerActionType|null
     */
     public function getPowerLidCloseActionPluggedIn(): ?PowerActionType {
-        return $this->getBackingStore()->get('powerLidCloseActionPluggedIn');
+        $val = $this->getBackingStore()->get('powerLidCloseActionPluggedIn');
+        if (is_null($val) || $val instanceof PowerActionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'powerLidCloseActionPluggedIn'");
     }
 
     /**
@@ -1725,7 +2514,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return PowerActionType|null
     */
     public function getPowerSleepButtonActionOnBattery(): ?PowerActionType {
-        return $this->getBackingStore()->get('powerSleepButtonActionOnBattery');
+        $val = $this->getBackingStore()->get('powerSleepButtonActionOnBattery');
+        if (is_null($val) || $val instanceof PowerActionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'powerSleepButtonActionOnBattery'");
     }
 
     /**
@@ -1733,7 +2526,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return PowerActionType|null
     */
     public function getPowerSleepButtonActionPluggedIn(): ?PowerActionType {
-        return $this->getBackingStore()->get('powerSleepButtonActionPluggedIn');
+        $val = $this->getBackingStore()->get('powerSleepButtonActionPluggedIn');
+        if (is_null($val) || $val instanceof PowerActionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'powerSleepButtonActionPluggedIn'");
     }
 
     /**
@@ -1741,7 +2538,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getPrinterBlockAddition(): ?bool {
-        return $this->getBackingStore()->get('printerBlockAddition');
+        $val = $this->getBackingStore()->get('printerBlockAddition');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'printerBlockAddition'");
     }
 
     /**
@@ -1749,7 +2550,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getPrinterDefaultName(): ?string {
-        return $this->getBackingStore()->get('printerDefaultName');
+        $val = $this->getBackingStore()->get('printerDefaultName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'printerDefaultName'");
     }
 
     /**
@@ -1757,7 +2562,13 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return array<string>|null
     */
     public function getPrinterNames(): ?array {
-        return $this->getBackingStore()->get('printerNames');
+        $val = $this->getBackingStore()->get('printerNames');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'printerNames'");
     }
 
     /**
@@ -1765,7 +2576,13 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return array<WindowsPrivacyDataAccessControlItem>|null
     */
     public function getPrivacyAccessControls(): ?array {
-        return $this->getBackingStore()->get('privacyAccessControls');
+        $val = $this->getBackingStore()->get('privacyAccessControls');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WindowsPrivacyDataAccessControlItem::class);
+            /** @var array<WindowsPrivacyDataAccessControlItem>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'privacyAccessControls'");
     }
 
     /**
@@ -1773,7 +2590,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return StateManagementSetting|null
     */
     public function getPrivacyAdvertisingId(): ?StateManagementSetting {
-        return $this->getBackingStore()->get('privacyAdvertisingId');
+        $val = $this->getBackingStore()->get('privacyAdvertisingId');
+        if (is_null($val) || $val instanceof StateManagementSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'privacyAdvertisingId'");
     }
 
     /**
@@ -1781,7 +2602,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getPrivacyAutoAcceptPairingAndConsentPrompts(): ?bool {
-        return $this->getBackingStore()->get('privacyAutoAcceptPairingAndConsentPrompts');
+        $val = $this->getBackingStore()->get('privacyAutoAcceptPairingAndConsentPrompts');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'privacyAutoAcceptPairingAndConsentPrompts'");
     }
 
     /**
@@ -1789,7 +2614,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getPrivacyBlockActivityFeed(): ?bool {
-        return $this->getBackingStore()->get('privacyBlockActivityFeed');
+        $val = $this->getBackingStore()->get('privacyBlockActivityFeed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'privacyBlockActivityFeed'");
     }
 
     /**
@@ -1797,7 +2626,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getPrivacyBlockInputPersonalization(): ?bool {
-        return $this->getBackingStore()->get('privacyBlockInputPersonalization');
+        $val = $this->getBackingStore()->get('privacyBlockInputPersonalization');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'privacyBlockInputPersonalization'");
     }
 
     /**
@@ -1805,7 +2638,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getPrivacyBlockPublishUserActivities(): ?bool {
-        return $this->getBackingStore()->get('privacyBlockPublishUserActivities');
+        $val = $this->getBackingStore()->get('privacyBlockPublishUserActivities');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'privacyBlockPublishUserActivities'");
     }
 
     /**
@@ -1813,7 +2650,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getPrivacyDisableLaunchExperience(): ?bool {
-        return $this->getBackingStore()->get('privacyDisableLaunchExperience');
+        $val = $this->getBackingStore()->get('privacyDisableLaunchExperience');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'privacyDisableLaunchExperience'");
     }
 
     /**
@@ -1821,7 +2662,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getResetProtectionModeBlocked(): ?bool {
-        return $this->getBackingStore()->get('resetProtectionModeBlocked');
+        $val = $this->getBackingStore()->get('resetProtectionModeBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resetProtectionModeBlocked'");
     }
 
     /**
@@ -1829,7 +2674,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return SafeSearchFilterType|null
     */
     public function getSafeSearchFilter(): ?SafeSearchFilterType {
-        return $this->getBackingStore()->get('safeSearchFilter');
+        $val = $this->getBackingStore()->get('safeSearchFilter');
+        if (is_null($val) || $val instanceof SafeSearchFilterType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'safeSearchFilter'");
     }
 
     /**
@@ -1837,7 +2686,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getScreenCaptureBlocked(): ?bool {
-        return $this->getBackingStore()->get('screenCaptureBlocked');
+        $val = $this->getBackingStore()->get('screenCaptureBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'screenCaptureBlocked'");
     }
 
     /**
@@ -1845,7 +2698,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSearchBlockDiacritics(): ?bool {
-        return $this->getBackingStore()->get('searchBlockDiacritics');
+        $val = $this->getBackingStore()->get('searchBlockDiacritics');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'searchBlockDiacritics'");
     }
 
     /**
@@ -1853,7 +2710,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSearchBlockWebResults(): ?bool {
-        return $this->getBackingStore()->get('searchBlockWebResults');
+        $val = $this->getBackingStore()->get('searchBlockWebResults');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'searchBlockWebResults'");
     }
 
     /**
@@ -1861,7 +2722,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSearchDisableAutoLanguageDetection(): ?bool {
-        return $this->getBackingStore()->get('searchDisableAutoLanguageDetection');
+        $val = $this->getBackingStore()->get('searchDisableAutoLanguageDetection');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'searchDisableAutoLanguageDetection'");
     }
 
     /**
@@ -1869,7 +2734,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSearchDisableIndexerBackoff(): ?bool {
-        return $this->getBackingStore()->get('searchDisableIndexerBackoff');
+        $val = $this->getBackingStore()->get('searchDisableIndexerBackoff');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'searchDisableIndexerBackoff'");
     }
 
     /**
@@ -1877,7 +2746,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSearchDisableIndexingEncryptedItems(): ?bool {
-        return $this->getBackingStore()->get('searchDisableIndexingEncryptedItems');
+        $val = $this->getBackingStore()->get('searchDisableIndexingEncryptedItems');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'searchDisableIndexingEncryptedItems'");
     }
 
     /**
@@ -1885,7 +2758,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSearchDisableIndexingRemovableDrive(): ?bool {
-        return $this->getBackingStore()->get('searchDisableIndexingRemovableDrive');
+        $val = $this->getBackingStore()->get('searchDisableIndexingRemovableDrive');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'searchDisableIndexingRemovableDrive'");
     }
 
     /**
@@ -1893,7 +2770,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSearchDisableLocation(): ?bool {
-        return $this->getBackingStore()->get('searchDisableLocation');
+        $val = $this->getBackingStore()->get('searchDisableLocation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'searchDisableLocation'");
     }
 
     /**
@@ -1901,7 +2782,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSearchDisableUseLocation(): ?bool {
-        return $this->getBackingStore()->get('searchDisableUseLocation');
+        $val = $this->getBackingStore()->get('searchDisableUseLocation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'searchDisableUseLocation'");
     }
 
     /**
@@ -1909,7 +2794,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSearchEnableAutomaticIndexSizeManangement(): ?bool {
-        return $this->getBackingStore()->get('searchEnableAutomaticIndexSizeManangement');
+        $val = $this->getBackingStore()->get('searchEnableAutomaticIndexSizeManangement');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'searchEnableAutomaticIndexSizeManangement'");
     }
 
     /**
@@ -1917,7 +2806,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSearchEnableRemoteQueries(): ?bool {
-        return $this->getBackingStore()->get('searchEnableRemoteQueries');
+        $val = $this->getBackingStore()->get('searchEnableRemoteQueries');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'searchEnableRemoteQueries'");
     }
 
     /**
@@ -1925,7 +2818,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSecurityBlockAzureADJoinedDevicesAutoEncryption(): ?bool {
-        return $this->getBackingStore()->get('securityBlockAzureADJoinedDevicesAutoEncryption');
+        $val = $this->getBackingStore()->get('securityBlockAzureADJoinedDevicesAutoEncryption');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'securityBlockAzureADJoinedDevicesAutoEncryption'");
     }
 
     /**
@@ -1933,7 +2830,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockAccountsPage(): ?bool {
-        return $this->getBackingStore()->get('settingsBlockAccountsPage');
+        $val = $this->getBackingStore()->get('settingsBlockAccountsPage');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingsBlockAccountsPage'");
     }
 
     /**
@@ -1941,7 +2842,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockAddProvisioningPackage(): ?bool {
-        return $this->getBackingStore()->get('settingsBlockAddProvisioningPackage');
+        $val = $this->getBackingStore()->get('settingsBlockAddProvisioningPackage');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingsBlockAddProvisioningPackage'");
     }
 
     /**
@@ -1949,7 +2854,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockAppsPage(): ?bool {
-        return $this->getBackingStore()->get('settingsBlockAppsPage');
+        $val = $this->getBackingStore()->get('settingsBlockAppsPage');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingsBlockAppsPage'");
     }
 
     /**
@@ -1957,7 +2866,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockChangeLanguage(): ?bool {
-        return $this->getBackingStore()->get('settingsBlockChangeLanguage');
+        $val = $this->getBackingStore()->get('settingsBlockChangeLanguage');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingsBlockChangeLanguage'");
     }
 
     /**
@@ -1965,7 +2878,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockChangePowerSleep(): ?bool {
-        return $this->getBackingStore()->get('settingsBlockChangePowerSleep');
+        $val = $this->getBackingStore()->get('settingsBlockChangePowerSleep');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingsBlockChangePowerSleep'");
     }
 
     /**
@@ -1973,7 +2890,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockChangeRegion(): ?bool {
-        return $this->getBackingStore()->get('settingsBlockChangeRegion');
+        $val = $this->getBackingStore()->get('settingsBlockChangeRegion');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingsBlockChangeRegion'");
     }
 
     /**
@@ -1981,7 +2902,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockChangeSystemTime(): ?bool {
-        return $this->getBackingStore()->get('settingsBlockChangeSystemTime');
+        $val = $this->getBackingStore()->get('settingsBlockChangeSystemTime');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingsBlockChangeSystemTime'");
     }
 
     /**
@@ -1989,7 +2914,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockDevicesPage(): ?bool {
-        return $this->getBackingStore()->get('settingsBlockDevicesPage');
+        $val = $this->getBackingStore()->get('settingsBlockDevicesPage');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingsBlockDevicesPage'");
     }
 
     /**
@@ -1997,7 +2926,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockEaseOfAccessPage(): ?bool {
-        return $this->getBackingStore()->get('settingsBlockEaseOfAccessPage');
+        $val = $this->getBackingStore()->get('settingsBlockEaseOfAccessPage');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingsBlockEaseOfAccessPage'");
     }
 
     /**
@@ -2005,7 +2938,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockEditDeviceName(): ?bool {
-        return $this->getBackingStore()->get('settingsBlockEditDeviceName');
+        $val = $this->getBackingStore()->get('settingsBlockEditDeviceName');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingsBlockEditDeviceName'");
     }
 
     /**
@@ -2013,7 +2950,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockGamingPage(): ?bool {
-        return $this->getBackingStore()->get('settingsBlockGamingPage');
+        $val = $this->getBackingStore()->get('settingsBlockGamingPage');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingsBlockGamingPage'");
     }
 
     /**
@@ -2021,7 +2962,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockNetworkInternetPage(): ?bool {
-        return $this->getBackingStore()->get('settingsBlockNetworkInternetPage');
+        $val = $this->getBackingStore()->get('settingsBlockNetworkInternetPage');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingsBlockNetworkInternetPage'");
     }
 
     /**
@@ -2029,7 +2974,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockPersonalizationPage(): ?bool {
-        return $this->getBackingStore()->get('settingsBlockPersonalizationPage');
+        $val = $this->getBackingStore()->get('settingsBlockPersonalizationPage');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingsBlockPersonalizationPage'");
     }
 
     /**
@@ -2037,7 +2986,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockPrivacyPage(): ?bool {
-        return $this->getBackingStore()->get('settingsBlockPrivacyPage');
+        $val = $this->getBackingStore()->get('settingsBlockPrivacyPage');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingsBlockPrivacyPage'");
     }
 
     /**
@@ -2045,7 +2998,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockRemoveProvisioningPackage(): ?bool {
-        return $this->getBackingStore()->get('settingsBlockRemoveProvisioningPackage');
+        $val = $this->getBackingStore()->get('settingsBlockRemoveProvisioningPackage');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingsBlockRemoveProvisioningPackage'");
     }
 
     /**
@@ -2053,7 +3010,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockSettingsApp(): ?bool {
-        return $this->getBackingStore()->get('settingsBlockSettingsApp');
+        $val = $this->getBackingStore()->get('settingsBlockSettingsApp');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingsBlockSettingsApp'");
     }
 
     /**
@@ -2061,7 +3022,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockSystemPage(): ?bool {
-        return $this->getBackingStore()->get('settingsBlockSystemPage');
+        $val = $this->getBackingStore()->get('settingsBlockSystemPage');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingsBlockSystemPage'");
     }
 
     /**
@@ -2069,7 +3034,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockTimeLanguagePage(): ?bool {
-        return $this->getBackingStore()->get('settingsBlockTimeLanguagePage');
+        $val = $this->getBackingStore()->get('settingsBlockTimeLanguagePage');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingsBlockTimeLanguagePage'");
     }
 
     /**
@@ -2077,7 +3046,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockUpdateSecurityPage(): ?bool {
-        return $this->getBackingStore()->get('settingsBlockUpdateSecurityPage');
+        $val = $this->getBackingStore()->get('settingsBlockUpdateSecurityPage');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingsBlockUpdateSecurityPage'");
     }
 
     /**
@@ -2085,7 +3058,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSharedUserAppDataAllowed(): ?bool {
-        return $this->getBackingStore()->get('sharedUserAppDataAllowed');
+        $val = $this->getBackingStore()->get('sharedUserAppDataAllowed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sharedUserAppDataAllowed'");
     }
 
     /**
@@ -2093,7 +3070,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return AppInstallControlType|null
     */
     public function getSmartScreenAppInstallControl(): ?AppInstallControlType {
-        return $this->getBackingStore()->get('smartScreenAppInstallControl');
+        $val = $this->getBackingStore()->get('smartScreenAppInstallControl');
+        if (is_null($val) || $val instanceof AppInstallControlType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'smartScreenAppInstallControl'");
     }
 
     /**
@@ -2101,7 +3082,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSmartScreenBlockPromptOverride(): ?bool {
-        return $this->getBackingStore()->get('smartScreenBlockPromptOverride');
+        $val = $this->getBackingStore()->get('smartScreenBlockPromptOverride');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'smartScreenBlockPromptOverride'");
     }
 
     /**
@@ -2109,7 +3094,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSmartScreenBlockPromptOverrideForFiles(): ?bool {
-        return $this->getBackingStore()->get('smartScreenBlockPromptOverrideForFiles');
+        $val = $this->getBackingStore()->get('smartScreenBlockPromptOverrideForFiles');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'smartScreenBlockPromptOverrideForFiles'");
     }
 
     /**
@@ -2117,7 +3106,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSmartScreenEnableAppInstallControl(): ?bool {
-        return $this->getBackingStore()->get('smartScreenEnableAppInstallControl');
+        $val = $this->getBackingStore()->get('smartScreenEnableAppInstallControl');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'smartScreenEnableAppInstallControl'");
     }
 
     /**
@@ -2125,7 +3118,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartBlockUnpinningAppsFromTaskbar(): ?bool {
-        return $this->getBackingStore()->get('startBlockUnpinningAppsFromTaskbar');
+        $val = $this->getBackingStore()->get('startBlockUnpinningAppsFromTaskbar');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startBlockUnpinningAppsFromTaskbar'");
     }
 
     /**
@@ -2133,7 +3130,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return WindowsStartMenuAppListVisibilityType|null
     */
     public function getStartMenuAppListVisibility(): ?WindowsStartMenuAppListVisibilityType {
-        return $this->getBackingStore()->get('startMenuAppListVisibility');
+        $val = $this->getBackingStore()->get('startMenuAppListVisibility');
+        if (is_null($val) || $val instanceof WindowsStartMenuAppListVisibilityType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuAppListVisibility'");
     }
 
     /**
@@ -2141,7 +3142,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartMenuHideChangeAccountSettings(): ?bool {
-        return $this->getBackingStore()->get('startMenuHideChangeAccountSettings');
+        $val = $this->getBackingStore()->get('startMenuHideChangeAccountSettings');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuHideChangeAccountSettings'");
     }
 
     /**
@@ -2149,7 +3154,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartMenuHideFrequentlyUsedApps(): ?bool {
-        return $this->getBackingStore()->get('startMenuHideFrequentlyUsedApps');
+        $val = $this->getBackingStore()->get('startMenuHideFrequentlyUsedApps');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuHideFrequentlyUsedApps'");
     }
 
     /**
@@ -2157,7 +3166,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartMenuHideHibernate(): ?bool {
-        return $this->getBackingStore()->get('startMenuHideHibernate');
+        $val = $this->getBackingStore()->get('startMenuHideHibernate');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuHideHibernate'");
     }
 
     /**
@@ -2165,7 +3178,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartMenuHideLock(): ?bool {
-        return $this->getBackingStore()->get('startMenuHideLock');
+        $val = $this->getBackingStore()->get('startMenuHideLock');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuHideLock'");
     }
 
     /**
@@ -2173,7 +3190,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartMenuHidePowerButton(): ?bool {
-        return $this->getBackingStore()->get('startMenuHidePowerButton');
+        $val = $this->getBackingStore()->get('startMenuHidePowerButton');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuHidePowerButton'");
     }
 
     /**
@@ -2181,7 +3202,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartMenuHideRecentJumpLists(): ?bool {
-        return $this->getBackingStore()->get('startMenuHideRecentJumpLists');
+        $val = $this->getBackingStore()->get('startMenuHideRecentJumpLists');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuHideRecentJumpLists'");
     }
 
     /**
@@ -2189,7 +3214,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartMenuHideRecentlyAddedApps(): ?bool {
-        return $this->getBackingStore()->get('startMenuHideRecentlyAddedApps');
+        $val = $this->getBackingStore()->get('startMenuHideRecentlyAddedApps');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuHideRecentlyAddedApps'");
     }
 
     /**
@@ -2197,7 +3226,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartMenuHideRestartOptions(): ?bool {
-        return $this->getBackingStore()->get('startMenuHideRestartOptions');
+        $val = $this->getBackingStore()->get('startMenuHideRestartOptions');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuHideRestartOptions'");
     }
 
     /**
@@ -2205,7 +3238,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartMenuHideShutDown(): ?bool {
-        return $this->getBackingStore()->get('startMenuHideShutDown');
+        $val = $this->getBackingStore()->get('startMenuHideShutDown');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuHideShutDown'");
     }
 
     /**
@@ -2213,7 +3250,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartMenuHideSignOut(): ?bool {
-        return $this->getBackingStore()->get('startMenuHideSignOut');
+        $val = $this->getBackingStore()->get('startMenuHideSignOut');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuHideSignOut'");
     }
 
     /**
@@ -2221,7 +3262,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartMenuHideSleep(): ?bool {
-        return $this->getBackingStore()->get('startMenuHideSleep');
+        $val = $this->getBackingStore()->get('startMenuHideSleep');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuHideSleep'");
     }
 
     /**
@@ -2229,7 +3274,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartMenuHideSwitchAccount(): ?bool {
-        return $this->getBackingStore()->get('startMenuHideSwitchAccount');
+        $val = $this->getBackingStore()->get('startMenuHideSwitchAccount');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuHideSwitchAccount'");
     }
 
     /**
@@ -2237,7 +3286,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartMenuHideUserTile(): ?bool {
-        return $this->getBackingStore()->get('startMenuHideUserTile');
+        $val = $this->getBackingStore()->get('startMenuHideUserTile');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuHideUserTile'");
     }
 
     /**
@@ -2245,7 +3298,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return StreamInterface|null
     */
     public function getStartMenuLayoutEdgeAssetsXml(): ?StreamInterface {
-        return $this->getBackingStore()->get('startMenuLayoutEdgeAssetsXml');
+        $val = $this->getBackingStore()->get('startMenuLayoutEdgeAssetsXml');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuLayoutEdgeAssetsXml'");
     }
 
     /**
@@ -2253,7 +3310,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return StreamInterface|null
     */
     public function getStartMenuLayoutXml(): ?StreamInterface {
-        return $this->getBackingStore()->get('startMenuLayoutXml');
+        $val = $this->getBackingStore()->get('startMenuLayoutXml');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuLayoutXml'");
     }
 
     /**
@@ -2261,7 +3322,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return WindowsStartMenuModeType|null
     */
     public function getStartMenuMode(): ?WindowsStartMenuModeType {
-        return $this->getBackingStore()->get('startMenuMode');
+        $val = $this->getBackingStore()->get('startMenuMode');
+        if (is_null($val) || $val instanceof WindowsStartMenuModeType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuMode'");
     }
 
     /**
@@ -2269,7 +3334,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return VisibilitySetting|null
     */
     public function getStartMenuPinnedFolderDocuments(): ?VisibilitySetting {
-        return $this->getBackingStore()->get('startMenuPinnedFolderDocuments');
+        $val = $this->getBackingStore()->get('startMenuPinnedFolderDocuments');
+        if (is_null($val) || $val instanceof VisibilitySetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuPinnedFolderDocuments'");
     }
 
     /**
@@ -2277,7 +3346,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return VisibilitySetting|null
     */
     public function getStartMenuPinnedFolderDownloads(): ?VisibilitySetting {
-        return $this->getBackingStore()->get('startMenuPinnedFolderDownloads');
+        $val = $this->getBackingStore()->get('startMenuPinnedFolderDownloads');
+        if (is_null($val) || $val instanceof VisibilitySetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuPinnedFolderDownloads'");
     }
 
     /**
@@ -2285,7 +3358,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return VisibilitySetting|null
     */
     public function getStartMenuPinnedFolderFileExplorer(): ?VisibilitySetting {
-        return $this->getBackingStore()->get('startMenuPinnedFolderFileExplorer');
+        $val = $this->getBackingStore()->get('startMenuPinnedFolderFileExplorer');
+        if (is_null($val) || $val instanceof VisibilitySetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuPinnedFolderFileExplorer'");
     }
 
     /**
@@ -2293,7 +3370,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return VisibilitySetting|null
     */
     public function getStartMenuPinnedFolderHomeGroup(): ?VisibilitySetting {
-        return $this->getBackingStore()->get('startMenuPinnedFolderHomeGroup');
+        $val = $this->getBackingStore()->get('startMenuPinnedFolderHomeGroup');
+        if (is_null($val) || $val instanceof VisibilitySetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuPinnedFolderHomeGroup'");
     }
 
     /**
@@ -2301,7 +3382,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return VisibilitySetting|null
     */
     public function getStartMenuPinnedFolderMusic(): ?VisibilitySetting {
-        return $this->getBackingStore()->get('startMenuPinnedFolderMusic');
+        $val = $this->getBackingStore()->get('startMenuPinnedFolderMusic');
+        if (is_null($val) || $val instanceof VisibilitySetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuPinnedFolderMusic'");
     }
 
     /**
@@ -2309,7 +3394,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return VisibilitySetting|null
     */
     public function getStartMenuPinnedFolderNetwork(): ?VisibilitySetting {
-        return $this->getBackingStore()->get('startMenuPinnedFolderNetwork');
+        $val = $this->getBackingStore()->get('startMenuPinnedFolderNetwork');
+        if (is_null($val) || $val instanceof VisibilitySetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuPinnedFolderNetwork'");
     }
 
     /**
@@ -2317,7 +3406,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return VisibilitySetting|null
     */
     public function getStartMenuPinnedFolderPersonalFolder(): ?VisibilitySetting {
-        return $this->getBackingStore()->get('startMenuPinnedFolderPersonalFolder');
+        $val = $this->getBackingStore()->get('startMenuPinnedFolderPersonalFolder');
+        if (is_null($val) || $val instanceof VisibilitySetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuPinnedFolderPersonalFolder'");
     }
 
     /**
@@ -2325,7 +3418,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return VisibilitySetting|null
     */
     public function getStartMenuPinnedFolderPictures(): ?VisibilitySetting {
-        return $this->getBackingStore()->get('startMenuPinnedFolderPictures');
+        $val = $this->getBackingStore()->get('startMenuPinnedFolderPictures');
+        if (is_null($val) || $val instanceof VisibilitySetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuPinnedFolderPictures'");
     }
 
     /**
@@ -2333,7 +3430,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return VisibilitySetting|null
     */
     public function getStartMenuPinnedFolderSettings(): ?VisibilitySetting {
-        return $this->getBackingStore()->get('startMenuPinnedFolderSettings');
+        $val = $this->getBackingStore()->get('startMenuPinnedFolderSettings');
+        if (is_null($val) || $val instanceof VisibilitySetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuPinnedFolderSettings'");
     }
 
     /**
@@ -2341,7 +3442,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return VisibilitySetting|null
     */
     public function getStartMenuPinnedFolderVideos(): ?VisibilitySetting {
-        return $this->getBackingStore()->get('startMenuPinnedFolderVideos');
+        $val = $this->getBackingStore()->get('startMenuPinnedFolderVideos');
+        if (is_null($val) || $val instanceof VisibilitySetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startMenuPinnedFolderVideos'");
     }
 
     /**
@@ -2349,7 +3454,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStorageBlockRemovableStorage(): ?bool {
-        return $this->getBackingStore()->get('storageBlockRemovableStorage');
+        $val = $this->getBackingStore()->get('storageBlockRemovableStorage');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'storageBlockRemovableStorage'");
     }
 
     /**
@@ -2357,7 +3466,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStorageRequireMobileDeviceEncryption(): ?bool {
-        return $this->getBackingStore()->get('storageRequireMobileDeviceEncryption');
+        $val = $this->getBackingStore()->get('storageRequireMobileDeviceEncryption');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'storageRequireMobileDeviceEncryption'");
     }
 
     /**
@@ -2365,7 +3478,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStorageRestrictAppDataToSystemVolume(): ?bool {
-        return $this->getBackingStore()->get('storageRestrictAppDataToSystemVolume');
+        $val = $this->getBackingStore()->get('storageRestrictAppDataToSystemVolume');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'storageRestrictAppDataToSystemVolume'");
     }
 
     /**
@@ -2373,7 +3490,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStorageRestrictAppInstallToSystemVolume(): ?bool {
-        return $this->getBackingStore()->get('storageRestrictAppInstallToSystemVolume');
+        $val = $this->getBackingStore()->get('storageRestrictAppInstallToSystemVolume');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'storageRestrictAppInstallToSystemVolume'");
     }
 
     /**
@@ -2381,7 +3502,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getSystemTelemetryProxyServer(): ?string {
-        return $this->getBackingStore()->get('systemTelemetryProxyServer');
+        $val = $this->getBackingStore()->get('systemTelemetryProxyServer');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'systemTelemetryProxyServer'");
     }
 
     /**
@@ -2389,7 +3514,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getTaskManagerBlockEndTask(): ?bool {
-        return $this->getBackingStore()->get('taskManagerBlockEndTask');
+        $val = $this->getBackingStore()->get('taskManagerBlockEndTask');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'taskManagerBlockEndTask'");
     }
 
     /**
@@ -2397,7 +3526,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getTenantLockdownRequireNetworkDuringOutOfBoxExperience(): ?bool {
-        return $this->getBackingStore()->get('tenantLockdownRequireNetworkDuringOutOfBoxExperience');
+        $val = $this->getBackingStore()->get('tenantLockdownRequireNetworkDuringOutOfBoxExperience');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantLockdownRequireNetworkDuringOutOfBoxExperience'");
     }
 
     /**
@@ -2405,7 +3538,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getUninstallBuiltInApps(): ?bool {
-        return $this->getBackingStore()->get('uninstallBuiltInApps');
+        $val = $this->getBackingStore()->get('uninstallBuiltInApps');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'uninstallBuiltInApps'");
     }
 
     /**
@@ -2413,7 +3550,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getUsbBlocked(): ?bool {
-        return $this->getBackingStore()->get('usbBlocked');
+        $val = $this->getBackingStore()->get('usbBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'usbBlocked'");
     }
 
     /**
@@ -2421,7 +3562,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getVoiceRecordingBlocked(): ?bool {
-        return $this->getBackingStore()->get('voiceRecordingBlocked');
+        $val = $this->getBackingStore()->get('voiceRecordingBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'voiceRecordingBlocked'");
     }
 
     /**
@@ -2429,7 +3574,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWebRtcBlockLocalhostIpAddress(): ?bool {
-        return $this->getBackingStore()->get('webRtcBlockLocalhostIpAddress');
+        $val = $this->getBackingStore()->get('webRtcBlockLocalhostIpAddress');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'webRtcBlockLocalhostIpAddress'");
     }
 
     /**
@@ -2437,7 +3586,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWiFiBlockAutomaticConnectHotspots(): ?bool {
-        return $this->getBackingStore()->get('wiFiBlockAutomaticConnectHotspots');
+        $val = $this->getBackingStore()->get('wiFiBlockAutomaticConnectHotspots');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wiFiBlockAutomaticConnectHotspots'");
     }
 
     /**
@@ -2445,7 +3598,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWiFiBlocked(): ?bool {
-        return $this->getBackingStore()->get('wiFiBlocked');
+        $val = $this->getBackingStore()->get('wiFiBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wiFiBlocked'");
     }
 
     /**
@@ -2453,7 +3610,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWiFiBlockManualConfiguration(): ?bool {
-        return $this->getBackingStore()->get('wiFiBlockManualConfiguration');
+        $val = $this->getBackingStore()->get('wiFiBlockManualConfiguration');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wiFiBlockManualConfiguration'");
     }
 
     /**
@@ -2461,7 +3622,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getWiFiScanInterval(): ?int {
-        return $this->getBackingStore()->get('wiFiScanInterval');
+        $val = $this->getBackingStore()->get('wiFiScanInterval');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wiFiScanInterval'");
     }
 
     /**
@@ -2469,7 +3634,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return Windows10AppsForceUpdateSchedule|null
     */
     public function getWindows10AppsForceUpdateSchedule(): ?Windows10AppsForceUpdateSchedule {
-        return $this->getBackingStore()->get('windows10AppsForceUpdateSchedule');
+        $val = $this->getBackingStore()->get('windows10AppsForceUpdateSchedule');
+        if (is_null($val) || $val instanceof Windows10AppsForceUpdateSchedule) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windows10AppsForceUpdateSchedule'");
     }
 
     /**
@@ -2477,7 +3646,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWindowsSpotlightBlockConsumerSpecificFeatures(): ?bool {
-        return $this->getBackingStore()->get('windowsSpotlightBlockConsumerSpecificFeatures');
+        $val = $this->getBackingStore()->get('windowsSpotlightBlockConsumerSpecificFeatures');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsSpotlightBlockConsumerSpecificFeatures'");
     }
 
     /**
@@ -2485,7 +3658,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWindowsSpotlightBlocked(): ?bool {
-        return $this->getBackingStore()->get('windowsSpotlightBlocked');
+        $val = $this->getBackingStore()->get('windowsSpotlightBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsSpotlightBlocked'");
     }
 
     /**
@@ -2493,7 +3670,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWindowsSpotlightBlockOnActionCenter(): ?bool {
-        return $this->getBackingStore()->get('windowsSpotlightBlockOnActionCenter');
+        $val = $this->getBackingStore()->get('windowsSpotlightBlockOnActionCenter');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsSpotlightBlockOnActionCenter'");
     }
 
     /**
@@ -2501,7 +3682,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWindowsSpotlightBlockTailoredExperiences(): ?bool {
-        return $this->getBackingStore()->get('windowsSpotlightBlockTailoredExperiences');
+        $val = $this->getBackingStore()->get('windowsSpotlightBlockTailoredExperiences');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsSpotlightBlockTailoredExperiences'");
     }
 
     /**
@@ -2509,7 +3694,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWindowsSpotlightBlockThirdPartyNotifications(): ?bool {
-        return $this->getBackingStore()->get('windowsSpotlightBlockThirdPartyNotifications');
+        $val = $this->getBackingStore()->get('windowsSpotlightBlockThirdPartyNotifications');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsSpotlightBlockThirdPartyNotifications'");
     }
 
     /**
@@ -2517,7 +3706,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWindowsSpotlightBlockWelcomeExperience(): ?bool {
-        return $this->getBackingStore()->get('windowsSpotlightBlockWelcomeExperience');
+        $val = $this->getBackingStore()->get('windowsSpotlightBlockWelcomeExperience');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsSpotlightBlockWelcomeExperience'");
     }
 
     /**
@@ -2525,7 +3718,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWindowsSpotlightBlockWindowsTips(): ?bool {
-        return $this->getBackingStore()->get('windowsSpotlightBlockWindowsTips');
+        $val = $this->getBackingStore()->get('windowsSpotlightBlockWindowsTips');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsSpotlightBlockWindowsTips'");
     }
 
     /**
@@ -2533,7 +3730,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return WindowsSpotlightEnablementSettings|null
     */
     public function getWindowsSpotlightConfigureOnLockScreen(): ?WindowsSpotlightEnablementSettings {
-        return $this->getBackingStore()->get('windowsSpotlightConfigureOnLockScreen');
+        $val = $this->getBackingStore()->get('windowsSpotlightConfigureOnLockScreen');
+        if (is_null($val) || $val instanceof WindowsSpotlightEnablementSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsSpotlightConfigureOnLockScreen'");
     }
 
     /**
@@ -2541,7 +3742,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWindowsStoreBlockAutoUpdate(): ?bool {
-        return $this->getBackingStore()->get('windowsStoreBlockAutoUpdate');
+        $val = $this->getBackingStore()->get('windowsStoreBlockAutoUpdate');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsStoreBlockAutoUpdate'");
     }
 
     /**
@@ -2549,7 +3754,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWindowsStoreBlocked(): ?bool {
-        return $this->getBackingStore()->get('windowsStoreBlocked');
+        $val = $this->getBackingStore()->get('windowsStoreBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsStoreBlocked'");
     }
 
     /**
@@ -2557,7 +3766,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWindowsStoreEnablePrivateStoreOnly(): ?bool {
-        return $this->getBackingStore()->get('windowsStoreEnablePrivateStoreOnly');
+        $val = $this->getBackingStore()->get('windowsStoreEnablePrivateStoreOnly');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsStoreEnablePrivateStoreOnly'");
     }
 
     /**
@@ -2565,7 +3778,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWirelessDisplayBlockProjectionToThisDevice(): ?bool {
-        return $this->getBackingStore()->get('wirelessDisplayBlockProjectionToThisDevice');
+        $val = $this->getBackingStore()->get('wirelessDisplayBlockProjectionToThisDevice');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wirelessDisplayBlockProjectionToThisDevice'");
     }
 
     /**
@@ -2573,7 +3790,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWirelessDisplayBlockUserInputFromReceiver(): ?bool {
-        return $this->getBackingStore()->get('wirelessDisplayBlockUserInputFromReceiver');
+        $val = $this->getBackingStore()->get('wirelessDisplayBlockUserInputFromReceiver');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wirelessDisplayBlockUserInputFromReceiver'");
     }
 
     /**
@@ -2581,7 +3802,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWirelessDisplayRequirePinForPairing(): ?bool {
-        return $this->getBackingStore()->get('wirelessDisplayRequirePinForPairing');
+        $val = $this->getBackingStore()->get('wirelessDisplayRequirePinForPairing');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wirelessDisplayRequirePinForPairing'");
     }
 
     /**

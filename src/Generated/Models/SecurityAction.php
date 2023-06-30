@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class SecurityAction extends Entity implements Parsable 
 {
@@ -30,7 +31,11 @@ class SecurityAction extends Entity implements Parsable
      * @return string|null
     */
     public function getActionReason(): ?string {
-        return $this->getBackingStore()->get('actionReason');
+        $val = $this->getBackingStore()->get('actionReason');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'actionReason'");
     }
 
     /**
@@ -38,7 +43,11 @@ class SecurityAction extends Entity implements Parsable
      * @return string|null
     */
     public function getAppId(): ?string {
-        return $this->getBackingStore()->get('appId');
+        $val = $this->getBackingStore()->get('appId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appId'");
     }
 
     /**
@@ -46,7 +55,11 @@ class SecurityAction extends Entity implements Parsable
      * @return string|null
     */
     public function getAzureTenantId(): ?string {
-        return $this->getBackingStore()->get('azureTenantId');
+        $val = $this->getBackingStore()->get('azureTenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureTenantId'");
     }
 
     /**
@@ -54,7 +67,11 @@ class SecurityAction extends Entity implements Parsable
      * @return string|null
     */
     public function getClientContext(): ?string {
-        return $this->getBackingStore()->get('clientContext');
+        $val = $this->getBackingStore()->get('clientContext');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clientContext'");
     }
 
     /**
@@ -62,7 +79,11 @@ class SecurityAction extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCompletedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('completedDateTime');
+        $val = $this->getBackingStore()->get('completedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'completedDateTime'");
     }
 
     /**
@@ -70,7 +91,11 @@ class SecurityAction extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -78,12 +103,16 @@ class SecurityAction extends Entity implements Parsable
      * @return ResultInfo|null
     */
     public function getErrorInfo(): ?ResultInfo {
-        return $this->getBackingStore()->get('errorInfo');
+        $val = $this->getBackingStore()->get('errorInfo');
+        if (is_null($val) || $val instanceof ResultInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorInfo'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -110,7 +139,11 @@ class SecurityAction extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastActionDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastActionDateTime');
+        $val = $this->getBackingStore()->get('lastActionDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastActionDateTime'");
     }
 
     /**
@@ -118,7 +151,11 @@ class SecurityAction extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -126,7 +163,13 @@ class SecurityAction extends Entity implements Parsable
      * @return array<KeyValuePair>|null
     */
     public function getParameters(): ?array {
-        return $this->getBackingStore()->get('parameters');
+        $val = $this->getBackingStore()->get('parameters');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, KeyValuePair::class);
+            /** @var array<KeyValuePair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'parameters'");
     }
 
     /**
@@ -134,7 +177,13 @@ class SecurityAction extends Entity implements Parsable
      * @return array<SecurityActionState>|null
     */
     public function getStates(): ?array {
-        return $this->getBackingStore()->get('states');
+        $val = $this->getBackingStore()->get('states');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SecurityActionState::class);
+            /** @var array<SecurityActionState>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'states'");
     }
 
     /**
@@ -142,7 +191,11 @@ class SecurityAction extends Entity implements Parsable
      * @return OperationStatus|null
     */
     public function getStatus(): ?OperationStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof OperationStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**
@@ -150,7 +203,11 @@ class SecurityAction extends Entity implements Parsable
      * @return string|null
     */
     public function getUser(): ?string {
-        return $this->getBackingStore()->get('user');
+        $val = $this->getBackingStore()->get('user');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'user'");
     }
 
     /**
@@ -158,7 +215,11 @@ class SecurityAction extends Entity implements Parsable
      * @return SecurityVendorInformation|null
     */
     public function getVendorInformation(): ?SecurityVendorInformation {
-        return $this->getBackingStore()->get('vendorInformation');
+        $val = $this->getBackingStore()->get('vendorInformation');
+        if (is_null($val) || $val instanceof SecurityVendorInformation) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vendorInformation'");
     }
 
     /**

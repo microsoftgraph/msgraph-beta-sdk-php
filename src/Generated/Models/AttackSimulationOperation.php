@@ -26,7 +26,7 @@ class AttackSimulationOperation extends LongRunningOperation implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -42,7 +42,11 @@ class AttackSimulationOperation extends LongRunningOperation implements Parsable
      * @return int|null
     */
     public function getPercentageCompleted(): ?int {
-        return $this->getBackingStore()->get('percentageCompleted');
+        $val = $this->getBackingStore()->get('percentageCompleted');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'percentageCompleted'");
     }
 
     /**
@@ -50,7 +54,11 @@ class AttackSimulationOperation extends LongRunningOperation implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->getBackingStore()->get('tenantId');
+        $val = $this->getBackingStore()->get('tenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantId'");
     }
 
     /**
@@ -58,7 +66,11 @@ class AttackSimulationOperation extends LongRunningOperation implements Parsable
      * @return AttackSimulationOperationType|null
     */
     public function getType(): ?AttackSimulationOperationType {
-        return $this->getBackingStore()->get('type');
+        $val = $this->getBackingStore()->get('type');
+        if (is_null($val) || $val instanceof AttackSimulationOperationType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
     }
 
     /**

@@ -42,7 +42,12 @@ class VppTokenLicenseSummary implements AdditionalDataHolder, BackedModel, Parsa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -50,7 +55,11 @@ class VppTokenLicenseSummary implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getAppleId(): ?string {
-        return $this->getBackingStore()->get('appleId');
+        $val = $this->getBackingStore()->get('appleId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appleId'");
     }
 
     /**
@@ -58,7 +67,11 @@ class VppTokenLicenseSummary implements AdditionalDataHolder, BackedModel, Parsa
      * @return int|null
     */
     public function getAvailableLicenseCount(): ?int {
-        return $this->getBackingStore()->get('availableLicenseCount');
+        $val = $this->getBackingStore()->get('availableLicenseCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'availableLicenseCount'");
     }
 
     /**
@@ -71,7 +84,7 @@ class VppTokenLicenseSummary implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -90,7 +103,11 @@ class VppTokenLicenseSummary implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -98,7 +115,11 @@ class VppTokenLicenseSummary implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getOrganizationName(): ?string {
-        return $this->getBackingStore()->get('organizationName');
+        $val = $this->getBackingStore()->get('organizationName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'organizationName'");
     }
 
     /**
@@ -106,7 +127,11 @@ class VppTokenLicenseSummary implements AdditionalDataHolder, BackedModel, Parsa
      * @return int|null
     */
     public function getUsedLicenseCount(): ?int {
-        return $this->getBackingStore()->get('usedLicenseCount');
+        $val = $this->getBackingStore()->get('usedLicenseCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'usedLicenseCount'");
     }
 
     /**
@@ -114,7 +139,11 @@ class VppTokenLicenseSummary implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getVppTokenId(): ?string {
-        return $this->getBackingStore()->get('vppTokenId');
+        $val = $this->getBackingStore()->get('vppTokenId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vppTokenId'");
     }
 
     /**

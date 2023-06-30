@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class UnifiedRoleDefinition extends Entity implements Parsable 
 {
@@ -29,7 +30,11 @@ class UnifiedRoleDefinition extends Entity implements Parsable
      * @return AllowedRolePrincipalTypes|null
     */
     public function getAllowedPrincipalTypes(): ?AllowedRolePrincipalTypes {
-        return $this->getBackingStore()->get('allowedPrincipalTypes');
+        $val = $this->getBackingStore()->get('allowedPrincipalTypes');
+        if (is_null($val) || $val instanceof AllowedRolePrincipalTypes) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedPrincipalTypes'");
     }
 
     /**
@@ -37,7 +42,11 @@ class UnifiedRoleDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -45,12 +54,16 @@ class UnifiedRoleDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -62,7 +75,14 @@ class UnifiedRoleDefinition extends Entity implements Parsable
             'isBuiltIn' => fn(ParseNode $n) => $o->setIsBuiltIn($n->getBooleanValue()),
             'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
             'isPrivileged' => fn(ParseNode $n) => $o->setIsPrivileged($n->getBooleanValue()),
-            'resourceScopes' => fn(ParseNode $n) => $o->setResourceScopes($n->getCollectionOfPrimitiveValues()),
+            'resourceScopes' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setResourceScopes($val);
+            },
             'rolePermissions' => fn(ParseNode $n) => $o->setRolePermissions($n->getCollectionOfObjectValues([UnifiedRolePermission::class, 'createFromDiscriminatorValue'])),
             'templateId' => fn(ParseNode $n) => $o->setTemplateId($n->getStringValue()),
             'version' => fn(ParseNode $n) => $o->setVersion($n->getStringValue()),
@@ -74,7 +94,13 @@ class UnifiedRoleDefinition extends Entity implements Parsable
      * @return array<UnifiedRoleDefinition>|null
     */
     public function getInheritsPermissionsFrom(): ?array {
-        return $this->getBackingStore()->get('inheritsPermissionsFrom');
+        $val = $this->getBackingStore()->get('inheritsPermissionsFrom');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UnifiedRoleDefinition::class);
+            /** @var array<UnifiedRoleDefinition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inheritsPermissionsFrom'");
     }
 
     /**
@@ -82,7 +108,11 @@ class UnifiedRoleDefinition extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsBuiltIn(): ?bool {
-        return $this->getBackingStore()->get('isBuiltIn');
+        $val = $this->getBackingStore()->get('isBuiltIn');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isBuiltIn'");
     }
 
     /**
@@ -90,7 +120,11 @@ class UnifiedRoleDefinition extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
-        return $this->getBackingStore()->get('isEnabled');
+        $val = $this->getBackingStore()->get('isEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isEnabled'");
     }
 
     /**
@@ -98,7 +132,11 @@ class UnifiedRoleDefinition extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsPrivileged(): ?bool {
-        return $this->getBackingStore()->get('isPrivileged');
+        $val = $this->getBackingStore()->get('isPrivileged');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isPrivileged'");
     }
 
     /**
@@ -106,7 +144,13 @@ class UnifiedRoleDefinition extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getResourceScopes(): ?array {
-        return $this->getBackingStore()->get('resourceScopes');
+        $val = $this->getBackingStore()->get('resourceScopes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resourceScopes'");
     }
 
     /**
@@ -114,7 +158,13 @@ class UnifiedRoleDefinition extends Entity implements Parsable
      * @return array<UnifiedRolePermission>|null
     */
     public function getRolePermissions(): ?array {
-        return $this->getBackingStore()->get('rolePermissions');
+        $val = $this->getBackingStore()->get('rolePermissions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UnifiedRolePermission::class);
+            /** @var array<UnifiedRolePermission>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rolePermissions'");
     }
 
     /**
@@ -122,7 +172,11 @@ class UnifiedRoleDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getTemplateId(): ?string {
-        return $this->getBackingStore()->get('templateId');
+        $val = $this->getBackingStore()->get('templateId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'templateId'");
     }
 
     /**
@@ -130,7 +184,11 @@ class UnifiedRoleDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getVersion(): ?string {
-        return $this->getBackingStore()->get('version');
+        $val = $this->getBackingStore()->get('version');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'version'");
     }
 
     /**

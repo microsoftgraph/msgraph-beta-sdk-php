@@ -6,12 +6,13 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
 class WindowsDefenderApplicationControlSupplementalPolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new windowsDefenderApplicationControlSupplementalPolicy and sets the default values.
+     * Instantiates a new WindowsDefenderApplicationControlSupplementalPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -31,7 +32,13 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
      * @return array<WindowsDefenderApplicationControlSupplementalPolicyAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->getBackingStore()->get('assignments');
+        $val = $this->getBackingStore()->get('assignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WindowsDefenderApplicationControlSupplementalPolicyAssignment::class);
+            /** @var array<WindowsDefenderApplicationControlSupplementalPolicyAssignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignments'");
     }
 
     /**
@@ -39,7 +46,11 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
      * @return StreamInterface|null
     */
     public function getContent(): ?StreamInterface {
-        return $this->getBackingStore()->get('content');
+        $val = $this->getBackingStore()->get('content');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'content'");
     }
 
     /**
@@ -47,7 +58,11 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
      * @return string|null
     */
     public function getContentFileName(): ?string {
-        return $this->getBackingStore()->get('contentFileName');
+        $val = $this->getBackingStore()->get('contentFileName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentFileName'");
     }
 
     /**
@@ -55,7 +70,11 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
      * @return DateTime|null
     */
     public function getCreationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('creationDateTime');
+        $val = $this->getBackingStore()->get('creationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'creationDateTime'");
     }
 
     /**
@@ -63,7 +82,11 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
      * @return WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary|null
     */
     public function getDeploySummary(): ?WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary {
-        return $this->getBackingStore()->get('deploySummary');
+        $val = $this->getBackingStore()->get('deploySummary');
+        if (is_null($val) || $val instanceof WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deploySummary'");
     }
 
     /**
@@ -71,7 +94,11 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -79,7 +106,13 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
      * @return array<WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus>|null
     */
     public function getDeviceStatuses(): ?array {
-        return $this->getBackingStore()->get('deviceStatuses');
+        $val = $this->getBackingStore()->get('deviceStatuses');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus::class);
+            /** @var array<WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceStatuses'");
     }
 
     /**
@@ -87,12 +120,16 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -106,7 +143,14 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
             'deviceStatuses' => fn(ParseNode $n) => $o->setDeviceStatuses($n->getCollectionOfObjectValues([WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
-            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
+            'roleScopeTagIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoleScopeTagIds($val);
+            },
             'version' => fn(ParseNode $n) => $o->setVersion($n->getStringValue()),
         ]);
     }
@@ -116,7 +160,11 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -124,7 +172,13 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->getBackingStore()->get('roleScopeTagIds');
+        $val = $this->getBackingStore()->get('roleScopeTagIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleScopeTagIds'");
     }
 
     /**
@@ -132,7 +186,11 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
      * @return string|null
     */
     public function getVersion(): ?string {
-        return $this->getBackingStore()->get('version');
+        $val = $this->getBackingStore()->get('version');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'version'");
     }
 
     /**

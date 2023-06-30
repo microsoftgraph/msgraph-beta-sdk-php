@@ -27,7 +27,7 @@ class InsightValueInt extends UserExperienceAnalyticsInsightValue implements Par
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -37,11 +37,15 @@ class InsightValueInt extends UserExperienceAnalyticsInsightValue implements Par
     }
 
     /**
-     * Gets the value property value. Not yet documented
+     * Gets the value property value. The int value of the user experience analytics insight.
      * @return int|null
     */
     public function getValue(): ?int {
-        return $this->getBackingStore()->get('value');
+        $val = $this->getBackingStore()->get('value');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'value'");
     }
 
     /**
@@ -54,7 +58,7 @@ class InsightValueInt extends UserExperienceAnalyticsInsightValue implements Par
     }
 
     /**
-     * Sets the value property value. Not yet documented
+     * Sets the value property value. The int value of the user experience analytics insight.
      * @param int|null $value Value to set for the value property.
     */
     public function setValue(?int $value): void {

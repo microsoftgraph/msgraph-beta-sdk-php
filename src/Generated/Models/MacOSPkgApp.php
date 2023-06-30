@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class MacOSPkgApp extends MobileLobApp implements Parsable 
 {
@@ -27,7 +28,7 @@ class MacOSPkgApp extends MobileLobApp implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -45,7 +46,11 @@ class MacOSPkgApp extends MobileLobApp implements Parsable
      * @return bool|null
     */
     public function getIgnoreVersionDetection(): ?bool {
-        return $this->getBackingStore()->get('ignoreVersionDetection');
+        $val = $this->getBackingStore()->get('ignoreVersionDetection');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ignoreVersionDetection'");
     }
 
     /**
@@ -53,7 +58,13 @@ class MacOSPkgApp extends MobileLobApp implements Parsable
      * @return array<MacOSIncludedApp>|null
     */
     public function getIncludedApps(): ?array {
-        return $this->getBackingStore()->get('includedApps');
+        $val = $this->getBackingStore()->get('includedApps');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MacOSIncludedApp::class);
+            /** @var array<MacOSIncludedApp>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'includedApps'");
     }
 
     /**
@@ -61,7 +72,11 @@ class MacOSPkgApp extends MobileLobApp implements Parsable
      * @return MacOSMinimumOperatingSystem|null
     */
     public function getMinimumSupportedOperatingSystem(): ?MacOSMinimumOperatingSystem {
-        return $this->getBackingStore()->get('minimumSupportedOperatingSystem');
+        $val = $this->getBackingStore()->get('minimumSupportedOperatingSystem');
+        if (is_null($val) || $val instanceof MacOSMinimumOperatingSystem) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumSupportedOperatingSystem'");
     }
 
     /**
@@ -69,7 +84,11 @@ class MacOSPkgApp extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getPrimaryBundleId(): ?string {
-        return $this->getBackingStore()->get('primaryBundleId');
+        $val = $this->getBackingStore()->get('primaryBundleId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'primaryBundleId'");
     }
 
     /**
@@ -77,7 +96,11 @@ class MacOSPkgApp extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getPrimaryBundleVersion(): ?string {
-        return $this->getBackingStore()->get('primaryBundleVersion');
+        $val = $this->getBackingStore()->get('primaryBundleVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'primaryBundleVersion'");
     }
 
     /**

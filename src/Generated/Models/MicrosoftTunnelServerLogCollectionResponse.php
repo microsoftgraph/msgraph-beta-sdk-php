@@ -30,7 +30,11 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsa
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('endDateTime');
+        $val = $this->getBackingStore()->get('endDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endDateTime'");
     }
 
     /**
@@ -38,12 +42,16 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsa
      * @return DateTime|null
     */
     public function getExpiryDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('expiryDateTime');
+        $val = $this->getBackingStore()->get('expiryDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expiryDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -63,7 +71,11 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsa
      * @return DateTime|null
     */
     public function getRequestDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('requestDateTime');
+        $val = $this->getBackingStore()->get('requestDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requestDateTime'");
     }
 
     /**
@@ -71,7 +83,11 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsa
      * @return string|null
     */
     public function getServerId(): ?string {
-        return $this->getBackingStore()->get('serverId');
+        $val = $this->getBackingStore()->get('serverId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'serverId'");
     }
 
     /**
@@ -79,7 +95,11 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsa
      * @return int|null
     */
     public function getSizeInBytes(): ?int {
-        return $this->getBackingStore()->get('sizeInBytes');
+        $val = $this->getBackingStore()->get('sizeInBytes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sizeInBytes'");
     }
 
     /**
@@ -87,7 +107,11 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsa
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('startDateTime');
+        $val = $this->getBackingStore()->get('startDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startDateTime'");
     }
 
     /**
@@ -95,7 +119,11 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsa
      * @return MicrosoftTunnelLogCollectionStatus|null
     */
     public function getStatus(): ?MicrosoftTunnelLogCollectionStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof MicrosoftTunnelLogCollectionStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

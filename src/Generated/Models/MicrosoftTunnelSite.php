@@ -6,11 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Time;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Entity that represents a Microsoft Tunnel site
+*/
 class MicrosoftTunnelSite extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new MicrosoftTunnelSite and sets the default values.
+     * Instantiates a new microsoftTunnelSite and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -30,7 +34,11 @@ class MicrosoftTunnelSite extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -38,12 +46,16 @@ class MicrosoftTunnelSite extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -54,7 +66,14 @@ class MicrosoftTunnelSite extends Entity implements Parsable
             'microsoftTunnelConfiguration' => fn(ParseNode $n) => $o->setMicrosoftTunnelConfiguration($n->getObjectValue([MicrosoftTunnelConfiguration::class, 'createFromDiscriminatorValue'])),
             'microsoftTunnelServers' => fn(ParseNode $n) => $o->setMicrosoftTunnelServers($n->getCollectionOfObjectValues([MicrosoftTunnelServer::class, 'createFromDiscriminatorValue'])),
             'publicAddress' => fn(ParseNode $n) => $o->setPublicAddress($n->getStringValue()),
-            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
+            'roleScopeTagIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoleScopeTagIds($val);
+            },
             'upgradeAutomatically' => fn(ParseNode $n) => $o->setUpgradeAutomatically($n->getBooleanValue()),
             'upgradeAvailable' => fn(ParseNode $n) => $o->setUpgradeAvailable($n->getBooleanValue()),
             'upgradeWindowEndTime' => fn(ParseNode $n) => $o->setUpgradeWindowEndTime($n->getTimeValue()),
@@ -68,7 +87,11 @@ class MicrosoftTunnelSite extends Entity implements Parsable
      * @return string|null
     */
     public function getInternalNetworkProbeUrl(): ?string {
-        return $this->getBackingStore()->get('internalNetworkProbeUrl');
+        $val = $this->getBackingStore()->get('internalNetworkProbeUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'internalNetworkProbeUrl'");
     }
 
     /**
@@ -76,7 +99,11 @@ class MicrosoftTunnelSite extends Entity implements Parsable
      * @return MicrosoftTunnelConfiguration|null
     */
     public function getMicrosoftTunnelConfiguration(): ?MicrosoftTunnelConfiguration {
-        return $this->getBackingStore()->get('microsoftTunnelConfiguration');
+        $val = $this->getBackingStore()->get('microsoftTunnelConfiguration');
+        if (is_null($val) || $val instanceof MicrosoftTunnelConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftTunnelConfiguration'");
     }
 
     /**
@@ -84,7 +111,13 @@ class MicrosoftTunnelSite extends Entity implements Parsable
      * @return array<MicrosoftTunnelServer>|null
     */
     public function getMicrosoftTunnelServers(): ?array {
-        return $this->getBackingStore()->get('microsoftTunnelServers');
+        $val = $this->getBackingStore()->get('microsoftTunnelServers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MicrosoftTunnelServer::class);
+            /** @var array<MicrosoftTunnelServer>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftTunnelServers'");
     }
 
     /**
@@ -92,7 +125,11 @@ class MicrosoftTunnelSite extends Entity implements Parsable
      * @return string|null
     */
     public function getPublicAddress(): ?string {
-        return $this->getBackingStore()->get('publicAddress');
+        $val = $this->getBackingStore()->get('publicAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publicAddress'");
     }
 
     /**
@@ -100,7 +137,13 @@ class MicrosoftTunnelSite extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->getBackingStore()->get('roleScopeTagIds');
+        $val = $this->getBackingStore()->get('roleScopeTagIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleScopeTagIds'");
     }
 
     /**
@@ -108,7 +151,11 @@ class MicrosoftTunnelSite extends Entity implements Parsable
      * @return bool|null
     */
     public function getUpgradeAutomatically(): ?bool {
-        return $this->getBackingStore()->get('upgradeAutomatically');
+        $val = $this->getBackingStore()->get('upgradeAutomatically');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'upgradeAutomatically'");
     }
 
     /**
@@ -116,7 +163,11 @@ class MicrosoftTunnelSite extends Entity implements Parsable
      * @return bool|null
     */
     public function getUpgradeAvailable(): ?bool {
-        return $this->getBackingStore()->get('upgradeAvailable');
+        $val = $this->getBackingStore()->get('upgradeAvailable');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'upgradeAvailable'");
     }
 
     /**
@@ -124,7 +175,11 @@ class MicrosoftTunnelSite extends Entity implements Parsable
      * @return Time|null
     */
     public function getUpgradeWindowEndTime(): ?Time {
-        return $this->getBackingStore()->get('upgradeWindowEndTime');
+        $val = $this->getBackingStore()->get('upgradeWindowEndTime');
+        if (is_null($val) || $val instanceof Time) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'upgradeWindowEndTime'");
     }
 
     /**
@@ -132,7 +187,11 @@ class MicrosoftTunnelSite extends Entity implements Parsable
      * @return Time|null
     */
     public function getUpgradeWindowStartTime(): ?Time {
-        return $this->getBackingStore()->get('upgradeWindowStartTime');
+        $val = $this->getBackingStore()->get('upgradeWindowStartTime');
+        if (is_null($val) || $val instanceof Time) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'upgradeWindowStartTime'");
     }
 
     /**
@@ -140,7 +199,11 @@ class MicrosoftTunnelSite extends Entity implements Parsable
      * @return int|null
     */
     public function getUpgradeWindowUtcOffsetInMinutes(): ?int {
-        return $this->getBackingStore()->get('upgradeWindowUtcOffsetInMinutes');
+        $val = $this->getBackingStore()->get('upgradeWindowUtcOffsetInMinutes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'upgradeWindowUtcOffsetInMinutes'");
     }
 
     /**
