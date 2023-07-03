@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class Host extends Artifact implements Parsable 
 {
@@ -39,7 +40,13 @@ class Host extends Artifact implements Parsable
      * @return array<HostComponent>|null
     */
     public function getComponents(): ?array {
-        return $this->getBackingStore()->get('components');
+        $val = $this->getBackingStore()->get('components');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, HostComponent::class);
+            /** @var array<HostComponent>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'components'");
     }
 
     /**
@@ -47,12 +54,18 @@ class Host extends Artifact implements Parsable
      * @return array<HostCookie>|null
     */
     public function getCookies(): ?array {
-        return $this->getBackingStore()->get('cookies');
+        $val = $this->getBackingStore()->get('cookies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, HostCookie::class);
+            /** @var array<HostCookie>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cookies'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -64,6 +77,7 @@ class Host extends Artifact implements Parsable
             'passiveDns' => fn(ParseNode $n) => $o->setPassiveDns($n->getCollectionOfObjectValues([PassiveDnsRecord::class, 'createFromDiscriminatorValue'])),
             'passiveDnsReverse' => fn(ParseNode $n) => $o->setPassiveDnsReverse($n->getCollectionOfObjectValues([PassiveDnsRecord::class, 'createFromDiscriminatorValue'])),
             'reputation' => fn(ParseNode $n) => $o->setReputation($n->getObjectValue([HostReputation::class, 'createFromDiscriminatorValue'])),
+            'subdomains' => fn(ParseNode $n) => $o->setSubdomains($n->getCollectionOfObjectValues([Subdomain::class, 'createFromDiscriminatorValue'])),
             'trackers' => fn(ParseNode $n) => $o->setTrackers($n->getCollectionOfObjectValues([HostTracker::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -73,7 +87,11 @@ class Host extends Artifact implements Parsable
      * @return DateTime|null
     */
     public function getFirstSeenDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('firstSeenDateTime');
+        $val = $this->getBackingStore()->get('firstSeenDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firstSeenDateTime'");
     }
 
     /**
@@ -81,7 +99,11 @@ class Host extends Artifact implements Parsable
      * @return DateTime|null
     */
     public function getLastSeenDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastSeenDateTime');
+        $val = $this->getBackingStore()->get('lastSeenDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSeenDateTime'");
     }
 
     /**
@@ -89,7 +111,13 @@ class Host extends Artifact implements Parsable
      * @return array<PassiveDnsRecord>|null
     */
     public function getPassiveDns(): ?array {
-        return $this->getBackingStore()->get('passiveDns');
+        $val = $this->getBackingStore()->get('passiveDns');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PassiveDnsRecord::class);
+            /** @var array<PassiveDnsRecord>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passiveDns'");
     }
 
     /**
@@ -97,7 +125,13 @@ class Host extends Artifact implements Parsable
      * @return array<PassiveDnsRecord>|null
     */
     public function getPassiveDnsReverse(): ?array {
-        return $this->getBackingStore()->get('passiveDnsReverse');
+        $val = $this->getBackingStore()->get('passiveDnsReverse');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PassiveDnsRecord::class);
+            /** @var array<PassiveDnsRecord>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passiveDnsReverse'");
     }
 
     /**
@@ -105,7 +139,25 @@ class Host extends Artifact implements Parsable
      * @return HostReputation|null
     */
     public function getReputation(): ?HostReputation {
-        return $this->getBackingStore()->get('reputation');
+        $val = $this->getBackingStore()->get('reputation');
+        if (is_null($val) || $val instanceof HostReputation) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reputation'");
+    }
+
+    /**
+     * Gets the subdomains property value. The subdomains that are associated with this host.
+     * @return array<Subdomain>|null
+    */
+    public function getSubdomains(): ?array {
+        $val = $this->getBackingStore()->get('subdomains');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Subdomain::class);
+            /** @var array<Subdomain>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subdomains'");
     }
 
     /**
@@ -113,7 +165,13 @@ class Host extends Artifact implements Parsable
      * @return array<HostTracker>|null
     */
     public function getTrackers(): ?array {
-        return $this->getBackingStore()->get('trackers');
+        $val = $this->getBackingStore()->get('trackers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, HostTracker::class);
+            /** @var array<HostTracker>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'trackers'");
     }
 
     /**
@@ -129,6 +187,7 @@ class Host extends Artifact implements Parsable
         $writer->writeCollectionOfObjectValues('passiveDns', $this->getPassiveDns());
         $writer->writeCollectionOfObjectValues('passiveDnsReverse', $this->getPassiveDnsReverse());
         $writer->writeObjectValue('reputation', $this->getReputation());
+        $writer->writeCollectionOfObjectValues('subdomains', $this->getSubdomains());
         $writer->writeCollectionOfObjectValues('trackers', $this->getTrackers());
     }
 
@@ -186,6 +245,14 @@ class Host extends Artifact implements Parsable
     */
     public function setReputation(?HostReputation $value): void {
         $this->getBackingStore()->set('reputation', $value);
+    }
+
+    /**
+     * Sets the subdomains property value. The subdomains that are associated with this host.
+     * @param array<Subdomain>|null $value Value to set for the subdomains property.
+    */
+    public function setSubdomains(?array $value): void {
+        $this->getBackingStore()->set('subdomains', $value);
     }
 
     /**

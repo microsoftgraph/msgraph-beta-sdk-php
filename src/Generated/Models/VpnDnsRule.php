@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * VPN DNS Rule definition.
@@ -42,7 +43,12 @@ class VpnDnsRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -50,7 +56,11 @@ class VpnDnsRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getAutoTrigger(): ?bool {
-        return $this->getBackingStore()->get('autoTrigger');
+        $val = $this->getBackingStore()->get('autoTrigger');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'autoTrigger'");
     }
 
     /**
@@ -63,7 +73,7 @@ class VpnDnsRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -73,7 +83,14 @@ class VpnDnsRule implements AdditionalDataHolder, BackedModel, Parsable
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'persistent' => fn(ParseNode $n) => $o->setPersistent($n->getBooleanValue()),
             'proxyServerUri' => fn(ParseNode $n) => $o->setProxyServerUri($n->getStringValue()),
-            'servers' => fn(ParseNode $n) => $o->setServers($n->getCollectionOfPrimitiveValues()),
+            'servers' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setServers($val);
+            },
         ];
     }
 
@@ -82,7 +99,11 @@ class VpnDnsRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -90,7 +111,11 @@ class VpnDnsRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -98,7 +123,11 @@ class VpnDnsRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getPersistent(): ?bool {
-        return $this->getBackingStore()->get('persistent');
+        $val = $this->getBackingStore()->get('persistent');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'persistent'");
     }
 
     /**
@@ -106,7 +135,11 @@ class VpnDnsRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getProxyServerUri(): ?string {
-        return $this->getBackingStore()->get('proxyServerUri');
+        $val = $this->getBackingStore()->get('proxyServerUri');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'proxyServerUri'");
     }
 
     /**
@@ -114,7 +147,13 @@ class VpnDnsRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getServers(): ?array {
-        return $this->getBackingStore()->get('servers');
+        $val = $this->getBackingStore()->get('servers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'servers'");
     }
 
     /**

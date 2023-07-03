@@ -40,7 +40,11 @@ class OnPremisesDirectorySynchronizationConfiguration implements AdditionalDataH
      * @return OnPremisesAccidentalDeletionPrevention|null
     */
     public function getAccidentalDeletionPrevention(): ?OnPremisesAccidentalDeletionPrevention {
-        return $this->getBackingStore()->get('accidentalDeletionPrevention');
+        $val = $this->getBackingStore()->get('accidentalDeletionPrevention');
+        if (is_null($val) || $val instanceof OnPremisesAccidentalDeletionPrevention) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accidentalDeletionPrevention'");
     }
 
     /**
@@ -48,7 +52,12 @@ class OnPremisesDirectorySynchronizationConfiguration implements AdditionalDataH
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -56,7 +65,11 @@ class OnPremisesDirectorySynchronizationConfiguration implements AdditionalDataH
      * @return string|null
     */
     public function getAnchorAttribute(): ?string {
-        return $this->getBackingStore()->get('anchorAttribute');
+        $val = $this->getBackingStore()->get('anchorAttribute');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'anchorAttribute'");
     }
 
     /**
@@ -64,7 +77,11 @@ class OnPremisesDirectorySynchronizationConfiguration implements AdditionalDataH
      * @return string|null
     */
     public function getApplicationId(): ?string {
-        return $this->getBackingStore()->get('applicationId');
+        $val = $this->getBackingStore()->get('applicationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationId'");
     }
 
     /**
@@ -80,7 +97,11 @@ class OnPremisesDirectorySynchronizationConfiguration implements AdditionalDataH
      * @return OnPremisesCurrentExportData|null
     */
     public function getCurrentExportData(): ?OnPremisesCurrentExportData {
-        return $this->getBackingStore()->get('currentExportData');
+        $val = $this->getBackingStore()->get('currentExportData');
+        if (is_null($val) || $val instanceof OnPremisesCurrentExportData) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'currentExportData'");
     }
 
     /**
@@ -88,12 +109,16 @@ class OnPremisesDirectorySynchronizationConfiguration implements AdditionalDataH
      * @return DateInterval|null
     */
     public function getCustomerRequestedSynchronizationInterval(): ?DateInterval {
-        return $this->getBackingStore()->get('customerRequestedSynchronizationInterval');
+        $val = $this->getBackingStore()->get('customerRequestedSynchronizationInterval');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customerRequestedSynchronizationInterval'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -115,7 +140,11 @@ class OnPremisesDirectorySynchronizationConfiguration implements AdditionalDataH
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -123,7 +152,11 @@ class OnPremisesDirectorySynchronizationConfiguration implements AdditionalDataH
      * @return string|null
     */
     public function getSynchronizationClientVersion(): ?string {
-        return $this->getBackingStore()->get('synchronizationClientVersion');
+        $val = $this->getBackingStore()->get('synchronizationClientVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'synchronizationClientVersion'");
     }
 
     /**
@@ -131,7 +164,11 @@ class OnPremisesDirectorySynchronizationConfiguration implements AdditionalDataH
      * @return DateInterval|null
     */
     public function getSynchronizationInterval(): ?DateInterval {
-        return $this->getBackingStore()->get('synchronizationInterval');
+        $val = $this->getBackingStore()->get('synchronizationInterval');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'synchronizationInterval'");
     }
 
     /**
@@ -139,7 +176,11 @@ class OnPremisesDirectorySynchronizationConfiguration implements AdditionalDataH
      * @return OnPremisesWritebackConfiguration|null
     */
     public function getWritebackConfiguration(): ?OnPremisesWritebackConfiguration {
-        return $this->getBackingStore()->get('writebackConfiguration');
+        $val = $this->getBackingStore()->get('writebackConfiguration');
+        if (is_null($val) || $val instanceof OnPremisesWritebackConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'writebackConfiguration'");
     }
 
     /**

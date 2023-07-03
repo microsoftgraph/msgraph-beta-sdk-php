@@ -18,7 +18,7 @@ class TeamworkPeripheralHealth implements AdditionalDataHolder, BackedModel, Par
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new teamworkPeripheralHealth and sets the default values.
+     * Instantiates a new TeamworkPeripheralHealth and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -39,7 +39,12 @@ class TeamworkPeripheralHealth implements AdditionalDataHolder, BackedModel, Par
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,12 +60,16 @@ class TeamworkPeripheralHealth implements AdditionalDataHolder, BackedModel, Par
      * @return TeamworkConnection|null
     */
     public function getConnection(): ?TeamworkConnection {
-        return $this->getBackingStore()->get('connection');
+        $val = $this->getBackingStore()->get('connection');
+        if (is_null($val) || $val instanceof TeamworkConnection) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connection'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -77,7 +86,11 @@ class TeamworkPeripheralHealth implements AdditionalDataHolder, BackedModel, Par
      * @return bool|null
     */
     public function getIsOptional(): ?bool {
-        return $this->getBackingStore()->get('isOptional');
+        $val = $this->getBackingStore()->get('isOptional');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isOptional'");
     }
 
     /**
@@ -85,7 +98,11 @@ class TeamworkPeripheralHealth implements AdditionalDataHolder, BackedModel, Par
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -93,7 +110,11 @@ class TeamworkPeripheralHealth implements AdditionalDataHolder, BackedModel, Par
      * @return TeamworkPeripheral|null
     */
     public function getPeripheral(): ?TeamworkPeripheral {
-        return $this->getBackingStore()->get('peripheral');
+        $val = $this->getBackingStore()->get('peripheral');
+        if (is_null($val) || $val instanceof TeamworkPeripheral) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'peripheral'");
     }
 
     /**

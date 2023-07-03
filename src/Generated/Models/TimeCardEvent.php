@@ -40,7 +40,12 @@ class TimeCardEvent implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -48,7 +53,11 @@ class TimeCardEvent implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getAtApprovedLocation(): ?bool {
-        return $this->getBackingStore()->get('atApprovedLocation');
+        $val = $this->getBackingStore()->get('atApprovedLocation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'atApprovedLocation'");
     }
 
     /**
@@ -64,12 +73,16 @@ class TimeCardEvent implements AdditionalDataHolder, BackedModel, Parsable
      * @return DateTime|null
     */
     public function getDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('dateTime');
+        $val = $this->getBackingStore()->get('dateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -86,7 +99,11 @@ class TimeCardEvent implements AdditionalDataHolder, BackedModel, Parsable
      * @return ItemBody|null
     */
     public function getNotes(): ?ItemBody {
-        return $this->getBackingStore()->get('notes');
+        $val = $this->getBackingStore()->get('notes');
+        if (is_null($val) || $val instanceof ItemBody) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notes'");
     }
 
     /**
@@ -94,7 +111,11 @@ class TimeCardEvent implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertificateProfileBase implements Parsable 
 {
@@ -30,7 +31,11 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
      * @return AndroidDeviceOwnerCertificateAccessType|null
     */
     public function getCertificateAccessType(): ?AndroidDeviceOwnerCertificateAccessType {
-        return $this->getBackingStore()->get('certificateAccessType');
+        $val = $this->getBackingStore()->get('certificateAccessType');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerCertificateAccessType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateAccessType'");
     }
 
     /**
@@ -38,7 +43,11 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
      * @return CertificateStore|null
     */
     public function getCertificateStore(): ?CertificateStore {
-        return $this->getBackingStore()->get('certificateStore');
+        $val = $this->getBackingStore()->get('certificateStore');
+        if (is_null($val) || $val instanceof CertificateStore) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateStore'");
     }
 
     /**
@@ -46,12 +55,18 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
      * @return array<CustomSubjectAlternativeName>|null
     */
     public function getCustomSubjectAlternativeNames(): ?array {
-        return $this->getBackingStore()->get('customSubjectAlternativeNames');
+        $val = $this->getBackingStore()->get('customSubjectAlternativeNames');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CustomSubjectAlternativeName::class);
+            /** @var array<CustomSubjectAlternativeName>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customSubjectAlternativeNames'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -63,7 +78,14 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
             'keySize' => fn(ParseNode $n) => $o->setKeySize($n->getEnumValue(KeySize::class)),
             'keyUsage' => fn(ParseNode $n) => $o->setKeyUsage($n->getEnumValue(KeyUsages::class)),
             'managedDeviceCertificateStates' => fn(ParseNode $n) => $o->setManagedDeviceCertificateStates($n->getCollectionOfObjectValues([ManagedDeviceCertificateState::class, 'createFromDiscriminatorValue'])),
-            'scepServerUrls' => fn(ParseNode $n) => $o->setScepServerUrls($n->getCollectionOfPrimitiveValues()),
+            'scepServerUrls' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setScepServerUrls($val);
+            },
             'silentCertificateAccessDetails' => fn(ParseNode $n) => $o->setSilentCertificateAccessDetails($n->getCollectionOfObjectValues([AndroidDeviceOwnerSilentCertificateAccess::class, 'createFromDiscriminatorValue'])),
             'subjectAlternativeNameFormatString' => fn(ParseNode $n) => $o->setSubjectAlternativeNameFormatString($n->getStringValue()),
             'subjectNameFormatString' => fn(ParseNode $n) => $o->setSubjectNameFormatString($n->getStringValue()),
@@ -75,7 +97,11 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
      * @return HashAlgorithms|null
     */
     public function getHashAlgorithm(): ?HashAlgorithms {
-        return $this->getBackingStore()->get('hashAlgorithm');
+        $val = $this->getBackingStore()->get('hashAlgorithm');
+        if (is_null($val) || $val instanceof HashAlgorithms) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hashAlgorithm'");
     }
 
     /**
@@ -83,7 +109,11 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
      * @return KeySize|null
     */
     public function getKeySize(): ?KeySize {
-        return $this->getBackingStore()->get('keySize');
+        $val = $this->getBackingStore()->get('keySize');
+        if (is_null($val) || $val instanceof KeySize) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'keySize'");
     }
 
     /**
@@ -91,7 +121,11 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
      * @return KeyUsages|null
     */
     public function getKeyUsage(): ?KeyUsages {
-        return $this->getBackingStore()->get('keyUsage');
+        $val = $this->getBackingStore()->get('keyUsage');
+        if (is_null($val) || $val instanceof KeyUsages) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'keyUsage'");
     }
 
     /**
@@ -99,7 +133,13 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
      * @return array<ManagedDeviceCertificateState>|null
     */
     public function getManagedDeviceCertificateStates(): ?array {
-        return $this->getBackingStore()->get('managedDeviceCertificateStates');
+        $val = $this->getBackingStore()->get('managedDeviceCertificateStates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagedDeviceCertificateState::class);
+            /** @var array<ManagedDeviceCertificateState>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceCertificateStates'");
     }
 
     /**
@@ -107,7 +147,13 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
      * @return array<string>|null
     */
     public function getScepServerUrls(): ?array {
-        return $this->getBackingStore()->get('scepServerUrls');
+        $val = $this->getBackingStore()->get('scepServerUrls');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scepServerUrls'");
     }
 
     /**
@@ -115,7 +161,13 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
      * @return array<AndroidDeviceOwnerSilentCertificateAccess>|null
     */
     public function getSilentCertificateAccessDetails(): ?array {
-        return $this->getBackingStore()->get('silentCertificateAccessDetails');
+        $val = $this->getBackingStore()->get('silentCertificateAccessDetails');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AndroidDeviceOwnerSilentCertificateAccess::class);
+            /** @var array<AndroidDeviceOwnerSilentCertificateAccess>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'silentCertificateAccessDetails'");
     }
 
     /**
@@ -123,7 +175,11 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
      * @return string|null
     */
     public function getSubjectAlternativeNameFormatString(): ?string {
-        return $this->getBackingStore()->get('subjectAlternativeNameFormatString');
+        $val = $this->getBackingStore()->get('subjectAlternativeNameFormatString');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subjectAlternativeNameFormatString'");
     }
 
     /**
@@ -131,7 +187,11 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
      * @return string|null
     */
     public function getSubjectNameFormatString(): ?string {
-        return $this->getBackingStore()->get('subjectNameFormatString');
+        $val = $this->getBackingStore()->get('subjectNameFormatString');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subjectNameFormatString'");
     }
 
     /**

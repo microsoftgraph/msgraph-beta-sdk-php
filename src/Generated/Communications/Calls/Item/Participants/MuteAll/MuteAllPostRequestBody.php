@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class MuteAllPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class MuteAllPostRequestBody implements AdditionalDataHolder, BackedModel, Parsa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,18 +61,29 @@ class MuteAllPostRequestBody implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getClientContext(): ?string {
-        return $this->getBackingStore()->get('clientContext');
+        $val = $this->getBackingStore()->get('clientContext');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clientContext'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
             'clientContext' => fn(ParseNode $n) => $o->setClientContext($n->getStringValue()),
-            'participants' => fn(ParseNode $n) => $o->setParticipants($n->getCollectionOfPrimitiveValues()),
+            'participants' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setParticipants($val);
+            },
         ];
     }
 
@@ -75,7 +92,13 @@ class MuteAllPostRequestBody implements AdditionalDataHolder, BackedModel, Parsa
      * @return array<string>|null
     */
     public function getParticipants(): ?array {
-        return $this->getBackingStore()->get('participants');
+        $val = $this->getBackingStore()->get('participants');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'participants'");
     }
 
     /**

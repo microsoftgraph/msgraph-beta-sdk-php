@@ -27,7 +27,7 @@ class DeviceManagementSettingRegexConstraint extends DeviceManagementConstraint 
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class DeviceManagementSettingRegexConstraint extends DeviceManagementConstraint 
      * @return string|null
     */
     public function getRegex(): ?string {
-        return $this->getBackingStore()->get('regex');
+        $val = $this->getBackingStore()->get('regex');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'regex'");
     }
 
     /**

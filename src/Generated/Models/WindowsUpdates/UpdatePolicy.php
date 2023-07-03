@@ -7,6 +7,7 @@ use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class UpdatePolicy extends Entity implements Parsable 
 {
@@ -31,7 +32,11 @@ class UpdatePolicy extends Entity implements Parsable
      * @return DeploymentAudience|null
     */
     public function getAudience(): ?DeploymentAudience {
-        return $this->getBackingStore()->get('audience');
+        $val = $this->getBackingStore()->get('audience');
+        if (is_null($val) || $val instanceof DeploymentAudience) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'audience'");
     }
 
     /**
@@ -39,7 +44,13 @@ class UpdatePolicy extends Entity implements Parsable
      * @return array<ComplianceChangeRule>|null
     */
     public function getComplianceChangeRules(): ?array {
-        return $this->getBackingStore()->get('complianceChangeRules');
+        $val = $this->getBackingStore()->get('complianceChangeRules');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ComplianceChangeRule::class);
+            /** @var array<ComplianceChangeRule>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'complianceChangeRules'");
     }
 
     /**
@@ -47,7 +58,13 @@ class UpdatePolicy extends Entity implements Parsable
      * @return array<ComplianceChange>|null
     */
     public function getComplianceChanges(): ?array {
-        return $this->getBackingStore()->get('complianceChanges');
+        $val = $this->getBackingStore()->get('complianceChanges');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ComplianceChange::class);
+            /** @var array<ComplianceChange>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'complianceChanges'");
     }
 
     /**
@@ -55,7 +72,11 @@ class UpdatePolicy extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -63,12 +84,16 @@ class UpdatePolicy extends Entity implements Parsable
      * @return DeploymentSettings|null
     */
     public function getDeploymentSettings(): ?DeploymentSettings {
-        return $this->getBackingStore()->get('deploymentSettings');
+        $val = $this->getBackingStore()->get('deploymentSettings');
+        if (is_null($val) || $val instanceof DeploymentSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deploymentSettings'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

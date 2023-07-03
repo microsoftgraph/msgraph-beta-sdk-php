@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class BusinessScenarioPlanner extends Entity implements Parsable 
 {
@@ -26,7 +27,7 @@ class BusinessScenarioPlanner extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -42,7 +43,11 @@ class BusinessScenarioPlanner extends Entity implements Parsable
      * @return PlannerPlanConfiguration|null
     */
     public function getPlanConfiguration(): ?PlannerPlanConfiguration {
-        return $this->getBackingStore()->get('planConfiguration');
+        $val = $this->getBackingStore()->get('planConfiguration');
+        if (is_null($val) || $val instanceof PlannerPlanConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'planConfiguration'");
     }
 
     /**
@@ -50,7 +55,11 @@ class BusinessScenarioPlanner extends Entity implements Parsable
      * @return PlannerTaskConfiguration|null
     */
     public function getTaskConfiguration(): ?PlannerTaskConfiguration {
-        return $this->getBackingStore()->get('taskConfiguration');
+        $val = $this->getBackingStore()->get('taskConfiguration');
+        if (is_null($val) || $val instanceof PlannerTaskConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'taskConfiguration'");
     }
 
     /**
@@ -58,7 +67,13 @@ class BusinessScenarioPlanner extends Entity implements Parsable
      * @return array<BusinessScenarioTask>|null
     */
     public function getTasks(): ?array {
-        return $this->getBackingStore()->get('tasks');
+        $val = $this->getBackingStore()->get('tasks');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, BusinessScenarioTask::class);
+            /** @var array<BusinessScenarioTask>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tasks'");
     }
 
     /**

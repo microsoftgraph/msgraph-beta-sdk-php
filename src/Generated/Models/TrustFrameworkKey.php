@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +61,11 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getD(): ?string {
-        return $this->getBackingStore()->get('d');
+        $val = $this->getBackingStore()->get('d');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'd'");
     }
 
     /**
@@ -63,7 +73,11 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDp(): ?string {
-        return $this->getBackingStore()->get('dp');
+        $val = $this->getBackingStore()->get('dp');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dp'");
     }
 
     /**
@@ -71,7 +85,11 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDq(): ?string {
-        return $this->getBackingStore()->get('dq');
+        $val = $this->getBackingStore()->get('dq');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dq'");
     }
 
     /**
@@ -79,7 +97,11 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getE(): ?string {
-        return $this->getBackingStore()->get('e');
+        $val = $this->getBackingStore()->get('e');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'e'");
     }
 
     /**
@@ -87,12 +109,16 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getExp(): ?int {
-        return $this->getBackingStore()->get('exp');
+        $val = $this->getBackingStore()->get('exp');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exp'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -112,7 +138,14 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
             'p' => fn(ParseNode $n) => $o->setP($n->getStringValue()),
             'q' => fn(ParseNode $n) => $o->setQ($n->getStringValue()),
             'qi' => fn(ParseNode $n) => $o->setQi($n->getStringValue()),
-            'x5c' => fn(ParseNode $n) => $o->setX5c($n->getCollectionOfPrimitiveValues()),
+            'x5c' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setX5c($val);
+            },
             'x5t' => fn(ParseNode $n) => $o->setX5t($n->getStringValue()),
         ];
     }
@@ -122,7 +155,11 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getK(): ?string {
-        return $this->getBackingStore()->get('k');
+        $val = $this->getBackingStore()->get('k');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'k'");
     }
 
     /**
@@ -130,7 +167,11 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getKid(): ?string {
-        return $this->getBackingStore()->get('kid');
+        $val = $this->getBackingStore()->get('kid');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kid'");
     }
 
     /**
@@ -138,7 +179,11 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getKty(): ?string {
-        return $this->getBackingStore()->get('kty');
+        $val = $this->getBackingStore()->get('kty');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kty'");
     }
 
     /**
@@ -146,7 +191,11 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getN(): ?string {
-        return $this->getBackingStore()->get('n');
+        $val = $this->getBackingStore()->get('n');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'n'");
     }
 
     /**
@@ -154,7 +203,11 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getNbf(): ?int {
-        return $this->getBackingStore()->get('nbf');
+        $val = $this->getBackingStore()->get('nbf');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'nbf'");
     }
 
     /**
@@ -162,7 +215,11 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -170,7 +227,11 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getP(): ?string {
-        return $this->getBackingStore()->get('p');
+        $val = $this->getBackingStore()->get('p');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'p'");
     }
 
     /**
@@ -178,7 +239,11 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getQ(): ?string {
-        return $this->getBackingStore()->get('q');
+        $val = $this->getBackingStore()->get('q');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'q'");
     }
 
     /**
@@ -186,7 +251,11 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getQi(): ?string {
-        return $this->getBackingStore()->get('qi');
+        $val = $this->getBackingStore()->get('qi');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'qi'");
     }
 
     /**
@@ -194,7 +263,11 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getUse(): ?string {
-        return $this->getBackingStore()->get('escapedUse');
+        $val = $this->getBackingStore()->get('escapedUse');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'escapedUse'");
     }
 
     /**
@@ -202,7 +275,13 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getX5c(): ?array {
-        return $this->getBackingStore()->get('x5c');
+        $val = $this->getBackingStore()->get('x5c');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'x5c'");
     }
 
     /**
@@ -210,7 +289,11 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getX5t(): ?string {
-        return $this->getBackingStore()->get('x5t');
+        $val = $this->getBackingStore()->get('x5t');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'x5t'");
     }
 
     /**

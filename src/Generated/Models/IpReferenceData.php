@@ -39,7 +39,12 @@ class IpReferenceData implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +52,11 @@ class IpReferenceData implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getAsn(): ?int {
-        return $this->getBackingStore()->get('asn');
+        $val = $this->getBackingStore()->get('asn');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'asn'");
     }
 
     /**
@@ -63,7 +72,11 @@ class IpReferenceData implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getCity(): ?string {
-        return $this->getBackingStore()->get('city');
+        $val = $this->getBackingStore()->get('city');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'city'");
     }
 
     /**
@@ -71,12 +84,16 @@ class IpReferenceData implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getCountryOrRegionCode(): ?string {
-        return $this->getBackingStore()->get('countryOrRegionCode');
+        $val = $this->getBackingStore()->get('countryOrRegionCode');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'countryOrRegionCode'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -96,7 +113,11 @@ class IpReferenceData implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -104,7 +125,11 @@ class IpReferenceData implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOrganization(): ?string {
-        return $this->getBackingStore()->get('organization');
+        $val = $this->getBackingStore()->get('organization');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'organization'");
     }
 
     /**
@@ -112,7 +137,11 @@ class IpReferenceData implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getState(): ?string {
-        return $this->getBackingStore()->get('state');
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
     }
 
     /**
@@ -120,7 +149,11 @@ class IpReferenceData implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getVendor(): ?string {
-        return $this->getBackingStore()->get('vendor');
+        $val = $this->getBackingStore()->get('vendor');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vendor'");
     }
 
     /**

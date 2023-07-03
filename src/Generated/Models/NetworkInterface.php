@@ -39,7 +39,12 @@ class NetworkInterface implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,12 +60,16 @@ class NetworkInterface implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -79,7 +88,11 @@ class NetworkInterface implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getIpV4Address(): ?string {
-        return $this->getBackingStore()->get('ipV4Address');
+        $val = $this->getBackingStore()->get('ipV4Address');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ipV4Address'");
     }
 
     /**
@@ -87,7 +100,11 @@ class NetworkInterface implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getIpV6Address(): ?string {
-        return $this->getBackingStore()->get('ipV6Address');
+        $val = $this->getBackingStore()->get('ipV6Address');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ipV6Address'");
     }
 
     /**
@@ -95,7 +112,11 @@ class NetworkInterface implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getLocalIpV6Address(): ?string {
-        return $this->getBackingStore()->get('localIpV6Address');
+        $val = $this->getBackingStore()->get('localIpV6Address');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localIpV6Address'");
     }
 
     /**
@@ -103,7 +124,11 @@ class NetworkInterface implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getMacAddress(): ?string {
-        return $this->getBackingStore()->get('macAddress');
+        $val = $this->getBackingStore()->get('macAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'macAddress'");
     }
 
     /**
@@ -111,7 +136,11 @@ class NetworkInterface implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

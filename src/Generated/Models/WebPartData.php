@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class WebPartData implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class WebPartData implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +53,13 @@ class WebPartData implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getAudiences(): ?array {
-        return $this->getBackingStore()->get('audiences');
+        $val = $this->getBackingStore()->get('audiences');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'audiences'");
     }
 
     /**
@@ -63,7 +75,11 @@ class WebPartData implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDataVersion(): ?string {
-        return $this->getBackingStore()->get('dataVersion');
+        $val = $this->getBackingStore()->get('dataVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dataVersion'");
     }
 
     /**
@@ -71,17 +87,28 @@ class WebPartData implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'audiences' => fn(ParseNode $n) => $o->setAudiences($n->getCollectionOfPrimitiveValues()),
+            'audiences' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAudiences($val);
+            },
             'dataVersion' => fn(ParseNode $n) => $o->setDataVersion($n->getStringValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -96,7 +123,11 @@ class WebPartData implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -104,7 +135,11 @@ class WebPartData implements AdditionalDataHolder, BackedModel, Parsable
      * @return Json|null
     */
     public function getProperties(): ?Json {
-        return $this->getBackingStore()->get('properties');
+        $val = $this->getBackingStore()->get('properties');
+        if (is_null($val) || $val instanceof Json) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'properties'");
     }
 
     /**
@@ -112,7 +147,11 @@ class WebPartData implements AdditionalDataHolder, BackedModel, Parsable
      * @return ServerProcessedContent|null
     */
     public function getServerProcessedContent(): ?ServerProcessedContent {
-        return $this->getBackingStore()->get('serverProcessedContent');
+        $val = $this->getBackingStore()->get('serverProcessedContent');
+        if (is_null($val) || $val instanceof ServerProcessedContent) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'serverProcessedContent'");
     }
 
     /**
@@ -120,7 +159,11 @@ class WebPartData implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getTitle(): ?string {
-        return $this->getBackingStore()->get('title');
+        $val = $this->getBackingStore()->get('title');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'title'");
     }
 
     /**

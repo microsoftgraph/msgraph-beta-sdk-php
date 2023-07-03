@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Security baseline state for a device.
@@ -32,12 +33,16 @@ class SecurityBaselineState extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -55,7 +60,11 @@ class SecurityBaselineState extends Entity implements Parsable
      * @return string|null
     */
     public function getSecurityBaselineTemplateId(): ?string {
-        return $this->getBackingStore()->get('securityBaselineTemplateId');
+        $val = $this->getBackingStore()->get('securityBaselineTemplateId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'securityBaselineTemplateId'");
     }
 
     /**
@@ -63,7 +72,13 @@ class SecurityBaselineState extends Entity implements Parsable
      * @return array<SecurityBaselineSettingState>|null
     */
     public function getSettingStates(): ?array {
-        return $this->getBackingStore()->get('settingStates');
+        $val = $this->getBackingStore()->get('settingStates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SecurityBaselineSettingState::class);
+            /** @var array<SecurityBaselineSettingState>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingStates'");
     }
 
     /**
@@ -71,7 +86,11 @@ class SecurityBaselineState extends Entity implements Parsable
      * @return SecurityBaselineComplianceState|null
     */
     public function getState(): ?SecurityBaselineComplianceState {
-        return $this->getBackingStore()->get('state');
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || $val instanceof SecurityBaselineComplianceState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
     }
 
     /**
@@ -79,7 +98,11 @@ class SecurityBaselineState extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('userPrincipalName');
+        $val = $this->getBackingStore()->get('userPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
     }
 
     /**

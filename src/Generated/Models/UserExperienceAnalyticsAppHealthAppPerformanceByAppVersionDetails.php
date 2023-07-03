@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics application performance entity contains application performance by application version details.
+*/
 class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails and sets the default values.
+     * Instantiates a new userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -29,7 +32,11 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends 
      * @return int|null
     */
     public function getAppCrashCount(): ?int {
-        return $this->getBackingStore()->get('appCrashCount');
+        $val = $this->getBackingStore()->get('appCrashCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appCrashCount'");
     }
 
     /**
@@ -37,7 +44,11 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends 
      * @return string|null
     */
     public function getAppDisplayName(): ?string {
-        return $this->getBackingStore()->get('appDisplayName');
+        $val = $this->getBackingStore()->get('appDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appDisplayName'");
     }
 
     /**
@@ -45,7 +56,11 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends 
      * @return string|null
     */
     public function getAppName(): ?string {
-        return $this->getBackingStore()->get('appName');
+        $val = $this->getBackingStore()->get('appName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appName'");
     }
 
     /**
@@ -53,7 +68,11 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends 
      * @return string|null
     */
     public function getAppPublisher(): ?string {
-        return $this->getBackingStore()->get('appPublisher');
+        $val = $this->getBackingStore()->get('appPublisher');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appPublisher'");
     }
 
     /**
@@ -61,20 +80,28 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends 
      * @return string|null
     */
     public function getAppVersion(): ?string {
-        return $this->getBackingStore()->get('appVersion');
+        $val = $this->getBackingStore()->get('appVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appVersion'");
     }
 
     /**
-     * Gets the deviceCountWithCrashes property value. The total number of devices that have reported one or more application crashes for this application and version. Valid values -2147483648 to 2147483647
+     * Gets the deviceCountWithCrashes property value. The total number of devices that have reported one or more application crashes for this application and version. Valid values 0 to 2147483647. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getDeviceCountWithCrashes(): ?int {
-        return $this->getBackingStore()->get('deviceCountWithCrashes');
+        $val = $this->getBackingStore()->get('deviceCountWithCrashes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceCountWithCrashes'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -91,19 +118,27 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends 
     }
 
     /**
-     * Gets the isLatestUsedVersion property value. Is the version of application the latest version for that app that is in use.
+     * Gets the isLatestUsedVersion property value. When TRUE, indicates the version of application is the latest version for that application that is in use. When FALSE, indicates the version is not the latest version. FALSE by default. Supports: $select, $OrderBy.
      * @return bool|null
     */
     public function getIsLatestUsedVersion(): ?bool {
-        return $this->getBackingStore()->get('isLatestUsedVersion');
+        $val = $this->getBackingStore()->get('isLatestUsedVersion');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isLatestUsedVersion'");
     }
 
     /**
-     * Gets the isMostUsedVersion property value. Is the version of application the most used version for that app.
+     * Gets the isMostUsedVersion property value. When TRUE, indicates the version of application is the most used version for that application. When FALSE, indicates the version is not the most used version. FALSE by default. Supports: $select, $OrderBy. Read-only.
      * @return bool|null
     */
     public function getIsMostUsedVersion(): ?bool {
-        return $this->getBackingStore()->get('isMostUsedVersion');
+        $val = $this->getBackingStore()->get('isMostUsedVersion');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isMostUsedVersion'");
     }
 
     /**
@@ -163,7 +198,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends 
     }
 
     /**
-     * Sets the deviceCountWithCrashes property value. The total number of devices that have reported one or more application crashes for this application and version. Valid values -2147483648 to 2147483647
+     * Sets the deviceCountWithCrashes property value. The total number of devices that have reported one or more application crashes for this application and version. Valid values 0 to 2147483647. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647
      * @param int|null $value Value to set for the deviceCountWithCrashes property.
     */
     public function setDeviceCountWithCrashes(?int $value): void {
@@ -171,7 +206,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends 
     }
 
     /**
-     * Sets the isLatestUsedVersion property value. Is the version of application the latest version for that app that is in use.
+     * Sets the isLatestUsedVersion property value. When TRUE, indicates the version of application is the latest version for that application that is in use. When FALSE, indicates the version is not the latest version. FALSE by default. Supports: $select, $OrderBy.
      * @param bool|null $value Value to set for the isLatestUsedVersion property.
     */
     public function setIsLatestUsedVersion(?bool $value): void {
@@ -179,7 +214,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends 
     }
 
     /**
-     * Sets the isMostUsedVersion property value. Is the version of application the most used version for that app.
+     * Sets the isMostUsedVersion property value. When TRUE, indicates the version of application is the most used version for that application. When FALSE, indicates the version is not the most used version. FALSE by default. Supports: $select, $OrderBy. Read-only.
      * @param bool|null $value Value to set for the isMostUsedVersion property.
     */
     public function setIsMostUsedVersion(?bool $value): void {

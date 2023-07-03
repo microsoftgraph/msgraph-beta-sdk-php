@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ServicePrincipalCreationConditionSet extends Entity implements Parsable 
 {
@@ -29,7 +30,13 @@ class ServicePrincipalCreationConditionSet extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getApplicationIds(): ?array {
-        return $this->getBackingStore()->get('applicationIds');
+        $val = $this->getBackingStore()->get('applicationIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationIds'");
     }
 
     /**
@@ -37,7 +44,13 @@ class ServicePrincipalCreationConditionSet extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getApplicationPublisherIds(): ?array {
-        return $this->getBackingStore()->get('applicationPublisherIds');
+        $val = $this->getBackingStore()->get('applicationPublisherIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationPublisherIds'");
     }
 
     /**
@@ -45,7 +58,11 @@ class ServicePrincipalCreationConditionSet extends Entity implements Parsable
      * @return bool|null
     */
     public function getApplicationsFromVerifiedPublisherOnly(): ?bool {
-        return $this->getBackingStore()->get('applicationsFromVerifiedPublisherOnly');
+        $val = $this->getBackingStore()->get('applicationsFromVerifiedPublisherOnly');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationsFromVerifiedPublisherOnly'");
     }
 
     /**
@@ -53,7 +70,13 @@ class ServicePrincipalCreationConditionSet extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getApplicationTenantIds(): ?array {
-        return $this->getBackingStore()->get('applicationTenantIds');
+        $val = $this->getBackingStore()->get('applicationTenantIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationTenantIds'");
     }
 
     /**
@@ -61,20 +84,45 @@ class ServicePrincipalCreationConditionSet extends Entity implements Parsable
      * @return bool|null
     */
     public function getCertifiedApplicationsOnly(): ?bool {
-        return $this->getBackingStore()->get('certifiedApplicationsOnly');
+        $val = $this->getBackingStore()->get('certifiedApplicationsOnly');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certifiedApplicationsOnly'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applicationIds' => fn(ParseNode $n) => $o->setApplicationIds($n->getCollectionOfPrimitiveValues()),
-            'applicationPublisherIds' => fn(ParseNode $n) => $o->setApplicationPublisherIds($n->getCollectionOfPrimitiveValues()),
+            'applicationIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setApplicationIds($val);
+            },
+            'applicationPublisherIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setApplicationPublisherIds($val);
+            },
             'applicationsFromVerifiedPublisherOnly' => fn(ParseNode $n) => $o->setApplicationsFromVerifiedPublisherOnly($n->getBooleanValue()),
-            'applicationTenantIds' => fn(ParseNode $n) => $o->setApplicationTenantIds($n->getCollectionOfPrimitiveValues()),
+            'applicationTenantIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setApplicationTenantIds($val);
+            },
             'certifiedApplicationsOnly' => fn(ParseNode $n) => $o->setCertifiedApplicationsOnly($n->getBooleanValue()),
         ]);
     }

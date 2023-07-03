@@ -27,7 +27,7 @@ class AndroidDeviceOwnerGlobalProxyAutoConfig extends AndroidDeviceOwnerGlobalPr
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class AndroidDeviceOwnerGlobalProxyAutoConfig extends AndroidDeviceOwnerGlobalPr
      * @return string|null
     */
     public function getProxyAutoConfigURL(): ?string {
-        return $this->getBackingStore()->get('proxyAutoConfigURL');
+        $val = $this->getBackingStore()->get('proxyAutoConfigURL');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'proxyAutoConfigURL'");
     }
 
     /**

@@ -39,7 +39,11 @@ class MonitoringRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return MonitoringAction|null
     */
     public function getAction(): ?MonitoringAction {
-        return $this->getBackingStore()->get('action');
+        $val = $this->getBackingStore()->get('action');
+        if (is_null($val) || $val instanceof MonitoringAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'action'");
     }
 
     /**
@@ -47,7 +51,12 @@ class MonitoringRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -60,7 +69,7 @@ class MonitoringRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -77,7 +86,11 @@ class MonitoringRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -85,7 +98,11 @@ class MonitoringRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return MonitoringSignal|null
     */
     public function getSignal(): ?MonitoringSignal {
-        return $this->getBackingStore()->get('signal');
+        $val = $this->getBackingStore()->get('signal');
+        if (is_null($val) || $val instanceof MonitoringSignal) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signal'");
     }
 
     /**
@@ -93,7 +110,11 @@ class MonitoringRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getThreshold(): ?int {
-        return $this->getBackingStore()->get('threshold');
+        $val = $this->getBackingStore()->get('threshold');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'threshold'");
     }
 
     /**

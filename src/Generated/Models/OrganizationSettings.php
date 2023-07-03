@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class OrganizationSettings extends Entity implements Parsable 
 {
@@ -29,12 +30,16 @@ class OrganizationSettings extends Entity implements Parsable
      * @return InsightsSettings|null
     */
     public function getContactInsights(): ?InsightsSettings {
-        return $this->getBackingStore()->get('contactInsights');
+        $val = $this->getBackingStore()->get('contactInsights');
+        if (is_null($val) || $val instanceof InsightsSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contactInsights'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -53,7 +58,11 @@ class OrganizationSettings extends Entity implements Parsable
      * @return InsightsSettings|null
     */
     public function getItemInsights(): ?InsightsSettings {
-        return $this->getBackingStore()->get('itemInsights');
+        $val = $this->getBackingStore()->get('itemInsights');
+        if (is_null($val) || $val instanceof InsightsSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'itemInsights'");
     }
 
     /**
@@ -61,7 +70,11 @@ class OrganizationSettings extends Entity implements Parsable
      * @return MicrosoftApplicationDataAccessSettings|null
     */
     public function getMicrosoftApplicationDataAccess(): ?MicrosoftApplicationDataAccessSettings {
-        return $this->getBackingStore()->get('microsoftApplicationDataAccess');
+        $val = $this->getBackingStore()->get('microsoftApplicationDataAccess');
+        if (is_null($val) || $val instanceof MicrosoftApplicationDataAccessSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftApplicationDataAccess'");
     }
 
     /**
@@ -69,7 +82,11 @@ class OrganizationSettings extends Entity implements Parsable
      * @return InsightsSettings|null
     */
     public function getPeopleInsights(): ?InsightsSettings {
-        return $this->getBackingStore()->get('peopleInsights');
+        $val = $this->getBackingStore()->get('peopleInsights');
+        if (is_null($val) || $val instanceof InsightsSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'peopleInsights'");
     }
 
     /**
@@ -77,7 +94,13 @@ class OrganizationSettings extends Entity implements Parsable
      * @return array<ProfileCardProperty>|null
     */
     public function getProfileCardProperties(): ?array {
-        return $this->getBackingStore()->get('profileCardProperties');
+        $val = $this->getBackingStore()->get('profileCardProperties');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ProfileCardProperty::class);
+            /** @var array<ProfileCardProperty>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'profileCardProperties'");
     }
 
     /**
@@ -85,7 +108,11 @@ class OrganizationSettings extends Entity implements Parsable
      * @return PronounsSettings|null
     */
     public function getPronouns(): ?PronounsSettings {
-        return $this->getBackingStore()->get('pronouns');
+        $val = $this->getBackingStore()->get('pronouns');
+        if (is_null($val) || $val instanceof PronounsSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pronouns'");
     }
 
     /**

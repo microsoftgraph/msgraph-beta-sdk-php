@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class RoleDefinition extends Entity implements Parsable 
 {
@@ -36,7 +37,11 @@ class RoleDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -44,12 +49,16 @@ class RoleDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -61,7 +70,14 @@ class RoleDefinition extends Entity implements Parsable
             'permissions' => fn(ParseNode $n) => $o->setPermissions($n->getCollectionOfObjectValues([RolePermission::class, 'createFromDiscriminatorValue'])),
             'roleAssignments' => fn(ParseNode $n) => $o->setRoleAssignments($n->getCollectionOfObjectValues([RoleAssignment::class, 'createFromDiscriminatorValue'])),
             'rolePermissions' => fn(ParseNode $n) => $o->setRolePermissions($n->getCollectionOfObjectValues([RolePermission::class, 'createFromDiscriminatorValue'])),
-            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
+            'roleScopeTagIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoleScopeTagIds($val);
+            },
         ]);
     }
 
@@ -70,7 +86,11 @@ class RoleDefinition extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsBuiltIn(): ?bool {
-        return $this->getBackingStore()->get('isBuiltIn');
+        $val = $this->getBackingStore()->get('isBuiltIn');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isBuiltIn'");
     }
 
     /**
@@ -78,7 +98,11 @@ class RoleDefinition extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsBuiltInRoleDefinition(): ?bool {
-        return $this->getBackingStore()->get('isBuiltInRoleDefinition');
+        $val = $this->getBackingStore()->get('isBuiltInRoleDefinition');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isBuiltInRoleDefinition'");
     }
 
     /**
@@ -86,7 +110,13 @@ class RoleDefinition extends Entity implements Parsable
      * @return array<RolePermission>|null
     */
     public function getPermissions(): ?array {
-        return $this->getBackingStore()->get('permissions');
+        $val = $this->getBackingStore()->get('permissions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RolePermission::class);
+            /** @var array<RolePermission>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'permissions'");
     }
 
     /**
@@ -94,7 +124,13 @@ class RoleDefinition extends Entity implements Parsable
      * @return array<RoleAssignment>|null
     */
     public function getRoleAssignments(): ?array {
-        return $this->getBackingStore()->get('roleAssignments');
+        $val = $this->getBackingStore()->get('roleAssignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RoleAssignment::class);
+            /** @var array<RoleAssignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleAssignments'");
     }
 
     /**
@@ -102,7 +138,13 @@ class RoleDefinition extends Entity implements Parsable
      * @return array<RolePermission>|null
     */
     public function getRolePermissions(): ?array {
-        return $this->getBackingStore()->get('rolePermissions');
+        $val = $this->getBackingStore()->get('rolePermissions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RolePermission::class);
+            /** @var array<RolePermission>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rolePermissions'");
     }
 
     /**
@@ -110,7 +152,13 @@ class RoleDefinition extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->getBackingStore()->get('roleScopeTagIds');
+        $val = $this->getBackingStore()->get('roleScopeTagIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleScopeTagIds'");
     }
 
     /**

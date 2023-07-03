@@ -39,7 +39,12 @@ class DecisionItemPrincipalResourceMembership implements AdditionalDataHolder, B
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +57,7 @@ class DecisionItemPrincipalResourceMembership implements AdditionalDataHolder, B
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -67,7 +72,11 @@ class DecisionItemPrincipalResourceMembership implements AdditionalDataHolder, B
      * @return DecisionItemPrincipalResourceMembershipType|null
     */
     public function getMembershipType(): ?DecisionItemPrincipalResourceMembershipType {
-        return $this->getBackingStore()->get('membershipType');
+        $val = $this->getBackingStore()->get('membershipType');
+        if (is_null($val) || $val instanceof DecisionItemPrincipalResourceMembershipType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'membershipType'");
     }
 
     /**
@@ -75,7 +84,11 @@ class DecisionItemPrincipalResourceMembership implements AdditionalDataHolder, B
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

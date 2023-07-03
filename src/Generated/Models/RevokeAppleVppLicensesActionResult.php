@@ -29,12 +29,16 @@ class RevokeAppleVppLicensesActionResult extends DeviceActionResult implements P
      * @return int|null
     */
     public function getFailedLicensesCount(): ?int {
-        return $this->getBackingStore()->get('failedLicensesCount');
+        $val = $this->getBackingStore()->get('failedLicensesCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'failedLicensesCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -49,7 +53,11 @@ class RevokeAppleVppLicensesActionResult extends DeviceActionResult implements P
      * @return int|null
     */
     public function getTotalLicensesCount(): ?int {
-        return $this->getBackingStore()->get('totalLicensesCount');
+        $val = $this->getBackingStore()->get('totalLicensesCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalLicensesCount'");
     }
 
     /**

@@ -39,7 +39,12 @@ class TeamworkHardwareHealth implements AdditionalDataHolder, BackedModel, Parsa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,12 +60,16 @@ class TeamworkHardwareHealth implements AdditionalDataHolder, BackedModel, Parsa
      * @return TeamworkPeripheralHealth|null
     */
     public function getComputeHealth(): ?TeamworkPeripheralHealth {
-        return $this->getBackingStore()->get('computeHealth');
+        $val = $this->getBackingStore()->get('computeHealth');
+        if (is_null($val) || $val instanceof TeamworkPeripheralHealth) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'computeHealth'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -76,7 +85,11 @@ class TeamworkHardwareHealth implements AdditionalDataHolder, BackedModel, Parsa
      * @return TeamworkPeripheralHealth|null
     */
     public function getHdmiIngestHealth(): ?TeamworkPeripheralHealth {
-        return $this->getBackingStore()->get('hdmiIngestHealth');
+        $val = $this->getBackingStore()->get('hdmiIngestHealth');
+        if (is_null($val) || $val instanceof TeamworkPeripheralHealth) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hdmiIngestHealth'");
     }
 
     /**
@@ -84,7 +97,11 @@ class TeamworkHardwareHealth implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

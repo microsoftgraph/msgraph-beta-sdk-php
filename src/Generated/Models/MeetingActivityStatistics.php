@@ -31,7 +31,11 @@ class MeetingActivityStatistics extends ActivityStatistics implements Parsable
      * @return DateInterval|null
     */
     public function getAfterHours(): ?DateInterval {
-        return $this->getBackingStore()->get('afterHours');
+        $val = $this->getBackingStore()->get('afterHours');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'afterHours'");
     }
 
     /**
@@ -39,12 +43,16 @@ class MeetingActivityStatistics extends ActivityStatistics implements Parsable
      * @return DateInterval|null
     */
     public function getConflicting(): ?DateInterval {
-        return $this->getBackingStore()->get('conflicting');
+        $val = $this->getBackingStore()->get('conflicting');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'conflicting'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -63,7 +71,11 @@ class MeetingActivityStatistics extends ActivityStatistics implements Parsable
      * @return DateInterval|null
     */
     public function getLong(): ?DateInterval {
-        return $this->getBackingStore()->get('long');
+        $val = $this->getBackingStore()->get('long');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'long'");
     }
 
     /**
@@ -71,7 +83,11 @@ class MeetingActivityStatistics extends ActivityStatistics implements Parsable
      * @return DateInterval|null
     */
     public function getMultitasking(): ?DateInterval {
-        return $this->getBackingStore()->get('multitasking');
+        $val = $this->getBackingStore()->get('multitasking');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'multitasking'");
     }
 
     /**
@@ -79,7 +95,11 @@ class MeetingActivityStatistics extends ActivityStatistics implements Parsable
      * @return DateInterval|null
     */
     public function getOrganized(): ?DateInterval {
-        return $this->getBackingStore()->get('organized');
+        $val = $this->getBackingStore()->get('organized');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'organized'");
     }
 
     /**
@@ -87,7 +107,11 @@ class MeetingActivityStatistics extends ActivityStatistics implements Parsable
      * @return DateInterval|null
     */
     public function getRecurring(): ?DateInterval {
-        return $this->getBackingStore()->get('recurring');
+        $val = $this->getBackingStore()->get('recurring');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recurring'");
     }
 
     /**

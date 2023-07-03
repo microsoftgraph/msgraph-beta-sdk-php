@@ -29,7 +29,11 @@ class AccessPackageResourceRole extends Entity implements Parsable
      * @return AccessPackageResource|null
     */
     public function getAccessPackageResource(): ?AccessPackageResource {
-        return $this->getBackingStore()->get('accessPackageResource');
+        $val = $this->getBackingStore()->get('accessPackageResource');
+        if (is_null($val) || $val instanceof AccessPackageResource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accessPackageResource'");
     }
 
     /**
@@ -37,7 +41,11 @@ class AccessPackageResourceRole extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -45,12 +53,16 @@ class AccessPackageResourceRole extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -68,7 +80,11 @@ class AccessPackageResourceRole extends Entity implements Parsable
      * @return string|null
     */
     public function getOriginId(): ?string {
-        return $this->getBackingStore()->get('originId');
+        $val = $this->getBackingStore()->get('originId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'originId'");
     }
 
     /**
@@ -76,7 +92,11 @@ class AccessPackageResourceRole extends Entity implements Parsable
      * @return string|null
     */
     public function getOriginSystem(): ?string {
-        return $this->getBackingStore()->get('originSystem');
+        $val = $this->getBackingStore()->get('originSystem');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'originSystem'");
     }
 
     /**

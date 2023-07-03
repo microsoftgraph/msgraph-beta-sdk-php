@@ -42,7 +42,12 @@ class DeliveryOptimizationBandwidthBusinessHoursLimit implements AdditionalDataH
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -58,7 +63,11 @@ class DeliveryOptimizationBandwidthBusinessHoursLimit implements AdditionalDataH
      * @return int|null
     */
     public function getBandwidthBeginBusinessHours(): ?int {
-        return $this->getBackingStore()->get('bandwidthBeginBusinessHours');
+        $val = $this->getBackingStore()->get('bandwidthBeginBusinessHours');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bandwidthBeginBusinessHours'");
     }
 
     /**
@@ -66,7 +75,11 @@ class DeliveryOptimizationBandwidthBusinessHoursLimit implements AdditionalDataH
      * @return int|null
     */
     public function getBandwidthEndBusinessHours(): ?int {
-        return $this->getBackingStore()->get('bandwidthEndBusinessHours');
+        $val = $this->getBackingStore()->get('bandwidthEndBusinessHours');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bandwidthEndBusinessHours'");
     }
 
     /**
@@ -74,7 +87,11 @@ class DeliveryOptimizationBandwidthBusinessHoursLimit implements AdditionalDataH
      * @return int|null
     */
     public function getBandwidthPercentageDuringBusinessHours(): ?int {
-        return $this->getBackingStore()->get('bandwidthPercentageDuringBusinessHours');
+        $val = $this->getBackingStore()->get('bandwidthPercentageDuringBusinessHours');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bandwidthPercentageDuringBusinessHours'");
     }
 
     /**
@@ -82,12 +99,16 @@ class DeliveryOptimizationBandwidthBusinessHoursLimit implements AdditionalDataH
      * @return int|null
     */
     public function getBandwidthPercentageOutsideBusinessHours(): ?int {
-        return $this->getBackingStore()->get('bandwidthPercentageOutsideBusinessHours');
+        $val = $this->getBackingStore()->get('bandwidthPercentageOutsideBusinessHours');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bandwidthPercentageOutsideBusinessHours'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -105,7 +126,11 @@ class DeliveryOptimizationBandwidthBusinessHoursLimit implements AdditionalDataH
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class UserAnalytics extends Entity implements Parsable 
 {
@@ -29,12 +30,18 @@ class UserAnalytics extends Entity implements Parsable
      * @return array<ActivityStatistics>|null
     */
     public function getActivityStatistics(): ?array {
-        return $this->getBackingStore()->get('activityStatistics');
+        $val = $this->getBackingStore()->get('activityStatistics');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ActivityStatistics::class);
+            /** @var array<ActivityStatistics>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activityStatistics'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -49,7 +56,11 @@ class UserAnalytics extends Entity implements Parsable
      * @return Settings|null
     */
     public function getSettings(): ?Settings {
-        return $this->getBackingStore()->get('settings');
+        $val = $this->getBackingStore()->get('settings');
+        if (is_null($val) || $val instanceof Settings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settings'");
     }
 
     /**

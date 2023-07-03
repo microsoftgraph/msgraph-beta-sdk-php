@@ -31,7 +31,11 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
      * @return int|null
     */
     public function getConflictDeviceCount(): ?int {
-        return $this->getBackingStore()->get('conflictDeviceCount');
+        $val = $this->getBackingStore()->get('conflictDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'conflictDeviceCount'");
     }
 
     /**
@@ -39,7 +43,11 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
      * @return int|null
     */
     public function getErrorDeviceCount(): ?int {
-        return $this->getBackingStore()->get('errorDeviceCount');
+        $val = $this->getBackingStore()->get('errorDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorDeviceCount'");
     }
 
     /**
@@ -47,12 +55,16 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
      * @return int|null
     */
     public function getFailedDeviceCount(): ?int {
-        return $this->getBackingStore()->get('failedDeviceCount');
+        $val = $this->getBackingStore()->get('failedDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'failedDeviceCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -78,7 +90,11 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
      * @return string|null
     */
     public function getIntuneAccountId(): ?string {
-        return $this->getBackingStore()->get('intuneAccountId');
+        $val = $this->getBackingStore()->get('intuneAccountId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'intuneAccountId'");
     }
 
     /**
@@ -86,7 +102,11 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
      * @return string|null
     */
     public function getIntuneSettingId(): ?string {
-        return $this->getBackingStore()->get('intuneSettingId');
+        $val = $this->getBackingStore()->get('intuneSettingId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'intuneSettingId'");
     }
 
     /**
@@ -94,7 +114,11 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
      * @return DateTime|null
     */
     public function getLastRefreshedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastRefreshedDateTime');
+        $val = $this->getBackingStore()->get('lastRefreshedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastRefreshedDateTime'");
     }
 
     /**
@@ -102,7 +126,11 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
      * @return int|null
     */
     public function getNotApplicableDeviceCount(): ?int {
-        return $this->getBackingStore()->get('notApplicableDeviceCount');
+        $val = $this->getBackingStore()->get('notApplicableDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notApplicableDeviceCount'");
     }
 
     /**
@@ -110,7 +138,11 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
      * @return int|null
     */
     public function getPendingDeviceCount(): ?int {
-        return $this->getBackingStore()->get('pendingDeviceCount');
+        $val = $this->getBackingStore()->get('pendingDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pendingDeviceCount'");
     }
 
     /**
@@ -118,7 +150,11 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
      * @return string|null
     */
     public function getPolicyType(): ?string {
-        return $this->getBackingStore()->get('policyType');
+        $val = $this->getBackingStore()->get('policyType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyType'");
     }
 
     /**
@@ -126,7 +162,11 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
      * @return string|null
     */
     public function getSettingName(): ?string {
-        return $this->getBackingStore()->get('settingName');
+        $val = $this->getBackingStore()->get('settingName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingName'");
     }
 
     /**
@@ -134,7 +174,11 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
      * @return int|null
     */
     public function getSucceededDeviceCount(): ?int {
-        return $this->getBackingStore()->get('succeededDeviceCount');
+        $val = $this->getBackingStore()->get('succeededDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'succeededDeviceCount'");
     }
 
     /**
@@ -142,7 +186,11 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
      * @return string|null
     */
     public function getTenantDisplayName(): ?string {
-        return $this->getBackingStore()->get('tenantDisplayName');
+        $val = $this->getBackingStore()->get('tenantDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantDisplayName'");
     }
 
     /**
@@ -150,7 +198,11 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->getBackingStore()->get('tenantId');
+        $val = $this->getBackingStore()->get('tenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantId'");
     }
 
     /**

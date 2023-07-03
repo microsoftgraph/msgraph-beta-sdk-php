@@ -27,7 +27,7 @@ class IosStoreAppAssignmentSettings extends MobileAppAssignmentSettings implemen
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -44,7 +44,11 @@ class IosStoreAppAssignmentSettings extends MobileAppAssignmentSettings implemen
      * @return bool|null
     */
     public function getIsRemovable(): ?bool {
-        return $this->getBackingStore()->get('isRemovable');
+        $val = $this->getBackingStore()->get('isRemovable');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isRemovable'");
     }
 
     /**
@@ -52,7 +56,11 @@ class IosStoreAppAssignmentSettings extends MobileAppAssignmentSettings implemen
      * @return bool|null
     */
     public function getPreventManagedAppBackup(): ?bool {
-        return $this->getBackingStore()->get('preventManagedAppBackup');
+        $val = $this->getBackingStore()->get('preventManagedAppBackup');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'preventManagedAppBackup'");
     }
 
     /**
@@ -60,7 +68,11 @@ class IosStoreAppAssignmentSettings extends MobileAppAssignmentSettings implemen
      * @return bool|null
     */
     public function getUninstallOnDeviceRemoval(): ?bool {
-        return $this->getBackingStore()->get('uninstallOnDeviceRemoval');
+        $val = $this->getBackingStore()->get('uninstallOnDeviceRemoval');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'uninstallOnDeviceRemoval'");
     }
 
     /**
@@ -68,7 +80,11 @@ class IosStoreAppAssignmentSettings extends MobileAppAssignmentSettings implemen
      * @return string|null
     */
     public function getVpnConfigurationId(): ?string {
-        return $this->getBackingStore()->get('vpnConfigurationId');
+        $val = $this->getBackingStore()->get('vpnConfigurationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vpnConfigurationId'");
     }
 
     /**

@@ -31,7 +31,11 @@ class CloudPcDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getCloudPcStatus(): ?string {
-        return $this->getBackingStore()->get('cloudPcStatus');
+        $val = $this->getBackingStore()->get('cloudPcStatus');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudPcStatus'");
     }
 
     /**
@@ -39,7 +43,11 @@ class CloudPcDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceSpecification(): ?string {
-        return $this->getBackingStore()->get('deviceSpecification');
+        $val = $this->getBackingStore()->get('deviceSpecification');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceSpecification'");
     }
 
     /**
@@ -47,12 +55,16 @@ class CloudPcDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -77,7 +89,11 @@ class CloudPcDevice extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastRefreshedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastRefreshedDateTime');
+        $val = $this->getBackingStore()->get('lastRefreshedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastRefreshedDateTime'");
     }
 
     /**
@@ -85,7 +101,11 @@ class CloudPcDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
-        return $this->getBackingStore()->get('managedDeviceId');
+        $val = $this->getBackingStore()->get('managedDeviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceId'");
     }
 
     /**
@@ -93,7 +113,11 @@ class CloudPcDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getManagedDeviceName(): ?string {
-        return $this->getBackingStore()->get('managedDeviceName');
+        $val = $this->getBackingStore()->get('managedDeviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceName'");
     }
 
     /**
@@ -101,7 +125,11 @@ class CloudPcDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getProvisioningPolicyId(): ?string {
-        return $this->getBackingStore()->get('provisioningPolicyId');
+        $val = $this->getBackingStore()->get('provisioningPolicyId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'provisioningPolicyId'");
     }
 
     /**
@@ -109,7 +137,11 @@ class CloudPcDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getServicePlanName(): ?string {
-        return $this->getBackingStore()->get('servicePlanName');
+        $val = $this->getBackingStore()->get('servicePlanName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'servicePlanName'");
     }
 
     /**
@@ -117,7 +149,11 @@ class CloudPcDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getServicePlanType(): ?string {
-        return $this->getBackingStore()->get('servicePlanType');
+        $val = $this->getBackingStore()->get('servicePlanType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'servicePlanType'");
     }
 
     /**
@@ -125,7 +161,11 @@ class CloudPcDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantDisplayName(): ?string {
-        return $this->getBackingStore()->get('tenantDisplayName');
+        $val = $this->getBackingStore()->get('tenantDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantDisplayName'");
     }
 
     /**
@@ -133,7 +173,11 @@ class CloudPcDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->getBackingStore()->get('tenantId');
+        $val = $this->getBackingStore()->get('tenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantId'");
     }
 
     /**
@@ -141,7 +185,11 @@ class CloudPcDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('userPrincipalName');
+        $val = $this->getBackingStore()->get('userPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
     }
 
     /**

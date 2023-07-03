@@ -27,7 +27,7 @@ class ExternalUsersSelfServiceSignUpEventsFlow extends AuthenticationEventsFlow 
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -44,7 +44,11 @@ class ExternalUsersSelfServiceSignUpEventsFlow extends AuthenticationEventsFlow 
      * @return OnAttributeCollectionHandler|null
     */
     public function getOnAttributeCollection(): ?OnAttributeCollectionHandler {
-        return $this->getBackingStore()->get('onAttributeCollection');
+        $val = $this->getBackingStore()->get('onAttributeCollection');
+        if (is_null($val) || $val instanceof OnAttributeCollectionHandler) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onAttributeCollection'");
     }
 
     /**
@@ -52,7 +56,11 @@ class ExternalUsersSelfServiceSignUpEventsFlow extends AuthenticationEventsFlow 
      * @return OnAuthenticationMethodLoadStartHandler|null
     */
     public function getOnAuthenticationMethodLoadStart(): ?OnAuthenticationMethodLoadStartHandler {
-        return $this->getBackingStore()->get('onAuthenticationMethodLoadStart');
+        $val = $this->getBackingStore()->get('onAuthenticationMethodLoadStart');
+        if (is_null($val) || $val instanceof OnAuthenticationMethodLoadStartHandler) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onAuthenticationMethodLoadStart'");
     }
 
     /**
@@ -60,7 +68,11 @@ class ExternalUsersSelfServiceSignUpEventsFlow extends AuthenticationEventsFlow 
      * @return OnInteractiveAuthFlowStartHandler|null
     */
     public function getOnInteractiveAuthFlowStart(): ?OnInteractiveAuthFlowStartHandler {
-        return $this->getBackingStore()->get('onInteractiveAuthFlowStart');
+        $val = $this->getBackingStore()->get('onInteractiveAuthFlowStart');
+        if (is_null($val) || $val instanceof OnInteractiveAuthFlowStartHandler) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onInteractiveAuthFlowStart'");
     }
 
     /**
@@ -68,7 +80,11 @@ class ExternalUsersSelfServiceSignUpEventsFlow extends AuthenticationEventsFlow 
      * @return OnUserCreateStartHandler|null
     */
     public function getOnUserCreateStart(): ?OnUserCreateStartHandler {
-        return $this->getBackingStore()->get('onUserCreateStart');
+        $val = $this->getBackingStore()->get('onUserCreateStart');
+        if (is_null($val) || $val instanceof OnUserCreateStartHandler) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onUserCreateStart'");
     }
 
     /**

@@ -30,7 +30,11 @@ class PlannerExternalPlanSource extends PlannerPlanCreation implements Parsable
      * @return string|null
     */
     public function getContextScenarioId(): ?string {
-        return $this->getBackingStore()->get('contextScenarioId');
+        $val = $this->getBackingStore()->get('contextScenarioId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contextScenarioId'");
     }
 
     /**
@@ -38,7 +42,11 @@ class PlannerExternalPlanSource extends PlannerPlanCreation implements Parsable
      * @return string|null
     */
     public function getExternalContextId(): ?string {
-        return $this->getBackingStore()->get('externalContextId');
+        $val = $this->getBackingStore()->get('externalContextId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'externalContextId'");
     }
 
     /**
@@ -46,12 +54,16 @@ class PlannerExternalPlanSource extends PlannerPlanCreation implements Parsable
      * @return string|null
     */
     public function getExternalObjectId(): ?string {
-        return $this->getBackingStore()->get('externalObjectId');
+        $val = $this->getBackingStore()->get('externalObjectId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'externalObjectId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

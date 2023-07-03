@@ -39,7 +39,12 @@ class TeamworkSoftwareUpdateStatus implements AdditionalDataHolder, BackedModel,
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +52,11 @@ class TeamworkSoftwareUpdateStatus implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getAvailableVersion(): ?string {
-        return $this->getBackingStore()->get('availableVersion');
+        $val = $this->getBackingStore()->get('availableVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'availableVersion'");
     }
 
     /**
@@ -63,12 +72,16 @@ class TeamworkSoftwareUpdateStatus implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getCurrentVersion(): ?string {
-        return $this->getBackingStore()->get('currentVersion');
+        $val = $this->getBackingStore()->get('currentVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'currentVersion'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -85,7 +98,11 @@ class TeamworkSoftwareUpdateStatus implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -93,7 +110,11 @@ class TeamworkSoftwareUpdateStatus implements AdditionalDataHolder, BackedModel,
      * @return TeamworkSoftwareFreshness|null
     */
     public function getSoftwareFreshness(): ?TeamworkSoftwareFreshness {
-        return $this->getBackingStore()->get('softwareFreshness');
+        $val = $this->getBackingStore()->get('softwareFreshness');
+        if (is_null($val) || $val instanceof TeamworkSoftwareFreshness) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'softwareFreshness'");
     }
 
     /**

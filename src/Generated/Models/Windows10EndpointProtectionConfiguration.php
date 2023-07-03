@@ -6,6 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Time;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
 class Windows10EndpointProtectionConfiguration extends DeviceConfiguration implements Parsable 
@@ -32,7 +33,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getApplicationGuardAllowCameraMicrophoneRedirection(): ?bool {
-        return $this->getBackingStore()->get('applicationGuardAllowCameraMicrophoneRedirection');
+        $val = $this->getBackingStore()->get('applicationGuardAllowCameraMicrophoneRedirection');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationGuardAllowCameraMicrophoneRedirection'");
     }
 
     /**
@@ -40,7 +45,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getApplicationGuardAllowFileSaveOnHost(): ?bool {
-        return $this->getBackingStore()->get('applicationGuardAllowFileSaveOnHost');
+        $val = $this->getBackingStore()->get('applicationGuardAllowFileSaveOnHost');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationGuardAllowFileSaveOnHost'");
     }
 
     /**
@@ -48,7 +57,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getApplicationGuardAllowPersistence(): ?bool {
-        return $this->getBackingStore()->get('applicationGuardAllowPersistence');
+        $val = $this->getBackingStore()->get('applicationGuardAllowPersistence');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationGuardAllowPersistence'");
     }
 
     /**
@@ -56,7 +69,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getApplicationGuardAllowPrintToLocalPrinters(): ?bool {
-        return $this->getBackingStore()->get('applicationGuardAllowPrintToLocalPrinters');
+        $val = $this->getBackingStore()->get('applicationGuardAllowPrintToLocalPrinters');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationGuardAllowPrintToLocalPrinters'");
     }
 
     /**
@@ -64,7 +81,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getApplicationGuardAllowPrintToNetworkPrinters(): ?bool {
-        return $this->getBackingStore()->get('applicationGuardAllowPrintToNetworkPrinters');
+        $val = $this->getBackingStore()->get('applicationGuardAllowPrintToNetworkPrinters');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationGuardAllowPrintToNetworkPrinters'");
     }
 
     /**
@@ -72,7 +93,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getApplicationGuardAllowPrintToPDF(): ?bool {
-        return $this->getBackingStore()->get('applicationGuardAllowPrintToPDF');
+        $val = $this->getBackingStore()->get('applicationGuardAllowPrintToPDF');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationGuardAllowPrintToPDF'");
     }
 
     /**
@@ -80,7 +105,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getApplicationGuardAllowPrintToXPS(): ?bool {
-        return $this->getBackingStore()->get('applicationGuardAllowPrintToXPS');
+        $val = $this->getBackingStore()->get('applicationGuardAllowPrintToXPS');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationGuardAllowPrintToXPS'");
     }
 
     /**
@@ -88,7 +117,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getApplicationGuardAllowVirtualGPU(): ?bool {
-        return $this->getBackingStore()->get('applicationGuardAllowVirtualGPU');
+        $val = $this->getBackingStore()->get('applicationGuardAllowVirtualGPU');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationGuardAllowVirtualGPU'");
     }
 
     /**
@@ -96,7 +129,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return ApplicationGuardBlockClipboardSharingType|null
     */
     public function getApplicationGuardBlockClipboardSharing(): ?ApplicationGuardBlockClipboardSharingType {
-        return $this->getBackingStore()->get('applicationGuardBlockClipboardSharing');
+        $val = $this->getBackingStore()->get('applicationGuardBlockClipboardSharing');
+        if (is_null($val) || $val instanceof ApplicationGuardBlockClipboardSharingType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationGuardBlockClipboardSharing'");
     }
 
     /**
@@ -104,7 +141,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return ApplicationGuardBlockFileTransferType|null
     */
     public function getApplicationGuardBlockFileTransfer(): ?ApplicationGuardBlockFileTransferType {
-        return $this->getBackingStore()->get('applicationGuardBlockFileTransfer');
+        $val = $this->getBackingStore()->get('applicationGuardBlockFileTransfer');
+        if (is_null($val) || $val instanceof ApplicationGuardBlockFileTransferType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationGuardBlockFileTransfer'");
     }
 
     /**
@@ -112,7 +153,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getApplicationGuardBlockNonEnterpriseContent(): ?bool {
-        return $this->getBackingStore()->get('applicationGuardBlockNonEnterpriseContent');
+        $val = $this->getBackingStore()->get('applicationGuardBlockNonEnterpriseContent');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationGuardBlockNonEnterpriseContent'");
     }
 
     /**
@@ -120,7 +165,13 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return array<string>|null
     */
     public function getApplicationGuardCertificateThumbprints(): ?array {
-        return $this->getBackingStore()->get('applicationGuardCertificateThumbprints');
+        $val = $this->getBackingStore()->get('applicationGuardCertificateThumbprints');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationGuardCertificateThumbprints'");
     }
 
     /**
@@ -128,7 +179,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getApplicationGuardEnabled(): ?bool {
-        return $this->getBackingStore()->get('applicationGuardEnabled');
+        $val = $this->getBackingStore()->get('applicationGuardEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationGuardEnabled'");
     }
 
     /**
@@ -136,7 +191,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return ApplicationGuardEnabledOptions|null
     */
     public function getApplicationGuardEnabledOptions(): ?ApplicationGuardEnabledOptions {
-        return $this->getBackingStore()->get('applicationGuardEnabledOptions');
+        $val = $this->getBackingStore()->get('applicationGuardEnabledOptions');
+        if (is_null($val) || $val instanceof ApplicationGuardEnabledOptions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationGuardEnabledOptions'");
     }
 
     /**
@@ -144,7 +203,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getApplicationGuardForceAuditing(): ?bool {
-        return $this->getBackingStore()->get('applicationGuardForceAuditing');
+        $val = $this->getBackingStore()->get('applicationGuardForceAuditing');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationGuardForceAuditing'");
     }
 
     /**
@@ -152,7 +215,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return AppLockerApplicationControlType|null
     */
     public function getAppLockerApplicationControl(): ?AppLockerApplicationControlType {
-        return $this->getBackingStore()->get('appLockerApplicationControl');
+        $val = $this->getBackingStore()->get('appLockerApplicationControl');
+        if (is_null($val) || $val instanceof AppLockerApplicationControlType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appLockerApplicationControl'");
     }
 
     /**
@@ -160,7 +227,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getBitLockerAllowStandardUserEncryption(): ?bool {
-        return $this->getBackingStore()->get('bitLockerAllowStandardUserEncryption');
+        $val = $this->getBackingStore()->get('bitLockerAllowStandardUserEncryption');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bitLockerAllowStandardUserEncryption'");
     }
 
     /**
@@ -168,7 +239,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getBitLockerDisableWarningForOtherDiskEncryption(): ?bool {
-        return $this->getBackingStore()->get('bitLockerDisableWarningForOtherDiskEncryption');
+        $val = $this->getBackingStore()->get('bitLockerDisableWarningForOtherDiskEncryption');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bitLockerDisableWarningForOtherDiskEncryption'");
     }
 
     /**
@@ -176,7 +251,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getBitLockerEnableStorageCardEncryptionOnMobile(): ?bool {
-        return $this->getBackingStore()->get('bitLockerEnableStorageCardEncryptionOnMobile');
+        $val = $this->getBackingStore()->get('bitLockerEnableStorageCardEncryptionOnMobile');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bitLockerEnableStorageCardEncryptionOnMobile'");
     }
 
     /**
@@ -184,7 +263,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getBitLockerEncryptDevice(): ?bool {
-        return $this->getBackingStore()->get('bitLockerEncryptDevice');
+        $val = $this->getBackingStore()->get('bitLockerEncryptDevice');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bitLockerEncryptDevice'");
     }
 
     /**
@@ -192,7 +275,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return BitLockerFixedDrivePolicy|null
     */
     public function getBitLockerFixedDrivePolicy(): ?BitLockerFixedDrivePolicy {
-        return $this->getBackingStore()->get('bitLockerFixedDrivePolicy');
+        $val = $this->getBackingStore()->get('bitLockerFixedDrivePolicy');
+        if (is_null($val) || $val instanceof BitLockerFixedDrivePolicy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bitLockerFixedDrivePolicy'");
     }
 
     /**
@@ -200,7 +287,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return BitLockerRecoveryPasswordRotationType|null
     */
     public function getBitLockerRecoveryPasswordRotation(): ?BitLockerRecoveryPasswordRotationType {
-        return $this->getBackingStore()->get('bitLockerRecoveryPasswordRotation');
+        $val = $this->getBackingStore()->get('bitLockerRecoveryPasswordRotation');
+        if (is_null($val) || $val instanceof BitLockerRecoveryPasswordRotationType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bitLockerRecoveryPasswordRotation'");
     }
 
     /**
@@ -208,7 +299,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return BitLockerRemovableDrivePolicy|null
     */
     public function getBitLockerRemovableDrivePolicy(): ?BitLockerRemovableDrivePolicy {
-        return $this->getBackingStore()->get('bitLockerRemovableDrivePolicy');
+        $val = $this->getBackingStore()->get('bitLockerRemovableDrivePolicy');
+        if (is_null($val) || $val instanceof BitLockerRemovableDrivePolicy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bitLockerRemovableDrivePolicy'");
     }
 
     /**
@@ -216,7 +311,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return BitLockerSystemDrivePolicy|null
     */
     public function getBitLockerSystemDrivePolicy(): ?BitLockerSystemDrivePolicy {
-        return $this->getBackingStore()->get('bitLockerSystemDrivePolicy');
+        $val = $this->getBackingStore()->get('bitLockerSystemDrivePolicy');
+        if (is_null($val) || $val instanceof BitLockerSystemDrivePolicy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bitLockerSystemDrivePolicy'");
     }
 
     /**
@@ -224,7 +323,13 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return array<string>|null
     */
     public function getDefenderAdditionalGuardedFolders(): ?array {
-        return $this->getBackingStore()->get('defenderAdditionalGuardedFolders');
+        $val = $this->getBackingStore()->get('defenderAdditionalGuardedFolders');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderAdditionalGuardedFolders'");
     }
 
     /**
@@ -232,7 +337,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderProtectionType|null
     */
     public function getDefenderAdobeReaderLaunchChildProcess(): ?DefenderProtectionType {
-        return $this->getBackingStore()->get('defenderAdobeReaderLaunchChildProcess');
+        $val = $this->getBackingStore()->get('defenderAdobeReaderLaunchChildProcess');
+        if (is_null($val) || $val instanceof DefenderProtectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderAdobeReaderLaunchChildProcess'");
     }
 
     /**
@@ -240,7 +349,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderProtectionType|null
     */
     public function getDefenderAdvancedRansomewareProtectionType(): ?DefenderProtectionType {
-        return $this->getBackingStore()->get('defenderAdvancedRansomewareProtectionType');
+        $val = $this->getBackingStore()->get('defenderAdvancedRansomewareProtectionType');
+        if (is_null($val) || $val instanceof DefenderProtectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderAdvancedRansomewareProtectionType'");
     }
 
     /**
@@ -248,7 +361,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderAllowBehaviorMonitoring(): ?bool {
-        return $this->getBackingStore()->get('defenderAllowBehaviorMonitoring');
+        $val = $this->getBackingStore()->get('defenderAllowBehaviorMonitoring');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderAllowBehaviorMonitoring'");
     }
 
     /**
@@ -256,7 +373,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderAllowCloudProtection(): ?bool {
-        return $this->getBackingStore()->get('defenderAllowCloudProtection');
+        $val = $this->getBackingStore()->get('defenderAllowCloudProtection');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderAllowCloudProtection'");
     }
 
     /**
@@ -264,7 +385,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderAllowEndUserAccess(): ?bool {
-        return $this->getBackingStore()->get('defenderAllowEndUserAccess');
+        $val = $this->getBackingStore()->get('defenderAllowEndUserAccess');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderAllowEndUserAccess'");
     }
 
     /**
@@ -272,7 +397,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderAllowIntrusionPreventionSystem(): ?bool {
-        return $this->getBackingStore()->get('defenderAllowIntrusionPreventionSystem');
+        $val = $this->getBackingStore()->get('defenderAllowIntrusionPreventionSystem');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderAllowIntrusionPreventionSystem'");
     }
 
     /**
@@ -280,7 +409,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderAllowOnAccessProtection(): ?bool {
-        return $this->getBackingStore()->get('defenderAllowOnAccessProtection');
+        $val = $this->getBackingStore()->get('defenderAllowOnAccessProtection');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderAllowOnAccessProtection'");
     }
 
     /**
@@ -288,7 +421,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderAllowRealTimeMonitoring(): ?bool {
-        return $this->getBackingStore()->get('defenderAllowRealTimeMonitoring');
+        $val = $this->getBackingStore()->get('defenderAllowRealTimeMonitoring');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderAllowRealTimeMonitoring'");
     }
 
     /**
@@ -296,7 +433,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderAllowScanArchiveFiles(): ?bool {
-        return $this->getBackingStore()->get('defenderAllowScanArchiveFiles');
+        $val = $this->getBackingStore()->get('defenderAllowScanArchiveFiles');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderAllowScanArchiveFiles'");
     }
 
     /**
@@ -304,7 +445,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderAllowScanDownloads(): ?bool {
-        return $this->getBackingStore()->get('defenderAllowScanDownloads');
+        $val = $this->getBackingStore()->get('defenderAllowScanDownloads');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderAllowScanDownloads'");
     }
 
     /**
@@ -312,7 +457,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderAllowScanNetworkFiles(): ?bool {
-        return $this->getBackingStore()->get('defenderAllowScanNetworkFiles');
+        $val = $this->getBackingStore()->get('defenderAllowScanNetworkFiles');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderAllowScanNetworkFiles'");
     }
 
     /**
@@ -320,7 +469,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderAllowScanRemovableDrivesDuringFullScan(): ?bool {
-        return $this->getBackingStore()->get('defenderAllowScanRemovableDrivesDuringFullScan');
+        $val = $this->getBackingStore()->get('defenderAllowScanRemovableDrivesDuringFullScan');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderAllowScanRemovableDrivesDuringFullScan'");
     }
 
     /**
@@ -328,7 +481,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderAllowScanScriptsLoadedInInternetExplorer(): ?bool {
-        return $this->getBackingStore()->get('defenderAllowScanScriptsLoadedInInternetExplorer');
+        $val = $this->getBackingStore()->get('defenderAllowScanScriptsLoadedInInternetExplorer');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderAllowScanScriptsLoadedInInternetExplorer'");
     }
 
     /**
@@ -336,7 +493,13 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return array<string>|null
     */
     public function getDefenderAttackSurfaceReductionExcludedPaths(): ?array {
-        return $this->getBackingStore()->get('defenderAttackSurfaceReductionExcludedPaths');
+        $val = $this->getBackingStore()->get('defenderAttackSurfaceReductionExcludedPaths');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderAttackSurfaceReductionExcludedPaths'");
     }
 
     /**
@@ -344,7 +507,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderBlockEndUserAccess(): ?bool {
-        return $this->getBackingStore()->get('defenderBlockEndUserAccess');
+        $val = $this->getBackingStore()->get('defenderBlockEndUserAccess');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderBlockEndUserAccess'");
     }
 
     /**
@@ -352,7 +519,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderAttackSurfaceType|null
     */
     public function getDefenderBlockPersistenceThroughWmiType(): ?DefenderAttackSurfaceType {
-        return $this->getBackingStore()->get('defenderBlockPersistenceThroughWmiType');
+        $val = $this->getBackingStore()->get('defenderBlockPersistenceThroughWmiType');
+        if (is_null($val) || $val instanceof DefenderAttackSurfaceType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderBlockPersistenceThroughWmiType'");
     }
 
     /**
@@ -360,7 +531,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderCheckForSignaturesBeforeRunningScan(): ?bool {
-        return $this->getBackingStore()->get('defenderCheckForSignaturesBeforeRunningScan');
+        $val = $this->getBackingStore()->get('defenderCheckForSignaturesBeforeRunningScan');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderCheckForSignaturesBeforeRunningScan'");
     }
 
     /**
@@ -368,7 +543,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderCloudBlockLevelType|null
     */
     public function getDefenderCloudBlockLevel(): ?DefenderCloudBlockLevelType {
-        return $this->getBackingStore()->get('defenderCloudBlockLevel');
+        $val = $this->getBackingStore()->get('defenderCloudBlockLevel');
+        if (is_null($val) || $val instanceof DefenderCloudBlockLevelType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderCloudBlockLevel'");
     }
 
     /**
@@ -376,7 +555,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return int|null
     */
     public function getDefenderCloudExtendedTimeoutInSeconds(): ?int {
-        return $this->getBackingStore()->get('defenderCloudExtendedTimeoutInSeconds');
+        $val = $this->getBackingStore()->get('defenderCloudExtendedTimeoutInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderCloudExtendedTimeoutInSeconds'");
     }
 
     /**
@@ -384,7 +567,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return int|null
     */
     public function getDefenderDaysBeforeDeletingQuarantinedMalware(): ?int {
-        return $this->getBackingStore()->get('defenderDaysBeforeDeletingQuarantinedMalware');
+        $val = $this->getBackingStore()->get('defenderDaysBeforeDeletingQuarantinedMalware');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderDaysBeforeDeletingQuarantinedMalware'");
     }
 
     /**
@@ -392,7 +579,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderDetectedMalwareActions|null
     */
     public function getDefenderDetectedMalwareActions(): ?DefenderDetectedMalwareActions {
-        return $this->getBackingStore()->get('defenderDetectedMalwareActions');
+        $val = $this->getBackingStore()->get('defenderDetectedMalwareActions');
+        if (is_null($val) || $val instanceof DefenderDetectedMalwareActions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderDetectedMalwareActions'");
     }
 
     /**
@@ -400,7 +591,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderDisableBehaviorMonitoring(): ?bool {
-        return $this->getBackingStore()->get('defenderDisableBehaviorMonitoring');
+        $val = $this->getBackingStore()->get('defenderDisableBehaviorMonitoring');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderDisableBehaviorMonitoring'");
     }
 
     /**
@@ -408,7 +603,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderDisableCatchupFullScan(): ?bool {
-        return $this->getBackingStore()->get('defenderDisableCatchupFullScan');
+        $val = $this->getBackingStore()->get('defenderDisableCatchupFullScan');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderDisableCatchupFullScan'");
     }
 
     /**
@@ -416,7 +615,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderDisableCatchupQuickScan(): ?bool {
-        return $this->getBackingStore()->get('defenderDisableCatchupQuickScan');
+        $val = $this->getBackingStore()->get('defenderDisableCatchupQuickScan');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderDisableCatchupQuickScan'");
     }
 
     /**
@@ -424,7 +627,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderDisableCloudProtection(): ?bool {
-        return $this->getBackingStore()->get('defenderDisableCloudProtection');
+        $val = $this->getBackingStore()->get('defenderDisableCloudProtection');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderDisableCloudProtection'");
     }
 
     /**
@@ -432,7 +639,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderDisableIntrusionPreventionSystem(): ?bool {
-        return $this->getBackingStore()->get('defenderDisableIntrusionPreventionSystem');
+        $val = $this->getBackingStore()->get('defenderDisableIntrusionPreventionSystem');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderDisableIntrusionPreventionSystem'");
     }
 
     /**
@@ -440,7 +651,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderDisableOnAccessProtection(): ?bool {
-        return $this->getBackingStore()->get('defenderDisableOnAccessProtection');
+        $val = $this->getBackingStore()->get('defenderDisableOnAccessProtection');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderDisableOnAccessProtection'");
     }
 
     /**
@@ -448,7 +663,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderDisableRealTimeMonitoring(): ?bool {
-        return $this->getBackingStore()->get('defenderDisableRealTimeMonitoring');
+        $val = $this->getBackingStore()->get('defenderDisableRealTimeMonitoring');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderDisableRealTimeMonitoring'");
     }
 
     /**
@@ -456,7 +675,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderDisableScanArchiveFiles(): ?bool {
-        return $this->getBackingStore()->get('defenderDisableScanArchiveFiles');
+        $val = $this->getBackingStore()->get('defenderDisableScanArchiveFiles');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderDisableScanArchiveFiles'");
     }
 
     /**
@@ -464,7 +687,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderDisableScanDownloads(): ?bool {
-        return $this->getBackingStore()->get('defenderDisableScanDownloads');
+        $val = $this->getBackingStore()->get('defenderDisableScanDownloads');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderDisableScanDownloads'");
     }
 
     /**
@@ -472,7 +699,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderDisableScanNetworkFiles(): ?bool {
-        return $this->getBackingStore()->get('defenderDisableScanNetworkFiles');
+        $val = $this->getBackingStore()->get('defenderDisableScanNetworkFiles');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderDisableScanNetworkFiles'");
     }
 
     /**
@@ -480,7 +711,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderDisableScanRemovableDrivesDuringFullScan(): ?bool {
-        return $this->getBackingStore()->get('defenderDisableScanRemovableDrivesDuringFullScan');
+        $val = $this->getBackingStore()->get('defenderDisableScanRemovableDrivesDuringFullScan');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderDisableScanRemovableDrivesDuringFullScan'");
     }
 
     /**
@@ -488,7 +723,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderDisableScanScriptsLoadedInInternetExplorer(): ?bool {
-        return $this->getBackingStore()->get('defenderDisableScanScriptsLoadedInInternetExplorer');
+        $val = $this->getBackingStore()->get('defenderDisableScanScriptsLoadedInInternetExplorer');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderDisableScanScriptsLoadedInInternetExplorer'");
     }
 
     /**
@@ -496,7 +735,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderProtectionType|null
     */
     public function getDefenderEmailContentExecution(): ?DefenderProtectionType {
-        return $this->getBackingStore()->get('defenderEmailContentExecution');
+        $val = $this->getBackingStore()->get('defenderEmailContentExecution');
+        if (is_null($val) || $val instanceof DefenderProtectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderEmailContentExecution'");
     }
 
     /**
@@ -504,7 +747,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderAttackSurfaceType|null
     */
     public function getDefenderEmailContentExecutionType(): ?DefenderAttackSurfaceType {
-        return $this->getBackingStore()->get('defenderEmailContentExecutionType');
+        $val = $this->getBackingStore()->get('defenderEmailContentExecutionType');
+        if (is_null($val) || $val instanceof DefenderAttackSurfaceType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderEmailContentExecutionType'");
     }
 
     /**
@@ -512,7 +759,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderEnableLowCpuPriority(): ?bool {
-        return $this->getBackingStore()->get('defenderEnableLowCpuPriority');
+        $val = $this->getBackingStore()->get('defenderEnableLowCpuPriority');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderEnableLowCpuPriority'");
     }
 
     /**
@@ -520,7 +771,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderEnableScanIncomingMail(): ?bool {
-        return $this->getBackingStore()->get('defenderEnableScanIncomingMail');
+        $val = $this->getBackingStore()->get('defenderEnableScanIncomingMail');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderEnableScanIncomingMail'");
     }
 
     /**
@@ -528,7 +783,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderEnableScanMappedNetworkDrivesDuringFullScan(): ?bool {
-        return $this->getBackingStore()->get('defenderEnableScanMappedNetworkDrivesDuringFullScan');
+        $val = $this->getBackingStore()->get('defenderEnableScanMappedNetworkDrivesDuringFullScan');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderEnableScanMappedNetworkDrivesDuringFullScan'");
     }
 
     /**
@@ -536,7 +795,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return StreamInterface|null
     */
     public function getDefenderExploitProtectionXml(): ?StreamInterface {
-        return $this->getBackingStore()->get('defenderExploitProtectionXml');
+        $val = $this->getBackingStore()->get('defenderExploitProtectionXml');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderExploitProtectionXml'");
     }
 
     /**
@@ -544,7 +807,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return string|null
     */
     public function getDefenderExploitProtectionXmlFileName(): ?string {
-        return $this->getBackingStore()->get('defenderExploitProtectionXmlFileName');
+        $val = $this->getBackingStore()->get('defenderExploitProtectionXmlFileName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderExploitProtectionXmlFileName'");
     }
 
     /**
@@ -552,7 +819,13 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return array<string>|null
     */
     public function getDefenderFileExtensionsToExclude(): ?array {
-        return $this->getBackingStore()->get('defenderFileExtensionsToExclude');
+        $val = $this->getBackingStore()->get('defenderFileExtensionsToExclude');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderFileExtensionsToExclude'");
     }
 
     /**
@@ -560,7 +833,13 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return array<string>|null
     */
     public function getDefenderFilesAndFoldersToExclude(): ?array {
-        return $this->getBackingStore()->get('defenderFilesAndFoldersToExclude');
+        $val = $this->getBackingStore()->get('defenderFilesAndFoldersToExclude');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderFilesAndFoldersToExclude'");
     }
 
     /**
@@ -568,7 +847,13 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return array<string>|null
     */
     public function getDefenderGuardedFoldersAllowedAppPaths(): ?array {
-        return $this->getBackingStore()->get('defenderGuardedFoldersAllowedAppPaths');
+        $val = $this->getBackingStore()->get('defenderGuardedFoldersAllowedAppPaths');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderGuardedFoldersAllowedAppPaths'");
     }
 
     /**
@@ -576,7 +861,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return FolderProtectionType|null
     */
     public function getDefenderGuardMyFoldersType(): ?FolderProtectionType {
-        return $this->getBackingStore()->get('defenderGuardMyFoldersType');
+        $val = $this->getBackingStore()->get('defenderGuardMyFoldersType');
+        if (is_null($val) || $val instanceof FolderProtectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderGuardMyFoldersType'");
     }
 
     /**
@@ -584,7 +873,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderProtectionType|null
     */
     public function getDefenderNetworkProtectionType(): ?DefenderProtectionType {
-        return $this->getBackingStore()->get('defenderNetworkProtectionType');
+        $val = $this->getBackingStore()->get('defenderNetworkProtectionType');
+        if (is_null($val) || $val instanceof DefenderProtectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderNetworkProtectionType'");
     }
 
     /**
@@ -592,7 +885,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderProtectionType|null
     */
     public function getDefenderOfficeAppsExecutableContentCreationOrLaunch(): ?DefenderProtectionType {
-        return $this->getBackingStore()->get('defenderOfficeAppsExecutableContentCreationOrLaunch');
+        $val = $this->getBackingStore()->get('defenderOfficeAppsExecutableContentCreationOrLaunch');
+        if (is_null($val) || $val instanceof DefenderProtectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderOfficeAppsExecutableContentCreationOrLaunch'");
     }
 
     /**
@@ -600,7 +897,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderAttackSurfaceType|null
     */
     public function getDefenderOfficeAppsExecutableContentCreationOrLaunchType(): ?DefenderAttackSurfaceType {
-        return $this->getBackingStore()->get('defenderOfficeAppsExecutableContentCreationOrLaunchType');
+        $val = $this->getBackingStore()->get('defenderOfficeAppsExecutableContentCreationOrLaunchType');
+        if (is_null($val) || $val instanceof DefenderAttackSurfaceType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderOfficeAppsExecutableContentCreationOrLaunchType'");
     }
 
     /**
@@ -608,7 +909,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderProtectionType|null
     */
     public function getDefenderOfficeAppsLaunchChildProcess(): ?DefenderProtectionType {
-        return $this->getBackingStore()->get('defenderOfficeAppsLaunchChildProcess');
+        $val = $this->getBackingStore()->get('defenderOfficeAppsLaunchChildProcess');
+        if (is_null($val) || $val instanceof DefenderProtectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderOfficeAppsLaunchChildProcess'");
     }
 
     /**
@@ -616,7 +921,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderAttackSurfaceType|null
     */
     public function getDefenderOfficeAppsLaunchChildProcessType(): ?DefenderAttackSurfaceType {
-        return $this->getBackingStore()->get('defenderOfficeAppsLaunchChildProcessType');
+        $val = $this->getBackingStore()->get('defenderOfficeAppsLaunchChildProcessType');
+        if (is_null($val) || $val instanceof DefenderAttackSurfaceType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderOfficeAppsLaunchChildProcessType'");
     }
 
     /**
@@ -624,7 +933,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderProtectionType|null
     */
     public function getDefenderOfficeAppsOtherProcessInjection(): ?DefenderProtectionType {
-        return $this->getBackingStore()->get('defenderOfficeAppsOtherProcessInjection');
+        $val = $this->getBackingStore()->get('defenderOfficeAppsOtherProcessInjection');
+        if (is_null($val) || $val instanceof DefenderProtectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderOfficeAppsOtherProcessInjection'");
     }
 
     /**
@@ -632,7 +945,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderAttackSurfaceType|null
     */
     public function getDefenderOfficeAppsOtherProcessInjectionType(): ?DefenderAttackSurfaceType {
-        return $this->getBackingStore()->get('defenderOfficeAppsOtherProcessInjectionType');
+        $val = $this->getBackingStore()->get('defenderOfficeAppsOtherProcessInjectionType');
+        if (is_null($val) || $val instanceof DefenderAttackSurfaceType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderOfficeAppsOtherProcessInjectionType'");
     }
 
     /**
@@ -640,7 +957,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderProtectionType|null
     */
     public function getDefenderOfficeCommunicationAppsLaunchChildProcess(): ?DefenderProtectionType {
-        return $this->getBackingStore()->get('defenderOfficeCommunicationAppsLaunchChildProcess');
+        $val = $this->getBackingStore()->get('defenderOfficeCommunicationAppsLaunchChildProcess');
+        if (is_null($val) || $val instanceof DefenderProtectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderOfficeCommunicationAppsLaunchChildProcess'");
     }
 
     /**
@@ -648,7 +969,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderProtectionType|null
     */
     public function getDefenderOfficeMacroCodeAllowWin32Imports(): ?DefenderProtectionType {
-        return $this->getBackingStore()->get('defenderOfficeMacroCodeAllowWin32Imports');
+        $val = $this->getBackingStore()->get('defenderOfficeMacroCodeAllowWin32Imports');
+        if (is_null($val) || $val instanceof DefenderProtectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderOfficeMacroCodeAllowWin32Imports'");
     }
 
     /**
@@ -656,7 +981,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderAttackSurfaceType|null
     */
     public function getDefenderOfficeMacroCodeAllowWin32ImportsType(): ?DefenderAttackSurfaceType {
-        return $this->getBackingStore()->get('defenderOfficeMacroCodeAllowWin32ImportsType');
+        $val = $this->getBackingStore()->get('defenderOfficeMacroCodeAllowWin32ImportsType');
+        if (is_null($val) || $val instanceof DefenderAttackSurfaceType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderOfficeMacroCodeAllowWin32ImportsType'");
     }
 
     /**
@@ -664,7 +993,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderProtectionType|null
     */
     public function getDefenderPotentiallyUnwantedAppAction(): ?DefenderProtectionType {
-        return $this->getBackingStore()->get('defenderPotentiallyUnwantedAppAction');
+        $val = $this->getBackingStore()->get('defenderPotentiallyUnwantedAppAction');
+        if (is_null($val) || $val instanceof DefenderProtectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderPotentiallyUnwantedAppAction'");
     }
 
     /**
@@ -672,7 +1005,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderProtectionType|null
     */
     public function getDefenderPreventCredentialStealingType(): ?DefenderProtectionType {
-        return $this->getBackingStore()->get('defenderPreventCredentialStealingType');
+        $val = $this->getBackingStore()->get('defenderPreventCredentialStealingType');
+        if (is_null($val) || $val instanceof DefenderProtectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderPreventCredentialStealingType'");
     }
 
     /**
@@ -680,7 +1017,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderProtectionType|null
     */
     public function getDefenderProcessCreation(): ?DefenderProtectionType {
-        return $this->getBackingStore()->get('defenderProcessCreation');
+        $val = $this->getBackingStore()->get('defenderProcessCreation');
+        if (is_null($val) || $val instanceof DefenderProtectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderProcessCreation'");
     }
 
     /**
@@ -688,7 +1029,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderAttackSurfaceType|null
     */
     public function getDefenderProcessCreationType(): ?DefenderAttackSurfaceType {
-        return $this->getBackingStore()->get('defenderProcessCreationType');
+        $val = $this->getBackingStore()->get('defenderProcessCreationType');
+        if (is_null($val) || $val instanceof DefenderAttackSurfaceType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderProcessCreationType'");
     }
 
     /**
@@ -696,7 +1041,13 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return array<string>|null
     */
     public function getDefenderProcessesToExclude(): ?array {
-        return $this->getBackingStore()->get('defenderProcessesToExclude');
+        $val = $this->getBackingStore()->get('defenderProcessesToExclude');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderProcessesToExclude'");
     }
 
     /**
@@ -704,7 +1055,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderRealtimeScanDirection|null
     */
     public function getDefenderScanDirection(): ?DefenderRealtimeScanDirection {
-        return $this->getBackingStore()->get('defenderScanDirection');
+        $val = $this->getBackingStore()->get('defenderScanDirection');
+        if (is_null($val) || $val instanceof DefenderRealtimeScanDirection) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderScanDirection'");
     }
 
     /**
@@ -712,7 +1067,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return int|null
     */
     public function getDefenderScanMaxCpuPercentage(): ?int {
-        return $this->getBackingStore()->get('defenderScanMaxCpuPercentage');
+        $val = $this->getBackingStore()->get('defenderScanMaxCpuPercentage');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderScanMaxCpuPercentage'");
     }
 
     /**
@@ -720,7 +1079,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderScanType|null
     */
     public function getDefenderScanType(): ?DefenderScanType {
-        return $this->getBackingStore()->get('defenderScanType');
+        $val = $this->getBackingStore()->get('defenderScanType');
+        if (is_null($val) || $val instanceof DefenderScanType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderScanType'");
     }
 
     /**
@@ -728,7 +1091,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return Time|null
     */
     public function getDefenderScheduledQuickScanTime(): ?Time {
-        return $this->getBackingStore()->get('defenderScheduledQuickScanTime');
+        $val = $this->getBackingStore()->get('defenderScheduledQuickScanTime');
+        if (is_null($val) || $val instanceof Time) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderScheduledQuickScanTime'");
     }
 
     /**
@@ -736,7 +1103,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return WeeklySchedule|null
     */
     public function getDefenderScheduledScanDay(): ?WeeklySchedule {
-        return $this->getBackingStore()->get('defenderScheduledScanDay');
+        $val = $this->getBackingStore()->get('defenderScheduledScanDay');
+        if (is_null($val) || $val instanceof WeeklySchedule) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderScheduledScanDay'");
     }
 
     /**
@@ -744,7 +1115,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return Time|null
     */
     public function getDefenderScheduledScanTime(): ?Time {
-        return $this->getBackingStore()->get('defenderScheduledScanTime');
+        $val = $this->getBackingStore()->get('defenderScheduledScanTime');
+        if (is_null($val) || $val instanceof Time) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderScheduledScanTime'");
     }
 
     /**
@@ -752,7 +1127,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderProtectionType|null
     */
     public function getDefenderScriptDownloadedPayloadExecution(): ?DefenderProtectionType {
-        return $this->getBackingStore()->get('defenderScriptDownloadedPayloadExecution');
+        $val = $this->getBackingStore()->get('defenderScriptDownloadedPayloadExecution');
+        if (is_null($val) || $val instanceof DefenderProtectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderScriptDownloadedPayloadExecution'");
     }
 
     /**
@@ -760,7 +1139,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderAttackSurfaceType|null
     */
     public function getDefenderScriptDownloadedPayloadExecutionType(): ?DefenderAttackSurfaceType {
-        return $this->getBackingStore()->get('defenderScriptDownloadedPayloadExecutionType');
+        $val = $this->getBackingStore()->get('defenderScriptDownloadedPayloadExecutionType');
+        if (is_null($val) || $val instanceof DefenderAttackSurfaceType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderScriptDownloadedPayloadExecutionType'");
     }
 
     /**
@@ -768,7 +1151,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderProtectionType|null
     */
     public function getDefenderScriptObfuscatedMacroCode(): ?DefenderProtectionType {
-        return $this->getBackingStore()->get('defenderScriptObfuscatedMacroCode');
+        $val = $this->getBackingStore()->get('defenderScriptObfuscatedMacroCode');
+        if (is_null($val) || $val instanceof DefenderProtectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderScriptObfuscatedMacroCode'");
     }
 
     /**
@@ -776,7 +1163,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderAttackSurfaceType|null
     */
     public function getDefenderScriptObfuscatedMacroCodeType(): ?DefenderAttackSurfaceType {
-        return $this->getBackingStore()->get('defenderScriptObfuscatedMacroCodeType');
+        $val = $this->getBackingStore()->get('defenderScriptObfuscatedMacroCodeType');
+        if (is_null($val) || $val instanceof DefenderAttackSurfaceType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderScriptObfuscatedMacroCodeType'");
     }
 
     /**
@@ -784,7 +1175,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderSecurityCenterBlockExploitProtectionOverride(): ?bool {
-        return $this->getBackingStore()->get('defenderSecurityCenterBlockExploitProtectionOverride');
+        $val = $this->getBackingStore()->get('defenderSecurityCenterBlockExploitProtectionOverride');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSecurityCenterBlockExploitProtectionOverride'");
     }
 
     /**
@@ -792,7 +1187,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderSecurityCenterDisableAccountUI(): ?bool {
-        return $this->getBackingStore()->get('defenderSecurityCenterDisableAccountUI');
+        $val = $this->getBackingStore()->get('defenderSecurityCenterDisableAccountUI');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSecurityCenterDisableAccountUI'");
     }
 
     /**
@@ -800,7 +1199,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderSecurityCenterDisableAppBrowserUI(): ?bool {
-        return $this->getBackingStore()->get('defenderSecurityCenterDisableAppBrowserUI');
+        $val = $this->getBackingStore()->get('defenderSecurityCenterDisableAppBrowserUI');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSecurityCenterDisableAppBrowserUI'");
     }
 
     /**
@@ -808,7 +1211,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderSecurityCenterDisableClearTpmUI(): ?bool {
-        return $this->getBackingStore()->get('defenderSecurityCenterDisableClearTpmUI');
+        $val = $this->getBackingStore()->get('defenderSecurityCenterDisableClearTpmUI');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSecurityCenterDisableClearTpmUI'");
     }
 
     /**
@@ -816,7 +1223,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderSecurityCenterDisableFamilyUI(): ?bool {
-        return $this->getBackingStore()->get('defenderSecurityCenterDisableFamilyUI');
+        $val = $this->getBackingStore()->get('defenderSecurityCenterDisableFamilyUI');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSecurityCenterDisableFamilyUI'");
     }
 
     /**
@@ -824,7 +1235,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderSecurityCenterDisableHardwareUI(): ?bool {
-        return $this->getBackingStore()->get('defenderSecurityCenterDisableHardwareUI');
+        $val = $this->getBackingStore()->get('defenderSecurityCenterDisableHardwareUI');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSecurityCenterDisableHardwareUI'");
     }
 
     /**
@@ -832,7 +1247,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderSecurityCenterDisableHealthUI(): ?bool {
-        return $this->getBackingStore()->get('defenderSecurityCenterDisableHealthUI');
+        $val = $this->getBackingStore()->get('defenderSecurityCenterDisableHealthUI');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSecurityCenterDisableHealthUI'");
     }
 
     /**
@@ -840,7 +1259,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderSecurityCenterDisableNetworkUI(): ?bool {
-        return $this->getBackingStore()->get('defenderSecurityCenterDisableNetworkUI');
+        $val = $this->getBackingStore()->get('defenderSecurityCenterDisableNetworkUI');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSecurityCenterDisableNetworkUI'");
     }
 
     /**
@@ -848,7 +1271,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderSecurityCenterDisableNotificationAreaUI(): ?bool {
-        return $this->getBackingStore()->get('defenderSecurityCenterDisableNotificationAreaUI');
+        $val = $this->getBackingStore()->get('defenderSecurityCenterDisableNotificationAreaUI');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSecurityCenterDisableNotificationAreaUI'");
     }
 
     /**
@@ -856,7 +1283,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderSecurityCenterDisableRansomwareUI(): ?bool {
-        return $this->getBackingStore()->get('defenderSecurityCenterDisableRansomwareUI');
+        $val = $this->getBackingStore()->get('defenderSecurityCenterDisableRansomwareUI');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSecurityCenterDisableRansomwareUI'");
     }
 
     /**
@@ -864,7 +1295,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderSecurityCenterDisableSecureBootUI(): ?bool {
-        return $this->getBackingStore()->get('defenderSecurityCenterDisableSecureBootUI');
+        $val = $this->getBackingStore()->get('defenderSecurityCenterDisableSecureBootUI');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSecurityCenterDisableSecureBootUI'");
     }
 
     /**
@@ -872,7 +1307,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderSecurityCenterDisableTroubleshootingUI(): ?bool {
-        return $this->getBackingStore()->get('defenderSecurityCenterDisableTroubleshootingUI');
+        $val = $this->getBackingStore()->get('defenderSecurityCenterDisableTroubleshootingUI');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSecurityCenterDisableTroubleshootingUI'");
     }
 
     /**
@@ -880,7 +1319,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderSecurityCenterDisableVirusUI(): ?bool {
-        return $this->getBackingStore()->get('defenderSecurityCenterDisableVirusUI');
+        $val = $this->getBackingStore()->get('defenderSecurityCenterDisableVirusUI');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSecurityCenterDisableVirusUI'");
     }
 
     /**
@@ -888,7 +1331,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDefenderSecurityCenterDisableVulnerableTpmFirmwareUpdateUI(): ?bool {
-        return $this->getBackingStore()->get('defenderSecurityCenterDisableVulnerableTpmFirmwareUpdateUI');
+        $val = $this->getBackingStore()->get('defenderSecurityCenterDisableVulnerableTpmFirmwareUpdateUI');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSecurityCenterDisableVulnerableTpmFirmwareUpdateUI'");
     }
 
     /**
@@ -896,7 +1343,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return string|null
     */
     public function getDefenderSecurityCenterHelpEmail(): ?string {
-        return $this->getBackingStore()->get('defenderSecurityCenterHelpEmail');
+        $val = $this->getBackingStore()->get('defenderSecurityCenterHelpEmail');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSecurityCenterHelpEmail'");
     }
 
     /**
@@ -904,7 +1355,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return string|null
     */
     public function getDefenderSecurityCenterHelpPhone(): ?string {
-        return $this->getBackingStore()->get('defenderSecurityCenterHelpPhone');
+        $val = $this->getBackingStore()->get('defenderSecurityCenterHelpPhone');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSecurityCenterHelpPhone'");
     }
 
     /**
@@ -912,7 +1367,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return string|null
     */
     public function getDefenderSecurityCenterHelpURL(): ?string {
-        return $this->getBackingStore()->get('defenderSecurityCenterHelpURL');
+        $val = $this->getBackingStore()->get('defenderSecurityCenterHelpURL');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSecurityCenterHelpURL'");
     }
 
     /**
@@ -920,7 +1379,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderSecurityCenterITContactDisplayType|null
     */
     public function getDefenderSecurityCenterITContactDisplay(): ?DefenderSecurityCenterITContactDisplayType {
-        return $this->getBackingStore()->get('defenderSecurityCenterITContactDisplay');
+        $val = $this->getBackingStore()->get('defenderSecurityCenterITContactDisplay');
+        if (is_null($val) || $val instanceof DefenderSecurityCenterITContactDisplayType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSecurityCenterITContactDisplay'");
     }
 
     /**
@@ -928,7 +1391,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderSecurityCenterNotificationsFromAppType|null
     */
     public function getDefenderSecurityCenterNotificationsFromApp(): ?DefenderSecurityCenterNotificationsFromAppType {
-        return $this->getBackingStore()->get('defenderSecurityCenterNotificationsFromApp');
+        $val = $this->getBackingStore()->get('defenderSecurityCenterNotificationsFromApp');
+        if (is_null($val) || $val instanceof DefenderSecurityCenterNotificationsFromAppType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSecurityCenterNotificationsFromApp'");
     }
 
     /**
@@ -936,7 +1403,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return string|null
     */
     public function getDefenderSecurityCenterOrganizationDisplayName(): ?string {
-        return $this->getBackingStore()->get('defenderSecurityCenterOrganizationDisplayName');
+        $val = $this->getBackingStore()->get('defenderSecurityCenterOrganizationDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSecurityCenterOrganizationDisplayName'");
     }
 
     /**
@@ -944,7 +1415,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return int|null
     */
     public function getDefenderSignatureUpdateIntervalInHours(): ?int {
-        return $this->getBackingStore()->get('defenderSignatureUpdateIntervalInHours');
+        $val = $this->getBackingStore()->get('defenderSignatureUpdateIntervalInHours');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSignatureUpdateIntervalInHours'");
     }
 
     /**
@@ -952,7 +1427,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderSubmitSamplesConsentType|null
     */
     public function getDefenderSubmitSamplesConsentType(): ?DefenderSubmitSamplesConsentType {
-        return $this->getBackingStore()->get('defenderSubmitSamplesConsentType');
+        $val = $this->getBackingStore()->get('defenderSubmitSamplesConsentType');
+        if (is_null($val) || $val instanceof DefenderSubmitSamplesConsentType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSubmitSamplesConsentType'");
     }
 
     /**
@@ -960,7 +1439,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderProtectionType|null
     */
     public function getDefenderUntrustedExecutable(): ?DefenderProtectionType {
-        return $this->getBackingStore()->get('defenderUntrustedExecutable');
+        $val = $this->getBackingStore()->get('defenderUntrustedExecutable');
+        if (is_null($val) || $val instanceof DefenderProtectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderUntrustedExecutable'");
     }
 
     /**
@@ -968,7 +1451,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderAttackSurfaceType|null
     */
     public function getDefenderUntrustedExecutableType(): ?DefenderAttackSurfaceType {
-        return $this->getBackingStore()->get('defenderUntrustedExecutableType');
+        $val = $this->getBackingStore()->get('defenderUntrustedExecutableType');
+        if (is_null($val) || $val instanceof DefenderAttackSurfaceType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderUntrustedExecutableType'");
     }
 
     /**
@@ -976,7 +1463,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderProtectionType|null
     */
     public function getDefenderUntrustedUSBProcess(): ?DefenderProtectionType {
-        return $this->getBackingStore()->get('defenderUntrustedUSBProcess');
+        $val = $this->getBackingStore()->get('defenderUntrustedUSBProcess');
+        if (is_null($val) || $val instanceof DefenderProtectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderUntrustedUSBProcess'");
     }
 
     /**
@@ -984,7 +1475,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DefenderAttackSurfaceType|null
     */
     public function getDefenderUntrustedUSBProcessType(): ?DefenderAttackSurfaceType {
-        return $this->getBackingStore()->get('defenderUntrustedUSBProcessType');
+        $val = $this->getBackingStore()->get('defenderUntrustedUSBProcessType');
+        if (is_null($val) || $val instanceof DefenderAttackSurfaceType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderUntrustedUSBProcessType'");
     }
 
     /**
@@ -992,7 +1487,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDeviceGuardEnableSecureBootWithDMA(): ?bool {
-        return $this->getBackingStore()->get('deviceGuardEnableSecureBootWithDMA');
+        $val = $this->getBackingStore()->get('deviceGuardEnableSecureBootWithDMA');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceGuardEnableSecureBootWithDMA'");
     }
 
     /**
@@ -1000,7 +1499,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getDeviceGuardEnableVirtualizationBasedSecurity(): ?bool {
-        return $this->getBackingStore()->get('deviceGuardEnableVirtualizationBasedSecurity');
+        $val = $this->getBackingStore()->get('deviceGuardEnableVirtualizationBasedSecurity');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceGuardEnableVirtualizationBasedSecurity'");
     }
 
     /**
@@ -1008,7 +1511,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return Enablement|null
     */
     public function getDeviceGuardLaunchSystemGuard(): ?Enablement {
-        return $this->getBackingStore()->get('deviceGuardLaunchSystemGuard');
+        $val = $this->getBackingStore()->get('deviceGuardLaunchSystemGuard');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceGuardLaunchSystemGuard'");
     }
 
     /**
@@ -1016,7 +1523,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceGuardLocalSystemAuthorityCredentialGuardType|null
     */
     public function getDeviceGuardLocalSystemAuthorityCredentialGuardSettings(): ?DeviceGuardLocalSystemAuthorityCredentialGuardType {
-        return $this->getBackingStore()->get('deviceGuardLocalSystemAuthorityCredentialGuardSettings');
+        $val = $this->getBackingStore()->get('deviceGuardLocalSystemAuthorityCredentialGuardSettings');
+        if (is_null($val) || $val instanceof DeviceGuardLocalSystemAuthorityCredentialGuardType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceGuardLocalSystemAuthorityCredentialGuardSettings'");
     }
 
     /**
@@ -1024,7 +1535,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return SecureBootWithDMAType|null
     */
     public function getDeviceGuardSecureBootWithDMA(): ?SecureBootWithDMAType {
-        return $this->getBackingStore()->get('deviceGuardSecureBootWithDMA');
+        $val = $this->getBackingStore()->get('deviceGuardSecureBootWithDMA');
+        if (is_null($val) || $val instanceof SecureBootWithDMAType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceGuardSecureBootWithDMA'");
     }
 
     /**
@@ -1032,12 +1547,16 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DmaGuardDeviceEnumerationPolicyType|null
     */
     public function getDmaGuardDeviceEnumerationPolicy(): ?DmaGuardDeviceEnumerationPolicyType {
-        return $this->getBackingStore()->get('dmaGuardDeviceEnumerationPolicy');
+        $val = $this->getBackingStore()->get('dmaGuardDeviceEnumerationPolicy');
+        if (is_null($val) || $val instanceof DmaGuardDeviceEnumerationPolicyType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dmaGuardDeviceEnumerationPolicy'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -1053,7 +1572,14 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
             'applicationGuardBlockClipboardSharing' => fn(ParseNode $n) => $o->setApplicationGuardBlockClipboardSharing($n->getEnumValue(ApplicationGuardBlockClipboardSharingType::class)),
             'applicationGuardBlockFileTransfer' => fn(ParseNode $n) => $o->setApplicationGuardBlockFileTransfer($n->getEnumValue(ApplicationGuardBlockFileTransferType::class)),
             'applicationGuardBlockNonEnterpriseContent' => fn(ParseNode $n) => $o->setApplicationGuardBlockNonEnterpriseContent($n->getBooleanValue()),
-            'applicationGuardCertificateThumbprints' => fn(ParseNode $n) => $o->setApplicationGuardCertificateThumbprints($n->getCollectionOfPrimitiveValues()),
+            'applicationGuardCertificateThumbprints' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setApplicationGuardCertificateThumbprints($val);
+            },
             'applicationGuardEnabled' => fn(ParseNode $n) => $o->setApplicationGuardEnabled($n->getBooleanValue()),
             'applicationGuardEnabledOptions' => fn(ParseNode $n) => $o->setApplicationGuardEnabledOptions($n->getEnumValue(ApplicationGuardEnabledOptions::class)),
             'applicationGuardForceAuditing' => fn(ParseNode $n) => $o->setApplicationGuardForceAuditing($n->getBooleanValue()),
@@ -1066,7 +1592,14 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
             'bitLockerRecoveryPasswordRotation' => fn(ParseNode $n) => $o->setBitLockerRecoveryPasswordRotation($n->getEnumValue(BitLockerRecoveryPasswordRotationType::class)),
             'bitLockerRemovableDrivePolicy' => fn(ParseNode $n) => $o->setBitLockerRemovableDrivePolicy($n->getObjectValue([BitLockerRemovableDrivePolicy::class, 'createFromDiscriminatorValue'])),
             'bitLockerSystemDrivePolicy' => fn(ParseNode $n) => $o->setBitLockerSystemDrivePolicy($n->getObjectValue([BitLockerSystemDrivePolicy::class, 'createFromDiscriminatorValue'])),
-            'defenderAdditionalGuardedFolders' => fn(ParseNode $n) => $o->setDefenderAdditionalGuardedFolders($n->getCollectionOfPrimitiveValues()),
+            'defenderAdditionalGuardedFolders' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDefenderAdditionalGuardedFolders($val);
+            },
             'defenderAdobeReaderLaunchChildProcess' => fn(ParseNode $n) => $o->setDefenderAdobeReaderLaunchChildProcess($n->getEnumValue(DefenderProtectionType::class)),
             'defenderAdvancedRansomewareProtectionType' => fn(ParseNode $n) => $o->setDefenderAdvancedRansomewareProtectionType($n->getEnumValue(DefenderProtectionType::class)),
             'defenderAllowBehaviorMonitoring' => fn(ParseNode $n) => $o->setDefenderAllowBehaviorMonitoring($n->getBooleanValue()),
@@ -1080,7 +1613,14 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
             'defenderAllowScanNetworkFiles' => fn(ParseNode $n) => $o->setDefenderAllowScanNetworkFiles($n->getBooleanValue()),
             'defenderAllowScanRemovableDrivesDuringFullScan' => fn(ParseNode $n) => $o->setDefenderAllowScanRemovableDrivesDuringFullScan($n->getBooleanValue()),
             'defenderAllowScanScriptsLoadedInInternetExplorer' => fn(ParseNode $n) => $o->setDefenderAllowScanScriptsLoadedInInternetExplorer($n->getBooleanValue()),
-            'defenderAttackSurfaceReductionExcludedPaths' => fn(ParseNode $n) => $o->setDefenderAttackSurfaceReductionExcludedPaths($n->getCollectionOfPrimitiveValues()),
+            'defenderAttackSurfaceReductionExcludedPaths' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDefenderAttackSurfaceReductionExcludedPaths($val);
+            },
             'defenderBlockEndUserAccess' => fn(ParseNode $n) => $o->setDefenderBlockEndUserAccess($n->getBooleanValue()),
             'defenderBlockPersistenceThroughWmiType' => fn(ParseNode $n) => $o->setDefenderBlockPersistenceThroughWmiType($n->getEnumValue(DefenderAttackSurfaceType::class)),
             'defenderCheckForSignaturesBeforeRunningScan' => fn(ParseNode $n) => $o->setDefenderCheckForSignaturesBeforeRunningScan($n->getBooleanValue()),
@@ -1107,9 +1647,30 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
             'defenderEnableScanMappedNetworkDrivesDuringFullScan' => fn(ParseNode $n) => $o->setDefenderEnableScanMappedNetworkDrivesDuringFullScan($n->getBooleanValue()),
             'defenderExploitProtectionXml' => fn(ParseNode $n) => $o->setDefenderExploitProtectionXml($n->getBinaryContent()),
             'defenderExploitProtectionXmlFileName' => fn(ParseNode $n) => $o->setDefenderExploitProtectionXmlFileName($n->getStringValue()),
-            'defenderFileExtensionsToExclude' => fn(ParseNode $n) => $o->setDefenderFileExtensionsToExclude($n->getCollectionOfPrimitiveValues()),
-            'defenderFilesAndFoldersToExclude' => fn(ParseNode $n) => $o->setDefenderFilesAndFoldersToExclude($n->getCollectionOfPrimitiveValues()),
-            'defenderGuardedFoldersAllowedAppPaths' => fn(ParseNode $n) => $o->setDefenderGuardedFoldersAllowedAppPaths($n->getCollectionOfPrimitiveValues()),
+            'defenderFileExtensionsToExclude' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDefenderFileExtensionsToExclude($val);
+            },
+            'defenderFilesAndFoldersToExclude' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDefenderFilesAndFoldersToExclude($val);
+            },
+            'defenderGuardedFoldersAllowedAppPaths' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDefenderGuardedFoldersAllowedAppPaths($val);
+            },
             'defenderGuardMyFoldersType' => fn(ParseNode $n) => $o->setDefenderGuardMyFoldersType($n->getEnumValue(FolderProtectionType::class)),
             'defenderNetworkProtectionType' => fn(ParseNode $n) => $o->setDefenderNetworkProtectionType($n->getEnumValue(DefenderProtectionType::class)),
             'defenderOfficeAppsExecutableContentCreationOrLaunch' => fn(ParseNode $n) => $o->setDefenderOfficeAppsExecutableContentCreationOrLaunch($n->getEnumValue(DefenderProtectionType::class)),
@@ -1125,7 +1686,14 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
             'defenderPreventCredentialStealingType' => fn(ParseNode $n) => $o->setDefenderPreventCredentialStealingType($n->getEnumValue(DefenderProtectionType::class)),
             'defenderProcessCreation' => fn(ParseNode $n) => $o->setDefenderProcessCreation($n->getEnumValue(DefenderProtectionType::class)),
             'defenderProcessCreationType' => fn(ParseNode $n) => $o->setDefenderProcessCreationType($n->getEnumValue(DefenderAttackSurfaceType::class)),
-            'defenderProcessesToExclude' => fn(ParseNode $n) => $o->setDefenderProcessesToExclude($n->getCollectionOfPrimitiveValues()),
+            'defenderProcessesToExclude' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDefenderProcessesToExclude($val);
+            },
             'defenderScanDirection' => fn(ParseNode $n) => $o->setDefenderScanDirection($n->getEnumValue(DefenderRealtimeScanDirection::class)),
             'defenderScanMaxCpuPercentage' => fn(ParseNode $n) => $o->setDefenderScanMaxCpuPercentage($n->getIntegerValue()),
             'defenderScanType' => fn(ParseNode $n) => $o->setDefenderScanType($n->getEnumValue(DefenderScanType::class)),
@@ -1276,7 +1844,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getFirewallBlockStatefulFTP(): ?bool {
-        return $this->getBackingStore()->get('firewallBlockStatefulFTP');
+        $val = $this->getBackingStore()->get('firewallBlockStatefulFTP');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firewallBlockStatefulFTP'");
     }
 
     /**
@@ -1284,7 +1856,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return FirewallCertificateRevocationListCheckMethodType|null
     */
     public function getFirewallCertificateRevocationListCheckMethod(): ?FirewallCertificateRevocationListCheckMethodType {
-        return $this->getBackingStore()->get('firewallCertificateRevocationListCheckMethod');
+        $val = $this->getBackingStore()->get('firewallCertificateRevocationListCheckMethod');
+        if (is_null($val) || $val instanceof FirewallCertificateRevocationListCheckMethodType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firewallCertificateRevocationListCheckMethod'");
     }
 
     /**
@@ -1292,7 +1868,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return int|null
     */
     public function getFirewallIdleTimeoutForSecurityAssociationInSeconds(): ?int {
-        return $this->getBackingStore()->get('firewallIdleTimeoutForSecurityAssociationInSeconds');
+        $val = $this->getBackingStore()->get('firewallIdleTimeoutForSecurityAssociationInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firewallIdleTimeoutForSecurityAssociationInSeconds'");
     }
 
     /**
@@ -1300,7 +1880,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getFirewallIPSecExemptionsAllowDHCP(): ?bool {
-        return $this->getBackingStore()->get('firewallIPSecExemptionsAllowDHCP');
+        $val = $this->getBackingStore()->get('firewallIPSecExemptionsAllowDHCP');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firewallIPSecExemptionsAllowDHCP'");
     }
 
     /**
@@ -1308,7 +1892,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getFirewallIPSecExemptionsAllowICMP(): ?bool {
-        return $this->getBackingStore()->get('firewallIPSecExemptionsAllowICMP');
+        $val = $this->getBackingStore()->get('firewallIPSecExemptionsAllowICMP');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firewallIPSecExemptionsAllowICMP'");
     }
 
     /**
@@ -1316,7 +1904,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getFirewallIPSecExemptionsAllowNeighborDiscovery(): ?bool {
-        return $this->getBackingStore()->get('firewallIPSecExemptionsAllowNeighborDiscovery');
+        $val = $this->getBackingStore()->get('firewallIPSecExemptionsAllowNeighborDiscovery');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firewallIPSecExemptionsAllowNeighborDiscovery'");
     }
 
     /**
@@ -1324,7 +1916,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getFirewallIPSecExemptionsAllowRouterDiscovery(): ?bool {
-        return $this->getBackingStore()->get('firewallIPSecExemptionsAllowRouterDiscovery');
+        $val = $this->getBackingStore()->get('firewallIPSecExemptionsAllowRouterDiscovery');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firewallIPSecExemptionsAllowRouterDiscovery'");
     }
 
     /**
@@ -1332,7 +1928,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getFirewallIPSecExemptionsNone(): ?bool {
-        return $this->getBackingStore()->get('firewallIPSecExemptionsNone');
+        $val = $this->getBackingStore()->get('firewallIPSecExemptionsNone');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firewallIPSecExemptionsNone'");
     }
 
     /**
@@ -1340,7 +1940,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getFirewallMergeKeyingModuleSettings(): ?bool {
-        return $this->getBackingStore()->get('firewallMergeKeyingModuleSettings');
+        $val = $this->getBackingStore()->get('firewallMergeKeyingModuleSettings');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firewallMergeKeyingModuleSettings'");
     }
 
     /**
@@ -1348,7 +1952,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return FirewallPacketQueueingMethodType|null
     */
     public function getFirewallPacketQueueingMethod(): ?FirewallPacketQueueingMethodType {
-        return $this->getBackingStore()->get('firewallPacketQueueingMethod');
+        $val = $this->getBackingStore()->get('firewallPacketQueueingMethod');
+        if (is_null($val) || $val instanceof FirewallPacketQueueingMethodType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firewallPacketQueueingMethod'");
     }
 
     /**
@@ -1356,7 +1964,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return FirewallPreSharedKeyEncodingMethodType|null
     */
     public function getFirewallPreSharedKeyEncodingMethod(): ?FirewallPreSharedKeyEncodingMethodType {
-        return $this->getBackingStore()->get('firewallPreSharedKeyEncodingMethod');
+        $val = $this->getBackingStore()->get('firewallPreSharedKeyEncodingMethod');
+        if (is_null($val) || $val instanceof FirewallPreSharedKeyEncodingMethodType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firewallPreSharedKeyEncodingMethod'");
     }
 
     /**
@@ -1364,7 +1976,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return WindowsFirewallNetworkProfile|null
     */
     public function getFirewallProfileDomain(): ?WindowsFirewallNetworkProfile {
-        return $this->getBackingStore()->get('firewallProfileDomain');
+        $val = $this->getBackingStore()->get('firewallProfileDomain');
+        if (is_null($val) || $val instanceof WindowsFirewallNetworkProfile) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firewallProfileDomain'");
     }
 
     /**
@@ -1372,7 +1988,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return WindowsFirewallNetworkProfile|null
     */
     public function getFirewallProfilePrivate(): ?WindowsFirewallNetworkProfile {
-        return $this->getBackingStore()->get('firewallProfilePrivate');
+        $val = $this->getBackingStore()->get('firewallProfilePrivate');
+        if (is_null($val) || $val instanceof WindowsFirewallNetworkProfile) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firewallProfilePrivate'");
     }
 
     /**
@@ -1380,7 +2000,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return WindowsFirewallNetworkProfile|null
     */
     public function getFirewallProfilePublic(): ?WindowsFirewallNetworkProfile {
-        return $this->getBackingStore()->get('firewallProfilePublic');
+        $val = $this->getBackingStore()->get('firewallProfilePublic');
+        if (is_null($val) || $val instanceof WindowsFirewallNetworkProfile) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firewallProfilePublic'");
     }
 
     /**
@@ -1388,7 +2012,13 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return array<WindowsFirewallRule>|null
     */
     public function getFirewallRules(): ?array {
-        return $this->getBackingStore()->get('firewallRules');
+        $val = $this->getBackingStore()->get('firewallRules');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WindowsFirewallRule::class);
+            /** @var array<WindowsFirewallRule>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firewallRules'");
     }
 
     /**
@@ -1396,7 +2026,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return LanManagerAuthenticationLevel|null
     */
     public function getLanManagerAuthenticationLevel(): ?LanManagerAuthenticationLevel {
-        return $this->getBackingStore()->get('lanManagerAuthenticationLevel');
+        $val = $this->getBackingStore()->get('lanManagerAuthenticationLevel');
+        if (is_null($val) || $val instanceof LanManagerAuthenticationLevel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lanManagerAuthenticationLevel'");
     }
 
     /**
@@ -1404,7 +2038,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLanManagerWorkstationDisableInsecureGuestLogons(): ?bool {
-        return $this->getBackingStore()->get('lanManagerWorkstationDisableInsecureGuestLogons');
+        $val = $this->getBackingStore()->get('lanManagerWorkstationDisableInsecureGuestLogons');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lanManagerWorkstationDisableInsecureGuestLogons'");
     }
 
     /**
@@ -1412,7 +2050,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return string|null
     */
     public function getLocalSecurityOptionsAdministratorAccountName(): ?string {
-        return $this->getBackingStore()->get('localSecurityOptionsAdministratorAccountName');
+        $val = $this->getBackingStore()->get('localSecurityOptionsAdministratorAccountName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsAdministratorAccountName'");
     }
 
     /**
@@ -1420,7 +2062,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return LocalSecurityOptionsAdministratorElevationPromptBehaviorType|null
     */
     public function getLocalSecurityOptionsAdministratorElevationPromptBehavior(): ?LocalSecurityOptionsAdministratorElevationPromptBehaviorType {
-        return $this->getBackingStore()->get('localSecurityOptionsAdministratorElevationPromptBehavior');
+        $val = $this->getBackingStore()->get('localSecurityOptionsAdministratorElevationPromptBehavior');
+        if (is_null($val) || $val instanceof LocalSecurityOptionsAdministratorElevationPromptBehaviorType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsAdministratorElevationPromptBehavior'");
     }
 
     /**
@@ -1428,7 +2074,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares');
+        $val = $this->getBackingStore()->get('localSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares'");
     }
 
     /**
@@ -1436,7 +2086,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsAllowPKU2UAuthenticationRequests(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsAllowPKU2UAuthenticationRequests');
+        $val = $this->getBackingStore()->get('localSecurityOptionsAllowPKU2UAuthenticationRequests');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsAllowPKU2UAuthenticationRequests'");
     }
 
     /**
@@ -1444,7 +2098,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return string|null
     */
     public function getLocalSecurityOptionsAllowRemoteCallsToSecurityAccountsManager(): ?string {
-        return $this->getBackingStore()->get('localSecurityOptionsAllowRemoteCallsToSecurityAccountsManager');
+        $val = $this->getBackingStore()->get('localSecurityOptionsAllowRemoteCallsToSecurityAccountsManager');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsAllowRemoteCallsToSecurityAccountsManager'");
     }
 
     /**
@@ -1452,7 +2110,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsAllowRemoteCallsToSecurityAccountsManagerHelperBool(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsAllowRemoteCallsToSecurityAccountsManagerHelperBool');
+        $val = $this->getBackingStore()->get('localSecurityOptionsAllowRemoteCallsToSecurityAccountsManagerHelperBool');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsAllowRemoteCallsToSecurityAccountsManagerHelperBool'");
     }
 
     /**
@@ -1460,7 +2122,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsAllowSystemToBeShutDownWithoutHavingToLogOn(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsAllowSystemToBeShutDownWithoutHavingToLogOn');
+        $val = $this->getBackingStore()->get('localSecurityOptionsAllowSystemToBeShutDownWithoutHavingToLogOn');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsAllowSystemToBeShutDownWithoutHavingToLogOn'");
     }
 
     /**
@@ -1468,7 +2134,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsAllowUIAccessApplicationElevation(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsAllowUIAccessApplicationElevation');
+        $val = $this->getBackingStore()->get('localSecurityOptionsAllowUIAccessApplicationElevation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsAllowUIAccessApplicationElevation'");
     }
 
     /**
@@ -1476,7 +2146,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsAllowUIAccessApplicationsForSecureLocations(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsAllowUIAccessApplicationsForSecureLocations');
+        $val = $this->getBackingStore()->get('localSecurityOptionsAllowUIAccessApplicationsForSecureLocations');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsAllowUIAccessApplicationsForSecureLocations'");
     }
 
     /**
@@ -1484,7 +2158,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsAllowUndockWithoutHavingToLogon(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsAllowUndockWithoutHavingToLogon');
+        $val = $this->getBackingStore()->get('localSecurityOptionsAllowUndockWithoutHavingToLogon');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsAllowUndockWithoutHavingToLogon'");
     }
 
     /**
@@ -1492,7 +2170,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsBlockMicrosoftAccounts(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsBlockMicrosoftAccounts');
+        $val = $this->getBackingStore()->get('localSecurityOptionsBlockMicrosoftAccounts');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsBlockMicrosoftAccounts'");
     }
 
     /**
@@ -1500,7 +2182,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsBlockRemoteLogonWithBlankPassword(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsBlockRemoteLogonWithBlankPassword');
+        $val = $this->getBackingStore()->get('localSecurityOptionsBlockRemoteLogonWithBlankPassword');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsBlockRemoteLogonWithBlankPassword'");
     }
 
     /**
@@ -1508,7 +2194,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsBlockRemoteOpticalDriveAccess(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsBlockRemoteOpticalDriveAccess');
+        $val = $this->getBackingStore()->get('localSecurityOptionsBlockRemoteOpticalDriveAccess');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsBlockRemoteOpticalDriveAccess'");
     }
 
     /**
@@ -1516,7 +2206,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsBlockUsersInstallingPrinterDrivers(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsBlockUsersInstallingPrinterDrivers');
+        $val = $this->getBackingStore()->get('localSecurityOptionsBlockUsersInstallingPrinterDrivers');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsBlockUsersInstallingPrinterDrivers'");
     }
 
     /**
@@ -1524,7 +2218,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsClearVirtualMemoryPageFile(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsClearVirtualMemoryPageFile');
+        $val = $this->getBackingStore()->get('localSecurityOptionsClearVirtualMemoryPageFile');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsClearVirtualMemoryPageFile'");
     }
 
     /**
@@ -1532,7 +2230,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsClientDigitallySignCommunicationsAlways(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsClientDigitallySignCommunicationsAlways');
+        $val = $this->getBackingStore()->get('localSecurityOptionsClientDigitallySignCommunicationsAlways');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsClientDigitallySignCommunicationsAlways'");
     }
 
     /**
@@ -1540,7 +2242,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsClientSendUnencryptedPasswordToThirdPartySMBServers(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsClientSendUnencryptedPasswordToThirdPartySMBServers');
+        $val = $this->getBackingStore()->get('localSecurityOptionsClientSendUnencryptedPasswordToThirdPartySMBServers');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsClientSendUnencryptedPasswordToThirdPartySMBServers'");
     }
 
     /**
@@ -1548,7 +2254,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsDetectApplicationInstallationsAndPromptForElevation(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsDetectApplicationInstallationsAndPromptForElevation');
+        $val = $this->getBackingStore()->get('localSecurityOptionsDetectApplicationInstallationsAndPromptForElevation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsDetectApplicationInstallationsAndPromptForElevation'");
     }
 
     /**
@@ -1556,7 +2266,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsDisableAdministratorAccount(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsDisableAdministratorAccount');
+        $val = $this->getBackingStore()->get('localSecurityOptionsDisableAdministratorAccount');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsDisableAdministratorAccount'");
     }
 
     /**
@@ -1564,7 +2278,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsDisableClientDigitallySignCommunicationsIfServerAgrees(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsDisableClientDigitallySignCommunicationsIfServerAgrees');
+        $val = $this->getBackingStore()->get('localSecurityOptionsDisableClientDigitallySignCommunicationsIfServerAgrees');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsDisableClientDigitallySignCommunicationsIfServerAgrees'");
     }
 
     /**
@@ -1572,7 +2290,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsDisableGuestAccount(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsDisableGuestAccount');
+        $val = $this->getBackingStore()->get('localSecurityOptionsDisableGuestAccount');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsDisableGuestAccount'");
     }
 
     /**
@@ -1580,7 +2302,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsDisableServerDigitallySignCommunicationsAlways(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsDisableServerDigitallySignCommunicationsAlways');
+        $val = $this->getBackingStore()->get('localSecurityOptionsDisableServerDigitallySignCommunicationsAlways');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsDisableServerDigitallySignCommunicationsAlways'");
     }
 
     /**
@@ -1588,7 +2314,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsDisableServerDigitallySignCommunicationsIfClientAgrees(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsDisableServerDigitallySignCommunicationsIfClientAgrees');
+        $val = $this->getBackingStore()->get('localSecurityOptionsDisableServerDigitallySignCommunicationsIfClientAgrees');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsDisableServerDigitallySignCommunicationsIfClientAgrees'");
     }
 
     /**
@@ -1596,7 +2326,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts');
+        $val = $this->getBackingStore()->get('localSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts'");
     }
 
     /**
@@ -1604,7 +2338,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsDoNotRequireCtrlAltDel(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsDoNotRequireCtrlAltDel');
+        $val = $this->getBackingStore()->get('localSecurityOptionsDoNotRequireCtrlAltDel');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsDoNotRequireCtrlAltDel'");
     }
 
     /**
@@ -1612,7 +2350,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange');
+        $val = $this->getBackingStore()->get('localSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange'");
     }
 
     /**
@@ -1620,7 +2362,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType|null
     */
     public function getLocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser(): ?LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType {
-        return $this->getBackingStore()->get('localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser');
+        $val = $this->getBackingStore()->get('localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser');
+        if (is_null($val) || $val instanceof LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser'");
     }
 
     /**
@@ -1628,7 +2374,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return string|null
     */
     public function getLocalSecurityOptionsGuestAccountName(): ?string {
-        return $this->getBackingStore()->get('localSecurityOptionsGuestAccountName');
+        $val = $this->getBackingStore()->get('localSecurityOptionsGuestAccountName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsGuestAccountName'");
     }
 
     /**
@@ -1636,7 +2386,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsHideLastSignedInUser(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsHideLastSignedInUser');
+        $val = $this->getBackingStore()->get('localSecurityOptionsHideLastSignedInUser');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsHideLastSignedInUser'");
     }
 
     /**
@@ -1644,7 +2398,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsHideUsernameAtSignIn(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsHideUsernameAtSignIn');
+        $val = $this->getBackingStore()->get('localSecurityOptionsHideUsernameAtSignIn');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsHideUsernameAtSignIn'");
     }
 
     /**
@@ -1652,7 +2410,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return LocalSecurityOptionsInformationDisplayedOnLockScreenType|null
     */
     public function getLocalSecurityOptionsInformationDisplayedOnLockScreen(): ?LocalSecurityOptionsInformationDisplayedOnLockScreenType {
-        return $this->getBackingStore()->get('localSecurityOptionsInformationDisplayedOnLockScreen');
+        $val = $this->getBackingStore()->get('localSecurityOptionsInformationDisplayedOnLockScreen');
+        if (is_null($val) || $val instanceof LocalSecurityOptionsInformationDisplayedOnLockScreenType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsInformationDisplayedOnLockScreen'");
     }
 
     /**
@@ -1660,7 +2422,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return LocalSecurityOptionsInformationShownOnLockScreenType|null
     */
     public function getLocalSecurityOptionsInformationShownOnLockScreen(): ?LocalSecurityOptionsInformationShownOnLockScreenType {
-        return $this->getBackingStore()->get('localSecurityOptionsInformationShownOnLockScreen');
+        $val = $this->getBackingStore()->get('localSecurityOptionsInformationShownOnLockScreen');
+        if (is_null($val) || $val instanceof LocalSecurityOptionsInformationShownOnLockScreenType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsInformationShownOnLockScreen'");
     }
 
     /**
@@ -1668,7 +2434,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return string|null
     */
     public function getLocalSecurityOptionsLogOnMessageText(): ?string {
-        return $this->getBackingStore()->get('localSecurityOptionsLogOnMessageText');
+        $val = $this->getBackingStore()->get('localSecurityOptionsLogOnMessageText');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsLogOnMessageText'");
     }
 
     /**
@@ -1676,7 +2446,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return string|null
     */
     public function getLocalSecurityOptionsLogOnMessageTitle(): ?string {
-        return $this->getBackingStore()->get('localSecurityOptionsLogOnMessageTitle');
+        $val = $this->getBackingStore()->get('localSecurityOptionsLogOnMessageTitle');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsLogOnMessageTitle'");
     }
 
     /**
@@ -1684,7 +2458,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return int|null
     */
     public function getLocalSecurityOptionsMachineInactivityLimit(): ?int {
-        return $this->getBackingStore()->get('localSecurityOptionsMachineInactivityLimit');
+        $val = $this->getBackingStore()->get('localSecurityOptionsMachineInactivityLimit');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsMachineInactivityLimit'");
     }
 
     /**
@@ -1692,7 +2470,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return int|null
     */
     public function getLocalSecurityOptionsMachineInactivityLimitInMinutes(): ?int {
-        return $this->getBackingStore()->get('localSecurityOptionsMachineInactivityLimitInMinutes');
+        $val = $this->getBackingStore()->get('localSecurityOptionsMachineInactivityLimitInMinutes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsMachineInactivityLimitInMinutes'");
     }
 
     /**
@@ -1700,7 +2482,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return LocalSecurityOptionsMinimumSessionSecurity|null
     */
     public function getLocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients(): ?LocalSecurityOptionsMinimumSessionSecurity {
-        return $this->getBackingStore()->get('localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients');
+        $val = $this->getBackingStore()->get('localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients');
+        if (is_null($val) || $val instanceof LocalSecurityOptionsMinimumSessionSecurity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients'");
     }
 
     /**
@@ -1708,7 +2494,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return LocalSecurityOptionsMinimumSessionSecurity|null
     */
     public function getLocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers(): ?LocalSecurityOptionsMinimumSessionSecurity {
-        return $this->getBackingStore()->get('localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers');
+        $val = $this->getBackingStore()->get('localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers');
+        if (is_null($val) || $val instanceof LocalSecurityOptionsMinimumSessionSecurity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers'");
     }
 
     /**
@@ -1716,7 +2506,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsOnlyElevateSignedExecutables(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsOnlyElevateSignedExecutables');
+        $val = $this->getBackingStore()->get('localSecurityOptionsOnlyElevateSignedExecutables');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsOnlyElevateSignedExecutables'");
     }
 
     /**
@@ -1724,7 +2518,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares');
+        $val = $this->getBackingStore()->get('localSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares'");
     }
 
     /**
@@ -1732,7 +2530,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return LocalSecurityOptionsSmartCardRemovalBehaviorType|null
     */
     public function getLocalSecurityOptionsSmartCardRemovalBehavior(): ?LocalSecurityOptionsSmartCardRemovalBehaviorType {
-        return $this->getBackingStore()->get('localSecurityOptionsSmartCardRemovalBehavior');
+        $val = $this->getBackingStore()->get('localSecurityOptionsSmartCardRemovalBehavior');
+        if (is_null($val) || $val instanceof LocalSecurityOptionsSmartCardRemovalBehaviorType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsSmartCardRemovalBehavior'");
     }
 
     /**
@@ -1740,7 +2542,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return LocalSecurityOptionsStandardUserElevationPromptBehaviorType|null
     */
     public function getLocalSecurityOptionsStandardUserElevationPromptBehavior(): ?LocalSecurityOptionsStandardUserElevationPromptBehaviorType {
-        return $this->getBackingStore()->get('localSecurityOptionsStandardUserElevationPromptBehavior');
+        $val = $this->getBackingStore()->get('localSecurityOptionsStandardUserElevationPromptBehavior');
+        if (is_null($val) || $val instanceof LocalSecurityOptionsStandardUserElevationPromptBehaviorType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsStandardUserElevationPromptBehavior'");
     }
 
     /**
@@ -1748,7 +2554,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation');
+        $val = $this->getBackingStore()->get('localSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation'");
     }
 
     /**
@@ -1756,7 +2566,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsUseAdminApprovalMode(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsUseAdminApprovalMode');
+        $val = $this->getBackingStore()->get('localSecurityOptionsUseAdminApprovalMode');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsUseAdminApprovalMode'");
     }
 
     /**
@@ -1764,7 +2578,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsUseAdminApprovalModeForAdministrators(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsUseAdminApprovalModeForAdministrators');
+        $val = $this->getBackingStore()->get('localSecurityOptionsUseAdminApprovalModeForAdministrators');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsUseAdminApprovalModeForAdministrators'");
     }
 
     /**
@@ -1772,7 +2590,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getLocalSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations(): ?bool {
-        return $this->getBackingStore()->get('localSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations');
+        $val = $this->getBackingStore()->get('localSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations'");
     }
 
     /**
@@ -1780,7 +2602,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getSmartScreenBlockOverrideForFiles(): ?bool {
-        return $this->getBackingStore()->get('smartScreenBlockOverrideForFiles');
+        $val = $this->getBackingStore()->get('smartScreenBlockOverrideForFiles');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'smartScreenBlockOverrideForFiles'");
     }
 
     /**
@@ -1788,7 +2614,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getSmartScreenEnableInShell(): ?bool {
-        return $this->getBackingStore()->get('smartScreenEnableInShell');
+        $val = $this->getBackingStore()->get('smartScreenEnableInShell');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'smartScreenEnableInShell'");
     }
 
     /**
@@ -1796,7 +2626,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsAccessCredentialManagerAsTrustedCaller(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsAccessCredentialManagerAsTrustedCaller');
+        $val = $this->getBackingStore()->get('userRightsAccessCredentialManagerAsTrustedCaller');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsAccessCredentialManagerAsTrustedCaller'");
     }
 
     /**
@@ -1804,7 +2638,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsActAsPartOfTheOperatingSystem(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsActAsPartOfTheOperatingSystem');
+        $val = $this->getBackingStore()->get('userRightsActAsPartOfTheOperatingSystem');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsActAsPartOfTheOperatingSystem'");
     }
 
     /**
@@ -1812,7 +2650,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsAllowAccessFromNetwork(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsAllowAccessFromNetwork');
+        $val = $this->getBackingStore()->get('userRightsAllowAccessFromNetwork');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsAllowAccessFromNetwork'");
     }
 
     /**
@@ -1820,7 +2662,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsBackupData(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsBackupData');
+        $val = $this->getBackingStore()->get('userRightsBackupData');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsBackupData'");
     }
 
     /**
@@ -1828,7 +2674,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsBlockAccessFromNetwork(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsBlockAccessFromNetwork');
+        $val = $this->getBackingStore()->get('userRightsBlockAccessFromNetwork');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsBlockAccessFromNetwork'");
     }
 
     /**
@@ -1836,7 +2686,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsChangeSystemTime(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsChangeSystemTime');
+        $val = $this->getBackingStore()->get('userRightsChangeSystemTime');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsChangeSystemTime'");
     }
 
     /**
@@ -1844,7 +2698,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsCreateGlobalObjects(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsCreateGlobalObjects');
+        $val = $this->getBackingStore()->get('userRightsCreateGlobalObjects');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsCreateGlobalObjects'");
     }
 
     /**
@@ -1852,7 +2710,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsCreatePageFile(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsCreatePageFile');
+        $val = $this->getBackingStore()->get('userRightsCreatePageFile');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsCreatePageFile'");
     }
 
     /**
@@ -1860,7 +2722,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsCreatePermanentSharedObjects(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsCreatePermanentSharedObjects');
+        $val = $this->getBackingStore()->get('userRightsCreatePermanentSharedObjects');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsCreatePermanentSharedObjects'");
     }
 
     /**
@@ -1868,7 +2734,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsCreateSymbolicLinks(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsCreateSymbolicLinks');
+        $val = $this->getBackingStore()->get('userRightsCreateSymbolicLinks');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsCreateSymbolicLinks'");
     }
 
     /**
@@ -1876,7 +2746,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsCreateToken(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsCreateToken');
+        $val = $this->getBackingStore()->get('userRightsCreateToken');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsCreateToken'");
     }
 
     /**
@@ -1884,7 +2758,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsDebugPrograms(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsDebugPrograms');
+        $val = $this->getBackingStore()->get('userRightsDebugPrograms');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsDebugPrograms'");
     }
 
     /**
@@ -1892,7 +2770,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsDelegation(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsDelegation');
+        $val = $this->getBackingStore()->get('userRightsDelegation');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsDelegation'");
     }
 
     /**
@@ -1900,7 +2782,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsDenyLocalLogOn(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsDenyLocalLogOn');
+        $val = $this->getBackingStore()->get('userRightsDenyLocalLogOn');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsDenyLocalLogOn'");
     }
 
     /**
@@ -1908,7 +2794,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsGenerateSecurityAudits(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsGenerateSecurityAudits');
+        $val = $this->getBackingStore()->get('userRightsGenerateSecurityAudits');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsGenerateSecurityAudits'");
     }
 
     /**
@@ -1916,7 +2806,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsImpersonateClient(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsImpersonateClient');
+        $val = $this->getBackingStore()->get('userRightsImpersonateClient');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsImpersonateClient'");
     }
 
     /**
@@ -1924,7 +2818,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsIncreaseSchedulingPriority(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsIncreaseSchedulingPriority');
+        $val = $this->getBackingStore()->get('userRightsIncreaseSchedulingPriority');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsIncreaseSchedulingPriority'");
     }
 
     /**
@@ -1932,7 +2830,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsLoadUnloadDrivers(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsLoadUnloadDrivers');
+        $val = $this->getBackingStore()->get('userRightsLoadUnloadDrivers');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsLoadUnloadDrivers'");
     }
 
     /**
@@ -1940,7 +2842,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsLocalLogOn(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsLocalLogOn');
+        $val = $this->getBackingStore()->get('userRightsLocalLogOn');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsLocalLogOn'");
     }
 
     /**
@@ -1948,7 +2854,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsLockMemory(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsLockMemory');
+        $val = $this->getBackingStore()->get('userRightsLockMemory');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsLockMemory'");
     }
 
     /**
@@ -1956,7 +2866,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsManageAuditingAndSecurityLogs(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsManageAuditingAndSecurityLogs');
+        $val = $this->getBackingStore()->get('userRightsManageAuditingAndSecurityLogs');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsManageAuditingAndSecurityLogs'");
     }
 
     /**
@@ -1964,7 +2878,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsManageVolumes(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsManageVolumes');
+        $val = $this->getBackingStore()->get('userRightsManageVolumes');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsManageVolumes'");
     }
 
     /**
@@ -1972,7 +2890,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsModifyFirmwareEnvironment(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsModifyFirmwareEnvironment');
+        $val = $this->getBackingStore()->get('userRightsModifyFirmwareEnvironment');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsModifyFirmwareEnvironment'");
     }
 
     /**
@@ -1980,7 +2902,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsModifyObjectLabels(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsModifyObjectLabels');
+        $val = $this->getBackingStore()->get('userRightsModifyObjectLabels');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsModifyObjectLabels'");
     }
 
     /**
@@ -1988,7 +2914,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsProfileSingleProcess(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsProfileSingleProcess');
+        $val = $this->getBackingStore()->get('userRightsProfileSingleProcess');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsProfileSingleProcess'");
     }
 
     /**
@@ -1996,7 +2926,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsRemoteDesktopServicesLogOn(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsRemoteDesktopServicesLogOn');
+        $val = $this->getBackingStore()->get('userRightsRemoteDesktopServicesLogOn');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsRemoteDesktopServicesLogOn'");
     }
 
     /**
@@ -2004,7 +2938,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsRemoteShutdown(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsRemoteShutdown');
+        $val = $this->getBackingStore()->get('userRightsRemoteShutdown');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsRemoteShutdown'");
     }
 
     /**
@@ -2012,7 +2950,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsRestoreData(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsRestoreData');
+        $val = $this->getBackingStore()->get('userRightsRestoreData');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsRestoreData'");
     }
 
     /**
@@ -2020,7 +2962,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return DeviceManagementUserRightsSetting|null
     */
     public function getUserRightsTakeOwnership(): ?DeviceManagementUserRightsSetting {
-        return $this->getBackingStore()->get('userRightsTakeOwnership');
+        $val = $this->getBackingStore()->get('userRightsTakeOwnership');
+        if (is_null($val) || $val instanceof DeviceManagementUserRightsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRightsTakeOwnership'");
     }
 
     /**
@@ -2028,7 +2974,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return WindowsDefenderTamperProtectionOptions|null
     */
     public function getWindowsDefenderTamperProtection(): ?WindowsDefenderTamperProtectionOptions {
-        return $this->getBackingStore()->get('windowsDefenderTamperProtection');
+        $val = $this->getBackingStore()->get('windowsDefenderTamperProtection');
+        if (is_null($val) || $val instanceof WindowsDefenderTamperProtectionOptions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsDefenderTamperProtection'");
     }
 
     /**
@@ -2036,7 +2986,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return ServiceStartType|null
     */
     public function getXboxServicesAccessoryManagementServiceStartupMode(): ?ServiceStartType {
-        return $this->getBackingStore()->get('xboxServicesAccessoryManagementServiceStartupMode');
+        $val = $this->getBackingStore()->get('xboxServicesAccessoryManagementServiceStartupMode');
+        if (is_null($val) || $val instanceof ServiceStartType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'xboxServicesAccessoryManagementServiceStartupMode'");
     }
 
     /**
@@ -2044,7 +2998,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return bool|null
     */
     public function getXboxServicesEnableXboxGameSaveTask(): ?bool {
-        return $this->getBackingStore()->get('xboxServicesEnableXboxGameSaveTask');
+        $val = $this->getBackingStore()->get('xboxServicesEnableXboxGameSaveTask');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'xboxServicesEnableXboxGameSaveTask'");
     }
 
     /**
@@ -2052,7 +3010,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return ServiceStartType|null
     */
     public function getXboxServicesLiveAuthManagerServiceStartupMode(): ?ServiceStartType {
-        return $this->getBackingStore()->get('xboxServicesLiveAuthManagerServiceStartupMode');
+        $val = $this->getBackingStore()->get('xboxServicesLiveAuthManagerServiceStartupMode');
+        if (is_null($val) || $val instanceof ServiceStartType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'xboxServicesLiveAuthManagerServiceStartupMode'");
     }
 
     /**
@@ -2060,7 +3022,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return ServiceStartType|null
     */
     public function getXboxServicesLiveGameSaveServiceStartupMode(): ?ServiceStartType {
-        return $this->getBackingStore()->get('xboxServicesLiveGameSaveServiceStartupMode');
+        $val = $this->getBackingStore()->get('xboxServicesLiveGameSaveServiceStartupMode');
+        if (is_null($val) || $val instanceof ServiceStartType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'xboxServicesLiveGameSaveServiceStartupMode'");
     }
 
     /**
@@ -2068,7 +3034,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
      * @return ServiceStartType|null
     */
     public function getXboxServicesLiveNetworkingServiceStartupMode(): ?ServiceStartType {
-        return $this->getBackingStore()->get('xboxServicesLiveNetworkingServiceStartupMode');
+        $val = $this->getBackingStore()->get('xboxServicesLiveNetworkingServiceStartupMode');
+        if (is_null($val) || $val instanceof ServiceStartType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'xboxServicesLiveNetworkingServiceStartupMode'");
     }
 
     /**

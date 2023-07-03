@@ -38,12 +38,16 @@ class Indicator extends Entity implements Parsable
      * @return Artifact|null
     */
     public function getArtifact(): ?Artifact {
-        return $this->getBackingStore()->get('artifact');
+        $val = $this->getBackingStore()->get('artifact');
+        if (is_null($val) || $val instanceof Artifact) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'artifact'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -58,7 +62,11 @@ class Indicator extends Entity implements Parsable
      * @return IndicatorSource|null
     */
     public function getSource(): ?IndicatorSource {
-        return $this->getBackingStore()->get('source');
+        $val = $this->getBackingStore()->get('source');
+        if (is_null($val) || $val instanceof IndicatorSource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'source'");
     }
 
     /**

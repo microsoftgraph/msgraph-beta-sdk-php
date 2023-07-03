@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * A class containing the properties for Audit Actor.
@@ -42,7 +43,12 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -50,7 +56,11 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getApplicationDisplayName(): ?string {
-        return $this->getBackingStore()->get('applicationDisplayName');
+        $val = $this->getBackingStore()->get('applicationDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationDisplayName'");
     }
 
     /**
@@ -58,7 +68,11 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getApplicationId(): ?string {
-        return $this->getBackingStore()->get('applicationId');
+        $val = $this->getBackingStore()->get('applicationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationId'");
     }
 
     /**
@@ -66,7 +80,11 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getAuditActorType(): ?string {
-        return $this->getBackingStore()->get('auditActorType');
+        $val = $this->getBackingStore()->get('auditActorType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'auditActorType'");
     }
 
     /**
@@ -79,7 +97,7 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -94,7 +112,14 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
             'servicePrincipalName' => fn(ParseNode $n) => $o->setServicePrincipalName($n->getStringValue()),
             'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
-            'userPermissions' => fn(ParseNode $n) => $o->setUserPermissions($n->getCollectionOfPrimitiveValues()),
+            'userPermissions' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setUserPermissions($val);
+            },
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
             'userRoleScopeTags' => fn(ParseNode $n) => $o->setUserRoleScopeTags($n->getCollectionOfObjectValues([RoleScopeTagInfo::class, 'createFromDiscriminatorValue'])),
         ];
@@ -105,7 +130,11 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getIpAddress(): ?string {
-        return $this->getBackingStore()->get('ipAddress');
+        $val = $this->getBackingStore()->get('ipAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ipAddress'");
     }
 
     /**
@@ -113,7 +142,11 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -121,7 +154,11 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getRemoteTenantId(): ?string {
-        return $this->getBackingStore()->get('remoteTenantId');
+        $val = $this->getBackingStore()->get('remoteTenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remoteTenantId'");
     }
 
     /**
@@ -129,7 +166,11 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getRemoteUserId(): ?string {
-        return $this->getBackingStore()->get('remoteUserId');
+        $val = $this->getBackingStore()->get('remoteUserId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remoteUserId'");
     }
 
     /**
@@ -137,7 +178,11 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getServicePrincipalName(): ?string {
-        return $this->getBackingStore()->get('servicePrincipalName');
+        $val = $this->getBackingStore()->get('servicePrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'servicePrincipalName'");
     }
 
     /**
@@ -145,7 +190,11 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getType(): ?string {
-        return $this->getBackingStore()->get('type');
+        $val = $this->getBackingStore()->get('type');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
     }
 
     /**
@@ -153,7 +202,11 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->getBackingStore()->get('userId');
+        $val = $this->getBackingStore()->get('userId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
     }
 
     /**
@@ -161,7 +214,13 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getUserPermissions(): ?array {
-        return $this->getBackingStore()->get('userPermissions');
+        $val = $this->getBackingStore()->get('userPermissions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPermissions'");
     }
 
     /**
@@ -169,7 +228,11 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('userPrincipalName');
+        $val = $this->getBackingStore()->get('userPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
     }
 
     /**
@@ -177,7 +240,13 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<RoleScopeTagInfo>|null
     */
     public function getUserRoleScopeTags(): ?array {
-        return $this->getBackingStore()->get('userRoleScopeTags');
+        $val = $this->getBackingStore()->get('userRoleScopeTags');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RoleScopeTagInfo::class);
+            /** @var array<RoleScopeTagInfo>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRoleScopeTags'");
     }
 
     /**

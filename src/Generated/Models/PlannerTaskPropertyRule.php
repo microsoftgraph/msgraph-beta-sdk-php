@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable 
 {
@@ -30,7 +31,11 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
      * @return PlannerFieldRules|null
     */
     public function getAppliedCategories(): ?PlannerFieldRules {
-        return $this->getBackingStore()->get('appliedCategories');
+        $val = $this->getBackingStore()->get('appliedCategories');
+        if (is_null($val) || $val instanceof PlannerFieldRules) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appliedCategories'");
     }
 
     /**
@@ -38,7 +43,11 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
      * @return PlannerFieldRules|null
     */
     public function getAssignments(): ?PlannerFieldRules {
-        return $this->getBackingStore()->get('assignments');
+        $val = $this->getBackingStore()->get('assignments');
+        if (is_null($val) || $val instanceof PlannerFieldRules) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignments'");
     }
 
     /**
@@ -46,7 +55,11 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
      * @return PlannerFieldRules|null
     */
     public function getCheckLists(): ?PlannerFieldRules {
-        return $this->getBackingStore()->get('checkLists');
+        $val = $this->getBackingStore()->get('checkLists');
+        if (is_null($val) || $val instanceof PlannerFieldRules) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'checkLists'");
     }
 
     /**
@@ -54,7 +67,13 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
      * @return array<string>|null
     */
     public function getCompletionRequirements(): ?array {
-        return $this->getBackingStore()->get('completionRequirements');
+        $val = $this->getBackingStore()->get('completionRequirements');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'completionRequirements'");
     }
 
     /**
@@ -62,7 +81,13 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
      * @return array<string>|null
     */
     public function getDelete(): ?array {
-        return $this->getBackingStore()->get('delete');
+        $val = $this->getBackingStore()->get('delete');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'delete'");
     }
 
     /**
@@ -70,12 +95,18 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
      * @return array<string>|null
     */
     public function getDueDate(): ?array {
-        return $this->getBackingStore()->get('dueDate');
+        $val = $this->getBackingStore()->get('dueDate');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dueDate'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -83,18 +114,95 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
             'appliedCategories' => fn(ParseNode $n) => $o->setAppliedCategories($n->getObjectValue([PlannerFieldRules::class, 'createFromDiscriminatorValue'])),
             'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getObjectValue([PlannerFieldRules::class, 'createFromDiscriminatorValue'])),
             'checkLists' => fn(ParseNode $n) => $o->setCheckLists($n->getObjectValue([PlannerFieldRules::class, 'createFromDiscriminatorValue'])),
-            'completionRequirements' => fn(ParseNode $n) => $o->setCompletionRequirements($n->getCollectionOfPrimitiveValues()),
-            'delete' => fn(ParseNode $n) => $o->setDelete($n->getCollectionOfPrimitiveValues()),
-            'dueDate' => fn(ParseNode $n) => $o->setDueDate($n->getCollectionOfPrimitiveValues()),
-            'move' => fn(ParseNode $n) => $o->setMove($n->getCollectionOfPrimitiveValues()),
-            'notes' => fn(ParseNode $n) => $o->setNotes($n->getCollectionOfPrimitiveValues()),
-            'order' => fn(ParseNode $n) => $o->setOrder($n->getCollectionOfPrimitiveValues()),
-            'percentComplete' => fn(ParseNode $n) => $o->setPercentComplete($n->getCollectionOfPrimitiveValues()),
-            'previewType' => fn(ParseNode $n) => $o->setPreviewType($n->getCollectionOfPrimitiveValues()),
-            'priority' => fn(ParseNode $n) => $o->setPriority($n->getCollectionOfPrimitiveValues()),
+            'completionRequirements' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setCompletionRequirements($val);
+            },
+            'delete' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDelete($val);
+            },
+            'dueDate' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDueDate($val);
+            },
+            'move' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setMove($val);
+            },
+            'notes' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setNotes($val);
+            },
+            'order' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setOrder($val);
+            },
+            'percentComplete' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setPercentComplete($val);
+            },
+            'previewType' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setPreviewType($val);
+            },
+            'priority' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setPriority($val);
+            },
             'references' => fn(ParseNode $n) => $o->setReferences($n->getObjectValue([PlannerFieldRules::class, 'createFromDiscriminatorValue'])),
-            'startDate' => fn(ParseNode $n) => $o->setStartDate($n->getCollectionOfPrimitiveValues()),
-            'title' => fn(ParseNode $n) => $o->setTitle($n->getCollectionOfPrimitiveValues()),
+            'startDate' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setStartDate($val);
+            },
+            'title' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setTitle($val);
+            },
         ]);
     }
 
@@ -103,7 +211,13 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
      * @return array<string>|null
     */
     public function getMove(): ?array {
-        return $this->getBackingStore()->get('move');
+        $val = $this->getBackingStore()->get('move');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'move'");
     }
 
     /**
@@ -111,7 +225,13 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
      * @return array<string>|null
     */
     public function getNotes(): ?array {
-        return $this->getBackingStore()->get('notes');
+        $val = $this->getBackingStore()->get('notes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notes'");
     }
 
     /**
@@ -119,7 +239,13 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
      * @return array<string>|null
     */
     public function getOrder(): ?array {
-        return $this->getBackingStore()->get('order');
+        $val = $this->getBackingStore()->get('order');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'order'");
     }
 
     /**
@@ -127,7 +253,13 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
      * @return array<string>|null
     */
     public function getPercentComplete(): ?array {
-        return $this->getBackingStore()->get('percentComplete');
+        $val = $this->getBackingStore()->get('percentComplete');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'percentComplete'");
     }
 
     /**
@@ -135,7 +267,13 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
      * @return array<string>|null
     */
     public function getPreviewType(): ?array {
-        return $this->getBackingStore()->get('previewType');
+        $val = $this->getBackingStore()->get('previewType');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'previewType'");
     }
 
     /**
@@ -143,7 +281,13 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
      * @return array<string>|null
     */
     public function getPriority(): ?array {
-        return $this->getBackingStore()->get('priority');
+        $val = $this->getBackingStore()->get('priority');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'priority'");
     }
 
     /**
@@ -151,7 +295,11 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
      * @return PlannerFieldRules|null
     */
     public function getReferences(): ?PlannerFieldRules {
-        return $this->getBackingStore()->get('references');
+        $val = $this->getBackingStore()->get('references');
+        if (is_null($val) || $val instanceof PlannerFieldRules) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'references'");
     }
 
     /**
@@ -159,7 +307,13 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
      * @return array<string>|null
     */
     public function getStartDate(): ?array {
-        return $this->getBackingStore()->get('startDate');
+        $val = $this->getBackingStore()->get('startDate');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startDate'");
     }
 
     /**
@@ -167,7 +321,13 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
      * @return array<string>|null
     */
     public function getTitle(): ?array {
-        return $this->getBackingStore()->get('title');
+        $val = $this->getBackingStore()->get('title');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'title'");
     }
 
     /**

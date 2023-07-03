@@ -37,7 +37,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return int|null
     */
     public function getActiveChecklistItemCount(): ?int {
-        return $this->getBackingStore()->get('activeChecklistItemCount');
+        $val = $this->getBackingStore()->get('activeChecklistItemCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activeChecklistItemCount'");
     }
 
     /**
@@ -45,7 +49,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return PlannerAppliedCategories|null
     */
     public function getAppliedCategories(): ?PlannerAppliedCategories {
-        return $this->getBackingStore()->get('appliedCategories');
+        $val = $this->getBackingStore()->get('appliedCategories');
+        if (is_null($val) || $val instanceof PlannerAppliedCategories) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appliedCategories'");
     }
 
     /**
@@ -53,7 +61,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return PlannerAssignedToTaskBoardTaskFormat|null
     */
     public function getAssignedToTaskBoardFormat(): ?PlannerAssignedToTaskBoardTaskFormat {
-        return $this->getBackingStore()->get('assignedToTaskBoardFormat');
+        $val = $this->getBackingStore()->get('assignedToTaskBoardFormat');
+        if (is_null($val) || $val instanceof PlannerAssignedToTaskBoardTaskFormat) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignedToTaskBoardFormat'");
     }
 
     /**
@@ -61,7 +73,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return string|null
     */
     public function getAssigneePriority(): ?string {
-        return $this->getBackingStore()->get('assigneePriority');
+        $val = $this->getBackingStore()->get('assigneePriority');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assigneePriority'");
     }
 
     /**
@@ -69,7 +85,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return PlannerAssignments|null
     */
     public function getAssignments(): ?PlannerAssignments {
-        return $this->getBackingStore()->get('assignments');
+        $val = $this->getBackingStore()->get('assignments');
+        if (is_null($val) || $val instanceof PlannerAssignments) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignments'");
     }
 
     /**
@@ -77,7 +97,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return string|null
     */
     public function getBucketId(): ?string {
-        return $this->getBackingStore()->get('bucketId');
+        $val = $this->getBackingStore()->get('bucketId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bucketId'");
     }
 
     /**
@@ -85,7 +109,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return PlannerBucketTaskBoardTaskFormat|null
     */
     public function getBucketTaskBoardFormat(): ?PlannerBucketTaskBoardTaskFormat {
-        return $this->getBackingStore()->get('bucketTaskBoardFormat');
+        $val = $this->getBackingStore()->get('bucketTaskBoardFormat');
+        if (is_null($val) || $val instanceof PlannerBucketTaskBoardTaskFormat) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bucketTaskBoardFormat'");
     }
 
     /**
@@ -93,7 +121,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return int|null
     */
     public function getChecklistItemCount(): ?int {
-        return $this->getBackingStore()->get('checklistItemCount');
+        $val = $this->getBackingStore()->get('checklistItemCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'checklistItemCount'");
     }
 
     /**
@@ -101,7 +133,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return IdentitySet|null
     */
     public function getCompletedBy(): ?IdentitySet {
-        return $this->getBackingStore()->get('completedBy');
+        $val = $this->getBackingStore()->get('completedBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'completedBy'");
     }
 
     /**
@@ -109,7 +145,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return DateTime|null
     */
     public function getCompletedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('completedDateTime');
+        $val = $this->getBackingStore()->get('completedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'completedDateTime'");
     }
 
     /**
@@ -117,7 +157,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return string|null
     */
     public function getConversationThreadId(): ?string {
-        return $this->getBackingStore()->get('conversationThreadId');
+        $val = $this->getBackingStore()->get('conversationThreadId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'conversationThreadId'");
     }
 
     /**
@@ -125,7 +169,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
-        return $this->getBackingStore()->get('createdBy');
+        $val = $this->getBackingStore()->get('createdBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdBy'");
     }
 
     /**
@@ -133,7 +181,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -141,7 +193,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return PlannerTaskCreation|null
     */
     public function getCreationSource(): ?PlannerTaskCreation {
-        return $this->getBackingStore()->get('creationSource');
+        $val = $this->getBackingStore()->get('creationSource');
+        if (is_null($val) || $val instanceof PlannerTaskCreation) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'creationSource'");
     }
 
     /**
@@ -149,7 +205,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return PlannerTaskDetails|null
     */
     public function getDetails(): ?PlannerTaskDetails {
-        return $this->getBackingStore()->get('details');
+        $val = $this->getBackingStore()->get('details');
+        if (is_null($val) || $val instanceof PlannerTaskDetails) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'details'");
     }
 
     /**
@@ -157,12 +217,16 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return DateTime|null
     */
     public function getDueDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('dueDateTime');
+        $val = $this->getBackingStore()->get('dueDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dueDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -203,7 +267,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return bool|null
     */
     public function getHasDescription(): ?bool {
-        return $this->getBackingStore()->get('hasDescription');
+        $val = $this->getBackingStore()->get('hasDescription');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hasDescription'");
     }
 
     /**
@@ -211,7 +279,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return string|null
     */
     public function getOrderHint(): ?string {
-        return $this->getBackingStore()->get('orderHint');
+        $val = $this->getBackingStore()->get('orderHint');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'orderHint'");
     }
 
     /**
@@ -219,7 +291,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return int|null
     */
     public function getPercentComplete(): ?int {
-        return $this->getBackingStore()->get('percentComplete');
+        $val = $this->getBackingStore()->get('percentComplete');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'percentComplete'");
     }
 
     /**
@@ -227,7 +303,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return string|null
     */
     public function getPlanId(): ?string {
-        return $this->getBackingStore()->get('planId');
+        $val = $this->getBackingStore()->get('planId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'planId'");
     }
 
     /**
@@ -235,7 +315,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return PlannerPreviewType|null
     */
     public function getPreviewType(): ?PlannerPreviewType {
-        return $this->getBackingStore()->get('previewType');
+        $val = $this->getBackingStore()->get('previewType');
+        if (is_null($val) || $val instanceof PlannerPreviewType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'previewType'");
     }
 
     /**
@@ -243,7 +327,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return int|null
     */
     public function getPriority(): ?int {
-        return $this->getBackingStore()->get('priority');
+        $val = $this->getBackingStore()->get('priority');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'priority'");
     }
 
     /**
@@ -251,7 +339,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return PlannerProgressTaskBoardTaskFormat|null
     */
     public function getProgressTaskBoardFormat(): ?PlannerProgressTaskBoardTaskFormat {
-        return $this->getBackingStore()->get('progressTaskBoardFormat');
+        $val = $this->getBackingStore()->get('progressTaskBoardFormat');
+        if (is_null($val) || $val instanceof PlannerProgressTaskBoardTaskFormat) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'progressTaskBoardFormat'");
     }
 
     /**
@@ -259,7 +351,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return PlannerTaskRecurrence|null
     */
     public function getRecurrence(): ?PlannerTaskRecurrence {
-        return $this->getBackingStore()->get('recurrence');
+        $val = $this->getBackingStore()->get('recurrence');
+        if (is_null($val) || $val instanceof PlannerTaskRecurrence) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recurrence'");
     }
 
     /**
@@ -267,7 +363,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return int|null
     */
     public function getReferenceCount(): ?int {
-        return $this->getBackingStore()->get('referenceCount');
+        $val = $this->getBackingStore()->get('referenceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'referenceCount'");
     }
 
     /**
@@ -275,7 +375,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return PlannerTaskCompletionRequirements|null
     */
     public function getSpecifiedCompletionRequirements(): ?PlannerTaskCompletionRequirements {
-        return $this->getBackingStore()->get('specifiedCompletionRequirements');
+        $val = $this->getBackingStore()->get('specifiedCompletionRequirements');
+        if (is_null($val) || $val instanceof PlannerTaskCompletionRequirements) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'specifiedCompletionRequirements'");
     }
 
     /**
@@ -283,7 +387,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('startDateTime');
+        $val = $this->getBackingStore()->get('startDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startDateTime'");
     }
 
     /**
@@ -291,7 +399,11 @@ class PlannerTask extends PlannerDelta implements Parsable
      * @return string|null
     */
     public function getTitle(): ?string {
-        return $this->getBackingStore()->get('title');
+        $val = $this->getBackingStore()->get('title');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'title'");
     }
 
     /**

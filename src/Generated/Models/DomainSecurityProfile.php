@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DomainSecurityProfile extends Entity implements Parsable 
 {
@@ -30,7 +31,13 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getActivityGroupNames(): ?array {
-        return $this->getBackingStore()->get('activityGroupNames');
+        $val = $this->getBackingStore()->get('activityGroupNames');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activityGroupNames'");
     }
 
     /**
@@ -38,7 +45,11 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getAzureSubscriptionId(): ?string {
-        return $this->getBackingStore()->get('azureSubscriptionId');
+        $val = $this->getBackingStore()->get('azureSubscriptionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureSubscriptionId'");
     }
 
     /**
@@ -46,7 +57,11 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getAzureTenantId(): ?string {
-        return $this->getBackingStore()->get('azureTenantId');
+        $val = $this->getBackingStore()->get('azureTenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureTenantId'");
     }
 
     /**
@@ -54,7 +69,11 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return int|null
     */
     public function getCountHits(): ?int {
-        return $this->getBackingStore()->get('countHits');
+        $val = $this->getBackingStore()->get('countHits');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'countHits'");
     }
 
     /**
@@ -62,7 +81,11 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return int|null
     */
     public function getCountInOrg(): ?int {
-        return $this->getBackingStore()->get('countInOrg');
+        $val = $this->getBackingStore()->get('countInOrg');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'countInOrg'");
     }
 
     /**
@@ -70,7 +93,13 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return array<ReputationCategory>|null
     */
     public function getDomainCategories(): ?array {
-        return $this->getBackingStore()->get('domainCategories');
+        $val = $this->getBackingStore()->get('domainCategories');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ReputationCategory::class);
+            /** @var array<ReputationCategory>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'domainCategories'");
     }
 
     /**
@@ -78,17 +107,28 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDomainRegisteredDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('domainRegisteredDateTime');
+        $val = $this->getBackingStore()->get('domainRegisteredDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'domainRegisteredDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activityGroupNames' => fn(ParseNode $n) => $o->setActivityGroupNames($n->getCollectionOfPrimitiveValues()),
+            'activityGroupNames' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setActivityGroupNames($val);
+            },
             'azureSubscriptionId' => fn(ParseNode $n) => $o->setAzureSubscriptionId($n->getStringValue()),
             'azureTenantId' => fn(ParseNode $n) => $o->setAzureTenantId($n->getStringValue()),
             'countHits' => fn(ParseNode $n) => $o->setCountHits($n->getIntegerValue()),
@@ -100,7 +140,14 @@ class DomainSecurityProfile extends Entity implements Parsable
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'registrant' => fn(ParseNode $n) => $o->setRegistrant($n->getObjectValue([DomainRegistrant::class, 'createFromDiscriminatorValue'])),
             'riskScore' => fn(ParseNode $n) => $o->setRiskScore($n->getStringValue()),
-            'tags' => fn(ParseNode $n) => $o->setTags($n->getCollectionOfPrimitiveValues()),
+            'tags' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setTags($val);
+            },
             'vendorInformation' => fn(ParseNode $n) => $o->setVendorInformation($n->getObjectValue([SecurityVendorInformation::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -110,7 +157,11 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getFirstSeenDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('firstSeenDateTime');
+        $val = $this->getBackingStore()->get('firstSeenDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firstSeenDateTime'");
     }
 
     /**
@@ -118,7 +169,11 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastSeenDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastSeenDateTime');
+        $val = $this->getBackingStore()->get('lastSeenDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSeenDateTime'");
     }
 
     /**
@@ -126,7 +181,11 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -134,7 +193,11 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return DomainRegistrant|null
     */
     public function getRegistrant(): ?DomainRegistrant {
-        return $this->getBackingStore()->get('registrant');
+        $val = $this->getBackingStore()->get('registrant');
+        if (is_null($val) || $val instanceof DomainRegistrant) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'registrant'");
     }
 
     /**
@@ -142,7 +205,11 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getRiskScore(): ?string {
-        return $this->getBackingStore()->get('riskScore');
+        $val = $this->getBackingStore()->get('riskScore');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'riskScore'");
     }
 
     /**
@@ -150,7 +217,13 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getTags(): ?array {
-        return $this->getBackingStore()->get('tags');
+        $val = $this->getBackingStore()->get('tags');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tags'");
     }
 
     /**
@@ -158,7 +231,11 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return SecurityVendorInformation|null
     */
     public function getVendorInformation(): ?SecurityVendorInformation {
-        return $this->getBackingStore()->get('vendorInformation');
+        $val = $this->getBackingStore()->get('vendorInformation');
+        if (is_null($val) || $val instanceof SecurityVendorInformation) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vendorInformation'");
     }
 
     /**

@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Device Management Configuration Policy
@@ -32,7 +33,11 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
      * @return string|null
     */
     public function getCategoryDescription(): ?string {
-        return $this->getBackingStore()->get('categoryDescription');
+        $val = $this->getBackingStore()->get('categoryDescription');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'categoryDescription'");
     }
 
     /**
@@ -40,7 +45,13 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getChildCategoryIds(): ?array {
-        return $this->getBackingStore()->get('childCategoryIds');
+        $val = $this->getBackingStore()->get('childCategoryIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'childCategoryIds'");
     }
 
     /**
@@ -48,7 +59,11 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -56,18 +71,29 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'categoryDescription' => fn(ParseNode $n) => $o->setCategoryDescription($n->getStringValue()),
-            'childCategoryIds' => fn(ParseNode $n) => $o->setChildCategoryIds($n->getCollectionOfPrimitiveValues()),
+            'childCategoryIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setChildCategoryIds($val);
+            },
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'helpText' => fn(ParseNode $n) => $o->setHelpText($n->getStringValue()),
@@ -85,7 +111,11 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
      * @return string|null
     */
     public function getHelpText(): ?string {
-        return $this->getBackingStore()->get('helpText');
+        $val = $this->getBackingStore()->get('helpText');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'helpText'");
     }
 
     /**
@@ -93,7 +123,11 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -101,7 +135,11 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
      * @return string|null
     */
     public function getParentCategoryId(): ?string {
-        return $this->getBackingStore()->get('parentCategoryId');
+        $val = $this->getBackingStore()->get('parentCategoryId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'parentCategoryId'");
     }
 
     /**
@@ -109,7 +147,11 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
      * @return DeviceManagementConfigurationPlatforms|null
     */
     public function getPlatforms(): ?DeviceManagementConfigurationPlatforms {
-        return $this->getBackingStore()->get('platforms');
+        $val = $this->getBackingStore()->get('platforms');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationPlatforms) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'platforms'");
     }
 
     /**
@@ -117,7 +159,11 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
      * @return string|null
     */
     public function getRootCategoryId(): ?string {
-        return $this->getBackingStore()->get('rootCategoryId');
+        $val = $this->getBackingStore()->get('rootCategoryId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rootCategoryId'");
     }
 
     /**
@@ -125,7 +171,11 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
      * @return DeviceManagementConfigurationSettingUsage|null
     */
     public function getSettingUsage(): ?DeviceManagementConfigurationSettingUsage {
-        return $this->getBackingStore()->get('settingUsage');
+        $val = $this->getBackingStore()->get('settingUsage');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationSettingUsage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingUsage'");
     }
 
     /**
@@ -133,7 +183,11 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
      * @return DeviceManagementConfigurationTechnologies|null
     */
     public function getTechnologies(): ?DeviceManagementConfigurationTechnologies {
-        return $this->getBackingStore()->get('technologies');
+        $val = $this->getBackingStore()->get('technologies');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationTechnologies) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'technologies'");
     }
 
     /**

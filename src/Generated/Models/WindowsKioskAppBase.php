@@ -51,7 +51,12 @@ class WindowsKioskAppBase implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -59,7 +64,11 @@ class WindowsKioskAppBase implements AdditionalDataHolder, BackedModel, Parsable
      * @return WindowsKioskAppType|null
     */
     public function getAppType(): ?WindowsKioskAppType {
-        return $this->getBackingStore()->get('appType');
+        $val = $this->getBackingStore()->get('appType');
+        if (is_null($val) || $val instanceof WindowsKioskAppType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appType'");
     }
 
     /**
@@ -67,7 +76,11 @@ class WindowsKioskAppBase implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getAutoLaunch(): ?bool {
-        return $this->getBackingStore()->get('autoLaunch');
+        $val = $this->getBackingStore()->get('autoLaunch');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'autoLaunch'");
     }
 
     /**
@@ -80,7 +93,7 @@ class WindowsKioskAppBase implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -98,7 +111,11 @@ class WindowsKioskAppBase implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -106,7 +123,11 @@ class WindowsKioskAppBase implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -114,7 +135,11 @@ class WindowsKioskAppBase implements AdditionalDataHolder, BackedModel, Parsable
      * @return WindowsAppStartLayoutTileSize|null
     */
     public function getStartLayoutTileSize(): ?WindowsAppStartLayoutTileSize {
-        return $this->getBackingStore()->get('startLayoutTileSize');
+        $val = $this->getBackingStore()->get('startLayoutTileSize');
+        if (is_null($val) || $val instanceof WindowsAppStartLayoutTileSize) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startLayoutTileSize'");
     }
 
     /**

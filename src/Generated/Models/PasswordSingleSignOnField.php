@@ -39,7 +39,12 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, BackedModel, Pa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +60,11 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getCustomizedLabel(): ?string {
-        return $this->getBackingStore()->get('customizedLabel');
+        $val = $this->getBackingStore()->get('customizedLabel');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customizedLabel'");
     }
 
     /**
@@ -63,12 +72,16 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getDefaultLabel(): ?string {
-        return $this->getBackingStore()->get('defaultLabel');
+        $val = $this->getBackingStore()->get('defaultLabel');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultLabel'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -86,7 +99,11 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getFieldId(): ?string {
-        return $this->getBackingStore()->get('fieldId');
+        $val = $this->getBackingStore()->get('fieldId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fieldId'");
     }
 
     /**
@@ -94,7 +111,11 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -102,7 +123,11 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getType(): ?string {
-        return $this->getBackingStore()->get('type');
+        $val = $this->getBackingStore()->get('type');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
     }
 
     /**

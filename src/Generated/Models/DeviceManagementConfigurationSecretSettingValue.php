@@ -27,7 +27,7 @@ class DeviceManagementConfigurationSecretSettingValue extends DeviceManagementCo
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -42,7 +42,11 @@ class DeviceManagementConfigurationSecretSettingValue extends DeviceManagementCo
      * @return string|null
     */
     public function getValue(): ?string {
-        return $this->getBackingStore()->get('value');
+        $val = $this->getBackingStore()->get('value');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'value'");
     }
 
     /**
@@ -50,7 +54,11 @@ class DeviceManagementConfigurationSecretSettingValue extends DeviceManagementCo
      * @return DeviceManagementConfigurationSecretSettingValueState|null
     */
     public function getValueState(): ?DeviceManagementConfigurationSecretSettingValueState {
-        return $this->getBackingStore()->get('valueState');
+        $val = $this->getBackingStore()->get('valueState');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationSecretSettingValueState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'valueState'");
     }
 
     /**

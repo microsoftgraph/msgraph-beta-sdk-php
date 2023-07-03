@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
 class DeviceHealthScript extends Entity implements Parsable 
@@ -31,7 +32,13 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return array<DeviceHealthScriptAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->getBackingStore()->get('assignments');
+        $val = $this->getBackingStore()->get('assignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceHealthScriptAssignment::class);
+            /** @var array<DeviceHealthScriptAssignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignments'");
     }
 
     /**
@@ -39,7 +46,11 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -47,7 +58,11 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -55,7 +70,11 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return StreamInterface|null
     */
     public function getDetectionScriptContent(): ?StreamInterface {
-        return $this->getBackingStore()->get('detectionScriptContent');
+        $val = $this->getBackingStore()->get('detectionScriptContent');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detectionScriptContent'");
     }
 
     /**
@@ -63,7 +82,13 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return array<DeviceHealthScriptParameter>|null
     */
     public function getDetectionScriptParameters(): ?array {
-        return $this->getBackingStore()->get('detectionScriptParameters');
+        $val = $this->getBackingStore()->get('detectionScriptParameters');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceHealthScriptParameter::class);
+            /** @var array<DeviceHealthScriptParameter>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detectionScriptParameters'");
     }
 
     /**
@@ -71,7 +96,11 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return DeviceHealthScriptType|null
     */
     public function getDeviceHealthScriptType(): ?DeviceHealthScriptType {
-        return $this->getBackingStore()->get('deviceHealthScriptType');
+        $val = $this->getBackingStore()->get('deviceHealthScriptType');
+        if (is_null($val) || $val instanceof DeviceHealthScriptType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceHealthScriptType'");
     }
 
     /**
@@ -79,7 +108,13 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return array<DeviceHealthScriptDeviceState>|null
     */
     public function getDeviceRunStates(): ?array {
-        return $this->getBackingStore()->get('deviceRunStates');
+        $val = $this->getBackingStore()->get('deviceRunStates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceHealthScriptDeviceState::class);
+            /** @var array<DeviceHealthScriptDeviceState>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceRunStates'");
     }
 
     /**
@@ -87,7 +122,11 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -95,12 +134,16 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return bool|null
     */
     public function getEnforceSignatureCheck(): ?bool {
-        return $this->getBackingStore()->get('enforceSignatureCheck');
+        $val = $this->getBackingStore()->get('enforceSignatureCheck');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enforceSignatureCheck'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -120,7 +163,14 @@ class DeviceHealthScript extends Entity implements Parsable
             'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
             'remediationScriptContent' => fn(ParseNode $n) => $o->setRemediationScriptContent($n->getBinaryContent()),
             'remediationScriptParameters' => fn(ParseNode $n) => $o->setRemediationScriptParameters($n->getCollectionOfObjectValues([DeviceHealthScriptParameter::class, 'createFromDiscriminatorValue'])),
-            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
+            'roleScopeTagIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoleScopeTagIds($val);
+            },
             'runAs32Bit' => fn(ParseNode $n) => $o->setRunAs32Bit($n->getBooleanValue()),
             'runAsAccount' => fn(ParseNode $n) => $o->setRunAsAccount($n->getEnumValue(RunAsAccountType::class)),
             'runSummary' => fn(ParseNode $n) => $o->setRunSummary($n->getObjectValue([DeviceHealthScriptRunSummary::class, 'createFromDiscriminatorValue'])),
@@ -133,7 +183,11 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return string|null
     */
     public function getHighestAvailableVersion(): ?string {
-        return $this->getBackingStore()->get('highestAvailableVersion');
+        $val = $this->getBackingStore()->get('highestAvailableVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'highestAvailableVersion'");
     }
 
     /**
@@ -141,7 +195,11 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsGlobalScript(): ?bool {
-        return $this->getBackingStore()->get('isGlobalScript');
+        $val = $this->getBackingStore()->get('isGlobalScript');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isGlobalScript'");
     }
 
     /**
@@ -149,7 +207,11 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -157,7 +219,11 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return string|null
     */
     public function getPublisher(): ?string {
-        return $this->getBackingStore()->get('publisher');
+        $val = $this->getBackingStore()->get('publisher');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publisher'");
     }
 
     /**
@@ -165,7 +231,11 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return StreamInterface|null
     */
     public function getRemediationScriptContent(): ?StreamInterface {
-        return $this->getBackingStore()->get('remediationScriptContent');
+        $val = $this->getBackingStore()->get('remediationScriptContent');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remediationScriptContent'");
     }
 
     /**
@@ -173,7 +243,13 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return array<DeviceHealthScriptParameter>|null
     */
     public function getRemediationScriptParameters(): ?array {
-        return $this->getBackingStore()->get('remediationScriptParameters');
+        $val = $this->getBackingStore()->get('remediationScriptParameters');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceHealthScriptParameter::class);
+            /** @var array<DeviceHealthScriptParameter>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remediationScriptParameters'");
     }
 
     /**
@@ -181,7 +257,13 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->getBackingStore()->get('roleScopeTagIds');
+        $val = $this->getBackingStore()->get('roleScopeTagIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleScopeTagIds'");
     }
 
     /**
@@ -189,7 +271,11 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return bool|null
     */
     public function getRunAs32Bit(): ?bool {
-        return $this->getBackingStore()->get('runAs32Bit');
+        $val = $this->getBackingStore()->get('runAs32Bit');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'runAs32Bit'");
     }
 
     /**
@@ -197,7 +283,11 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return RunAsAccountType|null
     */
     public function getRunAsAccount(): ?RunAsAccountType {
-        return $this->getBackingStore()->get('runAsAccount');
+        $val = $this->getBackingStore()->get('runAsAccount');
+        if (is_null($val) || $val instanceof RunAsAccountType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'runAsAccount'");
     }
 
     /**
@@ -205,7 +295,11 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return DeviceHealthScriptRunSummary|null
     */
     public function getRunSummary(): ?DeviceHealthScriptRunSummary {
-        return $this->getBackingStore()->get('runSummary');
+        $val = $this->getBackingStore()->get('runSummary');
+        if (is_null($val) || $val instanceof DeviceHealthScriptRunSummary) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'runSummary'");
     }
 
     /**
@@ -213,7 +307,11 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return string|null
     */
     public function getVersion(): ?string {
-        return $this->getBackingStore()->get('version');
+        $val = $this->getBackingStore()->get('version');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'version'");
     }
 
     /**

@@ -39,7 +39,12 @@ class UploadDepTokenPostRequestBody implements AdditionalDataHolder, BackedModel
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +52,11 @@ class UploadDepTokenPostRequestBody implements AdditionalDataHolder, BackedModel
      * @return string|null
     */
     public function getAppleId(): ?string {
-        return $this->getBackingStore()->get('appleId');
+        $val = $this->getBackingStore()->get('appleId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appleId'");
     }
 
     /**
@@ -63,12 +72,16 @@ class UploadDepTokenPostRequestBody implements AdditionalDataHolder, BackedModel
      * @return string|null
     */
     public function getDepToken(): ?string {
-        return $this->getBackingStore()->get('depToken');
+        $val = $this->getBackingStore()->get('depToken');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'depToken'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

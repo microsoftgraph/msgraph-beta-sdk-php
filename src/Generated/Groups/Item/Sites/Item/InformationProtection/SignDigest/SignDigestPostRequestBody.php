@@ -40,7 +40,12 @@ class SignDigestPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -56,12 +61,16 @@ class SignDigestPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
      * @return StreamInterface|null
     */
     public function getDigest(): ?StreamInterface {
-        return $this->getBackingStore()->get('digest');
+        $val = $this->getBackingStore()->get('digest');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'digest'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

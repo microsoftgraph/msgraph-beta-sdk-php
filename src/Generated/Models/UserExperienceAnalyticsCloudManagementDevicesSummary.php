@@ -42,7 +42,12 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -54,16 +59,20 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
     }
 
     /**
-     * Gets the coManagedDeviceCount property value. Total number of  co-managed devices.
+     * Gets the coManagedDeviceCount property value. Total number of  co-managed devices. Read-only.
      * @return int|null
     */
     public function getCoManagedDeviceCount(): ?int {
-        return $this->getBackingStore()->get('coManagedDeviceCount');
+        $val = $this->getBackingStore()->get('coManagedDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'coManagedDeviceCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -76,11 +85,15 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
     }
 
     /**
-     * Gets the intuneDeviceCount property value. The count of intune devices that are not autopilot registerd.
+     * Gets the intuneDeviceCount property value. The count of intune devices that are not autopilot registerd. Read-only.
      * @return int|null
     */
     public function getIntuneDeviceCount(): ?int {
-        return $this->getBackingStore()->get('intuneDeviceCount');
+        $val = $this->getBackingStore()->get('intuneDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'intuneDeviceCount'");
     }
 
     /**
@@ -88,15 +101,23 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
-     * Gets the tenantAttachDeviceCount property value. Total count of tenant attach devices.
+     * Gets the tenantAttachDeviceCount property value. Total count of tenant attach devices. Read-only.
      * @return int|null
     */
     public function getTenantAttachDeviceCount(): ?int {
-        return $this->getBackingStore()->get('tenantAttachDeviceCount');
+        $val = $this->getBackingStore()->get('tenantAttachDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantAttachDeviceCount'");
     }
 
     /**
@@ -128,7 +149,7 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
     }
 
     /**
-     * Sets the coManagedDeviceCount property value. Total number of  co-managed devices.
+     * Sets the coManagedDeviceCount property value. Total number of  co-managed devices. Read-only.
      * @param int|null $value Value to set for the coManagedDeviceCount property.
     */
     public function setCoManagedDeviceCount(?int $value): void {
@@ -136,7 +157,7 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
     }
 
     /**
-     * Sets the intuneDeviceCount property value. The count of intune devices that are not autopilot registerd.
+     * Sets the intuneDeviceCount property value. The count of intune devices that are not autopilot registerd. Read-only.
      * @param int|null $value Value to set for the intuneDeviceCount property.
     */
     public function setIntuneDeviceCount(?int $value): void {
@@ -152,7 +173,7 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
     }
 
     /**
-     * Sets the tenantAttachDeviceCount property value. Total count of tenant attach devices.
+     * Sets the tenantAttachDeviceCount property value. Total count of tenant attach devices. Read-only.
      * @param int|null $value Value to set for the tenantAttachDeviceCount property.
     */
     public function setTenantAttachDeviceCount(?int $value): void {

@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * The user experience analytics insight is the recomendation to improve the user experience analytics score.
@@ -42,7 +43,12 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, BackedMode
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +61,7 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, BackedMode
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -73,7 +79,11 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getInsightId(): ?string {
-        return $this->getBackingStore()->get('insightId');
+        $val = $this->getBackingStore()->get('insightId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'insightId'");
     }
 
     /**
@@ -81,7 +91,11 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -89,15 +103,23 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, BackedMode
      * @return UserExperienceAnalyticsInsightSeverity|null
     */
     public function getSeverity(): ?UserExperienceAnalyticsInsightSeverity {
-        return $this->getBackingStore()->get('severity');
+        $val = $this->getBackingStore()->get('severity');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsInsightSeverity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'severity'");
     }
 
     /**
-     * Gets the userExperienceAnalyticsMetricId property value. The unique identifier of the user experience analytics insight.
+     * Gets the userExperienceAnalyticsMetricId property value. The unique identifier of the user experience analytics metric.
      * @return string|null
     */
     public function getUserExperienceAnalyticsMetricId(): ?string {
-        return $this->getBackingStore()->get('userExperienceAnalyticsMetricId');
+        $val = $this->getBackingStore()->get('userExperienceAnalyticsMetricId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsMetricId'");
     }
 
     /**
@@ -105,7 +127,13 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, BackedMode
      * @return array<UserExperienceAnalyticsInsightValue>|null
     */
     public function getValues(): ?array {
-        return $this->getBackingStore()->get('values');
+        $val = $this->getBackingStore()->get('values');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsInsightValue::class);
+            /** @var array<UserExperienceAnalyticsInsightValue>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'values'");
     }
 
     /**
@@ -162,7 +190,7 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the userExperienceAnalyticsMetricId property value. The unique identifier of the user experience analytics insight.
+     * Sets the userExperienceAnalyticsMetricId property value. The unique identifier of the user experience analytics metric.
      * @param string|null $value Value to set for the userExperienceAnalyticsMetricId property.
     */
     public function setUserExperienceAnalyticsMetricId(?string $value): void {

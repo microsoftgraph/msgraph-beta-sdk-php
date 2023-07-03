@@ -41,7 +41,12 @@ class GovernanceSchedule implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -57,7 +62,11 @@ class GovernanceSchedule implements AdditionalDataHolder, BackedModel, Parsable
      * @return DateInterval|null
     */
     public function getDuration(): ?DateInterval {
-        return $this->getBackingStore()->get('duration');
+        $val = $this->getBackingStore()->get('duration');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'duration'");
     }
 
     /**
@@ -65,12 +74,16 @@ class GovernanceSchedule implements AdditionalDataHolder, BackedModel, Parsable
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('endDateTime');
+        $val = $this->getBackingStore()->get('endDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -88,7 +101,11 @@ class GovernanceSchedule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -96,7 +113,11 @@ class GovernanceSchedule implements AdditionalDataHolder, BackedModel, Parsable
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('startDateTime');
+        $val = $this->getBackingStore()->get('startDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startDateTime'");
     }
 
     /**
@@ -104,7 +125,11 @@ class GovernanceSchedule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getType(): ?string {
-        return $this->getBackingStore()->get('type');
+        $val = $this->getBackingStore()->get('type');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
     }
 
     /**

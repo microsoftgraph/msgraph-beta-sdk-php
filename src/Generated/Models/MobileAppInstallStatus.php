@@ -30,7 +30,11 @@ class MobileAppInstallStatus extends Entity implements Parsable
      * @return MobileApp|null
     */
     public function getApp(): ?MobileApp {
-        return $this->getBackingStore()->get('app');
+        $val = $this->getBackingStore()->get('app');
+        if (is_null($val) || $val instanceof MobileApp) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'app'");
     }
 
     /**
@@ -38,7 +42,11 @@ class MobileAppInstallStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->getBackingStore()->get('deviceId');
+        $val = $this->getBackingStore()->get('deviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceId'");
     }
 
     /**
@@ -46,7 +54,11 @@ class MobileAppInstallStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->getBackingStore()->get('deviceName');
+        $val = $this->getBackingStore()->get('deviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceName'");
     }
 
     /**
@@ -54,7 +66,11 @@ class MobileAppInstallStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayVersion(): ?string {
-        return $this->getBackingStore()->get('displayVersion');
+        $val = $this->getBackingStore()->get('displayVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayVersion'");
     }
 
     /**
@@ -62,12 +78,16 @@ class MobileAppInstallStatus extends Entity implements Parsable
      * @return int|null
     */
     public function getErrorCode(): ?int {
-        return $this->getBackingStore()->get('errorCode');
+        $val = $this->getBackingStore()->get('errorCode');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorCode'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -93,7 +113,11 @@ class MobileAppInstallStatus extends Entity implements Parsable
      * @return ResultantAppState|null
     */
     public function getInstallState(): ?ResultantAppState {
-        return $this->getBackingStore()->get('installState');
+        $val = $this->getBackingStore()->get('installState');
+        if (is_null($val) || $val instanceof ResultantAppState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'installState'");
     }
 
     /**
@@ -101,7 +125,11 @@ class MobileAppInstallStatus extends Entity implements Parsable
      * @return ResultantAppStateDetail|null
     */
     public function getInstallStateDetail(): ?ResultantAppStateDetail {
-        return $this->getBackingStore()->get('installStateDetail');
+        $val = $this->getBackingStore()->get('installStateDetail');
+        if (is_null($val) || $val instanceof ResultantAppStateDetail) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'installStateDetail'");
     }
 
     /**
@@ -109,7 +137,11 @@ class MobileAppInstallStatus extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastSyncDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastSyncDateTime');
+        $val = $this->getBackingStore()->get('lastSyncDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSyncDateTime'");
     }
 
     /**
@@ -117,7 +149,11 @@ class MobileAppInstallStatus extends Entity implements Parsable
      * @return ResultantAppState|null
     */
     public function getMobileAppInstallStatusValue(): ?ResultantAppState {
-        return $this->getBackingStore()->get('mobileAppInstallStatusValue');
+        $val = $this->getBackingStore()->get('mobileAppInstallStatusValue');
+        if (is_null($val) || $val instanceof ResultantAppState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mobileAppInstallStatusValue'");
     }
 
     /**
@@ -125,7 +161,11 @@ class MobileAppInstallStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getOsDescription(): ?string {
-        return $this->getBackingStore()->get('osDescription');
+        $val = $this->getBackingStore()->get('osDescription');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osDescription'");
     }
 
     /**
@@ -133,7 +173,11 @@ class MobileAppInstallStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getOsVersion(): ?string {
-        return $this->getBackingStore()->get('osVersion');
+        $val = $this->getBackingStore()->get('osVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osVersion'");
     }
 
     /**
@@ -141,7 +185,11 @@ class MobileAppInstallStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getUserName(): ?string {
-        return $this->getBackingStore()->get('userName');
+        $val = $this->getBackingStore()->get('userName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userName'");
     }
 
     /**
@@ -149,7 +197,11 @@ class MobileAppInstallStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('userPrincipalName');
+        $val = $this->getBackingStore()->get('userPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
     }
 
     /**

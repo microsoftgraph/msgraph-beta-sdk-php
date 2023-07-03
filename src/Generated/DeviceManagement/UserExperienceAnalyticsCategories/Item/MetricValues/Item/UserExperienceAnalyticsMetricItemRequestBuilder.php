@@ -50,7 +50,7 @@ class UserExperienceAnalyticsMetricItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The metric values for the user experience analytics category.
+     * The metric values for the user experience analytics category. Read-only.
      * @param UserExperienceAnalyticsMetricItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -104,7 +104,7 @@ class UserExperienceAnalyticsMetricItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The metric values for the user experience analytics category.
+     * The metric values for the user experience analytics category. Read-only.
      * @param UserExperienceAnalyticsMetricItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

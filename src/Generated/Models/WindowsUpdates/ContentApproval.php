@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models\WindowsUpdates;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ContentApproval extends ComplianceChange implements Parsable 
 {
@@ -30,7 +31,11 @@ class ContentApproval extends ComplianceChange implements Parsable
      * @return DeployableContent|null
     */
     public function getContent(): ?DeployableContent {
-        return $this->getBackingStore()->get('content');
+        $val = $this->getBackingStore()->get('content');
+        if (is_null($val) || $val instanceof DeployableContent) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'content'");
     }
 
     /**
@@ -38,7 +43,13 @@ class ContentApproval extends ComplianceChange implements Parsable
      * @return array<Deployment>|null
     */
     public function getDeployments(): ?array {
-        return $this->getBackingStore()->get('deployments');
+        $val = $this->getBackingStore()->get('deployments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Deployment::class);
+            /** @var array<Deployment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deployments'");
     }
 
     /**
@@ -46,12 +57,16 @@ class ContentApproval extends ComplianceChange implements Parsable
      * @return DeploymentSettings|null
     */
     public function getDeploymentSettings(): ?DeploymentSettings {
-        return $this->getBackingStore()->get('deploymentSettings');
+        $val = $this->getBackingStore()->get('deploymentSettings');
+        if (is_null($val) || $val instanceof DeploymentSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deploymentSettings'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

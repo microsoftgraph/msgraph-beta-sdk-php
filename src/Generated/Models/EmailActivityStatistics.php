@@ -31,12 +31,16 @@ class EmailActivityStatistics extends ActivityStatistics implements Parsable
      * @return DateInterval|null
     */
     public function getAfterHours(): ?DateInterval {
-        return $this->getBackingStore()->get('afterHours');
+        $val = $this->getBackingStore()->get('afterHours');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'afterHours'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -52,7 +56,11 @@ class EmailActivityStatistics extends ActivityStatistics implements Parsable
      * @return DateInterval|null
     */
     public function getReadEmail(): ?DateInterval {
-        return $this->getBackingStore()->get('readEmail');
+        $val = $this->getBackingStore()->get('readEmail');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'readEmail'");
     }
 
     /**
@@ -60,7 +68,11 @@ class EmailActivityStatistics extends ActivityStatistics implements Parsable
      * @return DateInterval|null
     */
     public function getSentEmail(): ?DateInterval {
-        return $this->getBackingStore()->get('sentEmail');
+        $val = $this->getBackingStore()->get('sentEmail');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sentEmail'");
     }
 
     /**

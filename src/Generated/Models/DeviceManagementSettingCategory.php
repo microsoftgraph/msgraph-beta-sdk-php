@@ -5,11 +5,15 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Entity representing a setting category
+*/
 class DeviceManagementSettingCategory extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementSettingCategory and sets the default values.
+     * Instantiates a new deviceManagementSettingCategory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -37,12 +41,16 @@ class DeviceManagementSettingCategory extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -58,7 +66,11 @@ class DeviceManagementSettingCategory extends Entity implements Parsable
      * @return bool|null
     */
     public function getHasRequiredSetting(): ?bool {
-        return $this->getBackingStore()->get('hasRequiredSetting');
+        $val = $this->getBackingStore()->get('hasRequiredSetting');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hasRequiredSetting'");
     }
 
     /**
@@ -66,7 +78,13 @@ class DeviceManagementSettingCategory extends Entity implements Parsable
      * @return array<DeviceManagementSettingDefinition>|null
     */
     public function getSettingDefinitions(): ?array {
-        return $this->getBackingStore()->get('settingDefinitions');
+        $val = $this->getBackingStore()->get('settingDefinitions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementSettingDefinition::class);
+            /** @var array<DeviceManagementSettingDefinition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingDefinitions'");
     }
 
     /**

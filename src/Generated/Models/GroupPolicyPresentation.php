@@ -49,12 +49,16 @@ class GroupPolicyPresentation extends Entity implements Parsable
      * @return GroupPolicyDefinition|null
     */
     public function getDefinition(): ?GroupPolicyDefinition {
-        return $this->getBackingStore()->get('definition');
+        $val = $this->getBackingStore()->get('definition');
+        if (is_null($val) || $val instanceof GroupPolicyDefinition) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'definition'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -70,7 +74,11 @@ class GroupPolicyPresentation extends Entity implements Parsable
      * @return string|null
     */
     public function getLabel(): ?string {
-        return $this->getBackingStore()->get('label');
+        $val = $this->getBackingStore()->get('label');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'label'");
     }
 
     /**
@@ -78,7 +86,11 @@ class GroupPolicyPresentation extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**

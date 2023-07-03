@@ -30,12 +30,16 @@ class OnTokenIssuanceStartCustomExtensionHandler extends OnTokenIssuanceStartHan
      * @return OnTokenIssuanceStartCustomExtension|null
     */
     public function getCustomExtension(): ?OnTokenIssuanceStartCustomExtension {
-        return $this->getBackingStore()->get('customExtension');
+        $val = $this->getBackingStore()->get('customExtension');
+        if (is_null($val) || $val instanceof OnTokenIssuanceStartCustomExtension) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customExtension'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

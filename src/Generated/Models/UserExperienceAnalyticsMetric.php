@@ -29,7 +29,7 @@ class UserExperienceAnalyticsMetric extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -40,11 +40,15 @@ class UserExperienceAnalyticsMetric extends Entity implements Parsable
     }
 
     /**
-     * Gets the unit property value. The unit of the user experience analytics metric.
+     * Gets the unit property value. The unit of the user experience analytics metric. Examples: none, percentage, count, seconds, score.
      * @return string|null
     */
     public function getUnit(): ?string {
-        return $this->getBackingStore()->get('unit');
+        $val = $this->getBackingStore()->get('unit');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'unit'");
     }
 
     /**
@@ -52,7 +56,11 @@ class UserExperienceAnalyticsMetric extends Entity implements Parsable
      * @return float|null
     */
     public function getValue(): ?float {
-        return $this->getBackingStore()->get('value');
+        $val = $this->getBackingStore()->get('value');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'value'");
     }
 
     /**
@@ -66,7 +74,7 @@ class UserExperienceAnalyticsMetric extends Entity implements Parsable
     }
 
     /**
-     * Sets the unit property value. The unit of the user experience analytics metric.
+     * Sets the unit property value. The unit of the user experience analytics metric. Examples: none, percentage, count, seconds, score.
      * @param string|null $value Value to set for the unit property.
     */
     public function setUnit(?string $value): void {

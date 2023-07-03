@@ -39,7 +39,12 @@ class PayloadCoachmark implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +60,11 @@ class PayloadCoachmark implements AdditionalDataHolder, BackedModel, Parsable
      * @return CoachmarkLocation|null
     */
     public function getCoachmarkLocation(): ?CoachmarkLocation {
-        return $this->getBackingStore()->get('coachmarkLocation');
+        $val = $this->getBackingStore()->get('coachmarkLocation');
+        if (is_null($val) || $val instanceof CoachmarkLocation) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'coachmarkLocation'");
     }
 
     /**
@@ -63,12 +72,16 @@ class PayloadCoachmark implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -88,7 +101,11 @@ class PayloadCoachmark implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getIndicator(): ?string {
-        return $this->getBackingStore()->get('indicator');
+        $val = $this->getBackingStore()->get('indicator');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'indicator'");
     }
 
     /**
@@ -96,7 +113,11 @@ class PayloadCoachmark implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getIsValid(): ?bool {
-        return $this->getBackingStore()->get('isValid');
+        $val = $this->getBackingStore()->get('isValid');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isValid'");
     }
 
     /**
@@ -104,7 +125,11 @@ class PayloadCoachmark implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getLanguage(): ?string {
-        return $this->getBackingStore()->get('language');
+        $val = $this->getBackingStore()->get('language');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'language'");
     }
 
     /**
@@ -112,7 +137,11 @@ class PayloadCoachmark implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -120,7 +149,11 @@ class PayloadCoachmark implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOrder(): ?string {
-        return $this->getBackingStore()->get('order');
+        $val = $this->getBackingStore()->get('order');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'order'");
     }
 
     /**

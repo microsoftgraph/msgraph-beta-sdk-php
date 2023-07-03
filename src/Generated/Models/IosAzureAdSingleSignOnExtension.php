@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class IosAzureAdSingleSignOnExtension extends IosSingleSignOnExtension implements Parsable 
 {
@@ -30,7 +31,13 @@ class IosAzureAdSingleSignOnExtension extends IosSingleSignOnExtension implement
      * @return array<string>|null
     */
     public function getBundleIdAccessControlList(): ?array {
-        return $this->getBackingStore()->get('bundleIdAccessControlList');
+        $val = $this->getBackingStore()->get('bundleIdAccessControlList');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bundleIdAccessControlList'");
     }
 
     /**
@@ -38,7 +45,13 @@ class IosAzureAdSingleSignOnExtension extends IosSingleSignOnExtension implement
      * @return array<KeyTypedValuePair>|null
     */
     public function getConfigurations(): ?array {
-        return $this->getBackingStore()->get('configurations');
+        $val = $this->getBackingStore()->get('configurations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, KeyTypedValuePair::class);
+            /** @var array<KeyTypedValuePair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configurations'");
     }
 
     /**
@@ -46,17 +59,28 @@ class IosAzureAdSingleSignOnExtension extends IosSingleSignOnExtension implement
      * @return bool|null
     */
     public function getEnableSharedDeviceMode(): ?bool {
-        return $this->getBackingStore()->get('enableSharedDeviceMode');
+        $val = $this->getBackingStore()->get('enableSharedDeviceMode');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableSharedDeviceMode'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'bundleIdAccessControlList' => fn(ParseNode $n) => $o->setBundleIdAccessControlList($n->getCollectionOfPrimitiveValues()),
+            'bundleIdAccessControlList' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setBundleIdAccessControlList($val);
+            },
             'configurations' => fn(ParseNode $n) => $o->setConfigurations($n->getCollectionOfObjectValues([KeyTypedValuePair::class, 'createFromDiscriminatorValue'])),
             'enableSharedDeviceMode' => fn(ParseNode $n) => $o->setEnableSharedDeviceMode($n->getBooleanValue()),
         ]);

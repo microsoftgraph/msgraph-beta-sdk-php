@@ -6,11 +6,12 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class UserActivity extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userActivity and sets the default values.
+     * Instantiates a new UserActivity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -26,80 +27,116 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the activationUrl property value. The activationUrl property
+     * Gets the activationUrl property value. Required. URL used to launch the activity in the best native experience represented by the appId. Might launch a web-based app if no native app exists.
      * @return string|null
     */
     public function getActivationUrl(): ?string {
-        return $this->getBackingStore()->get('activationUrl');
+        $val = $this->getBackingStore()->get('activationUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activationUrl'");
     }
 
     /**
-     * Gets the activitySourceHost property value. The activitySourceHost property
+     * Gets the activitySourceHost property value. Required. URL for the domain representing the cross-platform identity mapping for the app. Mapping is stored either as a JSON file hosted on the domain or configurable via Windows Dev Center. The JSON file is named cross-platform-app-identifiers and is hosted at root of your HTTPS domain, either at the top level domain or include a sub domain. For example: https://contoso.com or https://myapp.contoso.com but NOT https://myapp.contoso.com/somepath. You must have a unique file and domain (or sub domain) per cross-platform app identity. For example, a separate file and domain is needed for Word vs. PowerPoint.
      * @return string|null
     */
     public function getActivitySourceHost(): ?string {
-        return $this->getBackingStore()->get('activitySourceHost');
+        $val = $this->getBackingStore()->get('activitySourceHost');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activitySourceHost'");
     }
 
     /**
-     * Gets the appActivityId property value. The appActivityId property
+     * Gets the appActivityId property value. Required. The unique activity ID in the context of the app - supplied by caller and immutable thereafter.
      * @return string|null
     */
     public function getAppActivityId(): ?string {
-        return $this->getBackingStore()->get('appActivityId');
+        $val = $this->getBackingStore()->get('appActivityId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appActivityId'");
     }
 
     /**
-     * Gets the appDisplayName property value. The appDisplayName property
+     * Gets the appDisplayName property value. Optional. Short text description of the app used to generate the activity for use in cases when the app is not installed on the user’s local device.
      * @return string|null
     */
     public function getAppDisplayName(): ?string {
-        return $this->getBackingStore()->get('appDisplayName');
+        $val = $this->getBackingStore()->get('appDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appDisplayName'");
     }
 
     /**
-     * Gets the contentInfo property value. The contentInfo property
+     * Gets the contentInfo property value. Optional. A custom piece of data - JSON-LD extensible description of content according to schema.org syntax.
      * @return Json|null
     */
     public function getContentInfo(): ?Json {
-        return $this->getBackingStore()->get('contentInfo');
+        $val = $this->getBackingStore()->get('contentInfo');
+        if (is_null($val) || $val instanceof Json) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentInfo'");
     }
 
     /**
-     * Gets the contentUrl property value. The contentUrl property
+     * Gets the contentUrl property value. Optional. Used in the event the content can be rendered outside of a native or web-based app experience (for example, a pointer to an item in an RSS feed).
      * @return string|null
     */
     public function getContentUrl(): ?string {
-        return $this->getBackingStore()->get('contentUrl');
+        $val = $this->getBackingStore()->get('contentUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentUrl'");
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. Set by the server. DateTime in UTC when the object was created on the server.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
-     * Gets the expirationDateTime property value. The expirationDateTime property
+     * Gets the expirationDateTime property value. Set by the server. DateTime in UTC when the object expired on the server.
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('expirationDateTime');
+        $val = $this->getBackingStore()->get('expirationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expirationDateTime'");
     }
 
     /**
-     * Gets the fallbackUrl property value. The fallbackUrl property
+     * Gets the fallbackUrl property value. Optional. URL used to launch the activity in a web-based app, if available.
      * @return string|null
     */
     public function getFallbackUrl(): ?string {
-        return $this->getBackingStore()->get('fallbackUrl');
+        $val = $this->getBackingStore()->get('fallbackUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fallbackUrl'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -122,35 +159,53 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the historyItems property value. The historyItems property
+     * Gets the historyItems property value. Optional. NavigationProperty/Containment; navigation property to the activity's historyItems.
      * @return array<ActivityHistoryItem>|null
     */
     public function getHistoryItems(): ?array {
-        return $this->getBackingStore()->get('historyItems');
+        $val = $this->getBackingStore()->get('historyItems');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ActivityHistoryItem::class);
+            /** @var array<ActivityHistoryItem>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'historyItems'");
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. Set by the server. DateTime in UTC when the object was modified on the server.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored.
      * @return Status|null
     */
     public function getStatus(): ?Status {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof Status) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**
-     * Gets the userTimezone property value. The userTimezone property
+     * Gets the userTimezone property value. Optional. The timezone in which the user's device used to generate the activity was located at activity creation time; values supplied as Olson IDs in order to support cross-platform representation.
      * @return string|null
     */
     public function getUserTimezone(): ?string {
-        return $this->getBackingStore()->get('userTimezone');
+        $val = $this->getBackingStore()->get('userTimezone');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userTimezone'");
     }
 
     /**
@@ -158,7 +213,11 @@ class UserActivity extends Entity implements Parsable
      * @return VisualInfo|null
     */
     public function getVisualElements(): ?VisualInfo {
-        return $this->getBackingStore()->get('visualElements');
+        $val = $this->getBackingStore()->get('visualElements');
+        if (is_null($val) || $val instanceof VisualInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'visualElements'");
     }
 
     /**
@@ -184,7 +243,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the activationUrl property value. The activationUrl property
+     * Sets the activationUrl property value. Required. URL used to launch the activity in the best native experience represented by the appId. Might launch a web-based app if no native app exists.
      * @param string|null $value Value to set for the activationUrl property.
     */
     public function setActivationUrl(?string $value): void {
@@ -192,7 +251,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the activitySourceHost property value. The activitySourceHost property
+     * Sets the activitySourceHost property value. Required. URL for the domain representing the cross-platform identity mapping for the app. Mapping is stored either as a JSON file hosted on the domain or configurable via Windows Dev Center. The JSON file is named cross-platform-app-identifiers and is hosted at root of your HTTPS domain, either at the top level domain or include a sub domain. For example: https://contoso.com or https://myapp.contoso.com but NOT https://myapp.contoso.com/somepath. You must have a unique file and domain (or sub domain) per cross-platform app identity. For example, a separate file and domain is needed for Word vs. PowerPoint.
      * @param string|null $value Value to set for the activitySourceHost property.
     */
     public function setActivitySourceHost(?string $value): void {
@@ -200,7 +259,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the appActivityId property value. The appActivityId property
+     * Sets the appActivityId property value. Required. The unique activity ID in the context of the app - supplied by caller and immutable thereafter.
      * @param string|null $value Value to set for the appActivityId property.
     */
     public function setAppActivityId(?string $value): void {
@@ -208,7 +267,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the appDisplayName property value. The appDisplayName property
+     * Sets the appDisplayName property value. Optional. Short text description of the app used to generate the activity for use in cases when the app is not installed on the user’s local device.
      * @param string|null $value Value to set for the appDisplayName property.
     */
     public function setAppDisplayName(?string $value): void {
@@ -216,7 +275,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the contentInfo property value. The contentInfo property
+     * Sets the contentInfo property value. Optional. A custom piece of data - JSON-LD extensible description of content according to schema.org syntax.
      * @param Json|null $value Value to set for the contentInfo property.
     */
     public function setContentInfo(?Json $value): void {
@@ -224,7 +283,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the contentUrl property value. The contentUrl property
+     * Sets the contentUrl property value. Optional. Used in the event the content can be rendered outside of a native or web-based app experience (for example, a pointer to an item in an RSS feed).
      * @param string|null $value Value to set for the contentUrl property.
     */
     public function setContentUrl(?string $value): void {
@@ -232,7 +291,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. Set by the server. DateTime in UTC when the object was created on the server.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -240,7 +299,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the expirationDateTime property value. The expirationDateTime property
+     * Sets the expirationDateTime property value. Set by the server. DateTime in UTC when the object expired on the server.
      * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
@@ -248,7 +307,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the fallbackUrl property value. The fallbackUrl property
+     * Sets the fallbackUrl property value. Optional. URL used to launch the activity in a web-based app, if available.
      * @param string|null $value Value to set for the fallbackUrl property.
     */
     public function setFallbackUrl(?string $value): void {
@@ -256,7 +315,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the historyItems property value. The historyItems property
+     * Sets the historyItems property value. Optional. NavigationProperty/Containment; navigation property to the activity's historyItems.
      * @param array<ActivityHistoryItem>|null $value Value to set for the historyItems property.
     */
     public function setHistoryItems(?array $value): void {
@@ -264,7 +323,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. Set by the server. DateTime in UTC when the object was modified on the server.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
@@ -272,7 +331,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored.
      * @param Status|null $value Value to set for the status property.
     */
     public function setStatus(?Status $value): void {
@@ -280,7 +339,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the userTimezone property value. The userTimezone property
+     * Sets the userTimezone property value. Optional. The timezone in which the user's device used to generate the activity was located at activity creation time; values supplied as Olson IDs in order to support cross-platform representation.
      * @param string|null $value Value to set for the userTimezone property.
     */
     public function setUserTimezone(?string $value): void {

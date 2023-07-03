@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class Custodian extends DataSourceContainer implements Parsable 
 {
@@ -31,7 +32,11 @@ class Custodian extends DataSourceContainer implements Parsable
      * @return DateTime|null
     */
     public function getAcknowledgedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('acknowledgedDateTime');
+        $val = $this->getBackingStore()->get('acknowledgedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'acknowledgedDateTime'");
     }
 
     /**
@@ -39,7 +44,11 @@ class Custodian extends DataSourceContainer implements Parsable
      * @return bool|null
     */
     public function getApplyHoldToSources(): ?bool {
-        return $this->getBackingStore()->get('applyHoldToSources');
+        $val = $this->getBackingStore()->get('applyHoldToSources');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applyHoldToSources'");
     }
 
     /**
@@ -47,12 +56,16 @@ class Custodian extends DataSourceContainer implements Parsable
      * @return string|null
     */
     public function getEmail(): ?string {
-        return $this->getBackingStore()->get('email');
+        $val = $this->getBackingStore()->get('email');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'email'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -71,7 +84,13 @@ class Custodian extends DataSourceContainer implements Parsable
      * @return array<SiteSource>|null
     */
     public function getSiteSources(): ?array {
-        return $this->getBackingStore()->get('siteSources');
+        $val = $this->getBackingStore()->get('siteSources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SiteSource::class);
+            /** @var array<SiteSource>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'siteSources'");
     }
 
     /**
@@ -79,7 +98,13 @@ class Custodian extends DataSourceContainer implements Parsable
      * @return array<UnifiedGroupSource>|null
     */
     public function getUnifiedGroupSources(): ?array {
-        return $this->getBackingStore()->get('unifiedGroupSources');
+        $val = $this->getBackingStore()->get('unifiedGroupSources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UnifiedGroupSource::class);
+            /** @var array<UnifiedGroupSource>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'unifiedGroupSources'");
     }
 
     /**
@@ -87,7 +112,13 @@ class Custodian extends DataSourceContainer implements Parsable
      * @return array<UserSource>|null
     */
     public function getUserSources(): ?array {
-        return $this->getBackingStore()->get('userSources');
+        $val = $this->getBackingStore()->get('userSources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserSource::class);
+            /** @var array<UserSource>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userSources'");
     }
 
     /**

@@ -39,7 +39,12 @@ class CrossTenantSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +52,11 @@ class CrossTenantSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getAuthTransactionCount(): ?int {
-        return $this->getBackingStore()->get('authTransactionCount');
+        $val = $this->getBackingStore()->get('authTransactionCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authTransactionCount'");
     }
 
     /**
@@ -63,12 +72,16 @@ class CrossTenantSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getDeviceCount(): ?int {
-        return $this->getBackingStore()->get('deviceCount');
+        $val = $this->getBackingStore()->get('deviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -87,7 +100,11 @@ class CrossTenantSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getNewTenantCount(): ?int {
-        return $this->getBackingStore()->get('newTenantCount');
+        $val = $this->getBackingStore()->get('newTenantCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'newTenantCount'");
     }
 
     /**
@@ -95,7 +112,11 @@ class CrossTenantSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -103,7 +124,11 @@ class CrossTenantSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getTenantCount(): ?int {
-        return $this->getBackingStore()->get('tenantCount');
+        $val = $this->getBackingStore()->get('tenantCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantCount'");
     }
 
     /**
@@ -111,7 +136,11 @@ class CrossTenantSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getUserCount(): ?int {
-        return $this->getBackingStore()->get('userCount');
+        $val = $this->getBackingStore()->get('userCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userCount'");
     }
 
     /**

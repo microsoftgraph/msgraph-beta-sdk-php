@@ -42,7 +42,12 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -50,7 +55,11 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
      * @return AuthenticationTransformConstant|null
     */
     public function getAuthenticationTransformConstants(): ?AuthenticationTransformConstant {
-        return $this->getBackingStore()->get('authenticationTransformConstants');
+        $val = $this->getBackingStore()->get('authenticationTransformConstants');
+        if (is_null($val) || $val instanceof AuthenticationTransformConstant) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationTransformConstants'");
     }
 
     /**
@@ -66,7 +75,11 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
      * @return VpnEncryptionAlgorithmType|null
     */
     public function getCipherTransformConstants(): ?VpnEncryptionAlgorithmType {
-        return $this->getBackingStore()->get('cipherTransformConstants');
+        $val = $this->getBackingStore()->get('cipherTransformConstants');
+        if (is_null($val) || $val instanceof VpnEncryptionAlgorithmType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cipherTransformConstants'");
     }
 
     /**
@@ -74,7 +87,11 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
      * @return DiffieHellmanGroup|null
     */
     public function getDhGroup(): ?DiffieHellmanGroup {
-        return $this->getBackingStore()->get('dhGroup');
+        $val = $this->getBackingStore()->get('dhGroup');
+        if (is_null($val) || $val instanceof DiffieHellmanGroup) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dhGroup'");
     }
 
     /**
@@ -82,12 +99,16 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
      * @return VpnEncryptionAlgorithmType|null
     */
     public function getEncryptionMethod(): ?VpnEncryptionAlgorithmType {
-        return $this->getBackingStore()->get('encryptionMethod');
+        $val = $this->getBackingStore()->get('encryptionMethod');
+        if (is_null($val) || $val instanceof VpnEncryptionAlgorithmType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'encryptionMethod'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -107,7 +128,11 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
      * @return VpnIntegrityAlgorithmType|null
     */
     public function getIntegrityCheckMethod(): ?VpnIntegrityAlgorithmType {
-        return $this->getBackingStore()->get('integrityCheckMethod');
+        $val = $this->getBackingStore()->get('integrityCheckMethod');
+        if (is_null($val) || $val instanceof VpnIntegrityAlgorithmType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'integrityCheckMethod'");
     }
 
     /**
@@ -115,7 +140,11 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -123,7 +152,11 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
      * @return PerfectForwardSecrecyGroup|null
     */
     public function getPfsGroup(): ?PerfectForwardSecrecyGroup {
-        return $this->getBackingStore()->get('pfsGroup');
+        $val = $this->getBackingStore()->get('pfsGroup');
+        if (is_null($val) || $val instanceof PerfectForwardSecrecyGroup) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pfsGroup'");
     }
 
     /**

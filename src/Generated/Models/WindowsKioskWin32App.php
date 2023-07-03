@@ -30,7 +30,11 @@ class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable
      * @return string|null
     */
     public function getClassicAppPath(): ?string {
-        return $this->getBackingStore()->get('classicAppPath');
+        $val = $this->getBackingStore()->get('classicAppPath');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'classicAppPath'");
     }
 
     /**
@@ -38,7 +42,11 @@ class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable
      * @return string|null
     */
     public function getEdgeKiosk(): ?string {
-        return $this->getBackingStore()->get('edgeKiosk');
+        $val = $this->getBackingStore()->get('edgeKiosk');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeKiosk'");
     }
 
     /**
@@ -46,7 +54,11 @@ class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable
      * @return int|null
     */
     public function getEdgeKioskIdleTimeoutMinutes(): ?int {
-        return $this->getBackingStore()->get('edgeKioskIdleTimeoutMinutes');
+        $val = $this->getBackingStore()->get('edgeKioskIdleTimeoutMinutes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeKioskIdleTimeoutMinutes'");
     }
 
     /**
@@ -54,7 +66,11 @@ class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable
      * @return WindowsEdgeKioskType|null
     */
     public function getEdgeKioskType(): ?WindowsEdgeKioskType {
-        return $this->getBackingStore()->get('edgeKioskType');
+        $val = $this->getBackingStore()->get('edgeKioskType');
+        if (is_null($val) || $val instanceof WindowsEdgeKioskType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeKioskType'");
     }
 
     /**
@@ -62,12 +78,16 @@ class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable
      * @return bool|null
     */
     public function getEdgeNoFirstRun(): ?bool {
-        return $this->getBackingStore()->get('edgeNoFirstRun');
+        $val = $this->getBackingStore()->get('edgeNoFirstRun');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'edgeNoFirstRun'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

@@ -43,6 +43,7 @@ class DirectoryObject extends Entity implements Parsable
                 case '#microsoft.graph.endpoint': return new Endpoint();
                 case '#microsoft.graph.extensionProperty': return new ExtensionProperty();
                 case '#microsoft.graph.externalIdentitiesPolicy': return new ExternalIdentitiesPolicy();
+                case '#microsoft.graph.federatedTokenValidationPolicy': return new FederatedTokenValidationPolicy();
                 case '#microsoft.graph.group': return new Group();
                 case '#microsoft.graph.homeRealmDiscoveryPolicy': return new HomeRealmDiscoveryPolicy();
                 case '#microsoft.graph.identitySecurityDefaultsEnforcementPolicy': return new IdentitySecurityDefaultsEnforcementPolicy();
@@ -70,12 +71,16 @@ class DirectoryObject extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDeletedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('deletedDateTime');
+        $val = $this->getBackingStore()->get('deletedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deletedDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

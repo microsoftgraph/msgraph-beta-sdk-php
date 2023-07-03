@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class MacOSRedirectSingleSignOnExtension extends MacOSSingleSignOnExtension implements Parsable 
 {
@@ -30,7 +31,13 @@ class MacOSRedirectSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return array<KeyTypedValuePair>|null
     */
     public function getConfigurations(): ?array {
-        return $this->getBackingStore()->get('configurations');
+        $val = $this->getBackingStore()->get('configurations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, KeyTypedValuePair::class);
+            /** @var array<KeyTypedValuePair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configurations'");
     }
 
     /**
@@ -38,12 +45,16 @@ class MacOSRedirectSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return string|null
     */
     public function getExtensionIdentifier(): ?string {
-        return $this->getBackingStore()->get('extensionIdentifier');
+        $val = $this->getBackingStore()->get('extensionIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'extensionIdentifier'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -51,7 +62,14 @@ class MacOSRedirectSingleSignOnExtension extends MacOSSingleSignOnExtension impl
             'configurations' => fn(ParseNode $n) => $o->setConfigurations($n->getCollectionOfObjectValues([KeyTypedValuePair::class, 'createFromDiscriminatorValue'])),
             'extensionIdentifier' => fn(ParseNode $n) => $o->setExtensionIdentifier($n->getStringValue()),
             'teamIdentifier' => fn(ParseNode $n) => $o->setTeamIdentifier($n->getStringValue()),
-            'urlPrefixes' => fn(ParseNode $n) => $o->setUrlPrefixes($n->getCollectionOfPrimitiveValues()),
+            'urlPrefixes' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setUrlPrefixes($val);
+            },
         ]);
     }
 
@@ -60,7 +78,11 @@ class MacOSRedirectSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return string|null
     */
     public function getTeamIdentifier(): ?string {
-        return $this->getBackingStore()->get('teamIdentifier');
+        $val = $this->getBackingStore()->get('teamIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teamIdentifier'");
     }
 
     /**
@@ -68,7 +90,13 @@ class MacOSRedirectSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return array<string>|null
     */
     public function getUrlPrefixes(): ?array {
-        return $this->getBackingStore()->get('urlPrefixes');
+        $val = $this->getBackingStore()->get('urlPrefixes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'urlPrefixes'");
     }
 
     /**

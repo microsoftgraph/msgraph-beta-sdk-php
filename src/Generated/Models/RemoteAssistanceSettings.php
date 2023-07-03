@@ -29,7 +29,11 @@ class RemoteAssistanceSettings extends Entity implements Parsable
      * @return bool|null
     */
     public function getAllowSessionsToUnenrolledDevices(): ?bool {
-        return $this->getBackingStore()->get('allowSessionsToUnenrolledDevices');
+        $val = $this->getBackingStore()->get('allowSessionsToUnenrolledDevices');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowSessionsToUnenrolledDevices'");
     }
 
     /**
@@ -37,12 +41,16 @@ class RemoteAssistanceSettings extends Entity implements Parsable
      * @return bool|null
     */
     public function getBlockChat(): ?bool {
-        return $this->getBackingStore()->get('blockChat');
+        $val = $this->getBackingStore()->get('blockChat');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockChat'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -58,7 +66,11 @@ class RemoteAssistanceSettings extends Entity implements Parsable
      * @return RemoteAssistanceState|null
     */
     public function getRemoteAssistanceState(): ?RemoteAssistanceState {
-        return $this->getBackingStore()->get('remoteAssistanceState');
+        $val = $this->getBackingStore()->get('remoteAssistanceState');
+        if (is_null($val) || $val instanceof RemoteAssistanceState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remoteAssistanceState'");
     }
 
     /**

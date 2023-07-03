@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
 class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implements Parsable 
@@ -31,7 +32,11 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return Enablement|null
     */
     public function getAdvancedThreatProtectionAutomaticSampleSubmission(): ?Enablement {
-        return $this->getBackingStore()->get('advancedThreatProtectionAutomaticSampleSubmission');
+        $val = $this->getBackingStore()->get('advancedThreatProtectionAutomaticSampleSubmission');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'advancedThreatProtectionAutomaticSampleSubmission'");
     }
 
     /**
@@ -39,7 +44,11 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return Enablement|null
     */
     public function getAdvancedThreatProtectionCloudDelivered(): ?Enablement {
-        return $this->getBackingStore()->get('advancedThreatProtectionCloudDelivered');
+        $val = $this->getBackingStore()->get('advancedThreatProtectionCloudDelivered');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'advancedThreatProtectionCloudDelivered'");
     }
 
     /**
@@ -47,7 +56,11 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return Enablement|null
     */
     public function getAdvancedThreatProtectionDiagnosticDataCollection(): ?Enablement {
-        return $this->getBackingStore()->get('advancedThreatProtectionDiagnosticDataCollection');
+        $val = $this->getBackingStore()->get('advancedThreatProtectionDiagnosticDataCollection');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'advancedThreatProtectionDiagnosticDataCollection'");
     }
 
     /**
@@ -55,7 +68,13 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return array<string>|null
     */
     public function getAdvancedThreatProtectionExcludedExtensions(): ?array {
-        return $this->getBackingStore()->get('advancedThreatProtectionExcludedExtensions');
+        $val = $this->getBackingStore()->get('advancedThreatProtectionExcludedExtensions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'advancedThreatProtectionExcludedExtensions'");
     }
 
     /**
@@ -63,7 +82,13 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return array<string>|null
     */
     public function getAdvancedThreatProtectionExcludedFiles(): ?array {
-        return $this->getBackingStore()->get('advancedThreatProtectionExcludedFiles');
+        $val = $this->getBackingStore()->get('advancedThreatProtectionExcludedFiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'advancedThreatProtectionExcludedFiles'");
     }
 
     /**
@@ -71,7 +96,13 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return array<string>|null
     */
     public function getAdvancedThreatProtectionExcludedFolders(): ?array {
-        return $this->getBackingStore()->get('advancedThreatProtectionExcludedFolders');
+        $val = $this->getBackingStore()->get('advancedThreatProtectionExcludedFolders');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'advancedThreatProtectionExcludedFolders'");
     }
 
     /**
@@ -79,7 +110,13 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return array<string>|null
     */
     public function getAdvancedThreatProtectionExcludedProcesses(): ?array {
-        return $this->getBackingStore()->get('advancedThreatProtectionExcludedProcesses');
+        $val = $this->getBackingStore()->get('advancedThreatProtectionExcludedProcesses');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'advancedThreatProtectionExcludedProcesses'");
     }
 
     /**
@@ -87,12 +124,16 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return Enablement|null
     */
     public function getAdvancedThreatProtectionRealTime(): ?Enablement {
-        return $this->getBackingStore()->get('advancedThreatProtectionRealTime');
+        $val = $this->getBackingStore()->get('advancedThreatProtectionRealTime');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'advancedThreatProtectionRealTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -100,10 +141,38 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
             'advancedThreatProtectionAutomaticSampleSubmission' => fn(ParseNode $n) => $o->setAdvancedThreatProtectionAutomaticSampleSubmission($n->getEnumValue(Enablement::class)),
             'advancedThreatProtectionCloudDelivered' => fn(ParseNode $n) => $o->setAdvancedThreatProtectionCloudDelivered($n->getEnumValue(Enablement::class)),
             'advancedThreatProtectionDiagnosticDataCollection' => fn(ParseNode $n) => $o->setAdvancedThreatProtectionDiagnosticDataCollection($n->getEnumValue(Enablement::class)),
-            'advancedThreatProtectionExcludedExtensions' => fn(ParseNode $n) => $o->setAdvancedThreatProtectionExcludedExtensions($n->getCollectionOfPrimitiveValues()),
-            'advancedThreatProtectionExcludedFiles' => fn(ParseNode $n) => $o->setAdvancedThreatProtectionExcludedFiles($n->getCollectionOfPrimitiveValues()),
-            'advancedThreatProtectionExcludedFolders' => fn(ParseNode $n) => $o->setAdvancedThreatProtectionExcludedFolders($n->getCollectionOfPrimitiveValues()),
-            'advancedThreatProtectionExcludedProcesses' => fn(ParseNode $n) => $o->setAdvancedThreatProtectionExcludedProcesses($n->getCollectionOfPrimitiveValues()),
+            'advancedThreatProtectionExcludedExtensions' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAdvancedThreatProtectionExcludedExtensions($val);
+            },
+            'advancedThreatProtectionExcludedFiles' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAdvancedThreatProtectionExcludedFiles($val);
+            },
+            'advancedThreatProtectionExcludedFolders' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAdvancedThreatProtectionExcludedFolders($val);
+            },
+            'advancedThreatProtectionExcludedProcesses' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAdvancedThreatProtectionExcludedProcesses($val);
+            },
             'advancedThreatProtectionRealTime' => fn(ParseNode $n) => $o->setAdvancedThreatProtectionRealTime($n->getEnumValue(Enablement::class)),
             'fileVaultAllowDeferralUntilSignOut' => fn(ParseNode $n) => $o->setFileVaultAllowDeferralUntilSignOut($n->getBooleanValue()),
             'fileVaultDisablePromptAtSignOut' => fn(ParseNode $n) => $o->setFileVaultDisablePromptAtSignOut($n->getBooleanValue()),
@@ -129,7 +198,11 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return bool|null
     */
     public function getFileVaultAllowDeferralUntilSignOut(): ?bool {
-        return $this->getBackingStore()->get('fileVaultAllowDeferralUntilSignOut');
+        $val = $this->getBackingStore()->get('fileVaultAllowDeferralUntilSignOut');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileVaultAllowDeferralUntilSignOut'");
     }
 
     /**
@@ -137,7 +210,11 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return bool|null
     */
     public function getFileVaultDisablePromptAtSignOut(): ?bool {
-        return $this->getBackingStore()->get('fileVaultDisablePromptAtSignOut');
+        $val = $this->getBackingStore()->get('fileVaultDisablePromptAtSignOut');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileVaultDisablePromptAtSignOut'");
     }
 
     /**
@@ -145,7 +222,11 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return bool|null
     */
     public function getFileVaultEnabled(): ?bool {
-        return $this->getBackingStore()->get('fileVaultEnabled');
+        $val = $this->getBackingStore()->get('fileVaultEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileVaultEnabled'");
     }
 
     /**
@@ -153,7 +234,11 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return bool|null
     */
     public function getFileVaultHidePersonalRecoveryKey(): ?bool {
-        return $this->getBackingStore()->get('fileVaultHidePersonalRecoveryKey');
+        $val = $this->getBackingStore()->get('fileVaultHidePersonalRecoveryKey');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileVaultHidePersonalRecoveryKey'");
     }
 
     /**
@@ -161,7 +246,11 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return StreamInterface|null
     */
     public function getFileVaultInstitutionalRecoveryKeyCertificate(): ?StreamInterface {
-        return $this->getBackingStore()->get('fileVaultInstitutionalRecoveryKeyCertificate');
+        $val = $this->getBackingStore()->get('fileVaultInstitutionalRecoveryKeyCertificate');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileVaultInstitutionalRecoveryKeyCertificate'");
     }
 
     /**
@@ -169,7 +258,11 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return string|null
     */
     public function getFileVaultInstitutionalRecoveryKeyCertificateFileName(): ?string {
-        return $this->getBackingStore()->get('fileVaultInstitutionalRecoveryKeyCertificateFileName');
+        $val = $this->getBackingStore()->get('fileVaultInstitutionalRecoveryKeyCertificateFileName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileVaultInstitutionalRecoveryKeyCertificateFileName'");
     }
 
     /**
@@ -177,7 +270,11 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return int|null
     */
     public function getFileVaultNumberOfTimesUserCanIgnore(): ?int {
-        return $this->getBackingStore()->get('fileVaultNumberOfTimesUserCanIgnore');
+        $val = $this->getBackingStore()->get('fileVaultNumberOfTimesUserCanIgnore');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileVaultNumberOfTimesUserCanIgnore'");
     }
 
     /**
@@ -185,7 +282,11 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return string|null
     */
     public function getFileVaultPersonalRecoveryKeyHelpMessage(): ?string {
-        return $this->getBackingStore()->get('fileVaultPersonalRecoveryKeyHelpMessage');
+        $val = $this->getBackingStore()->get('fileVaultPersonalRecoveryKeyHelpMessage');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileVaultPersonalRecoveryKeyHelpMessage'");
     }
 
     /**
@@ -193,7 +294,11 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return int|null
     */
     public function getFileVaultPersonalRecoveryKeyRotationInMonths(): ?int {
-        return $this->getBackingStore()->get('fileVaultPersonalRecoveryKeyRotationInMonths');
+        $val = $this->getBackingStore()->get('fileVaultPersonalRecoveryKeyRotationInMonths');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileVaultPersonalRecoveryKeyRotationInMonths'");
     }
 
     /**
@@ -201,7 +306,11 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return MacOSFileVaultRecoveryKeyTypes|null
     */
     public function getFileVaultSelectedRecoveryKeyTypes(): ?MacOSFileVaultRecoveryKeyTypes {
-        return $this->getBackingStore()->get('fileVaultSelectedRecoveryKeyTypes');
+        $val = $this->getBackingStore()->get('fileVaultSelectedRecoveryKeyTypes');
+        if (is_null($val) || $val instanceof MacOSFileVaultRecoveryKeyTypes) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileVaultSelectedRecoveryKeyTypes'");
     }
 
     /**
@@ -209,7 +318,13 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return array<MacOSFirewallApplication>|null
     */
     public function getFirewallApplications(): ?array {
-        return $this->getBackingStore()->get('firewallApplications');
+        $val = $this->getBackingStore()->get('firewallApplications');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MacOSFirewallApplication::class);
+            /** @var array<MacOSFirewallApplication>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firewallApplications'");
     }
 
     /**
@@ -217,7 +332,11 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return bool|null
     */
     public function getFirewallBlockAllIncoming(): ?bool {
-        return $this->getBackingStore()->get('firewallBlockAllIncoming');
+        $val = $this->getBackingStore()->get('firewallBlockAllIncoming');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firewallBlockAllIncoming'");
     }
 
     /**
@@ -225,7 +344,11 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return bool|null
     */
     public function getFirewallEnabled(): ?bool {
-        return $this->getBackingStore()->get('firewallEnabled');
+        $val = $this->getBackingStore()->get('firewallEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firewallEnabled'");
     }
 
     /**
@@ -233,7 +356,11 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return bool|null
     */
     public function getFirewallEnableStealthMode(): ?bool {
-        return $this->getBackingStore()->get('firewallEnableStealthMode');
+        $val = $this->getBackingStore()->get('firewallEnableStealthMode');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firewallEnableStealthMode'");
     }
 
     /**
@@ -241,7 +368,11 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return MacOSGatekeeperAppSources|null
     */
     public function getGatekeeperAllowedAppSource(): ?MacOSGatekeeperAppSources {
-        return $this->getBackingStore()->get('gatekeeperAllowedAppSource');
+        $val = $this->getBackingStore()->get('gatekeeperAllowedAppSource');
+        if (is_null($val) || $val instanceof MacOSGatekeeperAppSources) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'gatekeeperAllowedAppSource'");
     }
 
     /**
@@ -249,7 +380,11 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return bool|null
     */
     public function getGatekeeperBlockOverride(): ?bool {
-        return $this->getBackingStore()->get('gatekeeperBlockOverride');
+        $val = $this->getBackingStore()->get('gatekeeperBlockOverride');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'gatekeeperBlockOverride'");
     }
 
     /**

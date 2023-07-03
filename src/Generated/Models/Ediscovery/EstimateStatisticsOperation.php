@@ -26,7 +26,7 @@ class EstimateStatisticsOperation extends CaseOperation implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -46,7 +46,11 @@ class EstimateStatisticsOperation extends CaseOperation implements Parsable
      * @return int|null
     */
     public function getIndexedItemCount(): ?int {
-        return $this->getBackingStore()->get('indexedItemCount');
+        $val = $this->getBackingStore()->get('indexedItemCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'indexedItemCount'");
     }
 
     /**
@@ -54,7 +58,11 @@ class EstimateStatisticsOperation extends CaseOperation implements Parsable
      * @return int|null
     */
     public function getIndexedItemsSize(): ?int {
-        return $this->getBackingStore()->get('indexedItemsSize');
+        $val = $this->getBackingStore()->get('indexedItemsSize');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'indexedItemsSize'");
     }
 
     /**
@@ -62,7 +70,11 @@ class EstimateStatisticsOperation extends CaseOperation implements Parsable
      * @return int|null
     */
     public function getMailboxCount(): ?int {
-        return $this->getBackingStore()->get('mailboxCount');
+        $val = $this->getBackingStore()->get('mailboxCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mailboxCount'");
     }
 
     /**
@@ -70,7 +82,11 @@ class EstimateStatisticsOperation extends CaseOperation implements Parsable
      * @return int|null
     */
     public function getSiteCount(): ?int {
-        return $this->getBackingStore()->get('siteCount');
+        $val = $this->getBackingStore()->get('siteCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'siteCount'");
     }
 
     /**
@@ -78,7 +94,11 @@ class EstimateStatisticsOperation extends CaseOperation implements Parsable
      * @return SourceCollection|null
     */
     public function getSourceCollection(): ?SourceCollection {
-        return $this->getBackingStore()->get('sourceCollection');
+        $val = $this->getBackingStore()->get('sourceCollection');
+        if (is_null($val) || $val instanceof SourceCollection) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sourceCollection'");
     }
 
     /**
@@ -86,7 +106,11 @@ class EstimateStatisticsOperation extends CaseOperation implements Parsable
      * @return int|null
     */
     public function getUnindexedItemCount(): ?int {
-        return $this->getBackingStore()->get('unindexedItemCount');
+        $val = $this->getBackingStore()->get('unindexedItemCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'unindexedItemCount'");
     }
 
     /**
@@ -94,7 +118,11 @@ class EstimateStatisticsOperation extends CaseOperation implements Parsable
      * @return int|null
     */
     public function getUnindexedItemsSize(): ?int {
-        return $this->getBackingStore()->get('unindexedItemsSize');
+        $val = $this->getBackingStore()->get('unindexedItemsSize');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'unindexedItemsSize'");
     }
 
     /**

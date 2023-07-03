@@ -30,7 +30,11 @@ class AccessPackageResourceRoleScope extends Entity implements Parsable
      * @return AccessPackageResourceRole|null
     */
     public function getAccessPackageResourceRole(): ?AccessPackageResourceRole {
-        return $this->getBackingStore()->get('accessPackageResourceRole');
+        $val = $this->getBackingStore()->get('accessPackageResourceRole');
+        if (is_null($val) || $val instanceof AccessPackageResourceRole) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accessPackageResourceRole'");
     }
 
     /**
@@ -38,7 +42,11 @@ class AccessPackageResourceRoleScope extends Entity implements Parsable
      * @return AccessPackageResourceScope|null
     */
     public function getAccessPackageResourceScope(): ?AccessPackageResourceScope {
-        return $this->getBackingStore()->get('accessPackageResourceScope');
+        $val = $this->getBackingStore()->get('accessPackageResourceScope');
+        if (is_null($val) || $val instanceof AccessPackageResourceScope) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accessPackageResourceScope'");
     }
 
     /**
@@ -46,7 +54,11 @@ class AccessPackageResourceRoleScope extends Entity implements Parsable
      * @return string|null
     */
     public function getCreatedBy(): ?string {
-        return $this->getBackingStore()->get('createdBy');
+        $val = $this->getBackingStore()->get('createdBy');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdBy'");
     }
 
     /**
@@ -54,12 +66,16 @@ class AccessPackageResourceRoleScope extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -78,7 +94,11 @@ class AccessPackageResourceRoleScope extends Entity implements Parsable
      * @return string|null
     */
     public function getModifiedBy(): ?string {
-        return $this->getBackingStore()->get('modifiedBy');
+        $val = $this->getBackingStore()->get('modifiedBy');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'modifiedBy'");
     }
 
     /**
@@ -86,7 +106,11 @@ class AccessPackageResourceRoleScope extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('modifiedDateTime');
+        $val = $this->getBackingStore()->get('modifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'modifiedDateTime'");
     }
 
     /**

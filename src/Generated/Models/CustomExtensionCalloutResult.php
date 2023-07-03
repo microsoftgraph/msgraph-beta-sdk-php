@@ -31,7 +31,11 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult impl
      * @return DateTime|null
     */
     public function getCalloutDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('calloutDateTime');
+        $val = $this->getBackingStore()->get('calloutDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'calloutDateTime'");
     }
 
     /**
@@ -39,7 +43,11 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult impl
      * @return string|null
     */
     public function getCustomExtensionId(): ?string {
-        return $this->getBackingStore()->get('customExtensionId');
+        $val = $this->getBackingStore()->get('customExtensionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customExtensionId'");
     }
 
     /**
@@ -47,12 +55,16 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult impl
      * @return int|null
     */
     public function getErrorCode(): ?int {
-        return $this->getBackingStore()->get('errorCode');
+        $val = $this->getBackingStore()->get('errorCode');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorCode'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -70,7 +82,11 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult impl
      * @return int|null
     */
     public function getHttpStatus(): ?int {
-        return $this->getBackingStore()->get('httpStatus');
+        $val = $this->getBackingStore()->get('httpStatus');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'httpStatus'");
     }
 
     /**
@@ -78,7 +94,11 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult impl
      * @return int|null
     */
     public function getNumberOfAttempts(): ?int {
-        return $this->getBackingStore()->get('numberOfAttempts');
+        $val = $this->getBackingStore()->get('numberOfAttempts');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'numberOfAttempts'");
     }
 
     /**

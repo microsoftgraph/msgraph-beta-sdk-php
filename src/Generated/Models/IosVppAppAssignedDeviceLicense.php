@@ -29,12 +29,16 @@ class IosVppAppAssignedDeviceLicense extends IosVppAppAssignedLicense implements
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->getBackingStore()->get('deviceName');
+        $val = $this->getBackingStore()->get('deviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -49,7 +53,11 @@ class IosVppAppAssignedDeviceLicense extends IosVppAppAssignedLicense implements
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
-        return $this->getBackingStore()->get('managedDeviceId');
+        $val = $this->getBackingStore()->get('managedDeviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceId'");
     }
 
     /**

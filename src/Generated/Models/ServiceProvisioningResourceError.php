@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ServiceProvisioningResourceError extends ServiceProvisioningError implements Parsable 
 {
@@ -30,12 +31,18 @@ class ServiceProvisioningResourceError extends ServiceProvisioningError implemen
      * @return array<ServiceProvisioningResourceErrorDetail>|null
     */
     public function getErrors(): ?array {
-        return $this->getBackingStore()->get('errors');
+        $val = $this->getBackingStore()->get('errors');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ServiceProvisioningResourceErrorDetail::class);
+            /** @var array<ServiceProvisioningResourceErrorDetail>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errors'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

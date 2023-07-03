@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class BookingBusiness extends BookingNamedEntity implements Parsable 
 {
@@ -30,7 +31,11 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
      * @return PhysicalAddress|null
     */
     public function getAddress(): ?PhysicalAddress {
-        return $this->getBackingStore()->get('address');
+        $val = $this->getBackingStore()->get('address');
+        if (is_null($val) || $val instanceof PhysicalAddress) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'address'");
     }
 
     /**
@@ -38,7 +43,13 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
      * @return array<BookingAppointment>|null
     */
     public function getAppointments(): ?array {
-        return $this->getBackingStore()->get('appointments');
+        $val = $this->getBackingStore()->get('appointments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, BookingAppointment::class);
+            /** @var array<BookingAppointment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appointments'");
     }
 
     /**
@@ -46,7 +57,13 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
      * @return array<BookingWorkHours>|null
     */
     public function getBusinessHours(): ?array {
-        return $this->getBackingStore()->get('businessHours');
+        $val = $this->getBackingStore()->get('businessHours');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, BookingWorkHours::class);
+            /** @var array<BookingWorkHours>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'businessHours'");
     }
 
     /**
@@ -54,7 +71,11 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
      * @return string|null
     */
     public function getBusinessType(): ?string {
-        return $this->getBackingStore()->get('businessType');
+        $val = $this->getBackingStore()->get('businessType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'businessType'");
     }
 
     /**
@@ -62,7 +83,13 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
      * @return array<BookingAppointment>|null
     */
     public function getCalendarView(): ?array {
-        return $this->getBackingStore()->get('calendarView');
+        $val = $this->getBackingStore()->get('calendarView');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, BookingAppointment::class);
+            /** @var array<BookingAppointment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'calendarView'");
     }
 
     /**
@@ -70,7 +97,13 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
      * @return array<BookingCustomer>|null
     */
     public function getCustomers(): ?array {
-        return $this->getBackingStore()->get('customers');
+        $val = $this->getBackingStore()->get('customers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, BookingCustomer::class);
+            /** @var array<BookingCustomer>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customers'");
     }
 
     /**
@@ -78,7 +111,13 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
      * @return array<BookingCustomQuestion>|null
     */
     public function getCustomQuestions(): ?array {
-        return $this->getBackingStore()->get('customQuestions');
+        $val = $this->getBackingStore()->get('customQuestions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, BookingCustomQuestion::class);
+            /** @var array<BookingCustomQuestion>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customQuestions'");
     }
 
     /**
@@ -86,7 +125,11 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
      * @return string|null
     */
     public function getDefaultCurrencyIso(): ?string {
-        return $this->getBackingStore()->get('defaultCurrencyIso');
+        $val = $this->getBackingStore()->get('defaultCurrencyIso');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultCurrencyIso'");
     }
 
     /**
@@ -94,12 +137,16 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
      * @return string|null
     */
     public function getEmail(): ?string {
-        return $this->getBackingStore()->get('email');
+        $val = $this->getBackingStore()->get('email');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'email'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -129,7 +176,11 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
      * @return bool|null
     */
     public function getIsPublished(): ?bool {
-        return $this->getBackingStore()->get('isPublished');
+        $val = $this->getBackingStore()->get('isPublished');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isPublished'");
     }
 
     /**
@@ -137,7 +188,11 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
      * @return string|null
     */
     public function getLanguageTag(): ?string {
-        return $this->getBackingStore()->get('languageTag');
+        $val = $this->getBackingStore()->get('languageTag');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'languageTag'");
     }
 
     /**
@@ -145,7 +200,11 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
      * @return string|null
     */
     public function getPhone(): ?string {
-        return $this->getBackingStore()->get('phone');
+        $val = $this->getBackingStore()->get('phone');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'phone'");
     }
 
     /**
@@ -153,7 +212,11 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
      * @return string|null
     */
     public function getPublicUrl(): ?string {
-        return $this->getBackingStore()->get('publicUrl');
+        $val = $this->getBackingStore()->get('publicUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publicUrl'");
     }
 
     /**
@@ -161,7 +224,11 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
      * @return BookingSchedulingPolicy|null
     */
     public function getSchedulingPolicy(): ?BookingSchedulingPolicy {
-        return $this->getBackingStore()->get('schedulingPolicy');
+        $val = $this->getBackingStore()->get('schedulingPolicy');
+        if (is_null($val) || $val instanceof BookingSchedulingPolicy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'schedulingPolicy'");
     }
 
     /**
@@ -169,7 +236,13 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
      * @return array<BookingService>|null
     */
     public function getServices(): ?array {
-        return $this->getBackingStore()->get('services');
+        $val = $this->getBackingStore()->get('services');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, BookingService::class);
+            /** @var array<BookingService>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'services'");
     }
 
     /**
@@ -177,7 +250,13 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
      * @return array<BookingStaffMember>|null
     */
     public function getStaffMembers(): ?array {
-        return $this->getBackingStore()->get('staffMembers');
+        $val = $this->getBackingStore()->get('staffMembers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, BookingStaffMember::class);
+            /** @var array<BookingStaffMember>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'staffMembers'");
     }
 
     /**
@@ -185,7 +264,11 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
      * @return string|null
     */
     public function getWebSiteUrl(): ?string {
-        return $this->getBackingStore()->get('webSiteUrl');
+        $val = $this->getBackingStore()->get('webSiteUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'webSiteUrl'");
     }
 
     /**

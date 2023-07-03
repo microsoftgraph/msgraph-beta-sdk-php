@@ -42,7 +42,12 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -58,12 +63,16 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
      * @return DeviceManagementConfigurationChoiceSettingValueDefaultTemplate|null
     */
     public function getDefaultValue(): ?DeviceManagementConfigurationChoiceSettingValueDefaultTemplate {
-        return $this->getBackingStore()->get('defaultValue');
+        $val = $this->getBackingStore()->get('defaultValue');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationChoiceSettingValueDefaultTemplate) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultValue'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -81,7 +90,11 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -89,7 +102,11 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
      * @return DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate|null
     */
     public function getRecommendedValueDefinition(): ?DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate {
-        return $this->getBackingStore()->get('recommendedValueDefinition');
+        $val = $this->getBackingStore()->get('recommendedValueDefinition');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recommendedValueDefinition'");
     }
 
     /**
@@ -97,7 +114,11 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
      * @return DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate|null
     */
     public function getRequiredValueDefinition(): ?DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate {
-        return $this->getBackingStore()->get('requiredValueDefinition');
+        $val = $this->getBackingStore()->get('requiredValueDefinition');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requiredValueDefinition'");
     }
 
     /**
@@ -105,7 +126,11 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
      * @return string|null
     */
     public function getSettingValueTemplateId(): ?string {
-        return $this->getBackingStore()->get('settingValueTemplateId');
+        $val = $this->getBackingStore()->get('settingValueTemplateId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingValueTemplateId'");
     }
 
     /**

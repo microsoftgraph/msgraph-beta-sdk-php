@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class UpdateAudienceByIdPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,13 @@ class UpdateAudienceByIdPostRequestBody implements AdditionalDataHolder, BackedM
      * @return array<string>|null
     */
     public function getAddExclusions(): ?array {
-        return $this->getBackingStore()->get('addExclusions');
+        $val = $this->getBackingStore()->get('addExclusions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'addExclusions'");
     }
 
     /**
@@ -47,7 +54,12 @@ class UpdateAudienceByIdPostRequestBody implements AdditionalDataHolder, BackedM
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +67,13 @@ class UpdateAudienceByIdPostRequestBody implements AdditionalDataHolder, BackedM
      * @return array<string>|null
     */
     public function getAddMembers(): ?array {
-        return $this->getBackingStore()->get('addMembers');
+        $val = $this->getBackingStore()->get('addMembers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'addMembers'");
     }
 
     /**
@@ -68,16 +86,44 @@ class UpdateAudienceByIdPostRequestBody implements AdditionalDataHolder, BackedM
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'addExclusions' => fn(ParseNode $n) => $o->setAddExclusions($n->getCollectionOfPrimitiveValues()),
-            'addMembers' => fn(ParseNode $n) => $o->setAddMembers($n->getCollectionOfPrimitiveValues()),
+            'addExclusions' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAddExclusions($val);
+            },
+            'addMembers' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAddMembers($val);
+            },
             'memberEntityType' => fn(ParseNode $n) => $o->setMemberEntityType($n->getStringValue()),
-            'removeExclusions' => fn(ParseNode $n) => $o->setRemoveExclusions($n->getCollectionOfPrimitiveValues()),
-            'removeMembers' => fn(ParseNode $n) => $o->setRemoveMembers($n->getCollectionOfPrimitiveValues()),
+            'removeExclusions' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRemoveExclusions($val);
+            },
+            'removeMembers' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRemoveMembers($val);
+            },
         ];
     }
 
@@ -86,7 +132,11 @@ class UpdateAudienceByIdPostRequestBody implements AdditionalDataHolder, BackedM
      * @return string|null
     */
     public function getMemberEntityType(): ?string {
-        return $this->getBackingStore()->get('memberEntityType');
+        $val = $this->getBackingStore()->get('memberEntityType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'memberEntityType'");
     }
 
     /**
@@ -94,7 +144,13 @@ class UpdateAudienceByIdPostRequestBody implements AdditionalDataHolder, BackedM
      * @return array<string>|null
     */
     public function getRemoveExclusions(): ?array {
-        return $this->getBackingStore()->get('removeExclusions');
+        $val = $this->getBackingStore()->get('removeExclusions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'removeExclusions'");
     }
 
     /**
@@ -102,7 +158,13 @@ class UpdateAudienceByIdPostRequestBody implements AdditionalDataHolder, BackedM
      * @return array<string>|null
     */
     public function getRemoveMembers(): ?array {
-        return $this->getBackingStore()->get('removeMembers');
+        $val = $this->getBackingStore()->get('removeMembers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'removeMembers'");
     }
 
     /**

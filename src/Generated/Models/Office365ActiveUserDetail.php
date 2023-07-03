@@ -6,6 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class Office365ActiveUserDetail extends Entity implements Parsable 
 {
@@ -30,7 +31,13 @@ class Office365ActiveUserDetail extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getAssignedProducts(): ?array {
-        return $this->getBackingStore()->get('assignedProducts');
+        $val = $this->getBackingStore()->get('assignedProducts');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignedProducts'");
     }
 
     /**
@@ -38,7 +45,11 @@ class Office365ActiveUserDetail extends Entity implements Parsable
      * @return Date|null
     */
     public function getDeletedDate(): ?Date {
-        return $this->getBackingStore()->get('deletedDate');
+        $val = $this->getBackingStore()->get('deletedDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deletedDate'");
     }
 
     /**
@@ -46,7 +57,11 @@ class Office365ActiveUserDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -54,7 +69,11 @@ class Office365ActiveUserDetail extends Entity implements Parsable
      * @return Date|null
     */
     public function getExchangeLastActivityDate(): ?Date {
-        return $this->getBackingStore()->get('exchangeLastActivityDate');
+        $val = $this->getBackingStore()->get('exchangeLastActivityDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exchangeLastActivityDate'");
     }
 
     /**
@@ -62,17 +81,28 @@ class Office365ActiveUserDetail extends Entity implements Parsable
      * @return Date|null
     */
     public function getExchangeLicenseAssignDate(): ?Date {
-        return $this->getBackingStore()->get('exchangeLicenseAssignDate');
+        $val = $this->getBackingStore()->get('exchangeLicenseAssignDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exchangeLicenseAssignDate'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignedProducts' => fn(ParseNode $n) => $o->setAssignedProducts($n->getCollectionOfPrimitiveValues()),
+            'assignedProducts' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAssignedProducts($val);
+            },
             'deletedDate' => fn(ParseNode $n) => $o->setDeletedDate($n->getDateValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'exchangeLastActivityDate' => fn(ParseNode $n) => $o->setExchangeLastActivityDate($n->getDateValue()),
@@ -104,7 +134,11 @@ class Office365ActiveUserDetail extends Entity implements Parsable
      * @return bool|null
     */
     public function getHasExchangeLicense(): ?bool {
-        return $this->getBackingStore()->get('hasExchangeLicense');
+        $val = $this->getBackingStore()->get('hasExchangeLicense');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hasExchangeLicense'");
     }
 
     /**
@@ -112,7 +146,11 @@ class Office365ActiveUserDetail extends Entity implements Parsable
      * @return bool|null
     */
     public function getHasOneDriveLicense(): ?bool {
-        return $this->getBackingStore()->get('hasOneDriveLicense');
+        $val = $this->getBackingStore()->get('hasOneDriveLicense');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hasOneDriveLicense'");
     }
 
     /**
@@ -120,7 +158,11 @@ class Office365ActiveUserDetail extends Entity implements Parsable
      * @return bool|null
     */
     public function getHasSharePointLicense(): ?bool {
-        return $this->getBackingStore()->get('hasSharePointLicense');
+        $val = $this->getBackingStore()->get('hasSharePointLicense');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hasSharePointLicense'");
     }
 
     /**
@@ -128,7 +170,11 @@ class Office365ActiveUserDetail extends Entity implements Parsable
      * @return bool|null
     */
     public function getHasSkypeForBusinessLicense(): ?bool {
-        return $this->getBackingStore()->get('hasSkypeForBusinessLicense');
+        $val = $this->getBackingStore()->get('hasSkypeForBusinessLicense');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hasSkypeForBusinessLicense'");
     }
 
     /**
@@ -136,7 +182,11 @@ class Office365ActiveUserDetail extends Entity implements Parsable
      * @return bool|null
     */
     public function getHasTeamsLicense(): ?bool {
-        return $this->getBackingStore()->get('hasTeamsLicense');
+        $val = $this->getBackingStore()->get('hasTeamsLicense');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hasTeamsLicense'");
     }
 
     /**
@@ -144,7 +194,11 @@ class Office365ActiveUserDetail extends Entity implements Parsable
      * @return bool|null
     */
     public function getHasYammerLicense(): ?bool {
-        return $this->getBackingStore()->get('hasYammerLicense');
+        $val = $this->getBackingStore()->get('hasYammerLicense');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hasYammerLicense'");
     }
 
     /**
@@ -152,7 +206,11 @@ class Office365ActiveUserDetail extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDeleted(): ?bool {
-        return $this->getBackingStore()->get('isDeleted');
+        $val = $this->getBackingStore()->get('isDeleted');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDeleted'");
     }
 
     /**
@@ -160,7 +218,11 @@ class Office365ActiveUserDetail extends Entity implements Parsable
      * @return Date|null
     */
     public function getOneDriveLastActivityDate(): ?Date {
-        return $this->getBackingStore()->get('oneDriveLastActivityDate');
+        $val = $this->getBackingStore()->get('oneDriveLastActivityDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'oneDriveLastActivityDate'");
     }
 
     /**
@@ -168,7 +230,11 @@ class Office365ActiveUserDetail extends Entity implements Parsable
      * @return Date|null
     */
     public function getOneDriveLicenseAssignDate(): ?Date {
-        return $this->getBackingStore()->get('oneDriveLicenseAssignDate');
+        $val = $this->getBackingStore()->get('oneDriveLicenseAssignDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'oneDriveLicenseAssignDate'");
     }
 
     /**
@@ -176,7 +242,11 @@ class Office365ActiveUserDetail extends Entity implements Parsable
      * @return Date|null
     */
     public function getReportRefreshDate(): ?Date {
-        return $this->getBackingStore()->get('reportRefreshDate');
+        $val = $this->getBackingStore()->get('reportRefreshDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reportRefreshDate'");
     }
 
     /**
@@ -184,7 +254,11 @@ class Office365ActiveUserDetail extends Entity implements Parsable
      * @return Date|null
     */
     public function getSharePointLastActivityDate(): ?Date {
-        return $this->getBackingStore()->get('sharePointLastActivityDate');
+        $val = $this->getBackingStore()->get('sharePointLastActivityDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sharePointLastActivityDate'");
     }
 
     /**
@@ -192,7 +266,11 @@ class Office365ActiveUserDetail extends Entity implements Parsable
      * @return Date|null
     */
     public function getSharePointLicenseAssignDate(): ?Date {
-        return $this->getBackingStore()->get('sharePointLicenseAssignDate');
+        $val = $this->getBackingStore()->get('sharePointLicenseAssignDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sharePointLicenseAssignDate'");
     }
 
     /**
@@ -200,7 +278,11 @@ class Office365ActiveUserDetail extends Entity implements Parsable
      * @return Date|null
     */
     public function getSkypeForBusinessLastActivityDate(): ?Date {
-        return $this->getBackingStore()->get('skypeForBusinessLastActivityDate');
+        $val = $this->getBackingStore()->get('skypeForBusinessLastActivityDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'skypeForBusinessLastActivityDate'");
     }
 
     /**
@@ -208,7 +290,11 @@ class Office365ActiveUserDetail extends Entity implements Parsable
      * @return Date|null
     */
     public function getSkypeForBusinessLicenseAssignDate(): ?Date {
-        return $this->getBackingStore()->get('skypeForBusinessLicenseAssignDate');
+        $val = $this->getBackingStore()->get('skypeForBusinessLicenseAssignDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'skypeForBusinessLicenseAssignDate'");
     }
 
     /**
@@ -216,7 +302,11 @@ class Office365ActiveUserDetail extends Entity implements Parsable
      * @return Date|null
     */
     public function getTeamsLastActivityDate(): ?Date {
-        return $this->getBackingStore()->get('teamsLastActivityDate');
+        $val = $this->getBackingStore()->get('teamsLastActivityDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teamsLastActivityDate'");
     }
 
     /**
@@ -224,7 +314,11 @@ class Office365ActiveUserDetail extends Entity implements Parsable
      * @return Date|null
     */
     public function getTeamsLicenseAssignDate(): ?Date {
-        return $this->getBackingStore()->get('teamsLicenseAssignDate');
+        $val = $this->getBackingStore()->get('teamsLicenseAssignDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teamsLicenseAssignDate'");
     }
 
     /**
@@ -232,7 +326,11 @@ class Office365ActiveUserDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('userPrincipalName');
+        $val = $this->getBackingStore()->get('userPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
     }
 
     /**
@@ -240,7 +338,11 @@ class Office365ActiveUserDetail extends Entity implements Parsable
      * @return Date|null
     */
     public function getYammerLastActivityDate(): ?Date {
-        return $this->getBackingStore()->get('yammerLastActivityDate');
+        $val = $this->getBackingStore()->get('yammerLastActivityDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'yammerLastActivityDate'");
     }
 
     /**
@@ -248,7 +350,11 @@ class Office365ActiveUserDetail extends Entity implements Parsable
      * @return Date|null
     */
     public function getYammerLicenseAssignDate(): ?Date {
-        return $this->getBackingStore()->get('yammerLicenseAssignDate');
+        $val = $this->getBackingStore()->get('yammerLicenseAssignDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'yammerLicenseAssignDate'");
     }
 
     /**

@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class OrgContact extends DirectoryObject implements Parsable 
 {
@@ -31,7 +32,13 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return array<PhysicalOfficeAddress>|null
     */
     public function getAddresses(): ?array {
-        return $this->getBackingStore()->get('addresses');
+        $val = $this->getBackingStore()->get('addresses');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PhysicalOfficeAddress::class);
+            /** @var array<PhysicalOfficeAddress>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'addresses'");
     }
 
     /**
@@ -39,7 +46,11 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getCompanyName(): ?string {
-        return $this->getBackingStore()->get('companyName');
+        $val = $this->getBackingStore()->get('companyName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'companyName'");
     }
 
     /**
@@ -47,7 +58,11 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getDepartment(): ?string {
-        return $this->getBackingStore()->get('department');
+        $val = $this->getBackingStore()->get('department');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'department'");
     }
 
     /**
@@ -55,7 +70,13 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return array<DirectoryObject>|null
     */
     public function getDirectReports(): ?array {
-        return $this->getBackingStore()->get('directReports');
+        $val = $this->getBackingStore()->get('directReports');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DirectoryObject::class);
+            /** @var array<DirectoryObject>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'directReports'");
     }
 
     /**
@@ -63,12 +84,16 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -88,7 +113,14 @@ class OrgContact extends DirectoryObject implements Parsable
             'onPremisesProvisioningErrors' => fn(ParseNode $n) => $o->setOnPremisesProvisioningErrors($n->getCollectionOfObjectValues([OnPremisesProvisioningError::class, 'createFromDiscriminatorValue'])),
             'onPremisesSyncEnabled' => fn(ParseNode $n) => $o->setOnPremisesSyncEnabled($n->getBooleanValue()),
             'phones' => fn(ParseNode $n) => $o->setPhones($n->getCollectionOfObjectValues([Phone::class, 'createFromDiscriminatorValue'])),
-            'proxyAddresses' => fn(ParseNode $n) => $o->setProxyAddresses($n->getCollectionOfPrimitiveValues()),
+            'proxyAddresses' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setProxyAddresses($val);
+            },
             'serviceProvisioningErrors' => fn(ParseNode $n) => $o->setServiceProvisioningErrors($n->getCollectionOfObjectValues([ServiceProvisioningError::class, 'createFromDiscriminatorValue'])),
             'surname' => fn(ParseNode $n) => $o->setSurname($n->getStringValue()),
             'transitiveMemberOf' => fn(ParseNode $n) => $o->setTransitiveMemberOf($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
@@ -101,7 +133,11 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getGivenName(): ?string {
-        return $this->getBackingStore()->get('givenName');
+        $val = $this->getBackingStore()->get('givenName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'givenName'");
     }
 
     /**
@@ -109,7 +145,11 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getJobTitle(): ?string {
-        return $this->getBackingStore()->get('jobTitle');
+        $val = $this->getBackingStore()->get('jobTitle');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'jobTitle'");
     }
 
     /**
@@ -117,7 +157,11 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getMail(): ?string {
-        return $this->getBackingStore()->get('mail');
+        $val = $this->getBackingStore()->get('mail');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mail'");
     }
 
     /**
@@ -125,7 +169,11 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getMailNickname(): ?string {
-        return $this->getBackingStore()->get('mailNickname');
+        $val = $this->getBackingStore()->get('mailNickname');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mailNickname'");
     }
 
     /**
@@ -133,7 +181,11 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return DirectoryObject|null
     */
     public function getManager(): ?DirectoryObject {
-        return $this->getBackingStore()->get('manager');
+        $val = $this->getBackingStore()->get('manager');
+        if (is_null($val) || $val instanceof DirectoryObject) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'manager'");
     }
 
     /**
@@ -141,7 +193,13 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return array<DirectoryObject>|null
     */
     public function getMemberOf(): ?array {
-        return $this->getBackingStore()->get('memberOf');
+        $val = $this->getBackingStore()->get('memberOf');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DirectoryObject::class);
+            /** @var array<DirectoryObject>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'memberOf'");
     }
 
     /**
@@ -149,7 +207,11 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return DateTime|null
     */
     public function getOnPremisesLastSyncDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('onPremisesLastSyncDateTime');
+        $val = $this->getBackingStore()->get('onPremisesLastSyncDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onPremisesLastSyncDateTime'");
     }
 
     /**
@@ -157,7 +219,13 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return array<OnPremisesProvisioningError>|null
     */
     public function getOnPremisesProvisioningErrors(): ?array {
-        return $this->getBackingStore()->get('onPremisesProvisioningErrors');
+        $val = $this->getBackingStore()->get('onPremisesProvisioningErrors');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, OnPremisesProvisioningError::class);
+            /** @var array<OnPremisesProvisioningError>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onPremisesProvisioningErrors'");
     }
 
     /**
@@ -165,7 +233,11 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return bool|null
     */
     public function getOnPremisesSyncEnabled(): ?bool {
-        return $this->getBackingStore()->get('onPremisesSyncEnabled');
+        $val = $this->getBackingStore()->get('onPremisesSyncEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onPremisesSyncEnabled'");
     }
 
     /**
@@ -173,7 +245,13 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return array<Phone>|null
     */
     public function getPhones(): ?array {
-        return $this->getBackingStore()->get('phones');
+        $val = $this->getBackingStore()->get('phones');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Phone::class);
+            /** @var array<Phone>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'phones'");
     }
 
     /**
@@ -181,7 +259,13 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return array<string>|null
     */
     public function getProxyAddresses(): ?array {
-        return $this->getBackingStore()->get('proxyAddresses');
+        $val = $this->getBackingStore()->get('proxyAddresses');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'proxyAddresses'");
     }
 
     /**
@@ -189,7 +273,13 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return array<ServiceProvisioningError>|null
     */
     public function getServiceProvisioningErrors(): ?array {
-        return $this->getBackingStore()->get('serviceProvisioningErrors');
+        $val = $this->getBackingStore()->get('serviceProvisioningErrors');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ServiceProvisioningError::class);
+            /** @var array<ServiceProvisioningError>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'serviceProvisioningErrors'");
     }
 
     /**
@@ -197,7 +287,11 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getSurname(): ?string {
-        return $this->getBackingStore()->get('surname');
+        $val = $this->getBackingStore()->get('surname');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'surname'");
     }
 
     /**
@@ -205,7 +299,13 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return array<DirectoryObject>|null
     */
     public function getTransitiveMemberOf(): ?array {
-        return $this->getBackingStore()->get('transitiveMemberOf');
+        $val = $this->getBackingStore()->get('transitiveMemberOf');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DirectoryObject::class);
+            /** @var array<DirectoryObject>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'transitiveMemberOf'");
     }
 
     /**
@@ -213,7 +313,13 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return array<DirectoryObject>|null
     */
     public function getTransitiveReports(): ?array {
-        return $this->getBackingStore()->get('transitiveReports');
+        $val = $this->getBackingStore()->get('transitiveReports');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DirectoryObject::class);
+            /** @var array<DirectoryObject>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'transitiveReports'");
     }
 
     /**

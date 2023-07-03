@@ -30,12 +30,16 @@ class SharedEmailDomainInvitation extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getExpiryTime(): ?DateTime {
-        return $this->getBackingStore()->get('expiryTime');
+        $val = $this->getBackingStore()->get('expiryTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expiryTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -51,7 +55,11 @@ class SharedEmailDomainInvitation extends Entity implements Parsable
      * @return string|null
     */
     public function getInvitationDomain(): ?string {
-        return $this->getBackingStore()->get('invitationDomain');
+        $val = $this->getBackingStore()->get('invitationDomain');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'invitationDomain'");
     }
 
     /**
@@ -59,7 +67,11 @@ class SharedEmailDomainInvitation extends Entity implements Parsable
      * @return string|null
     */
     public function getInvitationStatus(): ?string {
-        return $this->getBackingStore()->get('invitationStatus');
+        $val = $this->getBackingStore()->get('invitationStatus');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'invitationStatus'");
     }
 
     /**

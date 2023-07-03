@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class OutlookTaskGroup extends Entity implements Parsable 
 {
@@ -29,12 +30,16 @@ class OutlookTaskGroup extends Entity implements Parsable
      * @return string|null
     */
     public function getChangeKey(): ?string {
-        return $this->getBackingStore()->get('changeKey');
+        $val = $this->getBackingStore()->get('changeKey');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'changeKey'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -52,7 +57,11 @@ class OutlookTaskGroup extends Entity implements Parsable
      * @return string|null
     */
     public function getGroupKey(): ?string {
-        return $this->getBackingStore()->get('groupKey');
+        $val = $this->getBackingStore()->get('groupKey');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupKey'");
     }
 
     /**
@@ -60,7 +69,11 @@ class OutlookTaskGroup extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDefaultGroup(): ?bool {
-        return $this->getBackingStore()->get('isDefaultGroup');
+        $val = $this->getBackingStore()->get('isDefaultGroup');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDefaultGroup'");
     }
 
     /**
@@ -68,7 +81,11 @@ class OutlookTaskGroup extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -76,7 +93,13 @@ class OutlookTaskGroup extends Entity implements Parsable
      * @return array<OutlookTaskFolder>|null
     */
     public function getTaskFolders(): ?array {
-        return $this->getBackingStore()->get('taskFolders');
+        $val = $this->getBackingStore()->get('taskFolders');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, OutlookTaskFolder::class);
+            /** @var array<OutlookTaskFolder>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'taskFolders'");
     }
 
     /**

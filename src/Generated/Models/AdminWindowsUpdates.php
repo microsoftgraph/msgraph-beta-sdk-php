@@ -11,6 +11,7 @@ use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdatePolicy;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AdminWindowsUpdates extends Entity implements Parsable 
 {
@@ -35,7 +36,11 @@ class AdminWindowsUpdates extends Entity implements Parsable
      * @return Catalog|null
     */
     public function getCatalog(): ?Catalog {
-        return $this->getBackingStore()->get('catalog');
+        $val = $this->getBackingStore()->get('catalog');
+        if (is_null($val) || $val instanceof Catalog) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'catalog'");
     }
 
     /**
@@ -43,7 +48,13 @@ class AdminWindowsUpdates extends Entity implements Parsable
      * @return array<DeploymentAudience>|null
     */
     public function getDeploymentAudiences(): ?array {
-        return $this->getBackingStore()->get('deploymentAudiences');
+        $val = $this->getBackingStore()->get('deploymentAudiences');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeploymentAudience::class);
+            /** @var array<DeploymentAudience>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deploymentAudiences'");
     }
 
     /**
@@ -51,12 +62,18 @@ class AdminWindowsUpdates extends Entity implements Parsable
      * @return array<Deployment>|null
     */
     public function getDeployments(): ?array {
-        return $this->getBackingStore()->get('deployments');
+        $val = $this->getBackingStore()->get('deployments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Deployment::class);
+            /** @var array<Deployment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deployments'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -75,7 +92,13 @@ class AdminWindowsUpdates extends Entity implements Parsable
      * @return array<ResourceConnection>|null
     */
     public function getResourceConnections(): ?array {
-        return $this->getBackingStore()->get('resourceConnections');
+        $val = $this->getBackingStore()->get('resourceConnections');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ResourceConnection::class);
+            /** @var array<ResourceConnection>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resourceConnections'");
     }
 
     /**
@@ -83,7 +106,13 @@ class AdminWindowsUpdates extends Entity implements Parsable
      * @return array<UpdatableAsset>|null
     */
     public function getUpdatableAssets(): ?array {
-        return $this->getBackingStore()->get('updatableAssets');
+        $val = $this->getBackingStore()->get('updatableAssets');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UpdatableAsset::class);
+            /** @var array<UpdatableAsset>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'updatableAssets'");
     }
 
     /**
@@ -91,7 +120,13 @@ class AdminWindowsUpdates extends Entity implements Parsable
      * @return array<UpdatePolicy>|null
     */
     public function getUpdatePolicies(): ?array {
-        return $this->getBackingStore()->get('updatePolicies');
+        $val = $this->getBackingStore()->get('updatePolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UpdatePolicy::class);
+            /** @var array<UpdatePolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'updatePolicies'");
     }
 
     /**

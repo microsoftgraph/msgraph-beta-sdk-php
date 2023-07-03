@@ -47,7 +47,12 @@ class AccessPackageQuestion implements AdditionalDataHolder, BackedModel, Parsab
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -60,7 +65,7 @@ class AccessPackageQuestion implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -79,7 +84,11 @@ class AccessPackageQuestion implements AdditionalDataHolder, BackedModel, Parsab
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->getBackingStore()->get('id');
+        $val = $this->getBackingStore()->get('id');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'id'");
     }
 
     /**
@@ -87,7 +96,11 @@ class AccessPackageQuestion implements AdditionalDataHolder, BackedModel, Parsab
      * @return bool|null
     */
     public function getIsAnswerEditable(): ?bool {
-        return $this->getBackingStore()->get('isAnswerEditable');
+        $val = $this->getBackingStore()->get('isAnswerEditable');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isAnswerEditable'");
     }
 
     /**
@@ -95,7 +108,11 @@ class AccessPackageQuestion implements AdditionalDataHolder, BackedModel, Parsab
      * @return bool|null
     */
     public function getIsRequired(): ?bool {
-        return $this->getBackingStore()->get('isRequired');
+        $val = $this->getBackingStore()->get('isRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isRequired'");
     }
 
     /**
@@ -103,7 +120,11 @@ class AccessPackageQuestion implements AdditionalDataHolder, BackedModel, Parsab
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -111,7 +132,11 @@ class AccessPackageQuestion implements AdditionalDataHolder, BackedModel, Parsab
      * @return int|null
     */
     public function getSequence(): ?int {
-        return $this->getBackingStore()->get('sequence');
+        $val = $this->getBackingStore()->get('sequence');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sequence'");
     }
 
     /**
@@ -119,7 +144,11 @@ class AccessPackageQuestion implements AdditionalDataHolder, BackedModel, Parsab
      * @return AccessPackageLocalizedContent|null
     */
     public function getText(): ?AccessPackageLocalizedContent {
-        return $this->getBackingStore()->get('text');
+        $val = $this->getBackingStore()->get('text');
+        if (is_null($val) || $val instanceof AccessPackageLocalizedContent) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'text'");
     }
 
     /**

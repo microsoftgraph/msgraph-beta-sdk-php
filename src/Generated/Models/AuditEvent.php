@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * A class containing the properties for Audit Event.
@@ -33,7 +34,11 @@ class AuditEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getActivity(): ?string {
-        return $this->getBackingStore()->get('activity');
+        $val = $this->getBackingStore()->get('activity');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activity'");
     }
 
     /**
@@ -41,7 +46,11 @@ class AuditEvent extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getActivityDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('activityDateTime');
+        $val = $this->getBackingStore()->get('activityDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activityDateTime'");
     }
 
     /**
@@ -49,7 +58,11 @@ class AuditEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getActivityOperationType(): ?string {
-        return $this->getBackingStore()->get('activityOperationType');
+        $val = $this->getBackingStore()->get('activityOperationType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activityOperationType'");
     }
 
     /**
@@ -57,7 +70,11 @@ class AuditEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getActivityResult(): ?string {
-        return $this->getBackingStore()->get('activityResult');
+        $val = $this->getBackingStore()->get('activityResult');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activityResult'");
     }
 
     /**
@@ -65,7 +82,11 @@ class AuditEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getActivityType(): ?string {
-        return $this->getBackingStore()->get('activityType');
+        $val = $this->getBackingStore()->get('activityType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activityType'");
     }
 
     /**
@@ -73,7 +94,11 @@ class AuditEvent extends Entity implements Parsable
      * @return AuditActor|null
     */
     public function getActor(): ?AuditActor {
-        return $this->getBackingStore()->get('actor');
+        $val = $this->getBackingStore()->get('actor');
+        if (is_null($val) || $val instanceof AuditActor) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'actor'");
     }
 
     /**
@@ -81,7 +106,11 @@ class AuditEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getCategory(): ?string {
-        return $this->getBackingStore()->get('category');
+        $val = $this->getBackingStore()->get('category');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'category'");
     }
 
     /**
@@ -89,7 +118,11 @@ class AuditEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getComponentName(): ?string {
-        return $this->getBackingStore()->get('componentName');
+        $val = $this->getBackingStore()->get('componentName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'componentName'");
     }
 
     /**
@@ -97,7 +130,11 @@ class AuditEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getCorrelationId(): ?string {
-        return $this->getBackingStore()->get('correlationId');
+        $val = $this->getBackingStore()->get('correlationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'correlationId'");
     }
 
     /**
@@ -105,12 +142,16 @@ class AuditEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -134,7 +175,13 @@ class AuditEvent extends Entity implements Parsable
      * @return array<AuditResource>|null
     */
     public function getResources(): ?array {
-        return $this->getBackingStore()->get('resources');
+        $val = $this->getBackingStore()->get('resources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AuditResource::class);
+            /** @var array<AuditResource>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resources'");
     }
 
     /**

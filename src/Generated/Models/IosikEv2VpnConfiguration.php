@@ -30,7 +30,11 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
      * @return bool|null
     */
     public function getAllowDefaultChildSecurityAssociationParameters(): ?bool {
-        return $this->getBackingStore()->get('allowDefaultChildSecurityAssociationParameters');
+        $val = $this->getBackingStore()->get('allowDefaultChildSecurityAssociationParameters');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowDefaultChildSecurityAssociationParameters'");
     }
 
     /**
@@ -38,7 +42,11 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
      * @return bool|null
     */
     public function getAllowDefaultSecurityAssociationParameters(): ?bool {
-        return $this->getBackingStore()->get('allowDefaultSecurityAssociationParameters');
+        $val = $this->getBackingStore()->get('allowDefaultSecurityAssociationParameters');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowDefaultSecurityAssociationParameters'");
     }
 
     /**
@@ -46,7 +54,11 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
      * @return AppleVpnAlwaysOnConfiguration|null
     */
     public function getAlwaysOnConfiguration(): ?AppleVpnAlwaysOnConfiguration {
-        return $this->getBackingStore()->get('alwaysOnConfiguration');
+        $val = $this->getBackingStore()->get('alwaysOnConfiguration');
+        if (is_null($val) || $val instanceof AppleVpnAlwaysOnConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'alwaysOnConfiguration'");
     }
 
     /**
@@ -54,7 +66,11 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
      * @return IosVpnSecurityAssociationParameters|null
     */
     public function getChildSecurityAssociationParameters(): ?IosVpnSecurityAssociationParameters {
-        return $this->getBackingStore()->get('childSecurityAssociationParameters');
+        $val = $this->getBackingStore()->get('childSecurityAssociationParameters');
+        if (is_null($val) || $val instanceof IosVpnSecurityAssociationParameters) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'childSecurityAssociationParameters'");
     }
 
     /**
@@ -62,7 +78,11 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
      * @return VpnClientAuthenticationType|null
     */
     public function getClientAuthenticationType(): ?VpnClientAuthenticationType {
-        return $this->getBackingStore()->get('clientAuthenticationType');
+        $val = $this->getBackingStore()->get('clientAuthenticationType');
+        if (is_null($val) || $val instanceof VpnClientAuthenticationType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clientAuthenticationType'");
     }
 
     /**
@@ -70,7 +90,11 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
      * @return VpnDeadPeerDetectionRate|null
     */
     public function getDeadPeerDetectionRate(): ?VpnDeadPeerDetectionRate {
-        return $this->getBackingStore()->get('deadPeerDetectionRate');
+        $val = $this->getBackingStore()->get('deadPeerDetectionRate');
+        if (is_null($val) || $val instanceof VpnDeadPeerDetectionRate) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deadPeerDetectionRate'");
     }
 
     /**
@@ -78,7 +102,11 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
      * @return bool|null
     */
     public function getDisableMobilityAndMultihoming(): ?bool {
-        return $this->getBackingStore()->get('disableMobilityAndMultihoming');
+        $val = $this->getBackingStore()->get('disableMobilityAndMultihoming');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disableMobilityAndMultihoming'");
     }
 
     /**
@@ -86,7 +114,11 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
      * @return bool|null
     */
     public function getDisableRedirect(): ?bool {
-        return $this->getBackingStore()->get('disableRedirect');
+        $val = $this->getBackingStore()->get('disableRedirect');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disableRedirect'");
     }
 
     /**
@@ -94,7 +126,11 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
      * @return bool|null
     */
     public function getEnableAlwaysOnConfiguration(): ?bool {
-        return $this->getBackingStore()->get('enableAlwaysOnConfiguration');
+        $val = $this->getBackingStore()->get('enableAlwaysOnConfiguration');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableAlwaysOnConfiguration'");
     }
 
     /**
@@ -102,7 +138,11 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
      * @return bool|null
     */
     public function getEnableCertificateRevocationCheck(): ?bool {
-        return $this->getBackingStore()->get('enableCertificateRevocationCheck');
+        $val = $this->getBackingStore()->get('enableCertificateRevocationCheck');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableCertificateRevocationCheck'");
     }
 
     /**
@@ -110,7 +150,11 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
      * @return bool|null
     */
     public function getEnableEAP(): ?bool {
-        return $this->getBackingStore()->get('enableEAP');
+        $val = $this->getBackingStore()->get('enableEAP');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableEAP'");
     }
 
     /**
@@ -118,7 +162,11 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
      * @return bool|null
     */
     public function getEnablePerfectForwardSecrecy(): ?bool {
-        return $this->getBackingStore()->get('enablePerfectForwardSecrecy');
+        $val = $this->getBackingStore()->get('enablePerfectForwardSecrecy');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enablePerfectForwardSecrecy'");
     }
 
     /**
@@ -126,12 +174,16 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
      * @return bool|null
     */
     public function getEnableUseInternalSubnetAttributes(): ?bool {
-        return $this->getBackingStore()->get('enableUseInternalSubnetAttributes');
+        $val = $this->getBackingStore()->get('enableUseInternalSubnetAttributes');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableUseInternalSubnetAttributes'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -167,7 +219,11 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
      * @return VpnLocalIdentifier|null
     */
     public function getLocalIdentifier(): ?VpnLocalIdentifier {
-        return $this->getBackingStore()->get('localIdentifier');
+        $val = $this->getBackingStore()->get('localIdentifier');
+        if (is_null($val) || $val instanceof VpnLocalIdentifier) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localIdentifier'");
     }
 
     /**
@@ -175,7 +231,11 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
      * @return int|null
     */
     public function getMtuSizeInBytes(): ?int {
-        return $this->getBackingStore()->get('mtuSizeInBytes');
+        $val = $this->getBackingStore()->get('mtuSizeInBytes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mtuSizeInBytes'");
     }
 
     /**
@@ -183,7 +243,11 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
      * @return string|null
     */
     public function getRemoteIdentifier(): ?string {
-        return $this->getBackingStore()->get('remoteIdentifier');
+        $val = $this->getBackingStore()->get('remoteIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remoteIdentifier'");
     }
 
     /**
@@ -191,7 +255,11 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
      * @return IosVpnSecurityAssociationParameters|null
     */
     public function getSecurityAssociationParameters(): ?IosVpnSecurityAssociationParameters {
-        return $this->getBackingStore()->get('securityAssociationParameters');
+        $val = $this->getBackingStore()->get('securityAssociationParameters');
+        if (is_null($val) || $val instanceof IosVpnSecurityAssociationParameters) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'securityAssociationParameters'");
     }
 
     /**
@@ -199,7 +267,11 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
      * @return string|null
     */
     public function getServerCertificateCommonName(): ?string {
-        return $this->getBackingStore()->get('serverCertificateCommonName');
+        $val = $this->getBackingStore()->get('serverCertificateCommonName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'serverCertificateCommonName'");
     }
 
     /**
@@ -207,7 +279,11 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
      * @return string|null
     */
     public function getServerCertificateIssuerCommonName(): ?string {
-        return $this->getBackingStore()->get('serverCertificateIssuerCommonName');
+        $val = $this->getBackingStore()->get('serverCertificateIssuerCommonName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'serverCertificateIssuerCommonName'");
     }
 
     /**
@@ -215,7 +291,11 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
      * @return VpnServerCertificateType|null
     */
     public function getServerCertificateType(): ?VpnServerCertificateType {
-        return $this->getBackingStore()->get('serverCertificateType');
+        $val = $this->getBackingStore()->get('serverCertificateType');
+        if (is_null($val) || $val instanceof VpnServerCertificateType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'serverCertificateType'");
     }
 
     /**
@@ -223,7 +303,11 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
      * @return string|null
     */
     public function getSharedSecret(): ?string {
-        return $this->getBackingStore()->get('sharedSecret');
+        $val = $this->getBackingStore()->get('sharedSecret');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sharedSecret'");
     }
 
     /**
@@ -231,7 +315,11 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
      * @return string|null
     */
     public function getTlsMaximumVersion(): ?string {
-        return $this->getBackingStore()->get('tlsMaximumVersion');
+        $val = $this->getBackingStore()->get('tlsMaximumVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tlsMaximumVersion'");
     }
 
     /**
@@ -239,7 +327,11 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
      * @return string|null
     */
     public function getTlsMinimumVersion(): ?string {
-        return $this->getBackingStore()->get('tlsMinimumVersion');
+        $val = $this->getBackingStore()->get('tlsMinimumVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tlsMinimumVersion'");
     }
 
     /**

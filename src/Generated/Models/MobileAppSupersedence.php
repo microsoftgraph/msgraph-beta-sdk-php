@@ -27,7 +27,7 @@ class MobileAppSupersedence extends MobileAppRelationship implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -43,7 +43,11 @@ class MobileAppSupersedence extends MobileAppRelationship implements Parsable
      * @return int|null
     */
     public function getSupersededAppCount(): ?int {
-        return $this->getBackingStore()->get('supersededAppCount');
+        $val = $this->getBackingStore()->get('supersededAppCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supersededAppCount'");
     }
 
     /**
@@ -51,7 +55,11 @@ class MobileAppSupersedence extends MobileAppRelationship implements Parsable
      * @return MobileAppSupersedenceType|null
     */
     public function getSupersedenceType(): ?MobileAppSupersedenceType {
-        return $this->getBackingStore()->get('supersedenceType');
+        $val = $this->getBackingStore()->get('supersedenceType');
+        if (is_null($val) || $val instanceof MobileAppSupersedenceType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supersedenceType'");
     }
 
     /**
@@ -59,7 +67,11 @@ class MobileAppSupersedence extends MobileAppRelationship implements Parsable
      * @return int|null
     */
     public function getSupersedingAppCount(): ?int {
-        return $this->getBackingStore()->get('supersedingAppCount');
+        $val = $this->getBackingStore()->get('supersedingAppCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supersedingAppCount'");
     }
 
     /**

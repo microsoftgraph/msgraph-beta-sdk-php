@@ -30,12 +30,16 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
      * @return ContentAlignment|null
     */
     public function getAlignment(): ?ContentAlignment {
-        return $this->getBackingStore()->get('alignment');
+        $val = $this->getBackingStore()->get('alignment');
+        if (is_null($val) || $val instanceof ContentAlignment) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'alignment'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -55,7 +59,11 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
      * @return string|null
     */
     public function getFontColor(): ?string {
-        return $this->getBackingStore()->get('fontColor');
+        $val = $this->getBackingStore()->get('fontColor');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fontColor'");
     }
 
     /**
@@ -63,7 +71,11 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
      * @return string|null
     */
     public function getFontName(): ?string {
-        return $this->getBackingStore()->get('fontName');
+        $val = $this->getBackingStore()->get('fontName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fontName'");
     }
 
     /**
@@ -71,7 +83,11 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
      * @return int|null
     */
     public function getFontSize(): ?int {
-        return $this->getBackingStore()->get('fontSize');
+        $val = $this->getBackingStore()->get('fontSize');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fontSize'");
     }
 
     /**
@@ -79,7 +95,11 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
      * @return int|null
     */
     public function getMargin(): ?int {
-        return $this->getBackingStore()->get('margin');
+        $val = $this->getBackingStore()->get('margin');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'margin'");
     }
 
     /**
@@ -87,7 +107,11 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
      * @return string|null
     */
     public function getText(): ?string {
-        return $this->getBackingStore()->get('text');
+        $val = $this->getBackingStore()->get('text');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'text'");
     }
 
     /**
@@ -95,7 +119,11 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
      * @return string|null
     */
     public function getUiElementName(): ?string {
-        return $this->getBackingStore()->get('uiElementName');
+        $val = $this->getBackingStore()->get('uiElementName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'uiElementName'");
     }
 
     /**

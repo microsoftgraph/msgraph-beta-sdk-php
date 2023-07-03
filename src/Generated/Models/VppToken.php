@@ -6,14 +6,12 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
-/**
- * You purchase multiple licenses for iOS apps through the Apple Volume Purchase Program for Business or Education. This involves setting up an Apple VPP account from the Apple website and uploading the Apple VPP Business or Education token to Intune. You can then synchronize your volume purchase information with Intune and track your volume-purchased app use. You can upload multiple Apple VPP Business or Education tokens.
-*/
 class VppToken extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new vppToken and sets the default values.
+     * Instantiates a new VppToken and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -33,7 +31,11 @@ class VppToken extends Entity implements Parsable
      * @return string|null
     */
     public function getAppleId(): ?string {
-        return $this->getBackingStore()->get('appleId');
+        $val = $this->getBackingStore()->get('appleId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appleId'");
     }
 
     /**
@@ -41,7 +43,11 @@ class VppToken extends Entity implements Parsable
      * @return bool|null
     */
     public function getAutomaticallyUpdateApps(): ?bool {
-        return $this->getBackingStore()->get('automaticallyUpdateApps');
+        $val = $this->getBackingStore()->get('automaticallyUpdateApps');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'automaticallyUpdateApps'");
     }
 
     /**
@@ -49,7 +55,11 @@ class VppToken extends Entity implements Parsable
      * @return bool|null
     */
     public function getClaimTokenManagementFromExternalMdm(): ?bool {
-        return $this->getBackingStore()->get('claimTokenManagementFromExternalMdm');
+        $val = $this->getBackingStore()->get('claimTokenManagementFromExternalMdm');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'claimTokenManagementFromExternalMdm'");
     }
 
     /**
@@ -57,7 +67,11 @@ class VppToken extends Entity implements Parsable
      * @return string|null
     */
     public function getCountryOrRegion(): ?string {
-        return $this->getBackingStore()->get('countryOrRegion');
+        $val = $this->getBackingStore()->get('countryOrRegion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'countryOrRegion'");
     }
 
     /**
@@ -65,7 +79,11 @@ class VppToken extends Entity implements Parsable
      * @return bool|null
     */
     public function getDataSharingConsentGranted(): ?bool {
-        return $this->getBackingStore()->get('dataSharingConsentGranted');
+        $val = $this->getBackingStore()->get('dataSharingConsentGranted');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dataSharingConsentGranted'");
     }
 
     /**
@@ -73,7 +91,11 @@ class VppToken extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -81,12 +103,16 @@ class VppToken extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('expirationDateTime');
+        $val = $this->getBackingStore()->get('expirationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expirationDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -103,7 +129,14 @@ class VppToken extends Entity implements Parsable
             'lastSyncStatus' => fn(ParseNode $n) => $o->setLastSyncStatus($n->getEnumValue(VppTokenSyncStatus::class)),
             'locationName' => fn(ParseNode $n) => $o->setLocationName($n->getStringValue()),
             'organizationName' => fn(ParseNode $n) => $o->setOrganizationName($n->getStringValue()),
-            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
+            'roleScopeTagIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoleScopeTagIds($val);
+            },
             'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(VppTokenState::class)),
             'token' => fn(ParseNode $n) => $o->setToken($n->getStringValue()),
             'tokenActionResults' => fn(ParseNode $n) => $o->setTokenActionResults($n->getCollectionOfObjectValues([VppTokenActionResult::class, 'createFromDiscriminatorValue'])),
@@ -116,7 +149,11 @@ class VppToken extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -124,7 +161,11 @@ class VppToken extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastSyncDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastSyncDateTime');
+        $val = $this->getBackingStore()->get('lastSyncDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSyncDateTime'");
     }
 
     /**
@@ -132,7 +173,11 @@ class VppToken extends Entity implements Parsable
      * @return VppTokenSyncStatus|null
     */
     public function getLastSyncStatus(): ?VppTokenSyncStatus {
-        return $this->getBackingStore()->get('lastSyncStatus');
+        $val = $this->getBackingStore()->get('lastSyncStatus');
+        if (is_null($val) || $val instanceof VppTokenSyncStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSyncStatus'");
     }
 
     /**
@@ -140,7 +185,11 @@ class VppToken extends Entity implements Parsable
      * @return string|null
     */
     public function getLocationName(): ?string {
-        return $this->getBackingStore()->get('locationName');
+        $val = $this->getBackingStore()->get('locationName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'locationName'");
     }
 
     /**
@@ -148,7 +197,11 @@ class VppToken extends Entity implements Parsable
      * @return string|null
     */
     public function getOrganizationName(): ?string {
-        return $this->getBackingStore()->get('organizationName');
+        $val = $this->getBackingStore()->get('organizationName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'organizationName'");
     }
 
     /**
@@ -156,7 +209,13 @@ class VppToken extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->getBackingStore()->get('roleScopeTagIds');
+        $val = $this->getBackingStore()->get('roleScopeTagIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleScopeTagIds'");
     }
 
     /**
@@ -164,7 +223,11 @@ class VppToken extends Entity implements Parsable
      * @return VppTokenState|null
     */
     public function getState(): ?VppTokenState {
-        return $this->getBackingStore()->get('state');
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || $val instanceof VppTokenState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
     }
 
     /**
@@ -172,7 +235,11 @@ class VppToken extends Entity implements Parsable
      * @return string|null
     */
     public function getToken(): ?string {
-        return $this->getBackingStore()->get('token');
+        $val = $this->getBackingStore()->get('token');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'token'");
     }
 
     /**
@@ -180,7 +247,13 @@ class VppToken extends Entity implements Parsable
      * @return array<VppTokenActionResult>|null
     */
     public function getTokenActionResults(): ?array {
-        return $this->getBackingStore()->get('tokenActionResults');
+        $val = $this->getBackingStore()->get('tokenActionResults');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, VppTokenActionResult::class);
+            /** @var array<VppTokenActionResult>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tokenActionResults'");
     }
 
     /**
@@ -188,7 +261,11 @@ class VppToken extends Entity implements Parsable
      * @return VppTokenAccountType|null
     */
     public function getVppTokenAccountType(): ?VppTokenAccountType {
-        return $this->getBackingStore()->get('vppTokenAccountType');
+        $val = $this->getBackingStore()->get('vppTokenAccountType');
+        if (is_null($val) || $val instanceof VppTokenAccountType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vppTokenAccountType'");
     }
 
     /**

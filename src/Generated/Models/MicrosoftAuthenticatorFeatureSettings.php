@@ -39,7 +39,12 @@ class MicrosoftAuthenticatorFeatureSettings implements AdditionalDataHolder, Bac
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +60,11 @@ class MicrosoftAuthenticatorFeatureSettings implements AdditionalDataHolder, Bac
      * @return AuthenticationMethodFeatureConfiguration|null
     */
     public function getCompanionAppAllowedState(): ?AuthenticationMethodFeatureConfiguration {
-        return $this->getBackingStore()->get('companionAppAllowedState');
+        $val = $this->getBackingStore()->get('companionAppAllowedState');
+        if (is_null($val) || $val instanceof AuthenticationMethodFeatureConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'companionAppAllowedState'");
     }
 
     /**
@@ -63,7 +72,11 @@ class MicrosoftAuthenticatorFeatureSettings implements AdditionalDataHolder, Bac
      * @return AuthenticationMethodFeatureConfiguration|null
     */
     public function getDisplayAppInformationRequiredState(): ?AuthenticationMethodFeatureConfiguration {
-        return $this->getBackingStore()->get('displayAppInformationRequiredState');
+        $val = $this->getBackingStore()->get('displayAppInformationRequiredState');
+        if (is_null($val) || $val instanceof AuthenticationMethodFeatureConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayAppInformationRequiredState'");
     }
 
     /**
@@ -71,12 +84,16 @@ class MicrosoftAuthenticatorFeatureSettings implements AdditionalDataHolder, Bac
      * @return AuthenticationMethodFeatureConfiguration|null
     */
     public function getDisplayLocationInformationRequiredState(): ?AuthenticationMethodFeatureConfiguration {
-        return $this->getBackingStore()->get('displayLocationInformationRequiredState');
+        $val = $this->getBackingStore()->get('displayLocationInformationRequiredState');
+        if (is_null($val) || $val instanceof AuthenticationMethodFeatureConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayLocationInformationRequiredState'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -94,7 +111,11 @@ class MicrosoftAuthenticatorFeatureSettings implements AdditionalDataHolder, Bac
      * @return AuthenticationMethodFeatureConfiguration|null
     */
     public function getNumberMatchingRequiredState(): ?AuthenticationMethodFeatureConfiguration {
-        return $this->getBackingStore()->get('numberMatchingRequiredState');
+        $val = $this->getBackingStore()->get('numberMatchingRequiredState');
+        if (is_null($val) || $val instanceof AuthenticationMethodFeatureConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'numberMatchingRequiredState'");
     }
 
     /**
@@ -102,7 +123,11 @@ class MicrosoftAuthenticatorFeatureSettings implements AdditionalDataHolder, Bac
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

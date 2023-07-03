@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsAutopilotSettings extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new WindowsAutopilotSettings and sets the default values.
+     * Instantiates a new windowsAutopilotSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -27,7 +27,7 @@ class WindowsAutopilotSettings extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -43,7 +43,11 @@ class WindowsAutopilotSettings extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastManualSyncTriggerDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastManualSyncTriggerDateTime');
+        $val = $this->getBackingStore()->get('lastManualSyncTriggerDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastManualSyncTriggerDateTime'");
     }
 
     /**
@@ -51,7 +55,11 @@ class WindowsAutopilotSettings extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastSyncDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastSyncDateTime');
+        $val = $this->getBackingStore()->get('lastSyncDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSyncDateTime'");
     }
 
     /**
@@ -59,7 +67,11 @@ class WindowsAutopilotSettings extends Entity implements Parsable
      * @return WindowsAutopilotSyncStatus|null
     */
     public function getSyncStatus(): ?WindowsAutopilotSyncStatus {
-        return $this->getBackingStore()->get('syncStatus');
+        $val = $this->getBackingStore()->get('syncStatus');
+        if (is_null($val) || $val instanceof WindowsAutopilotSyncStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'syncStatus'");
     }
 
     /**

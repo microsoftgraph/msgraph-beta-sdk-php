@@ -18,7 +18,7 @@ class IdentitySet implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new IdentitySet and sets the default values.
+     * Instantiates a new identitySet and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -50,15 +50,24 @@ class IdentitySet implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
-     * Gets the application property value. The Identity of the Application. This property is read-only.
+     * Gets the application property value. Optional. The application associated with this action.
      * @return Identity|null
     */
     public function getApplication(): ?Identity {
-        return $this->getBackingStore()->get('application');
+        $val = $this->getBackingStore()->get('application');
+        if (is_null($val) || $val instanceof Identity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'application'");
     }
 
     /**
@@ -70,16 +79,20 @@ class IdentitySet implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the device property value. The Identity of the Device. This property is read-only.
+     * Gets the device property value. Optional. The device associated with this action.
      * @return Identity|null
     */
     public function getDevice(): ?Identity {
-        return $this->getBackingStore()->get('device');
+        $val = $this->getBackingStore()->get('device');
+        if (is_null($val) || $val instanceof Identity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'device'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -96,15 +109,23 @@ class IdentitySet implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
-     * Gets the user property value. The Identity of the User. This property is read-only.
+     * Gets the user property value. Optional. The user associated with this action.
      * @return Identity|null
     */
     public function getUser(): ?Identity {
-        return $this->getBackingStore()->get('user');
+        $val = $this->getBackingStore()->get('user');
+        if (is_null($val) || $val instanceof Identity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'user'");
     }
 
     /**
@@ -128,7 +149,7 @@ class IdentitySet implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the application property value. The Identity of the Application. This property is read-only.
+     * Sets the application property value. Optional. The application associated with this action.
      * @param Identity|null $value Value to set for the application property.
     */
     public function setApplication(?Identity $value): void {
@@ -144,7 +165,7 @@ class IdentitySet implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the device property value. The Identity of the Device. This property is read-only.
+     * Sets the device property value. Optional. The device associated with this action.
      * @param Identity|null $value Value to set for the device property.
     */
     public function setDevice(?Identity $value): void {
@@ -160,7 +181,7 @@ class IdentitySet implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the user property value. The Identity of the User. This property is read-only.
+     * Sets the user property value. Optional. The user associated with this action.
      * @param Identity|null $value Value to set for the user property.
     */
     public function setUser(?Identity $value): void {

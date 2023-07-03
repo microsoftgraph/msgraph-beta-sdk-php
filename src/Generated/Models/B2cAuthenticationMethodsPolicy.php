@@ -26,7 +26,7 @@ class B2cAuthenticationMethodsPolicy extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -42,7 +42,11 @@ class B2cAuthenticationMethodsPolicy extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsEmailPasswordAuthenticationEnabled(): ?bool {
-        return $this->getBackingStore()->get('isEmailPasswordAuthenticationEnabled');
+        $val = $this->getBackingStore()->get('isEmailPasswordAuthenticationEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isEmailPasswordAuthenticationEnabled'");
     }
 
     /**
@@ -50,7 +54,11 @@ class B2cAuthenticationMethodsPolicy extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsPhoneOneTimePasswordAuthenticationEnabled(): ?bool {
-        return $this->getBackingStore()->get('isPhoneOneTimePasswordAuthenticationEnabled');
+        $val = $this->getBackingStore()->get('isPhoneOneTimePasswordAuthenticationEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isPhoneOneTimePasswordAuthenticationEnabled'");
     }
 
     /**
@@ -58,7 +66,11 @@ class B2cAuthenticationMethodsPolicy extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsUserNameAuthenticationEnabled(): ?bool {
-        return $this->getBackingStore()->get('isUserNameAuthenticationEnabled');
+        $val = $this->getBackingStore()->get('isUserNameAuthenticationEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isUserNameAuthenticationEnabled'");
     }
 
     /**

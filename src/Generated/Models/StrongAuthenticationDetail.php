@@ -30,12 +30,16 @@ class StrongAuthenticationDetail extends Entity implements Parsable
      * @return StreamInterface|null
     */
     public function getEncryptedPinHashHistory(): ?StreamInterface {
-        return $this->getBackingStore()->get('encryptedPinHashHistory');
+        $val = $this->getBackingStore()->get('encryptedPinHashHistory');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'encryptedPinHashHistory'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -50,7 +54,11 @@ class StrongAuthenticationDetail extends Entity implements Parsable
      * @return int|null
     */
     public function getProofupTime(): ?int {
-        return $this->getBackingStore()->get('proofupTime');
+        $val = $this->getBackingStore()->get('proofupTime');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'proofupTime'");
     }
 
     /**

@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DeviceConfigurationConflictSummary extends Entity implements Parsable 
 {
@@ -29,7 +30,13 @@ class DeviceConfigurationConflictSummary extends Entity implements Parsable
      * @return array<SettingSource>|null
     */
     public function getConflictingDeviceConfigurations(): ?array {
-        return $this->getBackingStore()->get('conflictingDeviceConfigurations');
+        $val = $this->getBackingStore()->get('conflictingDeviceConfigurations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SettingSource::class);
+            /** @var array<SettingSource>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'conflictingDeviceConfigurations'");
     }
 
     /**
@@ -37,7 +44,13 @@ class DeviceConfigurationConflictSummary extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getContributingSettings(): ?array {
-        return $this->getBackingStore()->get('contributingSettings');
+        $val = $this->getBackingStore()->get('contributingSettings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contributingSettings'");
     }
 
     /**
@@ -45,18 +58,29 @@ class DeviceConfigurationConflictSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getDeviceCheckinsImpacted(): ?int {
-        return $this->getBackingStore()->get('deviceCheckinsImpacted');
+        $val = $this->getBackingStore()->get('deviceCheckinsImpacted');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceCheckinsImpacted'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'conflictingDeviceConfigurations' => fn(ParseNode $n) => $o->setConflictingDeviceConfigurations($n->getCollectionOfObjectValues([SettingSource::class, 'createFromDiscriminatorValue'])),
-            'contributingSettings' => fn(ParseNode $n) => $o->setContributingSettings($n->getCollectionOfPrimitiveValues()),
+            'contributingSettings' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setContributingSettings($val);
+            },
             'deviceCheckinsImpacted' => fn(ParseNode $n) => $o->setDeviceCheckinsImpacted($n->getIntegerValue()),
         ]);
     }

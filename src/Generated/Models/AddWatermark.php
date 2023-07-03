@@ -27,7 +27,7 @@ class AddWatermark extends MarkContent implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class AddWatermark extends MarkContent implements Parsable
      * @return PageOrientation|null
     */
     public function getOrientation(): ?PageOrientation {
-        return $this->getBackingStore()->get('orientation');
+        $val = $this->getBackingStore()->get('orientation');
+        if (is_null($val) || $val instanceof PageOrientation) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'orientation'");
     }
 
     /**

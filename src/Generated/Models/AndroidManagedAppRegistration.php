@@ -27,7 +27,7 @@ class AndroidManagedAppRegistration extends ManagedAppRegistration implements Pa
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class AndroidManagedAppRegistration extends ManagedAppRegistration implements Pa
      * @return string|null
     */
     public function getPatchVersion(): ?string {
-        return $this->getBackingStore()->get('patchVersion');
+        $val = $this->getBackingStore()->get('patchVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'patchVersion'");
     }
 
     /**

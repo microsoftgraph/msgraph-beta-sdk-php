@@ -40,7 +40,12 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, BackedModel
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -56,12 +61,16 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, BackedModel
      * @return string|null
     */
     public function getDateFormat(): ?string {
-        return $this->getBackingStore()->get('dateFormat');
+        $val = $this->getBackingStore()->get('dateFormat');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dateFormat'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -80,7 +89,11 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, BackedModel
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -88,7 +101,11 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, BackedModel
      * @return Time|null
     */
     public function getOfficeHoursEndTime(): ?Time {
-        return $this->getBackingStore()->get('officeHoursEndTime');
+        $val = $this->getBackingStore()->get('officeHoursEndTime');
+        if (is_null($val) || $val instanceof Time) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'officeHoursEndTime'");
     }
 
     /**
@@ -96,7 +113,11 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, BackedModel
      * @return Time|null
     */
     public function getOfficeHoursStartTime(): ?Time {
-        return $this->getBackingStore()->get('officeHoursStartTime');
+        $val = $this->getBackingStore()->get('officeHoursStartTime');
+        if (is_null($val) || $val instanceof Time) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'officeHoursStartTime'");
     }
 
     /**
@@ -104,7 +125,11 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, BackedModel
      * @return string|null
     */
     public function getTimeFormat(): ?string {
-        return $this->getBackingStore()->get('timeFormat');
+        $val = $this->getBackingStore()->get('timeFormat');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'timeFormat'");
     }
 
     /**
@@ -112,7 +137,11 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, BackedModel
      * @return string|null
     */
     public function getTimeZone(): ?string {
-        return $this->getBackingStore()->get('timeZone');
+        $val = $this->getBackingStore()->get('timeZone');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'timeZone'");
     }
 
     /**

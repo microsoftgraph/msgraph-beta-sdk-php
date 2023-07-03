@@ -11,6 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class KeyCredentialConfiguration implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -41,7 +42,12 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, BackedModel, P
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -57,17 +63,30 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, BackedModel, P
      * @return array<string>|null
     */
     public function getCertificateBasedApplicationConfigurationIds(): ?array {
-        return $this->getBackingStore()->get('certificateBasedApplicationConfigurationIds');
+        $val = $this->getBackingStore()->get('certificateBasedApplicationConfigurationIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateBasedApplicationConfigurationIds'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'certificateBasedApplicationConfigurationIds' => fn(ParseNode $n) => $o->setCertificateBasedApplicationConfigurationIds($n->getCollectionOfPrimitiveValues()),
+            'certificateBasedApplicationConfigurationIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setCertificateBasedApplicationConfigurationIds($val);
+            },
             'maxLifetime' => fn(ParseNode $n) => $o->setMaxLifetime($n->getDateIntervalValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'restrictForAppsCreatedAfterDateTime' => fn(ParseNode $n) => $o->setRestrictForAppsCreatedAfterDateTime($n->getDateTimeValue()),
@@ -80,7 +99,11 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, BackedModel, P
      * @return DateInterval|null
     */
     public function getMaxLifetime(): ?DateInterval {
-        return $this->getBackingStore()->get('maxLifetime');
+        $val = $this->getBackingStore()->get('maxLifetime');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maxLifetime'");
     }
 
     /**
@@ -88,7 +111,11 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, BackedModel, P
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -96,7 +123,11 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, BackedModel, P
      * @return DateTime|null
     */
     public function getRestrictForAppsCreatedAfterDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('restrictForAppsCreatedAfterDateTime');
+        $val = $this->getBackingStore()->get('restrictForAppsCreatedAfterDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'restrictForAppsCreatedAfterDateTime'");
     }
 
     /**
@@ -104,7 +135,11 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, BackedModel, P
      * @return AppKeyCredentialRestrictionType|null
     */
     public function getRestrictionType(): ?AppKeyCredentialRestrictionType {
-        return $this->getBackingStore()->get('restrictionType');
+        $val = $this->getBackingStore()->get('restrictionType');
+        if (is_null($val) || $val instanceof AppKeyCredentialRestrictionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'restrictionType'");
     }
 
     /**

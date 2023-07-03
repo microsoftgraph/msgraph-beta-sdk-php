@@ -30,7 +30,11 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getAuthenticationType(): ?string {
-        return $this->getBackingStore()->get('authenticationType');
+        $val = $this->getBackingStore()->get('authenticationType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationType'");
     }
 
     /**
@@ -38,7 +42,11 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getAuthenticatorFlavor(): ?string {
-        return $this->getBackingStore()->get('authenticatorFlavor');
+        $val = $this->getBackingStore()->get('authenticatorFlavor');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticatorFlavor'");
     }
 
     /**
@@ -46,7 +54,11 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->getBackingStore()->get('deviceId');
+        $val = $this->getBackingStore()->get('deviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceId'");
     }
 
     /**
@@ -54,7 +66,11 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->getBackingStore()->get('deviceName');
+        $val = $this->getBackingStore()->get('deviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceName'");
     }
 
     /**
@@ -62,7 +78,11 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceTag(): ?string {
-        return $this->getBackingStore()->get('deviceTag');
+        $val = $this->getBackingStore()->get('deviceTag');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceTag'");
     }
 
     /**
@@ -70,12 +90,16 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceToken(): ?string {
-        return $this->getBackingStore()->get('deviceToken');
+        $val = $this->getBackingStore()->get('deviceToken');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceToken'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -103,7 +127,11 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getHashFunction(): ?string {
-        return $this->getBackingStore()->get('hashFunction');
+        $val = $this->getBackingStore()->get('hashFunction');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hashFunction'");
     }
 
     /**
@@ -111,7 +139,11 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastAuthenticatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastAuthenticatedDateTime');
+        $val = $this->getBackingStore()->get('lastAuthenticatedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastAuthenticatedDateTime'");
     }
 
     /**
@@ -119,7 +151,11 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getNotificationType(): ?string {
-        return $this->getBackingStore()->get('notificationType');
+        $val = $this->getBackingStore()->get('notificationType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notificationType'");
     }
 
     /**
@@ -127,7 +163,11 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getOathSecretKey(): ?string {
-        return $this->getBackingStore()->get('oathSecretKey');
+        $val = $this->getBackingStore()->get('oathSecretKey');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'oathSecretKey'");
     }
 
     /**
@@ -135,7 +175,11 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return OathTokenMetadata|null
     */
     public function getOathTokenMetadata(): ?OathTokenMetadata {
-        return $this->getBackingStore()->get('oathTokenMetadata');
+        $val = $this->getBackingStore()->get('oathTokenMetadata');
+        if (is_null($val) || $val instanceof OathTokenMetadata) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'oathTokenMetadata'");
     }
 
     /**
@@ -143,7 +187,11 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return int|null
     */
     public function getOathTokenTimeDriftInSeconds(): ?int {
-        return $this->getBackingStore()->get('oathTokenTimeDriftInSeconds');
+        $val = $this->getBackingStore()->get('oathTokenTimeDriftInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'oathTokenTimeDriftInSeconds'");
     }
 
     /**
@@ -151,7 +199,11 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getPhoneAppVersion(): ?string {
-        return $this->getBackingStore()->get('phoneAppVersion');
+        $val = $this->getBackingStore()->get('phoneAppVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'phoneAppVersion'");
     }
 
     /**
@@ -159,7 +211,11 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantDeviceId(): ?string {
-        return $this->getBackingStore()->get('tenantDeviceId');
+        $val = $this->getBackingStore()->get('tenantDeviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantDeviceId'");
     }
 
     /**
@@ -167,7 +223,11 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return int|null
     */
     public function getTokenGenerationIntervalInSeconds(): ?int {
-        return $this->getBackingStore()->get('tokenGenerationIntervalInSeconds');
+        $val = $this->getBackingStore()->get('tokenGenerationIntervalInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tokenGenerationIntervalInSeconds'");
     }
 
     /**

@@ -30,12 +30,16 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyUploadedPresentat
      * @return int|null
     */
     public function getDefaultValue(): ?int {
-        return $this->getBackingStore()->get('defaultValue');
+        $val = $this->getBackingStore()->get('defaultValue');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultValue'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -54,7 +58,11 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyUploadedPresentat
      * @return int|null
     */
     public function getMaxValue(): ?int {
-        return $this->getBackingStore()->get('maxValue');
+        $val = $this->getBackingStore()->get('maxValue');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maxValue'");
     }
 
     /**
@@ -62,7 +70,11 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyUploadedPresentat
      * @return int|null
     */
     public function getMinValue(): ?int {
-        return $this->getBackingStore()->get('minValue');
+        $val = $this->getBackingStore()->get('minValue');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minValue'");
     }
 
     /**
@@ -70,7 +82,11 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyUploadedPresentat
      * @return bool|null
     */
     public function getRequired(): ?bool {
-        return $this->getBackingStore()->get('required');
+        $val = $this->getBackingStore()->get('required');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'required'");
     }
 
     /**
@@ -78,7 +94,11 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyUploadedPresentat
      * @return bool|null
     */
     public function getSpin(): ?bool {
-        return $this->getBackingStore()->get('spin');
+        $val = $this->getBackingStore()->get('spin');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'spin'");
     }
 
     /**
@@ -86,7 +106,11 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyUploadedPresentat
      * @return int|null
     */
     public function getSpinStep(): ?int {
-        return $this->getBackingStore()->get('spinStep');
+        $val = $this->getBackingStore()->get('spinStep');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'spinStep'");
     }
 
     /**

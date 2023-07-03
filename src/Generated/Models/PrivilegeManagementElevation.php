@@ -30,7 +30,11 @@ class PrivilegeManagementElevation extends Entity implements Parsable
      * @return string|null
     */
     public function getCertificatePayload(): ?string {
-        return $this->getBackingStore()->get('certificatePayload');
+        $val = $this->getBackingStore()->get('certificatePayload');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificatePayload'");
     }
 
     /**
@@ -38,7 +42,11 @@ class PrivilegeManagementElevation extends Entity implements Parsable
      * @return string|null
     */
     public function getCompanyName(): ?string {
-        return $this->getBackingStore()->get('companyName');
+        $val = $this->getBackingStore()->get('companyName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'companyName'");
     }
 
     /**
@@ -46,7 +54,11 @@ class PrivilegeManagementElevation extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->getBackingStore()->get('deviceId');
+        $val = $this->getBackingStore()->get('deviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceId'");
     }
 
     /**
@@ -54,7 +66,11 @@ class PrivilegeManagementElevation extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->getBackingStore()->get('deviceName');
+        $val = $this->getBackingStore()->get('deviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceName'");
     }
 
     /**
@@ -62,7 +78,11 @@ class PrivilegeManagementElevation extends Entity implements Parsable
      * @return PrivilegeManagementElevationType|null
     */
     public function getElevationType(): ?PrivilegeManagementElevationType {
-        return $this->getBackingStore()->get('elevationType');
+        $val = $this->getBackingStore()->get('elevationType');
+        if (is_null($val) || $val instanceof PrivilegeManagementElevationType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'elevationType'");
     }
 
     /**
@@ -70,12 +90,16 @@ class PrivilegeManagementElevation extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getEventDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('eventDateTime');
+        $val = $this->getBackingStore()->get('eventDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eventDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -104,7 +128,11 @@ class PrivilegeManagementElevation extends Entity implements Parsable
      * @return string|null
     */
     public function getFileDescription(): ?string {
-        return $this->getBackingStore()->get('fileDescription');
+        $val = $this->getBackingStore()->get('fileDescription');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileDescription'");
     }
 
     /**
@@ -112,7 +140,11 @@ class PrivilegeManagementElevation extends Entity implements Parsable
      * @return string|null
     */
     public function getFilePath(): ?string {
-        return $this->getBackingStore()->get('filePath');
+        $val = $this->getBackingStore()->get('filePath');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'filePath'");
     }
 
     /**
@@ -120,7 +152,11 @@ class PrivilegeManagementElevation extends Entity implements Parsable
      * @return string|null
     */
     public function getFileVersion(): ?string {
-        return $this->getBackingStore()->get('fileVersion');
+        $val = $this->getBackingStore()->get('fileVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileVersion'");
     }
 
     /**
@@ -128,7 +164,11 @@ class PrivilegeManagementElevation extends Entity implements Parsable
      * @return string|null
     */
     public function getHash(): ?string {
-        return $this->getBackingStore()->get('hash');
+        $val = $this->getBackingStore()->get('hash');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hash'");
     }
 
     /**
@@ -136,7 +176,11 @@ class PrivilegeManagementElevation extends Entity implements Parsable
      * @return string|null
     */
     public function getInternalName(): ?string {
-        return $this->getBackingStore()->get('internalName');
+        $val = $this->getBackingStore()->get('internalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'internalName'");
     }
 
     /**
@@ -144,7 +188,11 @@ class PrivilegeManagementElevation extends Entity implements Parsable
      * @return string|null
     */
     public function getJustification(): ?string {
-        return $this->getBackingStore()->get('justification');
+        $val = $this->getBackingStore()->get('justification');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'justification'");
     }
 
     /**
@@ -152,7 +200,11 @@ class PrivilegeManagementElevation extends Entity implements Parsable
      * @return string|null
     */
     public function getProductName(): ?string {
-        return $this->getBackingStore()->get('productName');
+        $val = $this->getBackingStore()->get('productName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'productName'");
     }
 
     /**
@@ -160,7 +212,11 @@ class PrivilegeManagementElevation extends Entity implements Parsable
      * @return int|null
     */
     public function getResult(): ?int {
-        return $this->getBackingStore()->get('result');
+        $val = $this->getBackingStore()->get('result');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'result'");
     }
 
     /**
@@ -168,7 +224,11 @@ class PrivilegeManagementElevation extends Entity implements Parsable
      * @return string|null
     */
     public function getUpn(): ?string {
-        return $this->getBackingStore()->get('upn');
+        $val = $this->getBackingStore()->get('upn');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'upn'");
     }
 
     /**
@@ -176,7 +236,11 @@ class PrivilegeManagementElevation extends Entity implements Parsable
      * @return PrivilegeManagementEndUserType|null
     */
     public function getUserType(): ?PrivilegeManagementEndUserType {
-        return $this->getBackingStore()->get('userType');
+        $val = $this->getBackingStore()->get('userType');
+        if (is_null($val) || $val instanceof PrivilegeManagementEndUserType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userType'");
     }
 
     /**

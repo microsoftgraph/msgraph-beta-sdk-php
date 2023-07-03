@@ -31,7 +31,11 @@ class DriverUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Par
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -39,12 +43,16 @@ class DriverUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Par
      * @return string|null
     */
     public function getDriverClass(): ?string {
-        return $this->getBackingStore()->get('driverClass');
+        $val = $this->getBackingStore()->get('driverClass');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'driverClass'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -64,7 +72,11 @@ class DriverUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Par
      * @return string|null
     */
     public function getManufacturer(): ?string {
-        return $this->getBackingStore()->get('manufacturer');
+        $val = $this->getBackingStore()->get('manufacturer');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'manufacturer'");
     }
 
     /**
@@ -72,7 +84,11 @@ class DriverUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Par
      * @return string|null
     */
     public function getProvider(): ?string {
-        return $this->getBackingStore()->get('provider');
+        $val = $this->getBackingStore()->get('provider');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'provider'");
     }
 
     /**
@@ -80,7 +96,11 @@ class DriverUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Par
      * @return string|null
     */
     public function getSetupInformationFile(): ?string {
-        return $this->getBackingStore()->get('setupInformationFile');
+        $val = $this->getBackingStore()->get('setupInformationFile');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'setupInformationFile'");
     }
 
     /**
@@ -88,7 +108,11 @@ class DriverUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Par
      * @return string|null
     */
     public function getVersion(): ?string {
-        return $this->getBackingStore()->get('version');
+        $val = $this->getBackingStore()->get('version');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'version'");
     }
 
     /**
@@ -96,7 +120,11 @@ class DriverUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Par
      * @return DateTime|null
     */
     public function getVersionDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('versionDateTime');
+        $val = $this->getBackingStore()->get('versionDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'versionDateTime'");
     }
 
     /**

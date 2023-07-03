@@ -39,7 +39,12 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +52,11 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
      * @return bool|null
     */
     public function getAndroidDeviceAdministratorEnrollmentEnabled(): ?bool {
-        return $this->getBackingStore()->get('androidDeviceAdministratorEnrollmentEnabled');
+        $val = $this->getBackingStore()->get('androidDeviceAdministratorEnrollmentEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'androidDeviceAdministratorEnrollmentEnabled'");
     }
 
     /**
@@ -63,7 +72,11 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
      * @return DerivedCredentialProviderType|null
     */
     public function getDerivedCredentialProvider(): ?DerivedCredentialProviderType {
-        return $this->getBackingStore()->get('derivedCredentialProvider');
+        $val = $this->getBackingStore()->get('derivedCredentialProvider');
+        if (is_null($val) || $val instanceof DerivedCredentialProviderType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'derivedCredentialProvider'");
     }
 
     /**
@@ -71,7 +84,11 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
      * @return string|null
     */
     public function getDerivedCredentialUrl(): ?string {
-        return $this->getBackingStore()->get('derivedCredentialUrl');
+        $val = $this->getBackingStore()->get('derivedCredentialUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'derivedCredentialUrl'");
     }
 
     /**
@@ -79,7 +96,11 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
      * @return int|null
     */
     public function getDeviceComplianceCheckinThresholdDays(): ?int {
-        return $this->getBackingStore()->get('deviceComplianceCheckinThresholdDays');
+        $val = $this->getBackingStore()->get('deviceComplianceCheckinThresholdDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceComplianceCheckinThresholdDays'");
     }
 
     /**
@@ -87,7 +108,11 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
      * @return int|null
     */
     public function getDeviceInactivityBeforeRetirementInDay(): ?int {
-        return $this->getBackingStore()->get('deviceInactivityBeforeRetirementInDay');
+        $val = $this->getBackingStore()->get('deviceInactivityBeforeRetirementInDay');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceInactivityBeforeRetirementInDay'");
     }
 
     /**
@@ -95,7 +120,11 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
      * @return bool|null
     */
     public function getEnableAutopilotDiagnostics(): ?bool {
-        return $this->getBackingStore()->get('enableAutopilotDiagnostics');
+        $val = $this->getBackingStore()->get('enableAutopilotDiagnostics');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableAutopilotDiagnostics'");
     }
 
     /**
@@ -103,7 +132,11 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
      * @return bool|null
     */
     public function getEnableDeviceGroupMembershipReport(): ?bool {
-        return $this->getBackingStore()->get('enableDeviceGroupMembershipReport');
+        $val = $this->getBackingStore()->get('enableDeviceGroupMembershipReport');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableDeviceGroupMembershipReport'");
     }
 
     /**
@@ -111,7 +144,11 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
      * @return bool|null
     */
     public function getEnableEnhancedTroubleshootingExperience(): ?bool {
-        return $this->getBackingStore()->get('enableEnhancedTroubleshootingExperience');
+        $val = $this->getBackingStore()->get('enableEnhancedTroubleshootingExperience');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableEnhancedTroubleshootingExperience'");
     }
 
     /**
@@ -119,7 +156,11 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
      * @return bool|null
     */
     public function getEnableLogCollection(): ?bool {
-        return $this->getBackingStore()->get('enableLogCollection');
+        $val = $this->getBackingStore()->get('enableLogCollection');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableLogCollection'");
     }
 
     /**
@@ -127,12 +168,16 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
      * @return bool|null
     */
     public function getEnhancedJailBreak(): ?bool {
-        return $this->getBackingStore()->get('enhancedJailBreak');
+        $val = $this->getBackingStore()->get('enhancedJailBreak');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enhancedJailBreak'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -159,7 +204,11 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
      * @return bool|null
     */
     public function getIgnoreDevicesForUnsupportedSettingsEnabled(): ?bool {
-        return $this->getBackingStore()->get('ignoreDevicesForUnsupportedSettingsEnabled');
+        $val = $this->getBackingStore()->get('ignoreDevicesForUnsupportedSettingsEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ignoreDevicesForUnsupportedSettingsEnabled'");
     }
 
     /**
@@ -167,7 +216,11 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
      * @return bool|null
     */
     public function getIsScheduledActionEnabled(): ?bool {
-        return $this->getBackingStore()->get('isScheduledActionEnabled');
+        $val = $this->getBackingStore()->get('isScheduledActionEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isScheduledActionEnabled'");
     }
 
     /**
@@ -175,7 +228,11 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -183,7 +240,11 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
      * @return bool|null
     */
     public function getSecureByDefault(): ?bool {
-        return $this->getBackingStore()->get('secureByDefault');
+        $val = $this->getBackingStore()->get('secureByDefault');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'secureByDefault'");
     }
 
     /**

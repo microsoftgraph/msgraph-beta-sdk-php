@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration implements Parsable 
 {
@@ -30,17 +31,30 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return array<string>|null
     */
     public function getAllowedGoogleAccountDomains(): ?array {
-        return $this->getBackingStore()->get('allowedGoogleAccountDomains');
+        $val = $this->getBackingStore()->get('allowedGoogleAccountDomains');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedGoogleAccountDomains'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowedGoogleAccountDomains' => fn(ParseNode $n) => $o->setAllowedGoogleAccountDomains($n->getCollectionOfPrimitiveValues()),
+            'allowedGoogleAccountDomains' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAllowedGoogleAccountDomains($val);
+            },
             'passwordBlockFaceUnlock' => fn(ParseNode $n) => $o->setPasswordBlockFaceUnlock($n->getBooleanValue()),
             'passwordBlockFingerprintUnlock' => fn(ParseNode $n) => $o->setPasswordBlockFingerprintUnlock($n->getBooleanValue()),
             'passwordBlockIrisUnlock' => fn(ParseNode $n) => $o->setPasswordBlockIrisUnlock($n->getBooleanValue()),
@@ -95,7 +109,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getPasswordBlockFaceUnlock(): ?bool {
-        return $this->getBackingStore()->get('passwordBlockFaceUnlock');
+        $val = $this->getBackingStore()->get('passwordBlockFaceUnlock');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordBlockFaceUnlock'");
     }
 
     /**
@@ -103,7 +121,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getPasswordBlockFingerprintUnlock(): ?bool {
-        return $this->getBackingStore()->get('passwordBlockFingerprintUnlock');
+        $val = $this->getBackingStore()->get('passwordBlockFingerprintUnlock');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordBlockFingerprintUnlock'");
     }
 
     /**
@@ -111,7 +133,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getPasswordBlockIrisUnlock(): ?bool {
-        return $this->getBackingStore()->get('passwordBlockIrisUnlock');
+        $val = $this->getBackingStore()->get('passwordBlockIrisUnlock');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordBlockIrisUnlock'");
     }
 
     /**
@@ -119,7 +145,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getPasswordBlockTrustAgents(): ?bool {
-        return $this->getBackingStore()->get('passwordBlockTrustAgents');
+        $val = $this->getBackingStore()->get('passwordBlockTrustAgents');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordBlockTrustAgents'");
     }
 
     /**
@@ -127,7 +157,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getPasswordExpirationDays(): ?int {
-        return $this->getBackingStore()->get('passwordExpirationDays');
+        $val = $this->getBackingStore()->get('passwordExpirationDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordExpirationDays'");
     }
 
     /**
@@ -135,7 +169,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getPasswordMinimumLength(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumLength');
+        $val = $this->getBackingStore()->get('passwordMinimumLength');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumLength'");
     }
 
     /**
@@ -143,7 +181,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getPasswordMinutesOfInactivityBeforeScreenTimeout(): ?int {
-        return $this->getBackingStore()->get('passwordMinutesOfInactivityBeforeScreenTimeout');
+        $val = $this->getBackingStore()->get('passwordMinutesOfInactivityBeforeScreenTimeout');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinutesOfInactivityBeforeScreenTimeout'");
     }
 
     /**
@@ -151,7 +193,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getPasswordPreviousPasswordBlockCount(): ?int {
-        return $this->getBackingStore()->get('passwordPreviousPasswordBlockCount');
+        $val = $this->getBackingStore()->get('passwordPreviousPasswordBlockCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordPreviousPasswordBlockCount'");
     }
 
     /**
@@ -159,7 +205,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidWorkProfileRequiredPasswordType|null
     */
     public function getPasswordRequiredType(): ?AndroidWorkProfileRequiredPasswordType {
-        return $this->getBackingStore()->get('passwordRequiredType');
+        $val = $this->getBackingStore()->get('passwordRequiredType');
+        if (is_null($val) || $val instanceof AndroidWorkProfileRequiredPasswordType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordRequiredType'");
     }
 
     /**
@@ -167,7 +217,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getPasswordSignInFailureCountBeforeFactoryReset(): ?int {
-        return $this->getBackingStore()->get('passwordSignInFailureCountBeforeFactoryReset');
+        $val = $this->getBackingStore()->get('passwordSignInFailureCountBeforeFactoryReset');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordSignInFailureCountBeforeFactoryReset'");
     }
 
     /**
@@ -175,7 +229,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidRequiredPasswordComplexity|null
     */
     public function getRequiredPasswordComplexity(): ?AndroidRequiredPasswordComplexity {
-        return $this->getBackingStore()->get('requiredPasswordComplexity');
+        $val = $this->getBackingStore()->get('requiredPasswordComplexity');
+        if (is_null($val) || $val instanceof AndroidRequiredPasswordComplexity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requiredPasswordComplexity'");
     }
 
     /**
@@ -183,7 +241,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getSecurityRequireVerifyApps(): ?bool {
-        return $this->getBackingStore()->get('securityRequireVerifyApps');
+        $val = $this->getBackingStore()->get('securityRequireVerifyApps');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'securityRequireVerifyApps'");
     }
 
     /**
@@ -191,7 +253,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return string|null
     */
     public function getVpnAlwaysOnPackageIdentifier(): ?string {
-        return $this->getBackingStore()->get('vpnAlwaysOnPackageIdentifier');
+        $val = $this->getBackingStore()->get('vpnAlwaysOnPackageIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vpnAlwaysOnPackageIdentifier'");
     }
 
     /**
@@ -199,7 +265,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getVpnEnableAlwaysOnLockdownMode(): ?bool {
-        return $this->getBackingStore()->get('vpnEnableAlwaysOnLockdownMode');
+        $val = $this->getBackingStore()->get('vpnEnableAlwaysOnLockdownMode');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vpnEnableAlwaysOnLockdownMode'");
     }
 
     /**
@@ -207,7 +277,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidWorkProfileAccountUse|null
     */
     public function getWorkProfileAccountUse(): ?AndroidWorkProfileAccountUse {
-        return $this->getBackingStore()->get('workProfileAccountUse');
+        $val = $this->getBackingStore()->get('workProfileAccountUse');
+        if (is_null($val) || $val instanceof AndroidWorkProfileAccountUse) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfileAccountUse'");
     }
 
     /**
@@ -215,7 +289,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getWorkProfileAllowAppInstallsFromUnknownSources(): ?bool {
-        return $this->getBackingStore()->get('workProfileAllowAppInstallsFromUnknownSources');
+        $val = $this->getBackingStore()->get('workProfileAllowAppInstallsFromUnknownSources');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfileAllowAppInstallsFromUnknownSources'");
     }
 
     /**
@@ -223,7 +301,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getWorkProfileAllowWidgets(): ?bool {
-        return $this->getBackingStore()->get('workProfileAllowWidgets');
+        $val = $this->getBackingStore()->get('workProfileAllowWidgets');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfileAllowWidgets'");
     }
 
     /**
@@ -231,7 +313,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getWorkProfileBlockAddingAccounts(): ?bool {
-        return $this->getBackingStore()->get('workProfileBlockAddingAccounts');
+        $val = $this->getBackingStore()->get('workProfileBlockAddingAccounts');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfileBlockAddingAccounts'");
     }
 
     /**
@@ -239,7 +325,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getWorkProfileBlockCamera(): ?bool {
-        return $this->getBackingStore()->get('workProfileBlockCamera');
+        $val = $this->getBackingStore()->get('workProfileBlockCamera');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfileBlockCamera'");
     }
 
     /**
@@ -247,7 +337,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getWorkProfileBlockCrossProfileCallerId(): ?bool {
-        return $this->getBackingStore()->get('workProfileBlockCrossProfileCallerId');
+        $val = $this->getBackingStore()->get('workProfileBlockCrossProfileCallerId');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfileBlockCrossProfileCallerId'");
     }
 
     /**
@@ -255,7 +349,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getWorkProfileBlockCrossProfileContactsSearch(): ?bool {
-        return $this->getBackingStore()->get('workProfileBlockCrossProfileContactsSearch');
+        $val = $this->getBackingStore()->get('workProfileBlockCrossProfileContactsSearch');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfileBlockCrossProfileContactsSearch'");
     }
 
     /**
@@ -263,7 +361,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getWorkProfileBlockCrossProfileCopyPaste(): ?bool {
-        return $this->getBackingStore()->get('workProfileBlockCrossProfileCopyPaste');
+        $val = $this->getBackingStore()->get('workProfileBlockCrossProfileCopyPaste');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfileBlockCrossProfileCopyPaste'");
     }
 
     /**
@@ -271,7 +373,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getWorkProfileBlockNotificationsWhileDeviceLocked(): ?bool {
-        return $this->getBackingStore()->get('workProfileBlockNotificationsWhileDeviceLocked');
+        $val = $this->getBackingStore()->get('workProfileBlockNotificationsWhileDeviceLocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfileBlockNotificationsWhileDeviceLocked'");
     }
 
     /**
@@ -279,7 +385,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getWorkProfileBlockPersonalAppInstallsFromUnknownSources(): ?bool {
-        return $this->getBackingStore()->get('workProfileBlockPersonalAppInstallsFromUnknownSources');
+        $val = $this->getBackingStore()->get('workProfileBlockPersonalAppInstallsFromUnknownSources');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfileBlockPersonalAppInstallsFromUnknownSources'");
     }
 
     /**
@@ -287,7 +397,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getWorkProfileBlockScreenCapture(): ?bool {
-        return $this->getBackingStore()->get('workProfileBlockScreenCapture');
+        $val = $this->getBackingStore()->get('workProfileBlockScreenCapture');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfileBlockScreenCapture'");
     }
 
     /**
@@ -295,7 +409,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getWorkProfileBluetoothEnableContactSharing(): ?bool {
-        return $this->getBackingStore()->get('workProfileBluetoothEnableContactSharing');
+        $val = $this->getBackingStore()->get('workProfileBluetoothEnableContactSharing');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfileBluetoothEnableContactSharing'");
     }
 
     /**
@@ -303,7 +421,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidWorkProfileCrossProfileDataSharingType|null
     */
     public function getWorkProfileDataSharingType(): ?AndroidWorkProfileCrossProfileDataSharingType {
-        return $this->getBackingStore()->get('workProfileDataSharingType');
+        $val = $this->getBackingStore()->get('workProfileDataSharingType');
+        if (is_null($val) || $val instanceof AndroidWorkProfileCrossProfileDataSharingType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfileDataSharingType'");
     }
 
     /**
@@ -311,7 +433,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidWorkProfileDefaultAppPermissionPolicyType|null
     */
     public function getWorkProfileDefaultAppPermissionPolicy(): ?AndroidWorkProfileDefaultAppPermissionPolicyType {
-        return $this->getBackingStore()->get('workProfileDefaultAppPermissionPolicy');
+        $val = $this->getBackingStore()->get('workProfileDefaultAppPermissionPolicy');
+        if (is_null($val) || $val instanceof AndroidWorkProfileDefaultAppPermissionPolicyType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfileDefaultAppPermissionPolicy'");
     }
 
     /**
@@ -319,7 +445,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getWorkProfilePasswordBlockFaceUnlock(): ?bool {
-        return $this->getBackingStore()->get('workProfilePasswordBlockFaceUnlock');
+        $val = $this->getBackingStore()->get('workProfilePasswordBlockFaceUnlock');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordBlockFaceUnlock'");
     }
 
     /**
@@ -327,7 +457,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getWorkProfilePasswordBlockFingerprintUnlock(): ?bool {
-        return $this->getBackingStore()->get('workProfilePasswordBlockFingerprintUnlock');
+        $val = $this->getBackingStore()->get('workProfilePasswordBlockFingerprintUnlock');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordBlockFingerprintUnlock'");
     }
 
     /**
@@ -335,7 +469,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getWorkProfilePasswordBlockIrisUnlock(): ?bool {
-        return $this->getBackingStore()->get('workProfilePasswordBlockIrisUnlock');
+        $val = $this->getBackingStore()->get('workProfilePasswordBlockIrisUnlock');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordBlockIrisUnlock'");
     }
 
     /**
@@ -343,7 +481,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getWorkProfilePasswordBlockTrustAgents(): ?bool {
-        return $this->getBackingStore()->get('workProfilePasswordBlockTrustAgents');
+        $val = $this->getBackingStore()->get('workProfilePasswordBlockTrustAgents');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordBlockTrustAgents'");
     }
 
     /**
@@ -351,7 +493,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getWorkProfilePasswordExpirationDays(): ?int {
-        return $this->getBackingStore()->get('workProfilePasswordExpirationDays');
+        $val = $this->getBackingStore()->get('workProfilePasswordExpirationDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordExpirationDays'");
     }
 
     /**
@@ -359,7 +505,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getWorkProfilePasswordMinimumLength(): ?int {
-        return $this->getBackingStore()->get('workProfilePasswordMinimumLength');
+        $val = $this->getBackingStore()->get('workProfilePasswordMinimumLength');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordMinimumLength'");
     }
 
     /**
@@ -367,7 +517,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getWorkProfilePasswordMinLetterCharacters(): ?int {
-        return $this->getBackingStore()->get('workProfilePasswordMinLetterCharacters');
+        $val = $this->getBackingStore()->get('workProfilePasswordMinLetterCharacters');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordMinLetterCharacters'");
     }
 
     /**
@@ -375,7 +529,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getWorkProfilePasswordMinLowerCaseCharacters(): ?int {
-        return $this->getBackingStore()->get('workProfilePasswordMinLowerCaseCharacters');
+        $val = $this->getBackingStore()->get('workProfilePasswordMinLowerCaseCharacters');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordMinLowerCaseCharacters'");
     }
 
     /**
@@ -383,7 +541,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getWorkProfilePasswordMinNonLetterCharacters(): ?int {
-        return $this->getBackingStore()->get('workProfilePasswordMinNonLetterCharacters');
+        $val = $this->getBackingStore()->get('workProfilePasswordMinNonLetterCharacters');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordMinNonLetterCharacters'");
     }
 
     /**
@@ -391,7 +553,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getWorkProfilePasswordMinNumericCharacters(): ?int {
-        return $this->getBackingStore()->get('workProfilePasswordMinNumericCharacters');
+        $val = $this->getBackingStore()->get('workProfilePasswordMinNumericCharacters');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordMinNumericCharacters'");
     }
 
     /**
@@ -399,7 +565,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getWorkProfilePasswordMinSymbolCharacters(): ?int {
-        return $this->getBackingStore()->get('workProfilePasswordMinSymbolCharacters');
+        $val = $this->getBackingStore()->get('workProfilePasswordMinSymbolCharacters');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordMinSymbolCharacters'");
     }
 
     /**
@@ -407,7 +577,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getWorkProfilePasswordMinUpperCaseCharacters(): ?int {
-        return $this->getBackingStore()->get('workProfilePasswordMinUpperCaseCharacters');
+        $val = $this->getBackingStore()->get('workProfilePasswordMinUpperCaseCharacters');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordMinUpperCaseCharacters'");
     }
 
     /**
@@ -415,7 +589,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getWorkProfilePasswordMinutesOfInactivityBeforeScreenTimeout(): ?int {
-        return $this->getBackingStore()->get('workProfilePasswordMinutesOfInactivityBeforeScreenTimeout');
+        $val = $this->getBackingStore()->get('workProfilePasswordMinutesOfInactivityBeforeScreenTimeout');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordMinutesOfInactivityBeforeScreenTimeout'");
     }
 
     /**
@@ -423,7 +601,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getWorkProfilePasswordPreviousPasswordBlockCount(): ?int {
-        return $this->getBackingStore()->get('workProfilePasswordPreviousPasswordBlockCount');
+        $val = $this->getBackingStore()->get('workProfilePasswordPreviousPasswordBlockCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordPreviousPasswordBlockCount'");
     }
 
     /**
@@ -431,7 +613,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidWorkProfileRequiredPasswordType|null
     */
     public function getWorkProfilePasswordRequiredType(): ?AndroidWorkProfileRequiredPasswordType {
-        return $this->getBackingStore()->get('workProfilePasswordRequiredType');
+        $val = $this->getBackingStore()->get('workProfilePasswordRequiredType');
+        if (is_null($val) || $val instanceof AndroidWorkProfileRequiredPasswordType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordRequiredType'");
     }
 
     /**
@@ -439,7 +625,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getWorkProfilePasswordSignInFailureCountBeforeFactoryReset(): ?int {
-        return $this->getBackingStore()->get('workProfilePasswordSignInFailureCountBeforeFactoryReset');
+        $val = $this->getBackingStore()->get('workProfilePasswordSignInFailureCountBeforeFactoryReset');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordSignInFailureCountBeforeFactoryReset'");
     }
 
     /**
@@ -447,7 +637,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidRequiredPasswordComplexity|null
     */
     public function getWorkProfileRequiredPasswordComplexity(): ?AndroidRequiredPasswordComplexity {
-        return $this->getBackingStore()->get('workProfileRequiredPasswordComplexity');
+        $val = $this->getBackingStore()->get('workProfileRequiredPasswordComplexity');
+        if (is_null($val) || $val instanceof AndroidRequiredPasswordComplexity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfileRequiredPasswordComplexity'");
     }
 
     /**
@@ -455,7 +649,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getWorkProfileRequirePassword(): ?bool {
-        return $this->getBackingStore()->get('workProfileRequirePassword');
+        $val = $this->getBackingStore()->get('workProfileRequirePassword');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfileRequirePassword'");
     }
 
     /**

@@ -30,12 +30,16 @@ class DeviceManagementDomainJoinConnector extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -52,7 +56,11 @@ class DeviceManagementDomainJoinConnector extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastConnectionDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastConnectionDateTime');
+        $val = $this->getBackingStore()->get('lastConnectionDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastConnectionDateTime'");
     }
 
     /**
@@ -60,7 +68,11 @@ class DeviceManagementDomainJoinConnector extends Entity implements Parsable
      * @return DeviceManagementDomainJoinConnectorState|null
     */
     public function getState(): ?DeviceManagementDomainJoinConnectorState {
-        return $this->getBackingStore()->get('state');
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || $val instanceof DeviceManagementDomainJoinConnectorState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
     }
 
     /**
@@ -68,7 +80,11 @@ class DeviceManagementDomainJoinConnector extends Entity implements Parsable
      * @return string|null
     */
     public function getVersion(): ?string {
-        return $this->getBackingStore()->get('version');
+        $val = $this->getBackingStore()->get('version');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'version'");
     }
 
     /**

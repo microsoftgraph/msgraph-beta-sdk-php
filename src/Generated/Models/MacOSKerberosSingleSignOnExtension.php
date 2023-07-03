@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension implements Parsable 
 {
@@ -30,7 +31,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return string|null
     */
     public function getActiveDirectorySiteCode(): ?string {
-        return $this->getBackingStore()->get('activeDirectorySiteCode');
+        $val = $this->getBackingStore()->get('activeDirectorySiteCode');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activeDirectorySiteCode'");
     }
 
     /**
@@ -38,7 +43,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return bool|null
     */
     public function getBlockActiveDirectorySiteAutoDiscovery(): ?bool {
-        return $this->getBackingStore()->get('blockActiveDirectorySiteAutoDiscovery');
+        $val = $this->getBackingStore()->get('blockActiveDirectorySiteAutoDiscovery');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockActiveDirectorySiteAutoDiscovery'");
     }
 
     /**
@@ -46,7 +55,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return bool|null
     */
     public function getBlockAutomaticLogin(): ?bool {
-        return $this->getBackingStore()->get('blockAutomaticLogin');
+        $val = $this->getBackingStore()->get('blockAutomaticLogin');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockAutomaticLogin'");
     }
 
     /**
@@ -54,7 +67,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return string|null
     */
     public function getCacheName(): ?string {
-        return $this->getBackingStore()->get('cacheName');
+        $val = $this->getBackingStore()->get('cacheName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cacheName'");
     }
 
     /**
@@ -62,7 +79,13 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return array<string>|null
     */
     public function getCredentialBundleIdAccessControlList(): ?array {
-        return $this->getBackingStore()->get('credentialBundleIdAccessControlList');
+        $val = $this->getBackingStore()->get('credentialBundleIdAccessControlList');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'credentialBundleIdAccessControlList'");
     }
 
     /**
@@ -70,7 +93,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return bool|null
     */
     public function getCredentialsCacheMonitored(): ?bool {
-        return $this->getBackingStore()->get('credentialsCacheMonitored');
+        $val = $this->getBackingStore()->get('credentialsCacheMonitored');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'credentialsCacheMonitored'");
     }
 
     /**
@@ -78,7 +105,13 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return array<string>|null
     */
     public function getDomainRealms(): ?array {
-        return $this->getBackingStore()->get('domainRealms');
+        $val = $this->getBackingStore()->get('domainRealms');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'domainRealms'");
     }
 
     /**
@@ -86,12 +119,18 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return array<string>|null
     */
     public function getDomains(): ?array {
-        return $this->getBackingStore()->get('domains');
+        $val = $this->getBackingStore()->get('domains');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'domains'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -100,10 +139,31 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
             'blockActiveDirectorySiteAutoDiscovery' => fn(ParseNode $n) => $o->setBlockActiveDirectorySiteAutoDiscovery($n->getBooleanValue()),
             'blockAutomaticLogin' => fn(ParseNode $n) => $o->setBlockAutomaticLogin($n->getBooleanValue()),
             'cacheName' => fn(ParseNode $n) => $o->setCacheName($n->getStringValue()),
-            'credentialBundleIdAccessControlList' => fn(ParseNode $n) => $o->setCredentialBundleIdAccessControlList($n->getCollectionOfPrimitiveValues()),
+            'credentialBundleIdAccessControlList' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setCredentialBundleIdAccessControlList($val);
+            },
             'credentialsCacheMonitored' => fn(ParseNode $n) => $o->setCredentialsCacheMonitored($n->getBooleanValue()),
-            'domainRealms' => fn(ParseNode $n) => $o->setDomainRealms($n->getCollectionOfPrimitiveValues()),
-            'domains' => fn(ParseNode $n) => $o->setDomains($n->getCollectionOfPrimitiveValues()),
+            'domainRealms' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDomainRealms($val);
+            },
+            'domains' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDomains($val);
+            },
             'isDefaultRealm' => fn(ParseNode $n) => $o->setIsDefaultRealm($n->getBooleanValue()),
             'kerberosAppsInBundleIdACLIncluded' => fn(ParseNode $n) => $o->setKerberosAppsInBundleIdACLIncluded($n->getBooleanValue()),
             'managedAppsInBundleIdACLIncluded' => fn(ParseNode $n) => $o->setManagedAppsInBundleIdACLIncluded($n->getBooleanValue()),
@@ -118,7 +178,14 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
             'passwordPreviousPasswordBlockCount' => fn(ParseNode $n) => $o->setPasswordPreviousPasswordBlockCount($n->getIntegerValue()),
             'passwordRequireActiveDirectoryComplexity' => fn(ParseNode $n) => $o->setPasswordRequireActiveDirectoryComplexity($n->getBooleanValue()),
             'passwordRequirementsDescription' => fn(ParseNode $n) => $o->setPasswordRequirementsDescription($n->getStringValue()),
-            'preferredKDCs' => fn(ParseNode $n) => $o->setPreferredKDCs($n->getCollectionOfPrimitiveValues()),
+            'preferredKDCs' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setPreferredKDCs($val);
+            },
             'realm' => fn(ParseNode $n) => $o->setRealm($n->getStringValue()),
             'requireUserPresence' => fn(ParseNode $n) => $o->setRequireUserPresence($n->getBooleanValue()),
             'signInHelpText' => fn(ParseNode $n) => $o->setSignInHelpText($n->getStringValue()),
@@ -134,7 +201,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return bool|null
     */
     public function getIsDefaultRealm(): ?bool {
-        return $this->getBackingStore()->get('isDefaultRealm');
+        $val = $this->getBackingStore()->get('isDefaultRealm');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDefaultRealm'");
     }
 
     /**
@@ -142,7 +213,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return bool|null
     */
     public function getKerberosAppsInBundleIdACLIncluded(): ?bool {
-        return $this->getBackingStore()->get('kerberosAppsInBundleIdACLIncluded');
+        $val = $this->getBackingStore()->get('kerberosAppsInBundleIdACLIncluded');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kerberosAppsInBundleIdACLIncluded'");
     }
 
     /**
@@ -150,7 +225,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return bool|null
     */
     public function getManagedAppsInBundleIdACLIncluded(): ?bool {
-        return $this->getBackingStore()->get('managedAppsInBundleIdACLIncluded');
+        $val = $this->getBackingStore()->get('managedAppsInBundleIdACLIncluded');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedAppsInBundleIdACLIncluded'");
     }
 
     /**
@@ -158,7 +237,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return string|null
     */
     public function getModeCredentialUsed(): ?string {
-        return $this->getBackingStore()->get('modeCredentialUsed');
+        $val = $this->getBackingStore()->get('modeCredentialUsed');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'modeCredentialUsed'");
     }
 
     /**
@@ -166,7 +249,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return bool|null
     */
     public function getPasswordBlockModification(): ?bool {
-        return $this->getBackingStore()->get('passwordBlockModification');
+        $val = $this->getBackingStore()->get('passwordBlockModification');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordBlockModification'");
     }
 
     /**
@@ -174,7 +261,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return string|null
     */
     public function getPasswordChangeUrl(): ?string {
-        return $this->getBackingStore()->get('passwordChangeUrl');
+        $val = $this->getBackingStore()->get('passwordChangeUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordChangeUrl'");
     }
 
     /**
@@ -182,7 +273,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return bool|null
     */
     public function getPasswordEnableLocalSync(): ?bool {
-        return $this->getBackingStore()->get('passwordEnableLocalSync');
+        $val = $this->getBackingStore()->get('passwordEnableLocalSync');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordEnableLocalSync'");
     }
 
     /**
@@ -190,7 +285,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return int|null
     */
     public function getPasswordExpirationDays(): ?int {
-        return $this->getBackingStore()->get('passwordExpirationDays');
+        $val = $this->getBackingStore()->get('passwordExpirationDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordExpirationDays'");
     }
 
     /**
@@ -198,7 +297,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return int|null
     */
     public function getPasswordExpirationNotificationDays(): ?int {
-        return $this->getBackingStore()->get('passwordExpirationNotificationDays');
+        $val = $this->getBackingStore()->get('passwordExpirationNotificationDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordExpirationNotificationDays'");
     }
 
     /**
@@ -206,7 +309,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return int|null
     */
     public function getPasswordMinimumAgeDays(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumAgeDays');
+        $val = $this->getBackingStore()->get('passwordMinimumAgeDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumAgeDays'");
     }
 
     /**
@@ -214,7 +321,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return int|null
     */
     public function getPasswordMinimumLength(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumLength');
+        $val = $this->getBackingStore()->get('passwordMinimumLength');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumLength'");
     }
 
     /**
@@ -222,7 +333,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return int|null
     */
     public function getPasswordPreviousPasswordBlockCount(): ?int {
-        return $this->getBackingStore()->get('passwordPreviousPasswordBlockCount');
+        $val = $this->getBackingStore()->get('passwordPreviousPasswordBlockCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordPreviousPasswordBlockCount'");
     }
 
     /**
@@ -230,7 +345,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return bool|null
     */
     public function getPasswordRequireActiveDirectoryComplexity(): ?bool {
-        return $this->getBackingStore()->get('passwordRequireActiveDirectoryComplexity');
+        $val = $this->getBackingStore()->get('passwordRequireActiveDirectoryComplexity');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordRequireActiveDirectoryComplexity'");
     }
 
     /**
@@ -238,7 +357,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return string|null
     */
     public function getPasswordRequirementsDescription(): ?string {
-        return $this->getBackingStore()->get('passwordRequirementsDescription');
+        $val = $this->getBackingStore()->get('passwordRequirementsDescription');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordRequirementsDescription'");
     }
 
     /**
@@ -246,7 +369,13 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return array<string>|null
     */
     public function getPreferredKDCs(): ?array {
-        return $this->getBackingStore()->get('preferredKDCs');
+        $val = $this->getBackingStore()->get('preferredKDCs');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'preferredKDCs'");
     }
 
     /**
@@ -254,7 +383,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return string|null
     */
     public function getRealm(): ?string {
-        return $this->getBackingStore()->get('realm');
+        $val = $this->getBackingStore()->get('realm');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'realm'");
     }
 
     /**
@@ -262,7 +395,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return bool|null
     */
     public function getRequireUserPresence(): ?bool {
-        return $this->getBackingStore()->get('requireUserPresence');
+        $val = $this->getBackingStore()->get('requireUserPresence');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requireUserPresence'");
     }
 
     /**
@@ -270,7 +407,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return string|null
     */
     public function getSignInHelpText(): ?string {
-        return $this->getBackingStore()->get('signInHelpText');
+        $val = $this->getBackingStore()->get('signInHelpText');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signInHelpText'");
     }
 
     /**
@@ -278,7 +419,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return bool|null
     */
     public function getTlsForLDAPRequired(): ?bool {
-        return $this->getBackingStore()->get('tlsForLDAPRequired');
+        $val = $this->getBackingStore()->get('tlsForLDAPRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tlsForLDAPRequired'");
     }
 
     /**
@@ -286,7 +431,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return string|null
     */
     public function getUsernameLabelCustom(): ?string {
-        return $this->getBackingStore()->get('usernameLabelCustom');
+        $val = $this->getBackingStore()->get('usernameLabelCustom');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'usernameLabelCustom'");
     }
 
     /**
@@ -294,7 +443,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('userPrincipalName');
+        $val = $this->getBackingStore()->get('userPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
     }
 
     /**
@@ -302,7 +455,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
      * @return bool|null
     */
     public function getUserSetupDelayed(): ?bool {
-        return $this->getBackingStore()->get('userSetupDelayed');
+        $val = $this->getBackingStore()->get('userSetupDelayed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userSetupDelayed'");
     }
 
     /**

@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,12 +61,18 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
      * @return array<AccessPackageAnswer>|null
     */
     public function getExistingAnswers(): ?array {
-        return $this->getBackingStore()->get('existingAnswers');
+        $val = $this->getBackingStore()->get('existingAnswers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AccessPackageAnswer::class);
+            /** @var array<AccessPackageAnswer>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'existingAnswers'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -85,7 +97,11 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
      * @return bool|null
     */
     public function getIsApprovalRequired(): ?bool {
-        return $this->getBackingStore()->get('isApprovalRequired');
+        $val = $this->getBackingStore()->get('isApprovalRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isApprovalRequired'");
     }
 
     /**
@@ -93,7 +109,11 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
      * @return bool|null
     */
     public function getIsApprovalRequiredForExtension(): ?bool {
-        return $this->getBackingStore()->get('isApprovalRequiredForExtension');
+        $val = $this->getBackingStore()->get('isApprovalRequiredForExtension');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isApprovalRequiredForExtension'");
     }
 
     /**
@@ -101,7 +121,11 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
      * @return bool|null
     */
     public function getIsCustomAssignmentScheduleAllowed(): ?bool {
-        return $this->getBackingStore()->get('isCustomAssignmentScheduleAllowed');
+        $val = $this->getBackingStore()->get('isCustomAssignmentScheduleAllowed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isCustomAssignmentScheduleAllowed'");
     }
 
     /**
@@ -109,7 +133,11 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
      * @return bool|null
     */
     public function getIsRequestorJustificationRequired(): ?bool {
-        return $this->getBackingStore()->get('isRequestorJustificationRequired');
+        $val = $this->getBackingStore()->get('isRequestorJustificationRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isRequestorJustificationRequired'");
     }
 
     /**
@@ -117,7 +145,11 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -125,7 +157,11 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
      * @return string|null
     */
     public function getPolicyDescription(): ?string {
-        return $this->getBackingStore()->get('policyDescription');
+        $val = $this->getBackingStore()->get('policyDescription');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyDescription'");
     }
 
     /**
@@ -133,7 +169,11 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
      * @return string|null
     */
     public function getPolicyDisplayName(): ?string {
-        return $this->getBackingStore()->get('policyDisplayName');
+        $val = $this->getBackingStore()->get('policyDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyDisplayName'");
     }
 
     /**
@@ -141,7 +181,11 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
      * @return string|null
     */
     public function getPolicyId(): ?string {
-        return $this->getBackingStore()->get('policyId');
+        $val = $this->getBackingStore()->get('policyId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyId'");
     }
 
     /**
@@ -149,7 +193,13 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
      * @return array<AccessPackageQuestion>|null
     */
     public function getQuestions(): ?array {
-        return $this->getBackingStore()->get('questions');
+        $val = $this->getBackingStore()->get('questions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AccessPackageQuestion::class);
+            /** @var array<AccessPackageQuestion>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'questions'");
     }
 
     /**
@@ -157,7 +207,11 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
      * @return RequestSchedule|null
     */
     public function getSchedule(): ?RequestSchedule {
-        return $this->getBackingStore()->get('schedule');
+        $val = $this->getBackingStore()->get('schedule');
+        if (is_null($val) || $val instanceof RequestSchedule) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'schedule'");
     }
 
     /**
@@ -165,7 +219,11 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
      * @return VerifiableCredentialRequirementStatus|null
     */
     public function getVerifiableCredentialRequirementStatus(): ?VerifiableCredentialRequirementStatus {
-        return $this->getBackingStore()->get('verifiableCredentialRequirementStatus');
+        $val = $this->getBackingStore()->get('verifiableCredentialRequirementStatus');
+        if (is_null($val) || $val instanceof VerifiableCredentialRequirementStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'verifiableCredentialRequirementStatus'");
     }
 
     /**

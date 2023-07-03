@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsable 
 {
@@ -30,7 +31,11 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
      * @return EndpointSecurityConfigurationApplicablePlatform|null
     */
     public function getApplicablePlatform(): ?EndpointSecurityConfigurationApplicablePlatform {
-        return $this->getBackingStore()->get('applicablePlatform');
+        $val = $this->getBackingStore()->get('applicablePlatform');
+        if (is_null($val) || $val instanceof EndpointSecurityConfigurationApplicablePlatform) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicablePlatform'");
     }
 
     /**
@@ -38,7 +43,11 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
      * @return EndpointSecurityConfigurationType|null
     */
     public function getEndpointSecurityPolicy(): ?EndpointSecurityConfigurationType {
-        return $this->getBackingStore()->get('endpointSecurityPolicy');
+        $val = $this->getBackingStore()->get('endpointSecurityPolicy');
+        if (is_null($val) || $val instanceof EndpointSecurityConfigurationType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endpointSecurityPolicy'");
     }
 
     /**
@@ -46,12 +55,16 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
      * @return EndpointSecurityConfigurationProfileType|null
     */
     public function getEndpointSecurityPolicyProfile(): ?EndpointSecurityConfigurationProfileType {
-        return $this->getBackingStore()->get('endpointSecurityPolicyProfile');
+        $val = $this->getBackingStore()->get('endpointSecurityPolicyProfile');
+        if (is_null($val) || $val instanceof EndpointSecurityConfigurationProfileType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endpointSecurityPolicyProfile'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -71,7 +84,11 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
      * @return string|null
     */
     public function getInsights(): ?string {
-        return $this->getBackingStore()->get('insights');
+        $val = $this->getBackingStore()->get('insights');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'insights'");
     }
 
     /**
@@ -79,7 +96,13 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
      * @return array<KeyValuePair>|null
     */
     public function getIntendedSettings(): ?array {
-        return $this->getBackingStore()->get('intendedSettings');
+        $val = $this->getBackingStore()->get('intendedSettings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, KeyValuePair::class);
+            /** @var array<KeyValuePair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'intendedSettings'");
     }
 
     /**
@@ -87,7 +110,11 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
      * @return int|null
     */
     public function getManagedDeviceCount(): ?int {
-        return $this->getBackingStore()->get('managedDeviceCount');
+        $val = $this->getBackingStore()->get('managedDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceCount'");
     }
 
     /**
@@ -95,7 +122,13 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
      * @return array<VulnerableManagedDevice>|null
     */
     public function getManagedDevices(): ?array {
-        return $this->getBackingStore()->get('managedDevices');
+        $val = $this->getBackingStore()->get('managedDevices');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, VulnerableManagedDevice::class);
+            /** @var array<VulnerableManagedDevice>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDevices'");
     }
 
     /**

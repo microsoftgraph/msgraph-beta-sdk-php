@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +61,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<int>|null
     */
     public function getBottomMargins(): ?array {
-        return $this->getBackingStore()->get('bottomMargins');
+        $val = $this->getBackingStore()->get('bottomMargins');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'int');
+            /** @var array<int>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bottomMargins'");
     }
 
     /**
@@ -63,7 +75,11 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getCollation(): ?bool {
-        return $this->getBackingStore()->get('collation');
+        $val = $this->getBackingStore()->get('collation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'collation'");
     }
 
     /**
@@ -71,7 +87,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<PrintColorMode>|null
     */
     public function getColorModes(): ?array {
-        return $this->getBackingStore()->get('colorModes');
+        $val = $this->getBackingStore()->get('colorModes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrintColorMode::class);
+            /** @var array<PrintColorMode>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'colorModes'");
     }
 
     /**
@@ -79,7 +101,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getContentTypes(): ?array {
-        return $this->getBackingStore()->get('contentTypes');
+        $val = $this->getBackingStore()->get('contentTypes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentTypes'");
     }
 
     /**
@@ -87,7 +115,11 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return IntegerRange|null
     */
     public function getCopiesPerJob(): ?IntegerRange {
-        return $this->getBackingStore()->get('copiesPerJob');
+        $val = $this->getBackingStore()->get('copiesPerJob');
+        if (is_null($val) || $val instanceof IntegerRange) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'copiesPerJob'");
     }
 
     /**
@@ -95,7 +127,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<int>|null
     */
     public function getDpis(): ?array {
-        return $this->getBackingStore()->get('dpis');
+        $val = $this->getBackingStore()->get('dpis');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'int');
+            /** @var array<int>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dpis'");
     }
 
     /**
@@ -103,7 +141,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<PrintDuplexMode>|null
     */
     public function getDuplexModes(): ?array {
-        return $this->getBackingStore()->get('duplexModes');
+        $val = $this->getBackingStore()->get('duplexModes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrintDuplexMode::class);
+            /** @var array<PrintDuplexMode>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'duplexModes'");
     }
 
     /**
@@ -111,7 +155,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<PrinterFeedDirection>|null
     */
     public function getFeedDirections(): ?array {
-        return $this->getBackingStore()->get('feedDirections');
+        $val = $this->getBackingStore()->get('feedDirections');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrinterFeedDirection::class);
+            /** @var array<PrinterFeedDirection>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'feedDirections'");
     }
 
     /**
@@ -119,56 +169,174 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<PrinterFeedOrientation>|null
     */
     public function getFeedOrientations(): ?array {
-        return $this->getBackingStore()->get('feedOrientations');
+        $val = $this->getBackingStore()->get('feedOrientations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrinterFeedOrientation::class);
+            /** @var array<PrinterFeedOrientation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'feedOrientations'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'bottomMargins' => fn(ParseNode $n) => $o->setBottomMargins($n->getCollectionOfPrimitiveValues()),
+            'bottomMargins' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'int');
+                }
+                /** @var array<int>|null $val */
+                $this->setBottomMargins($val);
+            },
             'collation' => fn(ParseNode $n) => $o->setCollation($n->getBooleanValue()),
             'colorModes' => fn(ParseNode $n) => $o->setColorModes($n->getCollectionOfEnumValues(PrintColorMode::class)),
-            'contentTypes' => fn(ParseNode $n) => $o->setContentTypes($n->getCollectionOfPrimitiveValues()),
+            'contentTypes' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setContentTypes($val);
+            },
             'copiesPerJob' => fn(ParseNode $n) => $o->setCopiesPerJob($n->getObjectValue([IntegerRange::class, 'createFromDiscriminatorValue'])),
-            'dpis' => fn(ParseNode $n) => $o->setDpis($n->getCollectionOfPrimitiveValues()),
+            'dpis' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'int');
+                }
+                /** @var array<int>|null $val */
+                $this->setDpis($val);
+            },
             'duplexModes' => fn(ParseNode $n) => $o->setDuplexModes($n->getCollectionOfEnumValues(PrintDuplexMode::class)),
             'feedDirections' => fn(ParseNode $n) => $o->setFeedDirections($n->getCollectionOfEnumValues(PrinterFeedDirection::class)),
             'feedOrientations' => fn(ParseNode $n) => $o->setFeedOrientations($n->getCollectionOfEnumValues(PrinterFeedOrientation::class)),
             'finishings' => fn(ParseNode $n) => $o->setFinishings($n->getCollectionOfEnumValues(PrintFinishing::class)),
-            'inputBins' => fn(ParseNode $n) => $o->setInputBins($n->getCollectionOfPrimitiveValues()),
+            'inputBins' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setInputBins($val);
+            },
             'isColorPrintingSupported' => fn(ParseNode $n) => $o->setIsColorPrintingSupported($n->getBooleanValue()),
             'isPageRangeSupported' => fn(ParseNode $n) => $o->setIsPageRangeSupported($n->getBooleanValue()),
-            'leftMargins' => fn(ParseNode $n) => $o->setLeftMargins($n->getCollectionOfPrimitiveValues()),
-            'mediaColors' => fn(ParseNode $n) => $o->setMediaColors($n->getCollectionOfPrimitiveValues()),
-            'mediaSizes' => fn(ParseNode $n) => $o->setMediaSizes($n->getCollectionOfPrimitiveValues()),
-            'mediaTypes' => fn(ParseNode $n) => $o->setMediaTypes($n->getCollectionOfPrimitiveValues()),
+            'leftMargins' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'int');
+                }
+                /** @var array<int>|null $val */
+                $this->setLeftMargins($val);
+            },
+            'mediaColors' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setMediaColors($val);
+            },
+            'mediaSizes' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setMediaSizes($val);
+            },
+            'mediaTypes' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setMediaTypes($val);
+            },
             'multipageLayouts' => fn(ParseNode $n) => $o->setMultipageLayouts($n->getCollectionOfEnumValues(PrintMultipageLayout::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'orientations' => fn(ParseNode $n) => $o->setOrientations($n->getCollectionOfEnumValues(PrintOrientation::class)),
-            'outputBins' => fn(ParseNode $n) => $o->setOutputBins($n->getCollectionOfPrimitiveValues()),
-            'pagesPerSheet' => fn(ParseNode $n) => $o->setPagesPerSheet($n->getCollectionOfPrimitiveValues()),
+            'outputBins' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setOutputBins($val);
+            },
+            'pagesPerSheet' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'int');
+                }
+                /** @var array<int>|null $val */
+                $this->setPagesPerSheet($val);
+            },
             'qualities' => fn(ParseNode $n) => $o->setQualities($n->getCollectionOfEnumValues(PrintQuality::class)),
-            'rightMargins' => fn(ParseNode $n) => $o->setRightMargins($n->getCollectionOfPrimitiveValues()),
+            'rightMargins' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'int');
+                }
+                /** @var array<int>|null $val */
+                $this->setRightMargins($val);
+            },
             'scalings' => fn(ParseNode $n) => $o->setScalings($n->getCollectionOfEnumValues(PrintScaling::class)),
             'supportedColorConfigurations' => fn(ParseNode $n) => $o->setSupportedColorConfigurations($n->getCollectionOfEnumValues(PrintColorConfiguration::class)),
             'supportedCopiesPerJob' => fn(ParseNode $n) => $o->setSupportedCopiesPerJob($n->getObjectValue([IntegerRange::class, 'createFromDiscriminatorValue'])),
-            'supportedDocumentMimeTypes' => fn(ParseNode $n) => $o->setSupportedDocumentMimeTypes($n->getCollectionOfPrimitiveValues()),
+            'supportedDocumentMimeTypes' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSupportedDocumentMimeTypes($val);
+            },
             'supportedDuplexConfigurations' => fn(ParseNode $n) => $o->setSupportedDuplexConfigurations($n->getCollectionOfEnumValues(PrintDuplexConfiguration::class)),
             'supportedFinishings' => fn(ParseNode $n) => $o->setSupportedFinishings($n->getCollectionOfEnumValues(PrintFinishing::class)),
-            'supportedMediaColors' => fn(ParseNode $n) => $o->setSupportedMediaColors($n->getCollectionOfPrimitiveValues()),
-            'supportedMediaSizes' => fn(ParseNode $n) => $o->setSupportedMediaSizes($n->getCollectionOfPrimitiveValues()),
+            'supportedMediaColors' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSupportedMediaColors($val);
+            },
+            'supportedMediaSizes' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSupportedMediaSizes($val);
+            },
             'supportedMediaTypes' => fn(ParseNode $n) => $o->setSupportedMediaTypes($n->getCollectionOfEnumValues(PrintMediaType::class)),
             'supportedOrientations' => fn(ParseNode $n) => $o->setSupportedOrientations($n->getCollectionOfEnumValues(PrintOrientation::class)),
-            'supportedOutputBins' => fn(ParseNode $n) => $o->setSupportedOutputBins($n->getCollectionOfPrimitiveValues()),
+            'supportedOutputBins' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSupportedOutputBins($val);
+            },
             'supportedPagesPerSheet' => fn(ParseNode $n) => $o->setSupportedPagesPerSheet($n->getObjectValue([IntegerRange::class, 'createFromDiscriminatorValue'])),
             'supportedPresentationDirections' => fn(ParseNode $n) => $o->setSupportedPresentationDirections($n->getCollectionOfEnumValues(PrintPresentationDirection::class)),
             'supportedPrintQualities' => fn(ParseNode $n) => $o->setSupportedPrintQualities($n->getCollectionOfEnumValues(PrintQuality::class)),
             'supportsFitPdfToPage' => fn(ParseNode $n) => $o->setSupportsFitPdfToPage($n->getBooleanValue()),
-            'topMargins' => fn(ParseNode $n) => $o->setTopMargins($n->getCollectionOfPrimitiveValues()),
+            'topMargins' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'int');
+                }
+                /** @var array<int>|null $val */
+                $this->setTopMargins($val);
+            },
         ];
     }
 
@@ -177,7 +345,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<PrintFinishing>|null
     */
     public function getFinishings(): ?array {
-        return $this->getBackingStore()->get('finishings');
+        $val = $this->getBackingStore()->get('finishings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrintFinishing::class);
+            /** @var array<PrintFinishing>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'finishings'");
     }
 
     /**
@@ -185,7 +359,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getInputBins(): ?array {
-        return $this->getBackingStore()->get('inputBins');
+        $val = $this->getBackingStore()->get('inputBins');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inputBins'");
     }
 
     /**
@@ -193,7 +373,11 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getIsColorPrintingSupported(): ?bool {
-        return $this->getBackingStore()->get('isColorPrintingSupported');
+        $val = $this->getBackingStore()->get('isColorPrintingSupported');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isColorPrintingSupported'");
     }
 
     /**
@@ -201,7 +385,11 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getIsPageRangeSupported(): ?bool {
-        return $this->getBackingStore()->get('isPageRangeSupported');
+        $val = $this->getBackingStore()->get('isPageRangeSupported');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isPageRangeSupported'");
     }
 
     /**
@@ -209,7 +397,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<int>|null
     */
     public function getLeftMargins(): ?array {
-        return $this->getBackingStore()->get('leftMargins');
+        $val = $this->getBackingStore()->get('leftMargins');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'int');
+            /** @var array<int>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'leftMargins'");
     }
 
     /**
@@ -217,7 +411,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getMediaColors(): ?array {
-        return $this->getBackingStore()->get('mediaColors');
+        $val = $this->getBackingStore()->get('mediaColors');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mediaColors'");
     }
 
     /**
@@ -225,7 +425,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getMediaSizes(): ?array {
-        return $this->getBackingStore()->get('mediaSizes');
+        $val = $this->getBackingStore()->get('mediaSizes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mediaSizes'");
     }
 
     /**
@@ -233,7 +439,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getMediaTypes(): ?array {
-        return $this->getBackingStore()->get('mediaTypes');
+        $val = $this->getBackingStore()->get('mediaTypes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mediaTypes'");
     }
 
     /**
@@ -241,7 +453,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<PrintMultipageLayout>|null
     */
     public function getMultipageLayouts(): ?array {
-        return $this->getBackingStore()->get('multipageLayouts');
+        $val = $this->getBackingStore()->get('multipageLayouts');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrintMultipageLayout::class);
+            /** @var array<PrintMultipageLayout>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'multipageLayouts'");
     }
 
     /**
@@ -249,7 +467,11 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -257,7 +479,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<PrintOrientation>|null
     */
     public function getOrientations(): ?array {
-        return $this->getBackingStore()->get('orientations');
+        $val = $this->getBackingStore()->get('orientations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrintOrientation::class);
+            /** @var array<PrintOrientation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'orientations'");
     }
 
     /**
@@ -265,7 +493,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getOutputBins(): ?array {
-        return $this->getBackingStore()->get('outputBins');
+        $val = $this->getBackingStore()->get('outputBins');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'outputBins'");
     }
 
     /**
@@ -273,7 +507,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<int>|null
     */
     public function getPagesPerSheet(): ?array {
-        return $this->getBackingStore()->get('pagesPerSheet');
+        $val = $this->getBackingStore()->get('pagesPerSheet');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'int');
+            /** @var array<int>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pagesPerSheet'");
     }
 
     /**
@@ -281,7 +521,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<PrintQuality>|null
     */
     public function getQualities(): ?array {
-        return $this->getBackingStore()->get('qualities');
+        $val = $this->getBackingStore()->get('qualities');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrintQuality::class);
+            /** @var array<PrintQuality>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'qualities'");
     }
 
     /**
@@ -289,7 +535,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<int>|null
     */
     public function getRightMargins(): ?array {
-        return $this->getBackingStore()->get('rightMargins');
+        $val = $this->getBackingStore()->get('rightMargins');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'int');
+            /** @var array<int>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rightMargins'");
     }
 
     /**
@@ -297,7 +549,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<PrintScaling>|null
     */
     public function getScalings(): ?array {
-        return $this->getBackingStore()->get('scalings');
+        $val = $this->getBackingStore()->get('scalings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrintScaling::class);
+            /** @var array<PrintScaling>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scalings'");
     }
 
     /**
@@ -305,7 +563,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<PrintColorConfiguration>|null
     */
     public function getSupportedColorConfigurations(): ?array {
-        return $this->getBackingStore()->get('supportedColorConfigurations');
+        $val = $this->getBackingStore()->get('supportedColorConfigurations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrintColorConfiguration::class);
+            /** @var array<PrintColorConfiguration>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedColorConfigurations'");
     }
 
     /**
@@ -313,7 +577,11 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return IntegerRange|null
     */
     public function getSupportedCopiesPerJob(): ?IntegerRange {
-        return $this->getBackingStore()->get('supportedCopiesPerJob');
+        $val = $this->getBackingStore()->get('supportedCopiesPerJob');
+        if (is_null($val) || $val instanceof IntegerRange) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedCopiesPerJob'");
     }
 
     /**
@@ -321,7 +589,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getSupportedDocumentMimeTypes(): ?array {
-        return $this->getBackingStore()->get('supportedDocumentMimeTypes');
+        $val = $this->getBackingStore()->get('supportedDocumentMimeTypes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedDocumentMimeTypes'");
     }
 
     /**
@@ -329,7 +603,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<PrintDuplexConfiguration>|null
     */
     public function getSupportedDuplexConfigurations(): ?array {
-        return $this->getBackingStore()->get('supportedDuplexConfigurations');
+        $val = $this->getBackingStore()->get('supportedDuplexConfigurations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrintDuplexConfiguration::class);
+            /** @var array<PrintDuplexConfiguration>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedDuplexConfigurations'");
     }
 
     /**
@@ -337,7 +617,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<PrintFinishing>|null
     */
     public function getSupportedFinishings(): ?array {
-        return $this->getBackingStore()->get('supportedFinishings');
+        $val = $this->getBackingStore()->get('supportedFinishings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrintFinishing::class);
+            /** @var array<PrintFinishing>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedFinishings'");
     }
 
     /**
@@ -345,7 +631,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getSupportedMediaColors(): ?array {
-        return $this->getBackingStore()->get('supportedMediaColors');
+        $val = $this->getBackingStore()->get('supportedMediaColors');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedMediaColors'");
     }
 
     /**
@@ -353,7 +645,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getSupportedMediaSizes(): ?array {
-        return $this->getBackingStore()->get('supportedMediaSizes');
+        $val = $this->getBackingStore()->get('supportedMediaSizes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedMediaSizes'");
     }
 
     /**
@@ -361,7 +659,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<PrintMediaType>|null
     */
     public function getSupportedMediaTypes(): ?array {
-        return $this->getBackingStore()->get('supportedMediaTypes');
+        $val = $this->getBackingStore()->get('supportedMediaTypes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrintMediaType::class);
+            /** @var array<PrintMediaType>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedMediaTypes'");
     }
 
     /**
@@ -369,7 +673,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<PrintOrientation>|null
     */
     public function getSupportedOrientations(): ?array {
-        return $this->getBackingStore()->get('supportedOrientations');
+        $val = $this->getBackingStore()->get('supportedOrientations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrintOrientation::class);
+            /** @var array<PrintOrientation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedOrientations'");
     }
 
     /**
@@ -377,7 +687,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getSupportedOutputBins(): ?array {
-        return $this->getBackingStore()->get('supportedOutputBins');
+        $val = $this->getBackingStore()->get('supportedOutputBins');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedOutputBins'");
     }
 
     /**
@@ -385,7 +701,11 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return IntegerRange|null
     */
     public function getSupportedPagesPerSheet(): ?IntegerRange {
-        return $this->getBackingStore()->get('supportedPagesPerSheet');
+        $val = $this->getBackingStore()->get('supportedPagesPerSheet');
+        if (is_null($val) || $val instanceof IntegerRange) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedPagesPerSheet'");
     }
 
     /**
@@ -393,7 +713,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<PrintPresentationDirection>|null
     */
     public function getSupportedPresentationDirections(): ?array {
-        return $this->getBackingStore()->get('supportedPresentationDirections');
+        $val = $this->getBackingStore()->get('supportedPresentationDirections');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrintPresentationDirection::class);
+            /** @var array<PrintPresentationDirection>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedPresentationDirections'");
     }
 
     /**
@@ -401,7 +727,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<PrintQuality>|null
     */
     public function getSupportedPrintQualities(): ?array {
-        return $this->getBackingStore()->get('supportedPrintQualities');
+        $val = $this->getBackingStore()->get('supportedPrintQualities');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrintQuality::class);
+            /** @var array<PrintQuality>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedPrintQualities'");
     }
 
     /**
@@ -409,7 +741,11 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getSupportsFitPdfToPage(): ?bool {
-        return $this->getBackingStore()->get('supportsFitPdfToPage');
+        $val = $this->getBackingStore()->get('supportsFitPdfToPage');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportsFitPdfToPage'");
     }
 
     /**
@@ -417,7 +753,13 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<int>|null
     */
     public function getTopMargins(): ?array {
-        return $this->getBackingStore()->get('topMargins');
+        $val = $this->getBackingStore()->get('topMargins');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'int');
+            /** @var array<int>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'topMargins'");
     }
 
     /**

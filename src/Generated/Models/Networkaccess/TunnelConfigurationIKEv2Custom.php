@@ -30,12 +30,16 @@ class TunnelConfigurationIKEv2Custom extends TunnelConfiguration implements Pars
      * @return DhGroup|null
     */
     public function getDhGroup(): ?DhGroup {
-        return $this->getBackingStore()->get('dhGroup');
+        $val = $this->getBackingStore()->get('dhGroup');
+        if (is_null($val) || $val instanceof DhGroup) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dhGroup'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -55,7 +59,11 @@ class TunnelConfigurationIKEv2Custom extends TunnelConfiguration implements Pars
      * @return IkeEncryption|null
     */
     public function getIkeEncryption(): ?IkeEncryption {
-        return $this->getBackingStore()->get('ikeEncryption');
+        $val = $this->getBackingStore()->get('ikeEncryption');
+        if (is_null($val) || $val instanceof IkeEncryption) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ikeEncryption'");
     }
 
     /**
@@ -63,7 +71,11 @@ class TunnelConfigurationIKEv2Custom extends TunnelConfiguration implements Pars
      * @return IkeIntegrity|null
     */
     public function getIkeIntegrity(): ?IkeIntegrity {
-        return $this->getBackingStore()->get('ikeIntegrity');
+        $val = $this->getBackingStore()->get('ikeIntegrity');
+        if (is_null($val) || $val instanceof IkeIntegrity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ikeIntegrity'");
     }
 
     /**
@@ -71,7 +83,11 @@ class TunnelConfigurationIKEv2Custom extends TunnelConfiguration implements Pars
      * @return IpSecEncryption|null
     */
     public function getIpSecEncryption(): ?IpSecEncryption {
-        return $this->getBackingStore()->get('ipSecEncryption');
+        $val = $this->getBackingStore()->get('ipSecEncryption');
+        if (is_null($val) || $val instanceof IpSecEncryption) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ipSecEncryption'");
     }
 
     /**
@@ -79,7 +95,11 @@ class TunnelConfigurationIKEv2Custom extends TunnelConfiguration implements Pars
      * @return IpSecIntegrity|null
     */
     public function getIpSecIntegrity(): ?IpSecIntegrity {
-        return $this->getBackingStore()->get('ipSecIntegrity');
+        $val = $this->getBackingStore()->get('ipSecIntegrity');
+        if (is_null($val) || $val instanceof IpSecIntegrity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ipSecIntegrity'");
     }
 
     /**
@@ -87,7 +107,11 @@ class TunnelConfigurationIKEv2Custom extends TunnelConfiguration implements Pars
      * @return PfsGroup|null
     */
     public function getPfsGroup(): ?PfsGroup {
-        return $this->getBackingStore()->get('pfsGroup');
+        $val = $this->getBackingStore()->get('pfsGroup');
+        if (is_null($val) || $val instanceof PfsGroup) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pfsGroup'");
     }
 
     /**
@@ -95,7 +119,11 @@ class TunnelConfigurationIKEv2Custom extends TunnelConfiguration implements Pars
      * @return int|null
     */
     public function getSaLifeTimeSeconds(): ?int {
-        return $this->getBackingStore()->get('saLifeTimeSeconds');
+        $val = $this->getBackingStore()->get('saLifeTimeSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'saLifeTimeSeconds'");
     }
 
     /**

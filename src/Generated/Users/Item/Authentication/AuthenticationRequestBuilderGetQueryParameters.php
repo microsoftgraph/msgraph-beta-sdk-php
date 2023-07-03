@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get authentication from users
+ * The authentication methods that are supported for the user.
 */
 class AuthenticationRequestBuilderGetQueryParameters 
 {

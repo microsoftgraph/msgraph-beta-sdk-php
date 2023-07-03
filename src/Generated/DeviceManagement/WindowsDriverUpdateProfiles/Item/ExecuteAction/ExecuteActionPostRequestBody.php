@@ -11,6 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -41,7 +42,11 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
      * @return DriverApprovalAction|null
     */
     public function getActionName(): ?DriverApprovalAction {
-        return $this->getBackingStore()->get('actionName');
+        $val = $this->getBackingStore()->get('actionName');
+        if (is_null($val) || $val instanceof DriverApprovalAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'actionName'");
     }
 
     /**
@@ -49,7 +54,12 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -65,7 +75,11 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
      * @return DateTime|null
     */
     public function getDeploymentDate(): ?DateTime {
-        return $this->getBackingStore()->get('deploymentDate');
+        $val = $this->getBackingStore()->get('deploymentDate');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deploymentDate'");
     }
 
     /**
@@ -73,19 +87,32 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
      * @return array<string>|null
     */
     public function getDriverIds(): ?array {
-        return $this->getBackingStore()->get('driverIds');
+        $val = $this->getBackingStore()->get('driverIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'driverIds'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
             'actionName' => fn(ParseNode $n) => $o->setActionName($n->getEnumValue(DriverApprovalAction::class)),
             'deploymentDate' => fn(ParseNode $n) => $o->setDeploymentDate($n->getDateTimeValue()),
-            'driverIds' => fn(ParseNode $n) => $o->setDriverIds($n->getCollectionOfPrimitiveValues()),
+            'driverIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDriverIds($val);
+            },
         ];
     }
 

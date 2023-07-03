@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Entity representing the configuration of a cached report
@@ -33,12 +34,16 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('expirationDateTime');
+        $val = $this->getBackingStore()->get('expirationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expirationDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -47,9 +52,23 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
             'filter' => fn(ParseNode $n) => $o->setFilter($n->getStringValue()),
             'lastRefreshDateTime' => fn(ParseNode $n) => $o->setLastRefreshDateTime($n->getDateTimeValue()),
             'metadata' => fn(ParseNode $n) => $o->setMetadata($n->getStringValue()),
-            'orderBy' => fn(ParseNode $n) => $o->setOrderBy($n->getCollectionOfPrimitiveValues()),
+            'orderBy' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setOrderBy($val);
+            },
             'reportName' => fn(ParseNode $n) => $o->setReportName($n->getStringValue()),
-            'select' => fn(ParseNode $n) => $o->setSelect($n->getCollectionOfPrimitiveValues()),
+            'select' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSelect($val);
+            },
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(DeviceManagementReportStatus::class)),
         ]);
     }
@@ -59,7 +78,11 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
      * @return string|null
     */
     public function getFilter(): ?string {
-        return $this->getBackingStore()->get('filter');
+        $val = $this->getBackingStore()->get('filter');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'filter'");
     }
 
     /**
@@ -67,7 +90,11 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
      * @return DateTime|null
     */
     public function getLastRefreshDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastRefreshDateTime');
+        $val = $this->getBackingStore()->get('lastRefreshDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastRefreshDateTime'");
     }
 
     /**
@@ -75,7 +102,11 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
      * @return string|null
     */
     public function getMetadata(): ?string {
-        return $this->getBackingStore()->get('metadata');
+        $val = $this->getBackingStore()->get('metadata');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'metadata'");
     }
 
     /**
@@ -83,7 +114,13 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
      * @return array<string>|null
     */
     public function getOrderBy(): ?array {
-        return $this->getBackingStore()->get('orderBy');
+        $val = $this->getBackingStore()->get('orderBy');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'orderBy'");
     }
 
     /**
@@ -91,7 +128,11 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
      * @return string|null
     */
     public function getReportName(): ?string {
-        return $this->getBackingStore()->get('reportName');
+        $val = $this->getBackingStore()->get('reportName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reportName'");
     }
 
     /**
@@ -99,7 +140,13 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
      * @return array<string>|null
     */
     public function getSelect(): ?array {
-        return $this->getBackingStore()->get('select');
+        $val = $this->getBackingStore()->get('select');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'select'");
     }
 
     /**
@@ -107,7 +154,11 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
      * @return DeviceManagementReportStatus|null
     */
     public function getStatus(): ?DeviceManagementReportStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof DeviceManagementReportStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

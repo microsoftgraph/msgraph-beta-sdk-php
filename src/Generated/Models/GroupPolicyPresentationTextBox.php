@@ -30,12 +30,16 @@ class GroupPolicyPresentationTextBox extends GroupPolicyUploadedPresentation imp
      * @return string|null
     */
     public function getDefaultValue(): ?string {
-        return $this->getBackingStore()->get('defaultValue');
+        $val = $this->getBackingStore()->get('defaultValue');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultValue'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -51,7 +55,11 @@ class GroupPolicyPresentationTextBox extends GroupPolicyUploadedPresentation imp
      * @return int|null
     */
     public function getMaxLength(): ?int {
-        return $this->getBackingStore()->get('maxLength');
+        $val = $this->getBackingStore()->get('maxLength');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maxLength'");
     }
 
     /**
@@ -59,7 +67,11 @@ class GroupPolicyPresentationTextBox extends GroupPolicyUploadedPresentation imp
      * @return bool|null
     */
     public function getRequired(): ?bool {
-        return $this->getBackingStore()->get('required');
+        $val = $this->getBackingStore()->get('required');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'required'");
     }
 
     /**

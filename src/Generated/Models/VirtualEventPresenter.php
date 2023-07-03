@@ -29,12 +29,16 @@ class VirtualEventPresenter extends Entity implements Parsable
      * @return string|null
     */
     public function getEmail(): ?string {
-        return $this->getBackingStore()->get('email');
+        $val = $this->getBackingStore()->get('email');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'email'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -50,7 +54,11 @@ class VirtualEventPresenter extends Entity implements Parsable
      * @return CommunicationsUserIdentity|null
     */
     public function getIdentity(): ?CommunicationsUserIdentity {
-        return $this->getBackingStore()->get('identity');
+        $val = $this->getBackingStore()->get('identity');
+        if (is_null($val) || $val instanceof CommunicationsUserIdentity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identity'");
     }
 
     /**
@@ -58,7 +66,11 @@ class VirtualEventPresenter extends Entity implements Parsable
      * @return VirtualEventPresenterDetails|null
     */
     public function getPresenterDetails(): ?VirtualEventPresenterDetails {
-        return $this->getBackingStore()->get('presenterDetails');
+        $val = $this->getBackingStore()->get('presenterDetails');
+        if (is_null($val) || $val instanceof VirtualEventPresenterDetails) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'presenterDetails'");
     }
 
     /**

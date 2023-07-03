@@ -26,7 +26,7 @@ class WindowsManagementAppHealthSummary extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -42,7 +42,11 @@ class WindowsManagementAppHealthSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getHealthyDeviceCount(): ?int {
-        return $this->getBackingStore()->get('healthyDeviceCount');
+        $val = $this->getBackingStore()->get('healthyDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'healthyDeviceCount'");
     }
 
     /**
@@ -50,7 +54,11 @@ class WindowsManagementAppHealthSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getUnhealthyDeviceCount(): ?int {
-        return $this->getBackingStore()->get('unhealthyDeviceCount');
+        $val = $this->getBackingStore()->get('unhealthyDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'unhealthyDeviceCount'");
     }
 
     /**
@@ -58,7 +66,11 @@ class WindowsManagementAppHealthSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getUnknownDeviceCount(): ?int {
-        return $this->getBackingStore()->get('unknownDeviceCount');
+        $val = $this->getBackingStore()->get('unknownDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'unknownDeviceCount'");
     }
 
     /**

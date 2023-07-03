@@ -41,7 +41,12 @@ class ValidateAuthenticationConfigurationPostRequestBody implements AdditionalDa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -49,7 +54,11 @@ class ValidateAuthenticationConfigurationPostRequestBody implements AdditionalDa
      * @return CustomExtensionAuthenticationConfiguration|null
     */
     public function getAuthenticationConfiguration(): ?CustomExtensionAuthenticationConfiguration {
-        return $this->getBackingStore()->get('authenticationConfiguration');
+        $val = $this->getBackingStore()->get('authenticationConfiguration');
+        if (is_null($val) || $val instanceof CustomExtensionAuthenticationConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationConfiguration'");
     }
 
     /**
@@ -65,12 +74,16 @@ class ValidateAuthenticationConfigurationPostRequestBody implements AdditionalDa
      * @return CustomExtensionEndpointConfiguration|null
     */
     public function getEndpointConfiguration(): ?CustomExtensionEndpointConfiguration {
-        return $this->getBackingStore()->get('endpointConfiguration');
+        $val = $this->getBackingStore()->get('endpointConfiguration');
+        if (is_null($val) || $val instanceof CustomExtensionEndpointConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endpointConfiguration'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

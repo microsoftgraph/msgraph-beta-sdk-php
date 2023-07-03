@@ -27,7 +27,7 @@ class WindowsAppXAppAssignmentSettings extends MobileAppAssignmentSettings imple
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -37,11 +37,15 @@ class WindowsAppXAppAssignmentSettings extends MobileAppAssignmentSettings imple
     }
 
     /**
-     * Gets the useDeviceContext property value. Whether or not to use device execution context for Windows AppX mobile app.
+     * Gets the useDeviceContext property value. When TRUE, indicates that device execution context will be used for the AppX mobile app. When FALSE, indicates that user context will be used for the AppX mobile app. By default, this property is set to FALSE. Once this property has been set to TRUE it cannot be changed.
      * @return bool|null
     */
     public function getUseDeviceContext(): ?bool {
-        return $this->getBackingStore()->get('useDeviceContext');
+        $val = $this->getBackingStore()->get('useDeviceContext');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'useDeviceContext'");
     }
 
     /**
@@ -54,7 +58,7 @@ class WindowsAppXAppAssignmentSettings extends MobileAppAssignmentSettings imple
     }
 
     /**
-     * Sets the useDeviceContext property value. Whether or not to use device execution context for Windows AppX mobile app.
+     * Sets the useDeviceContext property value. When TRUE, indicates that device execution context will be used for the AppX mobile app. When FALSE, indicates that user context will be used for the AppX mobile app. By default, this property is set to FALSE. Once this property has been set to TRUE it cannot be changed.
      * @param bool|null $value Value to set for the useDeviceContext property.
     */
     public function setUseDeviceContext(?bool $value): void {

@@ -29,12 +29,16 @@ class CloudPcSupportedRegion extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -51,7 +55,11 @@ class CloudPcSupportedRegion extends Entity implements Parsable
      * @return CloudPcRegionGroup|null
     */
     public function getRegionGroup(): ?CloudPcRegionGroup {
-        return $this->getBackingStore()->get('regionGroup');
+        $val = $this->getBackingStore()->get('regionGroup');
+        if (is_null($val) || $val instanceof CloudPcRegionGroup) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'regionGroup'");
     }
 
     /**
@@ -59,7 +67,11 @@ class CloudPcSupportedRegion extends Entity implements Parsable
      * @return CloudPcSupportedRegionStatus|null
     */
     public function getRegionStatus(): ?CloudPcSupportedRegionStatus {
-        return $this->getBackingStore()->get('regionStatus');
+        $val = $this->getBackingStore()->get('regionStatus');
+        if (is_null($val) || $val instanceof CloudPcSupportedRegionStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'regionStatus'");
     }
 
     /**
@@ -67,7 +79,11 @@ class CloudPcSupportedRegion extends Entity implements Parsable
      * @return CloudPcManagementService|null
     */
     public function getSupportedSolution(): ?CloudPcManagementService {
-        return $this->getBackingStore()->get('supportedSolution');
+        $val = $this->getBackingStore()->get('supportedSolution');
+        if (is_null($val) || $val instanceof CloudPcManagementService) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedSolution'");
     }
 
     /**

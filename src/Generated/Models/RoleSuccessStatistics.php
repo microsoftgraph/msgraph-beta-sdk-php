@@ -39,7 +39,12 @@ class RoleSuccessStatistics implements AdditionalDataHolder, BackedModel, Parsab
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +57,7 @@ class RoleSuccessStatistics implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -75,7 +80,11 @@ class RoleSuccessStatistics implements AdditionalDataHolder, BackedModel, Parsab
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -83,7 +92,11 @@ class RoleSuccessStatistics implements AdditionalDataHolder, BackedModel, Parsab
      * @return int|null
     */
     public function getPermanentFail(): ?int {
-        return $this->getBackingStore()->get('permanentFail');
+        $val = $this->getBackingStore()->get('permanentFail');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'permanentFail'");
     }
 
     /**
@@ -91,7 +104,11 @@ class RoleSuccessStatistics implements AdditionalDataHolder, BackedModel, Parsab
      * @return int|null
     */
     public function getPermanentSuccess(): ?int {
-        return $this->getBackingStore()->get('permanentSuccess');
+        $val = $this->getBackingStore()->get('permanentSuccess');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'permanentSuccess'");
     }
 
     /**
@@ -99,7 +116,11 @@ class RoleSuccessStatistics implements AdditionalDataHolder, BackedModel, Parsab
      * @return int|null
     */
     public function getRemoveFail(): ?int {
-        return $this->getBackingStore()->get('removeFail');
+        $val = $this->getBackingStore()->get('removeFail');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'removeFail'");
     }
 
     /**
@@ -107,7 +128,11 @@ class RoleSuccessStatistics implements AdditionalDataHolder, BackedModel, Parsab
      * @return int|null
     */
     public function getRemoveSuccess(): ?int {
-        return $this->getBackingStore()->get('removeSuccess');
+        $val = $this->getBackingStore()->get('removeSuccess');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'removeSuccess'");
     }
 
     /**
@@ -115,7 +140,11 @@ class RoleSuccessStatistics implements AdditionalDataHolder, BackedModel, Parsab
      * @return string|null
     */
     public function getRoleId(): ?string {
-        return $this->getBackingStore()->get('roleId');
+        $val = $this->getBackingStore()->get('roleId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleId'");
     }
 
     /**
@@ -123,7 +152,11 @@ class RoleSuccessStatistics implements AdditionalDataHolder, BackedModel, Parsab
      * @return string|null
     */
     public function getRoleName(): ?string {
-        return $this->getBackingStore()->get('roleName');
+        $val = $this->getBackingStore()->get('roleName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleName'");
     }
 
     /**
@@ -131,7 +164,11 @@ class RoleSuccessStatistics implements AdditionalDataHolder, BackedModel, Parsab
      * @return int|null
     */
     public function getTemporaryFail(): ?int {
-        return $this->getBackingStore()->get('temporaryFail');
+        $val = $this->getBackingStore()->get('temporaryFail');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'temporaryFail'");
     }
 
     /**
@@ -139,7 +176,11 @@ class RoleSuccessStatistics implements AdditionalDataHolder, BackedModel, Parsab
      * @return int|null
     */
     public function getTemporarySuccess(): ?int {
-        return $this->getBackingStore()->get('temporarySuccess');
+        $val = $this->getBackingStore()->get('temporarySuccess');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'temporarySuccess'");
     }
 
     /**
@@ -147,7 +188,11 @@ class RoleSuccessStatistics implements AdditionalDataHolder, BackedModel, Parsab
      * @return int|null
     */
     public function getUnknownFail(): ?int {
-        return $this->getBackingStore()->get('unknownFail');
+        $val = $this->getBackingStore()->get('unknownFail');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'unknownFail'");
     }
 
     /**

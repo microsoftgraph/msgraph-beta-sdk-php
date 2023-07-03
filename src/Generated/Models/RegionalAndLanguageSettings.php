@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class RegionalAndLanguageSettings extends Entity implements Parsable 
 {
@@ -29,7 +30,13 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
      * @return array<LocaleInfo>|null
     */
     public function getAuthoringLanguages(): ?array {
-        return $this->getBackingStore()->get('authoringLanguages');
+        $val = $this->getBackingStore()->get('authoringLanguages');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, LocaleInfo::class);
+            /** @var array<LocaleInfo>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authoringLanguages'");
     }
 
     /**
@@ -37,7 +44,11 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
      * @return LocaleInfo|null
     */
     public function getDefaultDisplayLanguage(): ?LocaleInfo {
-        return $this->getBackingStore()->get('defaultDisplayLanguage');
+        $val = $this->getBackingStore()->get('defaultDisplayLanguage');
+        if (is_null($val) || $val instanceof LocaleInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultDisplayLanguage'");
     }
 
     /**
@@ -45,7 +56,11 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
      * @return LocaleInfo|null
     */
     public function getDefaultRegionalFormat(): ?LocaleInfo {
-        return $this->getBackingStore()->get('defaultRegionalFormat');
+        $val = $this->getBackingStore()->get('defaultRegionalFormat');
+        if (is_null($val) || $val instanceof LocaleInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultRegionalFormat'");
     }
 
     /**
@@ -53,7 +68,11 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
      * @return LocaleInfo|null
     */
     public function getDefaultSpeechInputLanguage(): ?LocaleInfo {
-        return $this->getBackingStore()->get('defaultSpeechInputLanguage');
+        $val = $this->getBackingStore()->get('defaultSpeechInputLanguage');
+        if (is_null($val) || $val instanceof LocaleInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultSpeechInputLanguage'");
     }
 
     /**
@@ -61,12 +80,16 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
      * @return LocaleInfo|null
     */
     public function getDefaultTranslationLanguage(): ?LocaleInfo {
-        return $this->getBackingStore()->get('defaultTranslationLanguage');
+        $val = $this->getBackingStore()->get('defaultTranslationLanguage');
+        if (is_null($val) || $val instanceof LocaleInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultTranslationLanguage'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -86,7 +109,11 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
      * @return RegionalFormatOverrides|null
     */
     public function getRegionalFormatOverrides(): ?RegionalFormatOverrides {
-        return $this->getBackingStore()->get('regionalFormatOverrides');
+        $val = $this->getBackingStore()->get('regionalFormatOverrides');
+        if (is_null($val) || $val instanceof RegionalFormatOverrides) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'regionalFormatOverrides'");
     }
 
     /**
@@ -94,7 +121,11 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
      * @return TranslationPreferences|null
     */
     public function getTranslationPreferences(): ?TranslationPreferences {
-        return $this->getBackingStore()->get('translationPreferences');
+        $val = $this->getBackingStore()->get('translationPreferences');
+        if (is_null($val) || $val instanceof TranslationPreferences) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'translationPreferences'");
     }
 
     /**

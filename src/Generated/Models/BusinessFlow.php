@@ -29,7 +29,11 @@ class BusinessFlow extends Entity implements Parsable
      * @return string|null
     */
     public function getCustomData(): ?string {
-        return $this->getBackingStore()->get('customData');
+        $val = $this->getBackingStore()->get('customData');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customData'");
     }
 
     /**
@@ -37,7 +41,11 @@ class BusinessFlow extends Entity implements Parsable
      * @return string|null
     */
     public function getDeDuplicationId(): ?string {
-        return $this->getBackingStore()->get('deDuplicationId');
+        $val = $this->getBackingStore()->get('deDuplicationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deDuplicationId'");
     }
 
     /**
@@ -45,7 +53,11 @@ class BusinessFlow extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -53,12 +65,16 @@ class BusinessFlow extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -80,7 +96,11 @@ class BusinessFlow extends Entity implements Parsable
      * @return GovernancePolicy|null
     */
     public function getPolicy(): ?GovernancePolicy {
-        return $this->getBackingStore()->get('policy');
+        $val = $this->getBackingStore()->get('policy');
+        if (is_null($val) || $val instanceof GovernancePolicy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policy'");
     }
 
     /**
@@ -88,7 +108,11 @@ class BusinessFlow extends Entity implements Parsable
      * @return string|null
     */
     public function getPolicyTemplateId(): ?string {
-        return $this->getBackingStore()->get('policyTemplateId');
+        $val = $this->getBackingStore()->get('policyTemplateId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyTemplateId'");
     }
 
     /**
@@ -96,7 +120,11 @@ class BusinessFlow extends Entity implements Parsable
      * @return string|null
     */
     public function getRecordVersion(): ?string {
-        return $this->getBackingStore()->get('recordVersion');
+        $val = $this->getBackingStore()->get('recordVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recordVersion'");
     }
 
     /**
@@ -104,7 +132,11 @@ class BusinessFlow extends Entity implements Parsable
      * @return string|null
     */
     public function getSchemaId(): ?string {
-        return $this->getBackingStore()->get('schemaId');
+        $val = $this->getBackingStore()->get('schemaId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'schemaId'");
     }
 
     /**
@@ -112,7 +144,11 @@ class BusinessFlow extends Entity implements Parsable
      * @return BusinessFlowSettings|null
     */
     public function getSettings(): ?BusinessFlowSettings {
-        return $this->getBackingStore()->get('settings');
+        $val = $this->getBackingStore()->get('settings');
+        if (is_null($val) || $val instanceof BusinessFlowSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settings'");
     }
 
     /**

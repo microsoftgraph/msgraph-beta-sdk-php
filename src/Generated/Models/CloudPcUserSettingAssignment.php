@@ -30,12 +30,16 @@ class CloudPcUserSettingAssignment extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -50,7 +54,11 @@ class CloudPcUserSettingAssignment extends Entity implements Parsable
      * @return CloudPcManagementAssignmentTarget|null
     */
     public function getTarget(): ?CloudPcManagementAssignmentTarget {
-        return $this->getBackingStore()->get('target');
+        $val = $this->getBackingStore()->get('target');
+        if (is_null($val) || $val instanceof CloudPcManagementAssignmentTarget) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'target'");
     }
 
     /**

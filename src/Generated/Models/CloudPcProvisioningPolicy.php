@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class CloudPcProvisioningPolicy extends Entity implements Parsable 
 {
@@ -29,7 +30,11 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getAlternateResourceUrl(): ?string {
-        return $this->getBackingStore()->get('alternateResourceUrl');
+        $val = $this->getBackingStore()->get('alternateResourceUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'alternateResourceUrl'");
     }
 
     /**
@@ -37,7 +42,13 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
      * @return array<CloudPcProvisioningPolicyAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->getBackingStore()->get('assignments');
+        $val = $this->getBackingStore()->get('assignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudPcProvisioningPolicyAssignment::class);
+            /** @var array<CloudPcProvisioningPolicyAssignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignments'");
     }
 
     /**
@@ -45,7 +56,11 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getCloudPcGroupDisplayName(): ?string {
-        return $this->getBackingStore()->get('cloudPcGroupDisplayName');
+        $val = $this->getBackingStore()->get('cloudPcGroupDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudPcGroupDisplayName'");
     }
 
     /**
@@ -53,7 +68,11 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getCloudPcNamingTemplate(): ?string {
-        return $this->getBackingStore()->get('cloudPcNamingTemplate');
+        $val = $this->getBackingStore()->get('cloudPcNamingTemplate');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudPcNamingTemplate'");
     }
 
     /**
@@ -61,7 +80,11 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -69,7 +92,11 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -77,7 +104,11 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
      * @return CloudPcDomainJoinConfiguration|null
     */
     public function getDomainJoinConfiguration(): ?CloudPcDomainJoinConfiguration {
-        return $this->getBackingStore()->get('domainJoinConfiguration');
+        $val = $this->getBackingStore()->get('domainJoinConfiguration');
+        if (is_null($val) || $val instanceof CloudPcDomainJoinConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'domainJoinConfiguration'");
     }
 
     /**
@@ -85,7 +116,13 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
      * @return array<CloudPcDomainJoinConfiguration>|null
     */
     public function getDomainJoinConfigurations(): ?array {
-        return $this->getBackingStore()->get('domainJoinConfigurations');
+        $val = $this->getBackingStore()->get('domainJoinConfigurations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudPcDomainJoinConfiguration::class);
+            /** @var array<CloudPcDomainJoinConfiguration>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'domainJoinConfigurations'");
     }
 
     /**
@@ -93,12 +130,16 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
      * @return bool|null
     */
     public function getEnableSingleSignOn(): ?bool {
-        return $this->getBackingStore()->get('enableSingleSignOn');
+        $val = $this->getBackingStore()->get('enableSingleSignOn');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableSingleSignOn'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -130,7 +171,11 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
      * @return int|null
     */
     public function getGracePeriodInHours(): ?int {
-        return $this->getBackingStore()->get('gracePeriodInHours');
+        $val = $this->getBackingStore()->get('gracePeriodInHours');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'gracePeriodInHours'");
     }
 
     /**
@@ -138,7 +183,11 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getImageDisplayName(): ?string {
-        return $this->getBackingStore()->get('imageDisplayName');
+        $val = $this->getBackingStore()->get('imageDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'imageDisplayName'");
     }
 
     /**
@@ -146,7 +195,11 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getImageId(): ?string {
-        return $this->getBackingStore()->get('imageId');
+        $val = $this->getBackingStore()->get('imageId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'imageId'");
     }
 
     /**
@@ -154,7 +207,11 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
      * @return CloudPcProvisioningPolicyImageType|null
     */
     public function getImageType(): ?CloudPcProvisioningPolicyImageType {
-        return $this->getBackingStore()->get('imageType');
+        $val = $this->getBackingStore()->get('imageType');
+        if (is_null($val) || $val instanceof CloudPcProvisioningPolicyImageType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'imageType'");
     }
 
     /**
@@ -162,7 +219,11 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
      * @return bool|null
     */
     public function getLocalAdminEnabled(): ?bool {
-        return $this->getBackingStore()->get('localAdminEnabled');
+        $val = $this->getBackingStore()->get('localAdminEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localAdminEnabled'");
     }
 
     /**
@@ -170,7 +231,11 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
      * @return CloudPcManagementService|null
     */
     public function getManagedBy(): ?CloudPcManagementService {
-        return $this->getBackingStore()->get('managedBy');
+        $val = $this->getBackingStore()->get('managedBy');
+        if (is_null($val) || $val instanceof CloudPcManagementService) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedBy'");
     }
 
     /**
@@ -178,7 +243,11 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
      * @return MicrosoftManagedDesktop|null
     */
     public function getMicrosoftManagedDesktop(): ?MicrosoftManagedDesktop {
-        return $this->getBackingStore()->get('microsoftManagedDesktop');
+        $val = $this->getBackingStore()->get('microsoftManagedDesktop');
+        if (is_null($val) || $val instanceof MicrosoftManagedDesktop) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftManagedDesktop'");
     }
 
     /**
@@ -186,7 +255,11 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getOnPremisesConnectionId(): ?string {
-        return $this->getBackingStore()->get('onPremisesConnectionId');
+        $val = $this->getBackingStore()->get('onPremisesConnectionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onPremisesConnectionId'");
     }
 
     /**
@@ -194,7 +267,11 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
      * @return CloudPcProvisioningType|null
     */
     public function getProvisioningType(): ?CloudPcProvisioningType {
-        return $this->getBackingStore()->get('provisioningType');
+        $val = $this->getBackingStore()->get('provisioningType');
+        if (is_null($val) || $val instanceof CloudPcProvisioningType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'provisioningType'");
     }
 
     /**
@@ -202,7 +279,11 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
      * @return CloudPcWindowsSettings|null
     */
     public function getWindowsSettings(): ?CloudPcWindowsSettings {
-        return $this->getBackingStore()->get('windowsSettings');
+        $val = $this->getBackingStore()->get('windowsSettings');
+        if (is_null($val) || $val instanceof CloudPcWindowsSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsSettings'");
     }
 
     /**

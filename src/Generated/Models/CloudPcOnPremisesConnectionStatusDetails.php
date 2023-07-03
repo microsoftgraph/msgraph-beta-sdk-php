@@ -10,6 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class CloudPcOnPremisesConnectionStatusDetails implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -40,7 +41,12 @@ class CloudPcOnPremisesConnectionStatusDetails implements AdditionalDataHolder, 
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -56,12 +62,16 @@ class CloudPcOnPremisesConnectionStatusDetails implements AdditionalDataHolder, 
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('endDateTime');
+        $val = $this->getBackingStore()->get('endDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -78,7 +88,13 @@ class CloudPcOnPremisesConnectionStatusDetails implements AdditionalDataHolder, 
      * @return array<CloudPcOnPremisesConnectionHealthCheck>|null
     */
     public function getHealthChecks(): ?array {
-        return $this->getBackingStore()->get('healthChecks');
+        $val = $this->getBackingStore()->get('healthChecks');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudPcOnPremisesConnectionHealthCheck::class);
+            /** @var array<CloudPcOnPremisesConnectionHealthCheck>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'healthChecks'");
     }
 
     /**
@@ -86,7 +102,11 @@ class CloudPcOnPremisesConnectionStatusDetails implements AdditionalDataHolder, 
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -94,7 +114,11 @@ class CloudPcOnPremisesConnectionStatusDetails implements AdditionalDataHolder, 
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('startDateTime');
+        $val = $this->getBackingStore()->get('startDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startDateTime'");
     }
 
     /**

@@ -10,6 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -40,7 +41,11 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
      * @return ManagedDeviceRemoteAction|null
     */
     public function getActionName(): ?ManagedDeviceRemoteAction {
-        return $this->getBackingStore()->get('actionName');
+        $val = $this->getBackingStore()->get('actionName');
+        if (is_null($val) || $val instanceof ManagedDeviceRemoteAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'actionName'");
     }
 
     /**
@@ -48,7 +53,12 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -64,7 +74,11 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getCarrierUrl(): ?string {
-        return $this->getBackingStore()->get('carrierUrl');
+        $val = $this->getBackingStore()->get('carrierUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'carrierUrl'");
     }
 
     /**
@@ -72,7 +86,11 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getDeprovisionReason(): ?string {
-        return $this->getBackingStore()->get('deprovisionReason');
+        $val = $this->getBackingStore()->get('deprovisionReason');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deprovisionReason'");
     }
 
     /**
@@ -80,7 +98,13 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
      * @return array<string>|null
     */
     public function getDeviceIds(): ?array {
-        return $this->getBackingStore()->get('deviceIds');
+        $val = $this->getBackingStore()->get('deviceIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceIds'");
     }
 
     /**
@@ -88,12 +112,16 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->getBackingStore()->get('deviceName');
+        $val = $this->getBackingStore()->get('deviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -101,7 +129,14 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
             'actionName' => fn(ParseNode $n) => $o->setActionName($n->getEnumValue(ManagedDeviceRemoteAction::class)),
             'carrierUrl' => fn(ParseNode $n) => $o->setCarrierUrl($n->getStringValue()),
             'deprovisionReason' => fn(ParseNode $n) => $o->setDeprovisionReason($n->getStringValue()),
-            'deviceIds' => fn(ParseNode $n) => $o->setDeviceIds($n->getCollectionOfPrimitiveValues()),
+            'deviceIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDeviceIds($val);
+            },
             'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
             'keepEnrollmentData' => fn(ParseNode $n) => $o->setKeepEnrollmentData($n->getBooleanValue()),
             'keepUserData' => fn(ParseNode $n) => $o->setKeepUserData($n->getBooleanValue()),
@@ -117,7 +152,11 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
      * @return bool|null
     */
     public function getKeepEnrollmentData(): ?bool {
-        return $this->getBackingStore()->get('keepEnrollmentData');
+        $val = $this->getBackingStore()->get('keepEnrollmentData');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'keepEnrollmentData'");
     }
 
     /**
@@ -125,7 +164,11 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
      * @return bool|null
     */
     public function getKeepUserData(): ?bool {
-        return $this->getBackingStore()->get('keepUserData');
+        $val = $this->getBackingStore()->get('keepUserData');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'keepUserData'");
     }
 
     /**
@@ -133,7 +176,11 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getNotificationBody(): ?string {
-        return $this->getBackingStore()->get('notificationBody');
+        $val = $this->getBackingStore()->get('notificationBody');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notificationBody'");
     }
 
     /**
@@ -141,7 +188,11 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getNotificationTitle(): ?string {
-        return $this->getBackingStore()->get('notificationTitle');
+        $val = $this->getBackingStore()->get('notificationTitle');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notificationTitle'");
     }
 
     /**
@@ -149,7 +200,11 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getOrganizationalUnitPath(): ?string {
-        return $this->getBackingStore()->get('organizationalUnitPath');
+        $val = $this->getBackingStore()->get('organizationalUnitPath');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'organizationalUnitPath'");
     }
 
     /**
@@ -157,7 +212,11 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
      * @return bool|null
     */
     public function getPersistEsimDataPlan(): ?bool {
-        return $this->getBackingStore()->get('persistEsimDataPlan');
+        $val = $this->getBackingStore()->get('persistEsimDataPlan');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'persistEsimDataPlan'");
     }
 
     /**

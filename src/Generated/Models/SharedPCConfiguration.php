@@ -31,7 +31,11 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return SharedPCAccountManagerPolicy|null
     */
     public function getAccountManagerPolicy(): ?SharedPCAccountManagerPolicy {
-        return $this->getBackingStore()->get('accountManagerPolicy');
+        $val = $this->getBackingStore()->get('accountManagerPolicy');
+        if (is_null($val) || $val instanceof SharedPCAccountManagerPolicy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accountManagerPolicy'");
     }
 
     /**
@@ -39,7 +43,11 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return SharedPCAllowedAccountType|null
     */
     public function getAllowedAccounts(): ?SharedPCAllowedAccountType {
-        return $this->getBackingStore()->get('allowedAccounts');
+        $val = $this->getBackingStore()->get('allowedAccounts');
+        if (is_null($val) || $val instanceof SharedPCAllowedAccountType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedAccounts'");
     }
 
     /**
@@ -47,7 +55,11 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getAllowLocalStorage(): ?bool {
-        return $this->getBackingStore()->get('allowLocalStorage');
+        $val = $this->getBackingStore()->get('allowLocalStorage');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowLocalStorage'");
     }
 
     /**
@@ -55,7 +67,11 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getDisableAccountManager(): ?bool {
-        return $this->getBackingStore()->get('disableAccountManager');
+        $val = $this->getBackingStore()->get('disableAccountManager');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disableAccountManager'");
     }
 
     /**
@@ -63,7 +79,11 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getDisableEduPolicies(): ?bool {
-        return $this->getBackingStore()->get('disableEduPolicies');
+        $val = $this->getBackingStore()->get('disableEduPolicies');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disableEduPolicies'");
     }
 
     /**
@@ -71,7 +91,11 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getDisablePowerPolicies(): ?bool {
-        return $this->getBackingStore()->get('disablePowerPolicies');
+        $val = $this->getBackingStore()->get('disablePowerPolicies');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disablePowerPolicies'");
     }
 
     /**
@@ -79,7 +103,11 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getDisableSignInOnResume(): ?bool {
-        return $this->getBackingStore()->get('disableSignInOnResume');
+        $val = $this->getBackingStore()->get('disableSignInOnResume');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disableSignInOnResume'");
     }
 
     /**
@@ -87,7 +115,11 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getEnabled(): ?bool {
-        return $this->getBackingStore()->get('enabled');
+        $val = $this->getBackingStore()->get('enabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enabled'");
     }
 
     /**
@@ -95,12 +127,16 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return Enablement|null
     */
     public function getFastFirstSignIn(): ?Enablement {
-        return $this->getBackingStore()->get('fastFirstSignIn');
+        $val = $this->getBackingStore()->get('fastFirstSignIn');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fastFirstSignIn'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -131,7 +167,11 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return int|null
     */
     public function getIdleTimeBeforeSleepInSeconds(): ?int {
-        return $this->getBackingStore()->get('idleTimeBeforeSleepInSeconds');
+        $val = $this->getBackingStore()->get('idleTimeBeforeSleepInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'idleTimeBeforeSleepInSeconds'");
     }
 
     /**
@@ -139,7 +179,11 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getKioskAppDisplayName(): ?string {
-        return $this->getBackingStore()->get('kioskAppDisplayName');
+        $val = $this->getBackingStore()->get('kioskAppDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskAppDisplayName'");
     }
 
     /**
@@ -147,7 +191,11 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getKioskAppUserModelId(): ?string {
-        return $this->getBackingStore()->get('kioskAppUserModelId');
+        $val = $this->getBackingStore()->get('kioskAppUserModelId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskAppUserModelId'");
     }
 
     /**
@@ -155,7 +203,11 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return Enablement|null
     */
     public function getLocalStorage(): ?Enablement {
-        return $this->getBackingStore()->get('localStorage');
+        $val = $this->getBackingStore()->get('localStorage');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localStorage'");
     }
 
     /**
@@ -163,7 +215,11 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return Time|null
     */
     public function getMaintenanceStartTime(): ?Time {
-        return $this->getBackingStore()->get('maintenanceStartTime');
+        $val = $this->getBackingStore()->get('maintenanceStartTime');
+        if (is_null($val) || $val instanceof Time) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maintenanceStartTime'");
     }
 
     /**
@@ -171,7 +227,11 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return Enablement|null
     */
     public function getSetAccountManager(): ?Enablement {
-        return $this->getBackingStore()->get('setAccountManager');
+        $val = $this->getBackingStore()->get('setAccountManager');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'setAccountManager'");
     }
 
     /**
@@ -179,7 +239,11 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return Enablement|null
     */
     public function getSetEduPolicies(): ?Enablement {
-        return $this->getBackingStore()->get('setEduPolicies');
+        $val = $this->getBackingStore()->get('setEduPolicies');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'setEduPolicies'");
     }
 
     /**
@@ -187,7 +251,11 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return Enablement|null
     */
     public function getSetPowerPolicies(): ?Enablement {
-        return $this->getBackingStore()->get('setPowerPolicies');
+        $val = $this->getBackingStore()->get('setPowerPolicies');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'setPowerPolicies'");
     }
 
     /**
@@ -195,7 +263,11 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return Enablement|null
     */
     public function getSignInOnResume(): ?Enablement {
-        return $this->getBackingStore()->get('signInOnResume');
+        $val = $this->getBackingStore()->get('signInOnResume');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signInOnResume'");
     }
 
     /**

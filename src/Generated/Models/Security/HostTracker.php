@@ -28,7 +28,7 @@ class HostTracker extends Artifact implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -46,7 +46,11 @@ class HostTracker extends Artifact implements Parsable
      * @return DateTime|null
     */
     public function getFirstSeenDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('firstSeenDateTime');
+        $val = $this->getBackingStore()->get('firstSeenDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firstSeenDateTime'");
     }
 
     /**
@@ -54,7 +58,11 @@ class HostTracker extends Artifact implements Parsable
      * @return Host|null
     */
     public function getHost(): ?Host {
-        return $this->getBackingStore()->get('host');
+        $val = $this->getBackingStore()->get('host');
+        if (is_null($val) || $val instanceof Host) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'host'");
     }
 
     /**
@@ -62,7 +70,11 @@ class HostTracker extends Artifact implements Parsable
      * @return string|null
     */
     public function getKind(): ?string {
-        return $this->getBackingStore()->get('kind');
+        $val = $this->getBackingStore()->get('kind');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kind'");
     }
 
     /**
@@ -70,7 +82,11 @@ class HostTracker extends Artifact implements Parsable
      * @return DateTime|null
     */
     public function getLastSeenDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastSeenDateTime');
+        $val = $this->getBackingStore()->get('lastSeenDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSeenDateTime'");
     }
 
     /**
@@ -78,7 +94,11 @@ class HostTracker extends Artifact implements Parsable
      * @return string|null
     */
     public function getValue(): ?string {
-        return $this->getBackingStore()->get('value');
+        $val = $this->getBackingStore()->get('value');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'value'");
     }
 
     /**

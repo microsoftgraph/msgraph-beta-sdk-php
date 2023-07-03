@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class RecommendLabelAction extends InformationProtectionAction implements Parsable 
 {
@@ -30,7 +31,13 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
      * @return array<InformationProtectionAction>|null
     */
     public function getActions(): ?array {
-        return $this->getBackingStore()->get('actions');
+        $val = $this->getBackingStore()->get('actions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, InformationProtectionAction::class);
+            /** @var array<InformationProtectionAction>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'actions'");
     }
 
     /**
@@ -38,12 +45,16 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
      * @return ActionSource|null
     */
     public function getActionSource(): ?ActionSource {
-        return $this->getBackingStore()->get('actionSource');
+        $val = $this->getBackingStore()->get('actionSource');
+        if (is_null($val) || $val instanceof ActionSource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'actionSource'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -51,7 +62,14 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
             'actions' => fn(ParseNode $n) => $o->setActions($n->getCollectionOfObjectValues([InformationProtectionAction::class, 'createFromDiscriminatorValue'])),
             'actionSource' => fn(ParseNode $n) => $o->setActionSource($n->getEnumValue(ActionSource::class)),
             'label' => fn(ParseNode $n) => $o->setLabel($n->getObjectValue([LabelDetails::class, 'createFromDiscriminatorValue'])),
-            'responsibleSensitiveTypeIds' => fn(ParseNode $n) => $o->setResponsibleSensitiveTypeIds($n->getCollectionOfPrimitiveValues()),
+            'responsibleSensitiveTypeIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setResponsibleSensitiveTypeIds($val);
+            },
         ]);
     }
 
@@ -60,7 +78,11 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
      * @return LabelDetails|null
     */
     public function getLabel(): ?LabelDetails {
-        return $this->getBackingStore()->get('label');
+        $val = $this->getBackingStore()->get('label');
+        if (is_null($val) || $val instanceof LabelDetails) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'label'");
     }
 
     /**
@@ -68,7 +90,13 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
      * @return array<string>|null
     */
     public function getResponsibleSensitiveTypeIds(): ?array {
-        return $this->getBackingStore()->get('responsibleSensitiveTypeIds');
+        $val = $this->getBackingStore()->get('responsibleSensitiveTypeIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'responsibleSensitiveTypeIds'");
     }
 
     /**

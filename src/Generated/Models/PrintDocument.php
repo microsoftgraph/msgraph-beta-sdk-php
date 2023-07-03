@@ -30,7 +30,11 @@ class PrintDocument extends Entity implements Parsable
      * @return PrinterDocumentConfiguration|null
     */
     public function getConfiguration(): ?PrinterDocumentConfiguration {
-        return $this->getBackingStore()->get('configuration');
+        $val = $this->getBackingStore()->get('configuration');
+        if (is_null($val) || $val instanceof PrinterDocumentConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configuration'");
     }
 
     /**
@@ -38,7 +42,11 @@ class PrintDocument extends Entity implements Parsable
      * @return string|null
     */
     public function getContentType(): ?string {
-        return $this->getBackingStore()->get('contentType');
+        $val = $this->getBackingStore()->get('contentType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentType'");
     }
 
     /**
@@ -46,7 +54,11 @@ class PrintDocument extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -54,12 +66,16 @@ class PrintDocument extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDownloadedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('downloadedDateTime');
+        $val = $this->getBackingStore()->get('downloadedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'downloadedDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -78,7 +94,11 @@ class PrintDocument extends Entity implements Parsable
      * @return int|null
     */
     public function getSize(): ?int {
-        return $this->getBackingStore()->get('size');
+        $val = $this->getBackingStore()->get('size');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'size'");
     }
 
     /**
@@ -86,7 +106,11 @@ class PrintDocument extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getUploadedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('uploadedDateTime');
+        $val = $this->getBackingStore()->get('uploadedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'uploadedDateTime'");
     }
 
     /**

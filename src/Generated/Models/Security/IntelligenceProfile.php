@@ -7,6 +7,7 @@ use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class IntelligenceProfile extends Entity implements Parsable 
 {
@@ -31,7 +32,27 @@ class IntelligenceProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getAliases(): ?array {
-        return $this->getBackingStore()->get('aliases');
+        $val = $this->getBackingStore()->get('aliases');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'aliases'");
+    }
+
+    /**
+     * Gets the countriesOrRegionsOfOrigin property value. The countriesOrRegionsOfOrigin property
+     * @return array<IntelligenceProfileCountryOrRegionOfOrigin>|null
+    */
+    public function getCountriesOrRegionsOfOrigin(): ?array {
+        $val = $this->getBackingStore()->get('countriesOrRegionsOfOrigin');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IntelligenceProfileCountryOrRegionOfOrigin::class);
+            /** @var array<IntelligenceProfileCountryOrRegionOfOrigin>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'countriesOrRegionsOfOrigin'");
     }
 
     /**
@@ -39,24 +60,42 @@ class IntelligenceProfile extends Entity implements Parsable
      * @return FormattedContent|null
     */
     public function getDescription(): ?FormattedContent {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || $val instanceof FormattedContent) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'aliases' => fn(ParseNode $n) => $o->setAliases($n->getCollectionOfPrimitiveValues()),
+            'aliases' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAliases($val);
+            },
+            'countriesOrRegionsOfOrigin' => fn(ParseNode $n) => $o->setCountriesOrRegionsOfOrigin($n->getCollectionOfObjectValues([IntelligenceProfileCountryOrRegionOfOrigin::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getObjectValue([FormattedContent::class, 'createFromDiscriminatorValue'])),
             'firstActiveDateTime' => fn(ParseNode $n) => $o->setFirstActiveDateTime($n->getDateTimeValue()),
             'indicators' => fn(ParseNode $n) => $o->setIndicators($n->getCollectionOfObjectValues([IntelligenceProfileIndicator::class, 'createFromDiscriminatorValue'])),
             'kind' => fn(ParseNode $n) => $o->setKind($n->getEnumValue(IntelligenceProfileKind::class)),
-            'sponsorStates' => fn(ParseNode $n) => $o->setSponsorStates($n->getCollectionOfObjectValues([IntelligenceProfileSponsorState::class, 'createFromDiscriminatorValue'])),
             'summary' => fn(ParseNode $n) => $o->setSummary($n->getObjectValue([FormattedContent::class, 'createFromDiscriminatorValue'])),
-            'targets' => fn(ParseNode $n) => $o->setTargets($n->getCollectionOfPrimitiveValues()),
+            'targets' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setTargets($val);
+            },
             'title' => fn(ParseNode $n) => $o->setTitle($n->getStringValue()),
             'tradecraft' => fn(ParseNode $n) => $o->setTradecraft($n->getObjectValue([FormattedContent::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -67,7 +106,11 @@ class IntelligenceProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getFirstActiveDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('firstActiveDateTime');
+        $val = $this->getBackingStore()->get('firstActiveDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firstActiveDateTime'");
     }
 
     /**
@@ -75,7 +118,13 @@ class IntelligenceProfile extends Entity implements Parsable
      * @return array<IntelligenceProfileIndicator>|null
     */
     public function getIndicators(): ?array {
-        return $this->getBackingStore()->get('indicators');
+        $val = $this->getBackingStore()->get('indicators');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IntelligenceProfileIndicator::class);
+            /** @var array<IntelligenceProfileIndicator>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'indicators'");
     }
 
     /**
@@ -83,15 +132,11 @@ class IntelligenceProfile extends Entity implements Parsable
      * @return IntelligenceProfileKind|null
     */
     public function getKind(): ?IntelligenceProfileKind {
-        return $this->getBackingStore()->get('kind');
-    }
-
-    /**
-     * Gets the sponsorStates property value. Known states (such as a country or government) who have sponsored threat actors associated with this intelligenceProfile. This is also known as the country/region of origin for the given actor or threat.
-     * @return array<IntelligenceProfileSponsorState>|null
-    */
-    public function getSponsorStates(): ?array {
-        return $this->getBackingStore()->get('sponsorStates');
+        $val = $this->getBackingStore()->get('kind');
+        if (is_null($val) || $val instanceof IntelligenceProfileKind) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kind'");
     }
 
     /**
@@ -99,7 +144,11 @@ class IntelligenceProfile extends Entity implements Parsable
      * @return FormattedContent|null
     */
     public function getSummary(): ?FormattedContent {
-        return $this->getBackingStore()->get('summary');
+        $val = $this->getBackingStore()->get('summary');
+        if (is_null($val) || $val instanceof FormattedContent) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'summary'");
     }
 
     /**
@@ -107,7 +156,13 @@ class IntelligenceProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getTargets(): ?array {
-        return $this->getBackingStore()->get('targets');
+        $val = $this->getBackingStore()->get('targets');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targets'");
     }
 
     /**
@@ -115,7 +170,11 @@ class IntelligenceProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getTitle(): ?string {
-        return $this->getBackingStore()->get('title');
+        $val = $this->getBackingStore()->get('title');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'title'");
     }
 
     /**
@@ -123,7 +182,11 @@ class IntelligenceProfile extends Entity implements Parsable
      * @return FormattedContent|null
     */
     public function getTradecraft(): ?FormattedContent {
-        return $this->getBackingStore()->get('tradecraft');
+        $val = $this->getBackingStore()->get('tradecraft');
+        if (is_null($val) || $val instanceof FormattedContent) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tradecraft'");
     }
 
     /**
@@ -133,11 +196,11 @@ class IntelligenceProfile extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfPrimitiveValues('aliases', $this->getAliases());
+        $writer->writeCollectionOfObjectValues('countriesOrRegionsOfOrigin', $this->getCountriesOrRegionsOfOrigin());
         $writer->writeObjectValue('description', $this->getDescription());
         $writer->writeDateTimeValue('firstActiveDateTime', $this->getFirstActiveDateTime());
         $writer->writeCollectionOfObjectValues('indicators', $this->getIndicators());
         $writer->writeEnumValue('kind', $this->getKind());
-        $writer->writeCollectionOfObjectValues('sponsorStates', $this->getSponsorStates());
         $writer->writeObjectValue('summary', $this->getSummary());
         $writer->writeCollectionOfPrimitiveValues('targets', $this->getTargets());
         $writer->writeStringValue('title', $this->getTitle());
@@ -150,6 +213,14 @@ class IntelligenceProfile extends Entity implements Parsable
     */
     public function setAliases(?array $value): void {
         $this->getBackingStore()->set('aliases', $value);
+    }
+
+    /**
+     * Sets the countriesOrRegionsOfOrigin property value. The countriesOrRegionsOfOrigin property
+     * @param array<IntelligenceProfileCountryOrRegionOfOrigin>|null $value Value to set for the countriesOrRegionsOfOrigin property.
+    */
+    public function setCountriesOrRegionsOfOrigin(?array $value): void {
+        $this->getBackingStore()->set('countriesOrRegionsOfOrigin', $value);
     }
 
     /**
@@ -182,14 +253,6 @@ class IntelligenceProfile extends Entity implements Parsable
     */
     public function setKind(?IntelligenceProfileKind $value): void {
         $this->getBackingStore()->set('kind', $value);
-    }
-
-    /**
-     * Sets the sponsorStates property value. Known states (such as a country or government) who have sponsored threat actors associated with this intelligenceProfile. This is also known as the country/region of origin for the given actor or threat.
-     * @param array<IntelligenceProfileSponsorState>|null $value Value to set for the sponsorStates property.
-    */
-    public function setSponsorStates(?array $value): void {
-        $this->getBackingStore()->set('sponsorStates', $value);
     }
 
     /**

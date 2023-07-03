@@ -40,7 +40,12 @@ class AnswerVariant implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -56,7 +61,11 @@ class AnswerVariant implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -64,12 +73,16 @@ class AnswerVariant implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -88,7 +101,11 @@ class AnswerVariant implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getLanguageTag(): ?string {
-        return $this->getBackingStore()->get('languageTag');
+        $val = $this->getBackingStore()->get('languageTag');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'languageTag'");
     }
 
     /**
@@ -96,7 +113,11 @@ class AnswerVariant implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -104,7 +125,11 @@ class AnswerVariant implements AdditionalDataHolder, BackedModel, Parsable
      * @return DevicePlatformType|null
     */
     public function getPlatform(): ?DevicePlatformType {
-        return $this->getBackingStore()->get('platform');
+        $val = $this->getBackingStore()->get('platform');
+        if (is_null($val) || $val instanceof DevicePlatformType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'platform'");
     }
 
     /**
@@ -112,7 +137,11 @@ class AnswerVariant implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getWebUrl(): ?string {
-        return $this->getBackingStore()->get('webUrl');
+        $val = $this->getBackingStore()->get('webUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'webUrl'");
     }
 
     /**

@@ -10,6 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ContentProperties implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -37,7 +38,6 @@ class ContentProperties implements AdditionalDataHolder, BackedModel, Parsable
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
                 case '#microsoft.graph.attachmentContentProperties': return new AttachmentContentProperties();
-                case '#microsoft.graph.fileContentProperties': return new FileContentProperties();
             }
         }
         return new ContentProperties();
@@ -48,7 +48,12 @@ class ContentProperties implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -64,17 +69,30 @@ class ContentProperties implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getExtensions(): ?array {
-        return $this->getBackingStore()->get('extensions');
+        $val = $this->getBackingStore()->get('extensions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'extensions'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'extensions' => fn(ParseNode $n) => $o->setExtensions($n->getCollectionOfPrimitiveValues()),
+            'extensions' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setExtensions($val);
+            },
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'metadata' => fn(ParseNode $n) => $o->setMetadata($n->getObjectValue([ContentMetadata::class, 'createFromDiscriminatorValue'])),
@@ -87,7 +105,11 @@ class ContentProperties implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getLastModifiedBy(): ?string {
-        return $this->getBackingStore()->get('lastModifiedBy');
+        $val = $this->getBackingStore()->get('lastModifiedBy');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedBy'");
     }
 
     /**
@@ -95,7 +117,11 @@ class ContentProperties implements AdditionalDataHolder, BackedModel, Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -103,7 +129,11 @@ class ContentProperties implements AdditionalDataHolder, BackedModel, Parsable
      * @return ContentMetadata|null
     */
     public function getMetadata(): ?ContentMetadata {
-        return $this->getBackingStore()->get('metadata');
+        $val = $this->getBackingStore()->get('metadata');
+        if (is_null($val) || $val instanceof ContentMetadata) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'metadata'");
     }
 
     /**
@@ -111,7 +141,11 @@ class ContentProperties implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

@@ -30,7 +30,11 @@ class OperationalInsightsConnection extends ResourceConnection implements Parsab
      * @return string|null
     */
     public function getAzureResourceGroupName(): ?string {
-        return $this->getBackingStore()->get('azureResourceGroupName');
+        $val = $this->getBackingStore()->get('azureResourceGroupName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureResourceGroupName'");
     }
 
     /**
@@ -38,12 +42,16 @@ class OperationalInsightsConnection extends ResourceConnection implements Parsab
      * @return string|null
     */
     public function getAzureSubscriptionId(): ?string {
-        return $this->getBackingStore()->get('azureSubscriptionId');
+        $val = $this->getBackingStore()->get('azureSubscriptionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureSubscriptionId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -59,7 +67,11 @@ class OperationalInsightsConnection extends ResourceConnection implements Parsab
      * @return string|null
     */
     public function getWorkspaceName(): ?string {
-        return $this->getBackingStore()->get('workspaceName');
+        $val = $this->getBackingStore()->get('workspaceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workspaceName'");
     }
 
     /**

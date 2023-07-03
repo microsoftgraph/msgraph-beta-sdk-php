@@ -10,6 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class RecordPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -40,7 +41,12 @@ class RecordPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -56,7 +62,11 @@ class RecordPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
      * @return bool|null
     */
     public function getBargeInAllowed(): ?bool {
-        return $this->getBackingStore()->get('bargeInAllowed');
+        $val = $this->getBackingStore()->get('bargeInAllowed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bargeInAllowed'");
     }
 
     /**
@@ -64,12 +74,16 @@ class RecordPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
      * @return string|null
     */
     public function getClientContext(): ?string {
-        return $this->getBackingStore()->get('clientContext');
+        $val = $this->getBackingStore()->get('clientContext');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clientContext'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -81,7 +95,14 @@ class RecordPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
             'maxSilenceTimeoutInSeconds' => fn(ParseNode $n) => $o->setMaxSilenceTimeoutInSeconds($n->getIntegerValue()),
             'playBeep' => fn(ParseNode $n) => $o->setPlayBeep($n->getBooleanValue()),
             'prompts' => fn(ParseNode $n) => $o->setPrompts($n->getCollectionOfObjectValues([Prompt::class, 'createFromDiscriminatorValue'])),
-            'stopTones' => fn(ParseNode $n) => $o->setStopTones($n->getCollectionOfPrimitiveValues()),
+            'stopTones' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setStopTones($val);
+            },
             'streamWhileRecording' => fn(ParseNode $n) => $o->setStreamWhileRecording($n->getBooleanValue()),
         ];
     }
@@ -91,7 +112,11 @@ class RecordPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
      * @return int|null
     */
     public function getInitialSilenceTimeoutInSeconds(): ?int {
-        return $this->getBackingStore()->get('initialSilenceTimeoutInSeconds');
+        $val = $this->getBackingStore()->get('initialSilenceTimeoutInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'initialSilenceTimeoutInSeconds'");
     }
 
     /**
@@ -99,7 +124,11 @@ class RecordPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
      * @return int|null
     */
     public function getMaxRecordDurationInSeconds(): ?int {
-        return $this->getBackingStore()->get('maxRecordDurationInSeconds');
+        $val = $this->getBackingStore()->get('maxRecordDurationInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maxRecordDurationInSeconds'");
     }
 
     /**
@@ -107,7 +136,11 @@ class RecordPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
      * @return int|null
     */
     public function getMaxSilenceTimeoutInSeconds(): ?int {
-        return $this->getBackingStore()->get('maxSilenceTimeoutInSeconds');
+        $val = $this->getBackingStore()->get('maxSilenceTimeoutInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maxSilenceTimeoutInSeconds'");
     }
 
     /**
@@ -115,7 +148,11 @@ class RecordPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
      * @return bool|null
     */
     public function getPlayBeep(): ?bool {
-        return $this->getBackingStore()->get('playBeep');
+        $val = $this->getBackingStore()->get('playBeep');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'playBeep'");
     }
 
     /**
@@ -123,7 +160,13 @@ class RecordPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
      * @return array<Prompt>|null
     */
     public function getPrompts(): ?array {
-        return $this->getBackingStore()->get('prompts');
+        $val = $this->getBackingStore()->get('prompts');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Prompt::class);
+            /** @var array<Prompt>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'prompts'");
     }
 
     /**
@@ -131,7 +174,13 @@ class RecordPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
      * @return array<string>|null
     */
     public function getStopTones(): ?array {
-        return $this->getBackingStore()->get('stopTones');
+        $val = $this->getBackingStore()->get('stopTones');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'stopTones'");
     }
 
     /**
@@ -139,7 +188,11 @@ class RecordPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
      * @return bool|null
     */
     public function getStreamWhileRecording(): ?bool {
-        return $this->getBackingStore()->get('streamWhileRecording');
+        $val = $this->getBackingStore()->get('streamWhileRecording');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'streamWhileRecording'");
     }
 
     /**

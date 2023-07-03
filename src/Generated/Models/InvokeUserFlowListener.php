@@ -27,7 +27,7 @@ class InvokeUserFlowListener extends AuthenticationListener implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class InvokeUserFlowListener extends AuthenticationListener implements Parsable
      * @return B2xIdentityUserFlow|null
     */
     public function getUserFlow(): ?B2xIdentityUserFlow {
-        return $this->getBackingStore()->get('userFlow');
+        $val = $this->getBackingStore()->get('userFlow');
+        if (is_null($val) || $val instanceof B2xIdentityUserFlow) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userFlow'");
     }
 
     /**

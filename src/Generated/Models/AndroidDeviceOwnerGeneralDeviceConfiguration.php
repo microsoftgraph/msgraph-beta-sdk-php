@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration implements Parsable 
 {
@@ -30,7 +31,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getAccountsBlockModification(): ?bool {
-        return $this->getBackingStore()->get('accountsBlockModification');
+        $val = $this->getBackingStore()->get('accountsBlockModification');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accountsBlockModification'");
     }
 
     /**
@@ -38,7 +43,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getAppsAllowInstallFromUnknownSources(): ?bool {
-        return $this->getBackingStore()->get('appsAllowInstallFromUnknownSources');
+        $val = $this->getBackingStore()->get('appsAllowInstallFromUnknownSources');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appsAllowInstallFromUnknownSources'");
     }
 
     /**
@@ -46,7 +55,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidDeviceOwnerAppAutoUpdatePolicyType|null
     */
     public function getAppsAutoUpdatePolicy(): ?AndroidDeviceOwnerAppAutoUpdatePolicyType {
-        return $this->getBackingStore()->get('appsAutoUpdatePolicy');
+        $val = $this->getBackingStore()->get('appsAutoUpdatePolicy');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerAppAutoUpdatePolicyType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appsAutoUpdatePolicy'");
     }
 
     /**
@@ -54,7 +67,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidDeviceOwnerDefaultAppPermissionPolicyType|null
     */
     public function getAppsDefaultPermissionPolicy(): ?AndroidDeviceOwnerDefaultAppPermissionPolicyType {
-        return $this->getBackingStore()->get('appsDefaultPermissionPolicy');
+        $val = $this->getBackingStore()->get('appsDefaultPermissionPolicy');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerDefaultAppPermissionPolicyType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appsDefaultPermissionPolicy'");
     }
 
     /**
@@ -62,7 +79,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getAppsRecommendSkippingFirstUseHints(): ?bool {
-        return $this->getBackingStore()->get('appsRecommendSkippingFirstUseHints');
+        $val = $this->getBackingStore()->get('appsRecommendSkippingFirstUseHints');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appsRecommendSkippingFirstUseHints'");
     }
 
     /**
@@ -70,7 +91,13 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return array<AppListItem>|null
     */
     public function getAzureAdSharedDeviceDataClearApps(): ?array {
-        return $this->getBackingStore()->get('azureAdSharedDeviceDataClearApps');
+        $val = $this->getBackingStore()->get('azureAdSharedDeviceDataClearApps');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AppListItem::class);
+            /** @var array<AppListItem>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureAdSharedDeviceDataClearApps'");
     }
 
     /**
@@ -78,7 +105,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getBluetoothBlockConfiguration(): ?bool {
-        return $this->getBackingStore()->get('bluetoothBlockConfiguration');
+        $val = $this->getBackingStore()->get('bluetoothBlockConfiguration');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bluetoothBlockConfiguration'");
     }
 
     /**
@@ -86,7 +117,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getBluetoothBlockContactSharing(): ?bool {
-        return $this->getBackingStore()->get('bluetoothBlockContactSharing');
+        $val = $this->getBackingStore()->get('bluetoothBlockContactSharing');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bluetoothBlockContactSharing'");
     }
 
     /**
@@ -94,7 +129,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getCameraBlocked(): ?bool {
-        return $this->getBackingStore()->get('cameraBlocked');
+        $val = $this->getBackingStore()->get('cameraBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cameraBlocked'");
     }
 
     /**
@@ -102,7 +141,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getCellularBlockWiFiTethering(): ?bool {
-        return $this->getBackingStore()->get('cellularBlockWiFiTethering');
+        $val = $this->getBackingStore()->get('cellularBlockWiFiTethering');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cellularBlockWiFiTethering'");
     }
 
     /**
@@ -110,7 +153,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getCertificateCredentialConfigurationDisabled(): ?bool {
-        return $this->getBackingStore()->get('certificateCredentialConfigurationDisabled');
+        $val = $this->getBackingStore()->get('certificateCredentialConfigurationDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateCredentialConfigurationDisabled'");
     }
 
     /**
@@ -118,7 +165,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getCrossProfilePoliciesAllowCopyPaste(): ?bool {
-        return $this->getBackingStore()->get('crossProfilePoliciesAllowCopyPaste');
+        $val = $this->getBackingStore()->get('crossProfilePoliciesAllowCopyPaste');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'crossProfilePoliciesAllowCopyPaste'");
     }
 
     /**
@@ -126,7 +177,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidDeviceOwnerCrossProfileDataSharing|null
     */
     public function getCrossProfilePoliciesAllowDataSharing(): ?AndroidDeviceOwnerCrossProfileDataSharing {
-        return $this->getBackingStore()->get('crossProfilePoliciesAllowDataSharing');
+        $val = $this->getBackingStore()->get('crossProfilePoliciesAllowDataSharing');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerCrossProfileDataSharing) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'crossProfilePoliciesAllowDataSharing'");
     }
 
     /**
@@ -134,7 +189,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getCrossProfilePoliciesShowWorkContactsInPersonalProfile(): ?bool {
-        return $this->getBackingStore()->get('crossProfilePoliciesShowWorkContactsInPersonalProfile');
+        $val = $this->getBackingStore()->get('crossProfilePoliciesShowWorkContactsInPersonalProfile');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'crossProfilePoliciesShowWorkContactsInPersonalProfile'");
     }
 
     /**
@@ -142,7 +201,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getDataRoamingBlocked(): ?bool {
-        return $this->getBackingStore()->get('dataRoamingBlocked');
+        $val = $this->getBackingStore()->get('dataRoamingBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dataRoamingBlocked'");
     }
 
     /**
@@ -150,7 +213,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getDateTimeConfigurationBlocked(): ?bool {
-        return $this->getBackingStore()->get('dateTimeConfigurationBlocked');
+        $val = $this->getBackingStore()->get('dateTimeConfigurationBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dateTimeConfigurationBlocked'");
     }
 
     /**
@@ -158,7 +225,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidDeviceOwnerUserFacingMessage|null
     */
     public function getDetailedHelpText(): ?AndroidDeviceOwnerUserFacingMessage {
-        return $this->getBackingStore()->get('detailedHelpText');
+        $val = $this->getBackingStore()->get('detailedHelpText');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerUserFacingMessage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detailedHelpText'");
     }
 
     /**
@@ -166,7 +237,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidDeviceOwnerUserFacingMessage|null
     */
     public function getDeviceOwnerLockScreenMessage(): ?AndroidDeviceOwnerUserFacingMessage {
-        return $this->getBackingStore()->get('deviceOwnerLockScreenMessage');
+        $val = $this->getBackingStore()->get('deviceOwnerLockScreenMessage');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerUserFacingMessage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceOwnerLockScreenMessage'");
     }
 
     /**
@@ -174,7 +249,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidDeviceOwnerEnrollmentProfileType|null
     */
     public function getEnrollmentProfile(): ?AndroidDeviceOwnerEnrollmentProfileType {
-        return $this->getBackingStore()->get('enrollmentProfile');
+        $val = $this->getBackingStore()->get('enrollmentProfile');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerEnrollmentProfileType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrollmentProfile'");
     }
 
     /**
@@ -182,7 +261,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getFactoryResetBlocked(): ?bool {
-        return $this->getBackingStore()->get('factoryResetBlocked');
+        $val = $this->getBackingStore()->get('factoryResetBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'factoryResetBlocked'");
     }
 
     /**
@@ -190,12 +273,18 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return array<string>|null
     */
     public function getFactoryResetDeviceAdministratorEmails(): ?array {
-        return $this->getBackingStore()->get('factoryResetDeviceAdministratorEmails');
+        $val = $this->getBackingStore()->get('factoryResetDeviceAdministratorEmails');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'factoryResetDeviceAdministratorEmails'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -220,7 +309,14 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
             'deviceOwnerLockScreenMessage' => fn(ParseNode $n) => $o->setDeviceOwnerLockScreenMessage($n->getObjectValue([AndroidDeviceOwnerUserFacingMessage::class, 'createFromDiscriminatorValue'])),
             'enrollmentProfile' => fn(ParseNode $n) => $o->setEnrollmentProfile($n->getEnumValue(AndroidDeviceOwnerEnrollmentProfileType::class)),
             'factoryResetBlocked' => fn(ParseNode $n) => $o->setFactoryResetBlocked($n->getBooleanValue()),
-            'factoryResetDeviceAdministratorEmails' => fn(ParseNode $n) => $o->setFactoryResetDeviceAdministratorEmails($n->getCollectionOfPrimitiveValues()),
+            'factoryResetDeviceAdministratorEmails' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setFactoryResetDeviceAdministratorEmails($val);
+            },
             'globalProxy' => fn(ParseNode $n) => $o->setGlobalProxy($n->getObjectValue([AndroidDeviceOwnerGlobalProxy::class, 'createFromDiscriminatorValue'])),
             'googleAccountsBlocked' => fn(ParseNode $n) => $o->setGoogleAccountsBlocked($n->getBooleanValue()),
             'kioskCustomizationDeviceSettingsBlocked' => fn(ParseNode $n) => $o->setKioskCustomizationDeviceSettingsBlocked($n->getBooleanValue()),
@@ -265,7 +361,14 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
             'kioskModeVirtualHomeButtonEnabled' => fn(ParseNode $n) => $o->setKioskModeVirtualHomeButtonEnabled($n->getBooleanValue()),
             'kioskModeVirtualHomeButtonType' => fn(ParseNode $n) => $o->setKioskModeVirtualHomeButtonType($n->getEnumValue(AndroidDeviceOwnerVirtualHomeButtonType::class)),
             'kioskModeWallpaperUrl' => fn(ParseNode $n) => $o->setKioskModeWallpaperUrl($n->getStringValue()),
-            'kioskModeWifiAllowedSsids' => fn(ParseNode $n) => $o->setKioskModeWifiAllowedSsids($n->getCollectionOfPrimitiveValues()),
+            'kioskModeWifiAllowedSsids' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setKioskModeWifiAllowedSsids($val);
+            },
             'kioskModeWiFiConfigurationEnabled' => fn(ParseNode $n) => $o->setKioskModeWiFiConfigurationEnabled($n->getBooleanValue()),
             'locateDeviceLostModeEnabled' => fn(ParseNode $n) => $o->setLocateDeviceLostModeEnabled($n->getBooleanValue()),
             'locateDeviceUserlessDisabled' => fn(ParseNode $n) => $o->setLocateDeviceUserlessDisabled($n->getBooleanValue()),
@@ -344,7 +447,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidDeviceOwnerGlobalProxy|null
     */
     public function getGlobalProxy(): ?AndroidDeviceOwnerGlobalProxy {
-        return $this->getBackingStore()->get('globalProxy');
+        $val = $this->getBackingStore()->get('globalProxy');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerGlobalProxy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'globalProxy'");
     }
 
     /**
@@ -352,7 +459,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getGoogleAccountsBlocked(): ?bool {
-        return $this->getBackingStore()->get('googleAccountsBlocked');
+        $val = $this->getBackingStore()->get('googleAccountsBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'googleAccountsBlocked'");
     }
 
     /**
@@ -360,7 +471,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getKioskCustomizationDeviceSettingsBlocked(): ?bool {
-        return $this->getBackingStore()->get('kioskCustomizationDeviceSettingsBlocked');
+        $val = $this->getBackingStore()->get('kioskCustomizationDeviceSettingsBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskCustomizationDeviceSettingsBlocked'");
     }
 
     /**
@@ -368,7 +483,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getKioskCustomizationPowerButtonActionsBlocked(): ?bool {
-        return $this->getBackingStore()->get('kioskCustomizationPowerButtonActionsBlocked');
+        $val = $this->getBackingStore()->get('kioskCustomizationPowerButtonActionsBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskCustomizationPowerButtonActionsBlocked'");
     }
 
     /**
@@ -376,7 +495,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidDeviceOwnerKioskCustomizationStatusBar|null
     */
     public function getKioskCustomizationStatusBar(): ?AndroidDeviceOwnerKioskCustomizationStatusBar {
-        return $this->getBackingStore()->get('kioskCustomizationStatusBar');
+        $val = $this->getBackingStore()->get('kioskCustomizationStatusBar');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerKioskCustomizationStatusBar) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskCustomizationStatusBar'");
     }
 
     /**
@@ -384,7 +507,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getKioskCustomizationSystemErrorWarnings(): ?bool {
-        return $this->getBackingStore()->get('kioskCustomizationSystemErrorWarnings');
+        $val = $this->getBackingStore()->get('kioskCustomizationSystemErrorWarnings');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskCustomizationSystemErrorWarnings'");
     }
 
     /**
@@ -392,7 +519,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidDeviceOwnerKioskCustomizationSystemNavigation|null
     */
     public function getKioskCustomizationSystemNavigation(): ?AndroidDeviceOwnerKioskCustomizationSystemNavigation {
-        return $this->getBackingStore()->get('kioskCustomizationSystemNavigation');
+        $val = $this->getBackingStore()->get('kioskCustomizationSystemNavigation');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerKioskCustomizationSystemNavigation) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskCustomizationSystemNavigation'");
     }
 
     /**
@@ -400,7 +531,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getKioskModeAppOrderEnabled(): ?bool {
-        return $this->getBackingStore()->get('kioskModeAppOrderEnabled');
+        $val = $this->getBackingStore()->get('kioskModeAppOrderEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeAppOrderEnabled'");
     }
 
     /**
@@ -408,7 +543,13 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return array<AndroidDeviceOwnerKioskModeAppPositionItem>|null
     */
     public function getKioskModeAppPositions(): ?array {
-        return $this->getBackingStore()->get('kioskModeAppPositions');
+        $val = $this->getBackingStore()->get('kioskModeAppPositions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AndroidDeviceOwnerKioskModeAppPositionItem::class);
+            /** @var array<AndroidDeviceOwnerKioskModeAppPositionItem>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeAppPositions'");
     }
 
     /**
@@ -416,7 +557,13 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return array<AppListItem>|null
     */
     public function getKioskModeApps(): ?array {
-        return $this->getBackingStore()->get('kioskModeApps');
+        $val = $this->getBackingStore()->get('kioskModeApps');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AppListItem::class);
+            /** @var array<AppListItem>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeApps'");
     }
 
     /**
@@ -424,7 +571,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getKioskModeAppsInFolderOrderedByName(): ?bool {
-        return $this->getBackingStore()->get('kioskModeAppsInFolderOrderedByName');
+        $val = $this->getBackingStore()->get('kioskModeAppsInFolderOrderedByName');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeAppsInFolderOrderedByName'");
     }
 
     /**
@@ -432,7 +583,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getKioskModeBluetoothConfigurationEnabled(): ?bool {
-        return $this->getBackingStore()->get('kioskModeBluetoothConfigurationEnabled');
+        $val = $this->getBackingStore()->get('kioskModeBluetoothConfigurationEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeBluetoothConfigurationEnabled'");
     }
 
     /**
@@ -440,7 +595,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getKioskModeDebugMenuEasyAccessEnabled(): ?bool {
-        return $this->getBackingStore()->get('kioskModeDebugMenuEasyAccessEnabled');
+        $val = $this->getBackingStore()->get('kioskModeDebugMenuEasyAccessEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeDebugMenuEasyAccessEnabled'");
     }
 
     /**
@@ -448,7 +607,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return string|null
     */
     public function getKioskModeExitCode(): ?string {
-        return $this->getBackingStore()->get('kioskModeExitCode');
+        $val = $this->getBackingStore()->get('kioskModeExitCode');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeExitCode'");
     }
 
     /**
@@ -456,7 +619,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getKioskModeFlashlightConfigurationEnabled(): ?bool {
-        return $this->getBackingStore()->get('kioskModeFlashlightConfigurationEnabled');
+        $val = $this->getBackingStore()->get('kioskModeFlashlightConfigurationEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeFlashlightConfigurationEnabled'");
     }
 
     /**
@@ -464,7 +631,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidDeviceOwnerKioskModeFolderIcon|null
     */
     public function getKioskModeFolderIcon(): ?AndroidDeviceOwnerKioskModeFolderIcon {
-        return $this->getBackingStore()->get('kioskModeFolderIcon');
+        $val = $this->getBackingStore()->get('kioskModeFolderIcon');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerKioskModeFolderIcon) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeFolderIcon'");
     }
 
     /**
@@ -472,7 +643,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getKioskModeGridHeight(): ?int {
-        return $this->getBackingStore()->get('kioskModeGridHeight');
+        $val = $this->getBackingStore()->get('kioskModeGridHeight');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeGridHeight'");
     }
 
     /**
@@ -480,7 +655,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getKioskModeGridWidth(): ?int {
-        return $this->getBackingStore()->get('kioskModeGridWidth');
+        $val = $this->getBackingStore()->get('kioskModeGridWidth');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeGridWidth'");
     }
 
     /**
@@ -488,7 +667,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidDeviceOwnerKioskModeIconSize|null
     */
     public function getKioskModeIconSize(): ?AndroidDeviceOwnerKioskModeIconSize {
-        return $this->getBackingStore()->get('kioskModeIconSize');
+        $val = $this->getBackingStore()->get('kioskModeIconSize');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerKioskModeIconSize) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeIconSize'");
     }
 
     /**
@@ -496,7 +679,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getKioskModeLockHomeScreen(): ?bool {
-        return $this->getBackingStore()->get('kioskModeLockHomeScreen');
+        $val = $this->getBackingStore()->get('kioskModeLockHomeScreen');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeLockHomeScreen'");
     }
 
     /**
@@ -504,7 +691,13 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return array<AndroidDeviceOwnerKioskModeManagedFolder>|null
     */
     public function getKioskModeManagedFolders(): ?array {
-        return $this->getBackingStore()->get('kioskModeManagedFolders');
+        $val = $this->getBackingStore()->get('kioskModeManagedFolders');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AndroidDeviceOwnerKioskModeManagedFolder::class);
+            /** @var array<AndroidDeviceOwnerKioskModeManagedFolder>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeManagedFolders'");
     }
 
     /**
@@ -512,7 +705,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getKioskModeManagedHomeScreenAutoSignout(): ?bool {
-        return $this->getBackingStore()->get('kioskModeManagedHomeScreenAutoSignout');
+        $val = $this->getBackingStore()->get('kioskModeManagedHomeScreenAutoSignout');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeManagedHomeScreenAutoSignout'");
     }
 
     /**
@@ -520,7 +717,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getKioskModeManagedHomeScreenInactiveSignOutDelayInSeconds(): ?int {
-        return $this->getBackingStore()->get('kioskModeManagedHomeScreenInactiveSignOutDelayInSeconds');
+        $val = $this->getBackingStore()->get('kioskModeManagedHomeScreenInactiveSignOutDelayInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeManagedHomeScreenInactiveSignOutDelayInSeconds'");
     }
 
     /**
@@ -528,7 +729,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getKioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds(): ?int {
-        return $this->getBackingStore()->get('kioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds');
+        $val = $this->getBackingStore()->get('kioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds'");
     }
 
     /**
@@ -536,7 +741,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return KioskModeManagedHomeScreenPinComplexity|null
     */
     public function getKioskModeManagedHomeScreenPinComplexity(): ?KioskModeManagedHomeScreenPinComplexity {
-        return $this->getBackingStore()->get('kioskModeManagedHomeScreenPinComplexity');
+        $val = $this->getBackingStore()->get('kioskModeManagedHomeScreenPinComplexity');
+        if (is_null($val) || $val instanceof KioskModeManagedHomeScreenPinComplexity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeManagedHomeScreenPinComplexity'");
     }
 
     /**
@@ -544,7 +753,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getKioskModeManagedHomeScreenPinRequired(): ?bool {
-        return $this->getBackingStore()->get('kioskModeManagedHomeScreenPinRequired');
+        $val = $this->getBackingStore()->get('kioskModeManagedHomeScreenPinRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeManagedHomeScreenPinRequired'");
     }
 
     /**
@@ -552,7 +765,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getKioskModeManagedHomeScreenPinRequiredToResume(): ?bool {
-        return $this->getBackingStore()->get('kioskModeManagedHomeScreenPinRequiredToResume');
+        $val = $this->getBackingStore()->get('kioskModeManagedHomeScreenPinRequiredToResume');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeManagedHomeScreenPinRequiredToResume'");
     }
 
     /**
@@ -560,7 +777,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return string|null
     */
     public function getKioskModeManagedHomeScreenSignInBackground(): ?string {
-        return $this->getBackingStore()->get('kioskModeManagedHomeScreenSignInBackground');
+        $val = $this->getBackingStore()->get('kioskModeManagedHomeScreenSignInBackground');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeManagedHomeScreenSignInBackground'");
     }
 
     /**
@@ -568,7 +789,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return string|null
     */
     public function getKioskModeManagedHomeScreenSignInBrandingLogo(): ?string {
-        return $this->getBackingStore()->get('kioskModeManagedHomeScreenSignInBrandingLogo');
+        $val = $this->getBackingStore()->get('kioskModeManagedHomeScreenSignInBrandingLogo');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeManagedHomeScreenSignInBrandingLogo'");
     }
 
     /**
@@ -576,7 +801,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getKioskModeManagedHomeScreenSignInEnabled(): ?bool {
-        return $this->getBackingStore()->get('kioskModeManagedHomeScreenSignInEnabled');
+        $val = $this->getBackingStore()->get('kioskModeManagedHomeScreenSignInEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeManagedHomeScreenSignInEnabled'");
     }
 
     /**
@@ -584,7 +813,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getKioskModeManagedSettingsEntryDisabled(): ?bool {
-        return $this->getBackingStore()->get('kioskModeManagedSettingsEntryDisabled');
+        $val = $this->getBackingStore()->get('kioskModeManagedSettingsEntryDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeManagedSettingsEntryDisabled'");
     }
 
     /**
@@ -592,7 +825,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getKioskModeMediaVolumeConfigurationEnabled(): ?bool {
-        return $this->getBackingStore()->get('kioskModeMediaVolumeConfigurationEnabled');
+        $val = $this->getBackingStore()->get('kioskModeMediaVolumeConfigurationEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeMediaVolumeConfigurationEnabled'");
     }
 
     /**
@@ -600,7 +837,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidDeviceOwnerKioskModeScreenOrientation|null
     */
     public function getKioskModeScreenOrientation(): ?AndroidDeviceOwnerKioskModeScreenOrientation {
-        return $this->getBackingStore()->get('kioskModeScreenOrientation');
+        $val = $this->getBackingStore()->get('kioskModeScreenOrientation');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerKioskModeScreenOrientation) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeScreenOrientation'");
     }
 
     /**
@@ -608,7 +849,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getKioskModeScreenSaverConfigurationEnabled(): ?bool {
-        return $this->getBackingStore()->get('kioskModeScreenSaverConfigurationEnabled');
+        $val = $this->getBackingStore()->get('kioskModeScreenSaverConfigurationEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeScreenSaverConfigurationEnabled'");
     }
 
     /**
@@ -616,7 +861,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getKioskModeScreenSaverDetectMediaDisabled(): ?bool {
-        return $this->getBackingStore()->get('kioskModeScreenSaverDetectMediaDisabled');
+        $val = $this->getBackingStore()->get('kioskModeScreenSaverDetectMediaDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeScreenSaverDetectMediaDisabled'");
     }
 
     /**
@@ -624,7 +873,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getKioskModeScreenSaverDisplayTimeInSeconds(): ?int {
-        return $this->getBackingStore()->get('kioskModeScreenSaverDisplayTimeInSeconds');
+        $val = $this->getBackingStore()->get('kioskModeScreenSaverDisplayTimeInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeScreenSaverDisplayTimeInSeconds'");
     }
 
     /**
@@ -632,7 +885,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return string|null
     */
     public function getKioskModeScreenSaverImageUrl(): ?string {
-        return $this->getBackingStore()->get('kioskModeScreenSaverImageUrl');
+        $val = $this->getBackingStore()->get('kioskModeScreenSaverImageUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeScreenSaverImageUrl'");
     }
 
     /**
@@ -640,7 +897,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getKioskModeScreenSaverStartDelayInSeconds(): ?int {
-        return $this->getBackingStore()->get('kioskModeScreenSaverStartDelayInSeconds');
+        $val = $this->getBackingStore()->get('kioskModeScreenSaverStartDelayInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeScreenSaverStartDelayInSeconds'");
     }
 
     /**
@@ -648,7 +909,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getKioskModeShowAppNotificationBadge(): ?bool {
-        return $this->getBackingStore()->get('kioskModeShowAppNotificationBadge');
+        $val = $this->getBackingStore()->get('kioskModeShowAppNotificationBadge');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeShowAppNotificationBadge'");
     }
 
     /**
@@ -656,7 +921,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getKioskModeShowDeviceInfo(): ?bool {
-        return $this->getBackingStore()->get('kioskModeShowDeviceInfo');
+        $val = $this->getBackingStore()->get('kioskModeShowDeviceInfo');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeShowDeviceInfo'");
     }
 
     /**
@@ -664,7 +933,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return KioskModeType|null
     */
     public function getKioskModeUseManagedHomeScreenApp(): ?KioskModeType {
-        return $this->getBackingStore()->get('kioskModeUseManagedHomeScreenApp');
+        $val = $this->getBackingStore()->get('kioskModeUseManagedHomeScreenApp');
+        if (is_null($val) || $val instanceof KioskModeType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeUseManagedHomeScreenApp'");
     }
 
     /**
@@ -672,7 +945,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getKioskModeVirtualHomeButtonEnabled(): ?bool {
-        return $this->getBackingStore()->get('kioskModeVirtualHomeButtonEnabled');
+        $val = $this->getBackingStore()->get('kioskModeVirtualHomeButtonEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeVirtualHomeButtonEnabled'");
     }
 
     /**
@@ -680,7 +957,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidDeviceOwnerVirtualHomeButtonType|null
     */
     public function getKioskModeVirtualHomeButtonType(): ?AndroidDeviceOwnerVirtualHomeButtonType {
-        return $this->getBackingStore()->get('kioskModeVirtualHomeButtonType');
+        $val = $this->getBackingStore()->get('kioskModeVirtualHomeButtonType');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerVirtualHomeButtonType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeVirtualHomeButtonType'");
     }
 
     /**
@@ -688,7 +969,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return string|null
     */
     public function getKioskModeWallpaperUrl(): ?string {
-        return $this->getBackingStore()->get('kioskModeWallpaperUrl');
+        $val = $this->getBackingStore()->get('kioskModeWallpaperUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeWallpaperUrl'");
     }
 
     /**
@@ -696,7 +981,13 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return array<string>|null
     */
     public function getKioskModeWifiAllowedSsids(): ?array {
-        return $this->getBackingStore()->get('kioskModeWifiAllowedSsids');
+        $val = $this->getBackingStore()->get('kioskModeWifiAllowedSsids');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeWifiAllowedSsids'");
     }
 
     /**
@@ -704,7 +995,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getKioskModeWiFiConfigurationEnabled(): ?bool {
-        return $this->getBackingStore()->get('kioskModeWiFiConfigurationEnabled');
+        $val = $this->getBackingStore()->get('kioskModeWiFiConfigurationEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeWiFiConfigurationEnabled'");
     }
 
     /**
@@ -712,7 +1007,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getLocateDeviceLostModeEnabled(): ?bool {
-        return $this->getBackingStore()->get('locateDeviceLostModeEnabled');
+        $val = $this->getBackingStore()->get('locateDeviceLostModeEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'locateDeviceLostModeEnabled'");
     }
 
     /**
@@ -720,7 +1019,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getLocateDeviceUserlessDisabled(): ?bool {
-        return $this->getBackingStore()->get('locateDeviceUserlessDisabled');
+        $val = $this->getBackingStore()->get('locateDeviceUserlessDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'locateDeviceUserlessDisabled'");
     }
 
     /**
@@ -728,7 +1031,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getMicrophoneForceMute(): ?bool {
-        return $this->getBackingStore()->get('microphoneForceMute');
+        $val = $this->getBackingStore()->get('microphoneForceMute');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microphoneForceMute'");
     }
 
     /**
@@ -736,7 +1043,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getMicrosoftLauncherConfigurationEnabled(): ?bool {
-        return $this->getBackingStore()->get('microsoftLauncherConfigurationEnabled');
+        $val = $this->getBackingStore()->get('microsoftLauncherConfigurationEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftLauncherConfigurationEnabled'");
     }
 
     /**
@@ -744,7 +1055,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getMicrosoftLauncherCustomWallpaperAllowUserModification(): ?bool {
-        return $this->getBackingStore()->get('microsoftLauncherCustomWallpaperAllowUserModification');
+        $val = $this->getBackingStore()->get('microsoftLauncherCustomWallpaperAllowUserModification');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftLauncherCustomWallpaperAllowUserModification'");
     }
 
     /**
@@ -752,7 +1067,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getMicrosoftLauncherCustomWallpaperEnabled(): ?bool {
-        return $this->getBackingStore()->get('microsoftLauncherCustomWallpaperEnabled');
+        $val = $this->getBackingStore()->get('microsoftLauncherCustomWallpaperEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftLauncherCustomWallpaperEnabled'");
     }
 
     /**
@@ -760,7 +1079,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return string|null
     */
     public function getMicrosoftLauncherCustomWallpaperImageUrl(): ?string {
-        return $this->getBackingStore()->get('microsoftLauncherCustomWallpaperImageUrl');
+        $val = $this->getBackingStore()->get('microsoftLauncherCustomWallpaperImageUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftLauncherCustomWallpaperImageUrl'");
     }
 
     /**
@@ -768,7 +1091,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getMicrosoftLauncherDockPresenceAllowUserModification(): ?bool {
-        return $this->getBackingStore()->get('microsoftLauncherDockPresenceAllowUserModification');
+        $val = $this->getBackingStore()->get('microsoftLauncherDockPresenceAllowUserModification');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftLauncherDockPresenceAllowUserModification'");
     }
 
     /**
@@ -776,7 +1103,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return MicrosoftLauncherDockPresence|null
     */
     public function getMicrosoftLauncherDockPresenceConfiguration(): ?MicrosoftLauncherDockPresence {
-        return $this->getBackingStore()->get('microsoftLauncherDockPresenceConfiguration');
+        $val = $this->getBackingStore()->get('microsoftLauncherDockPresenceConfiguration');
+        if (is_null($val) || $val instanceof MicrosoftLauncherDockPresence) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftLauncherDockPresenceConfiguration'");
     }
 
     /**
@@ -784,7 +1115,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getMicrosoftLauncherFeedAllowUserModification(): ?bool {
-        return $this->getBackingStore()->get('microsoftLauncherFeedAllowUserModification');
+        $val = $this->getBackingStore()->get('microsoftLauncherFeedAllowUserModification');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftLauncherFeedAllowUserModification'");
     }
 
     /**
@@ -792,7 +1127,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getMicrosoftLauncherFeedEnabled(): ?bool {
-        return $this->getBackingStore()->get('microsoftLauncherFeedEnabled');
+        $val = $this->getBackingStore()->get('microsoftLauncherFeedEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftLauncherFeedEnabled'");
     }
 
     /**
@@ -800,7 +1139,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return MicrosoftLauncherSearchBarPlacement|null
     */
     public function getMicrosoftLauncherSearchBarPlacementConfiguration(): ?MicrosoftLauncherSearchBarPlacement {
-        return $this->getBackingStore()->get('microsoftLauncherSearchBarPlacementConfiguration');
+        $val = $this->getBackingStore()->get('microsoftLauncherSearchBarPlacementConfiguration');
+        if (is_null($val) || $val instanceof MicrosoftLauncherSearchBarPlacement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftLauncherSearchBarPlacementConfiguration'");
     }
 
     /**
@@ -808,7 +1151,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getNetworkEscapeHatchAllowed(): ?bool {
-        return $this->getBackingStore()->get('networkEscapeHatchAllowed');
+        $val = $this->getBackingStore()->get('networkEscapeHatchAllowed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkEscapeHatchAllowed'");
     }
 
     /**
@@ -816,7 +1163,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getNfcBlockOutgoingBeam(): ?bool {
-        return $this->getBackingStore()->get('nfcBlockOutgoingBeam');
+        $val = $this->getBackingStore()->get('nfcBlockOutgoingBeam');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'nfcBlockOutgoingBeam'");
     }
 
     /**
@@ -824,7 +1175,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getPasswordBlockKeyguard(): ?bool {
-        return $this->getBackingStore()->get('passwordBlockKeyguard');
+        $val = $this->getBackingStore()->get('passwordBlockKeyguard');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordBlockKeyguard'");
     }
 
     /**
@@ -832,7 +1187,13 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return array<AndroidKeyguardFeature>|null
     */
     public function getPasswordBlockKeyguardFeatures(): ?array {
-        return $this->getBackingStore()->get('passwordBlockKeyguardFeatures');
+        $val = $this->getBackingStore()->get('passwordBlockKeyguardFeatures');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AndroidKeyguardFeature::class);
+            /** @var array<AndroidKeyguardFeature>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordBlockKeyguardFeatures'");
     }
 
     /**
@@ -840,7 +1201,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getPasswordExpirationDays(): ?int {
-        return $this->getBackingStore()->get('passwordExpirationDays');
+        $val = $this->getBackingStore()->get('passwordExpirationDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordExpirationDays'");
     }
 
     /**
@@ -848,7 +1213,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getPasswordMinimumLength(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumLength');
+        $val = $this->getBackingStore()->get('passwordMinimumLength');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumLength'");
     }
 
     /**
@@ -856,7 +1225,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getPasswordMinimumLetterCharacters(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumLetterCharacters');
+        $val = $this->getBackingStore()->get('passwordMinimumLetterCharacters');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumLetterCharacters'");
     }
 
     /**
@@ -864,7 +1237,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getPasswordMinimumLowerCaseCharacters(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumLowerCaseCharacters');
+        $val = $this->getBackingStore()->get('passwordMinimumLowerCaseCharacters');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumLowerCaseCharacters'");
     }
 
     /**
@@ -872,7 +1249,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getPasswordMinimumNonLetterCharacters(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumNonLetterCharacters');
+        $val = $this->getBackingStore()->get('passwordMinimumNonLetterCharacters');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumNonLetterCharacters'");
     }
 
     /**
@@ -880,7 +1261,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getPasswordMinimumNumericCharacters(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumNumericCharacters');
+        $val = $this->getBackingStore()->get('passwordMinimumNumericCharacters');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumNumericCharacters'");
     }
 
     /**
@@ -888,7 +1273,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getPasswordMinimumSymbolCharacters(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumSymbolCharacters');
+        $val = $this->getBackingStore()->get('passwordMinimumSymbolCharacters');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumSymbolCharacters'");
     }
 
     /**
@@ -896,7 +1285,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getPasswordMinimumUpperCaseCharacters(): ?int {
-        return $this->getBackingStore()->get('passwordMinimumUpperCaseCharacters');
+        $val = $this->getBackingStore()->get('passwordMinimumUpperCaseCharacters');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinimumUpperCaseCharacters'");
     }
 
     /**
@@ -904,7 +1297,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getPasswordMinutesOfInactivityBeforeScreenTimeout(): ?int {
-        return $this->getBackingStore()->get('passwordMinutesOfInactivityBeforeScreenTimeout');
+        $val = $this->getBackingStore()->get('passwordMinutesOfInactivityBeforeScreenTimeout');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMinutesOfInactivityBeforeScreenTimeout'");
     }
 
     /**
@@ -912,7 +1309,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getPasswordPreviousPasswordCountToBlock(): ?int {
-        return $this->getBackingStore()->get('passwordPreviousPasswordCountToBlock');
+        $val = $this->getBackingStore()->get('passwordPreviousPasswordCountToBlock');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordPreviousPasswordCountToBlock'");
     }
 
     /**
@@ -920,7 +1321,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidDeviceOwnerRequiredPasswordType|null
     */
     public function getPasswordRequiredType(): ?AndroidDeviceOwnerRequiredPasswordType {
-        return $this->getBackingStore()->get('passwordRequiredType');
+        $val = $this->getBackingStore()->get('passwordRequiredType');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerRequiredPasswordType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordRequiredType'");
     }
 
     /**
@@ -928,7 +1333,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidDeviceOwnerRequiredPasswordUnlock|null
     */
     public function getPasswordRequireUnlock(): ?AndroidDeviceOwnerRequiredPasswordUnlock {
-        return $this->getBackingStore()->get('passwordRequireUnlock');
+        $val = $this->getBackingStore()->get('passwordRequireUnlock');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerRequiredPasswordUnlock) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordRequireUnlock'");
     }
 
     /**
@@ -936,7 +1345,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getPasswordSignInFailureCountBeforeFactoryReset(): ?int {
-        return $this->getBackingStore()->get('passwordSignInFailureCountBeforeFactoryReset');
+        $val = $this->getBackingStore()->get('passwordSignInFailureCountBeforeFactoryReset');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordSignInFailureCountBeforeFactoryReset'");
     }
 
     /**
@@ -944,7 +1357,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getPersonalProfileAppsAllowInstallFromUnknownSources(): ?bool {
-        return $this->getBackingStore()->get('personalProfileAppsAllowInstallFromUnknownSources');
+        $val = $this->getBackingStore()->get('personalProfileAppsAllowInstallFromUnknownSources');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'personalProfileAppsAllowInstallFromUnknownSources'");
     }
 
     /**
@@ -952,7 +1369,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getPersonalProfileCameraBlocked(): ?bool {
-        return $this->getBackingStore()->get('personalProfileCameraBlocked');
+        $val = $this->getBackingStore()->get('personalProfileCameraBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'personalProfileCameraBlocked'");
     }
 
     /**
@@ -960,7 +1381,13 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return array<AppListItem>|null
     */
     public function getPersonalProfilePersonalApplications(): ?array {
-        return $this->getBackingStore()->get('personalProfilePersonalApplications');
+        $val = $this->getBackingStore()->get('personalProfilePersonalApplications');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AppListItem::class);
+            /** @var array<AppListItem>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'personalProfilePersonalApplications'");
     }
 
     /**
@@ -968,7 +1395,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return PersonalProfilePersonalPlayStoreMode|null
     */
     public function getPersonalProfilePlayStoreMode(): ?PersonalProfilePersonalPlayStoreMode {
-        return $this->getBackingStore()->get('personalProfilePlayStoreMode');
+        $val = $this->getBackingStore()->get('personalProfilePlayStoreMode');
+        if (is_null($val) || $val instanceof PersonalProfilePersonalPlayStoreMode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'personalProfilePlayStoreMode'");
     }
 
     /**
@@ -976,7 +1407,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getPersonalProfileScreenCaptureBlocked(): ?bool {
-        return $this->getBackingStore()->get('personalProfileScreenCaptureBlocked');
+        $val = $this->getBackingStore()->get('personalProfileScreenCaptureBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'personalProfileScreenCaptureBlocked'");
     }
 
     /**
@@ -984,7 +1419,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidDeviceOwnerPlayStoreMode|null
     */
     public function getPlayStoreMode(): ?AndroidDeviceOwnerPlayStoreMode {
-        return $this->getBackingStore()->get('playStoreMode');
+        $val = $this->getBackingStore()->get('playStoreMode');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerPlayStoreMode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'playStoreMode'");
     }
 
     /**
@@ -992,7 +1431,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getScreenCaptureBlocked(): ?bool {
-        return $this->getBackingStore()->get('screenCaptureBlocked');
+        $val = $this->getBackingStore()->get('screenCaptureBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'screenCaptureBlocked'");
     }
 
     /**
@@ -1000,7 +1443,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getSecurityCommonCriteriaModeEnabled(): ?bool {
-        return $this->getBackingStore()->get('securityCommonCriteriaModeEnabled');
+        $val = $this->getBackingStore()->get('securityCommonCriteriaModeEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'securityCommonCriteriaModeEnabled'");
     }
 
     /**
@@ -1008,7 +1455,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getSecurityDeveloperSettingsEnabled(): ?bool {
-        return $this->getBackingStore()->get('securityDeveloperSettingsEnabled');
+        $val = $this->getBackingStore()->get('securityDeveloperSettingsEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'securityDeveloperSettingsEnabled'");
     }
 
     /**
@@ -1016,7 +1467,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getSecurityRequireVerifyApps(): ?bool {
-        return $this->getBackingStore()->get('securityRequireVerifyApps');
+        $val = $this->getBackingStore()->get('securityRequireVerifyApps');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'securityRequireVerifyApps'");
     }
 
     /**
@@ -1024,7 +1479,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidDeviceOwnerUserFacingMessage|null
     */
     public function getShortHelpText(): ?AndroidDeviceOwnerUserFacingMessage {
-        return $this->getBackingStore()->get('shortHelpText');
+        $val = $this->getBackingStore()->get('shortHelpText');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerUserFacingMessage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'shortHelpText'");
     }
 
     /**
@@ -1032,7 +1491,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getStatusBarBlocked(): ?bool {
-        return $this->getBackingStore()->get('statusBarBlocked');
+        $val = $this->getBackingStore()->get('statusBarBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'statusBarBlocked'");
     }
 
     /**
@@ -1040,7 +1503,13 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return array<AndroidDeviceOwnerBatteryPluggedMode>|null
     */
     public function getStayOnModes(): ?array {
-        return $this->getBackingStore()->get('stayOnModes');
+        $val = $this->getBackingStore()->get('stayOnModes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AndroidDeviceOwnerBatteryPluggedMode::class);
+            /** @var array<AndroidDeviceOwnerBatteryPluggedMode>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'stayOnModes'");
     }
 
     /**
@@ -1048,7 +1517,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getStorageAllowUsb(): ?bool {
-        return $this->getBackingStore()->get('storageAllowUsb');
+        $val = $this->getBackingStore()->get('storageAllowUsb');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'storageAllowUsb'");
     }
 
     /**
@@ -1056,7 +1529,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getStorageBlockExternalMedia(): ?bool {
-        return $this->getBackingStore()->get('storageBlockExternalMedia');
+        $val = $this->getBackingStore()->get('storageBlockExternalMedia');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'storageBlockExternalMedia'");
     }
 
     /**
@@ -1064,7 +1541,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getStorageBlockUsbFileTransfer(): ?bool {
-        return $this->getBackingStore()->get('storageBlockUsbFileTransfer');
+        $val = $this->getBackingStore()->get('storageBlockUsbFileTransfer');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'storageBlockUsbFileTransfer'");
     }
 
     /**
@@ -1072,7 +1553,13 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return array<AndroidDeviceOwnerSystemUpdateFreezePeriod>|null
     */
     public function getSystemUpdateFreezePeriods(): ?array {
-        return $this->getBackingStore()->get('systemUpdateFreezePeriods');
+        $val = $this->getBackingStore()->get('systemUpdateFreezePeriods');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AndroidDeviceOwnerSystemUpdateFreezePeriod::class);
+            /** @var array<AndroidDeviceOwnerSystemUpdateFreezePeriod>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'systemUpdateFreezePeriods'");
     }
 
     /**
@@ -1080,7 +1567,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidDeviceOwnerSystemUpdateInstallType|null
     */
     public function getSystemUpdateInstallType(): ?AndroidDeviceOwnerSystemUpdateInstallType {
-        return $this->getBackingStore()->get('systemUpdateInstallType');
+        $val = $this->getBackingStore()->get('systemUpdateInstallType');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerSystemUpdateInstallType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'systemUpdateInstallType'");
     }
 
     /**
@@ -1088,7 +1579,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getSystemUpdateWindowEndMinutesAfterMidnight(): ?int {
-        return $this->getBackingStore()->get('systemUpdateWindowEndMinutesAfterMidnight');
+        $val = $this->getBackingStore()->get('systemUpdateWindowEndMinutesAfterMidnight');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'systemUpdateWindowEndMinutesAfterMidnight'");
     }
 
     /**
@@ -1096,7 +1591,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getSystemUpdateWindowStartMinutesAfterMidnight(): ?int {
-        return $this->getBackingStore()->get('systemUpdateWindowStartMinutesAfterMidnight');
+        $val = $this->getBackingStore()->get('systemUpdateWindowStartMinutesAfterMidnight');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'systemUpdateWindowStartMinutesAfterMidnight'");
     }
 
     /**
@@ -1104,7 +1603,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getSystemWindowsBlocked(): ?bool {
-        return $this->getBackingStore()->get('systemWindowsBlocked');
+        $val = $this->getBackingStore()->get('systemWindowsBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'systemWindowsBlocked'");
     }
 
     /**
@@ -1112,7 +1615,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getUsersBlockAdd(): ?bool {
-        return $this->getBackingStore()->get('usersBlockAdd');
+        $val = $this->getBackingStore()->get('usersBlockAdd');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'usersBlockAdd'");
     }
 
     /**
@@ -1120,7 +1627,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getUsersBlockRemove(): ?bool {
-        return $this->getBackingStore()->get('usersBlockRemove');
+        $val = $this->getBackingStore()->get('usersBlockRemove');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'usersBlockRemove'");
     }
 
     /**
@@ -1128,7 +1639,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getVolumeBlockAdjustment(): ?bool {
-        return $this->getBackingStore()->get('volumeBlockAdjustment');
+        $val = $this->getBackingStore()->get('volumeBlockAdjustment');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'volumeBlockAdjustment'");
     }
 
     /**
@@ -1136,7 +1651,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getVpnAlwaysOnLockdownMode(): ?bool {
-        return $this->getBackingStore()->get('vpnAlwaysOnLockdownMode');
+        $val = $this->getBackingStore()->get('vpnAlwaysOnLockdownMode');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vpnAlwaysOnLockdownMode'");
     }
 
     /**
@@ -1144,7 +1663,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return string|null
     */
     public function getVpnAlwaysOnPackageIdentifier(): ?string {
-        return $this->getBackingStore()->get('vpnAlwaysOnPackageIdentifier');
+        $val = $this->getBackingStore()->get('vpnAlwaysOnPackageIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vpnAlwaysOnPackageIdentifier'");
     }
 
     /**
@@ -1152,7 +1675,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getWifiBlockEditConfigurations(): ?bool {
-        return $this->getBackingStore()->get('wifiBlockEditConfigurations');
+        $val = $this->getBackingStore()->get('wifiBlockEditConfigurations');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wifiBlockEditConfigurations'");
     }
 
     /**
@@ -1160,7 +1687,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return bool|null
     */
     public function getWifiBlockEditPolicyDefinedConfigurations(): ?bool {
-        return $this->getBackingStore()->get('wifiBlockEditPolicyDefinedConfigurations');
+        $val = $this->getBackingStore()->get('wifiBlockEditPolicyDefinedConfigurations');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wifiBlockEditPolicyDefinedConfigurations'");
     }
 
     /**
@@ -1168,7 +1699,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getWorkProfilePasswordExpirationDays(): ?int {
-        return $this->getBackingStore()->get('workProfilePasswordExpirationDays');
+        $val = $this->getBackingStore()->get('workProfilePasswordExpirationDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordExpirationDays'");
     }
 
     /**
@@ -1176,7 +1711,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getWorkProfilePasswordMinimumLength(): ?int {
-        return $this->getBackingStore()->get('workProfilePasswordMinimumLength');
+        $val = $this->getBackingStore()->get('workProfilePasswordMinimumLength');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordMinimumLength'");
     }
 
     /**
@@ -1184,7 +1723,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getWorkProfilePasswordMinimumLetterCharacters(): ?int {
-        return $this->getBackingStore()->get('workProfilePasswordMinimumLetterCharacters');
+        $val = $this->getBackingStore()->get('workProfilePasswordMinimumLetterCharacters');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordMinimumLetterCharacters'");
     }
 
     /**
@@ -1192,7 +1735,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getWorkProfilePasswordMinimumLowerCaseCharacters(): ?int {
-        return $this->getBackingStore()->get('workProfilePasswordMinimumLowerCaseCharacters');
+        $val = $this->getBackingStore()->get('workProfilePasswordMinimumLowerCaseCharacters');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordMinimumLowerCaseCharacters'");
     }
 
     /**
@@ -1200,7 +1747,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getWorkProfilePasswordMinimumNonLetterCharacters(): ?int {
-        return $this->getBackingStore()->get('workProfilePasswordMinimumNonLetterCharacters');
+        $val = $this->getBackingStore()->get('workProfilePasswordMinimumNonLetterCharacters');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordMinimumNonLetterCharacters'");
     }
 
     /**
@@ -1208,7 +1759,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getWorkProfilePasswordMinimumNumericCharacters(): ?int {
-        return $this->getBackingStore()->get('workProfilePasswordMinimumNumericCharacters');
+        $val = $this->getBackingStore()->get('workProfilePasswordMinimumNumericCharacters');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordMinimumNumericCharacters'");
     }
 
     /**
@@ -1216,7 +1771,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getWorkProfilePasswordMinimumSymbolCharacters(): ?int {
-        return $this->getBackingStore()->get('workProfilePasswordMinimumSymbolCharacters');
+        $val = $this->getBackingStore()->get('workProfilePasswordMinimumSymbolCharacters');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordMinimumSymbolCharacters'");
     }
 
     /**
@@ -1224,7 +1783,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getWorkProfilePasswordMinimumUpperCaseCharacters(): ?int {
-        return $this->getBackingStore()->get('workProfilePasswordMinimumUpperCaseCharacters');
+        $val = $this->getBackingStore()->get('workProfilePasswordMinimumUpperCaseCharacters');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordMinimumUpperCaseCharacters'");
     }
 
     /**
@@ -1232,7 +1795,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getWorkProfilePasswordPreviousPasswordCountToBlock(): ?int {
-        return $this->getBackingStore()->get('workProfilePasswordPreviousPasswordCountToBlock');
+        $val = $this->getBackingStore()->get('workProfilePasswordPreviousPasswordCountToBlock');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordPreviousPasswordCountToBlock'");
     }
 
     /**
@@ -1240,7 +1807,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidDeviceOwnerRequiredPasswordType|null
     */
     public function getWorkProfilePasswordRequiredType(): ?AndroidDeviceOwnerRequiredPasswordType {
-        return $this->getBackingStore()->get('workProfilePasswordRequiredType');
+        $val = $this->getBackingStore()->get('workProfilePasswordRequiredType');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerRequiredPasswordType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordRequiredType'");
     }
 
     /**
@@ -1248,7 +1819,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return AndroidDeviceOwnerRequiredPasswordUnlock|null
     */
     public function getWorkProfilePasswordRequireUnlock(): ?AndroidDeviceOwnerRequiredPasswordUnlock {
-        return $this->getBackingStore()->get('workProfilePasswordRequireUnlock');
+        $val = $this->getBackingStore()->get('workProfilePasswordRequireUnlock');
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerRequiredPasswordUnlock) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordRequireUnlock'");
     }
 
     /**
@@ -1256,7 +1831,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
      * @return int|null
     */
     public function getWorkProfilePasswordSignInFailureCountBeforeFactoryReset(): ?int {
-        return $this->getBackingStore()->get('workProfilePasswordSignInFailureCountBeforeFactoryReset');
+        $val = $this->getBackingStore()->get('workProfilePasswordSignInFailureCountBeforeFactoryReset');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordSignInFailureCountBeforeFactoryReset'");
     }
 
     /**

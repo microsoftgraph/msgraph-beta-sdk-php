@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate extends DeviceManagementConfigurationSettingInstanceTemplate implements Parsable 
 {
@@ -30,7 +31,11 @@ class DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate exten
      * @return bool|null
     */
     public function getAllowUnmanagedValues(): ?bool {
-        return $this->getBackingStore()->get('allowUnmanagedValues');
+        $val = $this->getBackingStore()->get('allowUnmanagedValues');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowUnmanagedValues'");
     }
 
     /**
@@ -38,12 +43,18 @@ class DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate exten
      * @return array<DeviceManagementConfigurationChoiceSettingValueTemplate>|null
     */
     public function getChoiceSettingCollectionValueTemplate(): ?array {
-        return $this->getBackingStore()->get('choiceSettingCollectionValueTemplate');
+        $val = $this->getBackingStore()->get('choiceSettingCollectionValueTemplate');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementConfigurationChoiceSettingValueTemplate::class);
+            /** @var array<DeviceManagementConfigurationChoiceSettingValueTemplate>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'choiceSettingCollectionValueTemplate'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

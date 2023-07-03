@@ -31,12 +31,16 @@ class DeviceHealthScriptRunOnceSchedule extends DeviceHealthScriptTimeSchedule i
      * @return Date|null
     */
     public function getDate(): ?Date {
-        return $this->getBackingStore()->get('date');
+        $val = $this->getBackingStore()->get('date');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'date'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

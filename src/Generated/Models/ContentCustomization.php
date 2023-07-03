@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ContentCustomization implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class ContentCustomization implements AdditionalDataHolder, BackedModel, Parsabl
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +53,13 @@ class ContentCustomization implements AdditionalDataHolder, BackedModel, Parsabl
      * @return array<KeyValue>|null
     */
     public function getAttributeCollection(): ?array {
-        return $this->getBackingStore()->get('attributeCollection');
+        $val = $this->getBackingStore()->get('attributeCollection');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, KeyValue::class);
+            /** @var array<KeyValue>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'attributeCollection'");
     }
 
     /**
@@ -55,7 +67,11 @@ class ContentCustomization implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getAttributeCollectionRelativeUrl(): ?string {
-        return $this->getBackingStore()->get('attributeCollectionRelativeUrl');
+        $val = $this->getBackingStore()->get('attributeCollectionRelativeUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'attributeCollectionRelativeUrl'");
     }
 
     /**
@@ -68,7 +84,7 @@ class ContentCustomization implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -84,7 +100,11 @@ class ContentCustomization implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class InformationProtection extends Entity implements Parsable 
 {
@@ -29,7 +30,11 @@ class InformationProtection extends Entity implements Parsable
      * @return Bitlocker|null
     */
     public function getBitlocker(): ?Bitlocker {
-        return $this->getBackingStore()->get('bitlocker');
+        $val = $this->getBackingStore()->get('bitlocker');
+        if (is_null($val) || $val instanceof Bitlocker) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bitlocker'");
     }
 
     /**
@@ -37,12 +42,18 @@ class InformationProtection extends Entity implements Parsable
      * @return array<DataLossPreventionPolicy>|null
     */
     public function getDataLossPreventionPolicies(): ?array {
-        return $this->getBackingStore()->get('dataLossPreventionPolicies');
+        $val = $this->getBackingStore()->get('dataLossPreventionPolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DataLossPreventionPolicy::class);
+            /** @var array<DataLossPreventionPolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dataLossPreventionPolicies'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -61,7 +72,11 @@ class InformationProtection extends Entity implements Parsable
      * @return InformationProtectionPolicy|null
     */
     public function getPolicy(): ?InformationProtectionPolicy {
-        return $this->getBackingStore()->get('policy');
+        $val = $this->getBackingStore()->get('policy');
+        if (is_null($val) || $val instanceof InformationProtectionPolicy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policy'");
     }
 
     /**
@@ -69,7 +84,13 @@ class InformationProtection extends Entity implements Parsable
      * @return array<SensitivityLabel>|null
     */
     public function getSensitivityLabels(): ?array {
-        return $this->getBackingStore()->get('sensitivityLabels');
+        $val = $this->getBackingStore()->get('sensitivityLabels');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SensitivityLabel::class);
+            /** @var array<SensitivityLabel>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sensitivityLabels'");
     }
 
     /**
@@ -77,7 +98,11 @@ class InformationProtection extends Entity implements Parsable
      * @return SensitivityPolicySettings|null
     */
     public function getSensitivityPolicySettings(): ?SensitivityPolicySettings {
-        return $this->getBackingStore()->get('sensitivityPolicySettings');
+        $val = $this->getBackingStore()->get('sensitivityPolicySettings');
+        if (is_null($val) || $val instanceof SensitivityPolicySettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sensitivityPolicySettings'");
     }
 
     /**
@@ -85,7 +110,13 @@ class InformationProtection extends Entity implements Parsable
      * @return array<ThreatAssessmentRequest>|null
     */
     public function getThreatAssessmentRequests(): ?array {
-        return $this->getBackingStore()->get('threatAssessmentRequests');
+        $val = $this->getBackingStore()->get('threatAssessmentRequests');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ThreatAssessmentRequest::class);
+            /** @var array<ThreatAssessmentRequest>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'threatAssessmentRequests'");
     }
 
     /**

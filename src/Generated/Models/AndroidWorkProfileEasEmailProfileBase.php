@@ -38,7 +38,11 @@ class AndroidWorkProfileEasEmailProfileBase extends DeviceConfiguration implemen
      * @return EasAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?EasAuthenticationMethod {
-        return $this->getBackingStore()->get('authenticationMethod');
+        $val = $this->getBackingStore()->get('authenticationMethod');
+        if (is_null($val) || $val instanceof EasAuthenticationMethod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationMethod'");
     }
 
     /**
@@ -46,7 +50,11 @@ class AndroidWorkProfileEasEmailProfileBase extends DeviceConfiguration implemen
      * @return EmailSyncDuration|null
     */
     public function getDurationOfEmailToSync(): ?EmailSyncDuration {
-        return $this->getBackingStore()->get('durationOfEmailToSync');
+        $val = $this->getBackingStore()->get('durationOfEmailToSync');
+        if (is_null($val) || $val instanceof EmailSyncDuration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'durationOfEmailToSync'");
     }
 
     /**
@@ -54,12 +62,16 @@ class AndroidWorkProfileEasEmailProfileBase extends DeviceConfiguration implemen
      * @return UserEmailSource|null
     */
     public function getEmailAddressSource(): ?UserEmailSource {
-        return $this->getBackingStore()->get('emailAddressSource');
+        $val = $this->getBackingStore()->get('emailAddressSource');
+        if (is_null($val) || $val instanceof UserEmailSource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailAddressSource'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -79,7 +91,11 @@ class AndroidWorkProfileEasEmailProfileBase extends DeviceConfiguration implemen
      * @return string|null
     */
     public function getHostName(): ?string {
-        return $this->getBackingStore()->get('hostName');
+        $val = $this->getBackingStore()->get('hostName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hostName'");
     }
 
     /**
@@ -87,7 +103,11 @@ class AndroidWorkProfileEasEmailProfileBase extends DeviceConfiguration implemen
      * @return AndroidWorkProfileCertificateProfileBase|null
     */
     public function getIdentityCertificate(): ?AndroidWorkProfileCertificateProfileBase {
-        return $this->getBackingStore()->get('identityCertificate');
+        $val = $this->getBackingStore()->get('identityCertificate');
+        if (is_null($val) || $val instanceof AndroidWorkProfileCertificateProfileBase) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityCertificate'");
     }
 
     /**
@@ -95,7 +115,11 @@ class AndroidWorkProfileEasEmailProfileBase extends DeviceConfiguration implemen
      * @return bool|null
     */
     public function getRequireSsl(): ?bool {
-        return $this->getBackingStore()->get('requireSsl');
+        $val = $this->getBackingStore()->get('requireSsl');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requireSsl'");
     }
 
     /**
@@ -103,7 +127,11 @@ class AndroidWorkProfileEasEmailProfileBase extends DeviceConfiguration implemen
      * @return AndroidUsernameSource|null
     */
     public function getUsernameSource(): ?AndroidUsernameSource {
-        return $this->getBackingStore()->get('usernameSource');
+        $val = $this->getBackingStore()->get('usernameSource');
+        if (is_null($val) || $val instanceof AndroidUsernameSource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'usernameSource'");
     }
 
     /**

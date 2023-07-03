@@ -29,12 +29,16 @@ class UsageRight extends Entity implements Parsable
      * @return string|null
     */
     public function getCatalogId(): ?string {
-        return $this->getBackingStore()->get('catalogId');
+        $val = $this->getBackingStore()->get('catalogId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'catalogId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -50,7 +54,11 @@ class UsageRight extends Entity implements Parsable
      * @return string|null
     */
     public function getServiceIdentifier(): ?string {
-        return $this->getBackingStore()->get('serviceIdentifier');
+        $val = $this->getBackingStore()->get('serviceIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'serviceIdentifier'");
     }
 
     /**
@@ -58,7 +66,11 @@ class UsageRight extends Entity implements Parsable
      * @return UsageRightState|null
     */
     public function getState(): ?UsageRightState {
-        return $this->getBackingStore()->get('state');
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || $val instanceof UsageRightState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
     }
 
     /**

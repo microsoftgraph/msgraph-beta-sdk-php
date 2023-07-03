@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable 
 {
@@ -30,7 +31,11 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return VpnAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?VpnAuthenticationMethod {
-        return $this->getBackingStore()->get('authenticationMethod');
+        $val = $this->getBackingStore()->get('authenticationMethod');
+        if (is_null($val) || $val instanceof VpnAuthenticationMethod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationMethod'");
     }
 
     /**
@@ -38,7 +43,11 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getConnectionName(): ?string {
-        return $this->getBackingStore()->get('connectionName');
+        $val = $this->getBackingStore()->get('connectionName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectionName'");
     }
 
     /**
@@ -46,7 +55,11 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return AndroidVpnConnectionType|null
     */
     public function getConnectionType(): ?AndroidVpnConnectionType {
-        return $this->getBackingStore()->get('connectionType');
+        $val = $this->getBackingStore()->get('connectionType');
+        if (is_null($val) || $val instanceof AndroidVpnConnectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectionType'");
     }
 
     /**
@@ -54,7 +67,13 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return array<KeyValue>|null
     */
     public function getCustomData(): ?array {
-        return $this->getBackingStore()->get('customData');
+        $val = $this->getBackingStore()->get('customData');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, KeyValue::class);
+            /** @var array<KeyValue>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customData'");
     }
 
     /**
@@ -62,12 +81,18 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return array<KeyValuePair>|null
     */
     public function getCustomKeyValueData(): ?array {
-        return $this->getBackingStore()->get('customKeyValueData');
+        $val = $this->getBackingStore()->get('customKeyValueData');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, KeyValuePair::class);
+            /** @var array<KeyValuePair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customKeyValueData'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -90,7 +115,11 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getFingerprint(): ?string {
-        return $this->getBackingStore()->get('fingerprint');
+        $val = $this->getBackingStore()->get('fingerprint');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fingerprint'");
     }
 
     /**
@@ -98,7 +127,11 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return AndroidCertificateProfileBase|null
     */
     public function getIdentityCertificate(): ?AndroidCertificateProfileBase {
-        return $this->getBackingStore()->get('identityCertificate');
+        $val = $this->getBackingStore()->get('identityCertificate');
+        if (is_null($val) || $val instanceof AndroidCertificateProfileBase) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityCertificate'");
     }
 
     /**
@@ -106,7 +139,11 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getRealm(): ?string {
-        return $this->getBackingStore()->get('realm');
+        $val = $this->getBackingStore()->get('realm');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'realm'");
     }
 
     /**
@@ -114,7 +151,11 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getRole(): ?string {
-        return $this->getBackingStore()->get('role');
+        $val = $this->getBackingStore()->get('role');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'role'");
     }
 
     /**
@@ -122,7 +163,13 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return array<VpnServer>|null
     */
     public function getServers(): ?array {
-        return $this->getBackingStore()->get('servers');
+        $val = $this->getBackingStore()->get('servers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, VpnServer::class);
+            /** @var array<VpnServer>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'servers'");
     }
 
     /**

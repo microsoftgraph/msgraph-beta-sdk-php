@@ -39,7 +39,12 @@ class CvssSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +57,7 @@ class CvssSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -69,7 +74,11 @@ class CvssSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -77,7 +86,11 @@ class CvssSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return float|null
     */
     public function getScore(): ?float {
-        return $this->getBackingStore()->get('score');
+        $val = $this->getBackingStore()->get('score');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'score'");
     }
 
     /**
@@ -85,7 +98,11 @@ class CvssSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return VulnerabilitySeverity|null
     */
     public function getSeverity(): ?VulnerabilitySeverity {
-        return $this->getBackingStore()->get('severity');
+        $val = $this->getBackingStore()->get('severity');
+        if (is_null($val) || $val instanceof VulnerabilitySeverity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'severity'");
     }
 
     /**
@@ -93,7 +110,11 @@ class CvssSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getVectorString(): ?string {
-        return $this->getBackingStore()->get('vectorString');
+        $val = $this->getBackingStore()->get('vectorString');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vectorString'");
     }
 
     /**

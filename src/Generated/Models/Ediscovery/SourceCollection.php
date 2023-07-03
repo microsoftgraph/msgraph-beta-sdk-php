@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Models\IdentitySet;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class SourceCollection extends Entity implements Parsable 
 {
@@ -32,7 +33,13 @@ class SourceCollection extends Entity implements Parsable
      * @return array<DataSource>|null
     */
     public function getAdditionalSources(): ?array {
-        return $this->getBackingStore()->get('additionalSources');
+        $val = $this->getBackingStore()->get('additionalSources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DataSource::class);
+            /** @var array<DataSource>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalSources'");
     }
 
     /**
@@ -40,7 +47,11 @@ class SourceCollection extends Entity implements Parsable
      * @return AddToReviewSetOperation|null
     */
     public function getAddToReviewSetOperation(): ?AddToReviewSetOperation {
-        return $this->getBackingStore()->get('addToReviewSetOperation');
+        $val = $this->getBackingStore()->get('addToReviewSetOperation');
+        if (is_null($val) || $val instanceof AddToReviewSetOperation) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'addToReviewSetOperation'");
     }
 
     /**
@@ -48,7 +59,11 @@ class SourceCollection extends Entity implements Parsable
      * @return string|null
     */
     public function getContentQuery(): ?string {
-        return $this->getBackingStore()->get('contentQuery');
+        $val = $this->getBackingStore()->get('contentQuery');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentQuery'");
     }
 
     /**
@@ -56,7 +71,11 @@ class SourceCollection extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
-        return $this->getBackingStore()->get('createdBy');
+        $val = $this->getBackingStore()->get('createdBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdBy'");
     }
 
     /**
@@ -64,7 +83,11 @@ class SourceCollection extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -72,7 +95,13 @@ class SourceCollection extends Entity implements Parsable
      * @return array<DataSource>|null
     */
     public function getCustodianSources(): ?array {
-        return $this->getBackingStore()->get('custodianSources');
+        $val = $this->getBackingStore()->get('custodianSources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DataSource::class);
+            /** @var array<DataSource>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'custodianSources'");
     }
 
     /**
@@ -80,7 +109,11 @@ class SourceCollection extends Entity implements Parsable
      * @return DataSourceScopes|null
     */
     public function getDataSourceScopes(): ?DataSourceScopes {
-        return $this->getBackingStore()->get('dataSourceScopes');
+        $val = $this->getBackingStore()->get('dataSourceScopes');
+        if (is_null($val) || $val instanceof DataSourceScopes) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dataSourceScopes'");
     }
 
     /**
@@ -88,7 +121,11 @@ class SourceCollection extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -96,12 +133,16 @@ class SourceCollection extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -127,7 +168,11 @@ class SourceCollection extends Entity implements Parsable
      * @return EstimateStatisticsOperation|null
     */
     public function getLastEstimateStatisticsOperation(): ?EstimateStatisticsOperation {
-        return $this->getBackingStore()->get('lastEstimateStatisticsOperation');
+        $val = $this->getBackingStore()->get('lastEstimateStatisticsOperation');
+        if (is_null($val) || $val instanceof EstimateStatisticsOperation) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastEstimateStatisticsOperation'");
     }
 
     /**
@@ -135,7 +180,11 @@ class SourceCollection extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
-        return $this->getBackingStore()->get('lastModifiedBy');
+        $val = $this->getBackingStore()->get('lastModifiedBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedBy'");
     }
 
     /**
@@ -143,7 +192,11 @@ class SourceCollection extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -151,7 +204,13 @@ class SourceCollection extends Entity implements Parsable
      * @return array<NoncustodialDataSource>|null
     */
     public function getNoncustodialSources(): ?array {
-        return $this->getBackingStore()->get('noncustodialSources');
+        $val = $this->getBackingStore()->get('noncustodialSources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, NoncustodialDataSource::class);
+            /** @var array<NoncustodialDataSource>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'noncustodialSources'");
     }
 
     /**

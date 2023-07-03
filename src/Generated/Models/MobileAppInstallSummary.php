@@ -29,7 +29,11 @@ class MobileAppInstallSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getFailedDeviceCount(): ?int {
-        return $this->getBackingStore()->get('failedDeviceCount');
+        $val = $this->getBackingStore()->get('failedDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'failedDeviceCount'");
     }
 
     /**
@@ -37,12 +41,16 @@ class MobileAppInstallSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getFailedUserCount(): ?int {
-        return $this->getBackingStore()->get('failedUserCount');
+        $val = $this->getBackingStore()->get('failedUserCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'failedUserCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -65,7 +73,11 @@ class MobileAppInstallSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getInstalledDeviceCount(): ?int {
-        return $this->getBackingStore()->get('installedDeviceCount');
+        $val = $this->getBackingStore()->get('installedDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'installedDeviceCount'");
     }
 
     /**
@@ -73,7 +85,11 @@ class MobileAppInstallSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getInstalledUserCount(): ?int {
-        return $this->getBackingStore()->get('installedUserCount');
+        $val = $this->getBackingStore()->get('installedUserCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'installedUserCount'");
     }
 
     /**
@@ -81,7 +97,11 @@ class MobileAppInstallSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getNotApplicableDeviceCount(): ?int {
-        return $this->getBackingStore()->get('notApplicableDeviceCount');
+        $val = $this->getBackingStore()->get('notApplicableDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notApplicableDeviceCount'");
     }
 
     /**
@@ -89,7 +109,11 @@ class MobileAppInstallSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getNotApplicableUserCount(): ?int {
-        return $this->getBackingStore()->get('notApplicableUserCount');
+        $val = $this->getBackingStore()->get('notApplicableUserCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notApplicableUserCount'");
     }
 
     /**
@@ -97,7 +121,11 @@ class MobileAppInstallSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getNotInstalledDeviceCount(): ?int {
-        return $this->getBackingStore()->get('notInstalledDeviceCount');
+        $val = $this->getBackingStore()->get('notInstalledDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notInstalledDeviceCount'");
     }
 
     /**
@@ -105,7 +133,11 @@ class MobileAppInstallSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getNotInstalledUserCount(): ?int {
-        return $this->getBackingStore()->get('notInstalledUserCount');
+        $val = $this->getBackingStore()->get('notInstalledUserCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notInstalledUserCount'");
     }
 
     /**
@@ -113,7 +145,11 @@ class MobileAppInstallSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getPendingInstallDeviceCount(): ?int {
-        return $this->getBackingStore()->get('pendingInstallDeviceCount');
+        $val = $this->getBackingStore()->get('pendingInstallDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pendingInstallDeviceCount'");
     }
 
     /**
@@ -121,7 +157,11 @@ class MobileAppInstallSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getPendingInstallUserCount(): ?int {
-        return $this->getBackingStore()->get('pendingInstallUserCount');
+        $val = $this->getBackingStore()->get('pendingInstallUserCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pendingInstallUserCount'");
     }
 
     /**

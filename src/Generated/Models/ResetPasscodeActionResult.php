@@ -29,12 +29,16 @@ class ResetPasscodeActionResult extends DeviceActionResult implements Parsable
      * @return int|null
     */
     public function getErrorCode(): ?int {
-        return $this->getBackingStore()->get('errorCode');
+        $val = $this->getBackingStore()->get('errorCode');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorCode'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -49,7 +53,11 @@ class ResetPasscodeActionResult extends DeviceActionResult implements Parsable
      * @return string|null
     */
     public function getPasscode(): ?string {
-        return $this->getBackingStore()->get('passcode');
+        $val = $this->getBackingStore()->get('passcode');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passcode'");
     }
 
     /**

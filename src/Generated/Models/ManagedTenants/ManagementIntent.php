@@ -6,6 +6,7 @@ use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ManagementIntent extends Entity implements Parsable 
 {
@@ -30,12 +31,16 @@ class ManagementIntent extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -51,7 +56,11 @@ class ManagementIntent extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsGlobal(): ?bool {
-        return $this->getBackingStore()->get('isGlobal');
+        $val = $this->getBackingStore()->get('isGlobal');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isGlobal'");
     }
 
     /**
@@ -59,7 +68,13 @@ class ManagementIntent extends Entity implements Parsable
      * @return array<ManagementTemplateDetailedInfo>|null
     */
     public function getManagementTemplates(): ?array {
-        return $this->getBackingStore()->get('managementTemplates');
+        $val = $this->getBackingStore()->get('managementTemplates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagementTemplateDetailedInfo::class);
+            /** @var array<ManagementTemplateDetailedInfo>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managementTemplates'");
     }
 
     /**

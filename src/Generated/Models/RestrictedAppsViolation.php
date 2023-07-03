@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class RestrictedAppsViolation extends Entity implements Parsable 
 {
@@ -29,7 +30,11 @@ class RestrictedAppsViolation extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceConfigurationId(): ?string {
-        return $this->getBackingStore()->get('deviceConfigurationId');
+        $val = $this->getBackingStore()->get('deviceConfigurationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceConfigurationId'");
     }
 
     /**
@@ -37,7 +42,11 @@ class RestrictedAppsViolation extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceConfigurationName(): ?string {
-        return $this->getBackingStore()->get('deviceConfigurationName');
+        $val = $this->getBackingStore()->get('deviceConfigurationName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceConfigurationName'");
     }
 
     /**
@@ -45,12 +54,16 @@ class RestrictedAppsViolation extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->getBackingStore()->get('deviceName');
+        $val = $this->getBackingStore()->get('deviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -72,7 +85,11 @@ class RestrictedAppsViolation extends Entity implements Parsable
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
-        return $this->getBackingStore()->get('managedDeviceId');
+        $val = $this->getBackingStore()->get('managedDeviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceId'");
     }
 
     /**
@@ -80,7 +97,11 @@ class RestrictedAppsViolation extends Entity implements Parsable
      * @return PolicyPlatformType|null
     */
     public function getPlatformType(): ?PolicyPlatformType {
-        return $this->getBackingStore()->get('platformType');
+        $val = $this->getBackingStore()->get('platformType');
+        if (is_null($val) || $val instanceof PolicyPlatformType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'platformType'");
     }
 
     /**
@@ -88,7 +109,13 @@ class RestrictedAppsViolation extends Entity implements Parsable
      * @return array<ManagedDeviceReportedApp>|null
     */
     public function getRestrictedApps(): ?array {
-        return $this->getBackingStore()->get('restrictedApps');
+        $val = $this->getBackingStore()->get('restrictedApps');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagedDeviceReportedApp::class);
+            /** @var array<ManagedDeviceReportedApp>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'restrictedApps'");
     }
 
     /**
@@ -96,7 +123,11 @@ class RestrictedAppsViolation extends Entity implements Parsable
      * @return RestrictedAppsState|null
     */
     public function getRestrictedAppsState(): ?RestrictedAppsState {
-        return $this->getBackingStore()->get('restrictedAppsState');
+        $val = $this->getBackingStore()->get('restrictedAppsState');
+        if (is_null($val) || $val instanceof RestrictedAppsState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'restrictedAppsState'");
     }
 
     /**
@@ -104,7 +135,11 @@ class RestrictedAppsViolation extends Entity implements Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->getBackingStore()->get('userId');
+        $val = $this->getBackingStore()->get('userId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
     }
 
     /**
@@ -112,7 +147,11 @@ class RestrictedAppsViolation extends Entity implements Parsable
      * @return string|null
     */
     public function getUserName(): ?string {
-        return $this->getBackingStore()->get('userName');
+        $val = $this->getBackingStore()->get('userName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userName'");
     }
 
     /**

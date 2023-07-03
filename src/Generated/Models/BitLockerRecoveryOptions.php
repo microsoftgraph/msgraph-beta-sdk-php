@@ -42,7 +42,12 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, BackedModel, Par
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -58,7 +63,11 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, BackedModel, Par
      * @return bool|null
     */
     public function getBlockDataRecoveryAgent(): ?bool {
-        return $this->getBackingStore()->get('blockDataRecoveryAgent');
+        $val = $this->getBackingStore()->get('blockDataRecoveryAgent');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockDataRecoveryAgent'");
     }
 
     /**
@@ -66,7 +75,11 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, BackedModel, Par
      * @return bool|null
     */
     public function getEnableBitLockerAfterRecoveryInformationToStore(): ?bool {
-        return $this->getBackingStore()->get('enableBitLockerAfterRecoveryInformationToStore');
+        $val = $this->getBackingStore()->get('enableBitLockerAfterRecoveryInformationToStore');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableBitLockerAfterRecoveryInformationToStore'");
     }
 
     /**
@@ -74,12 +87,16 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, BackedModel, Par
      * @return bool|null
     */
     public function getEnableRecoveryInformationSaveToStore(): ?bool {
-        return $this->getBackingStore()->get('enableRecoveryInformationSaveToStore');
+        $val = $this->getBackingStore()->get('enableRecoveryInformationSaveToStore');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableRecoveryInformationSaveToStore'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -100,7 +117,11 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, BackedModel, Par
      * @return bool|null
     */
     public function getHideRecoveryOptions(): ?bool {
-        return $this->getBackingStore()->get('hideRecoveryOptions');
+        $val = $this->getBackingStore()->get('hideRecoveryOptions');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hideRecoveryOptions'");
     }
 
     /**
@@ -108,7 +129,11 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, BackedModel, Par
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -116,7 +141,11 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, BackedModel, Par
      * @return BitLockerRecoveryInformationType|null
     */
     public function getRecoveryInformationToStore(): ?BitLockerRecoveryInformationType {
-        return $this->getBackingStore()->get('recoveryInformationToStore');
+        $val = $this->getBackingStore()->get('recoveryInformationToStore');
+        if (is_null($val) || $val instanceof BitLockerRecoveryInformationType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recoveryInformationToStore'");
     }
 
     /**
@@ -124,7 +153,11 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, BackedModel, Par
      * @return ConfigurationUsage|null
     */
     public function getRecoveryKeyUsage(): ?ConfigurationUsage {
-        return $this->getBackingStore()->get('recoveryKeyUsage');
+        $val = $this->getBackingStore()->get('recoveryKeyUsage');
+        if (is_null($val) || $val instanceof ConfigurationUsage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recoveryKeyUsage'");
     }
 
     /**
@@ -132,7 +165,11 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, BackedModel, Par
      * @return ConfigurationUsage|null
     */
     public function getRecoveryPasswordUsage(): ?ConfigurationUsage {
-        return $this->getBackingStore()->get('recoveryPasswordUsage');
+        $val = $this->getBackingStore()->get('recoveryPasswordUsage');
+        if (is_null($val) || $val instanceof ConfigurationUsage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recoveryPasswordUsage'");
     }
 
     /**

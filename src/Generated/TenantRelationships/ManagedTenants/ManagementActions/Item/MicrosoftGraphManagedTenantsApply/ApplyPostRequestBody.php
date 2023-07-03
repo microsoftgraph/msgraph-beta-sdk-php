@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ApplyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class ApplyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsabl
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,19 +61,39 @@ class ApplyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsabl
      * @return array<string>|null
     */
     public function getExcludeGroups(): ?array {
-        return $this->getBackingStore()->get('excludeGroups');
+        $val = $this->getBackingStore()->get('excludeGroups');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'excludeGroups'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'excludeGroups' => fn(ParseNode $n) => $o->setExcludeGroups($n->getCollectionOfPrimitiveValues()),
+            'excludeGroups' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setExcludeGroups($val);
+            },
             'includeAllUsers' => fn(ParseNode $n) => $o->setIncludeAllUsers($n->getBooleanValue()),
-            'includeGroups' => fn(ParseNode $n) => $o->setIncludeGroups($n->getCollectionOfPrimitiveValues()),
+            'includeGroups' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setIncludeGroups($val);
+            },
             'managementTemplateId' => fn(ParseNode $n) => $o->setManagementTemplateId($n->getStringValue()),
             'tenantGroupId' => fn(ParseNode $n) => $o->setTenantGroupId($n->getStringValue()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
@@ -79,7 +105,11 @@ class ApplyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsabl
      * @return bool|null
     */
     public function getIncludeAllUsers(): ?bool {
-        return $this->getBackingStore()->get('includeAllUsers');
+        $val = $this->getBackingStore()->get('includeAllUsers');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'includeAllUsers'");
     }
 
     /**
@@ -87,7 +117,13 @@ class ApplyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsabl
      * @return array<string>|null
     */
     public function getIncludeGroups(): ?array {
-        return $this->getBackingStore()->get('includeGroups');
+        $val = $this->getBackingStore()->get('includeGroups');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'includeGroups'");
     }
 
     /**
@@ -95,7 +131,11 @@ class ApplyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getManagementTemplateId(): ?string {
-        return $this->getBackingStore()->get('managementTemplateId');
+        $val = $this->getBackingStore()->get('managementTemplateId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managementTemplateId'");
     }
 
     /**
@@ -103,7 +143,11 @@ class ApplyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getTenantGroupId(): ?string {
-        return $this->getBackingStore()->get('tenantGroupId');
+        $val = $this->getBackingStore()->get('tenantGroupId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantGroupId'");
     }
 
     /**
@@ -111,7 +155,11 @@ class ApplyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsabl
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->getBackingStore()->get('tenantId');
+        $val = $this->getBackingStore()->get('tenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantId'");
     }
 
     /**

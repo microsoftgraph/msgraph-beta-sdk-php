@@ -29,7 +29,11 @@ class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHi
      * @return MobileAppActionType|null
     */
     public function getActionType(): ?MobileAppActionType {
-        return $this->getBackingStore()->get('actionType');
+        $val = $this->getBackingStore()->get('actionType');
+        if (is_null($val) || $val instanceof MobileAppActionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'actionType'");
     }
 
     /**
@@ -37,12 +41,16 @@ class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHi
      * @return string|null
     */
     public function getErrorCode(): ?string {
-        return $this->getBackingStore()->get('errorCode');
+        $val = $this->getBackingStore()->get('errorCode');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorCode'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -58,7 +66,11 @@ class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHi
      * @return RunState|null
     */
     public function getRunState(): ?RunState {
-        return $this->getBackingStore()->get('runState');
+        $val = $this->getBackingStore()->get('runState');
+        if (is_null($val) || $val instanceof RunState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'runState'");
     }
 
     /**

@@ -27,7 +27,7 @@ class DeviceManagementSettingXmlConstraint extends DeviceManagementConstraint im
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

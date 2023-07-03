@@ -10,6 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AccessReviewScheduleSettings implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -40,7 +41,12 @@ class AccessReviewScheduleSettings implements AdditionalDataHolder, BackedModel,
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -48,7 +54,13 @@ class AccessReviewScheduleSettings implements AdditionalDataHolder, BackedModel,
      * @return array<AccessReviewApplyAction>|null
     */
     public function getApplyActions(): ?array {
-        return $this->getBackingStore()->get('applyActions');
+        $val = $this->getBackingStore()->get('applyActions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AccessReviewApplyAction::class);
+            /** @var array<AccessReviewApplyAction>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applyActions'");
     }
 
     /**
@@ -56,7 +68,11 @@ class AccessReviewScheduleSettings implements AdditionalDataHolder, BackedModel,
      * @return bool|null
     */
     public function getAutoApplyDecisionsEnabled(): ?bool {
-        return $this->getBackingStore()->get('autoApplyDecisionsEnabled');
+        $val = $this->getBackingStore()->get('autoApplyDecisionsEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'autoApplyDecisionsEnabled'");
     }
 
     /**
@@ -72,7 +88,11 @@ class AccessReviewScheduleSettings implements AdditionalDataHolder, BackedModel,
      * @return bool|null
     */
     public function getDecisionHistoriesForReviewersEnabled(): ?bool {
-        return $this->getBackingStore()->get('decisionHistoriesForReviewersEnabled');
+        $val = $this->getBackingStore()->get('decisionHistoriesForReviewersEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'decisionHistoriesForReviewersEnabled'");
     }
 
     /**
@@ -80,7 +100,11 @@ class AccessReviewScheduleSettings implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getDefaultDecision(): ?string {
-        return $this->getBackingStore()->get('defaultDecision');
+        $val = $this->getBackingStore()->get('defaultDecision');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultDecision'");
     }
 
     /**
@@ -88,12 +112,16 @@ class AccessReviewScheduleSettings implements AdditionalDataHolder, BackedModel,
      * @return bool|null
     */
     public function getDefaultDecisionEnabled(): ?bool {
-        return $this->getBackingStore()->get('defaultDecisionEnabled');
+        $val = $this->getBackingStore()->get('defaultDecisionEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultDecisionEnabled'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -120,7 +148,11 @@ class AccessReviewScheduleSettings implements AdditionalDataHolder, BackedModel,
      * @return int|null
     */
     public function getInstanceDurationInDays(): ?int {
-        return $this->getBackingStore()->get('instanceDurationInDays');
+        $val = $this->getBackingStore()->get('instanceDurationInDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'instanceDurationInDays'");
     }
 
     /**
@@ -128,7 +160,11 @@ class AccessReviewScheduleSettings implements AdditionalDataHolder, BackedModel,
      * @return bool|null
     */
     public function getJustificationRequiredOnApproval(): ?bool {
-        return $this->getBackingStore()->get('justificationRequiredOnApproval');
+        $val = $this->getBackingStore()->get('justificationRequiredOnApproval');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'justificationRequiredOnApproval'");
     }
 
     /**
@@ -136,7 +172,11 @@ class AccessReviewScheduleSettings implements AdditionalDataHolder, BackedModel,
      * @return bool|null
     */
     public function getMailNotificationsEnabled(): ?bool {
-        return $this->getBackingStore()->get('mailNotificationsEnabled');
+        $val = $this->getBackingStore()->get('mailNotificationsEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mailNotificationsEnabled'");
     }
 
     /**
@@ -144,7 +184,11 @@ class AccessReviewScheduleSettings implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -152,7 +196,13 @@ class AccessReviewScheduleSettings implements AdditionalDataHolder, BackedModel,
      * @return array<AccessReviewRecommendationInsightSetting>|null
     */
     public function getRecommendationInsightSettings(): ?array {
-        return $this->getBackingStore()->get('recommendationInsightSettings');
+        $val = $this->getBackingStore()->get('recommendationInsightSettings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AccessReviewRecommendationInsightSetting::class);
+            /** @var array<AccessReviewRecommendationInsightSetting>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recommendationInsightSettings'");
     }
 
     /**
@@ -160,7 +210,11 @@ class AccessReviewScheduleSettings implements AdditionalDataHolder, BackedModel,
      * @return DateInterval|null
     */
     public function getRecommendationLookBackDuration(): ?DateInterval {
-        return $this->getBackingStore()->get('recommendationLookBackDuration');
+        $val = $this->getBackingStore()->get('recommendationLookBackDuration');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recommendationLookBackDuration'");
     }
 
     /**
@@ -168,7 +222,11 @@ class AccessReviewScheduleSettings implements AdditionalDataHolder, BackedModel,
      * @return bool|null
     */
     public function getRecommendationsEnabled(): ?bool {
-        return $this->getBackingStore()->get('recommendationsEnabled');
+        $val = $this->getBackingStore()->get('recommendationsEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recommendationsEnabled'");
     }
 
     /**
@@ -176,7 +234,11 @@ class AccessReviewScheduleSettings implements AdditionalDataHolder, BackedModel,
      * @return PatternedRecurrence|null
     */
     public function getRecurrence(): ?PatternedRecurrence {
-        return $this->getBackingStore()->get('recurrence');
+        $val = $this->getBackingStore()->get('recurrence');
+        if (is_null($val) || $val instanceof PatternedRecurrence) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recurrence'");
     }
 
     /**
@@ -184,7 +246,11 @@ class AccessReviewScheduleSettings implements AdditionalDataHolder, BackedModel,
      * @return bool|null
     */
     public function getReminderNotificationsEnabled(): ?bool {
-        return $this->getBackingStore()->get('reminderNotificationsEnabled');
+        $val = $this->getBackingStore()->get('reminderNotificationsEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reminderNotificationsEnabled'");
     }
 
     /**

@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class CanvasLayout extends Entity implements Parsable 
 {
@@ -26,7 +27,7 @@ class CanvasLayout extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +42,13 @@ class CanvasLayout extends Entity implements Parsable
      * @return array<HorizontalSection>|null
     */
     public function getHorizontalSections(): ?array {
-        return $this->getBackingStore()->get('horizontalSections');
+        $val = $this->getBackingStore()->get('horizontalSections');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, HorizontalSection::class);
+            /** @var array<HorizontalSection>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'horizontalSections'");
     }
 
     /**
@@ -49,7 +56,11 @@ class CanvasLayout extends Entity implements Parsable
      * @return VerticalSection|null
     */
     public function getVerticalSection(): ?VerticalSection {
-        return $this->getBackingStore()->get('verticalSection');
+        $val = $this->getBackingStore()->get('verticalSection');
+        if (is_null($val) || $val instanceof VerticalSection) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'verticalSection'");
     }
 
     /**

@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder,
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +53,11 @@ class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder,
      * @return EducationUserRole|null
     */
     public function getAppliesTo(): ?EducationUserRole {
-        return $this->getBackingStore()->get('appliesTo');
+        $val = $this->getBackingStore()->get('appliesTo');
+        if (is_null($val) || $val instanceof EducationUserRole) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appliesTo'");
     }
 
     /**
@@ -60,14 +70,21 @@ class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder,
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
             'appliesTo' => fn(ParseNode $n) => $o->setAppliesTo($n->getEnumValue(EducationUserRole::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'skuIds' => fn(ParseNode $n) => $o->setSkuIds($n->getCollectionOfPrimitiveValues()),
+            'skuIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSkuIds($val);
+            },
         ];
     }
 
@@ -76,7 +93,11 @@ class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder,
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -84,7 +105,13 @@ class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder,
      * @return array<string>|null
     */
     public function getSkuIds(): ?array {
-        return $this->getBackingStore()->get('skuIds');
+        $val = $this->getBackingStore()->get('skuIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'skuIds'");
     }
 
     /**

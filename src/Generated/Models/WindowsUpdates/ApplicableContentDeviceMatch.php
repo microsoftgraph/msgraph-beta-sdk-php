@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ApplicableContentDeviceMatch implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class ApplicableContentDeviceMatch implements AdditionalDataHolder, BackedModel,
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,19 +61,30 @@ class ApplicableContentDeviceMatch implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->getBackingStore()->get('deviceId');
+        $val = $this->getBackingStore()->get('deviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'recommendedBy' => fn(ParseNode $n) => $o->setRecommendedBy($n->getCollectionOfPrimitiveValues()),
+            'recommendedBy' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRecommendedBy($val);
+            },
         ];
     }
 
@@ -76,7 +93,11 @@ class ApplicableContentDeviceMatch implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -84,7 +105,13 @@ class ApplicableContentDeviceMatch implements AdditionalDataHolder, BackedModel,
      * @return array<string>|null
     */
     public function getRecommendedBy(): ?array {
-        return $this->getBackingStore()->get('recommendedBy');
+        $val = $this->getBackingStore()->get('recommendedBy');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recommendedBy'");
     }
 
     /**

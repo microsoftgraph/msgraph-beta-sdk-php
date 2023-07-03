@@ -6,6 +6,7 @@ use Microsoft\Graph\Beta\Generated\Models\BaseCollectionPaginationCountResponse;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ReferenceDefinitionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
@@ -27,7 +28,7 @@ class ReferenceDefinitionCollectionResponse extends BaseCollectionPaginationCoun
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +42,13 @@ class ReferenceDefinitionCollectionResponse extends BaseCollectionPaginationCoun
      * @return array<ReferenceDefinition>|null
     */
     public function getValue(): ?array {
-        return $this->getBackingStore()->get('value');
+        $val = $this->getBackingStore()->get('value');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ReferenceDefinition::class);
+            /** @var array<ReferenceDefinition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'value'");
     }
 
     /**

@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class MeetingRegistration extends MeetingRegistrationBase implements Parsable 
 {
@@ -31,7 +32,13 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
      * @return array<MeetingRegistrationQuestion>|null
     */
     public function getCustomQuestions(): ?array {
-        return $this->getBackingStore()->get('customQuestions');
+        $val = $this->getBackingStore()->get('customQuestions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MeetingRegistrationQuestion::class);
+            /** @var array<MeetingRegistrationQuestion>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customQuestions'");
     }
 
     /**
@@ -39,7 +46,11 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -47,12 +58,16 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('endDateTime');
+        $val = $this->getBackingStore()->get('endDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -73,7 +88,11 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
      * @return int|null
     */
     public function getRegistrationPageViewCount(): ?int {
-        return $this->getBackingStore()->get('registrationPageViewCount');
+        $val = $this->getBackingStore()->get('registrationPageViewCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'registrationPageViewCount'");
     }
 
     /**
@@ -81,7 +100,11 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
      * @return string|null
     */
     public function getRegistrationPageWebUrl(): ?string {
-        return $this->getBackingStore()->get('registrationPageWebUrl');
+        $val = $this->getBackingStore()->get('registrationPageWebUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'registrationPageWebUrl'");
     }
 
     /**
@@ -89,7 +112,13 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
      * @return array<MeetingSpeaker>|null
     */
     public function getSpeakers(): ?array {
-        return $this->getBackingStore()->get('speakers');
+        $val = $this->getBackingStore()->get('speakers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MeetingSpeaker::class);
+            /** @var array<MeetingSpeaker>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'speakers'");
     }
 
     /**
@@ -97,7 +126,11 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('startDateTime');
+        $val = $this->getBackingStore()->get('startDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startDateTime'");
     }
 
     /**
@@ -105,7 +138,11 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
      * @return string|null
     */
     public function getSubject(): ?string {
-        return $this->getBackingStore()->get('subject');
+        $val = $this->getBackingStore()->get('subject');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subject'");
     }
 
     /**

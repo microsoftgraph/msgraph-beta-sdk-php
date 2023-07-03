@@ -6,12 +6,16 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Intune will provide customer the ability to run their Powershell scripts on the enrolled windows 10 Azure Active Directory joined devices. The script can be run once or periodically.
+*/
 class DeviceManagementScript extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementScript and sets the default values.
+     * Instantiates a new deviceManagementScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -31,7 +35,13 @@ class DeviceManagementScript extends Entity implements Parsable
      * @return array<DeviceManagementScriptAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->getBackingStore()->get('assignments');
+        $val = $this->getBackingStore()->get('assignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementScriptAssignment::class);
+            /** @var array<DeviceManagementScriptAssignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignments'");
     }
 
     /**
@@ -39,7 +49,11 @@ class DeviceManagementScript extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -47,7 +61,11 @@ class DeviceManagementScript extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -55,7 +73,13 @@ class DeviceManagementScript extends Entity implements Parsable
      * @return array<DeviceManagementScriptDeviceState>|null
     */
     public function getDeviceRunStates(): ?array {
-        return $this->getBackingStore()->get('deviceRunStates');
+        $val = $this->getBackingStore()->get('deviceRunStates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementScriptDeviceState::class);
+            /** @var array<DeviceManagementScriptDeviceState>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceRunStates'");
     }
 
     /**
@@ -63,7 +87,11 @@ class DeviceManagementScript extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -71,12 +99,16 @@ class DeviceManagementScript extends Entity implements Parsable
      * @return bool|null
     */
     public function getEnforceSignatureCheck(): ?bool {
-        return $this->getBackingStore()->get('enforceSignatureCheck');
+        $val = $this->getBackingStore()->get('enforceSignatureCheck');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enforceSignatureCheck'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -90,7 +122,14 @@ class DeviceManagementScript extends Entity implements Parsable
             'fileName' => fn(ParseNode $n) => $o->setFileName($n->getStringValue()),
             'groupAssignments' => fn(ParseNode $n) => $o->setGroupAssignments($n->getCollectionOfObjectValues([DeviceManagementScriptGroupAssignment::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
-            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
+            'roleScopeTagIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoleScopeTagIds($val);
+            },
             'runAs32Bit' => fn(ParseNode $n) => $o->setRunAs32Bit($n->getBooleanValue()),
             'runAsAccount' => fn(ParseNode $n) => $o->setRunAsAccount($n->getEnumValue(RunAsAccountType::class)),
             'runSummary' => fn(ParseNode $n) => $o->setRunSummary($n->getObjectValue([DeviceManagementScriptRunSummary::class, 'createFromDiscriminatorValue'])),
@@ -104,7 +143,11 @@ class DeviceManagementScript extends Entity implements Parsable
      * @return string|null
     */
     public function getFileName(): ?string {
-        return $this->getBackingStore()->get('fileName');
+        $val = $this->getBackingStore()->get('fileName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileName'");
     }
 
     /**
@@ -112,7 +155,13 @@ class DeviceManagementScript extends Entity implements Parsable
      * @return array<DeviceManagementScriptGroupAssignment>|null
     */
     public function getGroupAssignments(): ?array {
-        return $this->getBackingStore()->get('groupAssignments');
+        $val = $this->getBackingStore()->get('groupAssignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementScriptGroupAssignment::class);
+            /** @var array<DeviceManagementScriptGroupAssignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupAssignments'");
     }
 
     /**
@@ -120,7 +169,11 @@ class DeviceManagementScript extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -128,7 +181,13 @@ class DeviceManagementScript extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->getBackingStore()->get('roleScopeTagIds');
+        $val = $this->getBackingStore()->get('roleScopeTagIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleScopeTagIds'");
     }
 
     /**
@@ -136,7 +195,11 @@ class DeviceManagementScript extends Entity implements Parsable
      * @return bool|null
     */
     public function getRunAs32Bit(): ?bool {
-        return $this->getBackingStore()->get('runAs32Bit');
+        $val = $this->getBackingStore()->get('runAs32Bit');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'runAs32Bit'");
     }
 
     /**
@@ -144,7 +207,11 @@ class DeviceManagementScript extends Entity implements Parsable
      * @return RunAsAccountType|null
     */
     public function getRunAsAccount(): ?RunAsAccountType {
-        return $this->getBackingStore()->get('runAsAccount');
+        $val = $this->getBackingStore()->get('runAsAccount');
+        if (is_null($val) || $val instanceof RunAsAccountType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'runAsAccount'");
     }
 
     /**
@@ -152,7 +219,11 @@ class DeviceManagementScript extends Entity implements Parsable
      * @return DeviceManagementScriptRunSummary|null
     */
     public function getRunSummary(): ?DeviceManagementScriptRunSummary {
-        return $this->getBackingStore()->get('runSummary');
+        $val = $this->getBackingStore()->get('runSummary');
+        if (is_null($val) || $val instanceof DeviceManagementScriptRunSummary) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'runSummary'");
     }
 
     /**
@@ -160,7 +231,11 @@ class DeviceManagementScript extends Entity implements Parsable
      * @return StreamInterface|null
     */
     public function getScriptContent(): ?StreamInterface {
-        return $this->getBackingStore()->get('scriptContent');
+        $val = $this->getBackingStore()->get('scriptContent');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scriptContent'");
     }
 
     /**
@@ -168,7 +243,13 @@ class DeviceManagementScript extends Entity implements Parsable
      * @return array<DeviceManagementScriptUserState>|null
     */
     public function getUserRunStates(): ?array {
-        return $this->getBackingStore()->get('userRunStates');
+        $val = $this->getBackingStore()->get('userRunStates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementScriptUserState::class);
+            /** @var array<DeviceManagementScriptUserState>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRunStates'");
     }
 
     /**

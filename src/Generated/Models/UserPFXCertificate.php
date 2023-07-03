@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Entity that encapsulates all information required for a user's PFX certificates.
+*/
 class UserPFXCertificate extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserPFXCertificate and sets the default values.
+     * Instantiates a new userPFXCertificate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -31,7 +34,11 @@ class UserPFXCertificate extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -39,7 +46,11 @@ class UserPFXCertificate extends Entity implements Parsable
      * @return StreamInterface|null
     */
     public function getEncryptedPfxBlob(): ?StreamInterface {
-        return $this->getBackingStore()->get('encryptedPfxBlob');
+        $val = $this->getBackingStore()->get('encryptedPfxBlob');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'encryptedPfxBlob'");
     }
 
     /**
@@ -47,7 +58,11 @@ class UserPFXCertificate extends Entity implements Parsable
      * @return string|null
     */
     public function getEncryptedPfxPassword(): ?string {
-        return $this->getBackingStore()->get('encryptedPfxPassword');
+        $val = $this->getBackingStore()->get('encryptedPfxPassword');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'encryptedPfxPassword'");
     }
 
     /**
@@ -55,12 +70,16 @@ class UserPFXCertificate extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('expirationDateTime');
+        $val = $this->getBackingStore()->get('expirationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expirationDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -85,7 +104,11 @@ class UserPFXCertificate extends Entity implements Parsable
      * @return UserPfxIntendedPurpose|null
     */
     public function getIntendedPurpose(): ?UserPfxIntendedPurpose {
-        return $this->getBackingStore()->get('intendedPurpose');
+        $val = $this->getBackingStore()->get('intendedPurpose');
+        if (is_null($val) || $val instanceof UserPfxIntendedPurpose) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'intendedPurpose'");
     }
 
     /**
@@ -93,7 +116,11 @@ class UserPFXCertificate extends Entity implements Parsable
      * @return string|null
     */
     public function getKeyName(): ?string {
-        return $this->getBackingStore()->get('keyName');
+        $val = $this->getBackingStore()->get('keyName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'keyName'");
     }
 
     /**
@@ -101,7 +128,11 @@ class UserPFXCertificate extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -109,7 +140,11 @@ class UserPFXCertificate extends Entity implements Parsable
      * @return UserPfxPaddingScheme|null
     */
     public function getPaddingScheme(): ?UserPfxPaddingScheme {
-        return $this->getBackingStore()->get('paddingScheme');
+        $val = $this->getBackingStore()->get('paddingScheme');
+        if (is_null($val) || $val instanceof UserPfxPaddingScheme) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'paddingScheme'");
     }
 
     /**
@@ -117,7 +152,11 @@ class UserPFXCertificate extends Entity implements Parsable
      * @return string|null
     */
     public function getProviderName(): ?string {
-        return $this->getBackingStore()->get('providerName');
+        $val = $this->getBackingStore()->get('providerName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'providerName'");
     }
 
     /**
@@ -125,7 +164,11 @@ class UserPFXCertificate extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('startDateTime');
+        $val = $this->getBackingStore()->get('startDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startDateTime'");
     }
 
     /**
@@ -133,7 +176,11 @@ class UserPFXCertificate extends Entity implements Parsable
      * @return string|null
     */
     public function getThumbprint(): ?string {
-        return $this->getBackingStore()->get('thumbprint');
+        $val = $this->getBackingStore()->get('thumbprint');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'thumbprint'");
     }
 
     /**
@@ -141,7 +188,11 @@ class UserPFXCertificate extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('userPrincipalName');
+        $val = $this->getBackingStore()->get('userPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
     }
 
     /**

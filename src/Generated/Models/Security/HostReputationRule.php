@@ -39,7 +39,12 @@ class HostReputationRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,12 +60,16 @@ class HostReputationRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -78,7 +87,11 @@ class HostReputationRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -86,7 +99,11 @@ class HostReputationRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -94,7 +111,11 @@ class HostReputationRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getRelatedDetailsUrl(): ?string {
-        return $this->getBackingStore()->get('relatedDetailsUrl');
+        $val = $this->getBackingStore()->get('relatedDetailsUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'relatedDetailsUrl'");
     }
 
     /**
@@ -102,7 +123,11 @@ class HostReputationRule implements AdditionalDataHolder, BackedModel, Parsable
      * @return HostReputationRuleSeverity|null
     */
     public function getSeverity(): ?HostReputationRuleSeverity {
-        return $this->getBackingStore()->get('severity');
+        $val = $this->getBackingStore()->get('severity');
+        if (is_null($val) || $val instanceof HostReputationRuleSeverity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'severity'");
     }
 
     /**

@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBase implements Parsable 
 {
@@ -30,7 +31,11 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
      * @return string|null
     */
     public function getAssetTagTemplate(): ?string {
-        return $this->getBackingStore()->get('assetTagTemplate');
+        $val = $this->getBackingStore()->get('assetTagTemplate');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assetTagTemplate'");
     }
 
     /**
@@ -38,12 +43,16 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
      * @return IosWebContentFilterBase|null
     */
     public function getContentFilterSettings(): ?IosWebContentFilterBase {
-        return $this->getBackingStore()->get('contentFilterSettings');
+        $val = $this->getBackingStore()->get('contentFilterSettings');
+        if (is_null($val) || $val instanceof IosWebContentFilterBase) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentFilterSettings'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -71,7 +80,13 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
      * @return array<IosHomeScreenItem>|null
     */
     public function getHomeScreenDockIcons(): ?array {
-        return $this->getBackingStore()->get('homeScreenDockIcons');
+        $val = $this->getBackingStore()->get('homeScreenDockIcons');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IosHomeScreenItem::class);
+            /** @var array<IosHomeScreenItem>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'homeScreenDockIcons'");
     }
 
     /**
@@ -79,7 +94,11 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
      * @return int|null
     */
     public function getHomeScreenGridHeight(): ?int {
-        return $this->getBackingStore()->get('homeScreenGridHeight');
+        $val = $this->getBackingStore()->get('homeScreenGridHeight');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'homeScreenGridHeight'");
     }
 
     /**
@@ -87,7 +106,11 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
      * @return int|null
     */
     public function getHomeScreenGridWidth(): ?int {
-        return $this->getBackingStore()->get('homeScreenGridWidth');
+        $val = $this->getBackingStore()->get('homeScreenGridWidth');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'homeScreenGridWidth'");
     }
 
     /**
@@ -95,7 +118,13 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
      * @return array<IosHomeScreenPage>|null
     */
     public function getHomeScreenPages(): ?array {
-        return $this->getBackingStore()->get('homeScreenPages');
+        $val = $this->getBackingStore()->get('homeScreenPages');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IosHomeScreenPage::class);
+            /** @var array<IosHomeScreenPage>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'homeScreenPages'");
     }
 
     /**
@@ -103,7 +132,11 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
      * @return IosCertificateProfileBase|null
     */
     public function getIdentityCertificateForClientAuthentication(): ?IosCertificateProfileBase {
-        return $this->getBackingStore()->get('identityCertificateForClientAuthentication');
+        $val = $this->getBackingStore()->get('identityCertificateForClientAuthentication');
+        if (is_null($val) || $val instanceof IosCertificateProfileBase) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityCertificateForClientAuthentication'");
     }
 
     /**
@@ -111,7 +144,11 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
      * @return IosSingleSignOnExtension|null
     */
     public function getIosSingleSignOnExtension(): ?IosSingleSignOnExtension {
-        return $this->getBackingStore()->get('iosSingleSignOnExtension');
+        $val = $this->getBackingStore()->get('iosSingleSignOnExtension');
+        if (is_null($val) || $val instanceof IosSingleSignOnExtension) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'iosSingleSignOnExtension'");
     }
 
     /**
@@ -119,7 +156,11 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
      * @return string|null
     */
     public function getLockScreenFootnote(): ?string {
-        return $this->getBackingStore()->get('lockScreenFootnote');
+        $val = $this->getBackingStore()->get('lockScreenFootnote');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lockScreenFootnote'");
     }
 
     /**
@@ -127,7 +168,13 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
      * @return array<IosNotificationSettings>|null
     */
     public function getNotificationSettings(): ?array {
-        return $this->getBackingStore()->get('notificationSettings');
+        $val = $this->getBackingStore()->get('notificationSettings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IosNotificationSettings::class);
+            /** @var array<IosNotificationSettings>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notificationSettings'");
     }
 
     /**
@@ -135,7 +182,11 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
      * @return SingleSignOnExtension|null
     */
     public function getSingleSignOnExtension(): ?SingleSignOnExtension {
-        return $this->getBackingStore()->get('singleSignOnExtension');
+        $val = $this->getBackingStore()->get('singleSignOnExtension');
+        if (is_null($val) || $val instanceof SingleSignOnExtension) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'singleSignOnExtension'");
     }
 
     /**
@@ -143,7 +194,11 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
      * @return IosCertificateProfileBase|null
     */
     public function getSingleSignOnExtensionPkinitCertificate(): ?IosCertificateProfileBase {
-        return $this->getBackingStore()->get('singleSignOnExtensionPkinitCertificate');
+        $val = $this->getBackingStore()->get('singleSignOnExtensionPkinitCertificate');
+        if (is_null($val) || $val instanceof IosCertificateProfileBase) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'singleSignOnExtensionPkinitCertificate'");
     }
 
     /**
@@ -151,7 +206,11 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
      * @return IosSingleSignOnSettings|null
     */
     public function getSingleSignOnSettings(): ?IosSingleSignOnSettings {
-        return $this->getBackingStore()->get('singleSignOnSettings');
+        $val = $this->getBackingStore()->get('singleSignOnSettings');
+        if (is_null($val) || $val instanceof IosSingleSignOnSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'singleSignOnSettings'");
     }
 
     /**
@@ -159,7 +218,11 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
      * @return IosWallpaperDisplayLocation|null
     */
     public function getWallpaperDisplayLocation(): ?IosWallpaperDisplayLocation {
-        return $this->getBackingStore()->get('wallpaperDisplayLocation');
+        $val = $this->getBackingStore()->get('wallpaperDisplayLocation');
+        if (is_null($val) || $val instanceof IosWallpaperDisplayLocation) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wallpaperDisplayLocation'");
     }
 
     /**
@@ -167,7 +230,11 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
      * @return MimeContent|null
     */
     public function getWallpaperImage(): ?MimeContent {
-        return $this->getBackingStore()->get('wallpaperImage');
+        $val = $this->getBackingStore()->get('wallpaperImage');
+        if (is_null($val) || $val instanceof MimeContent) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wallpaperImage'");
     }
 
     /**

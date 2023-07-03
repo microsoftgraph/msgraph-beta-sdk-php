@@ -30,7 +30,11 @@ class ProviderTenantSetting extends Entity implements Parsable
      * @return string|null
     */
     public function getAzureTenantId(): ?string {
-        return $this->getBackingStore()->get('azureTenantId');
+        $val = $this->getBackingStore()->get('azureTenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureTenantId'");
     }
 
     /**
@@ -38,12 +42,16 @@ class ProviderTenantSetting extends Entity implements Parsable
      * @return bool|null
     */
     public function getEnabled(): ?bool {
-        return $this->getBackingStore()->get('enabled');
+        $val = $this->getBackingStore()->get('enabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enabled'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -61,7 +69,11 @@ class ProviderTenantSetting extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -69,7 +81,11 @@ class ProviderTenantSetting extends Entity implements Parsable
      * @return string|null
     */
     public function getProvider(): ?string {
-        return $this->getBackingStore()->get('provider');
+        $val = $this->getBackingStore()->get('provider');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'provider'");
     }
 
     /**
@@ -77,7 +93,11 @@ class ProviderTenantSetting extends Entity implements Parsable
      * @return string|null
     */
     public function getVendor(): ?string {
-        return $this->getBackingStore()->get('vendor');
+        $val = $this->getBackingStore()->get('vendor');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vendor'");
     }
 
     /**

@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics device event entity contains NRT device event details.
+*/
 class UserExperienceAnalyticsDeviceTimelineEvent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsDeviceTimelineEvent and sets the default values.
+     * Instantiates a new userExperienceAnalyticsDeviceTimelineEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -30,7 +33,11 @@ class UserExperienceAnalyticsDeviceTimelineEvent extends Entity implements Parsa
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->getBackingStore()->get('deviceId');
+        $val = $this->getBackingStore()->get('deviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceId'");
     }
 
     /**
@@ -38,7 +45,11 @@ class UserExperienceAnalyticsDeviceTimelineEvent extends Entity implements Parsa
      * @return DateTime|null
     */
     public function getEventDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('eventDateTime');
+        $val = $this->getBackingStore()->get('eventDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eventDateTime'");
     }
 
     /**
@@ -46,7 +57,11 @@ class UserExperienceAnalyticsDeviceTimelineEvent extends Entity implements Parsa
      * @return string|null
     */
     public function getEventDetails(): ?string {
-        return $this->getBackingStore()->get('eventDetails');
+        $val = $this->getBackingStore()->get('eventDetails');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eventDetails'");
     }
 
     /**
@@ -54,7 +69,11 @@ class UserExperienceAnalyticsDeviceTimelineEvent extends Entity implements Parsa
      * @return DeviceEventLevel|null
     */
     public function getEventLevel(): ?DeviceEventLevel {
-        return $this->getBackingStore()->get('eventLevel');
+        $val = $this->getBackingStore()->get('eventLevel');
+        if (is_null($val) || $val instanceof DeviceEventLevel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eventLevel'");
     }
 
     /**
@@ -62,7 +81,11 @@ class UserExperienceAnalyticsDeviceTimelineEvent extends Entity implements Parsa
      * @return string|null
     */
     public function getEventName(): ?string {
-        return $this->getBackingStore()->get('eventName');
+        $val = $this->getBackingStore()->get('eventName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eventName'");
     }
 
     /**
@@ -70,12 +93,16 @@ class UserExperienceAnalyticsDeviceTimelineEvent extends Entity implements Parsa
      * @return string|null
     */
     public function getEventSource(): ?string {
-        return $this->getBackingStore()->get('eventSource');
+        $val = $this->getBackingStore()->get('eventSource');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eventSource'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

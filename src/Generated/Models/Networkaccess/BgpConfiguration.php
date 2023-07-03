@@ -39,7 +39,12 @@ class BgpConfiguration implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +52,11 @@ class BgpConfiguration implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getAsn(): ?int {
-        return $this->getBackingStore()->get('asn');
+        $val = $this->getBackingStore()->get('asn');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'asn'");
     }
 
     /**
@@ -60,7 +69,7 @@ class BgpConfiguration implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -78,7 +87,11 @@ class BgpConfiguration implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getIpAddress(): ?string {
-        return $this->getBackingStore()->get('ipAddress');
+        $val = $this->getBackingStore()->get('ipAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ipAddress'");
     }
 
     /**
@@ -86,7 +99,11 @@ class BgpConfiguration implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getLocalIpAddress(): ?string {
-        return $this->getBackingStore()->get('localIpAddress');
+        $val = $this->getBackingStore()->get('localIpAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localIpAddress'");
     }
 
     /**
@@ -94,7 +111,11 @@ class BgpConfiguration implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -102,7 +123,11 @@ class BgpConfiguration implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getPeerIpAddress(): ?string {
-        return $this->getBackingStore()->get('peerIpAddress');
+        $val = $this->getBackingStore()->get('peerIpAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'peerIpAddress'");
     }
 
     /**

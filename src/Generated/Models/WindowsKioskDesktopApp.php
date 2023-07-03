@@ -30,7 +30,11 @@ class WindowsKioskDesktopApp extends WindowsKioskAppBase implements Parsable
      * @return string|null
     */
     public function getDesktopApplicationId(): ?string {
-        return $this->getBackingStore()->get('desktopApplicationId');
+        $val = $this->getBackingStore()->get('desktopApplicationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'desktopApplicationId'");
     }
 
     /**
@@ -38,12 +42,16 @@ class WindowsKioskDesktopApp extends WindowsKioskAppBase implements Parsable
      * @return string|null
     */
     public function getDesktopApplicationLinkPath(): ?string {
-        return $this->getBackingStore()->get('desktopApplicationLinkPath');
+        $val = $this->getBackingStore()->get('desktopApplicationLinkPath');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'desktopApplicationLinkPath'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -59,7 +67,11 @@ class WindowsKioskDesktopApp extends WindowsKioskAppBase implements Parsable
      * @return string|null
     */
     public function getPath(): ?string {
-        return $this->getBackingStore()->get('path');
+        $val = $this->getBackingStore()->get('path');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'path'");
     }
 
     /**

@@ -7,13 +7,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * Represents wipe requests issued by tenant admin for Bring-Your-Own-Device(BYOD) Windows devices.
-*/
 class WindowsInformationProtectionWipeAction extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new windowsInformationProtectionWipeAction and sets the default values.
+     * Instantiates a new WindowsInformationProtectionWipeAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -30,7 +27,7 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -49,7 +46,11 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastCheckInDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastCheckInDateTime');
+        $val = $this->getBackingStore()->get('lastCheckInDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastCheckInDateTime'");
     }
 
     /**
@@ -57,7 +58,11 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
      * @return ActionState|null
     */
     public function getStatus(): ?ActionState {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof ActionState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**
@@ -65,7 +70,11 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetedDeviceMacAddress(): ?string {
-        return $this->getBackingStore()->get('targetedDeviceMacAddress');
+        $val = $this->getBackingStore()->get('targetedDeviceMacAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetedDeviceMacAddress'");
     }
 
     /**
@@ -73,7 +82,11 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetedDeviceName(): ?string {
-        return $this->getBackingStore()->get('targetedDeviceName');
+        $val = $this->getBackingStore()->get('targetedDeviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetedDeviceName'");
     }
 
     /**
@@ -81,7 +94,11 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetedDeviceRegistrationId(): ?string {
-        return $this->getBackingStore()->get('targetedDeviceRegistrationId');
+        $val = $this->getBackingStore()->get('targetedDeviceRegistrationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetedDeviceRegistrationId'");
     }
 
     /**
@@ -89,7 +106,11 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetedUserId(): ?string {
-        return $this->getBackingStore()->get('targetedUserId');
+        $val = $this->getBackingStore()->get('targetedUserId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetedUserId'");
     }
 
     /**

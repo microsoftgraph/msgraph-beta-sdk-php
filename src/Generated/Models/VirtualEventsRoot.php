@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class VirtualEventsRoot extends Entity implements Parsable 
 {
@@ -29,12 +30,18 @@ class VirtualEventsRoot extends Entity implements Parsable
      * @return array<VirtualEvent>|null
     */
     public function getEvents(): ?array {
-        return $this->getBackingStore()->get('events');
+        $val = $this->getBackingStore()->get('events');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, VirtualEvent::class);
+            /** @var array<VirtualEvent>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'events'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -49,7 +56,13 @@ class VirtualEventsRoot extends Entity implements Parsable
      * @return array<VirtualEventWebinar>|null
     */
     public function getWebinars(): ?array {
-        return $this->getBackingStore()->get('webinars');
+        $val = $this->getBackingStore()->get('webinars');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, VirtualEventWebinar::class);
+            /** @var array<VirtualEventWebinar>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'webinars'");
     }
 
     /**

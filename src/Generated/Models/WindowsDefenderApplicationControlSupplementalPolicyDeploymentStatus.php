@@ -33,7 +33,11 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
      * @return WindowsDefenderApplicationControlSupplementalPolicyStatuses|null
     */
     public function getDeploymentStatus(): ?WindowsDefenderApplicationControlSupplementalPolicyStatuses {
-        return $this->getBackingStore()->get('deploymentStatus');
+        $val = $this->getBackingStore()->get('deploymentStatus');
+        if (is_null($val) || $val instanceof WindowsDefenderApplicationControlSupplementalPolicyStatuses) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deploymentStatus'");
     }
 
     /**
@@ -41,7 +45,11 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->getBackingStore()->get('deviceId');
+        $val = $this->getBackingStore()->get('deviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceId'");
     }
 
     /**
@@ -49,12 +57,16 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->getBackingStore()->get('deviceName');
+        $val = $this->getBackingStore()->get('deviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -77,7 +89,11 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
      * @return DateTime|null
     */
     public function getLastSyncDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastSyncDateTime');
+        $val = $this->getBackingStore()->get('lastSyncDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSyncDateTime'");
     }
 
     /**
@@ -85,7 +101,11 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
      * @return string|null
     */
     public function getOsDescription(): ?string {
-        return $this->getBackingStore()->get('osDescription');
+        $val = $this->getBackingStore()->get('osDescription');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osDescription'");
     }
 
     /**
@@ -93,7 +113,11 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
      * @return string|null
     */
     public function getOsVersion(): ?string {
-        return $this->getBackingStore()->get('osVersion');
+        $val = $this->getBackingStore()->get('osVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osVersion'");
     }
 
     /**
@@ -101,7 +125,11 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
      * @return WindowsDefenderApplicationControlSupplementalPolicy|null
     */
     public function getPolicy(): ?WindowsDefenderApplicationControlSupplementalPolicy {
-        return $this->getBackingStore()->get('policy');
+        $val = $this->getBackingStore()->get('policy');
+        if (is_null($val) || $val instanceof WindowsDefenderApplicationControlSupplementalPolicy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policy'");
     }
 
     /**
@@ -109,7 +137,11 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
      * @return string|null
     */
     public function getPolicyVersion(): ?string {
-        return $this->getBackingStore()->get('policyVersion');
+        $val = $this->getBackingStore()->get('policyVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyVersion'");
     }
 
     /**
@@ -117,7 +149,11 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
      * @return string|null
     */
     public function getUserName(): ?string {
-        return $this->getBackingStore()->get('userName');
+        $val = $this->getBackingStore()->get('userName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userName'");
     }
 
     /**
@@ -125,7 +161,11 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('userPrincipalName');
+        $val = $this->getBackingStore()->get('userPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
     }
 
     /**

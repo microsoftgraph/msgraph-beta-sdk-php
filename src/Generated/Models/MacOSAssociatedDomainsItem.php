@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * A mapping of application identifiers to associated domains.
@@ -42,7 +43,12 @@ class MacOSAssociatedDomainsItem implements AdditionalDataHolder, BackedModel, P
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -50,7 +56,11 @@ class MacOSAssociatedDomainsItem implements AdditionalDataHolder, BackedModel, P
      * @return string|null
     */
     public function getApplicationIdentifier(): ?string {
-        return $this->getBackingStore()->get('applicationIdentifier');
+        $val = $this->getBackingStore()->get('applicationIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationIdentifier'");
     }
 
     /**
@@ -66,7 +76,11 @@ class MacOSAssociatedDomainsItem implements AdditionalDataHolder, BackedModel, P
      * @return bool|null
     */
     public function getDirectDownloadsEnabled(): ?bool {
-        return $this->getBackingStore()->get('directDownloadsEnabled');
+        $val = $this->getBackingStore()->get('directDownloadsEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'directDownloadsEnabled'");
     }
 
     /**
@@ -74,19 +88,32 @@ class MacOSAssociatedDomainsItem implements AdditionalDataHolder, BackedModel, P
      * @return array<string>|null
     */
     public function getDomains(): ?array {
-        return $this->getBackingStore()->get('domains');
+        $val = $this->getBackingStore()->get('domains');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'domains'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
             'applicationIdentifier' => fn(ParseNode $n) => $o->setApplicationIdentifier($n->getStringValue()),
             'directDownloadsEnabled' => fn(ParseNode $n) => $o->setDirectDownloadsEnabled($n->getBooleanValue()),
-            'domains' => fn(ParseNode $n) => $o->setDomains($n->getCollectionOfPrimitiveValues()),
+            'domains' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDomains($val);
+            },
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
@@ -96,7 +123,11 @@ class MacOSAssociatedDomainsItem implements AdditionalDataHolder, BackedModel, P
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

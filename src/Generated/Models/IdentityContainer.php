@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +53,13 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<IdentityApiConnector>|null
     */
     public function getApiConnectors(): ?array {
-        return $this->getBackingStore()->get('apiConnectors');
+        $val = $this->getBackingStore()->get('apiConnectors');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IdentityApiConnector::class);
+            /** @var array<IdentityApiConnector>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'apiConnectors'");
     }
 
     /**
@@ -55,7 +67,13 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<AuthenticationEventListener>|null
     */
     public function getAuthenticationEventListeners(): ?array {
-        return $this->getBackingStore()->get('authenticationEventListeners');
+        $val = $this->getBackingStore()->get('authenticationEventListeners');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AuthenticationEventListener::class);
+            /** @var array<AuthenticationEventListener>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationEventListeners'");
     }
 
     /**
@@ -63,7 +81,13 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<AuthenticationEventsFlow>|null
     */
     public function getAuthenticationEventsFlows(): ?array {
-        return $this->getBackingStore()->get('authenticationEventsFlows');
+        $val = $this->getBackingStore()->get('authenticationEventsFlows');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AuthenticationEventsFlow::class);
+            /** @var array<AuthenticationEventsFlow>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationEventsFlows'");
     }
 
     /**
@@ -71,7 +95,13 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<B2cIdentityUserFlow>|null
     */
     public function getB2cUserFlows(): ?array {
-        return $this->getBackingStore()->get('b2cUserFlows');
+        $val = $this->getBackingStore()->get('b2cUserFlows');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, B2cIdentityUserFlow::class);
+            /** @var array<B2cIdentityUserFlow>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'b2cUserFlows'");
     }
 
     /**
@@ -79,7 +109,13 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<B2xIdentityUserFlow>|null
     */
     public function getB2xUserFlows(): ?array {
-        return $this->getBackingStore()->get('b2xUserFlows');
+        $val = $this->getBackingStore()->get('b2xUserFlows');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, B2xIdentityUserFlow::class);
+            /** @var array<B2xIdentityUserFlow>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'b2xUserFlows'");
     }
 
     /**
@@ -95,7 +131,11 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
      * @return ConditionalAccessRoot|null
     */
     public function getConditionalAccess(): ?ConditionalAccessRoot {
-        return $this->getBackingStore()->get('conditionalAccess');
+        $val = $this->getBackingStore()->get('conditionalAccess');
+        if (is_null($val) || $val instanceof ConditionalAccessRoot) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'conditionalAccess'");
     }
 
     /**
@@ -103,7 +143,11 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
      * @return ContinuousAccessEvaluationPolicy|null
     */
     public function getContinuousAccessEvaluationPolicy(): ?ContinuousAccessEvaluationPolicy {
-        return $this->getBackingStore()->get('continuousAccessEvaluationPolicy');
+        $val = $this->getBackingStore()->get('continuousAccessEvaluationPolicy');
+        if (is_null($val) || $val instanceof ContinuousAccessEvaluationPolicy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'continuousAccessEvaluationPolicy'");
     }
 
     /**
@@ -111,12 +155,18 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<CustomAuthenticationExtension>|null
     */
     public function getCustomAuthenticationExtensions(): ?array {
-        return $this->getBackingStore()->get('customAuthenticationExtensions');
+        $val = $this->getBackingStore()->get('customAuthenticationExtensions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CustomAuthenticationExtension::class);
+            /** @var array<CustomAuthenticationExtension>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customAuthenticationExtensions'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -141,7 +191,13 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<IdentityProviderBase>|null
     */
     public function getIdentityProviders(): ?array {
-        return $this->getBackingStore()->get('identityProviders');
+        $val = $this->getBackingStore()->get('identityProviders');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IdentityProviderBase::class);
+            /** @var array<IdentityProviderBase>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityProviders'");
     }
 
     /**
@@ -149,7 +205,11 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -157,7 +217,13 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<IdentityUserFlowAttribute>|null
     */
     public function getUserFlowAttributes(): ?array {
-        return $this->getBackingStore()->get('userFlowAttributes');
+        $val = $this->getBackingStore()->get('userFlowAttributes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IdentityUserFlowAttribute::class);
+            /** @var array<IdentityUserFlowAttribute>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userFlowAttributes'");
     }
 
     /**
@@ -165,7 +231,13 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<IdentityUserFlow>|null
     */
     public function getUserFlows(): ?array {
-        return $this->getBackingStore()->get('userFlows');
+        $val = $this->getBackingStore()->get('userFlows');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IdentityUserFlow::class);
+            /** @var array<IdentityUserFlow>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userFlows'");
     }
 
     /**

@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AccessPackageMultipleChoiceQuestion extends AccessPackageQuestion implements Parsable 
 {
@@ -30,7 +31,11 @@ class AccessPackageMultipleChoiceQuestion extends AccessPackageQuestion implemen
      * @return bool|null
     */
     public function getAllowsMultipleSelection(): ?bool {
-        return $this->getBackingStore()->get('allowsMultipleSelection');
+        $val = $this->getBackingStore()->get('allowsMultipleSelection');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowsMultipleSelection'");
     }
 
     /**
@@ -38,12 +43,18 @@ class AccessPackageMultipleChoiceQuestion extends AccessPackageQuestion implemen
      * @return array<AccessPackageAnswerChoice>|null
     */
     public function getChoices(): ?array {
-        return $this->getBackingStore()->get('choices');
+        $val = $this->getBackingStore()->get('choices');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AccessPackageAnswerChoice::class);
+            /** @var array<AccessPackageAnswerChoice>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'choices'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

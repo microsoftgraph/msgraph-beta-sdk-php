@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * The Group Policy setting to MDM/Intune mapping.
@@ -32,7 +33,11 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return string|null
     */
     public function getAdmxSettingDefinitionId(): ?string {
-        return $this->getBackingStore()->get('admxSettingDefinitionId');
+        $val = $this->getBackingStore()->get('admxSettingDefinitionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'admxSettingDefinitionId'");
     }
 
     /**
@@ -40,20 +45,40 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getChildIdList(): ?array {
-        return $this->getBackingStore()->get('childIdList');
+        $val = $this->getBackingStore()->get('childIdList');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'childIdList'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'admxSettingDefinitionId' => fn(ParseNode $n) => $o->setAdmxSettingDefinitionId($n->getStringValue()),
-            'childIdList' => fn(ParseNode $n) => $o->setChildIdList($n->getCollectionOfPrimitiveValues()),
+            'childIdList' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setChildIdList($val);
+            },
             'intuneSettingDefinitionId' => fn(ParseNode $n) => $o->setIntuneSettingDefinitionId($n->getStringValue()),
-            'intuneSettingUriList' => fn(ParseNode $n) => $o->setIntuneSettingUriList($n->getCollectionOfPrimitiveValues()),
+            'intuneSettingUriList' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setIntuneSettingUriList($val);
+            },
             'isMdmSupported' => fn(ParseNode $n) => $o->setIsMdmSupported($n->getBooleanValue()),
             'mdmCspName' => fn(ParseNode $n) => $o->setMdmCspName($n->getStringValue()),
             'mdmMinimumOSVersion' => fn(ParseNode $n) => $o->setMdmMinimumOSVersion($n->getIntegerValue()),
@@ -78,7 +103,11 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return string|null
     */
     public function getIntuneSettingDefinitionId(): ?string {
-        return $this->getBackingStore()->get('intuneSettingDefinitionId');
+        $val = $this->getBackingStore()->get('intuneSettingDefinitionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'intuneSettingDefinitionId'");
     }
 
     /**
@@ -86,7 +115,13 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getIntuneSettingUriList(): ?array {
-        return $this->getBackingStore()->get('intuneSettingUriList');
+        $val = $this->getBackingStore()->get('intuneSettingUriList');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'intuneSettingUriList'");
     }
 
     /**
@@ -94,7 +129,11 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsMdmSupported(): ?bool {
-        return $this->getBackingStore()->get('isMdmSupported');
+        $val = $this->getBackingStore()->get('isMdmSupported');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isMdmSupported'");
     }
 
     /**
@@ -102,7 +141,11 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return string|null
     */
     public function getMdmCspName(): ?string {
-        return $this->getBackingStore()->get('mdmCspName');
+        $val = $this->getBackingStore()->get('mdmCspName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mdmCspName'");
     }
 
     /**
@@ -110,7 +153,11 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return int|null
     */
     public function getMdmMinimumOSVersion(): ?int {
-        return $this->getBackingStore()->get('mdmMinimumOSVersion');
+        $val = $this->getBackingStore()->get('mdmMinimumOSVersion');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mdmMinimumOSVersion'");
     }
 
     /**
@@ -118,7 +165,11 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return string|null
     */
     public function getMdmSettingUri(): ?string {
-        return $this->getBackingStore()->get('mdmSettingUri');
+        $val = $this->getBackingStore()->get('mdmSettingUri');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mdmSettingUri'");
     }
 
     /**
@@ -126,7 +177,11 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return MdmSupportedState|null
     */
     public function getMdmSupportedState(): ?MdmSupportedState {
-        return $this->getBackingStore()->get('mdmSupportedState');
+        $val = $this->getBackingStore()->get('mdmSupportedState');
+        if (is_null($val) || $val instanceof MdmSupportedState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mdmSupportedState'");
     }
 
     /**
@@ -134,7 +189,11 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return string|null
     */
     public function getParentId(): ?string {
-        return $this->getBackingStore()->get('parentId');
+        $val = $this->getBackingStore()->get('parentId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'parentId'");
     }
 
     /**
@@ -142,7 +201,11 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return string|null
     */
     public function getSettingCategory(): ?string {
-        return $this->getBackingStore()->get('settingCategory');
+        $val = $this->getBackingStore()->get('settingCategory');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingCategory'");
     }
 
     /**
@@ -150,7 +213,11 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return string|null
     */
     public function getSettingDisplayName(): ?string {
-        return $this->getBackingStore()->get('settingDisplayName');
+        $val = $this->getBackingStore()->get('settingDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingDisplayName'");
     }
 
     /**
@@ -158,7 +225,11 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return string|null
     */
     public function getSettingDisplayValue(): ?string {
-        return $this->getBackingStore()->get('settingDisplayValue');
+        $val = $this->getBackingStore()->get('settingDisplayValue');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingDisplayValue'");
     }
 
     /**
@@ -166,7 +237,11 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return string|null
     */
     public function getSettingDisplayValueType(): ?string {
-        return $this->getBackingStore()->get('settingDisplayValueType');
+        $val = $this->getBackingStore()->get('settingDisplayValueType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingDisplayValueType'");
     }
 
     /**
@@ -174,7 +249,11 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return string|null
     */
     public function getSettingName(): ?string {
-        return $this->getBackingStore()->get('settingName');
+        $val = $this->getBackingStore()->get('settingName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingName'");
     }
 
     /**
@@ -182,7 +261,11 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return GroupPolicySettingScope|null
     */
     public function getSettingScope(): ?GroupPolicySettingScope {
-        return $this->getBackingStore()->get('settingScope');
+        $val = $this->getBackingStore()->get('settingScope');
+        if (is_null($val) || $val instanceof GroupPolicySettingScope) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingScope'");
     }
 
     /**
@@ -190,7 +273,11 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return GroupPolicySettingType|null
     */
     public function getSettingType(): ?GroupPolicySettingType {
-        return $this->getBackingStore()->get('settingType');
+        $val = $this->getBackingStore()->get('settingType');
+        if (is_null($val) || $val instanceof GroupPolicySettingType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingType'");
     }
 
     /**
@@ -198,7 +285,11 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return string|null
     */
     public function getSettingValue(): ?string {
-        return $this->getBackingStore()->get('settingValue');
+        $val = $this->getBackingStore()->get('settingValue');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingValue'");
     }
 
     /**
@@ -206,7 +297,11 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return string|null
     */
     public function getSettingValueDisplayUnits(): ?string {
-        return $this->getBackingStore()->get('settingValueDisplayUnits');
+        $val = $this->getBackingStore()->get('settingValueDisplayUnits');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingValueDisplayUnits'");
     }
 
     /**
@@ -214,7 +309,11 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return string|null
     */
     public function getSettingValueType(): ?string {
-        return $this->getBackingStore()->get('settingValueType');
+        $val = $this->getBackingStore()->get('settingValueType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingValueType'");
     }
 
     /**

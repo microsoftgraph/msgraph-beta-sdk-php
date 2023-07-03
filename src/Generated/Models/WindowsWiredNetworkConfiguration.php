@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Parsable 
 {
@@ -30,7 +31,11 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
      * @return int|null
     */
     public function getAuthenticationBlockPeriodInMinutes(): ?int {
-        return $this->getBackingStore()->get('authenticationBlockPeriodInMinutes');
+        $val = $this->getBackingStore()->get('authenticationBlockPeriodInMinutes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationBlockPeriodInMinutes'");
     }
 
     /**
@@ -38,7 +43,11 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
      * @return WiredNetworkAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?WiredNetworkAuthenticationMethod {
-        return $this->getBackingStore()->get('authenticationMethod');
+        $val = $this->getBackingStore()->get('authenticationMethod');
+        if (is_null($val) || $val instanceof WiredNetworkAuthenticationMethod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationMethod'");
     }
 
     /**
@@ -46,7 +55,11 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
      * @return int|null
     */
     public function getAuthenticationPeriodInSeconds(): ?int {
-        return $this->getBackingStore()->get('authenticationPeriodInSeconds');
+        $val = $this->getBackingStore()->get('authenticationPeriodInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationPeriodInSeconds'");
     }
 
     /**
@@ -54,7 +67,11 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
      * @return int|null
     */
     public function getAuthenticationRetryDelayPeriodInSeconds(): ?int {
-        return $this->getBackingStore()->get('authenticationRetryDelayPeriodInSeconds');
+        $val = $this->getBackingStore()->get('authenticationRetryDelayPeriodInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationRetryDelayPeriodInSeconds'");
     }
 
     /**
@@ -62,7 +79,11 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
      * @return WiredNetworkAuthenticationType|null
     */
     public function getAuthenticationType(): ?WiredNetworkAuthenticationType {
-        return $this->getBackingStore()->get('authenticationType');
+        $val = $this->getBackingStore()->get('authenticationType');
+        if (is_null($val) || $val instanceof WiredNetworkAuthenticationType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationType'");
     }
 
     /**
@@ -70,7 +91,11 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
      * @return bool|null
     */
     public function getCacheCredentials(): ?bool {
-        return $this->getBackingStore()->get('cacheCredentials');
+        $val = $this->getBackingStore()->get('cacheCredentials');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cacheCredentials'");
     }
 
     /**
@@ -78,7 +103,11 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
      * @return bool|null
     */
     public function getDisableUserPromptForServerValidation(): ?bool {
-        return $this->getBackingStore()->get('disableUserPromptForServerValidation');
+        $val = $this->getBackingStore()->get('disableUserPromptForServerValidation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disableUserPromptForServerValidation'");
     }
 
     /**
@@ -86,7 +115,11 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
      * @return int|null
     */
     public function getEapolStartPeriodInSeconds(): ?int {
-        return $this->getBackingStore()->get('eapolStartPeriodInSeconds');
+        $val = $this->getBackingStore()->get('eapolStartPeriodInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eapolStartPeriodInSeconds'");
     }
 
     /**
@@ -94,7 +127,11 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
      * @return EapType|null
     */
     public function getEapType(): ?EapType {
-        return $this->getBackingStore()->get('eapType');
+        $val = $this->getBackingStore()->get('eapType');
+        if (is_null($val) || $val instanceof EapType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eapType'");
     }
 
     /**
@@ -102,12 +139,16 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
      * @return bool|null
     */
     public function getEnforce8021X(): ?bool {
-        return $this->getBackingStore()->get('enforce8021X');
+        $val = $this->getBackingStore()->get('enforce8021X');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enforce8021X'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -135,7 +176,14 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
             'secondaryAuthenticationMethod' => fn(ParseNode $n) => $o->setSecondaryAuthenticationMethod($n->getEnumValue(WiredNetworkAuthenticationMethod::class)),
             'secondaryIdentityCertificateForClientAuthentication' => fn(ParseNode $n) => $o->setSecondaryIdentityCertificateForClientAuthentication($n->getObjectValue([WindowsCertificateProfileBase::class, 'createFromDiscriminatorValue'])),
             'secondaryRootCertificateForClientValidation' => fn(ParseNode $n) => $o->setSecondaryRootCertificateForClientValidation($n->getObjectValue([Windows81TrustedRootCertificate::class, 'createFromDiscriminatorValue'])),
-            'trustedServerCertificateNames' => fn(ParseNode $n) => $o->setTrustedServerCertificateNames($n->getCollectionOfPrimitiveValues()),
+            'trustedServerCertificateNames' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setTrustedServerCertificateNames($val);
+            },
         ]);
     }
 
@@ -144,7 +192,11 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
      * @return bool|null
     */
     public function getForceFIPSCompliance(): ?bool {
-        return $this->getBackingStore()->get('forceFIPSCompliance');
+        $val = $this->getBackingStore()->get('forceFIPSCompliance');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'forceFIPSCompliance'");
     }
 
     /**
@@ -152,7 +204,11 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
      * @return WindowsCertificateProfileBase|null
     */
     public function getIdentityCertificateForClientAuthentication(): ?WindowsCertificateProfileBase {
-        return $this->getBackingStore()->get('identityCertificateForClientAuthentication');
+        $val = $this->getBackingStore()->get('identityCertificateForClientAuthentication');
+        if (is_null($val) || $val instanceof WindowsCertificateProfileBase) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityCertificateForClientAuthentication'");
     }
 
     /**
@@ -160,7 +216,11 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
      * @return NonEapAuthenticationMethodForEapTtlsType|null
     */
     public function getInnerAuthenticationProtocolForEAPTTLS(): ?NonEapAuthenticationMethodForEapTtlsType {
-        return $this->getBackingStore()->get('innerAuthenticationProtocolForEAPTTLS');
+        $val = $this->getBackingStore()->get('innerAuthenticationProtocolForEAPTTLS');
+        if (is_null($val) || $val instanceof NonEapAuthenticationMethodForEapTtlsType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'innerAuthenticationProtocolForEAPTTLS'");
     }
 
     /**
@@ -168,7 +228,11 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
      * @return int|null
     */
     public function getMaximumAuthenticationFailures(): ?int {
-        return $this->getBackingStore()->get('maximumAuthenticationFailures');
+        $val = $this->getBackingStore()->get('maximumAuthenticationFailures');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maximumAuthenticationFailures'");
     }
 
     /**
@@ -176,7 +240,11 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
      * @return int|null
     */
     public function getMaximumEAPOLStartMessages(): ?int {
-        return $this->getBackingStore()->get('maximumEAPOLStartMessages');
+        $val = $this->getBackingStore()->get('maximumEAPOLStartMessages');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maximumEAPOLStartMessages'");
     }
 
     /**
@@ -184,7 +252,11 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
      * @return string|null
     */
     public function getOuterIdentityPrivacyTemporaryValue(): ?string {
-        return $this->getBackingStore()->get('outerIdentityPrivacyTemporaryValue');
+        $val = $this->getBackingStore()->get('outerIdentityPrivacyTemporaryValue');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'outerIdentityPrivacyTemporaryValue'");
     }
 
     /**
@@ -192,7 +264,11 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
      * @return bool|null
     */
     public function getPerformServerValidation(): ?bool {
-        return $this->getBackingStore()->get('performServerValidation');
+        $val = $this->getBackingStore()->get('performServerValidation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'performServerValidation'");
     }
 
     /**
@@ -200,7 +276,11 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
      * @return bool|null
     */
     public function getRequireCryptographicBinding(): ?bool {
-        return $this->getBackingStore()->get('requireCryptographicBinding');
+        $val = $this->getBackingStore()->get('requireCryptographicBinding');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requireCryptographicBinding'");
     }
 
     /**
@@ -208,7 +288,11 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
      * @return Windows81TrustedRootCertificate|null
     */
     public function getRootCertificateForClientValidation(): ?Windows81TrustedRootCertificate {
-        return $this->getBackingStore()->get('rootCertificateForClientValidation');
+        $val = $this->getBackingStore()->get('rootCertificateForClientValidation');
+        if (is_null($val) || $val instanceof Windows81TrustedRootCertificate) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rootCertificateForClientValidation'");
     }
 
     /**
@@ -216,7 +300,13 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
      * @return array<Windows81TrustedRootCertificate>|null
     */
     public function getRootCertificatesForServerValidation(): ?array {
-        return $this->getBackingStore()->get('rootCertificatesForServerValidation');
+        $val = $this->getBackingStore()->get('rootCertificatesForServerValidation');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Windows81TrustedRootCertificate::class);
+            /** @var array<Windows81TrustedRootCertificate>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rootCertificatesForServerValidation'");
     }
 
     /**
@@ -224,7 +314,11 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
      * @return WiredNetworkAuthenticationMethod|null
     */
     public function getSecondaryAuthenticationMethod(): ?WiredNetworkAuthenticationMethod {
-        return $this->getBackingStore()->get('secondaryAuthenticationMethod');
+        $val = $this->getBackingStore()->get('secondaryAuthenticationMethod');
+        if (is_null($val) || $val instanceof WiredNetworkAuthenticationMethod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'secondaryAuthenticationMethod'");
     }
 
     /**
@@ -232,7 +326,11 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
      * @return WindowsCertificateProfileBase|null
     */
     public function getSecondaryIdentityCertificateForClientAuthentication(): ?WindowsCertificateProfileBase {
-        return $this->getBackingStore()->get('secondaryIdentityCertificateForClientAuthentication');
+        $val = $this->getBackingStore()->get('secondaryIdentityCertificateForClientAuthentication');
+        if (is_null($val) || $val instanceof WindowsCertificateProfileBase) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'secondaryIdentityCertificateForClientAuthentication'");
     }
 
     /**
@@ -240,7 +338,11 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
      * @return Windows81TrustedRootCertificate|null
     */
     public function getSecondaryRootCertificateForClientValidation(): ?Windows81TrustedRootCertificate {
-        return $this->getBackingStore()->get('secondaryRootCertificateForClientValidation');
+        $val = $this->getBackingStore()->get('secondaryRootCertificateForClientValidation');
+        if (is_null($val) || $val instanceof Windows81TrustedRootCertificate) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'secondaryRootCertificateForClientValidation'");
     }
 
     /**
@@ -248,7 +350,13 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
      * @return array<string>|null
     */
     public function getTrustedServerCertificateNames(): ?array {
-        return $this->getBackingStore()->get('trustedServerCertificateNames');
+        $val = $this->getBackingStore()->get('trustedServerCertificateNames');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'trustedServerCertificateNames'");
     }
 
     /**

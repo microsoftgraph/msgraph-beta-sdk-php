@@ -39,7 +39,12 @@ class VirtualEventPresenterDetails implements AdditionalDataHolder, BackedModel,
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +60,11 @@ class VirtualEventPresenterDetails implements AdditionalDataHolder, BackedModel,
      * @return ItemBody|null
     */
     public function getBio(): ?ItemBody {
-        return $this->getBackingStore()->get('bio');
+        $val = $this->getBackingStore()->get('bio');
+        if (is_null($val) || $val instanceof ItemBody) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bio'");
     }
 
     /**
@@ -63,12 +72,16 @@ class VirtualEventPresenterDetails implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getCompany(): ?string {
-        return $this->getBackingStore()->get('company');
+        $val = $this->getBackingStore()->get('company');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'company'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -88,7 +101,11 @@ class VirtualEventPresenterDetails implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getJobTitle(): ?string {
-        return $this->getBackingStore()->get('jobTitle');
+        $val = $this->getBackingStore()->get('jobTitle');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'jobTitle'");
     }
 
     /**
@@ -96,7 +113,11 @@ class VirtualEventPresenterDetails implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getLinkedInProfileWebUrl(): ?string {
-        return $this->getBackingStore()->get('linkedInProfileWebUrl');
+        $val = $this->getBackingStore()->get('linkedInProfileWebUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'linkedInProfileWebUrl'");
     }
 
     /**
@@ -104,7 +125,11 @@ class VirtualEventPresenterDetails implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -112,7 +137,11 @@ class VirtualEventPresenterDetails implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getPersonalSiteWebUrl(): ?string {
-        return $this->getBackingStore()->get('personalSiteWebUrl');
+        $val = $this->getBackingStore()->get('personalSiteWebUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'personalSiteWebUrl'");
     }
 
     /**
@@ -120,7 +149,11 @@ class VirtualEventPresenterDetails implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getTwitterProfileWebUrl(): ?string {
-        return $this->getBackingStore()->get('twitterProfileWebUrl');
+        $val = $this->getBackingStore()->get('twitterProfileWebUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'twitterProfileWebUrl'");
     }
 
     /**

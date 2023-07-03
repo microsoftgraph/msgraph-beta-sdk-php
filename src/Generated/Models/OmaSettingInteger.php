@@ -27,7 +27,7 @@ class OmaSettingInteger extends OmaSetting implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -42,7 +42,11 @@ class OmaSettingInteger extends OmaSetting implements Parsable
      * @return bool|null
     */
     public function getIsReadOnly(): ?bool {
-        return $this->getBackingStore()->get('isReadOnly');
+        $val = $this->getBackingStore()->get('isReadOnly');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isReadOnly'");
     }
 
     /**
@@ -50,7 +54,11 @@ class OmaSettingInteger extends OmaSetting implements Parsable
      * @return int|null
     */
     public function getValue(): ?int {
-        return $this->getBackingStore()->get('value');
+        $val = $this->getBackingStore()->get('value');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'value'");
     }
 
     /**

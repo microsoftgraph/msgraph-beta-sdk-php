@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class Authentication extends Entity implements Parsable 
 {
@@ -29,7 +30,13 @@ class Authentication extends Entity implements Parsable
      * @return array<EmailAuthenticationMethod>|null
     */
     public function getEmailMethods(): ?array {
-        return $this->getBackingStore()->get('emailMethods');
+        $val = $this->getBackingStore()->get('emailMethods');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, EmailAuthenticationMethod::class);
+            /** @var array<EmailAuthenticationMethod>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailMethods'");
     }
 
     /**
@@ -37,12 +44,18 @@ class Authentication extends Entity implements Parsable
      * @return array<Fido2AuthenticationMethod>|null
     */
     public function getFido2Methods(): ?array {
-        return $this->getBackingStore()->get('fido2Methods');
+        $val = $this->getBackingStore()->get('fido2Methods');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Fido2AuthenticationMethod::class);
+            /** @var array<Fido2AuthenticationMethod>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fido2Methods'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -67,7 +80,13 @@ class Authentication extends Entity implements Parsable
      * @return array<AuthenticationMethod>|null
     */
     public function getMethods(): ?array {
-        return $this->getBackingStore()->get('methods');
+        $val = $this->getBackingStore()->get('methods');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AuthenticationMethod::class);
+            /** @var array<AuthenticationMethod>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'methods'");
     }
 
     /**
@@ -75,7 +94,13 @@ class Authentication extends Entity implements Parsable
      * @return array<MicrosoftAuthenticatorAuthenticationMethod>|null
     */
     public function getMicrosoftAuthenticatorMethods(): ?array {
-        return $this->getBackingStore()->get('microsoftAuthenticatorMethods');
+        $val = $this->getBackingStore()->get('microsoftAuthenticatorMethods');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MicrosoftAuthenticatorAuthenticationMethod::class);
+            /** @var array<MicrosoftAuthenticatorAuthenticationMethod>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftAuthenticatorMethods'");
     }
 
     /**
@@ -83,7 +108,13 @@ class Authentication extends Entity implements Parsable
      * @return array<LongRunningOperation>|null
     */
     public function getOperations(): ?array {
-        return $this->getBackingStore()->get('operations');
+        $val = $this->getBackingStore()->get('operations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, LongRunningOperation::class);
+            /** @var array<LongRunningOperation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'operations'");
     }
 
     /**
@@ -91,7 +122,13 @@ class Authentication extends Entity implements Parsable
      * @return array<PasswordlessMicrosoftAuthenticatorAuthenticationMethod>|null
     */
     public function getPasswordlessMicrosoftAuthenticatorMethods(): ?array {
-        return $this->getBackingStore()->get('passwordlessMicrosoftAuthenticatorMethods');
+        $val = $this->getBackingStore()->get('passwordlessMicrosoftAuthenticatorMethods');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PasswordlessMicrosoftAuthenticatorAuthenticationMethod::class);
+            /** @var array<PasswordlessMicrosoftAuthenticatorAuthenticationMethod>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordlessMicrosoftAuthenticatorMethods'");
     }
 
     /**
@@ -99,7 +136,13 @@ class Authentication extends Entity implements Parsable
      * @return array<PasswordAuthenticationMethod>|null
     */
     public function getPasswordMethods(): ?array {
-        return $this->getBackingStore()->get('passwordMethods');
+        $val = $this->getBackingStore()->get('passwordMethods');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PasswordAuthenticationMethod::class);
+            /** @var array<PasswordAuthenticationMethod>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordMethods'");
     }
 
     /**
@@ -107,7 +150,13 @@ class Authentication extends Entity implements Parsable
      * @return array<PhoneAuthenticationMethod>|null
     */
     public function getPhoneMethods(): ?array {
-        return $this->getBackingStore()->get('phoneMethods');
+        $val = $this->getBackingStore()->get('phoneMethods');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PhoneAuthenticationMethod::class);
+            /** @var array<PhoneAuthenticationMethod>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'phoneMethods'");
     }
 
     /**
@@ -115,7 +164,11 @@ class Authentication extends Entity implements Parsable
      * @return SignInPreferences|null
     */
     public function getSignInPreferences(): ?SignInPreferences {
-        return $this->getBackingStore()->get('signInPreferences');
+        $val = $this->getBackingStore()->get('signInPreferences');
+        if (is_null($val) || $val instanceof SignInPreferences) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signInPreferences'");
     }
 
     /**
@@ -123,7 +176,13 @@ class Authentication extends Entity implements Parsable
      * @return array<SoftwareOathAuthenticationMethod>|null
     */
     public function getSoftwareOathMethods(): ?array {
-        return $this->getBackingStore()->get('softwareOathMethods');
+        $val = $this->getBackingStore()->get('softwareOathMethods');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SoftwareOathAuthenticationMethod::class);
+            /** @var array<SoftwareOathAuthenticationMethod>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'softwareOathMethods'");
     }
 
     /**
@@ -131,7 +190,13 @@ class Authentication extends Entity implements Parsable
      * @return array<TemporaryAccessPassAuthenticationMethod>|null
     */
     public function getTemporaryAccessPassMethods(): ?array {
-        return $this->getBackingStore()->get('temporaryAccessPassMethods');
+        $val = $this->getBackingStore()->get('temporaryAccessPassMethods');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, TemporaryAccessPassAuthenticationMethod::class);
+            /** @var array<TemporaryAccessPassAuthenticationMethod>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'temporaryAccessPassMethods'");
     }
 
     /**
@@ -139,7 +204,13 @@ class Authentication extends Entity implements Parsable
      * @return array<WindowsHelloForBusinessAuthenticationMethod>|null
     */
     public function getWindowsHelloForBusinessMethods(): ?array {
-        return $this->getBackingStore()->get('windowsHelloForBusinessMethods');
+        $val = $this->getBackingStore()->get('windowsHelloForBusinessMethods');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WindowsHelloForBusinessAuthenticationMethod::class);
+            /** @var array<WindowsHelloForBusinessAuthenticationMethod>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsHelloForBusinessMethods'");
     }
 
     /**

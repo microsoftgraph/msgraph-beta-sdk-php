@@ -58,9 +58,10 @@ class UnifiedRoleManagementAlertIncidentItemRequestBuilder extends BaseRequestBu
     }
 
     /**
-     * Get alertIncidents from identityGovernance
+     * Read the properties and relationships of an alert incident. The alert incident can be one of the following types that are derived from the unifiedRoleManagementAlertIncident object:
      * @param UnifiedRoleManagementAlertIncidentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/unifiedrolemanagementalertincident-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?UnifiedRoleManagementAlertIncidentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -112,7 +113,7 @@ class UnifiedRoleManagementAlertIncidentItemRequestBuilder extends BaseRequestBu
     }
 
     /**
-     * Get alertIncidents from identityGovernance
+     * Read the properties and relationships of an alert incident. The alert incident can be one of the following types that are derived from the unifiedRoleManagementAlertIncident object:
      * @param UnifiedRoleManagementAlertIncidentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

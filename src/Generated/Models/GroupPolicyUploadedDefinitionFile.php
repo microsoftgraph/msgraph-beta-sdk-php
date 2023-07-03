@@ -6,12 +6,16 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * The entity represents an ADMX (Administrative Template) XML file uploaded by Administrator. The ADMX file contains a collection of group policy definitions and their locations by category path. The group policy definition file also contains the languages supported as determined by the language dependent ADML (Administrative Template) language files.
+*/
 class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implements Parsable 
 {
     /**
-     * Instantiates a new GroupPolicyUploadedDefinitionFile and sets the default values.
+     * Instantiates a new groupPolicyUploadedDefinitionFile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -32,7 +36,11 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
      * @return StreamInterface|null
     */
     public function getContent(): ?StreamInterface {
-        return $this->getBackingStore()->get('content');
+        $val = $this->getBackingStore()->get('content');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'content'");
     }
 
     /**
@@ -40,12 +48,16 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
      * @return string|null
     */
     public function getDefaultLanguageCode(): ?string {
-        return $this->getBackingStore()->get('defaultLanguageCode');
+        $val = $this->getBackingStore()->get('defaultLanguageCode');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultLanguageCode'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -64,7 +76,13 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
      * @return array<GroupPolicyOperation>|null
     */
     public function getGroupPolicyOperations(): ?array {
-        return $this->getBackingStore()->get('groupPolicyOperations');
+        $val = $this->getBackingStore()->get('groupPolicyOperations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, GroupPolicyOperation::class);
+            /** @var array<GroupPolicyOperation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupPolicyOperations'");
     }
 
     /**
@@ -72,7 +90,13 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
      * @return array<GroupPolicyUploadedLanguageFile>|null
     */
     public function getGroupPolicyUploadedLanguageFiles(): ?array {
-        return $this->getBackingStore()->get('groupPolicyUploadedLanguageFiles');
+        $val = $this->getBackingStore()->get('groupPolicyUploadedLanguageFiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, GroupPolicyUploadedLanguageFile::class);
+            /** @var array<GroupPolicyUploadedLanguageFile>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupPolicyUploadedLanguageFiles'");
     }
 
     /**
@@ -80,7 +104,11 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
      * @return GroupPolicyUploadedDefinitionFileStatus|null
     */
     public function getStatus(): ?GroupPolicyUploadedDefinitionFileStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof GroupPolicyUploadedDefinitionFileStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**
@@ -88,7 +116,11 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
      * @return DateTime|null
     */
     public function getUploadDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('uploadDateTime');
+        $val = $this->getBackingStore()->get('uploadDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'uploadDateTime'");
     }
 
     /**

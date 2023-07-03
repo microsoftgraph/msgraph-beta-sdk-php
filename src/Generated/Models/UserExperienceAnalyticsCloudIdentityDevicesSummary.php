@@ -42,7 +42,12 @@ class UserExperienceAnalyticsCloudIdentityDevicesSummary implements AdditionalDa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -54,16 +59,20 @@ class UserExperienceAnalyticsCloudIdentityDevicesSummary implements AdditionalDa
     }
 
     /**
-     * Gets the deviceWithoutCloudIdentityCount property value. The count of devices that are not cloud identity.
+     * Gets the deviceWithoutCloudIdentityCount property value. The count of devices that are not cloud identity. Read-only.
      * @return int|null
     */
     public function getDeviceWithoutCloudIdentityCount(): ?int {
-        return $this->getBackingStore()->get('deviceWithoutCloudIdentityCount');
+        $val = $this->getBackingStore()->get('deviceWithoutCloudIdentityCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceWithoutCloudIdentityCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -78,7 +87,11 @@ class UserExperienceAnalyticsCloudIdentityDevicesSummary implements AdditionalDa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -108,7 +121,7 @@ class UserExperienceAnalyticsCloudIdentityDevicesSummary implements AdditionalDa
     }
 
     /**
-     * Sets the deviceWithoutCloudIdentityCount property value. The count of devices that are not cloud identity.
+     * Sets the deviceWithoutCloudIdentityCount property value. The count of devices that are not cloud identity. Read-only.
      * @param int|null $value Value to set for the deviceWithoutCloudIdentityCount property.
     */
     public function setDeviceWithoutCloudIdentityCount(?int $value): void {

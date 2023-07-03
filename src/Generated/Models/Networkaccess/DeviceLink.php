@@ -31,7 +31,11 @@ class DeviceLink extends Entity implements Parsable
      * @return BandwidthCapacityInMbps|null
     */
     public function getBandwidthCapacityInMbps(): ?BandwidthCapacityInMbps {
-        return $this->getBackingStore()->get('bandwidthCapacityInMbps');
+        $val = $this->getBackingStore()->get('bandwidthCapacityInMbps');
+        if (is_null($val) || $val instanceof BandwidthCapacityInMbps) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bandwidthCapacityInMbps'");
     }
 
     /**
@@ -39,7 +43,11 @@ class DeviceLink extends Entity implements Parsable
      * @return BgpConfiguration|null
     */
     public function getBgpConfiguration(): ?BgpConfiguration {
-        return $this->getBackingStore()->get('bgpConfiguration');
+        $val = $this->getBackingStore()->get('bgpConfiguration');
+        if (is_null($val) || $val instanceof BgpConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bgpConfiguration'");
     }
 
     /**
@@ -47,12 +55,16 @@ class DeviceLink extends Entity implements Parsable
      * @return DeviceVendor|null
     */
     public function getDeviceVendor(): ?DeviceVendor {
-        return $this->getBackingStore()->get('deviceVendor');
+        $val = $this->getBackingStore()->get('deviceVendor');
+        if (is_null($val) || $val instanceof DeviceVendor) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceVendor'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -73,7 +85,11 @@ class DeviceLink extends Entity implements Parsable
      * @return string|null
     */
     public function getIpAddress(): ?string {
-        return $this->getBackingStore()->get('ipAddress');
+        $val = $this->getBackingStore()->get('ipAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ipAddress'");
     }
 
     /**
@@ -81,7 +97,11 @@ class DeviceLink extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -89,7 +109,11 @@ class DeviceLink extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -97,7 +121,11 @@ class DeviceLink extends Entity implements Parsable
      * @return RedundancyConfiguration|null
     */
     public function getRedundancyConfiguration(): ?RedundancyConfiguration {
-        return $this->getBackingStore()->get('redundancyConfiguration');
+        $val = $this->getBackingStore()->get('redundancyConfiguration');
+        if (is_null($val) || $val instanceof RedundancyConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'redundancyConfiguration'");
     }
 
     /**
@@ -105,7 +133,11 @@ class DeviceLink extends Entity implements Parsable
      * @return TunnelConfiguration|null
     */
     public function getTunnelConfiguration(): ?TunnelConfiguration {
-        return $this->getBackingStore()->get('tunnelConfiguration');
+        $val = $this->getBackingStore()->get('tunnelConfiguration');
+        if (is_null($val) || $val instanceof TunnelConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tunnelConfiguration'");
     }
 
     /**

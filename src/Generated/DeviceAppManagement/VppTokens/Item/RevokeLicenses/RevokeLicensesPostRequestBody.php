@@ -39,7 +39,12 @@ class RevokeLicensesPostRequestBody implements AdditionalDataHolder, BackedModel
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +57,7 @@ class RevokeLicensesPostRequestBody implements AdditionalDataHolder, BackedModel
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -67,7 +72,11 @@ class RevokeLicensesPostRequestBody implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getNotifyManagedDevices(): ?bool {
-        return $this->getBackingStore()->get('notifyManagedDevices');
+        $val = $this->getBackingStore()->get('notifyManagedDevices');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notifyManagedDevices'");
     }
 
     /**
@@ -75,7 +84,11 @@ class RevokeLicensesPostRequestBody implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getRevokeUntrackedLicenses(): ?bool {
-        return $this->getBackingStore()->get('revokeUntrackedLicenses');
+        $val = $this->getBackingStore()->get('revokeUntrackedLicenses');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'revokeUntrackedLicenses'");
     }
 
     /**

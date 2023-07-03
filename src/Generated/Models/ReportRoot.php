@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ReportRoot extends Entity implements Parsable 
 {
@@ -29,7 +30,13 @@ class ReportRoot extends Entity implements Parsable
      * @return array<AppCredentialSignInActivity>|null
     */
     public function getAppCredentialSignInActivities(): ?array {
-        return $this->getBackingStore()->get('appCredentialSignInActivities');
+        $val = $this->getBackingStore()->get('appCredentialSignInActivities');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AppCredentialSignInActivity::class);
+            /** @var array<AppCredentialSignInActivity>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appCredentialSignInActivities'");
     }
 
     /**
@@ -37,7 +44,13 @@ class ReportRoot extends Entity implements Parsable
      * @return array<ApplicationSignInDetailedSummary>|null
     */
     public function getApplicationSignInDetailedSummary(): ?array {
-        return $this->getBackingStore()->get('applicationSignInDetailedSummary');
+        $val = $this->getBackingStore()->get('applicationSignInDetailedSummary');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ApplicationSignInDetailedSummary::class);
+            /** @var array<ApplicationSignInDetailedSummary>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationSignInDetailedSummary'");
     }
 
     /**
@@ -45,7 +58,11 @@ class ReportRoot extends Entity implements Parsable
      * @return AuthenticationMethodsRoot|null
     */
     public function getAuthenticationMethods(): ?AuthenticationMethodsRoot {
-        return $this->getBackingStore()->get('authenticationMethods');
+        $val = $this->getBackingStore()->get('authenticationMethods');
+        if (is_null($val) || $val instanceof AuthenticationMethodsRoot) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationMethods'");
     }
 
     /**
@@ -53,7 +70,13 @@ class ReportRoot extends Entity implements Parsable
      * @return array<CredentialUserRegistrationDetails>|null
     */
     public function getCredentialUserRegistrationDetails(): ?array {
-        return $this->getBackingStore()->get('credentialUserRegistrationDetails');
+        $val = $this->getBackingStore()->get('credentialUserRegistrationDetails');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CredentialUserRegistrationDetails::class);
+            /** @var array<CredentialUserRegistrationDetails>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'credentialUserRegistrationDetails'");
     }
 
     /**
@@ -61,7 +84,13 @@ class ReportRoot extends Entity implements Parsable
      * @return array<PrintUsage>|null
     */
     public function getDailyPrintUsage(): ?array {
-        return $this->getBackingStore()->get('dailyPrintUsage');
+        $val = $this->getBackingStore()->get('dailyPrintUsage');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrintUsage::class);
+            /** @var array<PrintUsage>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dailyPrintUsage'");
     }
 
     /**
@@ -69,7 +98,13 @@ class ReportRoot extends Entity implements Parsable
      * @return array<PrintUsageByPrinter>|null
     */
     public function getDailyPrintUsageByPrinter(): ?array {
-        return $this->getBackingStore()->get('dailyPrintUsageByPrinter');
+        $val = $this->getBackingStore()->get('dailyPrintUsageByPrinter');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrintUsageByPrinter::class);
+            /** @var array<PrintUsageByPrinter>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dailyPrintUsageByPrinter'");
     }
 
     /**
@@ -77,7 +112,13 @@ class ReportRoot extends Entity implements Parsable
      * @return array<PrintUsageByUser>|null
     */
     public function getDailyPrintUsageByUser(): ?array {
-        return $this->getBackingStore()->get('dailyPrintUsageByUser');
+        $val = $this->getBackingStore()->get('dailyPrintUsageByUser');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrintUsageByUser::class);
+            /** @var array<PrintUsageByUser>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dailyPrintUsageByUser'");
     }
 
     /**
@@ -85,7 +126,13 @@ class ReportRoot extends Entity implements Parsable
      * @return array<PrintUsageByPrinter>|null
     */
     public function getDailyPrintUsageSummariesByPrinter(): ?array {
-        return $this->getBackingStore()->get('dailyPrintUsageSummariesByPrinter');
+        $val = $this->getBackingStore()->get('dailyPrintUsageSummariesByPrinter');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrintUsageByPrinter::class);
+            /** @var array<PrintUsageByPrinter>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dailyPrintUsageSummariesByPrinter'");
     }
 
     /**
@@ -93,12 +140,18 @@ class ReportRoot extends Entity implements Parsable
      * @return array<PrintUsageByUser>|null
     */
     public function getDailyPrintUsageSummariesByUser(): ?array {
-        return $this->getBackingStore()->get('dailyPrintUsageSummariesByUser');
+        $val = $this->getBackingStore()->get('dailyPrintUsageSummariesByUser');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrintUsageByUser::class);
+            /** @var array<PrintUsageByUser>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dailyPrintUsageSummariesByUser'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -127,7 +180,13 @@ class ReportRoot extends Entity implements Parsable
      * @return array<PrintUsageByPrinter>|null
     */
     public function getMonthlyPrintUsageByPrinter(): ?array {
-        return $this->getBackingStore()->get('monthlyPrintUsageByPrinter');
+        $val = $this->getBackingStore()->get('monthlyPrintUsageByPrinter');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrintUsageByPrinter::class);
+            /** @var array<PrintUsageByPrinter>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'monthlyPrintUsageByPrinter'");
     }
 
     /**
@@ -135,7 +194,13 @@ class ReportRoot extends Entity implements Parsable
      * @return array<PrintUsageByUser>|null
     */
     public function getMonthlyPrintUsageByUser(): ?array {
-        return $this->getBackingStore()->get('monthlyPrintUsageByUser');
+        $val = $this->getBackingStore()->get('monthlyPrintUsageByUser');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrintUsageByUser::class);
+            /** @var array<PrintUsageByUser>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'monthlyPrintUsageByUser'");
     }
 
     /**
@@ -143,7 +208,13 @@ class ReportRoot extends Entity implements Parsable
      * @return array<PrintUsageByPrinter>|null
     */
     public function getMonthlyPrintUsageSummariesByPrinter(): ?array {
-        return $this->getBackingStore()->get('monthlyPrintUsageSummariesByPrinter');
+        $val = $this->getBackingStore()->get('monthlyPrintUsageSummariesByPrinter');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrintUsageByPrinter::class);
+            /** @var array<PrintUsageByPrinter>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'monthlyPrintUsageSummariesByPrinter'");
     }
 
     /**
@@ -151,7 +222,13 @@ class ReportRoot extends Entity implements Parsable
      * @return array<PrintUsageByUser>|null
     */
     public function getMonthlyPrintUsageSummariesByUser(): ?array {
-        return $this->getBackingStore()->get('monthlyPrintUsageSummariesByUser');
+        $val = $this->getBackingStore()->get('monthlyPrintUsageSummariesByUser');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrintUsageByUser::class);
+            /** @var array<PrintUsageByUser>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'monthlyPrintUsageSummariesByUser'");
     }
 
     /**
@@ -159,7 +236,11 @@ class ReportRoot extends Entity implements Parsable
      * @return SecurityReportsRoot|null
     */
     public function getSecurity(): ?SecurityReportsRoot {
-        return $this->getBackingStore()->get('security');
+        $val = $this->getBackingStore()->get('security');
+        if (is_null($val) || $val instanceof SecurityReportsRoot) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'security'");
     }
 
     /**
@@ -167,7 +248,13 @@ class ReportRoot extends Entity implements Parsable
      * @return array<ServicePrincipalSignInActivity>|null
     */
     public function getServicePrincipalSignInActivities(): ?array {
-        return $this->getBackingStore()->get('servicePrincipalSignInActivities');
+        $val = $this->getBackingStore()->get('servicePrincipalSignInActivities');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ServicePrincipalSignInActivity::class);
+            /** @var array<ServicePrincipalSignInActivity>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'servicePrincipalSignInActivities'");
     }
 
     /**
@@ -175,7 +262,13 @@ class ReportRoot extends Entity implements Parsable
      * @return array<UserCredentialUsageDetails>|null
     */
     public function getUserCredentialUsageDetails(): ?array {
-        return $this->getBackingStore()->get('userCredentialUsageDetails');
+        $val = $this->getBackingStore()->get('userCredentialUsageDetails');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserCredentialUsageDetails::class);
+            /** @var array<UserCredentialUsageDetails>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userCredentialUsageDetails'");
     }
 
     /**

@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class IndustryDataRunStatistics implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,13 @@ class IndustryDataRunStatistics implements AdditionalDataHolder, BackedModel, Pa
      * @return array<IndustryDataActivityStatistics>|null
     */
     public function getActivityStatistics(): ?array {
-        return $this->getBackingStore()->get('activityStatistics');
+        $val = $this->getBackingStore()->get('activityStatistics');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IndustryDataActivityStatistics::class);
+            /** @var array<IndustryDataActivityStatistics>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activityStatistics'");
     }
 
     /**
@@ -47,7 +54,12 @@ class IndustryDataRunStatistics implements AdditionalDataHolder, BackedModel, Pa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -60,7 +72,7 @@ class IndustryDataRunStatistics implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -78,7 +90,11 @@ class IndustryDataRunStatistics implements AdditionalDataHolder, BackedModel, Pa
      * @return AggregatedInboundStatistics|null
     */
     public function getInboundTotals(): ?AggregatedInboundStatistics {
-        return $this->getBackingStore()->get('inboundTotals');
+        $val = $this->getBackingStore()->get('inboundTotals');
+        if (is_null($val) || $val instanceof AggregatedInboundStatistics) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inboundTotals'");
     }
 
     /**
@@ -86,7 +102,11 @@ class IndustryDataRunStatistics implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -94,7 +114,11 @@ class IndustryDataRunStatistics implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getRunId(): ?string {
-        return $this->getBackingStore()->get('runId');
+        $val = $this->getBackingStore()->get('runId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'runId'");
     }
 
     /**
@@ -102,7 +126,11 @@ class IndustryDataRunStatistics implements AdditionalDataHolder, BackedModel, Pa
      * @return IndustryDataRunStatus|null
     */
     public function getStatus(): ?IndustryDataRunStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof IndustryDataRunStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

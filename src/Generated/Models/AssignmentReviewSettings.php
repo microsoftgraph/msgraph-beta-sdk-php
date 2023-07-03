@@ -10,6 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -40,7 +41,11 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
      * @return AccessReviewTimeoutBehavior|null
     */
     public function getAccessReviewTimeoutBehavior(): ?AccessReviewTimeoutBehavior {
-        return $this->getBackingStore()->get('accessReviewTimeoutBehavior');
+        $val = $this->getBackingStore()->get('accessReviewTimeoutBehavior');
+        if (is_null($val) || $val instanceof AccessReviewTimeoutBehavior) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accessReviewTimeoutBehavior'");
     }
 
     /**
@@ -48,7 +53,12 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -64,12 +74,16 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
      * @return int|null
     */
     public function getDurationInDays(): ?int {
-        return $this->getBackingStore()->get('durationInDays');
+        $val = $this->getBackingStore()->get('durationInDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'durationInDays'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -92,7 +106,11 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
      * @return bool|null
     */
     public function getIsAccessRecommendationEnabled(): ?bool {
-        return $this->getBackingStore()->get('isAccessRecommendationEnabled');
+        $val = $this->getBackingStore()->get('isAccessRecommendationEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isAccessRecommendationEnabled'");
     }
 
     /**
@@ -100,7 +118,11 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
      * @return bool|null
     */
     public function getIsApprovalJustificationRequired(): ?bool {
-        return $this->getBackingStore()->get('isApprovalJustificationRequired');
+        $val = $this->getBackingStore()->get('isApprovalJustificationRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isApprovalJustificationRequired'");
     }
 
     /**
@@ -108,7 +130,11 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
-        return $this->getBackingStore()->get('isEnabled');
+        $val = $this->getBackingStore()->get('isEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isEnabled'");
     }
 
     /**
@@ -116,7 +142,11 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -124,7 +154,11 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
      * @return string|null
     */
     public function getRecurrenceType(): ?string {
-        return $this->getBackingStore()->get('recurrenceType');
+        $val = $this->getBackingStore()->get('recurrenceType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recurrenceType'");
     }
 
     /**
@@ -132,7 +166,13 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
      * @return array<UserSet>|null
     */
     public function getReviewers(): ?array {
-        return $this->getBackingStore()->get('reviewers');
+        $val = $this->getBackingStore()->get('reviewers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserSet::class);
+            /** @var array<UserSet>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reviewers'");
     }
 
     /**
@@ -140,7 +180,11 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
      * @return string|null
     */
     public function getReviewerType(): ?string {
-        return $this->getBackingStore()->get('reviewerType');
+        $val = $this->getBackingStore()->get('reviewerType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reviewerType'");
     }
 
     /**
@@ -148,7 +192,11 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('startDateTime');
+        $val = $this->getBackingStore()->get('startDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startDateTime'");
     }
 
     /**

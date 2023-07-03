@@ -6,6 +6,7 @@ use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ThreatSubmissionRoot extends Entity implements Parsable 
 {
@@ -30,7 +31,13 @@ class ThreatSubmissionRoot extends Entity implements Parsable
      * @return array<EmailThreatSubmission>|null
     */
     public function getEmailThreats(): ?array {
-        return $this->getBackingStore()->get('emailThreats');
+        $val = $this->getBackingStore()->get('emailThreats');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, EmailThreatSubmission::class);
+            /** @var array<EmailThreatSubmission>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailThreats'");
     }
 
     /**
@@ -38,12 +45,18 @@ class ThreatSubmissionRoot extends Entity implements Parsable
      * @return array<EmailThreatSubmissionPolicy>|null
     */
     public function getEmailThreatSubmissionPolicies(): ?array {
-        return $this->getBackingStore()->get('emailThreatSubmissionPolicies');
+        $val = $this->getBackingStore()->get('emailThreatSubmissionPolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, EmailThreatSubmissionPolicy::class);
+            /** @var array<EmailThreatSubmissionPolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailThreatSubmissionPolicies'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -60,7 +73,13 @@ class ThreatSubmissionRoot extends Entity implements Parsable
      * @return array<FileThreatSubmission>|null
     */
     public function getFileThreats(): ?array {
-        return $this->getBackingStore()->get('fileThreats');
+        $val = $this->getBackingStore()->get('fileThreats');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, FileThreatSubmission::class);
+            /** @var array<FileThreatSubmission>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileThreats'");
     }
 
     /**
@@ -68,7 +87,13 @@ class ThreatSubmissionRoot extends Entity implements Parsable
      * @return array<UrlThreatSubmission>|null
     */
     public function getUrlThreats(): ?array {
-        return $this->getBackingStore()->get('urlThreats');
+        $val = $this->getBackingStore()->get('urlThreats');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UrlThreatSubmission::class);
+            /** @var array<UrlThreatSubmission>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'urlThreats'");
     }
 
     /**

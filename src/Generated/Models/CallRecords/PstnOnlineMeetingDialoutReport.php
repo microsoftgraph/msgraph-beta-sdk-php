@@ -39,7 +39,12 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +60,11 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getCurrency(): ?string {
-        return $this->getBackingStore()->get('currency');
+        $val = $this->getBackingStore()->get('currency');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'currency'");
     }
 
     /**
@@ -63,12 +72,16 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getDestinationContext(): ?string {
-        return $this->getBackingStore()->get('destinationContext');
+        $val = $this->getBackingStore()->get('destinationContext');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'destinationContext'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -91,7 +104,11 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -99,7 +116,11 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getTotalCallCharge(): ?string {
-        return $this->getBackingStore()->get('totalCallCharge');
+        $val = $this->getBackingStore()->get('totalCallCharge');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalCallCharge'");
     }
 
     /**
@@ -107,7 +128,11 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
      * @return int|null
     */
     public function getTotalCalls(): ?int {
-        return $this->getBackingStore()->get('totalCalls');
+        $val = $this->getBackingStore()->get('totalCalls');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalCalls'");
     }
 
     /**
@@ -115,7 +140,11 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
      * @return int|null
     */
     public function getTotalCallSeconds(): ?int {
-        return $this->getBackingStore()->get('totalCallSeconds');
+        $val = $this->getBackingStore()->get('totalCallSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalCallSeconds'");
     }
 
     /**
@@ -123,7 +152,11 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getUsageLocation(): ?string {
-        return $this->getBackingStore()->get('usageLocation');
+        $val = $this->getBackingStore()->get('usageLocation');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'usageLocation'");
     }
 
     /**
@@ -131,7 +164,11 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getUserDisplayName(): ?string {
-        return $this->getBackingStore()->get('userDisplayName');
+        $val = $this->getBackingStore()->get('userDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userDisplayName'");
     }
 
     /**
@@ -139,7 +176,11 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->getBackingStore()->get('userId');
+        $val = $this->getBackingStore()->get('userId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
     }
 
     /**
@@ -147,7 +188,11 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('userPrincipalName');
+        $val = $this->getBackingStore()->get('userPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
     }
 
     /**

@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class Windows81CertificateProfileBase extends WindowsCertificateProfileBase implements Parsable 
 {
@@ -37,7 +38,13 @@ class Windows81CertificateProfileBase extends WindowsCertificateProfileBase impl
      * @return array<CustomSubjectAlternativeName>|null
     */
     public function getCustomSubjectAlternativeNames(): ?array {
-        return $this->getBackingStore()->get('customSubjectAlternativeNames');
+        $val = $this->getBackingStore()->get('customSubjectAlternativeNames');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CustomSubjectAlternativeName::class);
+            /** @var array<CustomSubjectAlternativeName>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customSubjectAlternativeNames'");
     }
 
     /**
@@ -45,12 +52,18 @@ class Windows81CertificateProfileBase extends WindowsCertificateProfileBase impl
      * @return array<ExtendedKeyUsage>|null
     */
     public function getExtendedKeyUsages(): ?array {
-        return $this->getBackingStore()->get('extendedKeyUsages');
+        $val = $this->getBackingStore()->get('extendedKeyUsages');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ExtendedKeyUsage::class);
+            /** @var array<ExtendedKeyUsage>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'extendedKeyUsages'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

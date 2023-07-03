@@ -32,7 +32,7 @@ class AlertDefinitionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get alertDefinition from identityGovernance
+     * Contains the description, impact, and measures to mitigate or prevent the security alert from being triggered in your tenant. Supports $expand.
      * @param AlertDefinitionRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -50,7 +50,7 @@ class AlertDefinitionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get alertDefinition from identityGovernance
+     * Contains the description, impact, and measures to mitigate or prevent the security alert from being triggered in your tenant. Supports $expand.
      * @param AlertDefinitionRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

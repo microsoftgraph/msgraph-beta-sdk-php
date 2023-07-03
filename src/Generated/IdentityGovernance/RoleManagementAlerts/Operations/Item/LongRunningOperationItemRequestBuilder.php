@@ -50,7 +50,7 @@ class LongRunningOperationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get operations from identityGovernance
+     * Represents operations on resources that take a long time to complete and can run in the background until completion.
      * @param LongRunningOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -104,7 +104,7 @@ class LongRunningOperationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get operations from identityGovernance
+     * Represents operations on resources that take a long time to complete and can run in the background until completion.
      * @param LongRunningOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

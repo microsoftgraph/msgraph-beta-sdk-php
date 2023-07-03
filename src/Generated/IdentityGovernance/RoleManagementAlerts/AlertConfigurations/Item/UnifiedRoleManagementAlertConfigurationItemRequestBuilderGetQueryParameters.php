@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\RoleManagementAlerts
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get alertConfigurations from identityGovernance
+ * The various configurations of an alert for Azure AD roles. The configurations are pre-defined and cannot be created or deleted, but some of the configurations can be modified.
 */
 class UnifiedRoleManagementAlertConfigurationItemRequestBuilderGetQueryParameters 
 {

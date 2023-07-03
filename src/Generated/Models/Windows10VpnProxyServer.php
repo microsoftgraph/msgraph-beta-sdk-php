@@ -30,12 +30,16 @@ class Windows10VpnProxyServer extends VpnProxyServer implements Parsable
      * @return bool|null
     */
     public function getBypassProxyServerForLocalAddress(): ?bool {
-        return $this->getBackingStore()->get('bypassProxyServerForLocalAddress');
+        $val = $this->getBackingStore()->get('bypassProxyServerForLocalAddress');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bypassProxyServerForLocalAddress'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

@@ -31,12 +31,16 @@ class HostComponent extends Artifact implements Parsable
      * @return string|null
     */
     public function getCategory(): ?string {
-        return $this->getBackingStore()->get('category');
+        $val = $this->getBackingStore()->get('category');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'category'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -55,7 +59,11 @@ class HostComponent extends Artifact implements Parsable
      * @return DateTime|null
     */
     public function getFirstSeenDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('firstSeenDateTime');
+        $val = $this->getBackingStore()->get('firstSeenDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firstSeenDateTime'");
     }
 
     /**
@@ -63,7 +71,11 @@ class HostComponent extends Artifact implements Parsable
      * @return Host|null
     */
     public function getHost(): ?Host {
-        return $this->getBackingStore()->get('host');
+        $val = $this->getBackingStore()->get('host');
+        if (is_null($val) || $val instanceof Host) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'host'");
     }
 
     /**
@@ -71,7 +83,11 @@ class HostComponent extends Artifact implements Parsable
      * @return DateTime|null
     */
     public function getLastSeenDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastSeenDateTime');
+        $val = $this->getBackingStore()->get('lastSeenDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSeenDateTime'");
     }
 
     /**
@@ -79,7 +95,11 @@ class HostComponent extends Artifact implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -87,7 +107,11 @@ class HostComponent extends Artifact implements Parsable
      * @return string|null
     */
     public function getVersion(): ?string {
-        return $this->getBackingStore()->get('version');
+        $val = $this->getBackingStore()->get('version');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'version'");
     }
 
     /**

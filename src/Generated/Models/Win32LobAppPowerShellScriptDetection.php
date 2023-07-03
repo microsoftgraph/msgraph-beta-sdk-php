@@ -30,12 +30,16 @@ class Win32LobAppPowerShellScriptDetection extends Win32LobAppDetection implemen
      * @return bool|null
     */
     public function getEnforceSignatureCheck(): ?bool {
-        return $this->getBackingStore()->get('enforceSignatureCheck');
+        $val = $this->getBackingStore()->get('enforceSignatureCheck');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enforceSignatureCheck'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -51,7 +55,11 @@ class Win32LobAppPowerShellScriptDetection extends Win32LobAppDetection implemen
      * @return bool|null
     */
     public function getRunAs32Bit(): ?bool {
-        return $this->getBackingStore()->get('runAs32Bit');
+        $val = $this->getBackingStore()->get('runAs32Bit');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'runAs32Bit'");
     }
 
     /**
@@ -59,7 +67,11 @@ class Win32LobAppPowerShellScriptDetection extends Win32LobAppDetection implemen
      * @return string|null
     */
     public function getScriptContent(): ?string {
-        return $this->getBackingStore()->get('scriptContent');
+        $val = $this->getBackingStore()->get('scriptContent');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scriptContent'");
     }
 
     /**

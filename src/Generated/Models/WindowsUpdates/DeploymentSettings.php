@@ -39,7 +39,12 @@ class DeploymentSettings implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +60,11 @@ class DeploymentSettings implements AdditionalDataHolder, BackedModel, Parsable
      * @return ContentApplicabilitySettings|null
     */
     public function getContentApplicability(): ?ContentApplicabilitySettings {
-        return $this->getBackingStore()->get('contentApplicability');
+        $val = $this->getBackingStore()->get('contentApplicability');
+        if (is_null($val) || $val instanceof ContentApplicabilitySettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentApplicability'");
     }
 
     /**
@@ -63,12 +72,16 @@ class DeploymentSettings implements AdditionalDataHolder, BackedModel, Parsable
      * @return ExpediteSettings|null
     */
     public function getExpedite(): ?ExpediteSettings {
-        return $this->getBackingStore()->get('expedite');
+        $val = $this->getBackingStore()->get('expedite');
+        if (is_null($val) || $val instanceof ExpediteSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expedite'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -87,7 +100,11 @@ class DeploymentSettings implements AdditionalDataHolder, BackedModel, Parsable
      * @return MonitoringSettings|null
     */
     public function getMonitoring(): ?MonitoringSettings {
-        return $this->getBackingStore()->get('monitoring');
+        $val = $this->getBackingStore()->get('monitoring');
+        if (is_null($val) || $val instanceof MonitoringSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'monitoring'");
     }
 
     /**
@@ -95,7 +112,11 @@ class DeploymentSettings implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -103,7 +124,11 @@ class DeploymentSettings implements AdditionalDataHolder, BackedModel, Parsable
      * @return ScheduleSettings|null
     */
     public function getSchedule(): ?ScheduleSettings {
-        return $this->getBackingStore()->get('schedule');
+        $val = $this->getBackingStore()->get('schedule');
+        if (is_null($val) || $val instanceof ScheduleSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'schedule'");
     }
 
     /**
@@ -111,7 +136,11 @@ class DeploymentSettings implements AdditionalDataHolder, BackedModel, Parsable
      * @return UserExperienceSettings|null
     */
     public function getUserExperience(): ?UserExperienceSettings {
-        return $this->getBackingStore()->get('userExperience');
+        $val = $this->getBackingStore()->get('userExperience');
+        if (is_null($val) || $val instanceof UserExperienceSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperience'");
     }
 
     /**

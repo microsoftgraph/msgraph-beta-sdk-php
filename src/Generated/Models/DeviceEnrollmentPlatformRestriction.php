@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Platform specific enrollment restrictions
@@ -42,7 +43,12 @@ class DeviceEnrollmentPlatformRestriction implements AdditionalDataHolder, Backe
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -58,7 +64,13 @@ class DeviceEnrollmentPlatformRestriction implements AdditionalDataHolder, Backe
      * @return array<string>|null
     */
     public function getBlockedManufacturers(): ?array {
-        return $this->getBackingStore()->get('blockedManufacturers');
+        $val = $this->getBackingStore()->get('blockedManufacturers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockedManufacturers'");
     }
 
     /**
@@ -66,18 +78,38 @@ class DeviceEnrollmentPlatformRestriction implements AdditionalDataHolder, Backe
      * @return array<string>|null
     */
     public function getBlockedSkus(): ?array {
-        return $this->getBackingStore()->get('blockedSkus');
+        $val = $this->getBackingStore()->get('blockedSkus');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockedSkus'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'blockedManufacturers' => fn(ParseNode $n) => $o->setBlockedManufacturers($n->getCollectionOfPrimitiveValues()),
-            'blockedSkus' => fn(ParseNode $n) => $o->setBlockedSkus($n->getCollectionOfPrimitiveValues()),
+            'blockedManufacturers' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setBlockedManufacturers($val);
+            },
+            'blockedSkus' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setBlockedSkus($val);
+            },
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'osMaximumVersion' => fn(ParseNode $n) => $o->setOsMaximumVersion($n->getStringValue()),
             'osMinimumVersion' => fn(ParseNode $n) => $o->setOsMinimumVersion($n->getStringValue()),
@@ -91,7 +123,11 @@ class DeviceEnrollmentPlatformRestriction implements AdditionalDataHolder, Backe
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -99,7 +135,11 @@ class DeviceEnrollmentPlatformRestriction implements AdditionalDataHolder, Backe
      * @return string|null
     */
     public function getOsMaximumVersion(): ?string {
-        return $this->getBackingStore()->get('osMaximumVersion');
+        $val = $this->getBackingStore()->get('osMaximumVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osMaximumVersion'");
     }
 
     /**
@@ -107,7 +147,11 @@ class DeviceEnrollmentPlatformRestriction implements AdditionalDataHolder, Backe
      * @return string|null
     */
     public function getOsMinimumVersion(): ?string {
-        return $this->getBackingStore()->get('osMinimumVersion');
+        $val = $this->getBackingStore()->get('osMinimumVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osMinimumVersion'");
     }
 
     /**
@@ -115,7 +159,11 @@ class DeviceEnrollmentPlatformRestriction implements AdditionalDataHolder, Backe
      * @return bool|null
     */
     public function getPersonalDeviceEnrollmentBlocked(): ?bool {
-        return $this->getBackingStore()->get('personalDeviceEnrollmentBlocked');
+        $val = $this->getBackingStore()->get('personalDeviceEnrollmentBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'personalDeviceEnrollmentBlocked'");
     }
 
     /**
@@ -123,7 +171,11 @@ class DeviceEnrollmentPlatformRestriction implements AdditionalDataHolder, Backe
      * @return bool|null
     */
     public function getPlatformBlocked(): ?bool {
-        return $this->getBackingStore()->get('platformBlocked');
+        $val = $this->getBackingStore()->get('platformBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'platformBlocked'");
     }
 
     /**

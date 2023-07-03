@@ -42,7 +42,12 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -50,7 +55,11 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
      * @return VpnServiceExceptionAction|null
     */
     public function getAirPrintExceptionAction(): ?VpnServiceExceptionAction {
-        return $this->getBackingStore()->get('airPrintExceptionAction');
+        $val = $this->getBackingStore()->get('airPrintExceptionAction');
+        if (is_null($val) || $val instanceof VpnServiceExceptionAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'airPrintExceptionAction'");
     }
 
     /**
@@ -58,7 +67,11 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getAllowAllCaptiveNetworkPlugins(): ?bool {
-        return $this->getBackingStore()->get('allowAllCaptiveNetworkPlugins');
+        $val = $this->getBackingStore()->get('allowAllCaptiveNetworkPlugins');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowAllCaptiveNetworkPlugins'");
     }
 
     /**
@@ -66,7 +79,11 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getAllowCaptiveWebSheet(): ?bool {
-        return $this->getBackingStore()->get('allowCaptiveWebSheet');
+        $val = $this->getBackingStore()->get('allowCaptiveWebSheet');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowCaptiveWebSheet'");
     }
 
     /**
@@ -74,7 +91,11 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
      * @return SpecifiedCaptiveNetworkPlugins|null
     */
     public function getAllowedCaptiveNetworkPlugins(): ?SpecifiedCaptiveNetworkPlugins {
-        return $this->getBackingStore()->get('allowedCaptiveNetworkPlugins');
+        $val = $this->getBackingStore()->get('allowedCaptiveNetworkPlugins');
+        if (is_null($val) || $val instanceof SpecifiedCaptiveNetworkPlugins) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedCaptiveNetworkPlugins'");
     }
 
     /**
@@ -90,12 +111,16 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
      * @return VpnServiceExceptionAction|null
     */
     public function getCellularExceptionAction(): ?VpnServiceExceptionAction {
-        return $this->getBackingStore()->get('cellularExceptionAction');
+        $val = $this->getBackingStore()->get('cellularExceptionAction');
+        if (is_null($val) || $val instanceof VpnServiceExceptionAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cellularExceptionAction'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -119,7 +144,11 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
      * @return int|null
     */
     public function getNatKeepAliveIntervalInSeconds(): ?int {
-        return $this->getBackingStore()->get('natKeepAliveIntervalInSeconds');
+        $val = $this->getBackingStore()->get('natKeepAliveIntervalInSeconds');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'natKeepAliveIntervalInSeconds'");
     }
 
     /**
@@ -127,7 +156,11 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getNatKeepAliveOffloadEnable(): ?bool {
-        return $this->getBackingStore()->get('natKeepAliveOffloadEnable');
+        $val = $this->getBackingStore()->get('natKeepAliveOffloadEnable');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'natKeepAliveOffloadEnable'");
     }
 
     /**
@@ -135,7 +168,11 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -143,7 +180,11 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
      * @return VpnTunnelConfigurationType|null
     */
     public function getTunnelConfiguration(): ?VpnTunnelConfigurationType {
-        return $this->getBackingStore()->get('tunnelConfiguration');
+        $val = $this->getBackingStore()->get('tunnelConfiguration');
+        if (is_null($val) || $val instanceof VpnTunnelConfigurationType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tunnelConfiguration'");
     }
 
     /**
@@ -151,7 +192,11 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getUserToggleEnabled(): ?bool {
-        return $this->getBackingStore()->get('userToggleEnabled');
+        $val = $this->getBackingStore()->get('userToggleEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userToggleEnabled'");
     }
 
     /**
@@ -159,7 +204,11 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
      * @return VpnServiceExceptionAction|null
     */
     public function getVoicemailExceptionAction(): ?VpnServiceExceptionAction {
-        return $this->getBackingStore()->get('voicemailExceptionAction');
+        $val = $this->getBackingStore()->get('voicemailExceptionAction');
+        if (is_null($val) || $val instanceof VpnServiceExceptionAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'voicemailExceptionAction'");
     }
 
     /**

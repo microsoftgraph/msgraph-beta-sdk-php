@@ -29,7 +29,11 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
      * @return bool|null
     */
     public function getEnableMEMAutoEnroll(): ?bool {
-        return $this->getBackingStore()->get('enableMEMAutoEnroll');
+        $val = $this->getBackingStore()->get('enableMEMAutoEnroll');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableMEMAutoEnroll'");
     }
 
     /**
@@ -37,12 +41,16 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
      * @return bool|null
     */
     public function getEnableSingleSignOn(): ?bool {
-        return $this->getBackingStore()->get('enableSingleSignOn');
+        $val = $this->getBackingStore()->get('enableSingleSignOn');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableSingleSignOn'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -60,7 +68,11 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
      * @return CloudPcOperatingSystem|null
     */
     public function getOsVersion(): ?CloudPcOperatingSystem {
-        return $this->getBackingStore()->get('osVersion');
+        $val = $this->getBackingStore()->get('osVersion');
+        if (is_null($val) || $val instanceof CloudPcOperatingSystem) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osVersion'");
     }
 
     /**
@@ -68,7 +80,11 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
      * @return CloudPcUserAccountType|null
     */
     public function getUserAccountType(): ?CloudPcUserAccountType {
-        return $this->getBackingStore()->get('userAccountType');
+        $val = $this->getBackingStore()->get('userAccountType');
+        if (is_null($val) || $val instanceof CloudPcUserAccountType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userAccountType'");
     }
 
     /**
@@ -76,7 +92,11 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
      * @return CloudPcWindowsSettings|null
     */
     public function getWindowsSettings(): ?CloudPcWindowsSettings {
-        return $this->getBackingStore()->get('windowsSettings');
+        $val = $this->getBackingStore()->get('windowsSettings');
+        if (is_null($val) || $val instanceof CloudPcWindowsSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsSettings'");
     }
 
     /**

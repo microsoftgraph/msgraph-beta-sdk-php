@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class VirtualEvent extends Entity implements Parsable 
 {
@@ -36,7 +37,11 @@ class VirtualEvent extends Entity implements Parsable
      * @return CommunicationsIdentitySet|null
     */
     public function getCreatedBy(): ?CommunicationsIdentitySet {
-        return $this->getBackingStore()->get('createdBy');
+        $val = $this->getBackingStore()->get('createdBy');
+        if (is_null($val) || $val instanceof CommunicationsIdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdBy'");
     }
 
     /**
@@ -44,7 +49,11 @@ class VirtualEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -52,7 +61,11 @@ class VirtualEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -60,12 +73,16 @@ class VirtualEvent extends Entity implements Parsable
      * @return DateTimeTimeZone|null
     */
     public function getEndDateTime(): ?DateTimeTimeZone {
-        return $this->getBackingStore()->get('endDateTime');
+        $val = $this->getBackingStore()->get('endDateTime');
+        if (is_null($val) || $val instanceof DateTimeTimeZone) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -86,7 +103,13 @@ class VirtualEvent extends Entity implements Parsable
      * @return array<VirtualEventPresenter>|null
     */
     public function getPresenters(): ?array {
-        return $this->getBackingStore()->get('presenters');
+        $val = $this->getBackingStore()->get('presenters');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, VirtualEventPresenter::class);
+            /** @var array<VirtualEventPresenter>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'presenters'");
     }
 
     /**
@@ -94,7 +117,13 @@ class VirtualEvent extends Entity implements Parsable
      * @return array<VirtualEventSession>|null
     */
     public function getSessions(): ?array {
-        return $this->getBackingStore()->get('sessions');
+        $val = $this->getBackingStore()->get('sessions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, VirtualEventSession::class);
+            /** @var array<VirtualEventSession>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sessions'");
     }
 
     /**
@@ -102,7 +131,11 @@ class VirtualEvent extends Entity implements Parsable
      * @return DateTimeTimeZone|null
     */
     public function getStartDateTime(): ?DateTimeTimeZone {
-        return $this->getBackingStore()->get('startDateTime');
+        $val = $this->getBackingStore()->get('startDateTime');
+        if (is_null($val) || $val instanceof DateTimeTimeZone) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startDateTime'");
     }
 
     /**
@@ -110,7 +143,11 @@ class VirtualEvent extends Entity implements Parsable
      * @return VirtualEventStatus|null
     */
     public function getStatus(): ?VirtualEventStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof VirtualEventStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

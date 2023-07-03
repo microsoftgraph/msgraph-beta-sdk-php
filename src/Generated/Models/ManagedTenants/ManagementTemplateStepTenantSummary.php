@@ -31,7 +31,11 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getAssignedTenantsCount(): ?int {
-        return $this->getBackingStore()->get('assignedTenantsCount');
+        $val = $this->getBackingStore()->get('assignedTenantsCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignedTenantsCount'");
     }
 
     /**
@@ -39,7 +43,11 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getCompliantTenantsCount(): ?int {
-        return $this->getBackingStore()->get('compliantTenantsCount');
+        $val = $this->getBackingStore()->get('compliantTenantsCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'compliantTenantsCount'");
     }
 
     /**
@@ -47,7 +55,11 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getCreatedByUserId(): ?string {
-        return $this->getBackingStore()->get('createdByUserId');
+        $val = $this->getBackingStore()->get('createdByUserId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdByUserId'");
     }
 
     /**
@@ -55,7 +67,11 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -63,12 +79,16 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getDismissedTenantsCount(): ?int {
-        return $this->getBackingStore()->get('dismissedTenantsCount');
+        $val = $this->getBackingStore()->get('dismissedTenantsCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dismissedTenantsCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -96,7 +116,11 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getIneligibleTenantsCount(): ?int {
-        return $this->getBackingStore()->get('ineligibleTenantsCount');
+        $val = $this->getBackingStore()->get('ineligibleTenantsCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ineligibleTenantsCount'");
     }
 
     /**
@@ -104,7 +128,11 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getLastActionByUserId(): ?string {
-        return $this->getBackingStore()->get('lastActionByUserId');
+        $val = $this->getBackingStore()->get('lastActionByUserId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastActionByUserId'");
     }
 
     /**
@@ -112,7 +140,11 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastActionDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastActionDateTime');
+        $val = $this->getBackingStore()->get('lastActionDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastActionDateTime'");
     }
 
     /**
@@ -120,7 +152,11 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getManagementTemplateCollectionDisplayName(): ?string {
-        return $this->getBackingStore()->get('managementTemplateCollectionDisplayName');
+        $val = $this->getBackingStore()->get('managementTemplateCollectionDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managementTemplateCollectionDisplayName'");
     }
 
     /**
@@ -128,7 +164,11 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getManagementTemplateCollectionId(): ?string {
-        return $this->getBackingStore()->get('managementTemplateCollectionId');
+        $val = $this->getBackingStore()->get('managementTemplateCollectionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managementTemplateCollectionId'");
     }
 
     /**
@@ -136,7 +176,11 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getManagementTemplateDisplayName(): ?string {
-        return $this->getBackingStore()->get('managementTemplateDisplayName');
+        $val = $this->getBackingStore()->get('managementTemplateDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managementTemplateDisplayName'");
     }
 
     /**
@@ -144,7 +188,11 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getManagementTemplateId(): ?string {
-        return $this->getBackingStore()->get('managementTemplateId');
+        $val = $this->getBackingStore()->get('managementTemplateId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managementTemplateId'");
     }
 
     /**
@@ -152,7 +200,11 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getManagementTemplateStepDisplayName(): ?string {
-        return $this->getBackingStore()->get('managementTemplateStepDisplayName');
+        $val = $this->getBackingStore()->get('managementTemplateStepDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managementTemplateStepDisplayName'");
     }
 
     /**
@@ -160,7 +212,11 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getManagementTemplateStepId(): ?string {
-        return $this->getBackingStore()->get('managementTemplateStepId');
+        $val = $this->getBackingStore()->get('managementTemplateStepId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managementTemplateStepId'");
     }
 
     /**
@@ -168,7 +224,11 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getNotCompliantTenantsCount(): ?int {
-        return $this->getBackingStore()->get('notCompliantTenantsCount');
+        $val = $this->getBackingStore()->get('notCompliantTenantsCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notCompliantTenantsCount'");
     }
 
     /**

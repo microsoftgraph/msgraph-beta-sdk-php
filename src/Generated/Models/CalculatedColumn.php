@@ -39,7 +39,12 @@ class CalculatedColumn implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +57,7 @@ class CalculatedColumn implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -65,11 +70,15 @@ class CalculatedColumn implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the format property value. For dateTime output types, the format of the value. Must be one of dateOnly or dateTime.
+     * Gets the format property value. For dateTime output types, the format of the value. Possible values are: dateOnly or dateTime.
      * @return string|null
     */
     public function getFormat(): ?string {
-        return $this->getBackingStore()->get('format');
+        $val = $this->getBackingStore()->get('format');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'format'");
     }
 
     /**
@@ -77,7 +86,11 @@ class CalculatedColumn implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getFormula(): ?string {
-        return $this->getBackingStore()->get('formula');
+        $val = $this->getBackingStore()->get('formula');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'formula'");
     }
 
     /**
@@ -85,15 +98,23 @@ class CalculatedColumn implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
-     * Gets the outputType property value. The output type used to format values in this column. Must be one of boolean, currency, dateTime, number, or text.
+     * Gets the outputType property value. The output type used to format values in this column. Possible values are: boolean, currency, dateTime, number, or text.
      * @return string|null
     */
     public function getOutputType(): ?string {
-        return $this->getBackingStore()->get('outputType');
+        $val = $this->getBackingStore()->get('outputType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'outputType'");
     }
 
     /**
@@ -125,7 +146,7 @@ class CalculatedColumn implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the format property value. For dateTime output types, the format of the value. Must be one of dateOnly or dateTime.
+     * Sets the format property value. For dateTime output types, the format of the value. Possible values are: dateOnly or dateTime.
      * @param string|null $value Value to set for the format property.
     */
     public function setFormat(?string $value): void {
@@ -149,7 +170,7 @@ class CalculatedColumn implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the outputType property value. The output type used to format values in this column. Must be one of boolean, currency, dateTime, number, or text.
+     * Sets the outputType property value. The output type used to format values in this column. Possible values are: boolean, currency, dateTime, number, or text.
      * @param string|null $value Value to set for the outputType property.
     */
     public function setOutputType(?string $value): void {

@@ -37,12 +37,16 @@ class WindowsPhone81AppX extends MobileLobApp implements Parsable
      * @return WindowsArchitecture|null
     */
     public function getApplicableArchitectures(): ?WindowsArchitecture {
-        return $this->getBackingStore()->get('applicableArchitectures');
+        $val = $this->getBackingStore()->get('applicableArchitectures');
+        if (is_null($val) || $val instanceof WindowsArchitecture) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicableArchitectures'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -63,7 +67,11 @@ class WindowsPhone81AppX extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getIdentityName(): ?string {
-        return $this->getBackingStore()->get('identityName');
+        $val = $this->getBackingStore()->get('identityName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityName'");
     }
 
     /**
@@ -71,7 +79,11 @@ class WindowsPhone81AppX extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getIdentityPublisherHash(): ?string {
-        return $this->getBackingStore()->get('identityPublisherHash');
+        $val = $this->getBackingStore()->get('identityPublisherHash');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityPublisherHash'");
     }
 
     /**
@@ -79,7 +91,11 @@ class WindowsPhone81AppX extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getIdentityResourceIdentifier(): ?string {
-        return $this->getBackingStore()->get('identityResourceIdentifier');
+        $val = $this->getBackingStore()->get('identityResourceIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityResourceIdentifier'");
     }
 
     /**
@@ -87,7 +103,11 @@ class WindowsPhone81AppX extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getIdentityVersion(): ?string {
-        return $this->getBackingStore()->get('identityVersion');
+        $val = $this->getBackingStore()->get('identityVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityVersion'");
     }
 
     /**
@@ -95,7 +115,11 @@ class WindowsPhone81AppX extends MobileLobApp implements Parsable
      * @return WindowsMinimumOperatingSystem|null
     */
     public function getMinimumSupportedOperatingSystem(): ?WindowsMinimumOperatingSystem {
-        return $this->getBackingStore()->get('minimumSupportedOperatingSystem');
+        $val = $this->getBackingStore()->get('minimumSupportedOperatingSystem');
+        if (is_null($val) || $val instanceof WindowsMinimumOperatingSystem) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumSupportedOperatingSystem'");
     }
 
     /**
@@ -103,7 +127,11 @@ class WindowsPhone81AppX extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getPhoneProductIdentifier(): ?string {
-        return $this->getBackingStore()->get('phoneProductIdentifier');
+        $val = $this->getBackingStore()->get('phoneProductIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'phoneProductIdentifier'");
     }
 
     /**
@@ -111,7 +139,11 @@ class WindowsPhone81AppX extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getPhonePublisherId(): ?string {
-        return $this->getBackingStore()->get('phonePublisherId');
+        $val = $this->getBackingStore()->get('phonePublisherId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'phonePublisherId'");
     }
 
     /**

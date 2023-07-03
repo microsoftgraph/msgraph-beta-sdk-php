@@ -39,7 +39,12 @@ class PreviewPostRequestBody implements AdditionalDataHolder, BackedModel, Parsa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +52,11 @@ class PreviewPostRequestBody implements AdditionalDataHolder, BackedModel, Parsa
      * @return bool|null
     */
     public function getAllowEdit(): ?bool {
-        return $this->getBackingStore()->get('allowEdit');
+        $val = $this->getBackingStore()->get('allowEdit');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowEdit'");
     }
 
     /**
@@ -63,12 +72,16 @@ class PreviewPostRequestBody implements AdditionalDataHolder, BackedModel, Parsa
      * @return bool|null
     */
     public function getChromeless(): ?bool {
-        return $this->getBackingStore()->get('chromeless');
+        $val = $this->getBackingStore()->get('chromeless');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'chromeless'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -86,7 +99,11 @@ class PreviewPostRequestBody implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getPage(): ?string {
-        return $this->getBackingStore()->get('page');
+        $val = $this->getBackingStore()->get('page');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'page'");
     }
 
     /**
@@ -94,7 +111,11 @@ class PreviewPostRequestBody implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getViewer(): ?string {
-        return $this->getBackingStore()->get('viewer');
+        $val = $this->getBackingStore()->get('viewer');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'viewer'");
     }
 
     /**
@@ -102,7 +123,11 @@ class PreviewPostRequestBody implements AdditionalDataHolder, BackedModel, Parsa
      * @return float|null
     */
     public function getZoom(): ?float {
-        return $this->getBackingStore()->get('zoom');
+        $val = $this->getBackingStore()->get('zoom');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'zoom'");
     }
 
     /**

@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class MessageTrace extends Entity implements Parsable 
 {
@@ -30,12 +31,16 @@ class MessageTrace extends Entity implements Parsable
      * @return string|null
     */
     public function getDestinationIPAddress(): ?string {
-        return $this->getBackingStore()->get('destinationIPAddress');
+        $val = $this->getBackingStore()->get('destinationIPAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'destinationIPAddress'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -56,7 +61,11 @@ class MessageTrace extends Entity implements Parsable
      * @return string|null
     */
     public function getMessageId(): ?string {
-        return $this->getBackingStore()->get('messageId');
+        $val = $this->getBackingStore()->get('messageId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'messageId'");
     }
 
     /**
@@ -64,7 +73,11 @@ class MessageTrace extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getReceivedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('receivedDateTime');
+        $val = $this->getBackingStore()->get('receivedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'receivedDateTime'");
     }
 
     /**
@@ -72,7 +85,13 @@ class MessageTrace extends Entity implements Parsable
      * @return array<MessageRecipient>|null
     */
     public function getRecipients(): ?array {
-        return $this->getBackingStore()->get('recipients');
+        $val = $this->getBackingStore()->get('recipients');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MessageRecipient::class);
+            /** @var array<MessageRecipient>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recipients'");
     }
 
     /**
@@ -80,7 +99,11 @@ class MessageTrace extends Entity implements Parsable
      * @return string|null
     */
     public function getSenderEmail(): ?string {
-        return $this->getBackingStore()->get('senderEmail');
+        $val = $this->getBackingStore()->get('senderEmail');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'senderEmail'");
     }
 
     /**
@@ -88,7 +111,11 @@ class MessageTrace extends Entity implements Parsable
      * @return int|null
     */
     public function getSize(): ?int {
-        return $this->getBackingStore()->get('size');
+        $val = $this->getBackingStore()->get('size');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'size'");
     }
 
     /**
@@ -96,7 +123,11 @@ class MessageTrace extends Entity implements Parsable
      * @return string|null
     */
     public function getSourceIPAddress(): ?string {
-        return $this->getBackingStore()->get('sourceIPAddress');
+        $val = $this->getBackingStore()->get('sourceIPAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sourceIPAddress'");
     }
 
     /**
@@ -104,7 +135,11 @@ class MessageTrace extends Entity implements Parsable
      * @return string|null
     */
     public function getSubject(): ?string {
-        return $this->getBackingStore()->get('subject');
+        $val = $this->getBackingStore()->get('subject');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subject'");
     }
 
     /**

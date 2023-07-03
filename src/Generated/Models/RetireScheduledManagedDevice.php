@@ -10,6 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * ManagedDevices that are scheduled for retire
@@ -43,7 +44,12 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -59,7 +65,11 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
      * @return ComplianceStatus|null
     */
     public function getComplianceState(): ?ComplianceStatus {
-        return $this->getBackingStore()->get('complianceState');
+        $val = $this->getBackingStore()->get('complianceState');
+        if (is_null($val) || $val instanceof ComplianceStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'complianceState'");
     }
 
     /**
@@ -67,7 +77,11 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getDeviceCompliancePolicyId(): ?string {
-        return $this->getBackingStore()->get('deviceCompliancePolicyId');
+        $val = $this->getBackingStore()->get('deviceCompliancePolicyId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceCompliancePolicyId'");
     }
 
     /**
@@ -75,7 +89,11 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getDeviceCompliancePolicyName(): ?string {
-        return $this->getBackingStore()->get('deviceCompliancePolicyName');
+        $val = $this->getBackingStore()->get('deviceCompliancePolicyName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceCompliancePolicyName'");
     }
 
     /**
@@ -83,12 +101,16 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
      * @return DeviceType|null
     */
     public function getDeviceType(): ?DeviceType {
-        return $this->getBackingStore()->get('deviceType');
+        $val = $this->getBackingStore()->get('deviceType');
+        if (is_null($val) || $val instanceof DeviceType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceType'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -104,7 +126,14 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'ownerType' => fn(ParseNode $n) => $o->setOwnerType($n->getEnumValue(ManagedDeviceOwnerType::class)),
             'retireAfterDateTime' => fn(ParseNode $n) => $o->setRetireAfterDateTime($n->getDateTimeValue()),
-            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
+            'roleScopeTagIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoleScopeTagIds($val);
+            },
         ];
     }
 
@@ -113,7 +142,11 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->getBackingStore()->get('id');
+        $val = $this->getBackingStore()->get('id');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'id'");
     }
 
     /**
@@ -121,7 +154,11 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
-        return $this->getBackingStore()->get('managedDeviceId');
+        $val = $this->getBackingStore()->get('managedDeviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceId'");
     }
 
     /**
@@ -129,7 +166,11 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getManagedDeviceName(): ?string {
-        return $this->getBackingStore()->get('managedDeviceName');
+        $val = $this->getBackingStore()->get('managedDeviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceName'");
     }
 
     /**
@@ -137,7 +178,11 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
      * @return ManagementAgentType|null
     */
     public function getManagementAgent(): ?ManagementAgentType {
-        return $this->getBackingStore()->get('managementAgent');
+        $val = $this->getBackingStore()->get('managementAgent');
+        if (is_null($val) || $val instanceof ManagementAgentType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managementAgent'");
     }
 
     /**
@@ -145,7 +190,11 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -153,7 +202,11 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
      * @return ManagedDeviceOwnerType|null
     */
     public function getOwnerType(): ?ManagedDeviceOwnerType {
-        return $this->getBackingStore()->get('ownerType');
+        $val = $this->getBackingStore()->get('ownerType');
+        if (is_null($val) || $val instanceof ManagedDeviceOwnerType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ownerType'");
     }
 
     /**
@@ -161,7 +214,11 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
      * @return DateTime|null
     */
     public function getRetireAfterDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('retireAfterDateTime');
+        $val = $this->getBackingStore()->get('retireAfterDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'retireAfterDateTime'");
     }
 
     /**
@@ -169,7 +226,13 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel,
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->getBackingStore()->get('roleScopeTagIds');
+        $val = $this->getBackingStore()->get('roleScopeTagIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleScopeTagIds'");
     }
 
     /**

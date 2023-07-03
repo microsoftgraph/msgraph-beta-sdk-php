@@ -40,7 +40,12 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -56,7 +61,11 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getCalleeNumber(): ?string {
-        return $this->getBackingStore()->get('calleeNumber');
+        $val = $this->getBackingStore()->get('calleeNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'calleeNumber'");
     }
 
     /**
@@ -64,7 +73,11 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getCallEndSubReason(): ?int {
-        return $this->getBackingStore()->get('callEndSubReason');
+        $val = $this->getBackingStore()->get('callEndSubReason');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'callEndSubReason'");
     }
 
     /**
@@ -72,7 +85,11 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getCallerNumber(): ?string {
-        return $this->getBackingStore()->get('callerNumber');
+        $val = $this->getBackingStore()->get('callerNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'callerNumber'");
     }
 
     /**
@@ -80,7 +97,11 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getCallType(): ?string {
-        return $this->getBackingStore()->get('callType');
+        $val = $this->getBackingStore()->get('callType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'callType'");
     }
 
     /**
@@ -88,7 +109,11 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getCorrelationId(): ?string {
-        return $this->getBackingStore()->get('correlationId');
+        $val = $this->getBackingStore()->get('correlationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'correlationId'");
     }
 
     /**
@@ -96,7 +121,11 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getDuration(): ?int {
-        return $this->getBackingStore()->get('duration');
+        $val = $this->getBackingStore()->get('duration');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'duration'");
     }
 
     /**
@@ -104,7 +133,11 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('endDateTime');
+        $val = $this->getBackingStore()->get('endDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endDateTime'");
     }
 
     /**
@@ -112,12 +145,16 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
      * @return DateTime|null
     */
     public function getFailureDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('failureDateTime');
+        $val = $this->getBackingStore()->get('failureDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'failureDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -154,7 +191,11 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getFinalSipCode(): ?int {
-        return $this->getBackingStore()->get('finalSipCode');
+        $val = $this->getBackingStore()->get('finalSipCode');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'finalSipCode'");
     }
 
     /**
@@ -162,7 +203,11 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getFinalSipCodePhrase(): ?string {
-        return $this->getBackingStore()->get('finalSipCodePhrase');
+        $val = $this->getBackingStore()->get('finalSipCodePhrase');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'finalSipCodePhrase'");
     }
 
     /**
@@ -170,7 +215,11 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->getBackingStore()->get('id');
+        $val = $this->getBackingStore()->get('id');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'id'");
     }
 
     /**
@@ -178,7 +227,11 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
      * @return DateTime|null
     */
     public function getInviteDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('inviteDateTime');
+        $val = $this->getBackingStore()->get('inviteDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inviteDateTime'");
     }
 
     /**
@@ -186,7 +239,11 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getMediaBypassEnabled(): ?bool {
-        return $this->getBackingStore()->get('mediaBypassEnabled');
+        $val = $this->getBackingStore()->get('mediaBypassEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mediaBypassEnabled'");
     }
 
     /**
@@ -194,7 +251,11 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getMediaPathLocation(): ?string {
-        return $this->getBackingStore()->get('mediaPathLocation');
+        $val = $this->getBackingStore()->get('mediaPathLocation');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mediaPathLocation'");
     }
 
     /**
@@ -202,7 +263,11 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -210,7 +275,11 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOtherPartyCountryCode(): ?string {
-        return $this->getBackingStore()->get('otherPartyCountryCode');
+        $val = $this->getBackingStore()->get('otherPartyCountryCode');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'otherPartyCountryCode'");
     }
 
     /**
@@ -218,7 +287,11 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getSignalingLocation(): ?string {
-        return $this->getBackingStore()->get('signalingLocation');
+        $val = $this->getBackingStore()->get('signalingLocation');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signalingLocation'");
     }
 
     /**
@@ -226,7 +299,11 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('startDateTime');
+        $val = $this->getBackingStore()->get('startDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startDateTime'");
     }
 
     /**
@@ -234,7 +311,11 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getSuccessfulCall(): ?bool {
-        return $this->getBackingStore()->get('successfulCall');
+        $val = $this->getBackingStore()->get('successfulCall');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'successfulCall'");
     }
 
     /**
@@ -242,7 +323,11 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getTrunkFullyQualifiedDomainName(): ?string {
-        return $this->getBackingStore()->get('trunkFullyQualifiedDomainName');
+        $val = $this->getBackingStore()->get('trunkFullyQualifiedDomainName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'trunkFullyQualifiedDomainName'");
     }
 
     /**
@@ -250,7 +335,11 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getUserCountryCode(): ?string {
-        return $this->getBackingStore()->get('userCountryCode');
+        $val = $this->getBackingStore()->get('userCountryCode');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userCountryCode'");
     }
 
     /**
@@ -258,7 +347,11 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getUserDisplayName(): ?string {
-        return $this->getBackingStore()->get('userDisplayName');
+        $val = $this->getBackingStore()->get('userDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userDisplayName'");
     }
 
     /**
@@ -266,7 +359,11 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->getBackingStore()->get('userId');
+        $val = $this->getBackingStore()->get('userId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
     }
 
     /**
@@ -274,7 +371,11 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('userPrincipalName');
+        $val = $this->getBackingStore()->get('userPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
     }
 
     /**

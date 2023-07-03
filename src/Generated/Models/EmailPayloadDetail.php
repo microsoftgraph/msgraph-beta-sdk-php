@@ -27,7 +27,7 @@ class EmailPayloadDetail extends PayloadDetail implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -44,7 +44,11 @@ class EmailPayloadDetail extends PayloadDetail implements Parsable
      * @return string|null
     */
     public function getFromEmail(): ?string {
-        return $this->getBackingStore()->get('fromEmail');
+        $val = $this->getBackingStore()->get('fromEmail');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fromEmail'");
     }
 
     /**
@@ -52,7 +56,11 @@ class EmailPayloadDetail extends PayloadDetail implements Parsable
      * @return string|null
     */
     public function getFromName(): ?string {
-        return $this->getBackingStore()->get('fromName');
+        $val = $this->getBackingStore()->get('fromName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fromName'");
     }
 
     /**
@@ -60,7 +68,11 @@ class EmailPayloadDetail extends PayloadDetail implements Parsable
      * @return bool|null
     */
     public function getIsExternalSender(): ?bool {
-        return $this->getBackingStore()->get('isExternalSender');
+        $val = $this->getBackingStore()->get('isExternalSender');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isExternalSender'");
     }
 
     /**
@@ -68,7 +80,11 @@ class EmailPayloadDetail extends PayloadDetail implements Parsable
      * @return string|null
     */
     public function getSubject(): ?string {
-        return $this->getBackingStore()->get('subject');
+        $val = $this->getBackingStore()->get('subject');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subject'");
     }
 
     /**

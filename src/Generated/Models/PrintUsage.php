@@ -38,7 +38,11 @@ class PrintUsage extends Entity implements Parsable
      * @return int|null
     */
     public function getBlackAndWhitePageCount(): ?int {
-        return $this->getBackingStore()->get('blackAndWhitePageCount');
+        $val = $this->getBackingStore()->get('blackAndWhitePageCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blackAndWhitePageCount'");
     }
 
     /**
@@ -46,7 +50,11 @@ class PrintUsage extends Entity implements Parsable
      * @return int|null
     */
     public function getColorPageCount(): ?int {
-        return $this->getBackingStore()->get('colorPageCount');
+        $val = $this->getBackingStore()->get('colorPageCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'colorPageCount'");
     }
 
     /**
@@ -54,7 +62,11 @@ class PrintUsage extends Entity implements Parsable
      * @return int|null
     */
     public function getCompletedBlackAndWhiteJobCount(): ?int {
-        return $this->getBackingStore()->get('completedBlackAndWhiteJobCount');
+        $val = $this->getBackingStore()->get('completedBlackAndWhiteJobCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'completedBlackAndWhiteJobCount'");
     }
 
     /**
@@ -62,7 +74,11 @@ class PrintUsage extends Entity implements Parsable
      * @return int|null
     */
     public function getCompletedColorJobCount(): ?int {
-        return $this->getBackingStore()->get('completedColorJobCount');
+        $val = $this->getBackingStore()->get('completedColorJobCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'completedColorJobCount'");
     }
 
     /**
@@ -70,7 +86,11 @@ class PrintUsage extends Entity implements Parsable
      * @return int|null
     */
     public function getCompletedJobCount(): ?int {
-        return $this->getBackingStore()->get('completedJobCount');
+        $val = $this->getBackingStore()->get('completedJobCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'completedJobCount'");
     }
 
     /**
@@ -78,12 +98,16 @@ class PrintUsage extends Entity implements Parsable
      * @return int|null
     */
     public function getDoubleSidedSheetCount(): ?int {
-        return $this->getBackingStore()->get('doubleSidedSheetCount');
+        $val = $this->getBackingStore()->get('doubleSidedSheetCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'doubleSidedSheetCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -107,7 +131,11 @@ class PrintUsage extends Entity implements Parsable
      * @return int|null
     */
     public function getIncompleteJobCount(): ?int {
-        return $this->getBackingStore()->get('incompleteJobCount');
+        $val = $this->getBackingStore()->get('incompleteJobCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'incompleteJobCount'");
     }
 
     /**
@@ -115,7 +143,11 @@ class PrintUsage extends Entity implements Parsable
      * @return int|null
     */
     public function getMediaSheetCount(): ?int {
-        return $this->getBackingStore()->get('mediaSheetCount');
+        $val = $this->getBackingStore()->get('mediaSheetCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mediaSheetCount'");
     }
 
     /**
@@ -123,7 +155,11 @@ class PrintUsage extends Entity implements Parsable
      * @return int|null
     */
     public function getPageCount(): ?int {
-        return $this->getBackingStore()->get('pageCount');
+        $val = $this->getBackingStore()->get('pageCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pageCount'");
     }
 
     /**
@@ -131,7 +167,11 @@ class PrintUsage extends Entity implements Parsable
      * @return int|null
     */
     public function getSingleSidedSheetCount(): ?int {
-        return $this->getBackingStore()->get('singleSidedSheetCount');
+        $val = $this->getBackingStore()->get('singleSidedSheetCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'singleSidedSheetCount'");
     }
 
     /**
@@ -139,7 +179,11 @@ class PrintUsage extends Entity implements Parsable
      * @return Date|null
     */
     public function getUsageDate(): ?Date {
-        return $this->getBackingStore()->get('usageDate');
+        $val = $this->getBackingStore()->get('usageDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'usageDate'");
     }
 
     /**

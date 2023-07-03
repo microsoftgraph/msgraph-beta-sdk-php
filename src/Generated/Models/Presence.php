@@ -29,7 +29,11 @@ class Presence extends Entity implements Parsable
      * @return string|null
     */
     public function getActivity(): ?string {
-        return $this->getBackingStore()->get('activity');
+        $val = $this->getBackingStore()->get('activity');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activity'");
     }
 
     /**
@@ -37,12 +41,16 @@ class Presence extends Entity implements Parsable
      * @return string|null
     */
     public function getAvailability(): ?string {
-        return $this->getBackingStore()->get('availability');
+        $val = $this->getBackingStore()->get('availability');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'availability'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -59,7 +67,11 @@ class Presence extends Entity implements Parsable
      * @return OutOfOfficeSettings|null
     */
     public function getOutOfOfficeSettings(): ?OutOfOfficeSettings {
-        return $this->getBackingStore()->get('outOfOfficeSettings');
+        $val = $this->getBackingStore()->get('outOfOfficeSettings');
+        if (is_null($val) || $val instanceof OutOfOfficeSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'outOfOfficeSettings'");
     }
 
     /**
@@ -67,7 +79,11 @@ class Presence extends Entity implements Parsable
      * @return PresenceStatusMessage|null
     */
     public function getStatusMessage(): ?PresenceStatusMessage {
-        return $this->getBackingStore()->get('statusMessage');
+        $val = $this->getBackingStore()->get('statusMessage');
+        if (is_null($val) || $val instanceof PresenceStatusMessage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'statusMessage'");
     }
 
     /**

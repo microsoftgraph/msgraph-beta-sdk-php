@@ -6,11 +6,15 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * CartToClassAssociation for associating device carts with classrooms.
+*/
 class CartToClassAssociation extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CartToClassAssociation and sets the default values.
+     * Instantiates a new cartToClassAssociation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -30,7 +34,13 @@ class CartToClassAssociation extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getClassroomIds(): ?array {
-        return $this->getBackingStore()->get('classroomIds');
+        $val = $this->getBackingStore()->get('classroomIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'classroomIds'");
     }
 
     /**
@@ -38,7 +48,11 @@ class CartToClassAssociation extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -46,7 +60,11 @@ class CartToClassAssociation extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -54,7 +72,13 @@ class CartToClassAssociation extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getDeviceCartIds(): ?array {
-        return $this->getBackingStore()->get('deviceCartIds');
+        $val = $this->getBackingStore()->get('deviceCartIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceCartIds'");
     }
 
     /**
@@ -62,20 +86,38 @@ class CartToClassAssociation extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'classroomIds' => fn(ParseNode $n) => $o->setClassroomIds($n->getCollectionOfPrimitiveValues()),
+            'classroomIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setClassroomIds($val);
+            },
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
-            'deviceCartIds' => fn(ParseNode $n) => $o->setDeviceCartIds($n->getCollectionOfPrimitiveValues()),
+            'deviceCartIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDeviceCartIds($val);
+            },
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'version' => fn(ParseNode $n) => $o->setVersion($n->getIntegerValue()),
@@ -87,7 +129,11 @@ class CartToClassAssociation extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -95,7 +141,11 @@ class CartToClassAssociation extends Entity implements Parsable
      * @return int|null
     */
     public function getVersion(): ?int {
-        return $this->getBackingStore()->get('version');
+        $val = $this->getBackingStore()->get('version');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'version'");
     }
 
     /**

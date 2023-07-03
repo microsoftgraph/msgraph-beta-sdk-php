@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +53,11 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
      * @return ApplicationMode|null
     */
     public function getApplicationMode(): ?ApplicationMode {
-        return $this->getBackingStore()->get('applicationMode');
+        $val = $this->getBackingStore()->get('applicationMode');
+        if (is_null($val) || $val instanceof ApplicationMode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationMode'");
     }
 
     /**
@@ -63,7 +73,11 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -71,12 +85,16 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -100,7 +118,11 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->getBackingStore()->get('id');
+        $val = $this->getBackingStore()->get('id');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'id'");
     }
 
     /**
@@ -108,7 +130,11 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getIsEndpointProtectionEnabled(): ?bool {
-        return $this->getBackingStore()->get('isEndpointProtectionEnabled');
+        $val = $this->getBackingStore()->get('isEndpointProtectionEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isEndpointProtectionEnabled'");
     }
 
     /**
@@ -116,7 +142,13 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<LabelActionBase>|null
     */
     public function getLabelActions(): ?array {
-        return $this->getBackingStore()->get('labelActions');
+        $val = $this->getBackingStore()->get('labelActions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, LabelActionBase::class);
+            /** @var array<LabelActionBase>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'labelActions'");
     }
 
     /**
@@ -124,7 +156,11 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -132,7 +168,11 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -140,7 +180,11 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getPolicyTip(): ?string {
-        return $this->getBackingStore()->get('policyTip');
+        $val = $this->getBackingStore()->get('policyTip');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyTip'");
     }
 
     /**
@@ -148,7 +192,11 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getPriority(): ?int {
-        return $this->getBackingStore()->get('priority');
+        $val = $this->getBackingStore()->get('priority');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'priority'");
     }
 
     /**
@@ -156,7 +204,11 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getToolTip(): ?string {
-        return $this->getBackingStore()->get('toolTip');
+        $val = $this->getBackingStore()->get('toolTip');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'toolTip'");
     }
 
     /**

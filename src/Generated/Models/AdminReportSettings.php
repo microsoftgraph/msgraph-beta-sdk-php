@@ -29,12 +29,16 @@ class AdminReportSettings extends Entity implements Parsable
      * @return bool|null
     */
     public function getDisplayConcealedNames(): ?bool {
-        return $this->getBackingStore()->get('displayConcealedNames');
+        $val = $this->getBackingStore()->get('displayConcealedNames');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayConcealedNames'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

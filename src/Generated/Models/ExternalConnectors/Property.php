@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class Property implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +53,13 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string>|null
     */
     public function getAliases(): ?array {
-        return $this->getBackingStore()->get('aliases');
+        $val = $this->getBackingStore()->get('aliases');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'aliases'");
     }
 
     /**
@@ -60,12 +72,19 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'aliases' => fn(ParseNode $n) => $o->setAliases($n->getCollectionOfPrimitiveValues()),
+            'aliases' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAliases($val);
+            },
             'isExactMatchRequired' => fn(ParseNode $n) => $o->setIsExactMatchRequired($n->getBooleanValue()),
             'isQueryable' => fn(ParseNode $n) => $o->setIsQueryable($n->getBooleanValue()),
             'isRefinable' => fn(ParseNode $n) => $o->setIsRefinable($n->getBooleanValue()),
@@ -84,7 +103,11 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getIsExactMatchRequired(): ?bool {
-        return $this->getBackingStore()->get('isExactMatchRequired');
+        $val = $this->getBackingStore()->get('isExactMatchRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isExactMatchRequired'");
     }
 
     /**
@@ -92,7 +115,11 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getIsQueryable(): ?bool {
-        return $this->getBackingStore()->get('isQueryable');
+        $val = $this->getBackingStore()->get('isQueryable');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isQueryable'");
     }
 
     /**
@@ -100,7 +127,11 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getIsRefinable(): ?bool {
-        return $this->getBackingStore()->get('isRefinable');
+        $val = $this->getBackingStore()->get('isRefinable');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isRefinable'");
     }
 
     /**
@@ -108,7 +139,11 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getIsRetrievable(): ?bool {
-        return $this->getBackingStore()->get('isRetrievable');
+        $val = $this->getBackingStore()->get('isRetrievable');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isRetrievable'");
     }
 
     /**
@@ -116,7 +151,11 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getIsSearchable(): ?bool {
-        return $this->getBackingStore()->get('isSearchable');
+        $val = $this->getBackingStore()->get('isSearchable');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isSearchable'");
     }
 
     /**
@@ -124,7 +163,13 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<Label>|null
     */
     public function getLabels(): ?array {
-        return $this->getBackingStore()->get('labels');
+        $val = $this->getBackingStore()->get('labels');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Label::class);
+            /** @var array<Label>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'labels'");
     }
 
     /**
@@ -132,7 +177,11 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -140,7 +189,11 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -148,7 +201,11 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
      * @return RankingHint|null
     */
     public function getRankingHint(): ?RankingHint {
-        return $this->getBackingStore()->get('rankingHint');
+        $val = $this->getBackingStore()->get('rankingHint');
+        if (is_null($val) || $val instanceof RankingHint) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rankingHint'");
     }
 
     /**
@@ -156,7 +213,11 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
      * @return PropertyType|null
     */
     public function getType(): ?PropertyType {
-        return $this->getBackingStore()->get('type');
+        $val = $this->getBackingStore()->get('type');
+        if (is_null($val) || $val instanceof PropertyType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
     }
 
     /**

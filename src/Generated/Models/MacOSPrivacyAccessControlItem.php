@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Represents per-process privacy preferences.
@@ -42,7 +43,11 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return Enablement|null
     */
     public function getAccessibility(): ?Enablement {
-        return $this->getBackingStore()->get('accessibility');
+        $val = $this->getBackingStore()->get('accessibility');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accessibility'");
     }
 
     /**
@@ -50,7 +55,12 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -58,7 +68,11 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return Enablement|null
     */
     public function getAddressBook(): ?Enablement {
-        return $this->getBackingStore()->get('addressBook');
+        $val = $this->getBackingStore()->get('addressBook');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'addressBook'");
     }
 
     /**
@@ -66,7 +80,13 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return array<MacOSAppleEventReceiver>|null
     */
     public function getAppleEventsAllowedReceivers(): ?array {
-        return $this->getBackingStore()->get('appleEventsAllowedReceivers');
+        $val = $this->getBackingStore()->get('appleEventsAllowedReceivers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MacOSAppleEventReceiver::class);
+            /** @var array<MacOSAppleEventReceiver>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appleEventsAllowedReceivers'");
     }
 
     /**
@@ -82,7 +102,11 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getBlockCamera(): ?bool {
-        return $this->getBackingStore()->get('blockCamera');
+        $val = $this->getBackingStore()->get('blockCamera');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockCamera'");
     }
 
     /**
@@ -90,7 +114,11 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getBlockListenEvent(): ?bool {
-        return $this->getBackingStore()->get('blockListenEvent');
+        $val = $this->getBackingStore()->get('blockListenEvent');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockListenEvent'");
     }
 
     /**
@@ -98,7 +126,11 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getBlockMicrophone(): ?bool {
-        return $this->getBackingStore()->get('blockMicrophone');
+        $val = $this->getBackingStore()->get('blockMicrophone');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockMicrophone'");
     }
 
     /**
@@ -106,7 +138,11 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getBlockScreenCapture(): ?bool {
-        return $this->getBackingStore()->get('blockScreenCapture');
+        $val = $this->getBackingStore()->get('blockScreenCapture');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockScreenCapture'");
     }
 
     /**
@@ -114,7 +150,11 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return Enablement|null
     */
     public function getCalendar(): ?Enablement {
-        return $this->getBackingStore()->get('calendar');
+        $val = $this->getBackingStore()->get('calendar');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'calendar'");
     }
 
     /**
@@ -122,7 +162,11 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return string|null
     */
     public function getCodeRequirement(): ?string {
-        return $this->getBackingStore()->get('codeRequirement');
+        $val = $this->getBackingStore()->get('codeRequirement');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'codeRequirement'");
     }
 
     /**
@@ -130,12 +174,16 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -175,7 +223,11 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return Enablement|null
     */
     public function getFileProviderPresence(): ?Enablement {
-        return $this->getBackingStore()->get('fileProviderPresence');
+        $val = $this->getBackingStore()->get('fileProviderPresence');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileProviderPresence'");
     }
 
     /**
@@ -183,7 +235,11 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return string|null
     */
     public function getIdentifier(): ?string {
-        return $this->getBackingStore()->get('identifier');
+        $val = $this->getBackingStore()->get('identifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identifier'");
     }
 
     /**
@@ -191,7 +247,11 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return MacOSProcessIdentifierType|null
     */
     public function getIdentifierType(): ?MacOSProcessIdentifierType {
-        return $this->getBackingStore()->get('identifierType');
+        $val = $this->getBackingStore()->get('identifierType');
+        if (is_null($val) || $val instanceof MacOSProcessIdentifierType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identifierType'");
     }
 
     /**
@@ -199,7 +259,11 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return Enablement|null
     */
     public function getMediaLibrary(): ?Enablement {
-        return $this->getBackingStore()->get('mediaLibrary');
+        $val = $this->getBackingStore()->get('mediaLibrary');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mediaLibrary'");
     }
 
     /**
@@ -207,7 +271,11 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -215,7 +283,11 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return Enablement|null
     */
     public function getPhotos(): ?Enablement {
-        return $this->getBackingStore()->get('photos');
+        $val = $this->getBackingStore()->get('photos');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'photos'");
     }
 
     /**
@@ -223,7 +295,11 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return Enablement|null
     */
     public function getPostEvent(): ?Enablement {
-        return $this->getBackingStore()->get('postEvent');
+        $val = $this->getBackingStore()->get('postEvent');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'postEvent'");
     }
 
     /**
@@ -231,7 +307,11 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return Enablement|null
     */
     public function getReminders(): ?Enablement {
-        return $this->getBackingStore()->get('reminders');
+        $val = $this->getBackingStore()->get('reminders');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reminders'");
     }
 
     /**
@@ -239,7 +319,11 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return Enablement|null
     */
     public function getSpeechRecognition(): ?Enablement {
-        return $this->getBackingStore()->get('speechRecognition');
+        $val = $this->getBackingStore()->get('speechRecognition');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'speechRecognition'");
     }
 
     /**
@@ -247,7 +331,11 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return bool|null
     */
     public function getStaticCodeValidation(): ?bool {
-        return $this->getBackingStore()->get('staticCodeValidation');
+        $val = $this->getBackingStore()->get('staticCodeValidation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'staticCodeValidation'");
     }
 
     /**
@@ -255,7 +343,11 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return Enablement|null
     */
     public function getSystemPolicyAllFiles(): ?Enablement {
-        return $this->getBackingStore()->get('systemPolicyAllFiles');
+        $val = $this->getBackingStore()->get('systemPolicyAllFiles');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'systemPolicyAllFiles'");
     }
 
     /**
@@ -263,7 +355,11 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return Enablement|null
     */
     public function getSystemPolicyDesktopFolder(): ?Enablement {
-        return $this->getBackingStore()->get('systemPolicyDesktopFolder');
+        $val = $this->getBackingStore()->get('systemPolicyDesktopFolder');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'systemPolicyDesktopFolder'");
     }
 
     /**
@@ -271,7 +367,11 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return Enablement|null
     */
     public function getSystemPolicyDocumentsFolder(): ?Enablement {
-        return $this->getBackingStore()->get('systemPolicyDocumentsFolder');
+        $val = $this->getBackingStore()->get('systemPolicyDocumentsFolder');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'systemPolicyDocumentsFolder'");
     }
 
     /**
@@ -279,7 +379,11 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return Enablement|null
     */
     public function getSystemPolicyDownloadsFolder(): ?Enablement {
-        return $this->getBackingStore()->get('systemPolicyDownloadsFolder');
+        $val = $this->getBackingStore()->get('systemPolicyDownloadsFolder');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'systemPolicyDownloadsFolder'");
     }
 
     /**
@@ -287,7 +391,11 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return Enablement|null
     */
     public function getSystemPolicyNetworkVolumes(): ?Enablement {
-        return $this->getBackingStore()->get('systemPolicyNetworkVolumes');
+        $val = $this->getBackingStore()->get('systemPolicyNetworkVolumes');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'systemPolicyNetworkVolumes'");
     }
 
     /**
@@ -295,7 +403,11 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return Enablement|null
     */
     public function getSystemPolicyRemovableVolumes(): ?Enablement {
-        return $this->getBackingStore()->get('systemPolicyRemovableVolumes');
+        $val = $this->getBackingStore()->get('systemPolicyRemovableVolumes');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'systemPolicyRemovableVolumes'");
     }
 
     /**
@@ -303,7 +415,11 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
      * @return Enablement|null
     */
     public function getSystemPolicySystemAdminFiles(): ?Enablement {
-        return $this->getBackingStore()->get('systemPolicySystemAdminFiles');
+        $val = $this->getBackingStore()->get('systemPolicySystemAdminFiles');
+        if (is_null($val) || $val instanceof Enablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'systemPolicySystemAdminFiles'");
     }
 
     /**

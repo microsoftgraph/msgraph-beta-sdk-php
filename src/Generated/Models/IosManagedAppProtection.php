@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class IosManagedAppProtection extends TargetedManagedAppProtection implements Parsable 
 {
@@ -30,7 +31,11 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return string|null
     */
     public function getAllowedIosDeviceModels(): ?string {
-        return $this->getBackingStore()->get('allowedIosDeviceModels');
+        $val = $this->getBackingStore()->get('allowedIosDeviceModels');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedIosDeviceModels'");
     }
 
     /**
@@ -38,7 +43,11 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfIosDeviceModelNotAllowed(): ?ManagedAppRemediationAction {
-        return $this->getBackingStore()->get('appActionIfIosDeviceModelNotAllowed');
+        $val = $this->getBackingStore()->get('appActionIfIosDeviceModelNotAllowed');
+        if (is_null($val) || $val instanceof ManagedAppRemediationAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appActionIfIosDeviceModelNotAllowed'");
     }
 
     /**
@@ -46,7 +55,11 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return ManagedAppDataEncryptionType|null
     */
     public function getAppDataEncryptionType(): ?ManagedAppDataEncryptionType {
-        return $this->getBackingStore()->get('appDataEncryptionType');
+        $val = $this->getBackingStore()->get('appDataEncryptionType');
+        if (is_null($val) || $val instanceof ManagedAppDataEncryptionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appDataEncryptionType'");
     }
 
     /**
@@ -54,7 +67,13 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return array<ManagedMobileApp>|null
     */
     public function getApps(): ?array {
-        return $this->getBackingStore()->get('apps');
+        $val = $this->getBackingStore()->get('apps');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagedMobileApp::class);
+            /** @var array<ManagedMobileApp>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'apps'");
     }
 
     /**
@@ -62,7 +81,11 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return string|null
     */
     public function getCustomBrowserProtocol(): ?string {
-        return $this->getBackingStore()->get('customBrowserProtocol');
+        $val = $this->getBackingStore()->get('customBrowserProtocol');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customBrowserProtocol'");
     }
 
     /**
@@ -70,7 +93,11 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return string|null
     */
     public function getCustomDialerAppProtocol(): ?string {
-        return $this->getBackingStore()->get('customDialerAppProtocol');
+        $val = $this->getBackingStore()->get('customDialerAppProtocol');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customDialerAppProtocol'");
     }
 
     /**
@@ -78,7 +105,11 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return int|null
     */
     public function getDeployedAppCount(): ?int {
-        return $this->getBackingStore()->get('deployedAppCount');
+        $val = $this->getBackingStore()->get('deployedAppCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deployedAppCount'");
     }
 
     /**
@@ -86,7 +117,11 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return ManagedAppPolicyDeploymentSummary|null
     */
     public function getDeploymentSummary(): ?ManagedAppPolicyDeploymentSummary {
-        return $this->getBackingStore()->get('deploymentSummary');
+        $val = $this->getBackingStore()->get('deploymentSummary');
+        if (is_null($val) || $val instanceof ManagedAppPolicyDeploymentSummary) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deploymentSummary'");
     }
 
     /**
@@ -94,7 +129,11 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return bool|null
     */
     public function getDisableProtectionOfManagedOutboundOpenInData(): ?bool {
-        return $this->getBackingStore()->get('disableProtectionOfManagedOutboundOpenInData');
+        $val = $this->getBackingStore()->get('disableProtectionOfManagedOutboundOpenInData');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disableProtectionOfManagedOutboundOpenInData'");
     }
 
     /**
@@ -102,7 +141,13 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return array<KeyValuePair>|null
     */
     public function getExemptedAppProtocols(): ?array {
-        return $this->getBackingStore()->get('exemptedAppProtocols');
+        $val = $this->getBackingStore()->get('exemptedAppProtocols');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, KeyValuePair::class);
+            /** @var array<KeyValuePair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exemptedAppProtocols'");
     }
 
     /**
@@ -110,7 +155,13 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return array<string>|null
     */
     public function getExemptedUniversalLinks(): ?array {
-        return $this->getBackingStore()->get('exemptedUniversalLinks');
+        $val = $this->getBackingStore()->get('exemptedUniversalLinks');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exemptedUniversalLinks'");
     }
 
     /**
@@ -118,12 +169,16 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return bool|null
     */
     public function getFaceIdBlocked(): ?bool {
-        return $this->getBackingStore()->get('faceIdBlocked');
+        $val = $this->getBackingStore()->get('faceIdBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'faceIdBlocked'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -138,10 +193,24 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
             'deploymentSummary' => fn(ParseNode $n) => $o->setDeploymentSummary($n->getObjectValue([ManagedAppPolicyDeploymentSummary::class, 'createFromDiscriminatorValue'])),
             'disableProtectionOfManagedOutboundOpenInData' => fn(ParseNode $n) => $o->setDisableProtectionOfManagedOutboundOpenInData($n->getBooleanValue()),
             'exemptedAppProtocols' => fn(ParseNode $n) => $o->setExemptedAppProtocols($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
-            'exemptedUniversalLinks' => fn(ParseNode $n) => $o->setExemptedUniversalLinks($n->getCollectionOfPrimitiveValues()),
+            'exemptedUniversalLinks' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setExemptedUniversalLinks($val);
+            },
             'faceIdBlocked' => fn(ParseNode $n) => $o->setFaceIdBlocked($n->getBooleanValue()),
             'filterOpenInToOnlyManagedApps' => fn(ParseNode $n) => $o->setFilterOpenInToOnlyManagedApps($n->getBooleanValue()),
-            'managedUniversalLinks' => fn(ParseNode $n) => $o->setManagedUniversalLinks($n->getCollectionOfPrimitiveValues()),
+            'managedUniversalLinks' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setManagedUniversalLinks($val);
+            },
             'minimumRequiredSdkVersion' => fn(ParseNode $n) => $o->setMinimumRequiredSdkVersion($n->getStringValue()),
             'minimumWarningSdkVersion' => fn(ParseNode $n) => $o->setMinimumWarningSdkVersion($n->getStringValue()),
             'minimumWipeSdkVersion' => fn(ParseNode $n) => $o->setMinimumWipeSdkVersion($n->getStringValue()),
@@ -155,7 +224,11 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return bool|null
     */
     public function getFilterOpenInToOnlyManagedApps(): ?bool {
-        return $this->getBackingStore()->get('filterOpenInToOnlyManagedApps');
+        $val = $this->getBackingStore()->get('filterOpenInToOnlyManagedApps');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'filterOpenInToOnlyManagedApps'");
     }
 
     /**
@@ -163,7 +236,13 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return array<string>|null
     */
     public function getManagedUniversalLinks(): ?array {
-        return $this->getBackingStore()->get('managedUniversalLinks');
+        $val = $this->getBackingStore()->get('managedUniversalLinks');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedUniversalLinks'");
     }
 
     /**
@@ -171,7 +250,11 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return string|null
     */
     public function getMinimumRequiredSdkVersion(): ?string {
-        return $this->getBackingStore()->get('minimumRequiredSdkVersion');
+        $val = $this->getBackingStore()->get('minimumRequiredSdkVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumRequiredSdkVersion'");
     }
 
     /**
@@ -179,7 +262,11 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return string|null
     */
     public function getMinimumWarningSdkVersion(): ?string {
-        return $this->getBackingStore()->get('minimumWarningSdkVersion');
+        $val = $this->getBackingStore()->get('minimumWarningSdkVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumWarningSdkVersion'");
     }
 
     /**
@@ -187,7 +274,11 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return string|null
     */
     public function getMinimumWipeSdkVersion(): ?string {
-        return $this->getBackingStore()->get('minimumWipeSdkVersion');
+        $val = $this->getBackingStore()->get('minimumWipeSdkVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumWipeSdkVersion'");
     }
 
     /**
@@ -195,7 +286,11 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return bool|null
     */
     public function getProtectInboundDataFromUnknownSources(): ?bool {
-        return $this->getBackingStore()->get('protectInboundDataFromUnknownSources');
+        $val = $this->getBackingStore()->get('protectInboundDataFromUnknownSources');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'protectInboundDataFromUnknownSources'");
     }
 
     /**
@@ -203,7 +298,11 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return bool|null
     */
     public function getThirdPartyKeyboardsBlocked(): ?bool {
-        return $this->getBackingStore()->get('thirdPartyKeyboardsBlocked');
+        $val = $this->getBackingStore()->get('thirdPartyKeyboardsBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'thirdPartyKeyboardsBlocked'");
     }
 
     /**

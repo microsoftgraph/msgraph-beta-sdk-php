@@ -30,12 +30,16 @@ class CloudPcExternalPartnerSetting extends Entity implements Parsable
      * @return bool|null
     */
     public function getEnableConnection(): ?bool {
-        return $this->getBackingStore()->get('enableConnection');
+        $val = $this->getBackingStore()->get('enableConnection');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableConnection'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -53,7 +57,11 @@ class CloudPcExternalPartnerSetting extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastSyncDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastSyncDateTime');
+        $val = $this->getBackingStore()->get('lastSyncDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSyncDateTime'");
     }
 
     /**
@@ -61,7 +69,11 @@ class CloudPcExternalPartnerSetting extends Entity implements Parsable
      * @return string|null
     */
     public function getPartnerId(): ?string {
-        return $this->getBackingStore()->get('partnerId');
+        $val = $this->getBackingStore()->get('partnerId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'partnerId'");
     }
 
     /**
@@ -69,7 +81,11 @@ class CloudPcExternalPartnerSetting extends Entity implements Parsable
      * @return CloudPcExternalPartnerStatus|null
     */
     public function getStatus(): ?CloudPcExternalPartnerStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof CloudPcExternalPartnerStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**
@@ -77,7 +93,11 @@ class CloudPcExternalPartnerSetting extends Entity implements Parsable
      * @return string|null
     */
     public function getStatusDetails(): ?string {
-        return $this->getBackingStore()->get('statusDetails');
+        $val = $this->getBackingStore()->get('statusDetails');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'statusDetails'");
     }
 
     /**

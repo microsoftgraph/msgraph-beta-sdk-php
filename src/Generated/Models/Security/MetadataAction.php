@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models\Security;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class MetadataAction extends InformationProtectionAction implements Parsable 
 {
@@ -27,13 +28,20 @@ class MetadataAction extends InformationProtectionAction implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'metadataToAdd' => fn(ParseNode $n) => $o->setMetadataToAdd($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
-            'metadataToRemove' => fn(ParseNode $n) => $o->setMetadataToRemove($n->getCollectionOfPrimitiveValues()),
+            'metadataToRemove' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setMetadataToRemove($val);
+            },
         ]);
     }
 
@@ -42,7 +50,13 @@ class MetadataAction extends InformationProtectionAction implements Parsable
      * @return array<KeyValuePair>|null
     */
     public function getMetadataToAdd(): ?array {
-        return $this->getBackingStore()->get('metadataToAdd');
+        $val = $this->getBackingStore()->get('metadataToAdd');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, KeyValuePair::class);
+            /** @var array<KeyValuePair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'metadataToAdd'");
     }
 
     /**
@@ -50,7 +64,13 @@ class MetadataAction extends InformationProtectionAction implements Parsable
      * @return array<string>|null
     */
     public function getMetadataToRemove(): ?array {
-        return $this->getBackingStore()->get('metadataToRemove');
+        $val = $this->getBackingStore()->get('metadataToRemove');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'metadataToRemove'");
     }
 
     /**

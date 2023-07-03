@@ -43,7 +43,12 @@ class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, 
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -59,7 +64,11 @@ class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, 
      * @return Date|null
     */
     public function getDate(): ?Date {
-        return $this->getBackingStore()->get('date');
+        $val = $this->getBackingStore()->get('date');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'date'");
     }
 
     /**
@@ -67,12 +76,16 @@ class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, 
      * @return int|null
     */
     public function getDetectFailedDeviceCount(): ?int {
-        return $this->getBackingStore()->get('detectFailedDeviceCount');
+        $val = $this->getBackingStore()->get('detectFailedDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detectFailedDeviceCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -90,7 +103,11 @@ class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, 
      * @return int|null
     */
     public function getNoIssueDeviceCount(): ?int {
-        return $this->getBackingStore()->get('noIssueDeviceCount');
+        $val = $this->getBackingStore()->get('noIssueDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'noIssueDeviceCount'");
     }
 
     /**
@@ -98,7 +115,11 @@ class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, 
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -106,7 +127,11 @@ class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, 
      * @return int|null
     */
     public function getRemediatedDeviceCount(): ?int {
-        return $this->getBackingStore()->get('remediatedDeviceCount');
+        $val = $this->getBackingStore()->get('remediatedDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remediatedDeviceCount'");
     }
 
     /**

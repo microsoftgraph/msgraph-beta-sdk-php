@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class IosVpnConfiguration extends AppleVpnConfiguration implements Parsable 
 {
@@ -37,7 +38,11 @@ class IosVpnConfiguration extends AppleVpnConfiguration implements Parsable
      * @return string|null
     */
     public function getCloudName(): ?string {
-        return $this->getBackingStore()->get('cloudName');
+        $val = $this->getBackingStore()->get('cloudName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudName'");
     }
 
     /**
@@ -45,7 +50,11 @@ class IosVpnConfiguration extends AppleVpnConfiguration implements Parsable
      * @return DeviceManagementDerivedCredentialSettings|null
     */
     public function getDerivedCredentialSettings(): ?DeviceManagementDerivedCredentialSettings {
-        return $this->getBackingStore()->get('derivedCredentialSettings');
+        $val = $this->getBackingStore()->get('derivedCredentialSettings');
+        if (is_null($val) || $val instanceof DeviceManagementDerivedCredentialSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'derivedCredentialSettings'");
     }
 
     /**
@@ -53,19 +62,32 @@ class IosVpnConfiguration extends AppleVpnConfiguration implements Parsable
      * @return array<string>|null
     */
     public function getExcludeList(): ?array {
-        return $this->getBackingStore()->get('excludeList');
+        $val = $this->getBackingStore()->get('excludeList');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'excludeList'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'cloudName' => fn(ParseNode $n) => $o->setCloudName($n->getStringValue()),
             'derivedCredentialSettings' => fn(ParseNode $n) => $o->setDerivedCredentialSettings($n->getObjectValue([DeviceManagementDerivedCredentialSettings::class, 'createFromDiscriminatorValue'])),
-            'excludeList' => fn(ParseNode $n) => $o->setExcludeList($n->getCollectionOfPrimitiveValues()),
+            'excludeList' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setExcludeList($val);
+            },
             'identityCertificate' => fn(ParseNode $n) => $o->setIdentityCertificate($n->getObjectValue([IosCertificateProfileBase::class, 'createFromDiscriminatorValue'])),
             'microsoftTunnelSiteId' => fn(ParseNode $n) => $o->setMicrosoftTunnelSiteId($n->getStringValue()),
             'strictEnforcement' => fn(ParseNode $n) => $o->setStrictEnforcement($n->getBooleanValue()),
@@ -79,7 +101,11 @@ class IosVpnConfiguration extends AppleVpnConfiguration implements Parsable
      * @return IosCertificateProfileBase|null
     */
     public function getIdentityCertificate(): ?IosCertificateProfileBase {
-        return $this->getBackingStore()->get('identityCertificate');
+        $val = $this->getBackingStore()->get('identityCertificate');
+        if (is_null($val) || $val instanceof IosCertificateProfileBase) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityCertificate'");
     }
 
     /**
@@ -87,7 +113,11 @@ class IosVpnConfiguration extends AppleVpnConfiguration implements Parsable
      * @return string|null
     */
     public function getMicrosoftTunnelSiteId(): ?string {
-        return $this->getBackingStore()->get('microsoftTunnelSiteId');
+        $val = $this->getBackingStore()->get('microsoftTunnelSiteId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftTunnelSiteId'");
     }
 
     /**
@@ -95,7 +125,11 @@ class IosVpnConfiguration extends AppleVpnConfiguration implements Parsable
      * @return bool|null
     */
     public function getStrictEnforcement(): ?bool {
-        return $this->getBackingStore()->get('strictEnforcement');
+        $val = $this->getBackingStore()->get('strictEnforcement');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'strictEnforcement'");
     }
 
     /**
@@ -103,7 +137,13 @@ class IosVpnConfiguration extends AppleVpnConfiguration implements Parsable
      * @return array<AppListItem>|null
     */
     public function getTargetedMobileApps(): ?array {
-        return $this->getBackingStore()->get('targetedMobileApps');
+        $val = $this->getBackingStore()->get('targetedMobileApps');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AppListItem::class);
+            /** @var array<AppListItem>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetedMobileApps'");
     }
 
     /**
@@ -111,7 +151,11 @@ class IosVpnConfiguration extends AppleVpnConfiguration implements Parsable
      * @return string|null
     */
     public function getUserDomain(): ?string {
-        return $this->getBackingStore()->get('userDomain');
+        $val = $this->getBackingStore()->get('userDomain');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userDomain'");
     }
 
     /**

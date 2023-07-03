@@ -10,6 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class Journal implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -40,7 +41,11 @@ class Journal implements AdditionalDataHolder, BackedModel, Parsable
      * @return Account|null
     */
     public function getAccount(): ?Account {
-        return $this->getBackingStore()->get('account');
+        $val = $this->getBackingStore()->get('account');
+        if (is_null($val) || $val instanceof Account) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'account'");
     }
 
     /**
@@ -48,7 +53,12 @@ class Journal implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -64,7 +74,11 @@ class Journal implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getBalancingAccountId(): ?string {
-        return $this->getBackingStore()->get('balancingAccountId');
+        $val = $this->getBackingStore()->get('balancingAccountId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'balancingAccountId'");
     }
 
     /**
@@ -72,7 +86,11 @@ class Journal implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getBalancingAccountNumber(): ?string {
-        return $this->getBackingStore()->get('balancingAccountNumber');
+        $val = $this->getBackingStore()->get('balancingAccountNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'balancingAccountNumber'");
     }
 
     /**
@@ -80,7 +98,11 @@ class Journal implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getCode(): ?string {
-        return $this->getBackingStore()->get('code');
+        $val = $this->getBackingStore()->get('code');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'code'");
     }
 
     /**
@@ -88,12 +110,16 @@ class Journal implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -115,7 +141,11 @@ class Journal implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->getBackingStore()->get('id');
+        $val = $this->getBackingStore()->get('id');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'id'");
     }
 
     /**
@@ -123,7 +153,13 @@ class Journal implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<JournalLine>|null
     */
     public function getJournalLines(): ?array {
-        return $this->getBackingStore()->get('journalLines');
+        $val = $this->getBackingStore()->get('journalLines');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, JournalLine::class);
+            /** @var array<JournalLine>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'journalLines'");
     }
 
     /**
@@ -131,7 +167,11 @@ class Journal implements AdditionalDataHolder, BackedModel, Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -139,7 +179,11 @@ class Journal implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

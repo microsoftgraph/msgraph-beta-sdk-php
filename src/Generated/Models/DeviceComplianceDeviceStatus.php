@@ -30,7 +30,11 @@ class DeviceComplianceDeviceStatus extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getComplianceGracePeriodExpirationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('complianceGracePeriodExpirationDateTime');
+        $val = $this->getBackingStore()->get('complianceGracePeriodExpirationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'complianceGracePeriodExpirationDateTime'");
     }
 
     /**
@@ -38,7 +42,11 @@ class DeviceComplianceDeviceStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceDisplayName(): ?string {
-        return $this->getBackingStore()->get('deviceDisplayName');
+        $val = $this->getBackingStore()->get('deviceDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceDisplayName'");
     }
 
     /**
@@ -46,12 +54,16 @@ class DeviceComplianceDeviceStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceModel(): ?string {
-        return $this->getBackingStore()->get('deviceModel');
+        $val = $this->getBackingStore()->get('deviceModel');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceModel'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -72,7 +84,11 @@ class DeviceComplianceDeviceStatus extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastReportedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastReportedDateTime');
+        $val = $this->getBackingStore()->get('lastReportedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastReportedDateTime'");
     }
 
     /**
@@ -80,7 +96,11 @@ class DeviceComplianceDeviceStatus extends Entity implements Parsable
      * @return int|null
     */
     public function getPlatform(): ?int {
-        return $this->getBackingStore()->get('platform');
+        $val = $this->getBackingStore()->get('platform');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'platform'");
     }
 
     /**
@@ -88,7 +108,11 @@ class DeviceComplianceDeviceStatus extends Entity implements Parsable
      * @return ComplianceStatus|null
     */
     public function getStatus(): ?ComplianceStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof ComplianceStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**
@@ -96,7 +120,11 @@ class DeviceComplianceDeviceStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getUserName(): ?string {
-        return $this->getBackingStore()->get('userName');
+        $val = $this->getBackingStore()->get('userName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userName'");
     }
 
     /**
@@ -104,7 +132,11 @@ class DeviceComplianceDeviceStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('userPrincipalName');
+        $val = $this->getBackingStore()->get('userPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
     }
 
     /**

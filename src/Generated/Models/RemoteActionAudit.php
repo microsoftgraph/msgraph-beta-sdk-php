@@ -30,7 +30,11 @@ class RemoteActionAudit extends Entity implements Parsable
      * @return RemoteAction|null
     */
     public function getAction(): ?RemoteAction {
-        return $this->getBackingStore()->get('action');
+        $val = $this->getBackingStore()->get('action');
+        if (is_null($val) || $val instanceof RemoteAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'action'");
     }
 
     /**
@@ -38,7 +42,11 @@ class RemoteActionAudit extends Entity implements Parsable
      * @return ActionState|null
     */
     public function getActionState(): ?ActionState {
-        return $this->getBackingStore()->get('actionState');
+        $val = $this->getBackingStore()->get('actionState');
+        if (is_null($val) || $val instanceof ActionState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'actionState'");
     }
 
     /**
@@ -46,7 +54,11 @@ class RemoteActionAudit extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceDisplayName(): ?string {
-        return $this->getBackingStore()->get('deviceDisplayName');
+        $val = $this->getBackingStore()->get('deviceDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceDisplayName'");
     }
 
     /**
@@ -54,7 +66,11 @@ class RemoteActionAudit extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceIMEI(): ?string {
-        return $this->getBackingStore()->get('deviceIMEI');
+        $val = $this->getBackingStore()->get('deviceIMEI');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceIMEI'");
     }
 
     /**
@@ -62,12 +78,16 @@ class RemoteActionAudit extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceOwnerUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('deviceOwnerUserPrincipalName');
+        $val = $this->getBackingStore()->get('deviceOwnerUserPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceOwnerUserPrincipalName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -89,7 +109,11 @@ class RemoteActionAudit extends Entity implements Parsable
      * @return string|null
     */
     public function getInitiatedByUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('initiatedByUserPrincipalName');
+        $val = $this->getBackingStore()->get('initiatedByUserPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'initiatedByUserPrincipalName'");
     }
 
     /**
@@ -97,7 +121,11 @@ class RemoteActionAudit extends Entity implements Parsable
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
-        return $this->getBackingStore()->get('managedDeviceId');
+        $val = $this->getBackingStore()->get('managedDeviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceId'");
     }
 
     /**
@@ -105,7 +133,11 @@ class RemoteActionAudit extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getRequestDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('requestDateTime');
+        $val = $this->getBackingStore()->get('requestDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requestDateTime'");
     }
 
     /**
@@ -113,7 +145,11 @@ class RemoteActionAudit extends Entity implements Parsable
      * @return string|null
     */
     public function getUserName(): ?string {
-        return $this->getBackingStore()->get('userName');
+        $val = $this->getBackingStore()->get('userName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userName'");
     }
 
     /**

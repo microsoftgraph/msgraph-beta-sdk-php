@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class GroupPolicyPresentationComboBox extends GroupPolicyUploadedPresentation implements Parsable 
 {
@@ -30,12 +31,16 @@ class GroupPolicyPresentationComboBox extends GroupPolicyUploadedPresentation im
      * @return string|null
     */
     public function getDefaultValue(): ?string {
-        return $this->getBackingStore()->get('defaultValue');
+        $val = $this->getBackingStore()->get('defaultValue');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultValue'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -43,7 +48,14 @@ class GroupPolicyPresentationComboBox extends GroupPolicyUploadedPresentation im
             'defaultValue' => fn(ParseNode $n) => $o->setDefaultValue($n->getStringValue()),
             'maxLength' => fn(ParseNode $n) => $o->setMaxLength($n->getIntegerValue()),
             'required' => fn(ParseNode $n) => $o->setRequired($n->getBooleanValue()),
-            'suggestions' => fn(ParseNode $n) => $o->setSuggestions($n->getCollectionOfPrimitiveValues()),
+            'suggestions' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSuggestions($val);
+            },
         ]);
     }
 
@@ -52,7 +64,11 @@ class GroupPolicyPresentationComboBox extends GroupPolicyUploadedPresentation im
      * @return int|null
     */
     public function getMaxLength(): ?int {
-        return $this->getBackingStore()->get('maxLength');
+        $val = $this->getBackingStore()->get('maxLength');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maxLength'");
     }
 
     /**
@@ -60,7 +76,11 @@ class GroupPolicyPresentationComboBox extends GroupPolicyUploadedPresentation im
      * @return bool|null
     */
     public function getRequired(): ?bool {
-        return $this->getBackingStore()->get('required');
+        $val = $this->getBackingStore()->get('required');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'required'");
     }
 
     /**
@@ -68,7 +88,13 @@ class GroupPolicyPresentationComboBox extends GroupPolicyUploadedPresentation im
      * @return array<string>|null
     */
     public function getSuggestions(): ?array {
-        return $this->getBackingStore()->get('suggestions');
+        $val = $this->getBackingStore()->get('suggestions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'suggestions'");
     }
 
     /**

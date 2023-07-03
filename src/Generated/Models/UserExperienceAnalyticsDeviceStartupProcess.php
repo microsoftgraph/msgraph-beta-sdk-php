@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics device startup process details.
+*/
 class UserExperienceAnalyticsDeviceStartupProcess extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsDeviceStartupProcess and sets the default values.
+     * Instantiates a new userExperienceAnalyticsDeviceStartupProcess and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -26,7 +29,7 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity implements Pars
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -40,43 +43,63 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity implements Pars
     }
 
     /**
-     * Gets the managedDeviceId property value. The user experience analytics device id.
+     * Gets the managedDeviceId property value. The Intune device id of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
-        return $this->getBackingStore()->get('managedDeviceId');
+        $val = $this->getBackingStore()->get('managedDeviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceId'");
     }
 
     /**
-     * Gets the processName property value. User experience analytics device startup process name.
+     * Gets the processName property value. The name of the process. Examples: outlook, excel. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getProcessName(): ?string {
-        return $this->getBackingStore()->get('processName');
+        $val = $this->getBackingStore()->get('processName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'processName'");
     }
 
     /**
-     * Gets the productName property value. The user experience analytics device startup process product name.
+     * Gets the productName property value. The product name of the process. Examples: Microsoft Outlook, Microsoft Excel. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getProductName(): ?string {
-        return $this->getBackingStore()->get('productName');
+        $val = $this->getBackingStore()->get('productName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'productName'");
     }
 
     /**
-     * Gets the publisher property value. The User experience analytics device startup process publisher.
+     * Gets the publisher property value. The publisher of the process. Examples: Microsoft Corporation, Contoso Corp. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getPublisher(): ?string {
-        return $this->getBackingStore()->get('publisher');
+        $val = $this->getBackingStore()->get('publisher');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publisher'");
     }
 
     /**
-     * Gets the startupImpactInMs property value. User experience analytics device startup process impact in milliseconds.
+     * Gets the startupImpactInMs property value. The impact of startup process on device boot time in milliseconds. Supports: $select, $OrderBy. Read-only.
      * @return int|null
     */
     public function getStartupImpactInMs(): ?int {
-        return $this->getBackingStore()->get('startupImpactInMs');
+        $val = $this->getBackingStore()->get('startupImpactInMs');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startupImpactInMs'");
     }
 
     /**
@@ -93,7 +116,7 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity implements Pars
     }
 
     /**
-     * Sets the managedDeviceId property value. The user experience analytics device id.
+     * Sets the managedDeviceId property value. The Intune device id of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the managedDeviceId property.
     */
     public function setManagedDeviceId(?string $value): void {
@@ -101,7 +124,7 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity implements Pars
     }
 
     /**
-     * Sets the processName property value. User experience analytics device startup process name.
+     * Sets the processName property value. The name of the process. Examples: outlook, excel. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the processName property.
     */
     public function setProcessName(?string $value): void {
@@ -109,7 +132,7 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity implements Pars
     }
 
     /**
-     * Sets the productName property value. The user experience analytics device startup process product name.
+     * Sets the productName property value. The product name of the process. Examples: Microsoft Outlook, Microsoft Excel. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the productName property.
     */
     public function setProductName(?string $value): void {
@@ -117,7 +140,7 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity implements Pars
     }
 
     /**
-     * Sets the publisher property value. The User experience analytics device startup process publisher.
+     * Sets the publisher property value. The publisher of the process. Examples: Microsoft Corporation, Contoso Corp. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the publisher property.
     */
     public function setPublisher(?string $value): void {
@@ -125,7 +148,7 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity implements Pars
     }
 
     /**
-     * Sets the startupImpactInMs property value. User experience analytics device startup process impact in milliseconds.
+     * Sets the startupImpactInMs property value. The impact of startup process on device boot time in milliseconds. Supports: $select, $OrderBy. Read-only.
      * @param int|null $value Value to set for the startupImpactInMs property.
     */
     public function setStartupImpactInMs(?int $value): void {

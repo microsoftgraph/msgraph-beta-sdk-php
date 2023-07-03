@@ -36,7 +36,7 @@ class MarkContent extends LabelActionBase implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -52,7 +52,11 @@ class MarkContent extends LabelActionBase implements Parsable
      * @return string|null
     */
     public function getFontColor(): ?string {
-        return $this->getBackingStore()->get('fontColor');
+        $val = $this->getBackingStore()->get('fontColor');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fontColor'");
     }
 
     /**
@@ -60,7 +64,11 @@ class MarkContent extends LabelActionBase implements Parsable
      * @return int|null
     */
     public function getFontSize(): ?int {
-        return $this->getBackingStore()->get('fontSize');
+        $val = $this->getBackingStore()->get('fontSize');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fontSize'");
     }
 
     /**
@@ -68,7 +76,11 @@ class MarkContent extends LabelActionBase implements Parsable
      * @return string|null
     */
     public function getText(): ?string {
-        return $this->getBackingStore()->get('text');
+        $val = $this->getBackingStore()->get('text');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'text'");
     }
 
     /**

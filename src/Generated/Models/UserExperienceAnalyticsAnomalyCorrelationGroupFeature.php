@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Describes the features of a device that are shared between all devices in a correlation group.
@@ -42,7 +43,12 @@ class UserExperienceAnalyticsAnomalyCorrelationGroupFeature implements Additiona
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -58,19 +64,30 @@ class UserExperienceAnalyticsAnomalyCorrelationGroupFeature implements Additiona
      * @return UserExperienceAnalyticsAnomalyDeviceFeatureType|null
     */
     public function getDeviceFeatureType(): ?UserExperienceAnalyticsAnomalyDeviceFeatureType {
-        return $this->getBackingStore()->get('deviceFeatureType');
+        $val = $this->getBackingStore()->get('deviceFeatureType');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsAnomalyDeviceFeatureType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceFeatureType'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
             'deviceFeatureType' => fn(ParseNode $n) => $o->setDeviceFeatureType($n->getEnumValue(UserExperienceAnalyticsAnomalyDeviceFeatureType::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'values' => fn(ParseNode $n) => $o->setValues($n->getCollectionOfPrimitiveValues()),
+            'values' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setValues($val);
+            },
         ];
     }
 
@@ -79,7 +96,11 @@ class UserExperienceAnalyticsAnomalyCorrelationGroupFeature implements Additiona
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -87,7 +108,13 @@ class UserExperienceAnalyticsAnomalyCorrelationGroupFeature implements Additiona
      * @return array<string>|null
     */
     public function getValues(): ?array {
-        return $this->getBackingStore()->get('values');
+        $val = $this->getBackingStore()->get('values');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'values'");
     }
 
     /**

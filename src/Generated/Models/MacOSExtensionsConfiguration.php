@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsable 
 {
@@ -27,16 +28,30 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsab
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'kernelExtensionAllowedTeamIdentifiers' => fn(ParseNode $n) => $o->setKernelExtensionAllowedTeamIdentifiers($n->getCollectionOfPrimitiveValues()),
+            'kernelExtensionAllowedTeamIdentifiers' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setKernelExtensionAllowedTeamIdentifiers($val);
+            },
             'kernelExtensionOverridesAllowed' => fn(ParseNode $n) => $o->setKernelExtensionOverridesAllowed($n->getBooleanValue()),
             'kernelExtensionsAllowed' => fn(ParseNode $n) => $o->setKernelExtensionsAllowed($n->getCollectionOfObjectValues([MacOSKernelExtension::class, 'createFromDiscriminatorValue'])),
             'systemExtensionsAllowed' => fn(ParseNode $n) => $o->setSystemExtensionsAllowed($n->getCollectionOfObjectValues([MacOSSystemExtension::class, 'createFromDiscriminatorValue'])),
-            'systemExtensionsAllowedTeamIdentifiers' => fn(ParseNode $n) => $o->setSystemExtensionsAllowedTeamIdentifiers($n->getCollectionOfPrimitiveValues()),
+            'systemExtensionsAllowedTeamIdentifiers' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSystemExtensionsAllowedTeamIdentifiers($val);
+            },
             'systemExtensionsAllowedTypes' => fn(ParseNode $n) => $o->setSystemExtensionsAllowedTypes($n->getCollectionOfObjectValues([MacOSSystemExtensionTypeMapping::class, 'createFromDiscriminatorValue'])),
             'systemExtensionsBlockOverride' => fn(ParseNode $n) => $o->setSystemExtensionsBlockOverride($n->getBooleanValue()),
         ]);
@@ -47,7 +62,13 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsab
      * @return array<string>|null
     */
     public function getKernelExtensionAllowedTeamIdentifiers(): ?array {
-        return $this->getBackingStore()->get('kernelExtensionAllowedTeamIdentifiers');
+        $val = $this->getBackingStore()->get('kernelExtensionAllowedTeamIdentifiers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kernelExtensionAllowedTeamIdentifiers'");
     }
 
     /**
@@ -55,7 +76,11 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsab
      * @return bool|null
     */
     public function getKernelExtensionOverridesAllowed(): ?bool {
-        return $this->getBackingStore()->get('kernelExtensionOverridesAllowed');
+        $val = $this->getBackingStore()->get('kernelExtensionOverridesAllowed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kernelExtensionOverridesAllowed'");
     }
 
     /**
@@ -63,7 +88,13 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsab
      * @return array<MacOSKernelExtension>|null
     */
     public function getKernelExtensionsAllowed(): ?array {
-        return $this->getBackingStore()->get('kernelExtensionsAllowed');
+        $val = $this->getBackingStore()->get('kernelExtensionsAllowed');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MacOSKernelExtension::class);
+            /** @var array<MacOSKernelExtension>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kernelExtensionsAllowed'");
     }
 
     /**
@@ -71,7 +102,13 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsab
      * @return array<MacOSSystemExtension>|null
     */
     public function getSystemExtensionsAllowed(): ?array {
-        return $this->getBackingStore()->get('systemExtensionsAllowed');
+        $val = $this->getBackingStore()->get('systemExtensionsAllowed');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MacOSSystemExtension::class);
+            /** @var array<MacOSSystemExtension>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'systemExtensionsAllowed'");
     }
 
     /**
@@ -79,7 +116,13 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsab
      * @return array<string>|null
     */
     public function getSystemExtensionsAllowedTeamIdentifiers(): ?array {
-        return $this->getBackingStore()->get('systemExtensionsAllowedTeamIdentifiers');
+        $val = $this->getBackingStore()->get('systemExtensionsAllowedTeamIdentifiers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'systemExtensionsAllowedTeamIdentifiers'");
     }
 
     /**
@@ -87,7 +130,13 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsab
      * @return array<MacOSSystemExtensionTypeMapping>|null
     */
     public function getSystemExtensionsAllowedTypes(): ?array {
-        return $this->getBackingStore()->get('systemExtensionsAllowedTypes');
+        $val = $this->getBackingStore()->get('systemExtensionsAllowedTypes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MacOSSystemExtensionTypeMapping::class);
+            /** @var array<MacOSSystemExtensionTypeMapping>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'systemExtensionsAllowedTypes'");
     }
 
     /**
@@ -95,7 +144,11 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsab
      * @return bool|null
     */
     public function getSystemExtensionsBlockOverride(): ?bool {
-        return $this->getBackingStore()->get('systemExtensionsBlockOverride');
+        $val = $this->getBackingStore()->get('systemExtensionsBlockOverride');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'systemExtensionsBlockOverride'");
     }
 
     /**

@@ -40,7 +40,12 @@ class HybridAgentUpdaterConfiguration implements AdditionalDataHolder, BackedMod
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -48,7 +53,11 @@ class HybridAgentUpdaterConfiguration implements AdditionalDataHolder, BackedMod
      * @return bool|null
     */
     public function getAllowUpdateConfigurationOverride(): ?bool {
-        return $this->getBackingStore()->get('allowUpdateConfigurationOverride');
+        $val = $this->getBackingStore()->get('allowUpdateConfigurationOverride');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowUpdateConfigurationOverride'");
     }
 
     /**
@@ -64,12 +73,16 @@ class HybridAgentUpdaterConfiguration implements AdditionalDataHolder, BackedMod
      * @return DateTime|null
     */
     public function getDeferUpdateDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('deferUpdateDateTime');
+        $val = $this->getBackingStore()->get('deferUpdateDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deferUpdateDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -86,7 +99,11 @@ class HybridAgentUpdaterConfiguration implements AdditionalDataHolder, BackedMod
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -94,7 +111,11 @@ class HybridAgentUpdaterConfiguration implements AdditionalDataHolder, BackedMod
      * @return UpdateWindow|null
     */
     public function getUpdateWindow(): ?UpdateWindow {
-        return $this->getBackingStore()->get('updateWindow');
+        $val = $this->getBackingStore()->get('updateWindow');
+        if (is_null($val) || $val instanceof UpdateWindow) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'updateWindow'");
     }
 
     /**

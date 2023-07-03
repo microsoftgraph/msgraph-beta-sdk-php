@@ -39,7 +39,12 @@ class RecordDecisionsPostRequestBody implements AdditionalDataHolder, BackedMode
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +57,7 @@ class RecordDecisionsPostRequestBody implements AdditionalDataHolder, BackedMode
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -67,7 +72,11 @@ class RecordDecisionsPostRequestBody implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getJustification(): ?string {
-        return $this->getBackingStore()->get('justification');
+        $val = $this->getBackingStore()->get('justification');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'justification'");
     }
 
     /**
@@ -75,7 +84,11 @@ class RecordDecisionsPostRequestBody implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getReviewResult(): ?string {
-        return $this->getBackingStore()->get('reviewResult');
+        $val = $this->getBackingStore()->get('reviewResult');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reviewResult'");
     }
 
     /**

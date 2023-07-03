@@ -7,6 +7,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class Contact extends OutlookItem implements Parsable 
 {
@@ -32,7 +33,11 @@ class Contact extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getAssistantName(): ?string {
-        return $this->getBackingStore()->get('assistantName');
+        $val = $this->getBackingStore()->get('assistantName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assistantName'");
     }
 
     /**
@@ -40,7 +45,11 @@ class Contact extends OutlookItem implements Parsable
      * @return DateTime|null
     */
     public function getBirthday(): ?DateTime {
-        return $this->getBackingStore()->get('birthday');
+        $val = $this->getBackingStore()->get('birthday');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'birthday'");
     }
 
     /**
@@ -48,7 +57,13 @@ class Contact extends OutlookItem implements Parsable
      * @return array<string>|null
     */
     public function getChildren(): ?array {
-        return $this->getBackingStore()->get('children');
+        $val = $this->getBackingStore()->get('children');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'children'");
     }
 
     /**
@@ -56,7 +71,11 @@ class Contact extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getCompanyName(): ?string {
-        return $this->getBackingStore()->get('companyName');
+        $val = $this->getBackingStore()->get('companyName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'companyName'");
     }
 
     /**
@@ -64,7 +83,11 @@ class Contact extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getDepartment(): ?string {
-        return $this->getBackingStore()->get('department');
+        $val = $this->getBackingStore()->get('department');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'department'");
     }
 
     /**
@@ -72,7 +95,11 @@ class Contact extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -80,7 +107,13 @@ class Contact extends OutlookItem implements Parsable
      * @return array<TypedEmailAddress>|null
     */
     public function getEmailAddresses(): ?array {
-        return $this->getBackingStore()->get('emailAddresses');
+        $val = $this->getBackingStore()->get('emailAddresses');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, TypedEmailAddress::class);
+            /** @var array<TypedEmailAddress>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailAddresses'");
     }
 
     /**
@@ -88,19 +121,32 @@ class Contact extends OutlookItem implements Parsable
      * @return array<Extension>|null
     */
     public function getExtensions(): ?array {
-        return $this->getBackingStore()->get('extensions');
+        $val = $this->getBackingStore()->get('extensions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Extension::class);
+            /** @var array<Extension>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'extensions'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'assistantName' => fn(ParseNode $n) => $o->setAssistantName($n->getStringValue()),
             'birthday' => fn(ParseNode $n) => $o->setBirthday($n->getDateTimeValue()),
-            'children' => fn(ParseNode $n) => $o->setChildren($n->getCollectionOfPrimitiveValues()),
+            'children' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setChildren($val);
+            },
             'companyName' => fn(ParseNode $n) => $o->setCompanyName($n->getStringValue()),
             'department' => fn(ParseNode $n) => $o->setDepartment($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
@@ -111,7 +157,14 @@ class Contact extends OutlookItem implements Parsable
             'gender' => fn(ParseNode $n) => $o->setGender($n->getStringValue()),
             'generation' => fn(ParseNode $n) => $o->setGeneration($n->getStringValue()),
             'givenName' => fn(ParseNode $n) => $o->setGivenName($n->getStringValue()),
-            'imAddresses' => fn(ParseNode $n) => $o->setImAddresses($n->getCollectionOfPrimitiveValues()),
+            'imAddresses' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setImAddresses($val);
+            },
             'initials' => fn(ParseNode $n) => $o->setInitials($n->getStringValue()),
             'isFavorite' => fn(ParseNode $n) => $o->setIsFavorite($n->getBooleanValue()),
             'jobTitle' => fn(ParseNode $n) => $o->setJobTitle($n->getStringValue()),
@@ -143,7 +196,11 @@ class Contact extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getFileAs(): ?string {
-        return $this->getBackingStore()->get('fileAs');
+        $val = $this->getBackingStore()->get('fileAs');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileAs'");
     }
 
     /**
@@ -151,7 +208,11 @@ class Contact extends OutlookItem implements Parsable
      * @return FollowupFlag|null
     */
     public function getFlag(): ?FollowupFlag {
-        return $this->getBackingStore()->get('flag');
+        $val = $this->getBackingStore()->get('flag');
+        if (is_null($val) || $val instanceof FollowupFlag) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'flag'");
     }
 
     /**
@@ -159,7 +220,11 @@ class Contact extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getGender(): ?string {
-        return $this->getBackingStore()->get('gender');
+        $val = $this->getBackingStore()->get('gender');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'gender'");
     }
 
     /**
@@ -167,7 +232,11 @@ class Contact extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getGeneration(): ?string {
-        return $this->getBackingStore()->get('generation');
+        $val = $this->getBackingStore()->get('generation');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'generation'");
     }
 
     /**
@@ -175,7 +244,11 @@ class Contact extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getGivenName(): ?string {
-        return $this->getBackingStore()->get('givenName');
+        $val = $this->getBackingStore()->get('givenName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'givenName'");
     }
 
     /**
@@ -183,7 +256,13 @@ class Contact extends OutlookItem implements Parsable
      * @return array<string>|null
     */
     public function getImAddresses(): ?array {
-        return $this->getBackingStore()->get('imAddresses');
+        $val = $this->getBackingStore()->get('imAddresses');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'imAddresses'");
     }
 
     /**
@@ -191,7 +270,11 @@ class Contact extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getInitials(): ?string {
-        return $this->getBackingStore()->get('initials');
+        $val = $this->getBackingStore()->get('initials');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'initials'");
     }
 
     /**
@@ -199,7 +282,11 @@ class Contact extends OutlookItem implements Parsable
      * @return bool|null
     */
     public function getIsFavorite(): ?bool {
-        return $this->getBackingStore()->get('isFavorite');
+        $val = $this->getBackingStore()->get('isFavorite');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isFavorite'");
     }
 
     /**
@@ -207,7 +294,11 @@ class Contact extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getJobTitle(): ?string {
-        return $this->getBackingStore()->get('jobTitle');
+        $val = $this->getBackingStore()->get('jobTitle');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'jobTitle'");
     }
 
     /**
@@ -215,7 +306,11 @@ class Contact extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getManager(): ?string {
-        return $this->getBackingStore()->get('manager');
+        $val = $this->getBackingStore()->get('manager');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'manager'");
     }
 
     /**
@@ -223,7 +318,11 @@ class Contact extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getMiddleName(): ?string {
-        return $this->getBackingStore()->get('middleName');
+        $val = $this->getBackingStore()->get('middleName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'middleName'");
     }
 
     /**
@@ -231,7 +330,13 @@ class Contact extends OutlookItem implements Parsable
      * @return array<MultiValueLegacyExtendedProperty>|null
     */
     public function getMultiValueExtendedProperties(): ?array {
-        return $this->getBackingStore()->get('multiValueExtendedProperties');
+        $val = $this->getBackingStore()->get('multiValueExtendedProperties');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MultiValueLegacyExtendedProperty::class);
+            /** @var array<MultiValueLegacyExtendedProperty>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'multiValueExtendedProperties'");
     }
 
     /**
@@ -239,7 +344,11 @@ class Contact extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getNickName(): ?string {
-        return $this->getBackingStore()->get('nickName');
+        $val = $this->getBackingStore()->get('nickName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'nickName'");
     }
 
     /**
@@ -247,7 +356,11 @@ class Contact extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getOfficeLocation(): ?string {
-        return $this->getBackingStore()->get('officeLocation');
+        $val = $this->getBackingStore()->get('officeLocation');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'officeLocation'");
     }
 
     /**
@@ -255,7 +368,11 @@ class Contact extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getParentFolderId(): ?string {
-        return $this->getBackingStore()->get('parentFolderId');
+        $val = $this->getBackingStore()->get('parentFolderId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'parentFolderId'");
     }
 
     /**
@@ -263,7 +380,11 @@ class Contact extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getPersonalNotes(): ?string {
-        return $this->getBackingStore()->get('personalNotes');
+        $val = $this->getBackingStore()->get('personalNotes');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'personalNotes'");
     }
 
     /**
@@ -271,7 +392,13 @@ class Contact extends OutlookItem implements Parsable
      * @return array<Phone>|null
     */
     public function getPhones(): ?array {
-        return $this->getBackingStore()->get('phones');
+        $val = $this->getBackingStore()->get('phones');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Phone::class);
+            /** @var array<Phone>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'phones'");
     }
 
     /**
@@ -279,7 +406,11 @@ class Contact extends OutlookItem implements Parsable
      * @return ProfilePhoto|null
     */
     public function getPhoto(): ?ProfilePhoto {
-        return $this->getBackingStore()->get('photo');
+        $val = $this->getBackingStore()->get('photo');
+        if (is_null($val) || $val instanceof ProfilePhoto) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'photo'");
     }
 
     /**
@@ -287,7 +418,13 @@ class Contact extends OutlookItem implements Parsable
      * @return array<PhysicalAddress>|null
     */
     public function getPostalAddresses(): ?array {
-        return $this->getBackingStore()->get('postalAddresses');
+        $val = $this->getBackingStore()->get('postalAddresses');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PhysicalAddress::class);
+            /** @var array<PhysicalAddress>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'postalAddresses'");
     }
 
     /**
@@ -295,7 +432,11 @@ class Contact extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getProfession(): ?string {
-        return $this->getBackingStore()->get('profession');
+        $val = $this->getBackingStore()->get('profession');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'profession'");
     }
 
     /**
@@ -303,7 +444,13 @@ class Contact extends OutlookItem implements Parsable
      * @return array<SingleValueLegacyExtendedProperty>|null
     */
     public function getSingleValueExtendedProperties(): ?array {
-        return $this->getBackingStore()->get('singleValueExtendedProperties');
+        $val = $this->getBackingStore()->get('singleValueExtendedProperties');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SingleValueLegacyExtendedProperty::class);
+            /** @var array<SingleValueLegacyExtendedProperty>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'singleValueExtendedProperties'");
     }
 
     /**
@@ -311,7 +458,11 @@ class Contact extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getSpouseName(): ?string {
-        return $this->getBackingStore()->get('spouseName');
+        $val = $this->getBackingStore()->get('spouseName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'spouseName'");
     }
 
     /**
@@ -319,7 +470,11 @@ class Contact extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getSurname(): ?string {
-        return $this->getBackingStore()->get('surname');
+        $val = $this->getBackingStore()->get('surname');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'surname'");
     }
 
     /**
@@ -327,7 +482,11 @@ class Contact extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getTitle(): ?string {
-        return $this->getBackingStore()->get('title');
+        $val = $this->getBackingStore()->get('title');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'title'");
     }
 
     /**
@@ -335,7 +494,13 @@ class Contact extends OutlookItem implements Parsable
      * @return array<Website>|null
     */
     public function getWebsites(): ?array {
-        return $this->getBackingStore()->get('websites');
+        $val = $this->getBackingStore()->get('websites');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Website::class);
+            /** @var array<Website>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'websites'");
     }
 
     /**
@@ -343,7 +508,11 @@ class Contact extends OutlookItem implements Parsable
      * @return Date|null
     */
     public function getWeddingAnniversary(): ?Date {
-        return $this->getBackingStore()->get('weddingAnniversary');
+        $val = $this->getBackingStore()->get('weddingAnniversary');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'weddingAnniversary'");
     }
 
     /**
@@ -351,7 +520,11 @@ class Contact extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getYomiCompanyName(): ?string {
-        return $this->getBackingStore()->get('yomiCompanyName');
+        $val = $this->getBackingStore()->get('yomiCompanyName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'yomiCompanyName'");
     }
 
     /**
@@ -359,7 +532,11 @@ class Contact extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getYomiGivenName(): ?string {
-        return $this->getBackingStore()->get('yomiGivenName');
+        $val = $this->getBackingStore()->get('yomiGivenName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'yomiGivenName'");
     }
 
     /**
@@ -367,7 +544,11 @@ class Contact extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getYomiSurname(): ?string {
-        return $this->getBackingStore()->get('yomiSurname');
+        $val = $this->getBackingStore()->get('yomiSurname');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'yomiSurname'");
     }
 
     /**

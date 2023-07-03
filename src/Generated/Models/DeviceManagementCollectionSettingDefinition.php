@@ -29,12 +29,16 @@ class DeviceManagementCollectionSettingDefinition extends DeviceManagementSettin
      * @return string|null
     */
     public function getElementDefinitionId(): ?string {
-        return $this->getBackingStore()->get('elementDefinitionId');
+        $val = $this->getBackingStore()->get('elementDefinitionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'elementDefinitionId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

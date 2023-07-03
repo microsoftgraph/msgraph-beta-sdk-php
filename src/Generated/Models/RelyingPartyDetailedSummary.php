@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class RelyingPartyDetailedSummary extends Entity implements Parsable 
 {
@@ -29,12 +30,16 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getFailedSignInCount(): ?int {
-        return $this->getBackingStore()->get('failedSignInCount');
+        $val = $this->getBackingStore()->get('failedSignInCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'failedSignInCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -44,7 +49,14 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
             'migrationValidationDetails' => fn(ParseNode $n) => $o->setMigrationValidationDetails($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
             'relyingPartyId' => fn(ParseNode $n) => $o->setRelyingPartyId($n->getStringValue()),
             'relyingPartyName' => fn(ParseNode $n) => $o->setRelyingPartyName($n->getStringValue()),
-            'replyUrls' => fn(ParseNode $n) => $o->setReplyUrls($n->getCollectionOfPrimitiveValues()),
+            'replyUrls' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setReplyUrls($val);
+            },
             'serviceId' => fn(ParseNode $n) => $o->setServiceId($n->getStringValue()),
             'signInSuccessRate' => fn(ParseNode $n) => $o->setSignInSuccessRate($n->getFloatValue()),
             'successfulSignInCount' => fn(ParseNode $n) => $o->setSuccessfulSignInCount($n->getIntegerValue()),
@@ -58,7 +70,11 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
      * @return MigrationStatus|null
     */
     public function getMigrationStatus(): ?MigrationStatus {
-        return $this->getBackingStore()->get('migrationStatus');
+        $val = $this->getBackingStore()->get('migrationStatus');
+        if (is_null($val) || $val instanceof MigrationStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'migrationStatus'");
     }
 
     /**
@@ -66,7 +82,13 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
      * @return array<KeyValuePair>|null
     */
     public function getMigrationValidationDetails(): ?array {
-        return $this->getBackingStore()->get('migrationValidationDetails');
+        $val = $this->getBackingStore()->get('migrationValidationDetails');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, KeyValuePair::class);
+            /** @var array<KeyValuePair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'migrationValidationDetails'");
     }
 
     /**
@@ -74,7 +96,11 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getRelyingPartyId(): ?string {
-        return $this->getBackingStore()->get('relyingPartyId');
+        $val = $this->getBackingStore()->get('relyingPartyId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'relyingPartyId'");
     }
 
     /**
@@ -82,7 +108,11 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getRelyingPartyName(): ?string {
-        return $this->getBackingStore()->get('relyingPartyName');
+        $val = $this->getBackingStore()->get('relyingPartyName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'relyingPartyName'");
     }
 
     /**
@@ -90,7 +120,13 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getReplyUrls(): ?array {
-        return $this->getBackingStore()->get('replyUrls');
+        $val = $this->getBackingStore()->get('replyUrls');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'replyUrls'");
     }
 
     /**
@@ -98,7 +134,11 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getServiceId(): ?string {
-        return $this->getBackingStore()->get('serviceId');
+        $val = $this->getBackingStore()->get('serviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'serviceId'");
     }
 
     /**
@@ -106,7 +146,11 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
      * @return float|null
     */
     public function getSignInSuccessRate(): ?float {
-        return $this->getBackingStore()->get('signInSuccessRate');
+        $val = $this->getBackingStore()->get('signInSuccessRate');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signInSuccessRate'");
     }
 
     /**
@@ -114,7 +158,11 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getSuccessfulSignInCount(): ?int {
-        return $this->getBackingStore()->get('successfulSignInCount');
+        $val = $this->getBackingStore()->get('successfulSignInCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'successfulSignInCount'");
     }
 
     /**
@@ -122,7 +170,11 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getTotalSignInCount(): ?int {
-        return $this->getBackingStore()->get('totalSignInCount');
+        $val = $this->getBackingStore()->get('totalSignInCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalSignInCount'");
     }
 
     /**
@@ -130,7 +182,11 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getUniqueUserCount(): ?int {
-        return $this->getBackingStore()->get('uniqueUserCount');
+        $val = $this->getBackingStore()->get('uniqueUserCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'uniqueUserCount'");
     }
 
     /**

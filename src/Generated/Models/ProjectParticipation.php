@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ProjectParticipation extends ItemFacet implements Parsable 
 {
@@ -30,7 +31,13 @@ class ProjectParticipation extends ItemFacet implements Parsable
      * @return array<string>|null
     */
     public function getCategories(): ?array {
-        return $this->getBackingStore()->get('categories');
+        $val = $this->getBackingStore()->get('categories');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'categories'");
     }
 
     /**
@@ -38,7 +45,11 @@ class ProjectParticipation extends ItemFacet implements Parsable
      * @return CompanyDetail|null
     */
     public function getClient(): ?CompanyDetail {
-        return $this->getBackingStore()->get('client');
+        $val = $this->getBackingStore()->get('client');
+        if (is_null($val) || $val instanceof CompanyDetail) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'client'");
     }
 
     /**
@@ -46,7 +57,13 @@ class ProjectParticipation extends ItemFacet implements Parsable
      * @return array<string>|null
     */
     public function getCollaborationTags(): ?array {
-        return $this->getBackingStore()->get('collaborationTags');
+        $val = $this->getBackingStore()->get('collaborationTags');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'collaborationTags'");
     }
 
     /**
@@ -54,7 +71,13 @@ class ProjectParticipation extends ItemFacet implements Parsable
      * @return array<RelatedPerson>|null
     */
     public function getColleagues(): ?array {
-        return $this->getBackingStore()->get('colleagues');
+        $val = $this->getBackingStore()->get('colleagues');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RelatedPerson::class);
+            /** @var array<RelatedPerson>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'colleagues'");
     }
 
     /**
@@ -62,7 +85,11 @@ class ProjectParticipation extends ItemFacet implements Parsable
      * @return PositionDetail|null
     */
     public function getDetail(): ?PositionDetail {
-        return $this->getBackingStore()->get('detail');
+        $val = $this->getBackingStore()->get('detail');
+        if (is_null($val) || $val instanceof PositionDetail) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detail'");
     }
 
     /**
@@ -70,19 +97,37 @@ class ProjectParticipation extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'categories' => fn(ParseNode $n) => $o->setCategories($n->getCollectionOfPrimitiveValues()),
+            'categories' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setCategories($val);
+            },
             'client' => fn(ParseNode $n) => $o->setClient($n->getObjectValue([CompanyDetail::class, 'createFromDiscriminatorValue'])),
-            'collaborationTags' => fn(ParseNode $n) => $o->setCollaborationTags($n->getCollectionOfPrimitiveValues()),
+            'collaborationTags' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setCollaborationTags($val);
+            },
             'colleagues' => fn(ParseNode $n) => $o->setColleagues($n->getCollectionOfObjectValues([RelatedPerson::class, 'createFromDiscriminatorValue'])),
             'detail' => fn(ParseNode $n) => $o->setDetail($n->getObjectValue([PositionDetail::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
@@ -96,7 +141,13 @@ class ProjectParticipation extends ItemFacet implements Parsable
      * @return array<RelatedPerson>|null
     */
     public function getSponsors(): ?array {
-        return $this->getBackingStore()->get('sponsors');
+        $val = $this->getBackingStore()->get('sponsors');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RelatedPerson::class);
+            /** @var array<RelatedPerson>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sponsors'");
     }
 
     /**
@@ -104,7 +155,11 @@ class ProjectParticipation extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getThumbnailUrl(): ?string {
-        return $this->getBackingStore()->get('thumbnailUrl');
+        $val = $this->getBackingStore()->get('thumbnailUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'thumbnailUrl'");
     }
 
     /**

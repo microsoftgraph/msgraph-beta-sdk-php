@@ -30,7 +30,11 @@ class DeliveryOptimizationBandwidthHoursWithPercentage extends DeliveryOptimizat
      * @return DeliveryOptimizationBandwidthBusinessHoursLimit|null
     */
     public function getBandwidthBackgroundPercentageHours(): ?DeliveryOptimizationBandwidthBusinessHoursLimit {
-        return $this->getBackingStore()->get('bandwidthBackgroundPercentageHours');
+        $val = $this->getBackingStore()->get('bandwidthBackgroundPercentageHours');
+        if (is_null($val) || $val instanceof DeliveryOptimizationBandwidthBusinessHoursLimit) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bandwidthBackgroundPercentageHours'");
     }
 
     /**
@@ -38,12 +42,16 @@ class DeliveryOptimizationBandwidthHoursWithPercentage extends DeliveryOptimizat
      * @return DeliveryOptimizationBandwidthBusinessHoursLimit|null
     */
     public function getBandwidthForegroundPercentageHours(): ?DeliveryOptimizationBandwidthBusinessHoursLimit {
-        return $this->getBackingStore()->get('bandwidthForegroundPercentageHours');
+        $val = $this->getBackingStore()->get('bandwidthForegroundPercentageHours');
+        if (is_null($val) || $val instanceof DeliveryOptimizationBandwidthBusinessHoursLimit) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bandwidthForegroundPercentageHours'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

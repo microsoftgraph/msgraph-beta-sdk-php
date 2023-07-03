@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics model scores entity consolidates the various Endpoint Analytics scores.
+*/
 class UserExperienceAnalyticsModelScores extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsModelScores and sets the default values.
+     * Instantiates a new userExperienceAnalyticsModelScores and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -25,32 +28,44 @@ class UserExperienceAnalyticsModelScores extends Entity implements Parsable
     }
 
     /**
-     * Gets the appReliabilityScore property value. The user experience analytics model app reliability score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the appReliabilityScore property value. Indicates a score calculated from application health data to indicate when a device is having problems running one or more applications. Valid values range from 0-100. Value -1 means associated score is unavailable. A higher score indicates a healthier device. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getAppReliabilityScore(): ?float {
-        return $this->getBackingStore()->get('appReliabilityScore');
+        $val = $this->getBackingStore()->get('appReliabilityScore');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appReliabilityScore'");
     }
 
     /**
-     * Gets the batteryHealthScore property value. The user experience analytics model battery health score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the batteryHealthScore property value. Indicates a calulated score indicating the health of the device's battery. Valid values range from 0-100. Value -1 means associated score is unavailable. A higher score indicates a healthier device. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getBatteryHealthScore(): ?float {
-        return $this->getBackingStore()->get('batteryHealthScore');
+        $val = $this->getBackingStore()->get('batteryHealthScore');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'batteryHealthScore'");
     }
 
     /**
-     * Gets the endpointAnalyticsScore property value. The user experience analytics model score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the endpointAnalyticsScore property value. Indicates a weighted average of the various scores. Valid values range from 0-100. Value -1 means associated score is unavailable. A higher score indicates a healthier device. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getEndpointAnalyticsScore(): ?float {
-        return $this->getBackingStore()->get('endpointAnalyticsScore');
+        $val = $this->getBackingStore()->get('endpointAnalyticsScore');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endpointAnalyticsScore'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -72,47 +87,71 @@ class UserExperienceAnalyticsModelScores extends Entity implements Parsable
      * @return UserExperienceAnalyticsHealthState|null
     */
     public function getHealthStatus(): ?UserExperienceAnalyticsHealthState {
-        return $this->getBackingStore()->get('healthStatus');
+        $val = $this->getBackingStore()->get('healthStatus');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsHealthState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'healthStatus'");
     }
 
     /**
-     * Gets the manufacturer property value. A unique identifier of the user experience analytics model scores: device manufacturer.
+     * Gets the manufacturer property value. The manufacturer name of the device. Examples: Microsoft Corporation, HP, Lenovo. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getManufacturer(): ?string {
-        return $this->getBackingStore()->get('manufacturer');
+        $val = $this->getBackingStore()->get('manufacturer');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'manufacturer'");
     }
 
     /**
-     * Gets the model property value. A unique identifier of the user experience analytics model scores: device model.
+     * Gets the model property value. The model name of the device. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getModel(): ?string {
-        return $this->getBackingStore()->get('model');
+        $val = $this->getBackingStore()->get('model');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'model'");
     }
 
     /**
-     * Gets the modelDeviceCount property value. The user experience analytics model device count. Valid values -9.22337203685478E+18 to 9.22337203685478E+18
+     * Gets the modelDeviceCount property value. Indicates unique devices count of given model in a consolidated report. Supports: $select, $OrderBy. Read-only. Valid values -9.22337203685478E+18 to 9.22337203685478E+18
      * @return int|null
     */
     public function getModelDeviceCount(): ?int {
-        return $this->getBackingStore()->get('modelDeviceCount');
+        $val = $this->getBackingStore()->get('modelDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'modelDeviceCount'");
     }
 
     /**
-     * Gets the startupPerformanceScore property value. The user experience analytics model startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the startupPerformanceScore property value. Indicates a weighted average of boot score and logon score used for measuring startup performance. Valid values range from 0-100. Value -1 means associated score is unavailable. A higher score indicates a healthier device. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getStartupPerformanceScore(): ?float {
-        return $this->getBackingStore()->get('startupPerformanceScore');
+        $val = $this->getBackingStore()->get('startupPerformanceScore');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startupPerformanceScore'");
     }
 
     /**
-     * Gets the workFromAnywhereScore property value. The user experience analytics model work from anywhere score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Gets the workFromAnywhereScore property value. Indicates a weighted score of the work from anywhere on a device level. Valid values range from 0-100. Value -1 means associated score is unavailable. A higher score indicates a healthier device. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @return float|null
     */
     public function getWorkFromAnywhereScore(): ?float {
-        return $this->getBackingStore()->get('workFromAnywhereScore');
+        $val = $this->getBackingStore()->get('workFromAnywhereScore');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workFromAnywhereScore'");
     }
 
     /**
@@ -133,7 +172,7 @@ class UserExperienceAnalyticsModelScores extends Entity implements Parsable
     }
 
     /**
-     * Sets the appReliabilityScore property value. The user experience analytics model app reliability score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the appReliabilityScore property value. Indicates a score calculated from application health data to indicate when a device is having problems running one or more applications. Valid values range from 0-100. Value -1 means associated score is unavailable. A higher score indicates a healthier device. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the appReliabilityScore property.
     */
     public function setAppReliabilityScore(?float $value): void {
@@ -141,7 +180,7 @@ class UserExperienceAnalyticsModelScores extends Entity implements Parsable
     }
 
     /**
-     * Sets the batteryHealthScore property value. The user experience analytics model battery health score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the batteryHealthScore property value. Indicates a calulated score indicating the health of the device's battery. Valid values range from 0-100. Value -1 means associated score is unavailable. A higher score indicates a healthier device. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the batteryHealthScore property.
     */
     public function setBatteryHealthScore(?float $value): void {
@@ -149,7 +188,7 @@ class UserExperienceAnalyticsModelScores extends Entity implements Parsable
     }
 
     /**
-     * Sets the endpointAnalyticsScore property value. The user experience analytics model score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the endpointAnalyticsScore property value. Indicates a weighted average of the various scores. Valid values range from 0-100. Value -1 means associated score is unavailable. A higher score indicates a healthier device. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the endpointAnalyticsScore property.
     */
     public function setEndpointAnalyticsScore(?float $value): void {
@@ -165,7 +204,7 @@ class UserExperienceAnalyticsModelScores extends Entity implements Parsable
     }
 
     /**
-     * Sets the manufacturer property value. A unique identifier of the user experience analytics model scores: device manufacturer.
+     * Sets the manufacturer property value. The manufacturer name of the device. Examples: Microsoft Corporation, HP, Lenovo. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
@@ -173,7 +212,7 @@ class UserExperienceAnalyticsModelScores extends Entity implements Parsable
     }
 
     /**
-     * Sets the model property value. A unique identifier of the user experience analytics model scores: device model.
+     * Sets the model property value. The model name of the device. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value): void {
@@ -181,7 +220,7 @@ class UserExperienceAnalyticsModelScores extends Entity implements Parsable
     }
 
     /**
-     * Sets the modelDeviceCount property value. The user experience analytics model device count. Valid values -9.22337203685478E+18 to 9.22337203685478E+18
+     * Sets the modelDeviceCount property value. Indicates unique devices count of given model in a consolidated report. Supports: $select, $OrderBy. Read-only. Valid values -9.22337203685478E+18 to 9.22337203685478E+18
      * @param int|null $value Value to set for the modelDeviceCount property.
     */
     public function setModelDeviceCount(?int $value): void {
@@ -189,7 +228,7 @@ class UserExperienceAnalyticsModelScores extends Entity implements Parsable
     }
 
     /**
-     * Sets the startupPerformanceScore property value. The user experience analytics model startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the startupPerformanceScore property value. Indicates a weighted average of boot score and logon score used for measuring startup performance. Valid values range from 0-100. Value -1 means associated score is unavailable. A higher score indicates a healthier device. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the startupPerformanceScore property.
     */
     public function setStartupPerformanceScore(?float $value): void {
@@ -197,7 +236,7 @@ class UserExperienceAnalyticsModelScores extends Entity implements Parsable
     }
 
     /**
-     * Sets the workFromAnywhereScore property value. The user experience analytics model work from anywhere score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * Sets the workFromAnywhereScore property value. Indicates a weighted score of the work from anywhere on a device level. Valid values range from 0-100. Value -1 means associated score is unavailable. A higher score indicates a healthier device. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param float|null $value Value to set for the workFromAnywhereScore property.
     */
     public function setWorkFromAnywhereScore(?float $value): void {

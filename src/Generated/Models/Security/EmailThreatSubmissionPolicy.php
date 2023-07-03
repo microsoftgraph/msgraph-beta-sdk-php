@@ -30,7 +30,11 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getCustomizedNotificationSenderEmailAddress(): ?string {
-        return $this->getBackingStore()->get('customizedNotificationSenderEmailAddress');
+        $val = $this->getBackingStore()->get('customizedNotificationSenderEmailAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customizedNotificationSenderEmailAddress'");
     }
 
     /**
@@ -38,12 +42,16 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getCustomizedReportRecipientEmailAddress(): ?string {
-        return $this->getBackingStore()->get('customizedReportRecipientEmailAddress');
+        $val = $this->getBackingStore()->get('customizedReportRecipientEmailAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customizedReportRecipientEmailAddress'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -69,7 +77,11 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsAlwaysReportEnabledForUsers(): ?bool {
-        return $this->getBackingStore()->get('isAlwaysReportEnabledForUsers');
+        $val = $this->getBackingStore()->get('isAlwaysReportEnabledForUsers');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isAlwaysReportEnabledForUsers'");
     }
 
     /**
@@ -77,7 +89,11 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsAskMeEnabledForUsers(): ?bool {
-        return $this->getBackingStore()->get('isAskMeEnabledForUsers');
+        $val = $this->getBackingStore()->get('isAskMeEnabledForUsers');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isAskMeEnabledForUsers'");
     }
 
     /**
@@ -85,7 +101,11 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsCustomizedMessageEnabled(): ?bool {
-        return $this->getBackingStore()->get('isCustomizedMessageEnabled');
+        $val = $this->getBackingStore()->get('isCustomizedMessageEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isCustomizedMessageEnabled'");
     }
 
     /**
@@ -93,7 +113,11 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsCustomizedMessageEnabledForPhishing(): ?bool {
-        return $this->getBackingStore()->get('isCustomizedMessageEnabledForPhishing');
+        $val = $this->getBackingStore()->get('isCustomizedMessageEnabledForPhishing');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isCustomizedMessageEnabledForPhishing'");
     }
 
     /**
@@ -101,7 +125,11 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsCustomizedNotificationSenderEnabled(): ?bool {
-        return $this->getBackingStore()->get('isCustomizedNotificationSenderEnabled');
+        $val = $this->getBackingStore()->get('isCustomizedNotificationSenderEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isCustomizedNotificationSenderEnabled'");
     }
 
     /**
@@ -109,7 +137,11 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsNeverReportEnabledForUsers(): ?bool {
-        return $this->getBackingStore()->get('isNeverReportEnabledForUsers');
+        $val = $this->getBackingStore()->get('isNeverReportEnabledForUsers');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isNeverReportEnabledForUsers'");
     }
 
     /**
@@ -117,7 +149,11 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsOrganizationBrandingEnabled(): ?bool {
-        return $this->getBackingStore()->get('isOrganizationBrandingEnabled');
+        $val = $this->getBackingStore()->get('isOrganizationBrandingEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isOrganizationBrandingEnabled'");
     }
 
     /**
@@ -125,7 +161,11 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsReportFromQuarantineEnabled(): ?bool {
-        return $this->getBackingStore()->get('isReportFromQuarantineEnabled');
+        $val = $this->getBackingStore()->get('isReportFromQuarantineEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isReportFromQuarantineEnabled'");
     }
 
     /**
@@ -133,7 +173,11 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsReportToCustomizedEmailAddressEnabled(): ?bool {
-        return $this->getBackingStore()->get('isReportToCustomizedEmailAddressEnabled');
+        $val = $this->getBackingStore()->get('isReportToCustomizedEmailAddressEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isReportToCustomizedEmailAddressEnabled'");
     }
 
     /**
@@ -141,7 +185,11 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsReportToMicrosoftEnabled(): ?bool {
-        return $this->getBackingStore()->get('isReportToMicrosoftEnabled');
+        $val = $this->getBackingStore()->get('isReportToMicrosoftEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isReportToMicrosoftEnabled'");
     }
 
     /**
@@ -149,7 +197,11 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsReviewEmailNotificationEnabled(): ?bool {
-        return $this->getBackingStore()->get('isReviewEmailNotificationEnabled');
+        $val = $this->getBackingStore()->get('isReviewEmailNotificationEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isReviewEmailNotificationEnabled'");
     }
 
     /**

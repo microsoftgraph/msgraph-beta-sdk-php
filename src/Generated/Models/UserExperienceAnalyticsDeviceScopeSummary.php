@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * The user experience analytics tenant level information for all the device scope configurations
@@ -42,7 +43,12 @@ class UserExperienceAnalyticsDeviceScopeSummary implements AdditionalDataHolder,
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -58,18 +64,38 @@ class UserExperienceAnalyticsDeviceScopeSummary implements AdditionalDataHolder,
      * @return array<string>|null
     */
     public function getCompletedDeviceScopeIds(): ?array {
-        return $this->getBackingStore()->get('completedDeviceScopeIds');
+        $val = $this->getBackingStore()->get('completedDeviceScopeIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'completedDeviceScopeIds'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'completedDeviceScopeIds' => fn(ParseNode $n) => $o->setCompletedDeviceScopeIds($n->getCollectionOfPrimitiveValues()),
-            'insufficientDataDeviceScopeIds' => fn(ParseNode $n) => $o->setInsufficientDataDeviceScopeIds($n->getCollectionOfPrimitiveValues()),
+            'completedDeviceScopeIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setCompletedDeviceScopeIds($val);
+            },
+            'insufficientDataDeviceScopeIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setInsufficientDataDeviceScopeIds($val);
+            },
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'totalDeviceScopes' => fn(ParseNode $n) => $o->setTotalDeviceScopes($n->getIntegerValue()),
             'totalDeviceScopesEnabled' => fn(ParseNode $n) => $o->setTotalDeviceScopesEnabled($n->getIntegerValue()),
@@ -81,7 +107,13 @@ class UserExperienceAnalyticsDeviceScopeSummary implements AdditionalDataHolder,
      * @return array<string>|null
     */
     public function getInsufficientDataDeviceScopeIds(): ?array {
-        return $this->getBackingStore()->get('insufficientDataDeviceScopeIds');
+        $val = $this->getBackingStore()->get('insufficientDataDeviceScopeIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'insufficientDataDeviceScopeIds'");
     }
 
     /**
@@ -89,7 +121,11 @@ class UserExperienceAnalyticsDeviceScopeSummary implements AdditionalDataHolder,
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -97,7 +133,11 @@ class UserExperienceAnalyticsDeviceScopeSummary implements AdditionalDataHolder,
      * @return int|null
     */
     public function getTotalDeviceScopes(): ?int {
-        return $this->getBackingStore()->get('totalDeviceScopes');
+        $val = $this->getBackingStore()->get('totalDeviceScopes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalDeviceScopes'");
     }
 
     /**
@@ -105,7 +145,11 @@ class UserExperienceAnalyticsDeviceScopeSummary implements AdditionalDataHolder,
      * @return int|null
     */
     public function getTotalDeviceScopesEnabled(): ?int {
-        return $this->getBackingStore()->get('totalDeviceScopesEnabled');
+        $val = $this->getBackingStore()->get('totalDeviceScopesEnabled');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalDeviceScopesEnabled'");
     }
 
     /**

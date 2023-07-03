@@ -29,7 +29,7 @@ class MobileAppProvisioningConfigGroupAssignment extends Entity implements Parsa
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -43,7 +43,11 @@ class MobileAppProvisioningConfigGroupAssignment extends Entity implements Parsa
      * @return string|null
     */
     public function getTargetGroupId(): ?string {
-        return $this->getBackingStore()->get('targetGroupId');
+        $val = $this->getBackingStore()->get('targetGroupId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetGroupId'");
     }
 
     /**

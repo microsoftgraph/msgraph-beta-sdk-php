@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class B2cIdentityUserFlow extends IdentityUserFlow implements Parsable 
 {
@@ -29,7 +30,11 @@ class B2cIdentityUserFlow extends IdentityUserFlow implements Parsable
      * @return UserFlowApiConnectorConfiguration|null
     */
     public function getApiConnectorConfiguration(): ?UserFlowApiConnectorConfiguration {
-        return $this->getBackingStore()->get('apiConnectorConfiguration');
+        $val = $this->getBackingStore()->get('apiConnectorConfiguration');
+        if (is_null($val) || $val instanceof UserFlowApiConnectorConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'apiConnectorConfiguration'");
     }
 
     /**
@@ -37,12 +42,16 @@ class B2cIdentityUserFlow extends IdentityUserFlow implements Parsable
      * @return string|null
     */
     public function getDefaultLanguageTag(): ?string {
-        return $this->getBackingStore()->get('defaultLanguageTag');
+        $val = $this->getBackingStore()->get('defaultLanguageTag');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultLanguageTag'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -62,7 +71,13 @@ class B2cIdentityUserFlow extends IdentityUserFlow implements Parsable
      * @return array<IdentityProvider>|null
     */
     public function getIdentityProviders(): ?array {
-        return $this->getBackingStore()->get('identityProviders');
+        $val = $this->getBackingStore()->get('identityProviders');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IdentityProvider::class);
+            /** @var array<IdentityProvider>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityProviders'");
     }
 
     /**
@@ -70,7 +85,11 @@ class B2cIdentityUserFlow extends IdentityUserFlow implements Parsable
      * @return bool|null
     */
     public function getIsLanguageCustomizationEnabled(): ?bool {
-        return $this->getBackingStore()->get('isLanguageCustomizationEnabled');
+        $val = $this->getBackingStore()->get('isLanguageCustomizationEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isLanguageCustomizationEnabled'");
     }
 
     /**
@@ -78,7 +97,13 @@ class B2cIdentityUserFlow extends IdentityUserFlow implements Parsable
      * @return array<UserFlowLanguageConfiguration>|null
     */
     public function getLanguages(): ?array {
-        return $this->getBackingStore()->get('languages');
+        $val = $this->getBackingStore()->get('languages');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserFlowLanguageConfiguration::class);
+            /** @var array<UserFlowLanguageConfiguration>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'languages'");
     }
 
     /**
@@ -86,7 +111,13 @@ class B2cIdentityUserFlow extends IdentityUserFlow implements Parsable
      * @return array<IdentityUserFlowAttributeAssignment>|null
     */
     public function getUserAttributeAssignments(): ?array {
-        return $this->getBackingStore()->get('userAttributeAssignments');
+        $val = $this->getBackingStore()->get('userAttributeAssignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IdentityUserFlowAttributeAssignment::class);
+            /** @var array<IdentityUserFlowAttributeAssignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userAttributeAssignments'");
     }
 
     /**
@@ -94,7 +125,13 @@ class B2cIdentityUserFlow extends IdentityUserFlow implements Parsable
      * @return array<IdentityProviderBase>|null
     */
     public function getUserFlowIdentityProviders(): ?array {
-        return $this->getBackingStore()->get('userFlowIdentityProviders');
+        $val = $this->getBackingStore()->get('userFlowIdentityProviders');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IdentityProviderBase::class);
+            /** @var array<IdentityProviderBase>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userFlowIdentityProviders'");
     }
 
     /**

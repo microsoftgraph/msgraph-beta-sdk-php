@@ -39,12 +39,16 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration implements Pa
      * @return string|null
     */
     public function getCustomDomainName(): ?string {
-        return $this->getBackingStore()->get('customDomainName');
+        $val = $this->getBackingStore()->get('customDomainName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customDomainName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -61,7 +65,11 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration implements Pa
      * @return DomainNameSource|null
     */
     public function getUserDomainNameSource(): ?DomainNameSource {
-        return $this->getBackingStore()->get('userDomainNameSource');
+        $val = $this->getBackingStore()->get('userDomainNameSource');
+        if (is_null($val) || $val instanceof DomainNameSource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userDomainNameSource'");
     }
 
     /**
@@ -69,7 +77,11 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration implements Pa
      * @return UsernameSource|null
     */
     public function getUsernameAADSource(): ?UsernameSource {
-        return $this->getBackingStore()->get('usernameAADSource');
+        $val = $this->getBackingStore()->get('usernameAADSource');
+        if (is_null($val) || $val instanceof UsernameSource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'usernameAADSource'");
     }
 
     /**
@@ -77,7 +89,11 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration implements Pa
      * @return UserEmailSource|null
     */
     public function getUsernameSource(): ?UserEmailSource {
-        return $this->getBackingStore()->get('usernameSource');
+        $val = $this->getBackingStore()->get('usernameSource');
+        if (is_null($val) || $val instanceof UserEmailSource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'usernameSource'");
     }
 
     /**

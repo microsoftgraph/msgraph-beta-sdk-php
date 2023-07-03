@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class MobilityManagementPolicy extends Entity implements Parsable 
 {
@@ -29,7 +30,11 @@ class MobilityManagementPolicy extends Entity implements Parsable
      * @return PolicyScope|null
     */
     public function getAppliesTo(): ?PolicyScope {
-        return $this->getBackingStore()->get('appliesTo');
+        $val = $this->getBackingStore()->get('appliesTo');
+        if (is_null($val) || $val instanceof PolicyScope) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appliesTo'");
     }
 
     /**
@@ -37,7 +42,11 @@ class MobilityManagementPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getComplianceUrl(): ?string {
-        return $this->getBackingStore()->get('complianceUrl');
+        $val = $this->getBackingStore()->get('complianceUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'complianceUrl'");
     }
 
     /**
@@ -45,7 +54,11 @@ class MobilityManagementPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -53,7 +66,11 @@ class MobilityManagementPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getDiscoveryUrl(): ?string {
-        return $this->getBackingStore()->get('discoveryUrl');
+        $val = $this->getBackingStore()->get('discoveryUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'discoveryUrl'");
     }
 
     /**
@@ -61,12 +78,16 @@ class MobilityManagementPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -87,7 +108,13 @@ class MobilityManagementPolicy extends Entity implements Parsable
      * @return array<Group>|null
     */
     public function getIncludedGroups(): ?array {
-        return $this->getBackingStore()->get('includedGroups');
+        $val = $this->getBackingStore()->get('includedGroups');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Group::class);
+            /** @var array<Group>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'includedGroups'");
     }
 
     /**
@@ -95,7 +122,11 @@ class MobilityManagementPolicy extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsValid(): ?bool {
-        return $this->getBackingStore()->get('isValid');
+        $val = $this->getBackingStore()->get('isValid');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isValid'");
     }
 
     /**
@@ -103,7 +134,11 @@ class MobilityManagementPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getTermsOfUseUrl(): ?string {
-        return $this->getBackingStore()->get('termsOfUseUrl');
+        $val = $this->getBackingStore()->get('termsOfUseUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'termsOfUseUrl'");
     }
 
     /**

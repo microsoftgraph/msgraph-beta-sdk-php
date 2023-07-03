@@ -33,7 +33,11 @@ class WindowsManagementAppHealthState extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->getBackingStore()->get('deviceName');
+        $val = $this->getBackingStore()->get('deviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceName'");
     }
 
     /**
@@ -41,12 +45,16 @@ class WindowsManagementAppHealthState extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceOSVersion(): ?string {
-        return $this->getBackingStore()->get('deviceOSVersion');
+        $val = $this->getBackingStore()->get('deviceOSVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceOSVersion'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -64,7 +72,11 @@ class WindowsManagementAppHealthState extends Entity implements Parsable
      * @return HealthState|null
     */
     public function getHealthState(): ?HealthState {
-        return $this->getBackingStore()->get('healthState');
+        $val = $this->getBackingStore()->get('healthState');
+        if (is_null($val) || $val instanceof HealthState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'healthState'");
     }
 
     /**
@@ -72,7 +84,11 @@ class WindowsManagementAppHealthState extends Entity implements Parsable
      * @return string|null
     */
     public function getInstalledVersion(): ?string {
-        return $this->getBackingStore()->get('installedVersion');
+        $val = $this->getBackingStore()->get('installedVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'installedVersion'");
     }
 
     /**
@@ -80,7 +96,11 @@ class WindowsManagementAppHealthState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastCheckInDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastCheckInDateTime');
+        $val = $this->getBackingStore()->get('lastCheckInDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastCheckInDateTime'");
     }
 
     /**

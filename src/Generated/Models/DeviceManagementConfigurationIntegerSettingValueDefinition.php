@@ -27,7 +27,7 @@ class DeviceManagementConfigurationIntegerSettingValueDefinition extends DeviceM
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -42,7 +42,11 @@ class DeviceManagementConfigurationIntegerSettingValueDefinition extends DeviceM
      * @return int|null
     */
     public function getMaximumValue(): ?int {
-        return $this->getBackingStore()->get('maximumValue');
+        $val = $this->getBackingStore()->get('maximumValue');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'maximumValue'");
     }
 
     /**
@@ -50,7 +54,11 @@ class DeviceManagementConfigurationIntegerSettingValueDefinition extends DeviceM
      * @return int|null
     */
     public function getMinimumValue(): ?int {
-        return $this->getBackingStore()->get('minimumValue');
+        $val = $this->getBackingStore()->get('minimumValue');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumValue'");
     }
 
     /**

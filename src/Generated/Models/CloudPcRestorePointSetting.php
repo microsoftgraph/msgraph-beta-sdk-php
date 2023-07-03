@@ -39,7 +39,12 @@ class CloudPcRestorePointSetting implements AdditionalDataHolder, BackedModel, P
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,7 +57,7 @@ class CloudPcRestorePointSetting implements AdditionalDataHolder, BackedModel, P
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -68,7 +73,11 @@ class CloudPcRestorePointSetting implements AdditionalDataHolder, BackedModel, P
      * @return int|null
     */
     public function getFrequencyInHours(): ?int {
-        return $this->getBackingStore()->get('frequencyInHours');
+        $val = $this->getBackingStore()->get('frequencyInHours');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'frequencyInHours'");
     }
 
     /**
@@ -76,7 +85,11 @@ class CloudPcRestorePointSetting implements AdditionalDataHolder, BackedModel, P
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -84,7 +97,11 @@ class CloudPcRestorePointSetting implements AdditionalDataHolder, BackedModel, P
      * @return bool|null
     */
     public function getUserRestoreEnabled(): ?bool {
-        return $this->getBackingStore()->get('userRestoreEnabled');
+        $val = $this->getBackingStore()->get('userRestoreEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userRestoreEnabled'");
     }
 
     /**

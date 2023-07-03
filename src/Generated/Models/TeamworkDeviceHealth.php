@@ -30,7 +30,11 @@ class TeamworkDeviceHealth extends Entity implements Parsable
      * @return TeamworkConnection|null
     */
     public function getConnection(): ?TeamworkConnection {
-        return $this->getBackingStore()->get('connection');
+        $val = $this->getBackingStore()->get('connection');
+        if (is_null($val) || $val instanceof TeamworkConnection) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connection'");
     }
 
     /**
@@ -38,7 +42,11 @@ class TeamworkDeviceHealth extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
-        return $this->getBackingStore()->get('createdBy');
+        $val = $this->getBackingStore()->get('createdBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdBy'");
     }
 
     /**
@@ -46,12 +54,16 @@ class TeamworkDeviceHealth extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -73,7 +85,11 @@ class TeamworkDeviceHealth extends Entity implements Parsable
      * @return TeamworkHardwareHealth|null
     */
     public function getHardwareHealth(): ?TeamworkHardwareHealth {
-        return $this->getBackingStore()->get('hardwareHealth');
+        $val = $this->getBackingStore()->get('hardwareHealth');
+        if (is_null($val) || $val instanceof TeamworkHardwareHealth) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hardwareHealth'");
     }
 
     /**
@@ -81,7 +97,11 @@ class TeamworkDeviceHealth extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
-        return $this->getBackingStore()->get('lastModifiedBy');
+        $val = $this->getBackingStore()->get('lastModifiedBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedBy'");
     }
 
     /**
@@ -89,7 +109,11 @@ class TeamworkDeviceHealth extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -97,7 +121,11 @@ class TeamworkDeviceHealth extends Entity implements Parsable
      * @return TeamworkLoginStatus|null
     */
     public function getLoginStatus(): ?TeamworkLoginStatus {
-        return $this->getBackingStore()->get('loginStatus');
+        $val = $this->getBackingStore()->get('loginStatus');
+        if (is_null($val) || $val instanceof TeamworkLoginStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'loginStatus'");
     }
 
     /**
@@ -105,7 +133,11 @@ class TeamworkDeviceHealth extends Entity implements Parsable
      * @return TeamworkPeripheralsHealth|null
     */
     public function getPeripheralsHealth(): ?TeamworkPeripheralsHealth {
-        return $this->getBackingStore()->get('peripheralsHealth');
+        $val = $this->getBackingStore()->get('peripheralsHealth');
+        if (is_null($val) || $val instanceof TeamworkPeripheralsHealth) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'peripheralsHealth'");
     }
 
     /**
@@ -113,7 +145,11 @@ class TeamworkDeviceHealth extends Entity implements Parsable
      * @return TeamworkSoftwareUpdateHealth|null
     */
     public function getSoftwareUpdateHealth(): ?TeamworkSoftwareUpdateHealth {
-        return $this->getBackingStore()->get('softwareUpdateHealth');
+        $val = $this->getBackingStore()->get('softwareUpdateHealth');
+        if (is_null($val) || $val instanceof TeamworkSoftwareUpdateHealth) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'softwareUpdateHealth'");
     }
 
     /**

@@ -39,7 +39,12 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, BackedM
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +52,11 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, BackedM
      * @return bool|null
     */
     public function getAllProperties(): ?bool {
-        return $this->getBackingStore()->get('allProperties');
+        $val = $this->getBackingStore()->get('allProperties');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allProperties'");
     }
 
     /**
@@ -63,7 +72,11 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, BackedM
      * @return bool|null
     */
     public function getCredentialsWithUsageSign(): ?bool {
-        return $this->getBackingStore()->get('credentialsWithUsageSign');
+        $val = $this->getBackingStore()->get('credentialsWithUsageSign');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'credentialsWithUsageSign'");
     }
 
     /**
@@ -71,12 +84,16 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, BackedM
      * @return bool|null
     */
     public function getCredentialsWithUsageVerify(): ?bool {
-        return $this->getBackingStore()->get('credentialsWithUsageVerify');
+        $val = $this->getBackingStore()->get('credentialsWithUsageVerify');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'credentialsWithUsageVerify'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -95,7 +112,11 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, BackedM
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
-        return $this->getBackingStore()->get('isEnabled');
+        $val = $this->getBackingStore()->get('isEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isEnabled'");
     }
 
     /**
@@ -103,7 +124,11 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, BackedM
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -111,7 +136,11 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, BackedM
      * @return bool|null
     */
     public function getTokenEncryptionKeyId(): ?bool {
-        return $this->getBackingStore()->get('tokenEncryptionKeyId');
+        $val = $this->getBackingStore()->get('tokenEncryptionKeyId');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tokenEncryptionKeyId'");
     }
 
     /**

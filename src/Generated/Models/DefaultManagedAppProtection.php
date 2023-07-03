@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DefaultManagedAppProtection extends ManagedAppProtection implements Parsable 
 {
@@ -30,7 +31,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return string|null
     */
     public function getAllowedAndroidDeviceManufacturers(): ?string {
-        return $this->getBackingStore()->get('allowedAndroidDeviceManufacturers');
+        $val = $this->getBackingStore()->get('allowedAndroidDeviceManufacturers');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedAndroidDeviceManufacturers'");
     }
 
     /**
@@ -38,7 +43,13 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return array<string>|null
     */
     public function getAllowedAndroidDeviceModels(): ?array {
-        return $this->getBackingStore()->get('allowedAndroidDeviceModels');
+        $val = $this->getBackingStore()->get('allowedAndroidDeviceModels');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedAndroidDeviceModels'");
     }
 
     /**
@@ -46,15 +57,23 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return string|null
     */
     public function getAllowedIosDeviceModels(): ?string {
-        return $this->getBackingStore()->get('allowedIosDeviceModels');
+        $val = $this->getBackingStore()->get('allowedIosDeviceModels');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedIosDeviceModels'");
     }
 
     /**
-     * Gets the appActionIfAccountIsClockedOut property value. Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time).
+     * Gets the appActionIfAccountIsClockedOut property value. Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time). Possible values are: block, wipe, warn.
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfAccountIsClockedOut(): ?ManagedAppRemediationAction {
-        return $this->getBackingStore()->get('appActionIfAccountIsClockedOut');
+        $val = $this->getBackingStore()->get('appActionIfAccountIsClockedOut');
+        if (is_null($val) || $val instanceof ManagedAppRemediationAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appActionIfAccountIsClockedOut'");
     }
 
     /**
@@ -62,7 +81,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfAndroidDeviceManufacturerNotAllowed(): ?ManagedAppRemediationAction {
-        return $this->getBackingStore()->get('appActionIfAndroidDeviceManufacturerNotAllowed');
+        $val = $this->getBackingStore()->get('appActionIfAndroidDeviceManufacturerNotAllowed');
+        if (is_null($val) || $val instanceof ManagedAppRemediationAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appActionIfAndroidDeviceManufacturerNotAllowed'");
     }
 
     /**
@@ -70,7 +93,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfAndroidDeviceModelNotAllowed(): ?ManagedAppRemediationAction {
-        return $this->getBackingStore()->get('appActionIfAndroidDeviceModelNotAllowed');
+        $val = $this->getBackingStore()->get('appActionIfAndroidDeviceModelNotAllowed');
+        if (is_null($val) || $val instanceof ManagedAppRemediationAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appActionIfAndroidDeviceModelNotAllowed'");
     }
 
     /**
@@ -78,7 +105,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfAndroidSafetyNetAppsVerificationFailed(): ?ManagedAppRemediationAction {
-        return $this->getBackingStore()->get('appActionIfAndroidSafetyNetAppsVerificationFailed');
+        $val = $this->getBackingStore()->get('appActionIfAndroidSafetyNetAppsVerificationFailed');
+        if (is_null($val) || $val instanceof ManagedAppRemediationAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appActionIfAndroidSafetyNetAppsVerificationFailed'");
     }
 
     /**
@@ -86,7 +117,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfAndroidSafetyNetDeviceAttestationFailed(): ?ManagedAppRemediationAction {
-        return $this->getBackingStore()->get('appActionIfAndroidSafetyNetDeviceAttestationFailed');
+        $val = $this->getBackingStore()->get('appActionIfAndroidSafetyNetDeviceAttestationFailed');
+        if (is_null($val) || $val instanceof ManagedAppRemediationAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appActionIfAndroidSafetyNetDeviceAttestationFailed'");
     }
 
     /**
@@ -94,7 +129,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfDeviceLockNotSet(): ?ManagedAppRemediationAction {
-        return $this->getBackingStore()->get('appActionIfDeviceLockNotSet');
+        $val = $this->getBackingStore()->get('appActionIfDeviceLockNotSet');
+        if (is_null($val) || $val instanceof ManagedAppRemediationAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appActionIfDeviceLockNotSet'");
     }
 
     /**
@@ -102,7 +141,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfDevicePasscodeComplexityLessThanHigh(): ?ManagedAppRemediationAction {
-        return $this->getBackingStore()->get('appActionIfDevicePasscodeComplexityLessThanHigh');
+        $val = $this->getBackingStore()->get('appActionIfDevicePasscodeComplexityLessThanHigh');
+        if (is_null($val) || $val instanceof ManagedAppRemediationAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appActionIfDevicePasscodeComplexityLessThanHigh'");
     }
 
     /**
@@ -110,7 +153,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfDevicePasscodeComplexityLessThanLow(): ?ManagedAppRemediationAction {
-        return $this->getBackingStore()->get('appActionIfDevicePasscodeComplexityLessThanLow');
+        $val = $this->getBackingStore()->get('appActionIfDevicePasscodeComplexityLessThanLow');
+        if (is_null($val) || $val instanceof ManagedAppRemediationAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appActionIfDevicePasscodeComplexityLessThanLow'");
     }
 
     /**
@@ -118,7 +165,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfDevicePasscodeComplexityLessThanMedium(): ?ManagedAppRemediationAction {
-        return $this->getBackingStore()->get('appActionIfDevicePasscodeComplexityLessThanMedium');
+        $val = $this->getBackingStore()->get('appActionIfDevicePasscodeComplexityLessThanMedium');
+        if (is_null($val) || $val instanceof ManagedAppRemediationAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appActionIfDevicePasscodeComplexityLessThanMedium'");
     }
 
     /**
@@ -126,7 +177,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfIosDeviceModelNotAllowed(): ?ManagedAppRemediationAction {
-        return $this->getBackingStore()->get('appActionIfIosDeviceModelNotAllowed');
+        $val = $this->getBackingStore()->get('appActionIfIosDeviceModelNotAllowed');
+        if (is_null($val) || $val instanceof ManagedAppRemediationAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appActionIfIosDeviceModelNotAllowed'");
     }
 
     /**
@@ -134,7 +189,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return ManagedAppDataEncryptionType|null
     */
     public function getAppDataEncryptionType(): ?ManagedAppDataEncryptionType {
-        return $this->getBackingStore()->get('appDataEncryptionType');
+        $val = $this->getBackingStore()->get('appDataEncryptionType');
+        if (is_null($val) || $val instanceof ManagedAppDataEncryptionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appDataEncryptionType'");
     }
 
     /**
@@ -142,7 +201,13 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return array<ManagedMobileApp>|null
     */
     public function getApps(): ?array {
-        return $this->getBackingStore()->get('apps');
+        $val = $this->getBackingStore()->get('apps');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagedMobileApp::class);
+            /** @var array<ManagedMobileApp>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'apps'");
     }
 
     /**
@@ -150,7 +215,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return bool|null
     */
     public function getBiometricAuthenticationBlocked(): ?bool {
-        return $this->getBackingStore()->get('biometricAuthenticationBlocked');
+        $val = $this->getBackingStore()->get('biometricAuthenticationBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'biometricAuthenticationBlocked'");
     }
 
     /**
@@ -158,7 +227,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return int|null
     */
     public function getBlockAfterCompanyPortalUpdateDeferralInDays(): ?int {
-        return $this->getBackingStore()->get('blockAfterCompanyPortalUpdateDeferralInDays');
+        $val = $this->getBackingStore()->get('blockAfterCompanyPortalUpdateDeferralInDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockAfterCompanyPortalUpdateDeferralInDays'");
     }
 
     /**
@@ -166,7 +239,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return bool|null
     */
     public function getConnectToVpnOnLaunch(): ?bool {
-        return $this->getBackingStore()->get('connectToVpnOnLaunch');
+        $val = $this->getBackingStore()->get('connectToVpnOnLaunch');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectToVpnOnLaunch'");
     }
 
     /**
@@ -174,7 +251,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return string|null
     */
     public function getCustomBrowserDisplayName(): ?string {
-        return $this->getBackingStore()->get('customBrowserDisplayName');
+        $val = $this->getBackingStore()->get('customBrowserDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customBrowserDisplayName'");
     }
 
     /**
@@ -182,7 +263,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return string|null
     */
     public function getCustomBrowserPackageId(): ?string {
-        return $this->getBackingStore()->get('customBrowserPackageId');
+        $val = $this->getBackingStore()->get('customBrowserPackageId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customBrowserPackageId'");
     }
 
     /**
@@ -190,7 +275,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return string|null
     */
     public function getCustomBrowserProtocol(): ?string {
-        return $this->getBackingStore()->get('customBrowserProtocol');
+        $val = $this->getBackingStore()->get('customBrowserProtocol');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customBrowserProtocol'");
     }
 
     /**
@@ -198,7 +287,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return string|null
     */
     public function getCustomDialerAppDisplayName(): ?string {
-        return $this->getBackingStore()->get('customDialerAppDisplayName');
+        $val = $this->getBackingStore()->get('customDialerAppDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customDialerAppDisplayName'");
     }
 
     /**
@@ -206,7 +299,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return string|null
     */
     public function getCustomDialerAppPackageId(): ?string {
-        return $this->getBackingStore()->get('customDialerAppPackageId');
+        $val = $this->getBackingStore()->get('customDialerAppPackageId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customDialerAppPackageId'");
     }
 
     /**
@@ -214,7 +311,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return string|null
     */
     public function getCustomDialerAppProtocol(): ?string {
-        return $this->getBackingStore()->get('customDialerAppProtocol');
+        $val = $this->getBackingStore()->get('customDialerAppProtocol');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customDialerAppProtocol'");
     }
 
     /**
@@ -222,7 +323,13 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return array<KeyValuePair>|null
     */
     public function getCustomSettings(): ?array {
-        return $this->getBackingStore()->get('customSettings');
+        $val = $this->getBackingStore()->get('customSettings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, KeyValuePair::class);
+            /** @var array<KeyValuePair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customSettings'");
     }
 
     /**
@@ -230,7 +337,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return int|null
     */
     public function getDeployedAppCount(): ?int {
-        return $this->getBackingStore()->get('deployedAppCount');
+        $val = $this->getBackingStore()->get('deployedAppCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deployedAppCount'");
     }
 
     /**
@@ -238,7 +349,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return ManagedAppPolicyDeploymentSummary|null
     */
     public function getDeploymentSummary(): ?ManagedAppPolicyDeploymentSummary {
-        return $this->getBackingStore()->get('deploymentSummary');
+        $val = $this->getBackingStore()->get('deploymentSummary');
+        if (is_null($val) || $val instanceof ManagedAppPolicyDeploymentSummary) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deploymentSummary'");
     }
 
     /**
@@ -246,7 +361,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return bool|null
     */
     public function getDeviceLockRequired(): ?bool {
-        return $this->getBackingStore()->get('deviceLockRequired');
+        $val = $this->getBackingStore()->get('deviceLockRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceLockRequired'");
     }
 
     /**
@@ -254,7 +373,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return bool|null
     */
     public function getDisableAppEncryptionIfDeviceEncryptionIsEnabled(): ?bool {
-        return $this->getBackingStore()->get('disableAppEncryptionIfDeviceEncryptionIsEnabled');
+        $val = $this->getBackingStore()->get('disableAppEncryptionIfDeviceEncryptionIsEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disableAppEncryptionIfDeviceEncryptionIsEnabled'");
     }
 
     /**
@@ -262,7 +385,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return bool|null
     */
     public function getDisableProtectionOfManagedOutboundOpenInData(): ?bool {
-        return $this->getBackingStore()->get('disableProtectionOfManagedOutboundOpenInData');
+        $val = $this->getBackingStore()->get('disableProtectionOfManagedOutboundOpenInData');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disableProtectionOfManagedOutboundOpenInData'");
     }
 
     /**
@@ -270,7 +397,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return bool|null
     */
     public function getEncryptAppData(): ?bool {
-        return $this->getBackingStore()->get('encryptAppData');
+        $val = $this->getBackingStore()->get('encryptAppData');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'encryptAppData'");
     }
 
     /**
@@ -278,7 +409,13 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return array<KeyValuePair>|null
     */
     public function getExemptedAppPackages(): ?array {
-        return $this->getBackingStore()->get('exemptedAppPackages');
+        $val = $this->getBackingStore()->get('exemptedAppPackages');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, KeyValuePair::class);
+            /** @var array<KeyValuePair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exemptedAppPackages'");
     }
 
     /**
@@ -286,7 +423,13 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return array<KeyValuePair>|null
     */
     public function getExemptedAppProtocols(): ?array {
-        return $this->getBackingStore()->get('exemptedAppProtocols');
+        $val = $this->getBackingStore()->get('exemptedAppProtocols');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, KeyValuePair::class);
+            /** @var array<KeyValuePair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exemptedAppProtocols'");
     }
 
     /**
@@ -294,18 +437,29 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return bool|null
     */
     public function getFaceIdBlocked(): ?bool {
-        return $this->getBackingStore()->get('faceIdBlocked');
+        $val = $this->getBackingStore()->get('faceIdBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'faceIdBlocked'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'allowedAndroidDeviceManufacturers' => fn(ParseNode $n) => $o->setAllowedAndroidDeviceManufacturers($n->getStringValue()),
-            'allowedAndroidDeviceModels' => fn(ParseNode $n) => $o->setAllowedAndroidDeviceModels($n->getCollectionOfPrimitiveValues()),
+            'allowedAndroidDeviceModels' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAllowedAndroidDeviceModels($val);
+            },
             'allowedIosDeviceModels' => fn(ParseNode $n) => $o->setAllowedIosDeviceModels($n->getStringValue()),
             'appActionIfAccountIsClockedOut' => fn(ParseNode $n) => $o->setAppActionIfAccountIsClockedOut($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appActionIfAndroidDeviceManufacturerNotAllowed' => fn(ParseNode $n) => $o->setAppActionIfAndroidDeviceManufacturerNotAllowed($n->getEnumValue(ManagedAppRemediationAction::class)),
@@ -367,7 +521,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return bool|null
     */
     public function getFilterOpenInToOnlyManagedApps(): ?bool {
-        return $this->getBackingStore()->get('filterOpenInToOnlyManagedApps');
+        $val = $this->getBackingStore()->get('filterOpenInToOnlyManagedApps');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'filterOpenInToOnlyManagedApps'");
     }
 
     /**
@@ -375,7 +533,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return bool|null
     */
     public function getFingerprintAndBiometricEnabled(): ?bool {
-        return $this->getBackingStore()->get('fingerprintAndBiometricEnabled');
+        $val = $this->getBackingStore()->get('fingerprintAndBiometricEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fingerprintAndBiometricEnabled'");
     }
 
     /**
@@ -383,7 +545,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return string|null
     */
     public function getMinimumRequiredCompanyPortalVersion(): ?string {
-        return $this->getBackingStore()->get('minimumRequiredCompanyPortalVersion');
+        $val = $this->getBackingStore()->get('minimumRequiredCompanyPortalVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumRequiredCompanyPortalVersion'");
     }
 
     /**
@@ -391,7 +557,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return string|null
     */
     public function getMinimumRequiredPatchVersion(): ?string {
-        return $this->getBackingStore()->get('minimumRequiredPatchVersion');
+        $val = $this->getBackingStore()->get('minimumRequiredPatchVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumRequiredPatchVersion'");
     }
 
     /**
@@ -399,7 +569,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return string|null
     */
     public function getMinimumRequiredSdkVersion(): ?string {
-        return $this->getBackingStore()->get('minimumRequiredSdkVersion');
+        $val = $this->getBackingStore()->get('minimumRequiredSdkVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumRequiredSdkVersion'");
     }
 
     /**
@@ -407,7 +581,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return string|null
     */
     public function getMinimumWarningCompanyPortalVersion(): ?string {
-        return $this->getBackingStore()->get('minimumWarningCompanyPortalVersion');
+        $val = $this->getBackingStore()->get('minimumWarningCompanyPortalVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumWarningCompanyPortalVersion'");
     }
 
     /**
@@ -415,7 +593,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return string|null
     */
     public function getMinimumWarningPatchVersion(): ?string {
-        return $this->getBackingStore()->get('minimumWarningPatchVersion');
+        $val = $this->getBackingStore()->get('minimumWarningPatchVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumWarningPatchVersion'");
     }
 
     /**
@@ -423,7 +605,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return string|null
     */
     public function getMinimumWarningSdkVersion(): ?string {
-        return $this->getBackingStore()->get('minimumWarningSdkVersion');
+        $val = $this->getBackingStore()->get('minimumWarningSdkVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumWarningSdkVersion'");
     }
 
     /**
@@ -431,7 +617,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return string|null
     */
     public function getMinimumWipeCompanyPortalVersion(): ?string {
-        return $this->getBackingStore()->get('minimumWipeCompanyPortalVersion');
+        $val = $this->getBackingStore()->get('minimumWipeCompanyPortalVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumWipeCompanyPortalVersion'");
     }
 
     /**
@@ -439,7 +629,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return string|null
     */
     public function getMinimumWipePatchVersion(): ?string {
-        return $this->getBackingStore()->get('minimumWipePatchVersion');
+        $val = $this->getBackingStore()->get('minimumWipePatchVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumWipePatchVersion'");
     }
 
     /**
@@ -447,7 +641,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return string|null
     */
     public function getMinimumWipeSdkVersion(): ?string {
-        return $this->getBackingStore()->get('minimumWipeSdkVersion');
+        $val = $this->getBackingStore()->get('minimumWipeSdkVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'minimumWipeSdkVersion'");
     }
 
     /**
@@ -455,7 +653,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return bool|null
     */
     public function getProtectInboundDataFromUnknownSources(): ?bool {
-        return $this->getBackingStore()->get('protectInboundDataFromUnknownSources');
+        $val = $this->getBackingStore()->get('protectInboundDataFromUnknownSources');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'protectInboundDataFromUnknownSources'");
     }
 
     /**
@@ -463,7 +665,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return bool|null
     */
     public function getRequireClass3Biometrics(): ?bool {
-        return $this->getBackingStore()->get('requireClass3Biometrics');
+        $val = $this->getBackingStore()->get('requireClass3Biometrics');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requireClass3Biometrics'");
     }
 
     /**
@@ -471,7 +677,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return AndroidManagedAppSafetyNetAppsVerificationType|null
     */
     public function getRequiredAndroidSafetyNetAppsVerificationType(): ?AndroidManagedAppSafetyNetAppsVerificationType {
-        return $this->getBackingStore()->get('requiredAndroidSafetyNetAppsVerificationType');
+        $val = $this->getBackingStore()->get('requiredAndroidSafetyNetAppsVerificationType');
+        if (is_null($val) || $val instanceof AndroidManagedAppSafetyNetAppsVerificationType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requiredAndroidSafetyNetAppsVerificationType'");
     }
 
     /**
@@ -479,7 +689,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return AndroidManagedAppSafetyNetDeviceAttestationType|null
     */
     public function getRequiredAndroidSafetyNetDeviceAttestationType(): ?AndroidManagedAppSafetyNetDeviceAttestationType {
-        return $this->getBackingStore()->get('requiredAndroidSafetyNetDeviceAttestationType');
+        $val = $this->getBackingStore()->get('requiredAndroidSafetyNetDeviceAttestationType');
+        if (is_null($val) || $val instanceof AndroidManagedAppSafetyNetDeviceAttestationType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requiredAndroidSafetyNetDeviceAttestationType'");
     }
 
     /**
@@ -487,7 +701,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return AndroidManagedAppSafetyNetEvaluationType|null
     */
     public function getRequiredAndroidSafetyNetEvaluationType(): ?AndroidManagedAppSafetyNetEvaluationType {
-        return $this->getBackingStore()->get('requiredAndroidSafetyNetEvaluationType');
+        $val = $this->getBackingStore()->get('requiredAndroidSafetyNetEvaluationType');
+        if (is_null($val) || $val instanceof AndroidManagedAppSafetyNetEvaluationType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requiredAndroidSafetyNetEvaluationType'");
     }
 
     /**
@@ -495,7 +713,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return bool|null
     */
     public function getRequirePinAfterBiometricChange(): ?bool {
-        return $this->getBackingStore()->get('requirePinAfterBiometricChange');
+        $val = $this->getBackingStore()->get('requirePinAfterBiometricChange');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requirePinAfterBiometricChange'");
     }
 
     /**
@@ -503,7 +725,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return bool|null
     */
     public function getScreenCaptureBlocked(): ?bool {
-        return $this->getBackingStore()->get('screenCaptureBlocked');
+        $val = $this->getBackingStore()->get('screenCaptureBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'screenCaptureBlocked'");
     }
 
     /**
@@ -511,7 +737,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return bool|null
     */
     public function getThirdPartyKeyboardsBlocked(): ?bool {
-        return $this->getBackingStore()->get('thirdPartyKeyboardsBlocked');
+        $val = $this->getBackingStore()->get('thirdPartyKeyboardsBlocked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'thirdPartyKeyboardsBlocked'");
     }
 
     /**
@@ -519,7 +749,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return int|null
     */
     public function getWarnAfterCompanyPortalUpdateDeferralInDays(): ?int {
-        return $this->getBackingStore()->get('warnAfterCompanyPortalUpdateDeferralInDays');
+        $val = $this->getBackingStore()->get('warnAfterCompanyPortalUpdateDeferralInDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'warnAfterCompanyPortalUpdateDeferralInDays'");
     }
 
     /**
@@ -527,7 +761,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
      * @return int|null
     */
     public function getWipeAfterCompanyPortalUpdateDeferralInDays(): ?int {
-        return $this->getBackingStore()->get('wipeAfterCompanyPortalUpdateDeferralInDays');
+        $val = $this->getBackingStore()->get('wipeAfterCompanyPortalUpdateDeferralInDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wipeAfterCompanyPortalUpdateDeferralInDays'");
     }
 
     /**
@@ -618,7 +856,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     }
 
     /**
-     * Sets the appActionIfAccountIsClockedOut property value. Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time).
+     * Sets the appActionIfAccountIsClockedOut property value. Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time). Possible values are: block, wipe, warn.
      * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfAccountIsClockedOut property.
     */
     public function setAppActionIfAccountIsClockedOut(?ManagedAppRemediationAction $value): void {

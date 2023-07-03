@@ -10,6 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Collection of app diagnostics associated with a user.
@@ -43,7 +44,12 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Pa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -51,7 +57,11 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getApplication(): ?string {
-        return $this->getBackingStore()->get('application');
+        $val = $this->getBackingStore()->get('application');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'application'");
     }
 
     /**
@@ -67,7 +77,11 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getClientVersion(): ?string {
-        return $this->getBackingStore()->get('clientVersion');
+        $val = $this->getBackingStore()->get('clientVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clientVersion'");
     }
 
     /**
@@ -75,7 +89,11 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Pa
      * @return DateTime|null
     */
     public function getCreatedAtDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdAtDateTime');
+        $val = $this->getBackingStore()->get('createdAtDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdAtDateTime'");
     }
 
     /**
@@ -83,12 +101,16 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getEasyId(): ?string {
-        return $this->getBackingStore()->get('easyId');
+        $val = $this->getBackingStore()->get('easyId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'easyId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -97,7 +119,14 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Pa
             'clientVersion' => fn(ParseNode $n) => $o->setClientVersion($n->getStringValue()),
             'createdAtDateTime' => fn(ParseNode $n) => $o->setCreatedAtDateTime($n->getDateTimeValue()),
             'easyId' => fn(ParseNode $n) => $o->setEasyId($n->getStringValue()),
-            'fileNames' => fn(ParseNode $n) => $o->setFileNames($n->getCollectionOfPrimitiveValues()),
+            'fileNames' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setFileNames($val);
+            },
             'locale' => fn(ParseNode $n) => $o->setLocale($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'platform' => fn(ParseNode $n) => $o->setPlatform($n->getStringValue()),
@@ -110,7 +139,13 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Pa
      * @return array<string>|null
     */
     public function getFileNames(): ?array {
-        return $this->getBackingStore()->get('fileNames');
+        $val = $this->getBackingStore()->get('fileNames');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileNames'");
     }
 
     /**
@@ -118,7 +153,11 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getLocale(): ?string {
-        return $this->getBackingStore()->get('locale');
+        $val = $this->getBackingStore()->get('locale');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'locale'");
     }
 
     /**
@@ -126,7 +165,11 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -134,7 +177,11 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getPlatform(): ?string {
-        return $this->getBackingStore()->get('platform');
+        $val = $this->getBackingStore()->get('platform');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'platform'");
     }
 
     /**
@@ -142,7 +189,11 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getPowerliftId(): ?string {
-        return $this->getBackingStore()->get('powerliftId');
+        $val = $this->getBackingStore()->get('powerliftId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'powerliftId'");
     }
 
     /**

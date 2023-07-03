@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
 class DriveItem extends BaseItem implements Parsable 
@@ -31,7 +32,13 @@ class DriveItem extends BaseItem implements Parsable
      * @return array<ItemActivityOLD>|null
     */
     public function getActivities(): ?array {
-        return $this->getBackingStore()->get('activities');
+        $val = $this->getBackingStore()->get('activities');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ItemActivityOLD::class);
+            /** @var array<ItemActivityOLD>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activities'");
     }
 
     /**
@@ -39,7 +46,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return ItemAnalytics|null
     */
     public function getAnalytics(): ?ItemAnalytics {
-        return $this->getBackingStore()->get('analytics');
+        $val = $this->getBackingStore()->get('analytics');
+        if (is_null($val) || $val instanceof ItemAnalytics) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'analytics'");
     }
 
     /**
@@ -47,7 +58,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return Audio|null
     */
     public function getAudio(): ?Audio {
-        return $this->getBackingStore()->get('audio');
+        $val = $this->getBackingStore()->get('audio');
+        if (is_null($val) || $val instanceof Audio) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'audio'");
     }
 
     /**
@@ -55,7 +70,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return Bundle|null
     */
     public function getBundle(): ?Bundle {
-        return $this->getBackingStore()->get('bundle');
+        $val = $this->getBackingStore()->get('bundle');
+        if (is_null($val) || $val instanceof Bundle) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bundle'");
     }
 
     /**
@@ -63,7 +82,13 @@ class DriveItem extends BaseItem implements Parsable
      * @return array<DriveItem>|null
     */
     public function getChildren(): ?array {
-        return $this->getBackingStore()->get('children');
+        $val = $this->getBackingStore()->get('children');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DriveItem::class);
+            /** @var array<DriveItem>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'children'");
     }
 
     /**
@@ -71,7 +96,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return StreamInterface|null
     */
     public function getContent(): ?StreamInterface {
-        return $this->getBackingStore()->get('content');
+        $val = $this->getBackingStore()->get('content');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'content'");
     }
 
     /**
@@ -79,7 +108,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return string|null
     */
     public function getCTag(): ?string {
-        return $this->getBackingStore()->get('cTag');
+        $val = $this->getBackingStore()->get('cTag');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cTag'");
     }
 
     /**
@@ -87,12 +120,16 @@ class DriveItem extends BaseItem implements Parsable
      * @return Deleted|null
     */
     public function getDeleted(): ?Deleted {
-        return $this->getBackingStore()->get('deleted');
+        $val = $this->getBackingStore()->get('deleted');
+        if (is_null($val) || $val instanceof Deleted) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deleted'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -141,7 +178,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return File|null
     */
     public function getFile(): ?File {
-        return $this->getBackingStore()->get('file');
+        $val = $this->getBackingStore()->get('file');
+        if (is_null($val) || $val instanceof File) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'file'");
     }
 
     /**
@@ -149,7 +190,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return FileSystemInfo|null
     */
     public function getFileSystemInfo(): ?FileSystemInfo {
-        return $this->getBackingStore()->get('fileSystemInfo');
+        $val = $this->getBackingStore()->get('fileSystemInfo');
+        if (is_null($val) || $val instanceof FileSystemInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileSystemInfo'");
     }
 
     /**
@@ -157,7 +202,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return Folder|null
     */
     public function getFolder(): ?Folder {
-        return $this->getBackingStore()->get('folder');
+        $val = $this->getBackingStore()->get('folder');
+        if (is_null($val) || $val instanceof Folder) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'folder'");
     }
 
     /**
@@ -165,7 +214,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return Image|null
     */
     public function getImage(): ?Image {
-        return $this->getBackingStore()->get('image');
+        $val = $this->getBackingStore()->get('image');
+        if (is_null($val) || $val instanceof Image) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'image'");
     }
 
     /**
@@ -173,7 +226,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return ListItem|null
     */
     public function getListItem(): ?ListItem {
-        return $this->getBackingStore()->get('listItem');
+        $val = $this->getBackingStore()->get('listItem');
+        if (is_null($val) || $val instanceof ListItem) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'listItem'");
     }
 
     /**
@@ -181,7 +238,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return GeoCoordinates|null
     */
     public function getLocation(): ?GeoCoordinates {
-        return $this->getBackingStore()->get('location');
+        $val = $this->getBackingStore()->get('location');
+        if (is_null($val) || $val instanceof GeoCoordinates) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'location'");
     }
 
     /**
@@ -189,7 +250,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return Malware|null
     */
     public function getMalware(): ?Malware {
-        return $this->getBackingStore()->get('malware');
+        $val = $this->getBackingStore()->get('malware');
+        if (is_null($val) || $val instanceof Malware) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'malware'");
     }
 
     /**
@@ -197,7 +262,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return Media|null
     */
     public function getMedia(): ?Media {
-        return $this->getBackingStore()->get('media');
+        $val = $this->getBackingStore()->get('media');
+        if (is_null($val) || $val instanceof Media) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'media'");
     }
 
     /**
@@ -205,7 +274,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return Package|null
     */
     public function getPackage(): ?Package {
-        return $this->getBackingStore()->get('package');
+        $val = $this->getBackingStore()->get('package');
+        if (is_null($val) || $val instanceof Package) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'package'");
     }
 
     /**
@@ -213,7 +286,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return PendingOperations|null
     */
     public function getPendingOperations(): ?PendingOperations {
-        return $this->getBackingStore()->get('pendingOperations');
+        $val = $this->getBackingStore()->get('pendingOperations');
+        if (is_null($val) || $val instanceof PendingOperations) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pendingOperations'");
     }
 
     /**
@@ -221,7 +298,13 @@ class DriveItem extends BaseItem implements Parsable
      * @return array<Permission>|null
     */
     public function getPermissions(): ?array {
-        return $this->getBackingStore()->get('permissions');
+        $val = $this->getBackingStore()->get('permissions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Permission::class);
+            /** @var array<Permission>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'permissions'");
     }
 
     /**
@@ -229,7 +312,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return Photo|null
     */
     public function getPhoto(): ?Photo {
-        return $this->getBackingStore()->get('photo');
+        $val = $this->getBackingStore()->get('photo');
+        if (is_null($val) || $val instanceof Photo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'photo'");
     }
 
     /**
@@ -237,7 +324,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return PublicationFacet|null
     */
     public function getPublication(): ?PublicationFacet {
-        return $this->getBackingStore()->get('publication');
+        $val = $this->getBackingStore()->get('publication');
+        if (is_null($val) || $val instanceof PublicationFacet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publication'");
     }
 
     /**
@@ -245,7 +336,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return RemoteItem|null
     */
     public function getRemoteItem(): ?RemoteItem {
-        return $this->getBackingStore()->get('remoteItem');
+        $val = $this->getBackingStore()->get('remoteItem');
+        if (is_null($val) || $val instanceof RemoteItem) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remoteItem'");
     }
 
     /**
@@ -253,7 +348,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return ItemRetentionLabel|null
     */
     public function getRetentionLabel(): ?ItemRetentionLabel {
-        return $this->getBackingStore()->get('retentionLabel');
+        $val = $this->getBackingStore()->get('retentionLabel');
+        if (is_null($val) || $val instanceof ItemRetentionLabel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'retentionLabel'");
     }
 
     /**
@@ -261,7 +360,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return Root|null
     */
     public function getRoot(): ?Root {
-        return $this->getBackingStore()->get('root');
+        $val = $this->getBackingStore()->get('root');
+        if (is_null($val) || $val instanceof Root) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'root'");
     }
 
     /**
@@ -269,7 +372,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return SearchResult|null
     */
     public function getSearchResult(): ?SearchResult {
-        return $this->getBackingStore()->get('searchResult');
+        $val = $this->getBackingStore()->get('searchResult');
+        if (is_null($val) || $val instanceof SearchResult) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'searchResult'");
     }
 
     /**
@@ -277,7 +384,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return Shared|null
     */
     public function getShared(): ?Shared {
-        return $this->getBackingStore()->get('shared');
+        $val = $this->getBackingStore()->get('shared');
+        if (is_null($val) || $val instanceof Shared) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'shared'");
     }
 
     /**
@@ -285,7 +396,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return SharepointIds|null
     */
     public function getSharepointIds(): ?SharepointIds {
-        return $this->getBackingStore()->get('sharepointIds');
+        $val = $this->getBackingStore()->get('sharepointIds');
+        if (is_null($val) || $val instanceof SharepointIds) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sharepointIds'");
     }
 
     /**
@@ -293,7 +408,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return int|null
     */
     public function getSize(): ?int {
-        return $this->getBackingStore()->get('size');
+        $val = $this->getBackingStore()->get('size');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'size'");
     }
 
     /**
@@ -301,7 +420,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return DriveItemSource|null
     */
     public function getSource(): ?DriveItemSource {
-        return $this->getBackingStore()->get('source');
+        $val = $this->getBackingStore()->get('source');
+        if (is_null($val) || $val instanceof DriveItemSource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'source'");
     }
 
     /**
@@ -309,7 +432,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return SpecialFolder|null
     */
     public function getSpecialFolder(): ?SpecialFolder {
-        return $this->getBackingStore()->get('specialFolder');
+        $val = $this->getBackingStore()->get('specialFolder');
+        if (is_null($val) || $val instanceof SpecialFolder) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'specialFolder'");
     }
 
     /**
@@ -317,7 +444,13 @@ class DriveItem extends BaseItem implements Parsable
      * @return array<Subscription>|null
     */
     public function getSubscriptions(): ?array {
-        return $this->getBackingStore()->get('subscriptions');
+        $val = $this->getBackingStore()->get('subscriptions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Subscription::class);
+            /** @var array<Subscription>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subscriptions'");
     }
 
     /**
@@ -325,7 +458,13 @@ class DriveItem extends BaseItem implements Parsable
      * @return array<ThumbnailSet>|null
     */
     public function getThumbnails(): ?array {
-        return $this->getBackingStore()->get('thumbnails');
+        $val = $this->getBackingStore()->get('thumbnails');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ThumbnailSet::class);
+            /** @var array<ThumbnailSet>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'thumbnails'");
     }
 
     /**
@@ -333,7 +472,13 @@ class DriveItem extends BaseItem implements Parsable
      * @return array<DriveItemVersion>|null
     */
     public function getVersions(): ?array {
-        return $this->getBackingStore()->get('versions');
+        $val = $this->getBackingStore()->get('versions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DriveItemVersion::class);
+            /** @var array<DriveItemVersion>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'versions'");
     }
 
     /**
@@ -341,7 +486,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return Video|null
     */
     public function getVideo(): ?Video {
-        return $this->getBackingStore()->get('video');
+        $val = $this->getBackingStore()->get('video');
+        if (is_null($val) || $val instanceof Video) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'video'");
     }
 
     /**
@@ -349,7 +498,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return string|null
     */
     public function getWebDavUrl(): ?string {
-        return $this->getBackingStore()->get('webDavUrl');
+        $val = $this->getBackingStore()->get('webDavUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'webDavUrl'");
     }
 
     /**
@@ -357,7 +510,11 @@ class DriveItem extends BaseItem implements Parsable
      * @return Workbook|null
     */
     public function getWorkbook(): ?Workbook {
-        return $this->getBackingStore()->get('workbook');
+        $val = $this->getBackingStore()->get('workbook');
+        if (is_null($val) || $val instanceof Workbook) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workbook'");
     }
 
     /**

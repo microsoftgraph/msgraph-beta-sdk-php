@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsDeviceScope and sets the default values.
+     * Instantiates a new userExperienceAnalyticsDeviceScope and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -30,7 +30,11 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -38,7 +42,11 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceScopeName(): ?string {
-        return $this->getBackingStore()->get('deviceScopeName');
+        $val = $this->getBackingStore()->get('deviceScopeName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceScopeName'");
     }
 
     /**
@@ -46,12 +54,16 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
      * @return bool|null
     */
     public function getEnabled(): ?bool {
-        return $this->getBackingStore()->get('enabled');
+        $val = $this->getBackingStore()->get('enabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enabled'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -75,7 +87,11 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsBuiltIn(): ?bool {
-        return $this->getBackingStore()->get('isBuiltIn');
+        $val = $this->getBackingStore()->get('isBuiltIn');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isBuiltIn'");
     }
 
     /**
@@ -83,7 +99,11 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -91,7 +111,11 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
      * @return DeviceScopeOperator|null
     */
     public function getOperator(): ?DeviceScopeOperator {
-        return $this->getBackingStore()->get('operator');
+        $val = $this->getBackingStore()->get('operator');
+        if (is_null($val) || $val instanceof DeviceScopeOperator) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'operator'");
     }
 
     /**
@@ -99,7 +123,11 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
      * @return string|null
     */
     public function getOwnerId(): ?string {
-        return $this->getBackingStore()->get('ownerId');
+        $val = $this->getBackingStore()->get('ownerId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ownerId'");
     }
 
     /**
@@ -107,7 +135,11 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
      * @return DeviceScopeParameter|null
     */
     public function getParameter(): ?DeviceScopeParameter {
-        return $this->getBackingStore()->get('parameter');
+        $val = $this->getBackingStore()->get('parameter');
+        if (is_null($val) || $val instanceof DeviceScopeParameter) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'parameter'");
     }
 
     /**
@@ -115,7 +147,11 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
      * @return DeviceScopeStatus|null
     */
     public function getStatus(): ?DeviceScopeStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof DeviceScopeStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**
@@ -123,7 +159,11 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
      * @return string|null
     */
     public function getValue(): ?string {
-        return $this->getBackingStore()->get('value');
+        $val = $this->getBackingStore()->get('value');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'value'");
     }
 
     /**
@@ -131,7 +171,11 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
      * @return string|null
     */
     public function getValueObjectId(): ?string {
-        return $this->getBackingStore()->get('valueObjectId');
+        $val = $this->getBackingStore()->get('valueObjectId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'valueObjectId'");
     }
 
     /**

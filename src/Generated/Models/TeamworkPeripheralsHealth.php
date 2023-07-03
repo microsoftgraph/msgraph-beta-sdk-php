@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class TeamworkPeripheralsHealth implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, BackedModel, Pa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +61,11 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, BackedModel, Pa
      * @return TeamworkPeripheralHealth|null
     */
     public function getCommunicationSpeakerHealth(): ?TeamworkPeripheralHealth {
-        return $this->getBackingStore()->get('communicationSpeakerHealth');
+        $val = $this->getBackingStore()->get('communicationSpeakerHealth');
+        if (is_null($val) || $val instanceof TeamworkPeripheralHealth) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'communicationSpeakerHealth'");
     }
 
     /**
@@ -63,7 +73,11 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, BackedModel, Pa
      * @return TeamworkPeripheralHealth|null
     */
     public function getContentCameraHealth(): ?TeamworkPeripheralHealth {
-        return $this->getBackingStore()->get('contentCameraHealth');
+        $val = $this->getBackingStore()->get('contentCameraHealth');
+        if (is_null($val) || $val instanceof TeamworkPeripheralHealth) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentCameraHealth'");
     }
 
     /**
@@ -71,12 +85,18 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, BackedModel, Pa
      * @return array<TeamworkPeripheralHealth>|null
     */
     public function getDisplayHealthCollection(): ?array {
-        return $this->getBackingStore()->get('displayHealthCollection');
+        $val = $this->getBackingStore()->get('displayHealthCollection');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, TeamworkPeripheralHealth::class);
+            /** @var array<TeamworkPeripheralHealth>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayHealthCollection'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -96,7 +116,11 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, BackedModel, Pa
      * @return TeamworkPeripheralHealth|null
     */
     public function getMicrophoneHealth(): ?TeamworkPeripheralHealth {
-        return $this->getBackingStore()->get('microphoneHealth');
+        $val = $this->getBackingStore()->get('microphoneHealth');
+        if (is_null($val) || $val instanceof TeamworkPeripheralHealth) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microphoneHealth'");
     }
 
     /**
@@ -104,7 +128,11 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -112,7 +140,11 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, BackedModel, Pa
      * @return TeamworkPeripheralHealth|null
     */
     public function getRoomCameraHealth(): ?TeamworkPeripheralHealth {
-        return $this->getBackingStore()->get('roomCameraHealth');
+        $val = $this->getBackingStore()->get('roomCameraHealth');
+        if (is_null($val) || $val instanceof TeamworkPeripheralHealth) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roomCameraHealth'");
     }
 
     /**
@@ -120,7 +152,11 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, BackedModel, Pa
      * @return TeamworkPeripheralHealth|null
     */
     public function getSpeakerHealth(): ?TeamworkPeripheralHealth {
-        return $this->getBackingStore()->get('speakerHealth');
+        $val = $this->getBackingStore()->get('speakerHealth');
+        if (is_null($val) || $val instanceof TeamworkPeripheralHealth) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'speakerHealth'");
     }
 
     /**

@@ -30,7 +30,11 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
      * @return Identity|null
     */
     public function getApplicationInstance(): ?Identity {
-        return $this->getBackingStore()->get('applicationInstance');
+        $val = $this->getBackingStore()->get('applicationInstance');
+        if (is_null($val) || $val instanceof Identity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationInstance'");
     }
 
     /**
@@ -38,7 +42,11 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
      * @return Identity|null
     */
     public function getAssertedIdentity(): ?Identity {
-        return $this->getBackingStore()->get('assertedIdentity');
+        $val = $this->getBackingStore()->get('assertedIdentity');
+        if (is_null($val) || $val instanceof Identity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assertedIdentity'");
     }
 
     /**
@@ -46,7 +54,11 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
      * @return Identity|null
     */
     public function getAzureCommunicationServicesUser(): ?Identity {
-        return $this->getBackingStore()->get('azureCommunicationServicesUser');
+        $val = $this->getBackingStore()->get('azureCommunicationServicesUser');
+        if (is_null($val) || $val instanceof Identity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureCommunicationServicesUser'");
     }
 
     /**
@@ -54,7 +66,11 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
      * @return Identity|null
     */
     public function getEncrypted(): ?Identity {
-        return $this->getBackingStore()->get('encrypted');
+        $val = $this->getBackingStore()->get('encrypted');
+        if (is_null($val) || $val instanceof Identity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'encrypted'");
     }
 
     /**
@@ -62,12 +78,16 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
      * @return EndpointType|null
     */
     public function getEndpointType(): ?EndpointType {
-        return $this->getBackingStore()->get('endpointType');
+        $val = $this->getBackingStore()->get('endpointType');
+        if (is_null($val) || $val instanceof EndpointType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endpointType'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -88,7 +108,11 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
      * @return Identity|null
     */
     public function getGuest(): ?Identity {
-        return $this->getBackingStore()->get('guest');
+        $val = $this->getBackingStore()->get('guest');
+        if (is_null($val) || $val instanceof Identity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'guest'");
     }
 
     /**
@@ -96,7 +120,11 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
      * @return Identity|null
     */
     public function getOnPremises(): ?Identity {
-        return $this->getBackingStore()->get('onPremises');
+        $val = $this->getBackingStore()->get('onPremises');
+        if (is_null($val) || $val instanceof Identity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onPremises'");
     }
 
     /**
@@ -104,7 +132,11 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
      * @return Identity|null
     */
     public function getPhone(): ?Identity {
-        return $this->getBackingStore()->get('phone');
+        $val = $this->getBackingStore()->get('phone');
+        if (is_null($val) || $val instanceof Identity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'phone'");
     }
 
     /**

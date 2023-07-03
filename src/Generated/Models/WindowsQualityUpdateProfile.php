@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Windows Quality Update Profile
@@ -33,7 +34,13 @@ class WindowsQualityUpdateProfile extends Entity implements Parsable
      * @return array<WindowsQualityUpdateProfileAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->getBackingStore()->get('assignments');
+        $val = $this->getBackingStore()->get('assignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WindowsQualityUpdateProfileAssignment::class);
+            /** @var array<WindowsQualityUpdateProfileAssignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignments'");
     }
 
     /**
@@ -41,7 +48,11 @@ class WindowsQualityUpdateProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -49,7 +60,11 @@ class WindowsQualityUpdateProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDeployableContentDisplayName(): ?string {
-        return $this->getBackingStore()->get('deployableContentDisplayName');
+        $val = $this->getBackingStore()->get('deployableContentDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deployableContentDisplayName'");
     }
 
     /**
@@ -57,7 +72,11 @@ class WindowsQualityUpdateProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -65,7 +84,11 @@ class WindowsQualityUpdateProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -73,12 +96,16 @@ class WindowsQualityUpdateProfile extends Entity implements Parsable
      * @return ExpeditedWindowsQualityUpdateSettings|null
     */
     public function getExpeditedUpdateSettings(): ?ExpeditedWindowsQualityUpdateSettings {
-        return $this->getBackingStore()->get('expeditedUpdateSettings');
+        $val = $this->getBackingStore()->get('expeditedUpdateSettings');
+        if (is_null($val) || $val instanceof ExpeditedWindowsQualityUpdateSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expeditedUpdateSettings'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -91,7 +118,14 @@ class WindowsQualityUpdateProfile extends Entity implements Parsable
             'expeditedUpdateSettings' => fn(ParseNode $n) => $o->setExpeditedUpdateSettings($n->getObjectValue([ExpeditedWindowsQualityUpdateSettings::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'releaseDateDisplayName' => fn(ParseNode $n) => $o->setReleaseDateDisplayName($n->getStringValue()),
-            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
+            'roleScopeTagIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoleScopeTagIds($val);
+            },
         ]);
     }
 
@@ -100,7 +134,11 @@ class WindowsQualityUpdateProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -108,7 +146,11 @@ class WindowsQualityUpdateProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getReleaseDateDisplayName(): ?string {
-        return $this->getBackingStore()->get('releaseDateDisplayName');
+        $val = $this->getBackingStore()->get('releaseDateDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'releaseDateDisplayName'");
     }
 
     /**
@@ -116,7 +158,13 @@ class WindowsQualityUpdateProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->getBackingStore()->get('roleScopeTagIds');
+        $val = $this->getBackingStore()->get('roleScopeTagIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleScopeTagIds'");
     }
 
     /**

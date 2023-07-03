@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfiguration implements Parsable 
 {
@@ -30,7 +31,11 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
      * @return EnrollmentNotificationBrandingOptions|null
     */
     public function getBrandingOptions(): ?EnrollmentNotificationBrandingOptions {
-        return $this->getBackingStore()->get('brandingOptions');
+        $val = $this->getBackingStore()->get('brandingOptions');
+        if (is_null($val) || $val instanceof EnrollmentNotificationBrandingOptions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'brandingOptions'");
     }
 
     /**
@@ -38,12 +43,16 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
      * @return string|null
     */
     public function getDefaultLocale(): ?string {
-        return $this->getBackingStore()->get('defaultLocale');
+        $val = $this->getBackingStore()->get('defaultLocale');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultLocale'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -51,7 +60,14 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
             'brandingOptions' => fn(ParseNode $n) => $o->setBrandingOptions($n->getEnumValue(EnrollmentNotificationBrandingOptions::class)),
             'defaultLocale' => fn(ParseNode $n) => $o->setDefaultLocale($n->getStringValue()),
             'notificationMessageTemplateId' => fn(ParseNode $n) => $o->setNotificationMessageTemplateId($n->getStringValue()),
-            'notificationTemplates' => fn(ParseNode $n) => $o->setNotificationTemplates($n->getCollectionOfPrimitiveValues()),
+            'notificationTemplates' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setNotificationTemplates($val);
+            },
             'platformType' => fn(ParseNode $n) => $o->setPlatformType($n->getEnumValue(EnrollmentRestrictionPlatformType::class)),
             'templateType' => fn(ParseNode $n) => $o->setTemplateType($n->getEnumValue(EnrollmentNotificationTemplateType::class)),
         ]);
@@ -62,7 +78,11 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
      * @return string|null
     */
     public function getNotificationMessageTemplateId(): ?string {
-        return $this->getBackingStore()->get('notificationMessageTemplateId');
+        $val = $this->getBackingStore()->get('notificationMessageTemplateId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notificationMessageTemplateId'");
     }
 
     /**
@@ -70,7 +90,13 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
      * @return array<string>|null
     */
     public function getNotificationTemplates(): ?array {
-        return $this->getBackingStore()->get('notificationTemplates');
+        $val = $this->getBackingStore()->get('notificationTemplates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notificationTemplates'");
     }
 
     /**
@@ -78,7 +104,11 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
      * @return EnrollmentRestrictionPlatformType|null
     */
     public function getPlatformType(): ?EnrollmentRestrictionPlatformType {
-        return $this->getBackingStore()->get('platformType');
+        $val = $this->getBackingStore()->get('platformType');
+        if (is_null($val) || $val instanceof EnrollmentRestrictionPlatformType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'platformType'");
     }
 
     /**
@@ -86,7 +116,11 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
      * @return EnrollmentNotificationTemplateType|null
     */
     public function getTemplateType(): ?EnrollmentNotificationTemplateType {
-        return $this->getBackingStore()->get('templateType');
+        $val = $this->getBackingStore()->get('templateType');
+        if (is_null($val) || $val instanceof EnrollmentNotificationTemplateType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'templateType'");
     }
 
     /**

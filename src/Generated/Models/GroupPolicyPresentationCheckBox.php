@@ -30,12 +30,16 @@ class GroupPolicyPresentationCheckBox extends GroupPolicyUploadedPresentation im
      * @return bool|null
     */
     public function getDefaultChecked(): ?bool {
-        return $this->getBackingStore()->get('defaultChecked');
+        $val = $this->getBackingStore()->get('defaultChecked');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultChecked'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

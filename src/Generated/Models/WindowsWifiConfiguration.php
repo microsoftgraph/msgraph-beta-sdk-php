@@ -37,7 +37,11 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getConnectAutomatically(): ?bool {
-        return $this->getBackingStore()->get('connectAutomatically');
+        $val = $this->getBackingStore()->get('connectAutomatically');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectAutomatically'");
     }
 
     /**
@@ -45,7 +49,11 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getConnectToPreferredNetwork(): ?bool {
-        return $this->getBackingStore()->get('connectToPreferredNetwork');
+        $val = $this->getBackingStore()->get('connectToPreferredNetwork');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectToPreferredNetwork'");
     }
 
     /**
@@ -53,12 +61,16 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getConnectWhenNetworkNameIsHidden(): ?bool {
-        return $this->getBackingStore()->get('connectWhenNetworkNameIsHidden');
+        $val = $this->getBackingStore()->get('connectWhenNetworkNameIsHidden');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectWhenNetworkNameIsHidden'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -84,7 +96,11 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getForceFIPSCompliance(): ?bool {
-        return $this->getBackingStore()->get('forceFIPSCompliance');
+        $val = $this->getBackingStore()->get('forceFIPSCompliance');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'forceFIPSCompliance'");
     }
 
     /**
@@ -92,7 +108,11 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
      * @return MeteredConnectionLimitType|null
     */
     public function getMeteredConnectionLimit(): ?MeteredConnectionLimitType {
-        return $this->getBackingStore()->get('meteredConnectionLimit');
+        $val = $this->getBackingStore()->get('meteredConnectionLimit');
+        if (is_null($val) || $val instanceof MeteredConnectionLimitType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'meteredConnectionLimit'");
     }
 
     /**
@@ -100,7 +120,11 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getNetworkName(): ?string {
-        return $this->getBackingStore()->get('networkName');
+        $val = $this->getBackingStore()->get('networkName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkName'");
     }
 
     /**
@@ -108,7 +132,11 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getPreSharedKey(): ?string {
-        return $this->getBackingStore()->get('preSharedKey');
+        $val = $this->getBackingStore()->get('preSharedKey');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'preSharedKey'");
     }
 
     /**
@@ -116,7 +144,11 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getProxyAutomaticConfigurationUrl(): ?string {
-        return $this->getBackingStore()->get('proxyAutomaticConfigurationUrl');
+        $val = $this->getBackingStore()->get('proxyAutomaticConfigurationUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'proxyAutomaticConfigurationUrl'");
     }
 
     /**
@@ -124,7 +156,11 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getProxyManualAddress(): ?string {
-        return $this->getBackingStore()->get('proxyManualAddress');
+        $val = $this->getBackingStore()->get('proxyManualAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'proxyManualAddress'");
     }
 
     /**
@@ -132,7 +168,11 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
      * @return int|null
     */
     public function getProxyManualPort(): ?int {
-        return $this->getBackingStore()->get('proxyManualPort');
+        $val = $this->getBackingStore()->get('proxyManualPort');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'proxyManualPort'");
     }
 
     /**
@@ -140,7 +180,11 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
      * @return WiFiProxySetting|null
     */
     public function getProxySetting(): ?WiFiProxySetting {
-        return $this->getBackingStore()->get('proxySetting');
+        $val = $this->getBackingStore()->get('proxySetting');
+        if (is_null($val) || $val instanceof WiFiProxySetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'proxySetting'");
     }
 
     /**
@@ -148,7 +192,11 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getSsid(): ?string {
-        return $this->getBackingStore()->get('ssid');
+        $val = $this->getBackingStore()->get('ssid');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ssid'");
     }
 
     /**
@@ -156,7 +204,11 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
      * @return WiFiSecurityType|null
     */
     public function getWifiSecurityType(): ?WiFiSecurityType {
-        return $this->getBackingStore()->get('wifiSecurityType');
+        $val = $this->getBackingStore()->get('wifiSecurityType');
+        if (is_null($val) || $val instanceof WiFiSecurityType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wifiSecurityType'");
     }
 
     /**

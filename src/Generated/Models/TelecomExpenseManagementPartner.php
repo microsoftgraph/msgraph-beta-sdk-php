@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * telecomExpenseManagementPartner resources represent the metadata and status of a given TEM service. Once your organization has onboarded with a partner, the partner can be enabled or disabled to switch TEM functionality on or off.
+*/
 class TelecomExpenseManagementPartner extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new TelecomExpenseManagementPartner and sets the default values.
+     * Instantiates a new telecomExpenseManagementPartner and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -30,7 +33,11 @@ class TelecomExpenseManagementPartner extends Entity implements Parsable
      * @return bool|null
     */
     public function getAppAuthorized(): ?bool {
-        return $this->getBackingStore()->get('appAuthorized');
+        $val = $this->getBackingStore()->get('appAuthorized');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appAuthorized'");
     }
 
     /**
@@ -38,7 +45,11 @@ class TelecomExpenseManagementPartner extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -46,12 +57,16 @@ class TelecomExpenseManagementPartner extends Entity implements Parsable
      * @return bool|null
     */
     public function getEnabled(): ?bool {
-        return $this->getBackingStore()->get('enabled');
+        $val = $this->getBackingStore()->get('enabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enabled'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -69,7 +84,11 @@ class TelecomExpenseManagementPartner extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastConnectionDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastConnectionDateTime');
+        $val = $this->getBackingStore()->get('lastConnectionDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastConnectionDateTime'");
     }
 
     /**
@@ -77,7 +96,11 @@ class TelecomExpenseManagementPartner extends Entity implements Parsable
      * @return string|null
     */
     public function getUrl(): ?string {
-        return $this->getBackingStore()->get('url');
+        $val = $this->getBackingStore()->get('url');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'url'");
     }
 
     /**

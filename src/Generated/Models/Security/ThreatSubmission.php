@@ -44,7 +44,11 @@ class ThreatSubmission extends Entity implements Parsable
      * @return SubmissionAdminReview|null
     */
     public function getAdminReview(): ?SubmissionAdminReview {
-        return $this->getBackingStore()->get('adminReview');
+        $val = $this->getBackingStore()->get('adminReview');
+        if (is_null($val) || $val instanceof SubmissionAdminReview) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'adminReview'");
     }
 
     /**
@@ -52,7 +56,11 @@ class ThreatSubmission extends Entity implements Parsable
      * @return SubmissionCategory|null
     */
     public function getCategory(): ?SubmissionCategory {
-        return $this->getBackingStore()->get('category');
+        $val = $this->getBackingStore()->get('category');
+        if (is_null($val) || $val instanceof SubmissionCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'category'");
     }
 
     /**
@@ -60,7 +68,11 @@ class ThreatSubmission extends Entity implements Parsable
      * @return SubmissionClientSource|null
     */
     public function getClientSource(): ?SubmissionClientSource {
-        return $this->getBackingStore()->get('clientSource');
+        $val = $this->getBackingStore()->get('clientSource');
+        if (is_null($val) || $val instanceof SubmissionClientSource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clientSource'");
     }
 
     /**
@@ -68,7 +80,11 @@ class ThreatSubmission extends Entity implements Parsable
      * @return SubmissionContentType|null
     */
     public function getContentType(): ?SubmissionContentType {
-        return $this->getBackingStore()->get('contentType');
+        $val = $this->getBackingStore()->get('contentType');
+        if (is_null($val) || $val instanceof SubmissionContentType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentType'");
     }
 
     /**
@@ -76,7 +92,11 @@ class ThreatSubmission extends Entity implements Parsable
      * @return SubmissionUserIdentity|null
     */
     public function getCreatedBy(): ?SubmissionUserIdentity {
-        return $this->getBackingStore()->get('createdBy');
+        $val = $this->getBackingStore()->get('createdBy');
+        if (is_null($val) || $val instanceof SubmissionUserIdentity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdBy'");
     }
 
     /**
@@ -84,12 +104,16 @@ class ThreatSubmission extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -112,7 +136,11 @@ class ThreatSubmission extends Entity implements Parsable
      * @return SubmissionResult|null
     */
     public function getResult(): ?SubmissionResult {
-        return $this->getBackingStore()->get('result');
+        $val = $this->getBackingStore()->get('result');
+        if (is_null($val) || $val instanceof SubmissionResult) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'result'");
     }
 
     /**
@@ -120,7 +148,11 @@ class ThreatSubmission extends Entity implements Parsable
      * @return SubmissionSource|null
     */
     public function getSource(): ?SubmissionSource {
-        return $this->getBackingStore()->get('source');
+        $val = $this->getBackingStore()->get('source');
+        if (is_null($val) || $val instanceof SubmissionSource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'source'");
     }
 
     /**
@@ -128,7 +160,11 @@ class ThreatSubmission extends Entity implements Parsable
      * @return LongRunningOperationStatus|null
     */
     public function getStatus(): ?LongRunningOperationStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof LongRunningOperationStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**
@@ -136,7 +172,11 @@ class ThreatSubmission extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->getBackingStore()->get('tenantId');
+        $val = $this->getBackingStore()->get('tenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantId'");
     }
 
     /**

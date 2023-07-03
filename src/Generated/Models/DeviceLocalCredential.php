@@ -30,7 +30,11 @@ class DeviceLocalCredential extends Entity implements Parsable
      * @return string|null
     */
     public function getAccountName(): ?string {
-        return $this->getBackingStore()->get('accountName');
+        $val = $this->getBackingStore()->get('accountName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accountName'");
     }
 
     /**
@@ -38,7 +42,11 @@ class DeviceLocalCredential extends Entity implements Parsable
      * @return string|null
     */
     public function getAccountSid(): ?string {
-        return $this->getBackingStore()->get('accountSid');
+        $val = $this->getBackingStore()->get('accountSid');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accountSid'");
     }
 
     /**
@@ -46,12 +54,16 @@ class DeviceLocalCredential extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getBackupDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('backupDateTime');
+        $val = $this->getBackingStore()->get('backupDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'backupDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -68,7 +80,11 @@ class DeviceLocalCredential extends Entity implements Parsable
      * @return string|null
     */
     public function getPasswordBase64(): ?string {
-        return $this->getBackingStore()->get('passwordBase64');
+        $val = $this->getBackingStore()->get('passwordBase64');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordBase64'");
     }
 
     /**

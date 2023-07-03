@@ -10,6 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class TenantRelationship implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -40,7 +41,12 @@ class TenantRelationship implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -56,7 +62,13 @@ class TenantRelationship implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<DelegatedAdminCustomer>|null
     */
     public function getDelegatedAdminCustomers(): ?array {
-        return $this->getBackingStore()->get('delegatedAdminCustomers');
+        $val = $this->getBackingStore()->get('delegatedAdminCustomers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DelegatedAdminCustomer::class);
+            /** @var array<DelegatedAdminCustomer>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'delegatedAdminCustomers'");
     }
 
     /**
@@ -64,12 +76,18 @@ class TenantRelationship implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<DelegatedAdminRelationship>|null
     */
     public function getDelegatedAdminRelationships(): ?array {
-        return $this->getBackingStore()->get('delegatedAdminRelationships');
+        $val = $this->getBackingStore()->get('delegatedAdminRelationships');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DelegatedAdminRelationship::class);
+            /** @var array<DelegatedAdminRelationship>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'delegatedAdminRelationships'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -86,7 +104,11 @@ class TenantRelationship implements AdditionalDataHolder, BackedModel, Parsable
      * @return ManagedTenant|null
     */
     public function getManagedTenants(): ?ManagedTenant {
-        return $this->getBackingStore()->get('managedTenants');
+        $val = $this->getBackingStore()->get('managedTenants');
+        if (is_null($val) || $val instanceof ManagedTenant) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedTenants'");
     }
 
     /**
@@ -94,7 +116,11 @@ class TenantRelationship implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

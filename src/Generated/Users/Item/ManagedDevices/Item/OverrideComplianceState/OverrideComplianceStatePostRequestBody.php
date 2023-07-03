@@ -40,7 +40,12 @@ class OverrideComplianceStatePostRequestBody implements AdditionalDataHolder, Ba
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -56,12 +61,16 @@ class OverrideComplianceStatePostRequestBody implements AdditionalDataHolder, Ba
      * @return AdministratorConfiguredDeviceComplianceState|null
     */
     public function getComplianceState(): ?AdministratorConfiguredDeviceComplianceState {
-        return $this->getBackingStore()->get('complianceState');
+        $val = $this->getBackingStore()->get('complianceState');
+        if (is_null($val) || $val instanceof AdministratorConfiguredDeviceComplianceState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'complianceState'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -76,7 +85,11 @@ class OverrideComplianceStatePostRequestBody implements AdditionalDataHolder, Ba
      * @return string|null
     */
     public function getRemediationUrl(): ?string {
-        return $this->getBackingStore()->get('remediationUrl');
+        $val = $this->getBackingStore()->get('remediationUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remediationUrl'");
     }
 
     /**

@@ -48,7 +48,12 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, BackedModel,
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -64,7 +69,11 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, BackedModel,
      * @return int|null
     */
     public function getConfidence(): ?int {
-        return $this->getBackingStore()->get('confidence');
+        $val = $this->getBackingStore()->get('confidence');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'confidence'");
     }
 
     /**
@@ -72,12 +81,16 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -96,7 +109,11 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->getBackingStore()->get('id');
+        $val = $this->getBackingStore()->get('id');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'id'");
     }
 
     /**
@@ -104,7 +121,11 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, BackedModel,
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -112,7 +133,11 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, BackedModel,
      * @return int|null
     */
     public function getRecommendedConfidence(): ?int {
-        return $this->getBackingStore()->get('recommendedConfidence');
+        $val = $this->getBackingStore()->get('recommendedConfidence');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recommendedConfidence'");
     }
 
     /**
@@ -120,7 +145,11 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, BackedModel,
      * @return int|null
     */
     public function getUniqueCount(): ?int {
-        return $this->getBackingStore()->get('uniqueCount');
+        $val = $this->getBackingStore()->get('uniqueCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'uniqueCount'");
     }
 
     /**

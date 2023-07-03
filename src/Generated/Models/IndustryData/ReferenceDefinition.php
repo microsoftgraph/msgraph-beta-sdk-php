@@ -31,7 +31,11 @@ class ReferenceDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getCode(): ?string {
-        return $this->getBackingStore()->get('code');
+        $val = $this->getBackingStore()->get('code');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'code'");
     }
 
     /**
@@ -39,12 +43,16 @@ class ReferenceDefinition extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -64,7 +72,11 @@ class ReferenceDefinition extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDisabled(): ?bool {
-        return $this->getBackingStore()->get('isDisabled');
+        $val = $this->getBackingStore()->get('isDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDisabled'");
     }
 
     /**
@@ -72,7 +84,11 @@ class ReferenceDefinition extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -80,7 +96,11 @@ class ReferenceDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getReferenceType(): ?string {
-        return $this->getBackingStore()->get('referenceType');
+        $val = $this->getBackingStore()->get('referenceType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'referenceType'");
     }
 
     /**
@@ -88,7 +108,11 @@ class ReferenceDefinition extends Entity implements Parsable
      * @return int|null
     */
     public function getSortIndex(): ?int {
-        return $this->getBackingStore()->get('sortIndex');
+        $val = $this->getBackingStore()->get('sortIndex');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sortIndex'");
     }
 
     /**
@@ -96,7 +120,11 @@ class ReferenceDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getSource(): ?string {
-        return $this->getBackingStore()->get('source');
+        $val = $this->getBackingStore()->get('source');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'source'");
     }
 
     /**

@@ -51,7 +51,12 @@ class DeviceHealthScriptParameter implements AdditionalDataHolder, BackedModel, 
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -59,7 +64,11 @@ class DeviceHealthScriptParameter implements AdditionalDataHolder, BackedModel, 
      * @return bool|null
     */
     public function getApplyDefaultValueWhenNotAssigned(): ?bool {
-        return $this->getBackingStore()->get('applyDefaultValueWhenNotAssigned');
+        $val = $this->getBackingStore()->get('applyDefaultValueWhenNotAssigned');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applyDefaultValueWhenNotAssigned'");
     }
 
     /**
@@ -75,12 +84,16 @@ class DeviceHealthScriptParameter implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -98,7 +111,11 @@ class DeviceHealthScriptParameter implements AdditionalDataHolder, BackedModel, 
      * @return bool|null
     */
     public function getIsRequired(): ?bool {
-        return $this->getBackingStore()->get('isRequired');
+        $val = $this->getBackingStore()->get('isRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isRequired'");
     }
 
     /**
@@ -106,7 +123,11 @@ class DeviceHealthScriptParameter implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->getBackingStore()->get('name');
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -114,7 +135,11 @@ class DeviceHealthScriptParameter implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

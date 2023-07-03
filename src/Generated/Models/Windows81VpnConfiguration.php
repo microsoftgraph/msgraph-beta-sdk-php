@@ -37,7 +37,11 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return bool|null
     */
     public function getApplyOnlyToWindows81(): ?bool {
-        return $this->getBackingStore()->get('applyOnlyToWindows81');
+        $val = $this->getBackingStore()->get('applyOnlyToWindows81');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applyOnlyToWindows81'");
     }
 
     /**
@@ -45,7 +49,11 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return WindowsVpnConnectionType|null
     */
     public function getConnectionType(): ?WindowsVpnConnectionType {
-        return $this->getBackingStore()->get('connectionType');
+        $val = $this->getBackingStore()->get('connectionType');
+        if (is_null($val) || $val instanceof WindowsVpnConnectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectionType'");
     }
 
     /**
@@ -53,12 +61,16 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return bool|null
     */
     public function getEnableSplitTunneling(): ?bool {
-        return $this->getBackingStore()->get('enableSplitTunneling');
+        $val = $this->getBackingStore()->get('enableSplitTunneling');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableSplitTunneling'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -76,7 +88,11 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return string|null
     */
     public function getLoginGroupOrDomain(): ?string {
-        return $this->getBackingStore()->get('loginGroupOrDomain');
+        $val = $this->getBackingStore()->get('loginGroupOrDomain');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'loginGroupOrDomain'");
     }
 
     /**
@@ -84,7 +100,11 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return Windows81VpnProxyServer|null
     */
     public function getProxyServer(): ?Windows81VpnProxyServer {
-        return $this->getBackingStore()->get('proxyServer');
+        $val = $this->getBackingStore()->get('proxyServer');
+        if (is_null($val) || $val instanceof Windows81VpnProxyServer) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'proxyServer'");
     }
 
     /**

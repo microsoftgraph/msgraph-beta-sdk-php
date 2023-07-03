@@ -40,7 +40,12 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -56,7 +61,11 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
      * @return DateTime|null
     */
     public function getBlockDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('blockDateTime');
+        $val = $this->getBackingStore()->get('blockDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockDateTime'");
     }
 
     /**
@@ -64,12 +73,16 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getBlockReason(): ?string {
-        return $this->getBackingStore()->get('blockReason');
+        $val = $this->getBackingStore()->get('blockReason');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockReason'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -91,7 +104,11 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -99,7 +116,11 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getRemediationId(): ?string {
-        return $this->getBackingStore()->get('remediationId');
+        $val = $this->getBackingStore()->get('remediationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remediationId'");
     }
 
     /**
@@ -107,7 +128,11 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
      * @return PstnUserBlockMode|null
     */
     public function getUserBlockMode(): ?PstnUserBlockMode {
-        return $this->getBackingStore()->get('userBlockMode');
+        $val = $this->getBackingStore()->get('userBlockMode');
+        if (is_null($val) || $val instanceof PstnUserBlockMode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userBlockMode'");
     }
 
     /**
@@ -115,7 +140,11 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getUserDisplayName(): ?string {
-        return $this->getBackingStore()->get('userDisplayName');
+        $val = $this->getBackingStore()->get('userDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userDisplayName'");
     }
 
     /**
@@ -123,7 +152,11 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->getBackingStore()->get('userId');
+        $val = $this->getBackingStore()->get('userId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
     }
 
     /**
@@ -131,7 +164,11 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('userPrincipalName');
+        $val = $this->getBackingStore()->get('userPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
     }
 
     /**
@@ -139,7 +176,11 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
      * @return string|null
     */
     public function getUserTelephoneNumber(): ?string {
-        return $this->getBackingStore()->get('userTelephoneNumber');
+        $val = $this->getBackingStore()->get('userTelephoneNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userTelephoneNumber'");
     }
 
     /**

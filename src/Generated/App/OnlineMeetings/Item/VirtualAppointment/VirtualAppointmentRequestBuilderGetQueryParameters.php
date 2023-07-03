@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\VirtualAppointm
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get virtualAppointment from app
+ * Read the properties and relationships of a virtualAppointment object.
 */
 class VirtualAppointmentRequestBuilderGetQueryParameters 
 {

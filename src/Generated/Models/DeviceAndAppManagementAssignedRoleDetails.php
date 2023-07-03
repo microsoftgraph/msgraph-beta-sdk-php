@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * The set of Role Definitions and Role Assignments assigned to a user.
@@ -42,7 +43,12 @@ class DeviceAndAppManagementAssignedRoleDetails implements AdditionalDataHolder,
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,14 +61,28 @@ class DeviceAndAppManagementAssignedRoleDetails implements AdditionalDataHolder,
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'roleAssignmentIds' => fn(ParseNode $n) => $o->setRoleAssignmentIds($n->getCollectionOfPrimitiveValues()),
-            'roleDefinitionIds' => fn(ParseNode $n) => $o->setRoleDefinitionIds($n->getCollectionOfPrimitiveValues()),
+            'roleAssignmentIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoleAssignmentIds($val);
+            },
+            'roleDefinitionIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoleDefinitionIds($val);
+            },
         ];
     }
 
@@ -71,7 +91,11 @@ class DeviceAndAppManagementAssignedRoleDetails implements AdditionalDataHolder,
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -79,7 +103,13 @@ class DeviceAndAppManagementAssignedRoleDetails implements AdditionalDataHolder,
      * @return array<string>|null
     */
     public function getRoleAssignmentIds(): ?array {
-        return $this->getBackingStore()->get('roleAssignmentIds');
+        $val = $this->getBackingStore()->get('roleAssignmentIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleAssignmentIds'");
     }
 
     /**
@@ -87,7 +117,13 @@ class DeviceAndAppManagementAssignedRoleDetails implements AdditionalDataHolder,
      * @return array<string>|null
     */
     public function getRoleDefinitionIds(): ?array {
-        return $this->getBackingStore()->get('roleDefinitionIds');
+        $val = $this->getBackingStore()->get('roleDefinitionIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleDefinitionIds'");
     }
 
     /**

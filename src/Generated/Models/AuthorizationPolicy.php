@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AuthorizationPolicy extends PolicyBase implements Parsable 
 {
@@ -30,7 +31,11 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
      * @return bool|null
     */
     public function getAllowedToSignUpEmailBasedSubscriptions(): ?bool {
-        return $this->getBackingStore()->get('allowedToSignUpEmailBasedSubscriptions');
+        $val = $this->getBackingStore()->get('allowedToSignUpEmailBasedSubscriptions');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedToSignUpEmailBasedSubscriptions'");
     }
 
     /**
@@ -38,7 +43,11 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
      * @return bool|null
     */
     public function getAllowedToUseSSPR(): ?bool {
-        return $this->getBackingStore()->get('allowedToUseSSPR');
+        $val = $this->getBackingStore()->get('allowedToUseSSPR');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedToUseSSPR'");
     }
 
     /**
@@ -46,7 +55,11 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
      * @return bool|null
     */
     public function getAllowEmailVerifiedUsersToJoinOrganization(): ?bool {
-        return $this->getBackingStore()->get('allowEmailVerifiedUsersToJoinOrganization');
+        $val = $this->getBackingStore()->get('allowEmailVerifiedUsersToJoinOrganization');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowEmailVerifiedUsersToJoinOrganization'");
     }
 
     /**
@@ -54,7 +67,11 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
      * @return AllowInvitesFrom|null
     */
     public function getAllowInvitesFrom(): ?AllowInvitesFrom {
-        return $this->getBackingStore()->get('allowInvitesFrom');
+        $val = $this->getBackingStore()->get('allowInvitesFrom');
+        if (is_null($val) || $val instanceof AllowInvitesFrom) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowInvitesFrom'");
     }
 
     /**
@@ -62,7 +79,11 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
      * @return bool|null
     */
     public function getAllowUserConsentForRiskyApps(): ?bool {
-        return $this->getBackingStore()->get('allowUserConsentForRiskyApps');
+        $val = $this->getBackingStore()->get('allowUserConsentForRiskyApps');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowUserConsentForRiskyApps'");
     }
 
     /**
@@ -70,7 +91,11 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
      * @return bool|null
     */
     public function getBlockMsolPowerShell(): ?bool {
-        return $this->getBackingStore()->get('blockMsolPowerShell');
+        $val = $this->getBackingStore()->get('blockMsolPowerShell');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockMsolPowerShell'");
     }
 
     /**
@@ -78,7 +103,13 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
      * @return array<DefaultUserRoleOverride>|null
     */
     public function getDefaultUserRoleOverrides(): ?array {
-        return $this->getBackingStore()->get('defaultUserRoleOverrides');
+        $val = $this->getBackingStore()->get('defaultUserRoleOverrides');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DefaultUserRoleOverride::class);
+            /** @var array<DefaultUserRoleOverride>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultUserRoleOverrides'");
     }
 
     /**
@@ -86,7 +117,11 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
      * @return DefaultUserRolePermissions|null
     */
     public function getDefaultUserRolePermissions(): ?DefaultUserRolePermissions {
-        return $this->getBackingStore()->get('defaultUserRolePermissions');
+        $val = $this->getBackingStore()->get('defaultUserRolePermissions');
+        if (is_null($val) || $val instanceof DefaultUserRolePermissions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultUserRolePermissions'");
     }
 
     /**
@@ -94,12 +129,18 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
      * @return array<string>|null
     */
     public function getEnabledPreviewFeatures(): ?array {
-        return $this->getBackingStore()->get('enabledPreviewFeatures');
+        $val = $this->getBackingStore()->get('enabledPreviewFeatures');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enabledPreviewFeatures'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -112,9 +153,23 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
             'blockMsolPowerShell' => fn(ParseNode $n) => $o->setBlockMsolPowerShell($n->getBooleanValue()),
             'defaultUserRoleOverrides' => fn(ParseNode $n) => $o->setDefaultUserRoleOverrides($n->getCollectionOfObjectValues([DefaultUserRoleOverride::class, 'createFromDiscriminatorValue'])),
             'defaultUserRolePermissions' => fn(ParseNode $n) => $o->setDefaultUserRolePermissions($n->getObjectValue([DefaultUserRolePermissions::class, 'createFromDiscriminatorValue'])),
-            'enabledPreviewFeatures' => fn(ParseNode $n) => $o->setEnabledPreviewFeatures($n->getCollectionOfPrimitiveValues()),
+            'enabledPreviewFeatures' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setEnabledPreviewFeatures($val);
+            },
             'guestUserRoleId' => fn(ParseNode $n) => $o->setGuestUserRoleId($n->getStringValue()),
-            'permissionGrantPolicyIdsAssignedToDefaultUserRole' => fn(ParseNode $n) => $o->setPermissionGrantPolicyIdsAssignedToDefaultUserRole($n->getCollectionOfPrimitiveValues()),
+            'permissionGrantPolicyIdsAssignedToDefaultUserRole' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setPermissionGrantPolicyIdsAssignedToDefaultUserRole($val);
+            },
         ]);
     }
 
@@ -123,7 +178,11 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
      * @return string|null
     */
     public function getGuestUserRoleId(): ?string {
-        return $this->getBackingStore()->get('guestUserRoleId');
+        $val = $this->getBackingStore()->get('guestUserRoleId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'guestUserRoleId'");
     }
 
     /**
@@ -131,7 +190,13 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
      * @return array<string>|null
     */
     public function getPermissionGrantPolicyIdsAssignedToDefaultUserRole(): ?array {
-        return $this->getBackingStore()->get('permissionGrantPolicyIdsAssignedToDefaultUserRole');
+        $val = $this->getBackingStore()->get('permissionGrantPolicyIdsAssignedToDefaultUserRole');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'permissionGrantPolicyIdsAssignedToDefaultUserRole'");
     }
 
     /**

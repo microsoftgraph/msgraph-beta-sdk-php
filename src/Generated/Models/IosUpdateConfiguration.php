@@ -6,6 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Time;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class IosUpdateConfiguration extends DeviceConfiguration implements Parsable 
 {
@@ -31,7 +32,11 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
      * @return Time|null
     */
     public function getActiveHoursEnd(): ?Time {
-        return $this->getBackingStore()->get('activeHoursEnd');
+        $val = $this->getBackingStore()->get('activeHoursEnd');
+        if (is_null($val) || $val instanceof Time) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activeHoursEnd'");
     }
 
     /**
@@ -39,7 +44,11 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
      * @return Time|null
     */
     public function getActiveHoursStart(): ?Time {
-        return $this->getBackingStore()->get('activeHoursStart');
+        $val = $this->getBackingStore()->get('activeHoursStart');
+        if (is_null($val) || $val instanceof Time) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activeHoursStart'");
     }
 
     /**
@@ -47,7 +56,13 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
      * @return array<CustomUpdateTimeWindow>|null
     */
     public function getCustomUpdateTimeWindows(): ?array {
-        return $this->getBackingStore()->get('customUpdateTimeWindows');
+        $val = $this->getBackingStore()->get('customUpdateTimeWindows');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CustomUpdateTimeWindow::class);
+            /** @var array<CustomUpdateTimeWindow>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customUpdateTimeWindows'");
     }
 
     /**
@@ -55,7 +70,11 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getDesiredOsVersion(): ?string {
-        return $this->getBackingStore()->get('desiredOsVersion');
+        $val = $this->getBackingStore()->get('desiredOsVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'desiredOsVersion'");
     }
 
     /**
@@ -63,12 +82,16 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
      * @return int|null
     */
     public function getEnforcedSoftwareUpdateDelayInDays(): ?int {
-        return $this->getBackingStore()->get('enforcedSoftwareUpdateDelayInDays');
+        $val = $this->getBackingStore()->get('enforcedSoftwareUpdateDelayInDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enforcedSoftwareUpdateDelayInDays'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -90,7 +113,11 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
-        return $this->getBackingStore()->get('isEnabled');
+        $val = $this->getBackingStore()->get('isEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isEnabled'");
     }
 
     /**
@@ -98,7 +125,13 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
      * @return array<DayOfWeek>|null
     */
     public function getScheduledInstallDays(): ?array {
-        return $this->getBackingStore()->get('scheduledInstallDays');
+        $val = $this->getBackingStore()->get('scheduledInstallDays');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DayOfWeek::class);
+            /** @var array<DayOfWeek>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scheduledInstallDays'");
     }
 
     /**
@@ -106,7 +139,11 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
      * @return IosSoftwareUpdateScheduleType|null
     */
     public function getUpdateScheduleType(): ?IosSoftwareUpdateScheduleType {
-        return $this->getBackingStore()->get('updateScheduleType');
+        $val = $this->getBackingStore()->get('updateScheduleType');
+        if (is_null($val) || $val instanceof IosSoftwareUpdateScheduleType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'updateScheduleType'");
     }
 
     /**
@@ -114,7 +151,11 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
      * @return int|null
     */
     public function getUtcTimeOffsetInMinutes(): ?int {
-        return $this->getBackingStore()->get('utcTimeOffsetInMinutes');
+        $val = $this->getBackingStore()->get('utcTimeOffsetInMinutes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'utcTimeOffsetInMinutes'");
     }
 
     /**

@@ -44,12 +44,16 @@ class DeviceManagementSettingInstance extends Entity implements Parsable
      * @return string|null
     */
     public function getDefinitionId(): ?string {
-        return $this->getBackingStore()->get('definitionId');
+        $val = $this->getBackingStore()->get('definitionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'definitionId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -64,7 +68,11 @@ class DeviceManagementSettingInstance extends Entity implements Parsable
      * @return string|null
     */
     public function getValueJson(): ?string {
-        return $this->getBackingStore()->get('valueJson');
+        $val = $this->getBackingStore()->get('valueJson');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'valueJson'");
     }
 
     /**

@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class TiIndicator extends Entity implements Parsable 
 {
@@ -30,7 +31,11 @@ class TiIndicator extends Entity implements Parsable
      * @return TiAction|null
     */
     public function getAction(): ?TiAction {
-        return $this->getBackingStore()->get('action');
+        $val = $this->getBackingStore()->get('action');
+        if (is_null($val) || $val instanceof TiAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'action'");
     }
 
     /**
@@ -38,7 +43,13 @@ class TiIndicator extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getActivityGroupNames(): ?array {
-        return $this->getBackingStore()->get('activityGroupNames');
+        $val = $this->getBackingStore()->get('activityGroupNames');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activityGroupNames'");
     }
 
     /**
@@ -46,7 +57,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getAdditionalInformation(): ?string {
-        return $this->getBackingStore()->get('additionalInformation');
+        $val = $this->getBackingStore()->get('additionalInformation');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalInformation'");
     }
 
     /**
@@ -54,7 +69,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getAzureTenantId(): ?string {
-        return $this->getBackingStore()->get('azureTenantId');
+        $val = $this->getBackingStore()->get('azureTenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureTenantId'");
     }
 
     /**
@@ -62,7 +81,11 @@ class TiIndicator extends Entity implements Parsable
      * @return int|null
     */
     public function getConfidence(): ?int {
-        return $this->getBackingStore()->get('confidence');
+        $val = $this->getBackingStore()->get('confidence');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'confidence'");
     }
 
     /**
@@ -70,7 +93,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -78,7 +105,11 @@ class TiIndicator extends Entity implements Parsable
      * @return DiamondModel|null
     */
     public function getDiamondModel(): ?DiamondModel {
-        return $this->getBackingStore()->get('diamondModel');
+        $val = $this->getBackingStore()->get('diamondModel');
+        if (is_null($val) || $val instanceof DiamondModel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'diamondModel'");
     }
 
     /**
@@ -86,7 +117,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getDomainName(): ?string {
-        return $this->getBackingStore()->get('domainName');
+        $val = $this->getBackingStore()->get('domainName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'domainName'");
     }
 
     /**
@@ -94,7 +129,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getEmailEncoding(): ?string {
-        return $this->getBackingStore()->get('emailEncoding');
+        $val = $this->getBackingStore()->get('emailEncoding');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailEncoding'");
     }
 
     /**
@@ -102,7 +141,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getEmailLanguage(): ?string {
-        return $this->getBackingStore()->get('emailLanguage');
+        $val = $this->getBackingStore()->get('emailLanguage');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailLanguage'");
     }
 
     /**
@@ -110,7 +153,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getEmailRecipient(): ?string {
-        return $this->getBackingStore()->get('emailRecipient');
+        $val = $this->getBackingStore()->get('emailRecipient');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailRecipient'");
     }
 
     /**
@@ -118,7 +165,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getEmailSenderAddress(): ?string {
-        return $this->getBackingStore()->get('emailSenderAddress');
+        $val = $this->getBackingStore()->get('emailSenderAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailSenderAddress'");
     }
 
     /**
@@ -126,7 +177,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getEmailSenderName(): ?string {
-        return $this->getBackingStore()->get('emailSenderName');
+        $val = $this->getBackingStore()->get('emailSenderName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailSenderName'");
     }
 
     /**
@@ -134,7 +189,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getEmailSourceDomain(): ?string {
-        return $this->getBackingStore()->get('emailSourceDomain');
+        $val = $this->getBackingStore()->get('emailSourceDomain');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailSourceDomain'");
     }
 
     /**
@@ -142,7 +201,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getEmailSourceIpAddress(): ?string {
-        return $this->getBackingStore()->get('emailSourceIpAddress');
+        $val = $this->getBackingStore()->get('emailSourceIpAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailSourceIpAddress'");
     }
 
     /**
@@ -150,7 +213,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getEmailSubject(): ?string {
-        return $this->getBackingStore()->get('emailSubject');
+        $val = $this->getBackingStore()->get('emailSubject');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailSubject'");
     }
 
     /**
@@ -158,7 +225,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getEmailXMailer(): ?string {
-        return $this->getBackingStore()->get('emailXMailer');
+        $val = $this->getBackingStore()->get('emailXMailer');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailXMailer'");
     }
 
     /**
@@ -166,7 +237,11 @@ class TiIndicator extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('expirationDateTime');
+        $val = $this->getBackingStore()->get('expirationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expirationDateTime'");
     }
 
     /**
@@ -174,18 +249,29 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getExternalId(): ?string {
-        return $this->getBackingStore()->get('externalId');
+        $val = $this->getBackingStore()->get('externalId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'externalId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(TiAction::class)),
-            'activityGroupNames' => fn(ParseNode $n) => $o->setActivityGroupNames($n->getCollectionOfPrimitiveValues()),
+            'activityGroupNames' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setActivityGroupNames($val);
+            },
             'additionalInformation' => fn(ParseNode $n) => $o->setAdditionalInformation($n->getStringValue()),
             'azureTenantId' => fn(ParseNode $n) => $o->setAzureTenantId($n->getStringValue()),
             'confidence' => fn(ParseNode $n) => $o->setConfidence($n->getIntegerValue()),
@@ -215,10 +301,24 @@ class TiIndicator extends Entity implements Parsable
             'fileType' => fn(ParseNode $n) => $o->setFileType($n->getStringValue()),
             'ingestedDateTime' => fn(ParseNode $n) => $o->setIngestedDateTime($n->getDateTimeValue()),
             'isActive' => fn(ParseNode $n) => $o->setIsActive($n->getBooleanValue()),
-            'killChain' => fn(ParseNode $n) => $o->setKillChain($n->getCollectionOfPrimitiveValues()),
+            'killChain' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setKillChain($val);
+            },
             'knownFalsePositives' => fn(ParseNode $n) => $o->setKnownFalsePositives($n->getStringValue()),
             'lastReportedDateTime' => fn(ParseNode $n) => $o->setLastReportedDateTime($n->getDateTimeValue()),
-            'malwareFamilyNames' => fn(ParseNode $n) => $o->setMalwareFamilyNames($n->getCollectionOfPrimitiveValues()),
+            'malwareFamilyNames' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setMalwareFamilyNames($val);
+            },
             'networkCidrBlock' => fn(ParseNode $n) => $o->setNetworkCidrBlock($n->getStringValue()),
             'networkDestinationAsn' => fn(ParseNode $n) => $o->setNetworkDestinationAsn($n->getIntegerValue()),
             'networkDestinationCidrBlock' => fn(ParseNode $n) => $o->setNetworkDestinationCidrBlock($n->getStringValue()),
@@ -236,7 +336,14 @@ class TiIndicator extends Entity implements Parsable
             'networkSourcePort' => fn(ParseNode $n) => $o->setNetworkSourcePort($n->getIntegerValue()),
             'passiveOnly' => fn(ParseNode $n) => $o->setPassiveOnly($n->getBooleanValue()),
             'severity' => fn(ParseNode $n) => $o->setSeverity($n->getIntegerValue()),
-            'tags' => fn(ParseNode $n) => $o->setTags($n->getCollectionOfPrimitiveValues()),
+            'tags' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setTags($val);
+            },
             'targetProduct' => fn(ParseNode $n) => $o->setTargetProduct($n->getStringValue()),
             'threatType' => fn(ParseNode $n) => $o->setThreatType($n->getStringValue()),
             'tlpLevel' => fn(ParseNode $n) => $o->setTlpLevel($n->getEnumValue(TlpLevel::class)),
@@ -250,7 +357,11 @@ class TiIndicator extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getFileCompileDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('fileCompileDateTime');
+        $val = $this->getBackingStore()->get('fileCompileDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileCompileDateTime'");
     }
 
     /**
@@ -258,7 +369,11 @@ class TiIndicator extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getFileCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('fileCreatedDateTime');
+        $val = $this->getBackingStore()->get('fileCreatedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileCreatedDateTime'");
     }
 
     /**
@@ -266,7 +381,11 @@ class TiIndicator extends Entity implements Parsable
      * @return FileHashType|null
     */
     public function getFileHashType(): ?FileHashType {
-        return $this->getBackingStore()->get('fileHashType');
+        $val = $this->getBackingStore()->get('fileHashType');
+        if (is_null($val) || $val instanceof FileHashType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileHashType'");
     }
 
     /**
@@ -274,7 +393,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getFileHashValue(): ?string {
-        return $this->getBackingStore()->get('fileHashValue');
+        $val = $this->getBackingStore()->get('fileHashValue');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileHashValue'");
     }
 
     /**
@@ -282,7 +405,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getFileMutexName(): ?string {
-        return $this->getBackingStore()->get('fileMutexName');
+        $val = $this->getBackingStore()->get('fileMutexName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileMutexName'");
     }
 
     /**
@@ -290,7 +417,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getFileName(): ?string {
-        return $this->getBackingStore()->get('fileName');
+        $val = $this->getBackingStore()->get('fileName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileName'");
     }
 
     /**
@@ -298,7 +429,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getFilePacker(): ?string {
-        return $this->getBackingStore()->get('filePacker');
+        $val = $this->getBackingStore()->get('filePacker');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'filePacker'");
     }
 
     /**
@@ -306,7 +441,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getFilePath(): ?string {
-        return $this->getBackingStore()->get('filePath');
+        $val = $this->getBackingStore()->get('filePath');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'filePath'");
     }
 
     /**
@@ -314,7 +453,11 @@ class TiIndicator extends Entity implements Parsable
      * @return int|null
     */
     public function getFileSize(): ?int {
-        return $this->getBackingStore()->get('fileSize');
+        $val = $this->getBackingStore()->get('fileSize');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileSize'");
     }
 
     /**
@@ -322,7 +465,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getFileType(): ?string {
-        return $this->getBackingStore()->get('fileType');
+        $val = $this->getBackingStore()->get('fileType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileType'");
     }
 
     /**
@@ -330,7 +477,11 @@ class TiIndicator extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getIngestedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('ingestedDateTime');
+        $val = $this->getBackingStore()->get('ingestedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ingestedDateTime'");
     }
 
     /**
@@ -338,7 +489,11 @@ class TiIndicator extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsActive(): ?bool {
-        return $this->getBackingStore()->get('isActive');
+        $val = $this->getBackingStore()->get('isActive');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isActive'");
     }
 
     /**
@@ -346,7 +501,13 @@ class TiIndicator extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getKillChain(): ?array {
-        return $this->getBackingStore()->get('killChain');
+        $val = $this->getBackingStore()->get('killChain');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'killChain'");
     }
 
     /**
@@ -354,7 +515,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getKnownFalsePositives(): ?string {
-        return $this->getBackingStore()->get('knownFalsePositives');
+        $val = $this->getBackingStore()->get('knownFalsePositives');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'knownFalsePositives'");
     }
 
     /**
@@ -362,7 +527,11 @@ class TiIndicator extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastReportedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastReportedDateTime');
+        $val = $this->getBackingStore()->get('lastReportedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastReportedDateTime'");
     }
 
     /**
@@ -370,7 +539,13 @@ class TiIndicator extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getMalwareFamilyNames(): ?array {
-        return $this->getBackingStore()->get('malwareFamilyNames');
+        $val = $this->getBackingStore()->get('malwareFamilyNames');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'malwareFamilyNames'");
     }
 
     /**
@@ -378,7 +553,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getNetworkCidrBlock(): ?string {
-        return $this->getBackingStore()->get('networkCidrBlock');
+        $val = $this->getBackingStore()->get('networkCidrBlock');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkCidrBlock'");
     }
 
     /**
@@ -386,7 +565,11 @@ class TiIndicator extends Entity implements Parsable
      * @return int|null
     */
     public function getNetworkDestinationAsn(): ?int {
-        return $this->getBackingStore()->get('networkDestinationAsn');
+        $val = $this->getBackingStore()->get('networkDestinationAsn');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkDestinationAsn'");
     }
 
     /**
@@ -394,7 +577,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getNetworkDestinationCidrBlock(): ?string {
-        return $this->getBackingStore()->get('networkDestinationCidrBlock');
+        $val = $this->getBackingStore()->get('networkDestinationCidrBlock');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkDestinationCidrBlock'");
     }
 
     /**
@@ -402,7 +589,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getNetworkDestinationIPv4(): ?string {
-        return $this->getBackingStore()->get('networkDestinationIPv4');
+        $val = $this->getBackingStore()->get('networkDestinationIPv4');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkDestinationIPv4'");
     }
 
     /**
@@ -410,7 +601,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getNetworkDestinationIPv6(): ?string {
-        return $this->getBackingStore()->get('networkDestinationIPv6');
+        $val = $this->getBackingStore()->get('networkDestinationIPv6');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkDestinationIPv6'");
     }
 
     /**
@@ -418,7 +613,11 @@ class TiIndicator extends Entity implements Parsable
      * @return int|null
     */
     public function getNetworkDestinationPort(): ?int {
-        return $this->getBackingStore()->get('networkDestinationPort');
+        $val = $this->getBackingStore()->get('networkDestinationPort');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkDestinationPort'");
     }
 
     /**
@@ -426,7 +625,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getNetworkIPv4(): ?string {
-        return $this->getBackingStore()->get('networkIPv4');
+        $val = $this->getBackingStore()->get('networkIPv4');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkIPv4'");
     }
 
     /**
@@ -434,7 +637,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getNetworkIPv6(): ?string {
-        return $this->getBackingStore()->get('networkIPv6');
+        $val = $this->getBackingStore()->get('networkIPv6');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkIPv6'");
     }
 
     /**
@@ -442,7 +649,11 @@ class TiIndicator extends Entity implements Parsable
      * @return int|null
     */
     public function getNetworkPort(): ?int {
-        return $this->getBackingStore()->get('networkPort');
+        $val = $this->getBackingStore()->get('networkPort');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkPort'");
     }
 
     /**
@@ -450,7 +661,11 @@ class TiIndicator extends Entity implements Parsable
      * @return int|null
     */
     public function getNetworkProtocol(): ?int {
-        return $this->getBackingStore()->get('networkProtocol');
+        $val = $this->getBackingStore()->get('networkProtocol');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkProtocol'");
     }
 
     /**
@@ -458,7 +673,11 @@ class TiIndicator extends Entity implements Parsable
      * @return int|null
     */
     public function getNetworkSourceAsn(): ?int {
-        return $this->getBackingStore()->get('networkSourceAsn');
+        $val = $this->getBackingStore()->get('networkSourceAsn');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkSourceAsn'");
     }
 
     /**
@@ -466,7 +685,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getNetworkSourceCidrBlock(): ?string {
-        return $this->getBackingStore()->get('networkSourceCidrBlock');
+        $val = $this->getBackingStore()->get('networkSourceCidrBlock');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkSourceCidrBlock'");
     }
 
     /**
@@ -474,7 +697,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getNetworkSourceIPv4(): ?string {
-        return $this->getBackingStore()->get('networkSourceIPv4');
+        $val = $this->getBackingStore()->get('networkSourceIPv4');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkSourceIPv4'");
     }
 
     /**
@@ -482,7 +709,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getNetworkSourceIPv6(): ?string {
-        return $this->getBackingStore()->get('networkSourceIPv6');
+        $val = $this->getBackingStore()->get('networkSourceIPv6');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkSourceIPv6'");
     }
 
     /**
@@ -490,7 +721,11 @@ class TiIndicator extends Entity implements Parsable
      * @return int|null
     */
     public function getNetworkSourcePort(): ?int {
-        return $this->getBackingStore()->get('networkSourcePort');
+        $val = $this->getBackingStore()->get('networkSourcePort');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkSourcePort'");
     }
 
     /**
@@ -498,7 +733,11 @@ class TiIndicator extends Entity implements Parsable
      * @return bool|null
     */
     public function getPassiveOnly(): ?bool {
-        return $this->getBackingStore()->get('passiveOnly');
+        $val = $this->getBackingStore()->get('passiveOnly');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passiveOnly'");
     }
 
     /**
@@ -506,7 +745,11 @@ class TiIndicator extends Entity implements Parsable
      * @return int|null
     */
     public function getSeverity(): ?int {
-        return $this->getBackingStore()->get('severity');
+        $val = $this->getBackingStore()->get('severity');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'severity'");
     }
 
     /**
@@ -514,7 +757,13 @@ class TiIndicator extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getTags(): ?array {
-        return $this->getBackingStore()->get('tags');
+        $val = $this->getBackingStore()->get('tags');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tags'");
     }
 
     /**
@@ -522,7 +771,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetProduct(): ?string {
-        return $this->getBackingStore()->get('targetProduct');
+        $val = $this->getBackingStore()->get('targetProduct');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetProduct'");
     }
 
     /**
@@ -530,7 +783,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getThreatType(): ?string {
-        return $this->getBackingStore()->get('threatType');
+        $val = $this->getBackingStore()->get('threatType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'threatType'");
     }
 
     /**
@@ -538,7 +795,11 @@ class TiIndicator extends Entity implements Parsable
      * @return TlpLevel|null
     */
     public function getTlpLevel(): ?TlpLevel {
-        return $this->getBackingStore()->get('tlpLevel');
+        $val = $this->getBackingStore()->get('tlpLevel');
+        if (is_null($val) || $val instanceof TlpLevel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tlpLevel'");
     }
 
     /**
@@ -546,7 +807,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getUrl(): ?string {
-        return $this->getBackingStore()->get('url');
+        $val = $this->getBackingStore()->get('url');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'url'");
     }
 
     /**
@@ -554,7 +819,11 @@ class TiIndicator extends Entity implements Parsable
      * @return string|null
     */
     public function getUserAgent(): ?string {
-        return $this->getBackingStore()->get('userAgent');
+        $val = $this->getBackingStore()->get('userAgent');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userAgent'");
     }
 
     /**

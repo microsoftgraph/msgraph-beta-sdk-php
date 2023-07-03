@@ -30,7 +30,11 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
      * @return string|null
     */
     public function getAccountName(): ?string {
-        return $this->getBackingStore()->get('accountName');
+        $val = $this->getBackingStore()->get('accountName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accountName'");
     }
 
     /**
@@ -38,7 +42,11 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
      * @return EasAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?EasAuthenticationMethod {
-        return $this->getBackingStore()->get('authenticationMethod');
+        $val = $this->getBackingStore()->get('authenticationMethod');
+        if (is_null($val) || $val instanceof EasAuthenticationMethod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationMethod'");
     }
 
     /**
@@ -46,7 +54,11 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
      * @return string|null
     */
     public function getCustomDomainName(): ?string {
-        return $this->getBackingStore()->get('customDomainName');
+        $val = $this->getBackingStore()->get('customDomainName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customDomainName'");
     }
 
     /**
@@ -54,7 +66,11 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
      * @return EmailSyncDuration|null
     */
     public function getDurationOfEmailToSync(): ?EmailSyncDuration {
-        return $this->getBackingStore()->get('durationOfEmailToSync');
+        $val = $this->getBackingStore()->get('durationOfEmailToSync');
+        if (is_null($val) || $val instanceof EmailSyncDuration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'durationOfEmailToSync'");
     }
 
     /**
@@ -62,7 +78,11 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
      * @return UserEmailSource|null
     */
     public function getEmailAddressSource(): ?UserEmailSource {
-        return $this->getBackingStore()->get('emailAddressSource');
+        $val = $this->getBackingStore()->get('emailAddressSource');
+        if (is_null($val) || $val instanceof UserEmailSource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailAddressSource'");
     }
 
     /**
@@ -70,12 +90,16 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
      * @return EmailSyncSchedule|null
     */
     public function getEmailSyncSchedule(): ?EmailSyncSchedule {
-        return $this->getBackingStore()->get('emailSyncSchedule');
+        $val = $this->getBackingStore()->get('emailSyncSchedule');
+        if (is_null($val) || $val instanceof EmailSyncSchedule) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailSyncSchedule'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -105,7 +129,11 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
      * @return string|null
     */
     public function getHostName(): ?string {
-        return $this->getBackingStore()->get('hostName');
+        $val = $this->getBackingStore()->get('hostName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hostName'");
     }
 
     /**
@@ -113,7 +141,11 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
      * @return AndroidCertificateProfileBase|null
     */
     public function getIdentityCertificate(): ?AndroidCertificateProfileBase {
-        return $this->getBackingStore()->get('identityCertificate');
+        $val = $this->getBackingStore()->get('identityCertificate');
+        if (is_null($val) || $val instanceof AndroidCertificateProfileBase) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityCertificate'");
     }
 
     /**
@@ -121,7 +153,11 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
      * @return bool|null
     */
     public function getRequireSmime(): ?bool {
-        return $this->getBackingStore()->get('requireSmime');
+        $val = $this->getBackingStore()->get('requireSmime');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requireSmime'");
     }
 
     /**
@@ -129,7 +165,11 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
      * @return bool|null
     */
     public function getRequireSsl(): ?bool {
-        return $this->getBackingStore()->get('requireSsl');
+        $val = $this->getBackingStore()->get('requireSsl');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requireSsl'");
     }
 
     /**
@@ -137,7 +177,11 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
      * @return AndroidCertificateProfileBase|null
     */
     public function getSmimeSigningCertificate(): ?AndroidCertificateProfileBase {
-        return $this->getBackingStore()->get('smimeSigningCertificate');
+        $val = $this->getBackingStore()->get('smimeSigningCertificate');
+        if (is_null($val) || $val instanceof AndroidCertificateProfileBase) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'smimeSigningCertificate'");
     }
 
     /**
@@ -145,7 +189,11 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
      * @return bool|null
     */
     public function getSyncCalendar(): ?bool {
-        return $this->getBackingStore()->get('syncCalendar');
+        $val = $this->getBackingStore()->get('syncCalendar');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'syncCalendar'");
     }
 
     /**
@@ -153,7 +201,11 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
      * @return bool|null
     */
     public function getSyncContacts(): ?bool {
-        return $this->getBackingStore()->get('syncContacts');
+        $val = $this->getBackingStore()->get('syncContacts');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'syncContacts'");
     }
 
     /**
@@ -161,7 +213,11 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
      * @return bool|null
     */
     public function getSyncNotes(): ?bool {
-        return $this->getBackingStore()->get('syncNotes');
+        $val = $this->getBackingStore()->get('syncNotes');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'syncNotes'");
     }
 
     /**
@@ -169,7 +225,11 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
      * @return bool|null
     */
     public function getSyncTasks(): ?bool {
-        return $this->getBackingStore()->get('syncTasks');
+        $val = $this->getBackingStore()->get('syncTasks');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'syncTasks'");
     }
 
     /**
@@ -177,7 +237,11 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
      * @return DomainNameSource|null
     */
     public function getUserDomainNameSource(): ?DomainNameSource {
-        return $this->getBackingStore()->get('userDomainNameSource');
+        $val = $this->getBackingStore()->get('userDomainNameSource');
+        if (is_null($val) || $val instanceof DomainNameSource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userDomainNameSource'");
     }
 
     /**
@@ -185,7 +249,11 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
      * @return AndroidUsernameSource|null
     */
     public function getUsernameSource(): ?AndroidUsernameSource {
-        return $this->getBackingStore()->get('usernameSource');
+        $val = $this->getBackingStore()->get('usernameSource');
+        if (is_null($val) || $val instanceof AndroidUsernameSource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'usernameSource'");
     }
 
     /**

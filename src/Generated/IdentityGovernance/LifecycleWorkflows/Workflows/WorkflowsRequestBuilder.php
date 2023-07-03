@@ -53,7 +53,7 @@ class WorkflowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the workflow resources from the workflows navigation property.
+     * Get a list of workflow resources that are associated with lifecycle workflows.
      * @param WorkflowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/identitygovernance-lifecycleworkflowscontainer-list-workflows?view=graph-rest-1.0 Find more info here
@@ -92,7 +92,7 @@ class WorkflowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the workflow resources from the workflows navigation property.
+     * Get a list of workflow resources that are associated with lifecycle workflows.
      * @param WorkflowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

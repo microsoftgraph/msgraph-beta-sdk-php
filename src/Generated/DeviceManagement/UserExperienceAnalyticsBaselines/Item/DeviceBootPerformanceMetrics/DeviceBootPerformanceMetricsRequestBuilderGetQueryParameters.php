@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalytic
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The user experience analytics device boot performance metrics.
+ * The scores and insights for the device boot performance metrics.
 */
 class DeviceBootPerformanceMetricsRequestBuilderGetQueryParameters 
 {

@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class LabelingOptions implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class LabelingOptions implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +53,11 @@ class LabelingOptions implements AdditionalDataHolder, BackedModel, Parsable
      * @return AssignmentMethod|null
     */
     public function getAssignmentMethod(): ?AssignmentMethod {
-        return $this->getBackingStore()->get('assignmentMethod');
+        $val = $this->getBackingStore()->get('assignmentMethod');
+        if (is_null($val) || $val instanceof AssignmentMethod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignmentMethod'");
     }
 
     /**
@@ -63,7 +73,11 @@ class LabelingOptions implements AdditionalDataHolder, BackedModel, Parsable
      * @return DowngradeJustification|null
     */
     public function getDowngradeJustification(): ?DowngradeJustification {
-        return $this->getBackingStore()->get('downgradeJustification');
+        $val = $this->getBackingStore()->get('downgradeJustification');
+        if (is_null($val) || $val instanceof DowngradeJustification) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'downgradeJustification'");
     }
 
     /**
@@ -71,12 +85,18 @@ class LabelingOptions implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<KeyValuePair>|null
     */
     public function getExtendedProperties(): ?array {
-        return $this->getBackingStore()->get('extendedProperties');
+        $val = $this->getBackingStore()->get('extendedProperties');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, KeyValuePair::class);
+            /** @var array<KeyValuePair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'extendedProperties'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -94,7 +114,11 @@ class LabelingOptions implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getLabelId(): ?string {
-        return $this->getBackingStore()->get('labelId');
+        $val = $this->getBackingStore()->get('labelId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'labelId'");
     }
 
     /**
@@ -102,7 +126,11 @@ class LabelingOptions implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

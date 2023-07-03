@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * The definition value entity stores the value for a single group policy definition.
@@ -33,7 +34,11 @@ class GroupPolicyDefinitionValue extends Entity implements Parsable
      * @return GroupPolicyConfigurationType|null
     */
     public function getConfigurationType(): ?GroupPolicyConfigurationType {
-        return $this->getBackingStore()->get('configurationType');
+        $val = $this->getBackingStore()->get('configurationType');
+        if (is_null($val) || $val instanceof GroupPolicyConfigurationType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configurationType'");
     }
 
     /**
@@ -41,7 +46,11 @@ class GroupPolicyDefinitionValue extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -49,7 +58,11 @@ class GroupPolicyDefinitionValue extends Entity implements Parsable
      * @return GroupPolicyDefinition|null
     */
     public function getDefinition(): ?GroupPolicyDefinition {
-        return $this->getBackingStore()->get('definition');
+        $val = $this->getBackingStore()->get('definition');
+        if (is_null($val) || $val instanceof GroupPolicyDefinition) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'definition'");
     }
 
     /**
@@ -57,12 +70,16 @@ class GroupPolicyDefinitionValue extends Entity implements Parsable
      * @return bool|null
     */
     public function getEnabled(): ?bool {
-        return $this->getBackingStore()->get('enabled');
+        $val = $this->getBackingStore()->get('enabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enabled'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -81,7 +98,11 @@ class GroupPolicyDefinitionValue extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -89,7 +110,13 @@ class GroupPolicyDefinitionValue extends Entity implements Parsable
      * @return array<GroupPolicyPresentationValue>|null
     */
     public function getPresentationValues(): ?array {
-        return $this->getBackingStore()->get('presentationValues');
+        $val = $this->getBackingStore()->get('presentationValues');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, GroupPolicyPresentationValue::class);
+            /** @var array<GroupPolicyPresentationValue>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'presentationValues'");
     }
 
     /**

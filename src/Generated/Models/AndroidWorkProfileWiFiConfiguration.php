@@ -37,7 +37,11 @@ class AndroidWorkProfileWiFiConfiguration extends DeviceConfiguration implements
      * @return bool|null
     */
     public function getConnectAutomatically(): ?bool {
-        return $this->getBackingStore()->get('connectAutomatically');
+        $val = $this->getBackingStore()->get('connectAutomatically');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectAutomatically'");
     }
 
     /**
@@ -45,12 +49,16 @@ class AndroidWorkProfileWiFiConfiguration extends DeviceConfiguration implements
      * @return bool|null
     */
     public function getConnectWhenNetworkNameIsHidden(): ?bool {
-        return $this->getBackingStore()->get('connectWhenNetworkNameIsHidden');
+        $val = $this->getBackingStore()->get('connectWhenNetworkNameIsHidden');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectWhenNetworkNameIsHidden'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -68,7 +76,11 @@ class AndroidWorkProfileWiFiConfiguration extends DeviceConfiguration implements
      * @return string|null
     */
     public function getNetworkName(): ?string {
-        return $this->getBackingStore()->get('networkName');
+        $val = $this->getBackingStore()->get('networkName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkName'");
     }
 
     /**
@@ -76,7 +88,11 @@ class AndroidWorkProfileWiFiConfiguration extends DeviceConfiguration implements
      * @return string|null
     */
     public function getSsid(): ?string {
-        return $this->getBackingStore()->get('ssid');
+        $val = $this->getBackingStore()->get('ssid');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ssid'");
     }
 
     /**
@@ -84,7 +100,11 @@ class AndroidWorkProfileWiFiConfiguration extends DeviceConfiguration implements
      * @return AndroidWiFiSecurityType|null
     */
     public function getWiFiSecurityType(): ?AndroidWiFiSecurityType {
-        return $this->getBackingStore()->get('wiFiSecurityType');
+        $val = $this->getBackingStore()->get('wiFiSecurityType');
+        if (is_null($val) || $val instanceof AndroidWiFiSecurityType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wiFiSecurityType'");
     }
 
     /**

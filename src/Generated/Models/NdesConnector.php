@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Entity which represents an OnPrem Ndes connector.
@@ -33,7 +34,11 @@ class NdesConnector extends Entity implements Parsable
      * @return string|null
     */
     public function getConnectorVersion(): ?string {
-        return $this->getBackingStore()->get('connectorVersion');
+        $val = $this->getBackingStore()->get('connectorVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectorVersion'");
     }
 
     /**
@@ -41,7 +46,11 @@ class NdesConnector extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -49,12 +58,16 @@ class NdesConnector extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getEnrolledDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('enrolledDateTime');
+        $val = $this->getBackingStore()->get('enrolledDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrolledDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -64,7 +77,14 @@ class NdesConnector extends Entity implements Parsable
             'enrolledDateTime' => fn(ParseNode $n) => $o->setEnrolledDateTime($n->getDateTimeValue()),
             'lastConnectionDateTime' => fn(ParseNode $n) => $o->setLastConnectionDateTime($n->getDateTimeValue()),
             'machineName' => fn(ParseNode $n) => $o->setMachineName($n->getStringValue()),
-            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
+            'roleScopeTagIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoleScopeTagIds($val);
+            },
             'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(NdesConnectorState::class)),
         ]);
     }
@@ -74,7 +94,11 @@ class NdesConnector extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastConnectionDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastConnectionDateTime');
+        $val = $this->getBackingStore()->get('lastConnectionDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastConnectionDateTime'");
     }
 
     /**
@@ -82,7 +106,11 @@ class NdesConnector extends Entity implements Parsable
      * @return string|null
     */
     public function getMachineName(): ?string {
-        return $this->getBackingStore()->get('machineName');
+        $val = $this->getBackingStore()->get('machineName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'machineName'");
     }
 
     /**
@@ -90,7 +118,13 @@ class NdesConnector extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->getBackingStore()->get('roleScopeTagIds');
+        $val = $this->getBackingStore()->get('roleScopeTagIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleScopeTagIds'");
     }
 
     /**
@@ -98,7 +132,11 @@ class NdesConnector extends Entity implements Parsable
      * @return NdesConnectorState|null
     */
     public function getState(): ?NdesConnectorState {
-        return $this->getBackingStore()->get('state');
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || $val instanceof NdesConnectorState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
     }
 
     /**

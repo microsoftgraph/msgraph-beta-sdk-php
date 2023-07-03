@@ -27,7 +27,7 @@ class WinGetAppAssignmentSettings extends MobileAppAssignmentSettings implements
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -43,7 +43,11 @@ class WinGetAppAssignmentSettings extends MobileAppAssignmentSettings implements
      * @return WinGetAppInstallTimeSettings|null
     */
     public function getInstallTimeSettings(): ?WinGetAppInstallTimeSettings {
-        return $this->getBackingStore()->get('installTimeSettings');
+        $val = $this->getBackingStore()->get('installTimeSettings');
+        if (is_null($val) || $val instanceof WinGetAppInstallTimeSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'installTimeSettings'");
     }
 
     /**
@@ -51,7 +55,11 @@ class WinGetAppAssignmentSettings extends MobileAppAssignmentSettings implements
      * @return WinGetAppNotification|null
     */
     public function getNotifications(): ?WinGetAppNotification {
-        return $this->getBackingStore()->get('notifications');
+        $val = $this->getBackingStore()->get('notifications');
+        if (is_null($val) || $val instanceof WinGetAppNotification) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notifications'");
     }
 
     /**
@@ -59,7 +67,11 @@ class WinGetAppAssignmentSettings extends MobileAppAssignmentSettings implements
      * @return WinGetAppRestartSettings|null
     */
     public function getRestartSettings(): ?WinGetAppRestartSettings {
-        return $this->getBackingStore()->get('restartSettings');
+        $val = $this->getBackingStore()->get('restartSettings');
+        if (is_null($val) || $val instanceof WinGetAppRestartSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'restartSettings'");
     }
 
     /**

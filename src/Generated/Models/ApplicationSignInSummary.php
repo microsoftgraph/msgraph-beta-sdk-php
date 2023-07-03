@@ -29,7 +29,11 @@ class ApplicationSignInSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getAppDisplayName(): ?string {
-        return $this->getBackingStore()->get('appDisplayName');
+        $val = $this->getBackingStore()->get('appDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appDisplayName'");
     }
 
     /**
@@ -37,12 +41,16 @@ class ApplicationSignInSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getFailedSignInCount(): ?int {
-        return $this->getBackingStore()->get('failedSignInCount');
+        $val = $this->getBackingStore()->get('failedSignInCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'failedSignInCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -59,7 +67,11 @@ class ApplicationSignInSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getSuccessfulSignInCount(): ?int {
-        return $this->getBackingStore()->get('successfulSignInCount');
+        $val = $this->getBackingStore()->get('successfulSignInCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'successfulSignInCount'");
     }
 
     /**
@@ -67,7 +79,11 @@ class ApplicationSignInSummary extends Entity implements Parsable
      * @return float|null
     */
     public function getSuccessPercentage(): ?float {
-        return $this->getBackingStore()->get('successPercentage');
+        $val = $this->getBackingStore()->get('successPercentage');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'successPercentage'");
     }
 
     /**

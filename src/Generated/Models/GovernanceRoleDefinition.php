@@ -29,7 +29,11 @@ class GovernanceRoleDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -37,12 +41,16 @@ class GovernanceRoleDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getExternalId(): ?string {
-        return $this->getBackingStore()->get('externalId');
+        $val = $this->getBackingStore()->get('externalId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'externalId'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -61,7 +69,11 @@ class GovernanceRoleDefinition extends Entity implements Parsable
      * @return GovernanceResource|null
     */
     public function getResource(): ?GovernanceResource {
-        return $this->getBackingStore()->get('resource');
+        $val = $this->getBackingStore()->get('resource');
+        if (is_null($val) || $val instanceof GovernanceResource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resource'");
     }
 
     /**
@@ -69,7 +81,11 @@ class GovernanceRoleDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getResourceId(): ?string {
-        return $this->getBackingStore()->get('resourceId');
+        $val = $this->getBackingStore()->get('resourceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resourceId'");
     }
 
     /**
@@ -77,7 +93,11 @@ class GovernanceRoleDefinition extends Entity implements Parsable
      * @return GovernanceRoleSetting|null
     */
     public function getRoleSetting(): ?GovernanceRoleSetting {
-        return $this->getBackingStore()->get('roleSetting');
+        $val = $this->getBackingStore()->get('roleSetting');
+        if (is_null($val) || $val instanceof GovernanceRoleSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleSetting'");
     }
 
     /**
@@ -85,7 +105,11 @@ class GovernanceRoleDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getTemplateId(): ?string {
-        return $this->getBackingStore()->get('templateId');
+        $val = $this->getBackingStore()->get('templateId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'templateId'");
     }
 
     /**

@@ -43,7 +43,11 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Bac
      * @return VppTokenActionFailureReason|null
     */
     public function getActionFailureReason(): ?VppTokenActionFailureReason {
-        return $this->getBackingStore()->get('actionFailureReason');
+        $val = $this->getBackingStore()->get('actionFailureReason');
+        if (is_null($val) || $val instanceof VppTokenActionFailureReason) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'actionFailureReason'");
     }
 
     /**
@@ -51,7 +55,11 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Bac
      * @return string|null
     */
     public function getActionName(): ?string {
-        return $this->getBackingStore()->get('actionName');
+        $val = $this->getBackingStore()->get('actionName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'actionName'");
     }
 
     /**
@@ -59,7 +67,11 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Bac
      * @return ActionState|null
     */
     public function getActionState(): ?ActionState {
-        return $this->getBackingStore()->get('actionState');
+        $val = $this->getBackingStore()->get('actionState');
+        if (is_null($val) || $val instanceof ActionState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'actionState'");
     }
 
     /**
@@ -67,7 +79,12 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Bac
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -83,12 +100,16 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Bac
      * @return int|null
     */
     public function getFailedLicensesCount(): ?int {
-        return $this->getBackingStore()->get('failedLicensesCount');
+        $val = $this->getBackingStore()->get('failedLicensesCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'failedLicensesCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -111,7 +132,11 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Bac
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastUpdatedDateTime');
+        $val = $this->getBackingStore()->get('lastUpdatedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastUpdatedDateTime'");
     }
 
     /**
@@ -119,7 +144,11 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Bac
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
-        return $this->getBackingStore()->get('managedDeviceId');
+        $val = $this->getBackingStore()->get('managedDeviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceId'");
     }
 
     /**
@@ -127,7 +156,11 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Bac
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -135,7 +168,11 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Bac
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('startDateTime');
+        $val = $this->getBackingStore()->get('startDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startDateTime'");
     }
 
     /**
@@ -143,7 +180,11 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Bac
      * @return int|null
     */
     public function getTotalLicensesCount(): ?int {
-        return $this->getBackingStore()->get('totalLicensesCount');
+        $val = $this->getBackingStore()->get('totalLicensesCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalLicensesCount'");
     }
 
     /**
@@ -151,7 +192,11 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Bac
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->getBackingStore()->get('userId');
+        $val = $this->getBackingStore()->get('userId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
     }
 
     /**

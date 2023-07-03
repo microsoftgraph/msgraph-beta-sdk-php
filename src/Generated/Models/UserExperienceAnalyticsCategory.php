@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class UserExperienceAnalyticsCategory extends Entity implements Parsable 
 {
@@ -26,7 +27,7 @@ class UserExperienceAnalyticsCategory extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -37,19 +38,31 @@ class UserExperienceAnalyticsCategory extends Entity implements Parsable
     }
 
     /**
-     * Gets the insights property value. The insights for the user experience analytics category.
+     * Gets the insights property value. The insights for the category. Read-only.
      * @return array<UserExperienceAnalyticsInsight>|null
     */
     public function getInsights(): ?array {
-        return $this->getBackingStore()->get('insights');
+        $val = $this->getBackingStore()->get('insights');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsInsight::class);
+            /** @var array<UserExperienceAnalyticsInsight>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'insights'");
     }
 
     /**
-     * Gets the metricValues property value. The metric values for the user experience analytics category.
+     * Gets the metricValues property value. The metric values for the user experience analytics category. Read-only.
      * @return array<UserExperienceAnalyticsMetric>|null
     */
     public function getMetricValues(): ?array {
-        return $this->getBackingStore()->get('metricValues');
+        $val = $this->getBackingStore()->get('metricValues');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsMetric::class);
+            /** @var array<UserExperienceAnalyticsMetric>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'metricValues'");
     }
 
     /**
@@ -63,7 +76,7 @@ class UserExperienceAnalyticsCategory extends Entity implements Parsable
     }
 
     /**
-     * Sets the insights property value. The insights for the user experience analytics category.
+     * Sets the insights property value. The insights for the category. Read-only.
      * @param array<UserExperienceAnalyticsInsight>|null $value Value to set for the insights property.
     */
     public function setInsights(?array $value): void {
@@ -71,7 +84,7 @@ class UserExperienceAnalyticsCategory extends Entity implements Parsable
     }
 
     /**
-     * Sets the metricValues property value. The metric values for the user experience analytics category.
+     * Sets the metricValues property value. The metric values for the user experience analytics category. Read-only.
      * @param array<UserExperienceAnalyticsMetric>|null $value Value to set for the metricValues property.
     */
     public function setMetricValues(?array $value): void {

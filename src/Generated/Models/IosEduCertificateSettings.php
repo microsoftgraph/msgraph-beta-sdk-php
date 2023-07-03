@@ -43,7 +43,12 @@ class IosEduCertificateSettings implements AdditionalDataHolder, BackedModel, Pa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -59,7 +64,11 @@ class IosEduCertificateSettings implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getCertFileName(): ?string {
-        return $this->getBackingStore()->get('certFileName');
+        $val = $this->getBackingStore()->get('certFileName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certFileName'");
     }
 
     /**
@@ -67,7 +76,11 @@ class IosEduCertificateSettings implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getCertificateTemplateName(): ?string {
-        return $this->getBackingStore()->get('certificateTemplateName');
+        $val = $this->getBackingStore()->get('certificateTemplateName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateTemplateName'");
     }
 
     /**
@@ -75,7 +88,11 @@ class IosEduCertificateSettings implements AdditionalDataHolder, BackedModel, Pa
      * @return CertificateValidityPeriodScale|null
     */
     public function getCertificateValidityPeriodScale(): ?CertificateValidityPeriodScale {
-        return $this->getBackingStore()->get('certificateValidityPeriodScale');
+        $val = $this->getBackingStore()->get('certificateValidityPeriodScale');
+        if (is_null($val) || $val instanceof CertificateValidityPeriodScale) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateValidityPeriodScale'");
     }
 
     /**
@@ -83,7 +100,11 @@ class IosEduCertificateSettings implements AdditionalDataHolder, BackedModel, Pa
      * @return int|null
     */
     public function getCertificateValidityPeriodValue(): ?int {
-        return $this->getBackingStore()->get('certificateValidityPeriodValue');
+        $val = $this->getBackingStore()->get('certificateValidityPeriodValue');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateValidityPeriodValue'");
     }
 
     /**
@@ -91,7 +112,11 @@ class IosEduCertificateSettings implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getCertificationAuthority(): ?string {
-        return $this->getBackingStore()->get('certificationAuthority');
+        $val = $this->getBackingStore()->get('certificationAuthority');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificationAuthority'");
     }
 
     /**
@@ -99,12 +124,16 @@ class IosEduCertificateSettings implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getCertificationAuthorityName(): ?string {
-        return $this->getBackingStore()->get('certificationAuthorityName');
+        $val = $this->getBackingStore()->get('certificationAuthorityName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificationAuthorityName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -126,7 +155,11 @@ class IosEduCertificateSettings implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -134,7 +167,11 @@ class IosEduCertificateSettings implements AdditionalDataHolder, BackedModel, Pa
      * @return int|null
     */
     public function getRenewalThresholdPercentage(): ?int {
-        return $this->getBackingStore()->get('renewalThresholdPercentage');
+        $val = $this->getBackingStore()->get('renewalThresholdPercentage');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'renewalThresholdPercentage'");
     }
 
     /**
@@ -142,7 +179,11 @@ class IosEduCertificateSettings implements AdditionalDataHolder, BackedModel, Pa
      * @return StreamInterface|null
     */
     public function getTrustedRootCertificate(): ?StreamInterface {
-        return $this->getBackingStore()->get('trustedRootCertificate');
+        $val = $this->getBackingStore()->get('trustedRootCertificate');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'trustedRootCertificate'");
     }
 
     /**

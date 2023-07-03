@@ -27,7 +27,7 @@ class DeviceManagementConfigurationGroupSettingInstanceTemplate extends DeviceMa
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -41,7 +41,11 @@ class DeviceManagementConfigurationGroupSettingInstanceTemplate extends DeviceMa
      * @return DeviceManagementConfigurationGroupSettingValueTemplate|null
     */
     public function getGroupSettingValueTemplate(): ?DeviceManagementConfigurationGroupSettingValueTemplate {
-        return $this->getBackingStore()->get('groupSettingValueTemplate');
+        $val = $this->getBackingStore()->get('groupSettingValueTemplate');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationGroupSettingValueTemplate) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupSettingValueTemplate'");
     }
 
     /**

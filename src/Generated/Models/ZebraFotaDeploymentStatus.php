@@ -43,7 +43,12 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -59,7 +64,11 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
      * @return bool|null
     */
     public function getCancelRequested(): ?bool {
-        return $this->getBackingStore()->get('cancelRequested');
+        $val = $this->getBackingStore()->get('cancelRequested');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cancelRequested'");
     }
 
     /**
@@ -67,7 +76,11 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
      * @return DateTime|null
     */
     public function getCompleteOrCanceledDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('completeOrCanceledDateTime');
+        $val = $this->getBackingStore()->get('completeOrCanceledDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'completeOrCanceledDateTime'");
     }
 
     /**
@@ -75,12 +88,16 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
      * @return ZebraFotaErrorCode|null
     */
     public function getErrorCode(): ?ZebraFotaErrorCode {
-        return $this->getBackingStore()->get('errorCode');
+        $val = $this->getBackingStore()->get('errorCode');
+        if (is_null($val) || $val instanceof ZebraFotaErrorCode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorCode'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -109,7 +126,11 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastUpdatedDateTime');
+        $val = $this->getBackingStore()->get('lastUpdatedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastUpdatedDateTime'");
     }
 
     /**
@@ -117,7 +138,11 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -125,7 +150,11 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
      * @return ZebraFotaDeploymentState|null
     */
     public function getState(): ?ZebraFotaDeploymentState {
-        return $this->getBackingStore()->get('state');
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || $val instanceof ZebraFotaDeploymentState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
     }
 
     /**
@@ -133,7 +162,11 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
      * @return int|null
     */
     public function getTotalAwaitingInstall(): ?int {
-        return $this->getBackingStore()->get('totalAwaitingInstall');
+        $val = $this->getBackingStore()->get('totalAwaitingInstall');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalAwaitingInstall'");
     }
 
     /**
@@ -141,7 +174,11 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
      * @return int|null
     */
     public function getTotalCanceled(): ?int {
-        return $this->getBackingStore()->get('totalCanceled');
+        $val = $this->getBackingStore()->get('totalCanceled');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalCanceled'");
     }
 
     /**
@@ -149,7 +186,11 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
      * @return int|null
     */
     public function getTotalCreated(): ?int {
-        return $this->getBackingStore()->get('totalCreated');
+        $val = $this->getBackingStore()->get('totalCreated');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalCreated'");
     }
 
     /**
@@ -157,7 +198,11 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
      * @return int|null
     */
     public function getTotalDevices(): ?int {
-        return $this->getBackingStore()->get('totalDevices');
+        $val = $this->getBackingStore()->get('totalDevices');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalDevices'");
     }
 
     /**
@@ -165,7 +210,11 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
      * @return int|null
     */
     public function getTotalDownloading(): ?int {
-        return $this->getBackingStore()->get('totalDownloading');
+        $val = $this->getBackingStore()->get('totalDownloading');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalDownloading'");
     }
 
     /**
@@ -173,7 +222,11 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
      * @return int|null
     */
     public function getTotalFailedDownload(): ?int {
-        return $this->getBackingStore()->get('totalFailedDownload');
+        $val = $this->getBackingStore()->get('totalFailedDownload');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalFailedDownload'");
     }
 
     /**
@@ -181,7 +234,11 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
      * @return int|null
     */
     public function getTotalFailedInstall(): ?int {
-        return $this->getBackingStore()->get('totalFailedInstall');
+        $val = $this->getBackingStore()->get('totalFailedInstall');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalFailedInstall'");
     }
 
     /**
@@ -189,7 +246,11 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
      * @return int|null
     */
     public function getTotalScheduled(): ?int {
-        return $this->getBackingStore()->get('totalScheduled');
+        $val = $this->getBackingStore()->get('totalScheduled');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalScheduled'");
     }
 
     /**
@@ -197,7 +258,11 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
      * @return int|null
     */
     public function getTotalSucceededInstall(): ?int {
-        return $this->getBackingStore()->get('totalSucceededInstall');
+        $val = $this->getBackingStore()->get('totalSucceededInstall');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalSucceededInstall'");
     }
 
     /**
@@ -205,7 +270,11 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
      * @return int|null
     */
     public function getTotalUnknown(): ?int {
-        return $this->getBackingStore()->get('totalUnknown');
+        $val = $this->getBackingStore()->get('totalUnknown');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalUnknown'");
     }
 
     /**

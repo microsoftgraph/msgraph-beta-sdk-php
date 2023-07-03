@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Represents a user rights setting.
@@ -42,7 +43,12 @@ class DeviceManagementUserRightsSetting implements AdditionalDataHolder, BackedM
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,7 +61,7 @@ class DeviceManagementUserRightsSetting implements AdditionalDataHolder, BackedM
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -71,7 +77,13 @@ class DeviceManagementUserRightsSetting implements AdditionalDataHolder, BackedM
      * @return array<DeviceManagementUserRightsLocalUserOrGroup>|null
     */
     public function getLocalUsersOrGroups(): ?array {
-        return $this->getBackingStore()->get('localUsersOrGroups');
+        $val = $this->getBackingStore()->get('localUsersOrGroups');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceManagementUserRightsLocalUserOrGroup::class);
+            /** @var array<DeviceManagementUserRightsLocalUserOrGroup>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localUsersOrGroups'");
     }
 
     /**
@@ -79,7 +91,11 @@ class DeviceManagementUserRightsSetting implements AdditionalDataHolder, BackedM
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -87,7 +103,11 @@ class DeviceManagementUserRightsSetting implements AdditionalDataHolder, BackedM
      * @return StateManagementSetting|null
     */
     public function getState(): ?StateManagementSetting {
-        return $this->getBackingStore()->get('state');
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || $val instanceof StateManagementSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
     }
 
     /**

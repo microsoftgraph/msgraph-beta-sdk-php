@@ -31,7 +31,11 @@ class PrivilegedApproval extends Entity implements Parsable
      * @return DateInterval|null
     */
     public function getApprovalDuration(): ?DateInterval {
-        return $this->getBackingStore()->get('approvalDuration');
+        $val = $this->getBackingStore()->get('approvalDuration');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'approvalDuration'");
     }
 
     /**
@@ -39,7 +43,11 @@ class PrivilegedApproval extends Entity implements Parsable
      * @return ApprovalState|null
     */
     public function getApprovalState(): ?ApprovalState {
-        return $this->getBackingStore()->get('approvalState');
+        $val = $this->getBackingStore()->get('approvalState');
+        if (is_null($val) || $val instanceof ApprovalState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'approvalState'");
     }
 
     /**
@@ -47,7 +55,11 @@ class PrivilegedApproval extends Entity implements Parsable
      * @return string|null
     */
     public function getApprovalType(): ?string {
-        return $this->getBackingStore()->get('approvalType');
+        $val = $this->getBackingStore()->get('approvalType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'approvalType'");
     }
 
     /**
@@ -55,7 +67,11 @@ class PrivilegedApproval extends Entity implements Parsable
      * @return string|null
     */
     public function getApproverReason(): ?string {
-        return $this->getBackingStore()->get('approverReason');
+        $val = $this->getBackingStore()->get('approverReason');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'approverReason'");
     }
 
     /**
@@ -63,12 +79,16 @@ class PrivilegedApproval extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('endDateTime');
+        $val = $this->getBackingStore()->get('endDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -92,7 +112,11 @@ class PrivilegedApproval extends Entity implements Parsable
      * @return PrivilegedRoleAssignmentRequest|null
     */
     public function getRequest(): ?PrivilegedRoleAssignmentRequest {
-        return $this->getBackingStore()->get('request');
+        $val = $this->getBackingStore()->get('request');
+        if (is_null($val) || $val instanceof PrivilegedRoleAssignmentRequest) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'request'");
     }
 
     /**
@@ -100,7 +124,11 @@ class PrivilegedApproval extends Entity implements Parsable
      * @return string|null
     */
     public function getRequestorReason(): ?string {
-        return $this->getBackingStore()->get('requestorReason');
+        $val = $this->getBackingStore()->get('requestorReason');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requestorReason'");
     }
 
     /**
@@ -108,7 +136,11 @@ class PrivilegedApproval extends Entity implements Parsable
      * @return string|null
     */
     public function getRoleId(): ?string {
-        return $this->getBackingStore()->get('roleId');
+        $val = $this->getBackingStore()->get('roleId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleId'");
     }
 
     /**
@@ -116,7 +148,11 @@ class PrivilegedApproval extends Entity implements Parsable
      * @return PrivilegedRole|null
     */
     public function getRoleInfo(): ?PrivilegedRole {
-        return $this->getBackingStore()->get('roleInfo');
+        $val = $this->getBackingStore()->get('roleInfo');
+        if (is_null($val) || $val instanceof PrivilegedRole) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleInfo'");
     }
 
     /**
@@ -124,7 +160,11 @@ class PrivilegedApproval extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('startDateTime');
+        $val = $this->getBackingStore()->get('startDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startDateTime'");
     }
 
     /**
@@ -132,7 +172,11 @@ class PrivilegedApproval extends Entity implements Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->getBackingStore()->get('userId');
+        $val = $this->getBackingStore()->get('userId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
     }
 
     /**

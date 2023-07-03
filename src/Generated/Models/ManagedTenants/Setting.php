@@ -39,7 +39,12 @@ class Setting implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,12 +60,16 @@ class Setting implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -79,7 +88,11 @@ class Setting implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getJsonValue(): ?string {
-        return $this->getBackingStore()->get('jsonValue');
+        $val = $this->getBackingStore()->get('jsonValue');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'jsonValue'");
     }
 
     /**
@@ -87,7 +100,11 @@ class Setting implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -95,7 +112,11 @@ class Setting implements AdditionalDataHolder, BackedModel, Parsable
      * @return bool|null
     */
     public function getOverwriteAllowed(): ?bool {
-        return $this->getBackingStore()->get('overwriteAllowed');
+        $val = $this->getBackingStore()->get('overwriteAllowed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'overwriteAllowed'");
     }
 
     /**
@@ -103,7 +124,11 @@ class Setting implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getSettingId(): ?string {
-        return $this->getBackingStore()->get('settingId');
+        $val = $this->getBackingStore()->get('settingId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settingId'");
     }
 
     /**
@@ -111,7 +136,11 @@ class Setting implements AdditionalDataHolder, BackedModel, Parsable
      * @return ManagementParameterValueType|null
     */
     public function getValueType(): ?ManagementParameterValueType {
-        return $this->getBackingStore()->get('valueType');
+        $val = $this->getBackingStore()->get('valueType');
+        if (is_null($val) || $val instanceof ManagementParameterValueType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'valueType'");
     }
 
     /**

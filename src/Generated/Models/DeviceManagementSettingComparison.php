@@ -42,7 +42,12 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, BackedM
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -58,7 +63,11 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, BackedM
      * @return DeviceManagementComparisonResult|null
     */
     public function getComparisonResult(): ?DeviceManagementComparisonResult {
-        return $this->getBackingStore()->get('comparisonResult');
+        $val = $this->getBackingStore()->get('comparisonResult');
+        if (is_null($val) || $val instanceof DeviceManagementComparisonResult) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'comparisonResult'");
     }
 
     /**
@@ -66,7 +75,11 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, BackedM
      * @return string|null
     */
     public function getCurrentValueJson(): ?string {
-        return $this->getBackingStore()->get('currentValueJson');
+        $val = $this->getBackingStore()->get('currentValueJson');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'currentValueJson'");
     }
 
     /**
@@ -74,7 +87,11 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, BackedM
      * @return string|null
     */
     public function getDefinitionId(): ?string {
-        return $this->getBackingStore()->get('definitionId');
+        $val = $this->getBackingStore()->get('definitionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'definitionId'");
     }
 
     /**
@@ -82,12 +99,16 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, BackedM
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -107,7 +128,11 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, BackedM
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->getBackingStore()->get('id');
+        $val = $this->getBackingStore()->get('id');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'id'");
     }
 
     /**
@@ -115,7 +140,11 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, BackedM
      * @return string|null
     */
     public function getNewValueJson(): ?string {
-        return $this->getBackingStore()->get('newValueJson');
+        $val = $this->getBackingStore()->get('newValueJson');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'newValueJson'");
     }
 
     /**
@@ -123,7 +152,11 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, BackedM
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

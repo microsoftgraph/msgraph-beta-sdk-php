@@ -44,7 +44,12 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -60,7 +65,11 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
      * @return int|null
     */
     public function getBatteryRuleMinimumBatteryLevelPercentage(): ?int {
-        return $this->getBackingStore()->get('batteryRuleMinimumBatteryLevelPercentage');
+        $val = $this->getBackingStore()->get('batteryRuleMinimumBatteryLevelPercentage');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'batteryRuleMinimumBatteryLevelPercentage'");
     }
 
     /**
@@ -68,7 +77,11 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
      * @return bool|null
     */
     public function getBatteryRuleRequireCharger(): ?bool {
-        return $this->getBackingStore()->get('batteryRuleRequireCharger');
+        $val = $this->getBackingStore()->get('batteryRuleRequireCharger');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'batteryRuleRequireCharger'");
     }
 
     /**
@@ -76,7 +89,11 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getDeviceModel(): ?string {
-        return $this->getBackingStore()->get('deviceModel');
+        $val = $this->getBackingStore()->get('deviceModel');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceModel'");
     }
 
     /**
@@ -84,7 +101,11 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
      * @return ZebraFotaNetworkType|null
     */
     public function getDownloadRuleNetworkType(): ?ZebraFotaNetworkType {
-        return $this->getBackingStore()->get('downloadRuleNetworkType');
+        $val = $this->getBackingStore()->get('downloadRuleNetworkType');
+        if (is_null($val) || $val instanceof ZebraFotaNetworkType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'downloadRuleNetworkType'");
     }
 
     /**
@@ -92,12 +113,16 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
      * @return DateTime|null
     */
     public function getDownloadRuleStartDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('downloadRuleStartDateTime');
+        $val = $this->getBackingStore()->get('downloadRuleStartDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'downloadRuleStartDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -127,7 +152,11 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getFirmwareTargetArtifactDescription(): ?string {
-        return $this->getBackingStore()->get('firmwareTargetArtifactDescription');
+        $val = $this->getBackingStore()->get('firmwareTargetArtifactDescription');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firmwareTargetArtifactDescription'");
     }
 
     /**
@@ -135,7 +164,11 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getFirmwareTargetBoardSupportPackageVersion(): ?string {
-        return $this->getBackingStore()->get('firmwareTargetBoardSupportPackageVersion');
+        $val = $this->getBackingStore()->get('firmwareTargetBoardSupportPackageVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firmwareTargetBoardSupportPackageVersion'");
     }
 
     /**
@@ -143,7 +176,11 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getFirmwareTargetOsVersion(): ?string {
-        return $this->getBackingStore()->get('firmwareTargetOsVersion');
+        $val = $this->getBackingStore()->get('firmwareTargetOsVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firmwareTargetOsVersion'");
     }
 
     /**
@@ -151,7 +188,11 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getFirmwareTargetPatch(): ?string {
-        return $this->getBackingStore()->get('firmwareTargetPatch');
+        $val = $this->getBackingStore()->get('firmwareTargetPatch');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firmwareTargetPatch'");
     }
 
     /**
@@ -159,7 +200,11 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
      * @return DateTime|null
     */
     public function getInstallRuleStartDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('installRuleStartDateTime');
+        $val = $this->getBackingStore()->get('installRuleStartDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'installRuleStartDateTime'");
     }
 
     /**
@@ -167,7 +212,11 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
      * @return Time|null
     */
     public function getInstallRuleWindowEndTime(): ?Time {
-        return $this->getBackingStore()->get('installRuleWindowEndTime');
+        $val = $this->getBackingStore()->get('installRuleWindowEndTime');
+        if (is_null($val) || $val instanceof Time) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'installRuleWindowEndTime'");
     }
 
     /**
@@ -175,7 +224,11 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
      * @return Time|null
     */
     public function getInstallRuleWindowStartTime(): ?Time {
-        return $this->getBackingStore()->get('installRuleWindowStartTime');
+        $val = $this->getBackingStore()->get('installRuleWindowStartTime');
+        if (is_null($val) || $val instanceof Time) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'installRuleWindowStartTime'");
     }
 
     /**
@@ -183,7 +236,11 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -191,7 +248,11 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
      * @return int|null
     */
     public function getScheduleDurationInDays(): ?int {
-        return $this->getBackingStore()->get('scheduleDurationInDays');
+        $val = $this->getBackingStore()->get('scheduleDurationInDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scheduleDurationInDays'");
     }
 
     /**
@@ -199,7 +260,11 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
      * @return ZebraFotaScheduleMode|null
     */
     public function getScheduleMode(): ?ZebraFotaScheduleMode {
-        return $this->getBackingStore()->get('scheduleMode');
+        $val = $this->getBackingStore()->get('scheduleMode');
+        if (is_null($val) || $val instanceof ZebraFotaScheduleMode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scheduleMode'");
     }
 
     /**
@@ -207,7 +272,11 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
      * @return int|null
     */
     public function getTimeZoneOffsetInMinutes(): ?int {
-        return $this->getBackingStore()->get('timeZoneOffsetInMinutes');
+        $val = $this->getBackingStore()->get('timeZoneOffsetInMinutes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'timeZoneOffsetInMinutes'");
     }
 
     /**
@@ -215,7 +284,11 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
      * @return ZebraFotaUpdateType|null
     */
     public function getUpdateType(): ?ZebraFotaUpdateType {
-        return $this->getBackingStore()->get('updateType');
+        $val = $this->getBackingStore()->get('updateType');
+        if (is_null($val) || $val instanceof ZebraFotaUpdateType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'updateType'");
     }
 
     /**

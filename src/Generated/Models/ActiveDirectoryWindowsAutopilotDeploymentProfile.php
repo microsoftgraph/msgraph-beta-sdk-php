@@ -30,12 +30,16 @@ class ActiveDirectoryWindowsAutopilotDeploymentProfile extends WindowsAutopilotD
      * @return WindowsDomainJoinConfiguration|null
     */
     public function getDomainJoinConfiguration(): ?WindowsDomainJoinConfiguration {
-        return $this->getBackingStore()->get('domainJoinConfiguration');
+        $val = $this->getBackingStore()->get('domainJoinConfiguration');
+        if (is_null($val) || $val instanceof WindowsDomainJoinConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'domainJoinConfiguration'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -50,7 +54,11 @@ class ActiveDirectoryWindowsAutopilotDeploymentProfile extends WindowsAutopilotD
      * @return bool|null
     */
     public function getHybridAzureADJoinSkipConnectivityCheck(): ?bool {
-        return $this->getBackingStore()->get('hybridAzureADJoinSkipConnectivityCheck');
+        $val = $this->getBackingStore()->get('hybridAzureADJoinSkipConnectivityCheck');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hybridAzureADJoinSkipConnectivityCheck'");
     }
 
     /**

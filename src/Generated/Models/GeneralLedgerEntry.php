@@ -41,7 +41,11 @@ class GeneralLedgerEntry implements AdditionalDataHolder, BackedModel, Parsable
      * @return Account|null
     */
     public function getAccount(): ?Account {
-        return $this->getBackingStore()->get('account');
+        $val = $this->getBackingStore()->get('account');
+        if (is_null($val) || $val instanceof Account) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'account'");
     }
 
     /**
@@ -49,7 +53,11 @@ class GeneralLedgerEntry implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getAccountId(): ?string {
-        return $this->getBackingStore()->get('accountId');
+        $val = $this->getBackingStore()->get('accountId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accountId'");
     }
 
     /**
@@ -57,7 +65,11 @@ class GeneralLedgerEntry implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getAccountNumber(): ?string {
-        return $this->getBackingStore()->get('accountNumber');
+        $val = $this->getBackingStore()->get('accountNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accountNumber'");
     }
 
     /**
@@ -65,7 +77,12 @@ class GeneralLedgerEntry implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -81,7 +98,11 @@ class GeneralLedgerEntry implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getCreditAmount(): ?string {
-        return $this->getBackingStore()->get('creditAmount');
+        $val = $this->getBackingStore()->get('creditAmount');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'creditAmount'");
     }
 
     /**
@@ -89,7 +110,11 @@ class GeneralLedgerEntry implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDebitAmount(): ?string {
-        return $this->getBackingStore()->get('debitAmount');
+        $val = $this->getBackingStore()->get('debitAmount');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'debitAmount'");
     }
 
     /**
@@ -97,7 +122,11 @@ class GeneralLedgerEntry implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -105,7 +134,11 @@ class GeneralLedgerEntry implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDocumentNumber(): ?string {
-        return $this->getBackingStore()->get('documentNumber');
+        $val = $this->getBackingStore()->get('documentNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'documentNumber'");
     }
 
     /**
@@ -113,12 +146,16 @@ class GeneralLedgerEntry implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getDocumentType(): ?string {
-        return $this->getBackingStore()->get('documentType');
+        $val = $this->getBackingStore()->get('documentType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'documentType'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -143,7 +180,11 @@ class GeneralLedgerEntry implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->getBackingStore()->get('id');
+        $val = $this->getBackingStore()->get('id');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'id'");
     }
 
     /**
@@ -151,7 +192,11 @@ class GeneralLedgerEntry implements AdditionalDataHolder, BackedModel, Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -159,7 +204,11 @@ class GeneralLedgerEntry implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -167,7 +216,11 @@ class GeneralLedgerEntry implements AdditionalDataHolder, BackedModel, Parsable
      * @return Date|null
     */
     public function getPostingDate(): ?Date {
-        return $this->getBackingStore()->get('postingDate');
+        $val = $this->getBackingStore()->get('postingDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'postingDate'");
     }
 
     /**

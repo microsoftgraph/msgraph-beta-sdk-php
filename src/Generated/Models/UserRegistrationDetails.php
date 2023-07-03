@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class UserRegistrationDetails extends Entity implements Parsable 
 {
@@ -30,12 +31,16 @@ class UserRegistrationDetails extends Entity implements Parsable
      * @return DefaultMfaMethodType|null
     */
     public function getDefaultMfaMethod(): ?DefaultMfaMethodType {
-        return $this->getBackingStore()->get('defaultMfaMethod');
+        $val = $this->getBackingStore()->get('defaultMfaMethod');
+        if (is_null($val) || $val instanceof DefaultMfaMethodType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultMfaMethod'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -50,8 +55,22 @@ class UserRegistrationDetails extends Entity implements Parsable
             'isSsprRegistered' => fn(ParseNode $n) => $o->setIsSsprRegistered($n->getBooleanValue()),
             'isSystemPreferredAuthenticationMethodEnabled' => fn(ParseNode $n) => $o->setIsSystemPreferredAuthenticationMethodEnabled($n->getBooleanValue()),
             'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
-            'methodsRegistered' => fn(ParseNode $n) => $o->setMethodsRegistered($n->getCollectionOfPrimitiveValues()),
-            'systemPreferredAuthenticationMethods' => fn(ParseNode $n) => $o->setSystemPreferredAuthenticationMethods($n->getCollectionOfPrimitiveValues()),
+            'methodsRegistered' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setMethodsRegistered($val);
+            },
+            'systemPreferredAuthenticationMethods' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setSystemPreferredAuthenticationMethods($val);
+            },
             'userDisplayName' => fn(ParseNode $n) => $o->setUserDisplayName($n->getStringValue()),
             'userPreferredMethodForSecondaryAuthentication' => fn(ParseNode $n) => $o->setUserPreferredMethodForSecondaryAuthentication($n->getEnumValue(UserDefaultAuthenticationMethod::class)),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
@@ -64,7 +83,11 @@ class UserRegistrationDetails extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsAdmin(): ?bool {
-        return $this->getBackingStore()->get('isAdmin');
+        $val = $this->getBackingStore()->get('isAdmin');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isAdmin'");
     }
 
     /**
@@ -72,7 +95,11 @@ class UserRegistrationDetails extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsMfaCapable(): ?bool {
-        return $this->getBackingStore()->get('isMfaCapable');
+        $val = $this->getBackingStore()->get('isMfaCapable');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isMfaCapable'");
     }
 
     /**
@@ -80,7 +107,11 @@ class UserRegistrationDetails extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsMfaRegistered(): ?bool {
-        return $this->getBackingStore()->get('isMfaRegistered');
+        $val = $this->getBackingStore()->get('isMfaRegistered');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isMfaRegistered'");
     }
 
     /**
@@ -88,7 +119,11 @@ class UserRegistrationDetails extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsPasswordlessCapable(): ?bool {
-        return $this->getBackingStore()->get('isPasswordlessCapable');
+        $val = $this->getBackingStore()->get('isPasswordlessCapable');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isPasswordlessCapable'");
     }
 
     /**
@@ -96,7 +131,11 @@ class UserRegistrationDetails extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsSsprCapable(): ?bool {
-        return $this->getBackingStore()->get('isSsprCapable');
+        $val = $this->getBackingStore()->get('isSsprCapable');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isSsprCapable'");
     }
 
     /**
@@ -104,7 +143,11 @@ class UserRegistrationDetails extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsSsprEnabled(): ?bool {
-        return $this->getBackingStore()->get('isSsprEnabled');
+        $val = $this->getBackingStore()->get('isSsprEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isSsprEnabled'");
     }
 
     /**
@@ -112,15 +155,23 @@ class UserRegistrationDetails extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsSsprRegistered(): ?bool {
-        return $this->getBackingStore()->get('isSsprRegistered');
+        $val = $this->getBackingStore()->get('isSsprRegistered');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isSsprRegistered'");
     }
 
     /**
-     * Gets the isSystemPreferredAuthenticationMethodEnabled property value. The isSystemPreferredAuthenticationMethodEnabled property
+     * Gets the isSystemPreferredAuthenticationMethodEnabled property value. Indicates whether system preferred authentication method is enabled. If enabled, the system dynamically determines the most secure authentication method among the methods registered by the user. Supports $filter (eq).
      * @return bool|null
     */
     public function getIsSystemPreferredAuthenticationMethodEnabled(): ?bool {
-        return $this->getBackingStore()->get('isSystemPreferredAuthenticationMethodEnabled');
+        $val = $this->getBackingStore()->get('isSystemPreferredAuthenticationMethodEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isSystemPreferredAuthenticationMethodEnabled'");
     }
 
     /**
@@ -128,7 +179,11 @@ class UserRegistrationDetails extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastUpdatedDateTime');
+        $val = $this->getBackingStore()->get('lastUpdatedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastUpdatedDateTime'");
     }
 
     /**
@@ -136,15 +191,27 @@ class UserRegistrationDetails extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getMethodsRegistered(): ?array {
-        return $this->getBackingStore()->get('methodsRegistered');
+        $val = $this->getBackingStore()->get('methodsRegistered');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'methodsRegistered'");
     }
 
     /**
-     * Gets the systemPreferredAuthenticationMethods property value. The systemPreferredAuthenticationMethods property
+     * Gets the systemPreferredAuthenticationMethods property value. Collection of authentication methods that the system determined to be the most secure authentication methods among the registered methods for second factor authentication. Possible values are: push, oath, voiceMobile, voiceAlternateMobile, voiceOffice, sms, none, unknownFutureValue. Supports $filter (any with eq).
      * @return array<string>|null
     */
     public function getSystemPreferredAuthenticationMethods(): ?array {
-        return $this->getBackingStore()->get('systemPreferredAuthenticationMethods');
+        $val = $this->getBackingStore()->get('systemPreferredAuthenticationMethods');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'systemPreferredAuthenticationMethods'");
     }
 
     /**
@@ -152,15 +219,23 @@ class UserRegistrationDetails extends Entity implements Parsable
      * @return string|null
     */
     public function getUserDisplayName(): ?string {
-        return $this->getBackingStore()->get('userDisplayName');
+        $val = $this->getBackingStore()->get('userDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userDisplayName'");
     }
 
     /**
-     * Gets the userPreferredMethodForSecondaryAuthentication property value. The userPreferredMethodForSecondaryAuthentication property
+     * Gets the userPreferredMethodForSecondaryAuthentication property value. The method the user selected as the default second-factor for performing multi-factor authentication. Possible values are: push, oath, voiceMobile, voiceAlternateMobile, voiceOffice, sms, none, unknownFutureValue.
      * @return UserDefaultAuthenticationMethod|null
     */
     public function getUserPreferredMethodForSecondaryAuthentication(): ?UserDefaultAuthenticationMethod {
-        return $this->getBackingStore()->get('userPreferredMethodForSecondaryAuthentication');
+        $val = $this->getBackingStore()->get('userPreferredMethodForSecondaryAuthentication');
+        if (is_null($val) || $val instanceof UserDefaultAuthenticationMethod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPreferredMethodForSecondaryAuthentication'");
     }
 
     /**
@@ -168,7 +243,11 @@ class UserRegistrationDetails extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('userPrincipalName');
+        $val = $this->getBackingStore()->get('userPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
     }
 
     /**
@@ -176,7 +255,11 @@ class UserRegistrationDetails extends Entity implements Parsable
      * @return SignInUserType|null
     */
     public function getUserType(): ?SignInUserType {
-        return $this->getBackingStore()->get('userType');
+        $val = $this->getBackingStore()->get('userType');
+        if (is_null($val) || $val instanceof SignInUserType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userType'");
     }
 
     /**
@@ -268,7 +351,7 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
-     * Sets the isSystemPreferredAuthenticationMethodEnabled property value. The isSystemPreferredAuthenticationMethodEnabled property
+     * Sets the isSystemPreferredAuthenticationMethodEnabled property value. Indicates whether system preferred authentication method is enabled. If enabled, the system dynamically determines the most secure authentication method among the methods registered by the user. Supports $filter (eq).
      * @param bool|null $value Value to set for the isSystemPreferredAuthenticationMethodEnabled property.
     */
     public function setIsSystemPreferredAuthenticationMethodEnabled(?bool $value): void {
@@ -292,7 +375,7 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
-     * Sets the systemPreferredAuthenticationMethods property value. The systemPreferredAuthenticationMethods property
+     * Sets the systemPreferredAuthenticationMethods property value. Collection of authentication methods that the system determined to be the most secure authentication methods among the registered methods for second factor authentication. Possible values are: push, oath, voiceMobile, voiceAlternateMobile, voiceOffice, sms, none, unknownFutureValue. Supports $filter (any with eq).
      * @param array<string>|null $value Value to set for the systemPreferredAuthenticationMethods property.
     */
     public function setSystemPreferredAuthenticationMethods(?array $value): void {
@@ -308,7 +391,7 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
-     * Sets the userPreferredMethodForSecondaryAuthentication property value. The userPreferredMethodForSecondaryAuthentication property
+     * Sets the userPreferredMethodForSecondaryAuthentication property value. The method the user selected as the default second-factor for performing multi-factor authentication. Possible values are: push, oath, voiceMobile, voiceAlternateMobile, voiceOffice, sms, none, unknownFutureValue.
      * @param UserDefaultAuthenticationMethod|null $value Value to set for the userPreferredMethodForSecondaryAuthentication property.
     */
     public function setUserPreferredMethodForSecondaryAuthentication(?UserDefaultAuthenticationMethod $value): void {

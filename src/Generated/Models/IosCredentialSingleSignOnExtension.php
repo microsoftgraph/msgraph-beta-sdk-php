@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class IosCredentialSingleSignOnExtension extends IosSingleSignOnExtension implements Parsable 
 {
@@ -30,7 +31,13 @@ class IosCredentialSingleSignOnExtension extends IosSingleSignOnExtension implem
      * @return array<KeyTypedValuePair>|null
     */
     public function getConfigurations(): ?array {
-        return $this->getBackingStore()->get('configurations');
+        $val = $this->getBackingStore()->get('configurations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, KeyTypedValuePair::class);
+            /** @var array<KeyTypedValuePair>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configurations'");
     }
 
     /**
@@ -38,7 +45,13 @@ class IosCredentialSingleSignOnExtension extends IosSingleSignOnExtension implem
      * @return array<string>|null
     */
     public function getDomains(): ?array {
-        return $this->getBackingStore()->get('domains');
+        $val = $this->getBackingStore()->get('domains');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'domains'");
     }
 
     /**
@@ -46,18 +59,29 @@ class IosCredentialSingleSignOnExtension extends IosSingleSignOnExtension implem
      * @return string|null
     */
     public function getExtensionIdentifier(): ?string {
-        return $this->getBackingStore()->get('extensionIdentifier');
+        $val = $this->getBackingStore()->get('extensionIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'extensionIdentifier'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'configurations' => fn(ParseNode $n) => $o->setConfigurations($n->getCollectionOfObjectValues([KeyTypedValuePair::class, 'createFromDiscriminatorValue'])),
-            'domains' => fn(ParseNode $n) => $o->setDomains($n->getCollectionOfPrimitiveValues()),
+            'domains' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDomains($val);
+            },
             'extensionIdentifier' => fn(ParseNode $n) => $o->setExtensionIdentifier($n->getStringValue()),
             'realm' => fn(ParseNode $n) => $o->setRealm($n->getStringValue()),
             'teamIdentifier' => fn(ParseNode $n) => $o->setTeamIdentifier($n->getStringValue()),
@@ -69,7 +93,11 @@ class IosCredentialSingleSignOnExtension extends IosSingleSignOnExtension implem
      * @return string|null
     */
     public function getRealm(): ?string {
-        return $this->getBackingStore()->get('realm');
+        $val = $this->getBackingStore()->get('realm');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'realm'");
     }
 
     /**
@@ -77,7 +105,11 @@ class IosCredentialSingleSignOnExtension extends IosSingleSignOnExtension implem
      * @return string|null
     */
     public function getTeamIdentifier(): ?string {
-        return $this->getBackingStore()->get('teamIdentifier');
+        $val = $this->getBackingStore()->get('teamIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teamIdentifier'");
     }
 
     /**

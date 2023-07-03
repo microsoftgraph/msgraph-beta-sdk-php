@@ -27,7 +27,7 @@ class AndroidForWorkNineWorkEasConfiguration extends AndroidForWorkEasEmailProfi
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -43,7 +43,11 @@ class AndroidForWorkNineWorkEasConfiguration extends AndroidForWorkEasEmailProfi
      * @return bool|null
     */
     public function getSyncCalendar(): ?bool {
-        return $this->getBackingStore()->get('syncCalendar');
+        $val = $this->getBackingStore()->get('syncCalendar');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'syncCalendar'");
     }
 
     /**
@@ -51,7 +55,11 @@ class AndroidForWorkNineWorkEasConfiguration extends AndroidForWorkEasEmailProfi
      * @return bool|null
     */
     public function getSyncContacts(): ?bool {
-        return $this->getBackingStore()->get('syncContacts');
+        $val = $this->getBackingStore()->get('syncContacts');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'syncContacts'");
     }
 
     /**
@@ -59,7 +67,11 @@ class AndroidForWorkNineWorkEasConfiguration extends AndroidForWorkEasEmailProfi
      * @return bool|null
     */
     public function getSyncTasks(): ?bool {
-        return $this->getBackingStore()->get('syncTasks');
+        $val = $this->getBackingStore()->get('syncTasks');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'syncTasks'");
     }
 
     /**

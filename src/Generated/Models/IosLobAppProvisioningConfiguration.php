@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
 /**
@@ -34,7 +35,13 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @return array<IosLobAppProvisioningConfigurationAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->getBackingStore()->get('assignments');
+        $val = $this->getBackingStore()->get('assignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IosLobAppProvisioningConfigurationAssignment::class);
+            /** @var array<IosLobAppProvisioningConfigurationAssignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignments'");
     }
 
     /**
@@ -42,7 +49,11 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -50,7 +61,11 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -58,7 +73,13 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @return array<ManagedDeviceMobileAppConfigurationDeviceStatus>|null
     */
     public function getDeviceStatuses(): ?array {
-        return $this->getBackingStore()->get('deviceStatuses');
+        $val = $this->getBackingStore()->get('deviceStatuses');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagedDeviceMobileAppConfigurationDeviceStatus::class);
+            /** @var array<ManagedDeviceMobileAppConfigurationDeviceStatus>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceStatuses'");
     }
 
     /**
@@ -66,7 +87,11 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -74,12 +99,16 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('expirationDateTime');
+        $val = $this->getBackingStore()->get('expirationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expirationDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -94,7 +123,14 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'payload' => fn(ParseNode $n) => $o->setPayload($n->getBinaryContent()),
             'payloadFileName' => fn(ParseNode $n) => $o->setPayloadFileName($n->getStringValue()),
-            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
+            'roleScopeTagIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoleScopeTagIds($val);
+            },
             'userStatuses' => fn(ParseNode $n) => $o->setUserStatuses($n->getCollectionOfObjectValues([ManagedDeviceMobileAppConfigurationUserStatus::class, 'createFromDiscriminatorValue'])),
             'version' => fn(ParseNode $n) => $o->setVersion($n->getIntegerValue()),
         ]);
@@ -105,7 +141,13 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @return array<MobileAppProvisioningConfigGroupAssignment>|null
     */
     public function getGroupAssignments(): ?array {
-        return $this->getBackingStore()->get('groupAssignments');
+        $val = $this->getBackingStore()->get('groupAssignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MobileAppProvisioningConfigGroupAssignment::class);
+            /** @var array<MobileAppProvisioningConfigGroupAssignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupAssignments'");
     }
 
     /**
@@ -113,7 +155,11 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -121,7 +167,11 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @return StreamInterface|null
     */
     public function getPayload(): ?StreamInterface {
-        return $this->getBackingStore()->get('payload');
+        $val = $this->getBackingStore()->get('payload');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'payload'");
     }
 
     /**
@@ -129,7 +179,11 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @return string|null
     */
     public function getPayloadFileName(): ?string {
-        return $this->getBackingStore()->get('payloadFileName');
+        $val = $this->getBackingStore()->get('payloadFileName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'payloadFileName'");
     }
 
     /**
@@ -137,7 +191,13 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->getBackingStore()->get('roleScopeTagIds');
+        $val = $this->getBackingStore()->get('roleScopeTagIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleScopeTagIds'");
     }
 
     /**
@@ -145,7 +205,13 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @return array<ManagedDeviceMobileAppConfigurationUserStatus>|null
     */
     public function getUserStatuses(): ?array {
-        return $this->getBackingStore()->get('userStatuses');
+        $val = $this->getBackingStore()->get('userStatuses');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagedDeviceMobileAppConfigurationUserStatus::class);
+            /** @var array<ManagedDeviceMobileAppConfigurationUserStatus>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userStatuses'");
     }
 
     /**
@@ -153,7 +219,11 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @return int|null
     */
     public function getVersion(): ?int {
-        return $this->getBackingStore()->get('version');
+        $val = $this->getBackingStore()->get('version');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'version'");
     }
 
     /**

@@ -30,12 +30,16 @@ class DeviceManagementConfigurationStringSettingValueConstantDefaultTemplate ext
      * @return string|null
     */
     public function getConstantValue(): ?string {
-        return $this->getBackingStore()->get('constantValue');
+        $val = $this->getBackingStore()->get('constantValue');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'constantValue'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

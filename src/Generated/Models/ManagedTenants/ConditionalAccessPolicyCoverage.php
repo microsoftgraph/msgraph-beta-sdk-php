@@ -31,12 +31,16 @@ class ConditionalAccessPolicyCoverage extends Entity implements Parsable
      * @return string|null
     */
     public function getConditionalAccessPolicyState(): ?string {
-        return $this->getBackingStore()->get('conditionalAccessPolicyState');
+        $val = $this->getBackingStore()->get('conditionalAccessPolicyState');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'conditionalAccessPolicyState'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -53,7 +57,11 @@ class ConditionalAccessPolicyCoverage extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLatestPolicyModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('latestPolicyModifiedDateTime');
+        $val = $this->getBackingStore()->get('latestPolicyModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'latestPolicyModifiedDateTime'");
     }
 
     /**
@@ -61,7 +69,11 @@ class ConditionalAccessPolicyCoverage extends Entity implements Parsable
      * @return bool|null
     */
     public function getRequiresDeviceCompliance(): ?bool {
-        return $this->getBackingStore()->get('requiresDeviceCompliance');
+        $val = $this->getBackingStore()->get('requiresDeviceCompliance');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requiresDeviceCompliance'");
     }
 
     /**
@@ -69,7 +81,11 @@ class ConditionalAccessPolicyCoverage extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantDisplayName(): ?string {
-        return $this->getBackingStore()->get('tenantDisplayName');
+        $val = $this->getBackingStore()->get('tenantDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantDisplayName'");
     }
 
     /**

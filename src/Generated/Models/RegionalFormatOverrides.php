@@ -39,7 +39,12 @@ class RegionalFormatOverrides implements AdditionalDataHolder, BackedModel, Pars
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -55,12 +60,16 @@ class RegionalFormatOverrides implements AdditionalDataHolder, BackedModel, Pars
      * @return string|null
     */
     public function getCalendar(): ?string {
-        return $this->getBackingStore()->get('calendar');
+        $val = $this->getBackingStore()->get('calendar');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'calendar'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -81,7 +90,11 @@ class RegionalFormatOverrides implements AdditionalDataHolder, BackedModel, Pars
      * @return string|null
     */
     public function getFirstDayOfWeek(): ?string {
-        return $this->getBackingStore()->get('firstDayOfWeek');
+        $val = $this->getBackingStore()->get('firstDayOfWeek');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firstDayOfWeek'");
     }
 
     /**
@@ -89,7 +102,11 @@ class RegionalFormatOverrides implements AdditionalDataHolder, BackedModel, Pars
      * @return string|null
     */
     public function getLongDateFormat(): ?string {
-        return $this->getBackingStore()->get('longDateFormat');
+        $val = $this->getBackingStore()->get('longDateFormat');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'longDateFormat'");
     }
 
     /**
@@ -97,7 +114,11 @@ class RegionalFormatOverrides implements AdditionalDataHolder, BackedModel, Pars
      * @return string|null
     */
     public function getLongTimeFormat(): ?string {
-        return $this->getBackingStore()->get('longTimeFormat');
+        $val = $this->getBackingStore()->get('longTimeFormat');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'longTimeFormat'");
     }
 
     /**
@@ -105,7 +126,11 @@ class RegionalFormatOverrides implements AdditionalDataHolder, BackedModel, Pars
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -113,7 +138,11 @@ class RegionalFormatOverrides implements AdditionalDataHolder, BackedModel, Pars
      * @return string|null
     */
     public function getShortDateFormat(): ?string {
-        return $this->getBackingStore()->get('shortDateFormat');
+        $val = $this->getBackingStore()->get('shortDateFormat');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'shortDateFormat'");
     }
 
     /**
@@ -121,7 +150,11 @@ class RegionalFormatOverrides implements AdditionalDataHolder, BackedModel, Pars
      * @return string|null
     */
     public function getShortTimeFormat(): ?string {
-        return $this->getBackingStore()->get('shortTimeFormat');
+        $val = $this->getBackingStore()->get('shortTimeFormat');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'shortTimeFormat'");
     }
 
     /**
@@ -129,7 +162,11 @@ class RegionalFormatOverrides implements AdditionalDataHolder, BackedModel, Pars
      * @return string|null
     */
     public function getTimeZone(): ?string {
-        return $this->getBackingStore()->get('timeZone');
+        $val = $this->getBackingStore()->get('timeZone');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'timeZone'");
     }
 
     /**

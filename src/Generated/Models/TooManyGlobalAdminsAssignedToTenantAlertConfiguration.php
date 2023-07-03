@@ -27,7 +27,7 @@ class TooManyGlobalAdminsAssignedToTenantAlertConfiguration extends UnifiedRoleM
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -38,19 +38,27 @@ class TooManyGlobalAdminsAssignedToTenantAlertConfiguration extends UnifiedRoleM
     }
 
     /**
-     * Gets the globalAdminCountThreshold property value. The globalAdminCountThreshold property
+     * Gets the globalAdminCountThreshold property value. The threshold for the number of accounts assigned the Global Administrator role in the tenant. Triggers an alert if the number of global administrators in the tenant reaches or crosses this threshold value.
      * @return int|null
     */
     public function getGlobalAdminCountThreshold(): ?int {
-        return $this->getBackingStore()->get('globalAdminCountThreshold');
+        $val = $this->getBackingStore()->get('globalAdminCountThreshold');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'globalAdminCountThreshold'");
     }
 
     /**
-     * Gets the percentageOfGlobalAdminsOutOfRolesThreshold property value. The percentageOfGlobalAdminsOutOfRolesThreshold property
+     * Gets the percentageOfGlobalAdminsOutOfRolesThreshold property value. Threshold of the percentage of global administrators out of all the role assignments in the tenant. Triggers an alert if the percentage in the tenant reaches or crosses this threshold value.
      * @return int|null
     */
     public function getPercentageOfGlobalAdminsOutOfRolesThreshold(): ?int {
-        return $this->getBackingStore()->get('percentageOfGlobalAdminsOutOfRolesThreshold');
+        $val = $this->getBackingStore()->get('percentageOfGlobalAdminsOutOfRolesThreshold');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'percentageOfGlobalAdminsOutOfRolesThreshold'");
     }
 
     /**
@@ -64,7 +72,7 @@ class TooManyGlobalAdminsAssignedToTenantAlertConfiguration extends UnifiedRoleM
     }
 
     /**
-     * Sets the globalAdminCountThreshold property value. The globalAdminCountThreshold property
+     * Sets the globalAdminCountThreshold property value. The threshold for the number of accounts assigned the Global Administrator role in the tenant. Triggers an alert if the number of global administrators in the tenant reaches or crosses this threshold value.
      * @param int|null $value Value to set for the globalAdminCountThreshold property.
     */
     public function setGlobalAdminCountThreshold(?int $value): void {
@@ -72,7 +80,7 @@ class TooManyGlobalAdminsAssignedToTenantAlertConfiguration extends UnifiedRoleM
     }
 
     /**
-     * Sets the percentageOfGlobalAdminsOutOfRolesThreshold property value. The percentageOfGlobalAdminsOutOfRolesThreshold property
+     * Sets the percentageOfGlobalAdminsOutOfRolesThreshold property value. Threshold of the percentage of global administrators out of all the role assignments in the tenant. Triggers an alert if the percentage in the tenant reaches or crosses this threshold value.
      * @param int|null $value Value to set for the percentageOfGlobalAdminsOutOfRolesThreshold property.
     */
     public function setPercentageOfGlobalAdminsOutOfRolesThreshold(?int $value): void {

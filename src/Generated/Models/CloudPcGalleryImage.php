@@ -30,7 +30,11 @@ class CloudPcGalleryImage extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -38,7 +42,11 @@ class CloudPcGalleryImage extends Entity implements Parsable
      * @return Date|null
     */
     public function getEndDate(): ?Date {
-        return $this->getBackingStore()->get('endDate');
+        $val = $this->getBackingStore()->get('endDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endDate'");
     }
 
     /**
@@ -46,12 +54,16 @@ class CloudPcGalleryImage extends Entity implements Parsable
      * @return Date|null
     */
     public function getExpirationDate(): ?Date {
-        return $this->getBackingStore()->get('expirationDate');
+        $val = $this->getBackingStore()->get('expirationDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expirationDate'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -76,7 +88,11 @@ class CloudPcGalleryImage extends Entity implements Parsable
      * @return string|null
     */
     public function getOffer(): ?string {
-        return $this->getBackingStore()->get('offer');
+        $val = $this->getBackingStore()->get('offer');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'offer'");
     }
 
     /**
@@ -84,7 +100,11 @@ class CloudPcGalleryImage extends Entity implements Parsable
      * @return string|null
     */
     public function getOfferDisplayName(): ?string {
-        return $this->getBackingStore()->get('offerDisplayName');
+        $val = $this->getBackingStore()->get('offerDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'offerDisplayName'");
     }
 
     /**
@@ -92,7 +112,11 @@ class CloudPcGalleryImage extends Entity implements Parsable
      * @return string|null
     */
     public function getPublisher(): ?string {
-        return $this->getBackingStore()->get('publisher');
+        $val = $this->getBackingStore()->get('publisher');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publisher'");
     }
 
     /**
@@ -100,7 +124,11 @@ class CloudPcGalleryImage extends Entity implements Parsable
      * @return string|null
     */
     public function getRecommendedSku(): ?string {
-        return $this->getBackingStore()->get('recommendedSku');
+        $val = $this->getBackingStore()->get('recommendedSku');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recommendedSku'");
     }
 
     /**
@@ -108,7 +136,11 @@ class CloudPcGalleryImage extends Entity implements Parsable
      * @return int|null
     */
     public function getSizeInGB(): ?int {
-        return $this->getBackingStore()->get('sizeInGB');
+        $val = $this->getBackingStore()->get('sizeInGB');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sizeInGB'");
     }
 
     /**
@@ -116,7 +148,11 @@ class CloudPcGalleryImage extends Entity implements Parsable
      * @return string|null
     */
     public function getSku(): ?string {
-        return $this->getBackingStore()->get('sku');
+        $val = $this->getBackingStore()->get('sku');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sku'");
     }
 
     /**
@@ -124,7 +160,11 @@ class CloudPcGalleryImage extends Entity implements Parsable
      * @return string|null
     */
     public function getSkuDisplayName(): ?string {
-        return $this->getBackingStore()->get('skuDisplayName');
+        $val = $this->getBackingStore()->get('skuDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'skuDisplayName'");
     }
 
     /**
@@ -132,7 +172,11 @@ class CloudPcGalleryImage extends Entity implements Parsable
      * @return Date|null
     */
     public function getStartDate(): ?Date {
-        return $this->getBackingStore()->get('startDate');
+        $val = $this->getBackingStore()->get('startDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startDate'");
     }
 
     /**
@@ -140,7 +184,11 @@ class CloudPcGalleryImage extends Entity implements Parsable
      * @return CloudPcGalleryImageStatus|null
     */
     public function getStatus(): ?CloudPcGalleryImageStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof CloudPcGalleryImageStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**

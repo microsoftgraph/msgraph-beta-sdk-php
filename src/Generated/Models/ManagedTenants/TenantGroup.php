@@ -6,6 +6,7 @@ use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class TenantGroup extends Entity implements Parsable 
 {
@@ -30,7 +31,11 @@ class TenantGroup extends Entity implements Parsable
      * @return bool|null
     */
     public function getAllTenantsIncluded(): ?bool {
-        return $this->getBackingStore()->get('allTenantsIncluded');
+        $val = $this->getBackingStore()->get('allTenantsIncluded');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allTenantsIncluded'");
     }
 
     /**
@@ -38,12 +43,16 @@ class TenantGroup extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -52,7 +61,14 @@ class TenantGroup extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'managementActions' => fn(ParseNode $n) => $o->setManagementActions($n->getCollectionOfObjectValues([ManagementActionInfo::class, 'createFromDiscriminatorValue'])),
             'managementIntents' => fn(ParseNode $n) => $o->setManagementIntents($n->getCollectionOfObjectValues([ManagementIntentInfo::class, 'createFromDiscriminatorValue'])),
-            'tenantIds' => fn(ParseNode $n) => $o->setTenantIds($n->getCollectionOfPrimitiveValues()),
+            'tenantIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setTenantIds($val);
+            },
         ]);
     }
 
@@ -61,7 +77,13 @@ class TenantGroup extends Entity implements Parsable
      * @return array<ManagementActionInfo>|null
     */
     public function getManagementActions(): ?array {
-        return $this->getBackingStore()->get('managementActions');
+        $val = $this->getBackingStore()->get('managementActions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagementActionInfo::class);
+            /** @var array<ManagementActionInfo>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managementActions'");
     }
 
     /**
@@ -69,7 +91,13 @@ class TenantGroup extends Entity implements Parsable
      * @return array<ManagementIntentInfo>|null
     */
     public function getManagementIntents(): ?array {
-        return $this->getBackingStore()->get('managementIntents');
+        $val = $this->getBackingStore()->get('managementIntents');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagementIntentInfo::class);
+            /** @var array<ManagementIntentInfo>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managementIntents'");
     }
 
     /**
@@ -77,7 +105,13 @@ class TenantGroup extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getTenantIds(): ?array {
-        return $this->getBackingStore()->get('tenantIds');
+        $val = $this->getBackingStore()->get('tenantIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantIds'");
     }
 
     /**

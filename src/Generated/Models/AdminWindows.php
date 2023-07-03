@@ -26,7 +26,7 @@ class AdminWindows extends Entity implements Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -40,7 +40,11 @@ class AdminWindows extends Entity implements Parsable
      * @return AdminWindowsUpdates|null
     */
     public function getUpdates(): ?AdminWindowsUpdates {
-        return $this->getBackingStore()->get('updates');
+        $val = $this->getBackingStore()->get('updates');
+        if (is_null($val) || $val instanceof AdminWindowsUpdates) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'updates'");
     }
 
     /**

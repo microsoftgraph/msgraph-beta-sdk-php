@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Enrollment Profile used to enroll COSU devices using Google's Cloud Management.
+*/
 class AndroidForWorkEnrollmentProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AndroidForWorkEnrollmentProfile and sets the default values.
+     * Instantiates a new androidForWorkEnrollmentProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -30,7 +33,11 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getAccountId(): ?string {
-        return $this->getBackingStore()->get('accountId');
+        $val = $this->getBackingStore()->get('accountId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accountId'");
     }
 
     /**
@@ -38,7 +45,11 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -46,7 +57,11 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->getBackingStore()->get('description');
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
     }
 
     /**
@@ -54,7 +69,11 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -62,12 +81,16 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
      * @return int|null
     */
     public function getEnrolledDeviceCount(): ?int {
-        return $this->getBackingStore()->get('enrolledDeviceCount');
+        $val = $this->getBackingStore()->get('enrolledDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrolledDeviceCount'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -90,7 +113,11 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -98,7 +125,11 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getQrCodeContent(): ?string {
-        return $this->getBackingStore()->get('qrCodeContent');
+        $val = $this->getBackingStore()->get('qrCodeContent');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'qrCodeContent'");
     }
 
     /**
@@ -106,7 +137,11 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
      * @return MimeContent|null
     */
     public function getQrCodeImage(): ?MimeContent {
-        return $this->getBackingStore()->get('qrCodeImage');
+        $val = $this->getBackingStore()->get('qrCodeImage');
+        if (is_null($val) || $val instanceof MimeContent) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'qrCodeImage'");
     }
 
     /**
@@ -114,7 +149,11 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getTokenExpirationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('tokenExpirationDateTime');
+        $val = $this->getBackingStore()->get('tokenExpirationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tokenExpirationDateTime'");
     }
 
     /**
@@ -122,7 +161,11 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getTokenValue(): ?string {
-        return $this->getBackingStore()->get('tokenValue');
+        $val = $this->getBackingStore()->get('tokenValue');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tokenValue'");
     }
 
     /**

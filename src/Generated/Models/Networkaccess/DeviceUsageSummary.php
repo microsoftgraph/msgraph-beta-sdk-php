@@ -39,7 +39,11 @@ class DeviceUsageSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getActiveDeviceCount(): ?int {
-        return $this->getBackingStore()->get('activeDeviceCount');
+        $val = $this->getBackingStore()->get('activeDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activeDeviceCount'");
     }
 
     /**
@@ -47,7 +51,12 @@ class DeviceUsageSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -60,7 +69,7 @@ class DeviceUsageSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -77,7 +86,11 @@ class DeviceUsageSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getInactiveDeviceCount(): ?int {
-        return $this->getBackingStore()->get('inactiveDeviceCount');
+        $val = $this->getBackingStore()->get('inactiveDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inactiveDeviceCount'");
     }
 
     /**
@@ -85,7 +98,11 @@ class DeviceUsageSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -93,7 +110,11 @@ class DeviceUsageSummary implements AdditionalDataHolder, BackedModel, Parsable
      * @return int|null
     */
     public function getTotalDeviceCount(): ?int {
-        return $this->getBackingStore()->get('totalDeviceCount');
+        $val = $this->getBackingStore()->get('totalDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalDeviceCount'");
     }
 
     /**

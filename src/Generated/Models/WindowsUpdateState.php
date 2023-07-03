@@ -30,7 +30,11 @@ class WindowsUpdateState extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceDisplayName(): ?string {
-        return $this->getBackingStore()->get('deviceDisplayName');
+        $val = $this->getBackingStore()->get('deviceDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceDisplayName'");
     }
 
     /**
@@ -38,7 +42,11 @@ class WindowsUpdateState extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->getBackingStore()->get('deviceId');
+        $val = $this->getBackingStore()->get('deviceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceId'");
     }
 
     /**
@@ -46,12 +54,16 @@ class WindowsUpdateState extends Entity implements Parsable
      * @return string|null
     */
     public function getFeatureUpdateVersion(): ?string {
-        return $this->getBackingStore()->get('featureUpdateVersion');
+        $val = $this->getBackingStore()->get('featureUpdateVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'featureUpdateVersion'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -73,7 +85,11 @@ class WindowsUpdateState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastScanDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastScanDateTime');
+        $val = $this->getBackingStore()->get('lastScanDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastScanDateTime'");
     }
 
     /**
@@ -81,7 +97,11 @@ class WindowsUpdateState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastSyncDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastSyncDateTime');
+        $val = $this->getBackingStore()->get('lastSyncDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSyncDateTime'");
     }
 
     /**
@@ -89,7 +109,11 @@ class WindowsUpdateState extends Entity implements Parsable
      * @return string|null
     */
     public function getQualityUpdateVersion(): ?string {
-        return $this->getBackingStore()->get('qualityUpdateVersion');
+        $val = $this->getBackingStore()->get('qualityUpdateVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'qualityUpdateVersion'");
     }
 
     /**
@@ -97,7 +121,11 @@ class WindowsUpdateState extends Entity implements Parsable
      * @return WindowsUpdateStatus|null
     */
     public function getStatus(): ?WindowsUpdateStatus {
-        return $this->getBackingStore()->get('status');
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof WindowsUpdateStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**
@@ -105,7 +133,11 @@ class WindowsUpdateState extends Entity implements Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->getBackingStore()->get('userId');
+        $val = $this->getBackingStore()->get('userId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
     }
 
     /**
@@ -113,7 +145,11 @@ class WindowsUpdateState extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->getBackingStore()->get('userPrincipalName');
+        $val = $this->getBackingStore()->get('userPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
     }
 
     /**

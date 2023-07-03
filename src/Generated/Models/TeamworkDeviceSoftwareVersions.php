@@ -39,7 +39,12 @@ class TeamworkDeviceSoftwareVersions implements AdditionalDataHolder, BackedMode
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -47,7 +52,11 @@ class TeamworkDeviceSoftwareVersions implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getAdminAgentSoftwareVersion(): ?string {
-        return $this->getBackingStore()->get('adminAgentSoftwareVersion');
+        $val = $this->getBackingStore()->get('adminAgentSoftwareVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'adminAgentSoftwareVersion'");
     }
 
     /**
@@ -60,7 +69,7 @@ class TeamworkDeviceSoftwareVersions implements AdditionalDataHolder, BackedMode
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -79,7 +88,11 @@ class TeamworkDeviceSoftwareVersions implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getFirmwareSoftwareVersion(): ?string {
-        return $this->getBackingStore()->get('firmwareSoftwareVersion');
+        $val = $this->getBackingStore()->get('firmwareSoftwareVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firmwareSoftwareVersion'");
     }
 
     /**
@@ -87,7 +100,11 @@ class TeamworkDeviceSoftwareVersions implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -95,7 +112,11 @@ class TeamworkDeviceSoftwareVersions implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getOperatingSystemSoftwareVersion(): ?string {
-        return $this->getBackingStore()->get('operatingSystemSoftwareVersion');
+        $val = $this->getBackingStore()->get('operatingSystemSoftwareVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'operatingSystemSoftwareVersion'");
     }
 
     /**
@@ -103,7 +124,11 @@ class TeamworkDeviceSoftwareVersions implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getPartnerAgentSoftwareVersion(): ?string {
-        return $this->getBackingStore()->get('partnerAgentSoftwareVersion');
+        $val = $this->getBackingStore()->get('partnerAgentSoftwareVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'partnerAgentSoftwareVersion'");
     }
 
     /**
@@ -111,7 +136,11 @@ class TeamworkDeviceSoftwareVersions implements AdditionalDataHolder, BackedMode
      * @return string|null
     */
     public function getTeamsClientSoftwareVersion(): ?string {
-        return $this->getBackingStore()->get('teamsClientSoftwareVersion');
+        $val = $this->getBackingStore()->get('teamsClientSoftwareVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teamsClientSoftwareVersion'");
     }
 
     /**

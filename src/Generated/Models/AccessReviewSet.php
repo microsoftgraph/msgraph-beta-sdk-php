@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AccessReviewSet extends Entity implements Parsable 
 {
@@ -29,7 +30,13 @@ class AccessReviewSet extends Entity implements Parsable
      * @return array<AccessReviewInstanceDecisionItem>|null
     */
     public function getDecisions(): ?array {
-        return $this->getBackingStore()->get('decisions');
+        $val = $this->getBackingStore()->get('decisions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AccessReviewInstanceDecisionItem::class);
+            /** @var array<AccessReviewInstanceDecisionItem>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'decisions'");
     }
 
     /**
@@ -37,12 +44,18 @@ class AccessReviewSet extends Entity implements Parsable
      * @return array<AccessReviewScheduleDefinition>|null
     */
     public function getDefinitions(): ?array {
-        return $this->getBackingStore()->get('definitions');
+        $val = $this->getBackingStore()->get('definitions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AccessReviewScheduleDefinition::class);
+            /** @var array<AccessReviewScheduleDefinition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'definitions'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -59,7 +72,13 @@ class AccessReviewSet extends Entity implements Parsable
      * @return array<AccessReviewHistoryDefinition>|null
     */
     public function getHistoryDefinitions(): ?array {
-        return $this->getBackingStore()->get('historyDefinitions');
+        $val = $this->getBackingStore()->get('historyDefinitions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AccessReviewHistoryDefinition::class);
+            /** @var array<AccessReviewHistoryDefinition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'historyDefinitions'");
     }
 
     /**
@@ -67,7 +86,11 @@ class AccessReviewSet extends Entity implements Parsable
      * @return AccessReviewPolicy|null
     */
     public function getPolicy(): ?AccessReviewPolicy {
-        return $this->getBackingStore()->get('policy');
+        $val = $this->getBackingStore()->get('policy');
+        if (is_null($val) || $val instanceof AccessReviewPolicy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policy'");
     }
 
     /**

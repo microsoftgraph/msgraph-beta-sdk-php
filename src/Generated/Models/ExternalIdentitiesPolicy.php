@@ -30,7 +30,11 @@ class ExternalIdentitiesPolicy extends PolicyBase implements Parsable
      * @return bool|null
     */
     public function getAllowDeletedIdentitiesDataRemoval(): ?bool {
-        return $this->getBackingStore()->get('allowDeletedIdentitiesDataRemoval');
+        $val = $this->getBackingStore()->get('allowDeletedIdentitiesDataRemoval');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowDeletedIdentitiesDataRemoval'");
     }
 
     /**
@@ -38,12 +42,16 @@ class ExternalIdentitiesPolicy extends PolicyBase implements Parsable
      * @return bool|null
     */
     public function getAllowExternalIdentitiesToLeave(): ?bool {
-        return $this->getBackingStore()->get('allowExternalIdentitiesToLeave');
+        $val = $this->getBackingStore()->get('allowExternalIdentitiesToLeave');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowExternalIdentitiesToLeave'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

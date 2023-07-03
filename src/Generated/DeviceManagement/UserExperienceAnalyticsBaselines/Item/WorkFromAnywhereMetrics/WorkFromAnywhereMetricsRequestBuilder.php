@@ -32,7 +32,7 @@ class WorkFromAnywhereMetricsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The user experience analytics work from anywhere metrics.
+     * The scores and insights for the work from anywhere metrics.
      * @param WorkFromAnywhereMetricsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -50,7 +50,7 @@ class WorkFromAnywhereMetricsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The user experience analytics work from anywhere metrics.
+     * The scores and insights for the work from anywhere metrics.
      * @param WorkFromAnywhereMetricsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

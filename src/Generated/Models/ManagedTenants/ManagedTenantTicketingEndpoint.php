@@ -31,7 +31,11 @@ class ManagedTenantTicketingEndpoint extends Entity implements Parsable
      * @return string|null
     */
     public function getCreatedByUserId(): ?string {
-        return $this->getBackingStore()->get('createdByUserId');
+        $val = $this->getBackingStore()->get('createdByUserId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdByUserId'");
     }
 
     /**
@@ -39,7 +43,11 @@ class ManagedTenantTicketingEndpoint extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -47,7 +55,11 @@ class ManagedTenantTicketingEndpoint extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -55,12 +67,16 @@ class ManagedTenantTicketingEndpoint extends Entity implements Parsable
      * @return string|null
     */
     public function getEmailAddress(): ?string {
-        return $this->getBackingStore()->get('emailAddress');
+        $val = $this->getBackingStore()->get('emailAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'emailAddress'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -80,7 +96,11 @@ class ManagedTenantTicketingEndpoint extends Entity implements Parsable
      * @return string|null
     */
     public function getLastActionByUserId(): ?string {
-        return $this->getBackingStore()->get('lastActionByUserId');
+        $val = $this->getBackingStore()->get('lastActionByUserId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastActionByUserId'");
     }
 
     /**
@@ -88,7 +108,11 @@ class ManagedTenantTicketingEndpoint extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastActionDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastActionDateTime');
+        $val = $this->getBackingStore()->get('lastActionDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastActionDateTime'");
     }
 
     /**
@@ -96,7 +120,11 @@ class ManagedTenantTicketingEndpoint extends Entity implements Parsable
      * @return string|null
     */
     public function getPhoneNumber(): ?string {
-        return $this->getBackingStore()->get('phoneNumber');
+        $val = $this->getBackingStore()->get('phoneNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'phoneNumber'");
     }
 
     /**

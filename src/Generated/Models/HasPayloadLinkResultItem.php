@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * A class containing the result of HasPayloadLinks action.
@@ -42,7 +43,12 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, BackedModel, Par
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -58,12 +64,16 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, BackedModel, Par
      * @return string|null
     */
     public function getError(): ?string {
-        return $this->getBackingStore()->get('error');
+        $val = $this->getBackingStore()->get('error');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'error'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -81,7 +91,11 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, BackedModel, Par
      * @return bool|null
     */
     public function getHasLink(): ?bool {
-        return $this->getBackingStore()->get('hasLink');
+        $val = $this->getBackingStore()->get('hasLink');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hasLink'");
     }
 
     /**
@@ -89,7 +103,11 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, BackedModel, Par
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -97,7 +115,11 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, BackedModel, Par
      * @return string|null
     */
     public function getPayloadId(): ?string {
-        return $this->getBackingStore()->get('payloadId');
+        $val = $this->getBackingStore()->get('payloadId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'payloadId'");
     }
 
     /**
@@ -105,7 +127,13 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, BackedModel, Par
      * @return array<DeviceAndAppManagementAssignmentSource>|null
     */
     public function getSources(): ?array {
-        return $this->getBackingStore()->get('sources');
+        $val = $this->getBackingStore()->get('sources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceAndAppManagementAssignmentSource::class);
+            /** @var array<DeviceAndAppManagementAssignmentSource>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sources'");
     }
 
     /**

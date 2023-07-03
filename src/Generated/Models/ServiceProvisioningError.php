@@ -48,7 +48,12 @@ class ServiceProvisioningError implements AdditionalDataHolder, BackedModel, Par
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -64,12 +69,16 @@ class ServiceProvisioningError implements AdditionalDataHolder, BackedModel, Par
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -86,7 +95,11 @@ class ServiceProvisioningError implements AdditionalDataHolder, BackedModel, Par
      * @return bool|null
     */
     public function getIsResolved(): ?bool {
-        return $this->getBackingStore()->get('isResolved');
+        $val = $this->getBackingStore()->get('isResolved');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isResolved'");
     }
 
     /**
@@ -94,7 +107,11 @@ class ServiceProvisioningError implements AdditionalDataHolder, BackedModel, Par
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -102,7 +119,11 @@ class ServiceProvisioningError implements AdditionalDataHolder, BackedModel, Par
      * @return string|null
     */
     public function getServiceInstance(): ?string {
-        return $this->getBackingStore()->get('serviceInstance');
+        $val = $this->getBackingStore()->get('serviceInstance');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'serviceInstance'");
     }
 
     /**

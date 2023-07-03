@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class NetworkLocationDetail implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -39,7 +40,12 @@ class NetworkLocationDetail implements AdditionalDataHolder, BackedModel, Parsab
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -52,12 +58,19 @@ class NetworkLocationDetail implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'networkNames' => fn(ParseNode $n) => $o->setNetworkNames($n->getCollectionOfPrimitiveValues()),
+            'networkNames' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setNetworkNames($val);
+            },
             'networkType' => fn(ParseNode $n) => $o->setNetworkType($n->getEnumValue(NetworkType::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
@@ -68,7 +81,13 @@ class NetworkLocationDetail implements AdditionalDataHolder, BackedModel, Parsab
      * @return array<string>|null
     */
     public function getNetworkNames(): ?array {
-        return $this->getBackingStore()->get('networkNames');
+        $val = $this->getBackingStore()->get('networkNames');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkNames'");
     }
 
     /**
@@ -76,7 +95,11 @@ class NetworkLocationDetail implements AdditionalDataHolder, BackedModel, Parsab
      * @return NetworkType|null
     */
     public function getNetworkType(): ?NetworkType {
-        return $this->getBackingStore()->get('networkType');
+        $val = $this->getBackingStore()->get('networkType');
+        if (is_null($val) || $val instanceof NetworkType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkType'");
     }
 
     /**
@@ -84,7 +107,11 @@ class NetworkLocationDetail implements AdditionalDataHolder, BackedModel, Parsab
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

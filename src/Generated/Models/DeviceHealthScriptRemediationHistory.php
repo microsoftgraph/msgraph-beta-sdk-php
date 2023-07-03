@@ -10,6 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * The number of devices remediated by a device health script on a given date with the last modified time.
@@ -43,7 +44,12 @@ class DeviceHealthScriptRemediationHistory implements AdditionalDataHolder, Back
      * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
-        return $this->getBackingStore()->get('additionalData');
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -56,7 +62,7 @@ class DeviceHealthScriptRemediationHistory implements AdditionalDataHolder, Back
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -72,7 +78,13 @@ class DeviceHealthScriptRemediationHistory implements AdditionalDataHolder, Back
      * @return array<DeviceHealthScriptRemediationHistoryData>|null
     */
     public function getHistoryData(): ?array {
-        return $this->getBackingStore()->get('historyData');
+        $val = $this->getBackingStore()->get('historyData');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceHealthScriptRemediationHistoryData::class);
+            /** @var array<DeviceHealthScriptRemediationHistoryData>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'historyData'");
     }
 
     /**
@@ -80,7 +92,11 @@ class DeviceHealthScriptRemediationHistory implements AdditionalDataHolder, Back
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -88,7 +104,11 @@ class DeviceHealthScriptRemediationHistory implements AdditionalDataHolder, Back
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**

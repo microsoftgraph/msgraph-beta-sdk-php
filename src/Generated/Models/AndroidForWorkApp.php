@@ -30,7 +30,11 @@ class AndroidForWorkApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getAppIdentifier(): ?string {
-        return $this->getBackingStore()->get('appIdentifier');
+        $val = $this->getBackingStore()->get('appIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appIdentifier'");
     }
 
     /**
@@ -38,12 +42,16 @@ class AndroidForWorkApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getAppStoreUrl(): ?string {
-        return $this->getBackingStore()->get('appStoreUrl');
+        $val = $this->getBackingStore()->get('appStoreUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appStoreUrl'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -61,7 +69,11 @@ class AndroidForWorkApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getPackageId(): ?string {
-        return $this->getBackingStore()->get('packageId');
+        $val = $this->getBackingStore()->get('packageId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'packageId'");
     }
 
     /**
@@ -69,7 +81,11 @@ class AndroidForWorkApp extends MobileApp implements Parsable
      * @return int|null
     */
     public function getTotalLicenseCount(): ?int {
-        return $this->getBackingStore()->get('totalLicenseCount');
+        $val = $this->getBackingStore()->get('totalLicenseCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalLicenseCount'");
     }
 
     /**
@@ -77,7 +93,11 @@ class AndroidForWorkApp extends MobileApp implements Parsable
      * @return int|null
     */
     public function getUsedLicenseCount(): ?int {
-        return $this->getBackingStore()->get('usedLicenseCount');
+        $val = $this->getBackingStore()->get('usedLicenseCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'usedLicenseCount'");
     }
 
     /**

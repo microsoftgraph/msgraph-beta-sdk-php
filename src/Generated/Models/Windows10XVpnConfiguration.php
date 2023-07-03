@@ -31,7 +31,11 @@ class Windows10XVpnConfiguration extends DeviceManagementResourceAccessProfileBa
      * @return string|null
     */
     public function getAuthenticationCertificateId(): ?string {
-        return $this->getBackingStore()->get('authenticationCertificateId');
+        $val = $this->getBackingStore()->get('authenticationCertificateId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationCertificateId'");
     }
 
     /**
@@ -39,7 +43,11 @@ class Windows10XVpnConfiguration extends DeviceManagementResourceAccessProfileBa
      * @return StreamInterface|null
     */
     public function getCustomXml(): ?StreamInterface {
-        return $this->getBackingStore()->get('customXml');
+        $val = $this->getBackingStore()->get('customXml');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customXml'");
     }
 
     /**
@@ -47,12 +55,16 @@ class Windows10XVpnConfiguration extends DeviceManagementResourceAccessProfileBa
      * @return string|null
     */
     public function getCustomXmlFileName(): ?string {
-        return $this->getBackingStore()->get('customXmlFileName');
+        $val = $this->getBackingStore()->get('customXmlFileName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customXmlFileName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;

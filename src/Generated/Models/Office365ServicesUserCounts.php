@@ -30,7 +30,11 @@ class Office365ServicesUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getExchangeActive(): ?int {
-        return $this->getBackingStore()->get('exchangeActive');
+        $val = $this->getBackingStore()->get('exchangeActive');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exchangeActive'");
     }
 
     /**
@@ -38,12 +42,16 @@ class Office365ServicesUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getExchangeInactive(): ?int {
-        return $this->getBackingStore()->get('exchangeInactive');
+        $val = $this->getBackingStore()->get('exchangeInactive');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exchangeInactive'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -72,7 +80,11 @@ class Office365ServicesUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getOffice365Active(): ?int {
-        return $this->getBackingStore()->get('office365Active');
+        $val = $this->getBackingStore()->get('office365Active');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'office365Active'");
     }
 
     /**
@@ -80,7 +92,11 @@ class Office365ServicesUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getOffice365Inactive(): ?int {
-        return $this->getBackingStore()->get('office365Inactive');
+        $val = $this->getBackingStore()->get('office365Inactive');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'office365Inactive'");
     }
 
     /**
@@ -88,7 +104,11 @@ class Office365ServicesUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getOneDriveActive(): ?int {
-        return $this->getBackingStore()->get('oneDriveActive');
+        $val = $this->getBackingStore()->get('oneDriveActive');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'oneDriveActive'");
     }
 
     /**
@@ -96,7 +116,11 @@ class Office365ServicesUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getOneDriveInactive(): ?int {
-        return $this->getBackingStore()->get('oneDriveInactive');
+        $val = $this->getBackingStore()->get('oneDriveInactive');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'oneDriveInactive'");
     }
 
     /**
@@ -104,7 +128,11 @@ class Office365ServicesUserCounts extends Entity implements Parsable
      * @return string|null
     */
     public function getReportPeriod(): ?string {
-        return $this->getBackingStore()->get('reportPeriod');
+        $val = $this->getBackingStore()->get('reportPeriod');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reportPeriod'");
     }
 
     /**
@@ -112,7 +140,11 @@ class Office365ServicesUserCounts extends Entity implements Parsable
      * @return Date|null
     */
     public function getReportRefreshDate(): ?Date {
-        return $this->getBackingStore()->get('reportRefreshDate');
+        $val = $this->getBackingStore()->get('reportRefreshDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reportRefreshDate'");
     }
 
     /**
@@ -120,7 +152,11 @@ class Office365ServicesUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getSharePointActive(): ?int {
-        return $this->getBackingStore()->get('sharePointActive');
+        $val = $this->getBackingStore()->get('sharePointActive');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sharePointActive'");
     }
 
     /**
@@ -128,7 +164,11 @@ class Office365ServicesUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getSharePointInactive(): ?int {
-        return $this->getBackingStore()->get('sharePointInactive');
+        $val = $this->getBackingStore()->get('sharePointInactive');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sharePointInactive'");
     }
 
     /**
@@ -136,7 +176,11 @@ class Office365ServicesUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getSkypeForBusinessActive(): ?int {
-        return $this->getBackingStore()->get('skypeForBusinessActive');
+        $val = $this->getBackingStore()->get('skypeForBusinessActive');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'skypeForBusinessActive'");
     }
 
     /**
@@ -144,7 +188,11 @@ class Office365ServicesUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getSkypeForBusinessInactive(): ?int {
-        return $this->getBackingStore()->get('skypeForBusinessInactive');
+        $val = $this->getBackingStore()->get('skypeForBusinessInactive');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'skypeForBusinessInactive'");
     }
 
     /**
@@ -152,7 +200,11 @@ class Office365ServicesUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getTeamsActive(): ?int {
-        return $this->getBackingStore()->get('teamsActive');
+        $val = $this->getBackingStore()->get('teamsActive');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teamsActive'");
     }
 
     /**
@@ -160,7 +212,11 @@ class Office365ServicesUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getTeamsInactive(): ?int {
-        return $this->getBackingStore()->get('teamsInactive');
+        $val = $this->getBackingStore()->get('teamsInactive');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teamsInactive'");
     }
 
     /**
@@ -168,7 +224,11 @@ class Office365ServicesUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getYammerActive(): ?int {
-        return $this->getBackingStore()->get('yammerActive');
+        $val = $this->getBackingStore()->get('yammerActive');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'yammerActive'");
     }
 
     /**
@@ -176,7 +236,11 @@ class Office365ServicesUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getYammerInactive(): ?int {
-        return $this->getBackingStore()->get('yammerInactive');
+        $val = $this->getBackingStore()->get('yammerInactive');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'yammerInactive'");
     }
 
     /**

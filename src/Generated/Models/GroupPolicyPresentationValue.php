@@ -45,7 +45,11 @@ class GroupPolicyPresentationValue extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('createdDateTime');
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -53,12 +57,16 @@ class GroupPolicyPresentationValue extends Entity implements Parsable
      * @return GroupPolicyDefinitionValue|null
     */
     public function getDefinitionValue(): ?GroupPolicyDefinitionValue {
-        return $this->getBackingStore()->get('definitionValue');
+        $val = $this->getBackingStore()->get('definitionValue');
+        if (is_null($val) || $val instanceof GroupPolicyDefinitionValue) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'definitionValue'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -75,7 +83,11 @@ class GroupPolicyPresentationValue extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('lastModifiedDateTime');
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -83,7 +95,11 @@ class GroupPolicyPresentationValue extends Entity implements Parsable
      * @return GroupPolicyPresentation|null
     */
     public function getPresentation(): ?GroupPolicyPresentation {
-        return $this->getBackingStore()->get('presentation');
+        $val = $this->getBackingStore()->get('presentation');
+        if (is_null($val) || $val instanceof GroupPolicyPresentation) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'presentation'");
     }
 
     /**

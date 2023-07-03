@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\RoleManagementAlerts
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get alertConfigurations from identityGovernance
+ * Get a list of the alert configurations. The alert configurations are a collection of following types that are derived from the unifiedRoleManagementAlertConfiguration object:
 */
 class AlertConfigurationsRequestBuilderGetQueryParameters 
 {

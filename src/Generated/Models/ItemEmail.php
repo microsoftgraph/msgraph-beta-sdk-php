@@ -30,7 +30,11 @@ class ItemEmail extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getAddress(): ?string {
-        return $this->getBackingStore()->get('address');
+        $val = $this->getBackingStore()->get('address');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'address'");
     }
 
     /**
@@ -38,12 +42,16 @@ class ItemEmail extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->getBackingStore()->get('displayName');
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
      * The deserialization information for the current model
-     * @return array<string, callable>
+     * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
@@ -59,7 +67,11 @@ class ItemEmail extends ItemFacet implements Parsable
      * @return EmailType|null
     */
     public function getType(): ?EmailType {
-        return $this->getBackingStore()->get('type');
+        $val = $this->getBackingStore()->get('type');
+        if (is_null($val) || $val instanceof EmailType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
     }
 
     /**
