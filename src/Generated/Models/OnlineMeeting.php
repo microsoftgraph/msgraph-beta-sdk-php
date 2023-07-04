@@ -12,7 +12,7 @@ use Psr\Http\Message\StreamInterface;
 class OnlineMeeting extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new OnlineMeeting and sets the default values.
+     * Instantiates a new onlineMeeting and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -143,7 +143,7 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Gets the anonymizeIdentityForRoles property value. The anonymizeIdentityForRoles property
+     * Gets the anonymizeIdentityForRoles property value. Specifies whose identity will be anonymized in the meeting. Possible values are: attendee. The attendee value cannot be removed through a PATCH operation once added.
      * @return array<OnlineMeetingRole>|null
     */
     public function getAnonymizeIdentityForRoles(): ?array {
@@ -695,7 +695,7 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Sets the anonymizeIdentityForRoles property value. The anonymizeIdentityForRoles property
+     * Sets the anonymizeIdentityForRoles property value. Specifies whose identity will be anonymized in the meeting. Possible values are: attendee. The attendee value cannot be removed through a PATCH operation once added.
      * @param array<OnlineMeetingRole>|null $value Value to set for the anonymizeIdentityForRoles property.
     */
     public function setAnonymizeIdentityForRoles(?array $value): void {

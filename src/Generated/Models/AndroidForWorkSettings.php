@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AndroidForWorkSettings extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new androidForWorkSettings and sets the default values.
+     * Instantiates a new AndroidForWorkSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();

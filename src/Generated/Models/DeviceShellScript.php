@@ -10,13 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
-/**
- * Intune will provide customer the ability to run their Shell scripts on the enrolled Mac OS devices. The script can be run once or periodically.
-*/
 class DeviceShellScript extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceShellScript and sets the default values.
+     * Instantiates a new DeviceShellScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();

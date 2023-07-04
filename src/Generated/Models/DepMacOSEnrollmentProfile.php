@@ -74,6 +74,18 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
     }
 
     /**
+     * Gets the autoAdvanceSetupEnabled property value. Indicates if Setup Assistant will automatically advance through its screen
+     * @return bool|null
+    */
+    public function getAutoAdvanceSetupEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('autoAdvanceSetupEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'autoAdvanceSetupEnabled'");
+    }
+
+    /**
      * Gets the autoUnlockWithWatchDisabled property value. Indicates if UnlockWithWatch screen is disabled
      * @return bool|null
     */
@@ -132,6 +144,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
             'adminAccountFullName' => fn(ParseNode $n) => $o->setAdminAccountFullName($n->getStringValue()),
             'adminAccountPassword' => fn(ParseNode $n) => $o->setAdminAccountPassword($n->getStringValue()),
             'adminAccountUserName' => fn(ParseNode $n) => $o->setAdminAccountUserName($n->getStringValue()),
+            'autoAdvanceSetupEnabled' => fn(ParseNode $n) => $o->setAutoAdvanceSetupEnabled($n->getBooleanValue()),
             'autoUnlockWithWatchDisabled' => fn(ParseNode $n) => $o->setAutoUnlockWithWatchDisabled($n->getBooleanValue()),
             'chooseYourLockScreenDisabled' => fn(ParseNode $n) => $o->setChooseYourLockScreenDisabled($n->getBooleanValue()),
             'dontAutoPopulatePrimaryAccountInfo' => fn(ParseNode $n) => $o->setDontAutoPopulatePrimaryAccountInfo($n->getBooleanValue()),
@@ -305,6 +318,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
         $writer->writeStringValue('adminAccountFullName', $this->getAdminAccountFullName());
         $writer->writeStringValue('adminAccountPassword', $this->getAdminAccountPassword());
         $writer->writeStringValue('adminAccountUserName', $this->getAdminAccountUserName());
+        $writer->writeBooleanValue('autoAdvanceSetupEnabled', $this->getAutoAdvanceSetupEnabled());
         $writer->writeBooleanValue('autoUnlockWithWatchDisabled', $this->getAutoUnlockWithWatchDisabled());
         $writer->writeBooleanValue('chooseYourLockScreenDisabled', $this->getChooseYourLockScreenDisabled());
         $writer->writeBooleanValue('dontAutoPopulatePrimaryAccountInfo', $this->getDontAutoPopulatePrimaryAccountInfo());
@@ -353,6 +367,14 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
     */
     public function setAdminAccountUserName(?string $value): void {
         $this->getBackingStore()->set('adminAccountUserName', $value);
+    }
+
+    /**
+     * Sets the autoAdvanceSetupEnabled property value. Indicates if Setup Assistant will automatically advance through its screen
+     * @param bool|null $value Value to set for the autoAdvanceSetupEnabled property.
+    */
+    public function setAutoAdvanceSetupEnabled(?bool $value): void {
+        $this->getBackingStore()->set('autoAdvanceSetupEnabled', $value);
     }
 
     /**

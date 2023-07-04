@@ -25,7 +25,7 @@ class AccessPackageSubject extends Entity implements Parsable
     }
 
     /**
-     * Gets the altSecId property value. The altSecId property
+     * Gets the altSecId property value. Not Supported.
      * @return string|null
     */
     public function getAltSecId(): ?string {
@@ -105,7 +105,7 @@ class AccessPackageSubject extends Entity implements Parsable
     }
 
     /**
-     * Gets the objectId property value. The object identifier of the subject. null if the subject is not yet a user in the tenant.
+     * Gets the objectId property value. The object identifier of the subject. null if the subject is not yet a user in the tenant. Alternate key.
      * @return string|null
     */
     public function getObjectId(): ?string {
@@ -141,7 +141,7 @@ class AccessPackageSubject extends Entity implements Parsable
     }
 
     /**
-     * Gets the subjectLifecycle property value. The subjectLifecycle property
+     * Gets the subjectLifecycle property value. The lifecycle of the subject user, if a guest. The possible values are: notDefined, notGoverned, governed, unknownFutureValue.
      * @return AccessPackageSubjectLifecycle|null
     */
     public function getSubjectLifecycle(): ?AccessPackageSubjectLifecycle {
@@ -183,7 +183,7 @@ class AccessPackageSubject extends Entity implements Parsable
     }
 
     /**
-     * Sets the altSecId property value. The altSecId property
+     * Sets the altSecId property value. Not Supported.
      * @param string|null $value Value to set for the altSecId property.
     */
     public function setAltSecId(?string $value): void {
@@ -223,7 +223,7 @@ class AccessPackageSubject extends Entity implements Parsable
     }
 
     /**
-     * Sets the objectId property value. The object identifier of the subject. null if the subject is not yet a user in the tenant.
+     * Sets the objectId property value. The object identifier of the subject. null if the subject is not yet a user in the tenant. Alternate key.
      * @param string|null $value Value to set for the objectId property.
     */
     public function setObjectId(?string $value): void {
@@ -247,7 +247,7 @@ class AccessPackageSubject extends Entity implements Parsable
     }
 
     /**
-     * Sets the subjectLifecycle property value. The subjectLifecycle property
+     * Sets the subjectLifecycle property value. The lifecycle of the subject user, if a guest. The possible values are: notDefined, notGoverned, governed, unknownFutureValue.
      * @param AccessPackageSubjectLifecycle|null $value Value to set for the subjectLifecycle property.
     */
     public function setSubjectLifecycle(?AccessPackageSubjectLifecycle $value): void {

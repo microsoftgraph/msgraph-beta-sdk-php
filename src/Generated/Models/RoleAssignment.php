@@ -7,13 +7,10 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
-/**
- * The Role Assignment resource. Role assignments tie together a role definition with members and scopes. There can be one or more role assignments per role. This applies to custom and built-in roles.
-*/
 class RoleAssignment extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new roleAssignment and sets the default values.
+     * Instantiates a new RoleAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();

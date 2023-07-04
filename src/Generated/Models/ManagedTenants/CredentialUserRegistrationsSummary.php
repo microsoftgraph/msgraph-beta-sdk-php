@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CredentialUserRegistrationsSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new credentialUserRegistrationsSummary and sets the default values.
+     * Instantiates a new CredentialUserRegistrationsSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -43,6 +43,7 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
             'ssprRegisteredUserCount' => fn(ParseNode $n) => $o->setSsprRegisteredUserCount($n->getIntegerValue()),
             'tenantDisplayName' => fn(ParseNode $n) => $o->setTenantDisplayName($n->getStringValue()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
+            'tenantLicenseType' => fn(ParseNode $n) => $o->setTenantLicenseType($n->getStringValue()),
             'totalUserCount' => fn(ParseNode $n) => $o->setTotalUserCount($n->getIntegerValue()),
         ]);
     }
@@ -168,6 +169,18 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
     }
 
     /**
+     * Gets the tenantLicenseType property value. The tenantLicenseType property
+     * @return string|null
+    */
+    public function getTenantLicenseType(): ?string {
+        $val = $this->getBackingStore()->get('tenantLicenseType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantLicenseType'");
+    }
+
+    /**
      * Gets the totalUserCount property value. The total number of users in the given managed tenant. Optional. Read-only.
      * @return int|null
     */
@@ -195,6 +208,7 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
         $writer->writeIntegerValue('ssprRegisteredUserCount', $this->getSsprRegisteredUserCount());
         $writer->writeStringValue('tenantDisplayName', $this->getTenantDisplayName());
         $writer->writeStringValue('tenantId', $this->getTenantId());
+        $writer->writeStringValue('tenantLicenseType', $this->getTenantLicenseType());
         $writer->writeIntegerValue('totalUserCount', $this->getTotalUserCount());
     }
 
@@ -276,6 +290,14 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);
+    }
+
+    /**
+     * Sets the tenantLicenseType property value. The tenantLicenseType property
+     * @param string|null $value Value to set for the tenantLicenseType property.
+    */
+    public function setTenantLicenseType(?string $value): void {
+        $this->getBackingStore()->set('tenantLicenseType', $value);
     }
 
     /**

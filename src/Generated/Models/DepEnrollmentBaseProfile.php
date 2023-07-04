@@ -121,6 +121,20 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
     }
 
     /**
+     * Gets the enrollmentTimeAzureAdGroupIds property value. EnrollmentTimeAzureAdGroupIds contains list of enrollment time Azure Group Ids to be associated with profile
+     * @return array<string>|null
+    */
+    public function getEnrollmentTimeAzureAdGroupIds(): ?array {
+        $val = $this->getBackingStore()->get('enrollmentTimeAzureAdGroupIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrollmentTimeAzureAdGroupIds'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -140,6 +154,14 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
                 }
                 /** @var array<string>|null $val */
                 $this->setEnabledSkipKeys($val);
+            },
+            'enrollmentTimeAzureAdGroupIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setEnrollmentTimeAzureAdGroupIds($val);
             },
             'isDefault' => fn(ParseNode $n) => $o->setIsDefault($n->getBooleanValue()),
             'isMandatory' => fn(ParseNode $n) => $o->setIsMandatory($n->getBooleanValue()),
@@ -326,6 +348,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
         $writer->writeBooleanValue('diagnosticsDisabled', $this->getDiagnosticsDisabled());
         $writer->writeBooleanValue('displayToneSetupDisabled', $this->getDisplayToneSetupDisabled());
         $writer->writeCollectionOfPrimitiveValues('enabledSkipKeys', $this->getEnabledSkipKeys());
+        $writer->writeCollectionOfPrimitiveValues('enrollmentTimeAzureAdGroupIds', $this->getEnrollmentTimeAzureAdGroupIds());
         $writer->writeBooleanValue('isDefault', $this->getIsDefault());
         $writer->writeBooleanValue('isMandatory', $this->getIsMandatory());
         $writer->writeBooleanValue('locationDisabled', $this->getLocationDisabled());
@@ -395,6 +418,14 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
     */
     public function setEnabledSkipKeys(?array $value): void {
         $this->getBackingStore()->set('enabledSkipKeys', $value);
+    }
+
+    /**
+     * Sets the enrollmentTimeAzureAdGroupIds property value. EnrollmentTimeAzureAdGroupIds contains list of enrollment time Azure Group Ids to be associated with profile
+     * @param array<string>|null $value Value to set for the enrollmentTimeAzureAdGroupIds property.
+    */
+    public function setEnrollmentTimeAzureAdGroupIds(?array $value): void {
+        $this->getBackingStore()->set('enrollmentTimeAzureAdGroupIds', $value);
     }
 
     /**

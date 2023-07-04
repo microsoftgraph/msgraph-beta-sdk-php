@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get retentionLabels from security
+ * Represents how customers can manage their data, whether and for how long to retain or delete it.
 */
 class RetentionLabelItemRequestBuilderGetQueryParameters 
 {

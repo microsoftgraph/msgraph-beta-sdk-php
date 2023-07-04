@@ -13,4 +13,5 @@ class PrintMultipageLayout extends Enum {
     public const CLOCKWISE_FROM_BOTTOM_LEFT = 'clockwiseFromBottomLeft';
     public const COUNTERCLOCKWISE_FROM_BOTTOM_RIGHT = 'counterclockwiseFromBottomRight';
     public const CLOCKWISE_FROM_BOTTOM_RIGHT = 'clockwiseFromBottomRight';
+    public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
 }

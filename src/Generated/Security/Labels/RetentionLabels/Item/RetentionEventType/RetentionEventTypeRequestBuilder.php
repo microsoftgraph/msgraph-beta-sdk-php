@@ -32,7 +32,7 @@ class RetentionEventTypeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get retentionEventType from security
+     * Represents the type associated with a retention event.
      * @param RetentionEventTypeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -50,7 +50,7 @@ class RetentionEventTypeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get retentionEventType from security
+     * Represents the type associated with a retention event.
      * @param RetentionEventTypeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

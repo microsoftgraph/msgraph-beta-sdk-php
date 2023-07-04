@@ -19,7 +19,7 @@ class ShipmentMethod implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new ShipmentMethod and sets the default values.
+     * Instantiates a new shipmentMethod and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

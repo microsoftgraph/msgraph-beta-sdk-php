@@ -56,7 +56,7 @@ class CloudPcResizeValidationResult implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the cloudPcId property value. The cloudPcId property
+     * Gets the cloudPcId property value. The cloudPC id that corresponds to its unique identifier.
      * @return string|null
     */
     public function getCloudPcId(): ?string {
@@ -93,7 +93,7 @@ class CloudPcResizeValidationResult implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the validationResult property value. The validationResult property
+     * Gets the validationResult property value. Describes a list of the validation result for the Cloud PC resize action. The possible values are: success, cloudPcNotFound, operationCnflict, operationNotSupported, targetLicenseHasAssigned, internalServerError, and unknownFutureValue.
      * @return CloudPcResizeValidationCode|null
     */
     public function getValidationResult(): ?CloudPcResizeValidationCode {
@@ -132,7 +132,7 @@ class CloudPcResizeValidationResult implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the cloudPcId property value. The cloudPcId property
+     * Sets the cloudPcId property value. The cloudPC id that corresponds to its unique identifier.
      * @param string|null $value Value to set for the cloudPcId property.
     */
     public function setCloudPcId(?string $value): void {
@@ -148,7 +148,7 @@ class CloudPcResizeValidationResult implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the validationResult property value. The validationResult property
+     * Sets the validationResult property value. Describes a list of the validation result for the Cloud PC resize action. The possible values are: success, cloudPcNotFound, operationCnflict, operationNotSupported, targetLicenseHasAssigned, internalServerError, and unknownFutureValue.
      * @param CloudPcResizeValidationCode|null $value Value to set for the validationResult property.
     */
     public function setValidationResult(?CloudPcResizeValidationCode $value): void {

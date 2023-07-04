@@ -129,6 +129,54 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the clientLocalIpV4Address property value. Local IPv4 of the client that is retrieved from the operating system of the client.
+     * @return string|null
+    */
+    public function getClientLocalIpV4Address(): ?string {
+        $val = $this->getBackingStore()->get('clientLocalIpV4Address');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clientLocalIpV4Address'");
+    }
+
+    /**
+     * Gets the clientLocalIpV6Address property value. Local IPv6 of the client that is retrieved from the operating system of the client.
+     * @return string|null
+    */
+    public function getClientLocalIpV6Address(): ?string {
+        $val = $this->getBackingStore()->get('clientLocalIpV6Address');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clientLocalIpV6Address'");
+    }
+
+    /**
+     * Gets the clientPublicIpV4Address property value. Public IPv4 of the client that can be used to determine the location of the client.
+     * @return string|null
+    */
+    public function getClientPublicIpV4Address(): ?string {
+        $val = $this->getBackingStore()->get('clientPublicIpV4Address');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clientPublicIpV4Address'");
+    }
+
+    /**
+     * Gets the clientPublicIpV6Address property value. Public IPv6 of the client that can be used to determine the location of the client.
+     * @return string|null
+    */
+    public function getClientPublicIpV6Address(): ?string {
+        $val = $this->getBackingStore()->get('clientPublicIpV6Address');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clientPublicIpV6Address'");
+    }
+
+    /**
      * Gets the conferenceId property value. ID of the audio conference.
      * @return string|null
     */
@@ -225,6 +273,10 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
             'callId' => fn(ParseNode $n) => $o->setCallId($n->getStringValue()),
             'callType' => fn(ParseNode $n) => $o->setCallType($n->getStringValue()),
             'charge' => fn(ParseNode $n) => $o->setCharge($n->getStringValue()),
+            'clientLocalIpV4Address' => fn(ParseNode $n) => $o->setClientLocalIpV4Address($n->getStringValue()),
+            'clientLocalIpV6Address' => fn(ParseNode $n) => $o->setClientLocalIpV6Address($n->getStringValue()),
+            'clientPublicIpV4Address' => fn(ParseNode $n) => $o->setClientPublicIpV4Address($n->getStringValue()),
+            'clientPublicIpV6Address' => fn(ParseNode $n) => $o->setClientPublicIpV6Address($n->getStringValue()),
             'conferenceId' => fn(ParseNode $n) => $o->setConferenceId($n->getStringValue()),
             'connectionCharge' => fn(ParseNode $n) => $o->setConnectionCharge($n->getStringValue()),
             'currency' => fn(ParseNode $n) => $o->setCurrency($n->getStringValue()),
@@ -402,6 +454,10 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeStringValue('callId', $this->getCallId());
         $writer->writeStringValue('callType', $this->getCallType());
         $writer->writeStringValue('charge', $this->getCharge());
+        $writer->writeStringValue('clientLocalIpV4Address', $this->getClientLocalIpV4Address());
+        $writer->writeStringValue('clientLocalIpV6Address', $this->getClientLocalIpV6Address());
+        $writer->writeStringValue('clientPublicIpV4Address', $this->getClientPublicIpV4Address());
+        $writer->writeStringValue('clientPublicIpV6Address', $this->getClientPublicIpV6Address());
         $writer->writeStringValue('conferenceId', $this->getConferenceId());
         $writer->writeStringValue('connectionCharge', $this->getConnectionCharge());
         $writer->writeStringValue('currency', $this->getCurrency());
@@ -486,6 +542,38 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setCharge(?string $value): void {
         $this->getBackingStore()->set('charge', $value);
+    }
+
+    /**
+     * Sets the clientLocalIpV4Address property value. Local IPv4 of the client that is retrieved from the operating system of the client.
+     * @param string|null $value Value to set for the clientLocalIpV4Address property.
+    */
+    public function setClientLocalIpV4Address(?string $value): void {
+        $this->getBackingStore()->set('clientLocalIpV4Address', $value);
+    }
+
+    /**
+     * Sets the clientLocalIpV6Address property value. Local IPv6 of the client that is retrieved from the operating system of the client.
+     * @param string|null $value Value to set for the clientLocalIpV6Address property.
+    */
+    public function setClientLocalIpV6Address(?string $value): void {
+        $this->getBackingStore()->set('clientLocalIpV6Address', $value);
+    }
+
+    /**
+     * Sets the clientPublicIpV4Address property value. Public IPv4 of the client that can be used to determine the location of the client.
+     * @param string|null $value Value to set for the clientPublicIpV4Address property.
+    */
+    public function setClientPublicIpV4Address(?string $value): void {
+        $this->getBackingStore()->set('clientPublicIpV4Address', $value);
+    }
+
+    /**
+     * Sets the clientPublicIpV6Address property value. Public IPv6 of the client that can be used to determine the location of the client.
+     * @param string|null $value Value to set for the clientPublicIpV6Address property.
+    */
+    public function setClientPublicIpV6Address(?string $value): void {
+        $this->getBackingStore()->set('clientPublicIpV6Address', $value);
     }
 
     /**

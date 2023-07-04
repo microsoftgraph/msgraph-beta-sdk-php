@@ -7,13 +7,10 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
-/**
- * The user experience analytics anomaly correlation group overview entity contains the information for each correlation group of an anomaly.
-*/
 class UserExperienceAnalyticsAnomalyCorrelationGroupOverview extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsAnomalyCorrelationGroupOverview and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsAnomalyCorrelationGroupOverview and sets the default values.
     */
     public function __construct() {
         parent::__construct();

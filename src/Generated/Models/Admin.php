@@ -48,11 +48,35 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the appsAndServices property value. The appsAndServices property
+     * @return AdminAppsAndServices|null
+    */
+    public function getAppsAndServices(): ?AdminAppsAndServices {
+        $val = $this->getBackingStore()->get('appsAndServices');
+        if (is_null($val) || $val instanceof AdminAppsAndServices) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appsAndServices'");
+    }
+
+    /**
      * Gets the backingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
         return $this->backingStore;
+    }
+
+    /**
+     * Gets the dynamics property value. The dynamics property
+     * @return AdminDynamics|null
+    */
+    public function getDynamics(): ?AdminDynamics {
+        $val = $this->getBackingStore()->get('dynamics');
+        if (is_null($val) || $val instanceof AdminDynamics) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dynamics'");
     }
 
     /**
@@ -74,13 +98,29 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'appsAndServices' => fn(ParseNode $n) => $o->setAppsAndServices($n->getObjectValue([AdminAppsAndServices::class, 'createFromDiscriminatorValue'])),
+            'dynamics' => fn(ParseNode $n) => $o->setDynamics($n->getObjectValue([AdminDynamics::class, 'createFromDiscriminatorValue'])),
             'edge' => fn(ParseNode $n) => $o->setEdge($n->getObjectValue([Edge::class, 'createFromDiscriminatorValue'])),
+            'forms' => fn(ParseNode $n) => $o->setForms($n->getObjectValue([AdminForms::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'reportSettings' => fn(ParseNode $n) => $o->setReportSettings($n->getObjectValue([AdminReportSettings::class, 'createFromDiscriminatorValue'])),
             'serviceAnnouncement' => fn(ParseNode $n) => $o->setServiceAnnouncement($n->getObjectValue([ServiceAnnouncement::class, 'createFromDiscriminatorValue'])),
             'sharepoint' => fn(ParseNode $n) => $o->setSharepoint($n->getObjectValue([Sharepoint::class, 'createFromDiscriminatorValue'])),
+            'todo' => fn(ParseNode $n) => $o->setTodo($n->getObjectValue([AdminTodo::class, 'createFromDiscriminatorValue'])),
             'windows' => fn(ParseNode $n) => $o->setWindows($n->getObjectValue([AdminWindows::class, 'createFromDiscriminatorValue'])),
         ];
+    }
+
+    /**
+     * Gets the forms property value. The forms property
+     * @return AdminForms|null
+    */
+    public function getForms(): ?AdminForms {
+        $val = $this->getBackingStore()->get('forms');
+        if (is_null($val) || $val instanceof AdminForms) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'forms'");
     }
 
     /**
@@ -132,6 +172,18 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the todo property value. The todo property
+     * @return AdminTodo|null
+    */
+    public function getTodo(): ?AdminTodo {
+        $val = $this->getBackingStore()->get('todo');
+        if (is_null($val) || $val instanceof AdminTodo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'todo'");
+    }
+
+    /**
      * Gets the windows property value. A container for all Windows administrator functionalities. Read-only.
      * @return AdminWindows|null
     */
@@ -148,11 +200,15 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeObjectValue('appsAndServices', $this->getAppsAndServices());
+        $writer->writeObjectValue('dynamics', $this->getDynamics());
         $writer->writeObjectValue('edge', $this->getEdge());
+        $writer->writeObjectValue('forms', $this->getForms());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('reportSettings', $this->getReportSettings());
         $writer->writeObjectValue('serviceAnnouncement', $this->getServiceAnnouncement());
         $writer->writeObjectValue('sharepoint', $this->getSharepoint());
+        $writer->writeObjectValue('todo', $this->getTodo());
         $writer->writeObjectValue('windows', $this->getWindows());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -166,6 +222,14 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Sets the appsAndServices property value. The appsAndServices property
+     * @param AdminAppsAndServices|null $value Value to set for the appsAndServices property.
+    */
+    public function setAppsAndServices(?AdminAppsAndServices $value): void {
+        $this->getBackingStore()->set('appsAndServices', $value);
+    }
+
+    /**
      * Sets the backingStore property value. Stores model information.
      * @param BackingStore $value Value to set for the BackingStore property.
     */
@@ -174,11 +238,27 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Sets the dynamics property value. The dynamics property
+     * @param AdminDynamics|null $value Value to set for the dynamics property.
+    */
+    public function setDynamics(?AdminDynamics $value): void {
+        $this->getBackingStore()->set('dynamics', $value);
+    }
+
+    /**
      * Sets the edge property value. A container for Microsoft Edge resources. Read-only.
      * @param Edge|null $value Value to set for the edge property.
     */
     public function setEdge(?Edge $value): void {
         $this->getBackingStore()->set('edge', $value);
+    }
+
+    /**
+     * Sets the forms property value. The forms property
+     * @param AdminForms|null $value Value to set for the forms property.
+    */
+    public function setForms(?AdminForms $value): void {
+        $this->getBackingStore()->set('forms', $value);
     }
 
     /**
@@ -211,6 +291,14 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setSharepoint(?Sharepoint $value): void {
         $this->getBackingStore()->set('sharepoint', $value);
+    }
+
+    /**
+     * Sets the todo property value. The todo property
+     * @param AdminTodo|null $value Value to set for the todo property.
+    */
+    public function setTodo(?AdminTodo $value): void {
+        $this->getBackingStore()->set('todo', $value);
     }
 
     /**

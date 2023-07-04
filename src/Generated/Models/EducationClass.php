@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class EducationClass extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new EducationClass and sets the default values.
+     * Instantiates a new educationClass and sets the default values.
     */
     public function __construct() {
         parent::__construct();

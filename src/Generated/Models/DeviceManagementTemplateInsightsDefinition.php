@@ -7,13 +7,10 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
-/**
- * template insights definition
-*/
 class DeviceManagementTemplateInsightsDefinition extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementTemplateInsightsDefinition and sets the default values.
+     * Instantiates a new DeviceManagementTemplateInsightsDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -53,7 +53,7 @@ class SubjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get subjects from identityGovernance
+     * Represents the subjects within entitlement management.
      * @param SubjectsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -90,7 +90,7 @@ class SubjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get subjects from identityGovernance
+     * Represents the subjects within entitlement management.
      * @param SubjectsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

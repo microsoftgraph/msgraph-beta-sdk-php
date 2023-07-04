@@ -7,13 +7,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * telecomExpenseManagementPartner resources represent the metadata and status of a given TEM service. Once your organization has onboarded with a partner, the partner can be enabled or disabled to switch TEM functionality on or off.
-*/
 class TelecomExpenseManagementPartner extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new telecomExpenseManagementPartner and sets the default values.
+     * Instantiates a new TelecomExpenseManagementPartner and sets the default values.
     */
     public function __construct() {
         parent::__construct();
