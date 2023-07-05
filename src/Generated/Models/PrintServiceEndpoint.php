@@ -44,8 +44,21 @@ class PrintServiceEndpoint extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'uri' => fn(ParseNode $n) => $o->setUri($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the name property value. The name property
+     * @return string|null
+    */
+    public function getName(): ?string {
+        $val = $this->getBackingStore()->get('name');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'name'");
     }
 
     /**
@@ -67,6 +80,7 @@ class PrintServiceEndpoint extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('name', $this->getName());
         $writer->writeStringValue('uri', $this->getUri());
     }
 
@@ -76,6 +90,14 @@ class PrintServiceEndpoint extends Entity implements Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the name property value. The name property
+     * @param string|null $value Value to set for the name property.
+    */
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**

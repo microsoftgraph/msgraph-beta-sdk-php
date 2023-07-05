@@ -113,6 +113,18 @@ class RetentionLabel extends Entity implements Parsable
     }
 
     /**
+     * Gets the descriptors property value. Represents out-of-the-box values that provide more options to improve the manageability and organization of the content you need to label.
+     * @return FilePlanDescriptor|null
+    */
+    public function getDescriptors(): ?FilePlanDescriptor {
+        $val = $this->getBackingStore()->get('descriptors');
+        if (is_null($val) || $val instanceof FilePlanDescriptor) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'descriptors'");
+    }
+
+    /**
      * Gets the displayName property value. Unique string that defines a label name.
      * @return string|null
     */
@@ -125,7 +137,7 @@ class RetentionLabel extends Entity implements Parsable
     }
 
     /**
-     * Gets the dispositionReviewStages property value. Review stages during which reviewers are notified to determine whether a document must be deleted or retained.
+     * Gets the dispositionReviewStages property value. When action at the end of retention is chosen as 'dispositionReview', dispositionReviewStages specifies a sequential set of stages with at least one reviewer in each stage.
      * @return array<DispositionReviewStage>|null
     */
     public function getDispositionReviewStages(): ?array {
@@ -152,6 +164,7 @@ class RetentionLabel extends Entity implements Parsable
             'defaultRecordBehavior' => fn(ParseNode $n) => $o->setDefaultRecordBehavior($n->getEnumValue(DefaultRecordBehavior::class)),
             'descriptionForAdmins' => fn(ParseNode $n) => $o->setDescriptionForAdmins($n->getStringValue()),
             'descriptionForUsers' => fn(ParseNode $n) => $o->setDescriptionForUsers($n->getStringValue()),
+            'descriptors' => fn(ParseNode $n) => $o->setDescriptors($n->getObjectValue([FilePlanDescriptor::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'dispositionReviewStages' => fn(ParseNode $n) => $o->setDispositionReviewStages($n->getCollectionOfObjectValues([DispositionReviewStage::class, 'createFromDiscriminatorValue'])),
             'isInUse' => fn(ParseNode $n) => $o->setIsInUse($n->getBooleanValue()),
@@ -225,7 +238,7 @@ class RetentionLabel extends Entity implements Parsable
     }
 
     /**
-     * Gets the retentionEventType property value. The retentionEventType property
+     * Gets the retentionEventType property value. Represents the type associated with a retention event.
      * @return RetentionEventType|null
     */
     public function getRetentionEventType(): ?RetentionEventType {
@@ -261,6 +274,7 @@ class RetentionLabel extends Entity implements Parsable
         $writer->writeEnumValue('defaultRecordBehavior', $this->getDefaultRecordBehavior());
         $writer->writeStringValue('descriptionForAdmins', $this->getDescriptionForAdmins());
         $writer->writeStringValue('descriptionForUsers', $this->getDescriptionForUsers());
+        $writer->writeObjectValue('descriptors', $this->getDescriptors());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeCollectionOfObjectValues('dispositionReviewStages', $this->getDispositionReviewStages());
         $writer->writeBooleanValue('isInUse', $this->getIsInUse());
@@ -329,6 +343,14 @@ class RetentionLabel extends Entity implements Parsable
     }
 
     /**
+     * Sets the descriptors property value. Represents out-of-the-box values that provide more options to improve the manageability and organization of the content you need to label.
+     * @param FilePlanDescriptor|null $value Value to set for the descriptors property.
+    */
+    public function setDescriptors(?FilePlanDescriptor $value): void {
+        $this->getBackingStore()->set('descriptors', $value);
+    }
+
+    /**
      * Sets the displayName property value. Unique string that defines a label name.
      * @param string|null $value Value to set for the displayName property.
     */
@@ -337,7 +359,7 @@ class RetentionLabel extends Entity implements Parsable
     }
 
     /**
-     * Sets the dispositionReviewStages property value. Review stages during which reviewers are notified to determine whether a document must be deleted or retained.
+     * Sets the dispositionReviewStages property value. When action at the end of retention is chosen as 'dispositionReview', dispositionReviewStages specifies a sequential set of stages with at least one reviewer in each stage.
      * @param array<DispositionReviewStage>|null $value Value to set for the dispositionReviewStages property.
     */
     public function setDispositionReviewStages(?array $value): void {
@@ -385,7 +407,7 @@ class RetentionLabel extends Entity implements Parsable
     }
 
     /**
-     * Sets the retentionEventType property value. The retentionEventType property
+     * Sets the retentionEventType property value. Represents the type associated with a retention event.
      * @param RetentionEventType|null $value Value to set for the retentionEventType property.
     */
     public function setRetentionEventType(?RetentionEventType $value): void {

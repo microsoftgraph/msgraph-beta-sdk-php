@@ -161,6 +161,18 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
     }
 
     /**
+     * Gets the appActionIfSamsungKnoxAttestationRequired property value. Defines the behavior of a managed app when Samsung Knox Attestation is required. Possible values are null, warn, block & wipe. If the admin does not set this action, the default is null, which indicates this setting is not configured.
+     * @return ManagedAppRemediationAction|null
+    */
+    public function getAppActionIfSamsungKnoxAttestationRequired(): ?ManagedAppRemediationAction {
+        $val = $this->getBackingStore()->get('appActionIfSamsungKnoxAttestationRequired');
+        if (is_null($val) || $val instanceof ManagedAppRemediationAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appActionIfSamsungKnoxAttestationRequired'");
+    }
+
+    /**
      * Gets the approvedKeyboards property value. If Keyboard Restriction is enabled, only keyboards in this approved list will be allowed. A key should be Android package id for a keyboard and value should be a friendly name
      * @return array<KeyValuePair>|null
     */
@@ -371,6 +383,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
             'appActionIfDevicePasscodeComplexityLessThanHigh' => fn(ParseNode $n) => $o->setAppActionIfDevicePasscodeComplexityLessThanHigh($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appActionIfDevicePasscodeComplexityLessThanLow' => fn(ParseNode $n) => $o->setAppActionIfDevicePasscodeComplexityLessThanLow($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appActionIfDevicePasscodeComplexityLessThanMedium' => fn(ParseNode $n) => $o->setAppActionIfDevicePasscodeComplexityLessThanMedium($n->getEnumValue(ManagedAppRemediationAction::class)),
+            'appActionIfSamsungKnoxAttestationRequired' => fn(ParseNode $n) => $o->setAppActionIfSamsungKnoxAttestationRequired($n->getEnumValue(ManagedAppRemediationAction::class)),
             'approvedKeyboards' => fn(ParseNode $n) => $o->setApprovedKeyboards($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
             'apps' => fn(ParseNode $n) => $o->setApps($n->getCollectionOfObjectValues([ManagedMobileApp::class, 'createFromDiscriminatorValue'])),
             'biometricAuthenticationBlocked' => fn(ParseNode $n) => $o->setBiometricAuthenticationBlocked($n->getBooleanValue()),
@@ -614,6 +627,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
         $writer->writeEnumValue('appActionIfDevicePasscodeComplexityLessThanHigh', $this->getAppActionIfDevicePasscodeComplexityLessThanHigh());
         $writer->writeEnumValue('appActionIfDevicePasscodeComplexityLessThanLow', $this->getAppActionIfDevicePasscodeComplexityLessThanLow());
         $writer->writeEnumValue('appActionIfDevicePasscodeComplexityLessThanMedium', $this->getAppActionIfDevicePasscodeComplexityLessThanMedium());
+        $writer->writeEnumValue('appActionIfSamsungKnoxAttestationRequired', $this->getAppActionIfSamsungKnoxAttestationRequired());
         $writer->writeCollectionOfObjectValues('approvedKeyboards', $this->getApprovedKeyboards());
         $writer->writeCollectionOfObjectValues('apps', $this->getApps());
         $writer->writeBooleanValue('biometricAuthenticationBlocked', $this->getBiometricAuthenticationBlocked());
@@ -733,6 +747,14 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
     */
     public function setAppActionIfDevicePasscodeComplexityLessThanMedium(?ManagedAppRemediationAction $value): void {
         $this->getBackingStore()->set('appActionIfDevicePasscodeComplexityLessThanMedium', $value);
+    }
+
+    /**
+     * Sets the appActionIfSamsungKnoxAttestationRequired property value. Defines the behavior of a managed app when Samsung Knox Attestation is required. Possible values are null, warn, block & wipe. If the admin does not set this action, the default is null, which indicates this setting is not configured.
+     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfSamsungKnoxAttestationRequired property.
+    */
+    public function setAppActionIfSamsungKnoxAttestationRequired(?ManagedAppRemediationAction $value): void {
+        $this->getBackingStore()->set('appActionIfSamsungKnoxAttestationRequired', $value);
     }
 
     /**

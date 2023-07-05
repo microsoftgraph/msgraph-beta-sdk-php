@@ -134,6 +134,18 @@ class Simulation extends Entity implements Parsable
     }
 
     /**
+     * Gets the endUserNotificationSetting property value. The endUserNotificationSetting property
+     * @return EndUserNotificationSetting|null
+    */
+    public function getEndUserNotificationSetting(): ?EndUserNotificationSetting {
+        $val = $this->getBackingStore()->get('endUserNotificationSetting');
+        if (is_null($val) || $val instanceof EndUserNotificationSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endUserNotificationSetting'");
+    }
+
+    /**
      * Gets the excludedAccountTarget property value. Users excluded from the simulation.
      * @return AccountTargetContent|null
     */
@@ -161,16 +173,21 @@ class Simulation extends Entity implements Parsable
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'durationInDays' => fn(ParseNode $n) => $o->setDurationInDays($n->getIntegerValue()),
+            'endUserNotificationSetting' => fn(ParseNode $n) => $o->setEndUserNotificationSetting($n->getObjectValue([EndUserNotificationSetting::class, 'createFromDiscriminatorValue'])),
             'excludedAccountTarget' => fn(ParseNode $n) => $o->setExcludedAccountTarget($n->getObjectValue([AccountTargetContent::class, 'createFromDiscriminatorValue'])),
             'includedAccountTarget' => fn(ParseNode $n) => $o->setIncludedAccountTarget($n->getObjectValue([AccountTargetContent::class, 'createFromDiscriminatorValue'])),
             'isAutomated' => fn(ParseNode $n) => $o->setIsAutomated($n->getBooleanValue()),
+            'landingPage' => fn(ParseNode $n) => $o->setLandingPage($n->getObjectValue([LandingPage::class, 'createFromDiscriminatorValue'])),
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([EmailIdentity::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'launchDateTime' => fn(ParseNode $n) => $o->setLaunchDateTime($n->getDateTimeValue()),
+            'loginPage' => fn(ParseNode $n) => $o->setLoginPage($n->getObjectValue([LoginPage::class, 'createFromDiscriminatorValue'])),
+            'oAuthConsentAppDetail' => fn(ParseNode $n) => $o->setOAuthConsentAppDetail($n->getObjectValue([OAuthConsentAppDetail::class, 'createFromDiscriminatorValue'])),
             'payload' => fn(ParseNode $n) => $o->setPayload($n->getObjectValue([Payload::class, 'createFromDiscriminatorValue'])),
             'payloadDeliveryPlatform' => fn(ParseNode $n) => $o->setPayloadDeliveryPlatform($n->getEnumValue(PayloadDeliveryPlatform::class)),
             'report' => fn(ParseNode $n) => $o->setReport($n->getObjectValue([SimulationReport::class, 'createFromDiscriminatorValue'])),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(SimulationStatus::class)),
+            'trainingSetting' => fn(ParseNode $n) => $o->setTrainingSetting($n->getObjectValue([TrainingSetting::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -196,6 +213,18 @@ class Simulation extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isAutomated'");
+    }
+
+    /**
+     * Gets the landingPage property value. The landingPage property
+     * @return LandingPage|null
+    */
+    public function getLandingPage(): ?LandingPage {
+        $val = $this->getBackingStore()->get('landingPage');
+        if (is_null($val) || $val instanceof LandingPage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'landingPage'");
     }
 
     /**
@@ -232,6 +261,30 @@ class Simulation extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'launchDateTime'");
+    }
+
+    /**
+     * Gets the loginPage property value. The loginPage property
+     * @return LoginPage|null
+    */
+    public function getLoginPage(): ?LoginPage {
+        $val = $this->getBackingStore()->get('loginPage');
+        if (is_null($val) || $val instanceof LoginPage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'loginPage'");
+    }
+
+    /**
+     * Gets the oAuthConsentAppDetail property value. The oAuthConsentAppDetail property
+     * @return OAuthConsentAppDetail|null
+    */
+    public function getOAuthConsentAppDetail(): ?OAuthConsentAppDetail {
+        $val = $this->getBackingStore()->get('oAuthConsentAppDetail');
+        if (is_null($val) || $val instanceof OAuthConsentAppDetail) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'oAuthConsentAppDetail'");
     }
 
     /**
@@ -283,6 +336,18 @@ class Simulation extends Entity implements Parsable
     }
 
     /**
+     * Gets the trainingSetting property value. The trainingSetting property
+     * @return TrainingSetting|null
+    */
+    public function getTrainingSetting(): ?TrainingSetting {
+        $val = $this->getBackingStore()->get('trainingSetting');
+        if (is_null($val) || $val instanceof TrainingSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'trainingSetting'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -297,16 +362,21 @@ class Simulation extends Entity implements Parsable
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeIntegerValue('durationInDays', $this->getDurationInDays());
+        $writer->writeObjectValue('endUserNotificationSetting', $this->getEndUserNotificationSetting());
         $writer->writeObjectValue('excludedAccountTarget', $this->getExcludedAccountTarget());
         $writer->writeObjectValue('includedAccountTarget', $this->getIncludedAccountTarget());
         $writer->writeBooleanValue('isAutomated', $this->getIsAutomated());
+        $writer->writeObjectValue('landingPage', $this->getLandingPage());
         $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeDateTimeValue('launchDateTime', $this->getLaunchDateTime());
+        $writer->writeObjectValue('loginPage', $this->getLoginPage());
+        $writer->writeObjectValue('oAuthConsentAppDetail', $this->getOAuthConsentAppDetail());
         $writer->writeObjectValue('payload', $this->getPayload());
         $writer->writeEnumValue('payloadDeliveryPlatform', $this->getPayloadDeliveryPlatform());
         $writer->writeObjectValue('report', $this->getReport());
         $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeObjectValue('trainingSetting', $this->getTrainingSetting());
     }
 
     /**
@@ -382,6 +452,14 @@ class Simulation extends Entity implements Parsable
     }
 
     /**
+     * Sets the endUserNotificationSetting property value. The endUserNotificationSetting property
+     * @param EndUserNotificationSetting|null $value Value to set for the endUserNotificationSetting property.
+    */
+    public function setEndUserNotificationSetting(?EndUserNotificationSetting $value): void {
+        $this->getBackingStore()->set('endUserNotificationSetting', $value);
+    }
+
+    /**
      * Sets the excludedAccountTarget property value. Users excluded from the simulation.
      * @param AccountTargetContent|null $value Value to set for the excludedAccountTarget property.
     */
@@ -406,6 +484,14 @@ class Simulation extends Entity implements Parsable
     }
 
     /**
+     * Sets the landingPage property value. The landingPage property
+     * @param LandingPage|null $value Value to set for the landingPage property.
+    */
+    public function setLandingPage(?LandingPage $value): void {
+        $this->getBackingStore()->set('landingPage', $value);
+    }
+
+    /**
      * Sets the lastModifiedBy property value. Identity of the user who most recently modified the attack simulation and training campaign.
      * @param EmailIdentity|null $value Value to set for the lastModifiedBy property.
     */
@@ -427,6 +513,22 @@ class Simulation extends Entity implements Parsable
     */
     public function setLaunchDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('launchDateTime', $value);
+    }
+
+    /**
+     * Sets the loginPage property value. The loginPage property
+     * @param LoginPage|null $value Value to set for the loginPage property.
+    */
+    public function setLoginPage(?LoginPage $value): void {
+        $this->getBackingStore()->set('loginPage', $value);
+    }
+
+    /**
+     * Sets the oAuthConsentAppDetail property value. The oAuthConsentAppDetail property
+     * @param OAuthConsentAppDetail|null $value Value to set for the oAuthConsentAppDetail property.
+    */
+    public function setOAuthConsentAppDetail(?OAuthConsentAppDetail $value): void {
+        $this->getBackingStore()->set('oAuthConsentAppDetail', $value);
     }
 
     /**
@@ -459,6 +561,14 @@ class Simulation extends Entity implements Parsable
     */
     public function setStatus(?SimulationStatus $value): void {
         $this->getBackingStore()->set('status', $value);
+    }
+
+    /**
+     * Sets the trainingSetting property value. The trainingSetting property
+     * @param TrainingSetting|null $value Value to set for the trainingSetting property.
+    */
+    public function setTrainingSetting(?TrainingSetting $value): void {
+        $this->getBackingStore()->set('trainingSetting', $value);
     }
 
 }

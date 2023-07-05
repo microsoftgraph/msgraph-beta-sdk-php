@@ -50,7 +50,7 @@ class DispositionReviewStageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Review stages during which reviewers are notified to determine whether a document must be deleted or retained.
+     * When action at the end of retention is chosen as 'dispositionReview', dispositionReviewStages specifies a sequential set of stages with at least one reviewer in each stage.
      * @param DispositionReviewStageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -104,7 +104,7 @@ class DispositionReviewStageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Review stages during which reviewers are notified to determine whether a document must be deleted or retained.
+     * When action at the end of retention is chosen as 'dispositionReview', dispositionReviewStages specifies a sequential set of stages with at least one reviewer in each stage.
      * @param DispositionReviewStageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

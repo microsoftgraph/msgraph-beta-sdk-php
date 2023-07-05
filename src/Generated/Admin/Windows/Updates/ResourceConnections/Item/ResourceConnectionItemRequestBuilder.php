@@ -51,10 +51,10 @@ class ResourceConnectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a resourceConnection object.
+     * Read the properties and relationships of an operationalInsightsConnection object.
      * @param ResourceConnectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/windowsupdates-resourceconnection-get?view=graph-rest-1.0 Find more info here
+     * @link https://docs.microsoft.com/graph/api/windowsupdates-operationalinsightsconnection-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ResourceConnectionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -106,7 +106,7 @@ class ResourceConnectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a resourceConnection object.
+     * Read the properties and relationships of an operationalInsightsConnection object.
      * @param ResourceConnectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

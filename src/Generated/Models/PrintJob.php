@@ -51,7 +51,7 @@ class PrintJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the configuration property value. A group of settings that a printer should use to print a job.
+     * Gets the configuration property value. The configuration property
      * @return PrintJobConfiguration|null
     */
     public function getConfiguration(): ?PrintJobConfiguration {
@@ -184,7 +184,7 @@ class PrintJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The status of the print job. Read-only.
+     * Gets the status property value. The status property
      * @return PrintJobStatus|null
     */
     public function getStatus(): ?PrintJobStatus {
@@ -247,7 +247,7 @@ class PrintJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the configuration property value. A group of settings that a printer should use to print a job.
+     * Sets the configuration property value. The configuration property
      * @param PrintJobConfiguration|null $value Value to set for the configuration property.
     */
     public function setConfiguration(?PrintJobConfiguration $value): void {
@@ -319,7 +319,7 @@ class PrintJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The status of the print job. Read-only.
+     * Sets the status property value. The status property
      * @param PrintJobStatus|null $value Value to set for the status property.
     */
     public function setStatus(?PrintJobStatus $value): void {

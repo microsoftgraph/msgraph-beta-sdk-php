@@ -7,6 +7,11 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\LabelsRoot;
+use Microsoft\Graph\Beta\Generated\Security\Labels\Authorities\AuthoritiesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Labels\Categories\CategoriesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Labels\Citations\CitationsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Labels\Departments\DepartmentsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Labels\FilePlanReferences\FilePlanReferencesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\RetentionLabelsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -18,6 +23,41 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class LabelsRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the authorities property of the microsoft.graph.security.labelsRoot entity.
+    */
+    public function authorities(): AuthoritiesRequestBuilder {
+        return new AuthoritiesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the categories property of the microsoft.graph.security.labelsRoot entity.
+    */
+    public function categories(): CategoriesRequestBuilder {
+        return new CategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the citations property of the microsoft.graph.security.labelsRoot entity.
+    */
+    public function citations(): CitationsRequestBuilder {
+        return new CitationsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the departments property of the microsoft.graph.security.labelsRoot entity.
+    */
+    public function departments(): DepartmentsRequestBuilder {
+        return new DepartmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the filePlanReferences property of the microsoft.graph.security.labelsRoot entity.
+    */
+    public function filePlanReferences(): FilePlanReferencesRequestBuilder {
+        return new FilePlanReferencesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the retentionLabels property of the microsoft.graph.security.labelsRoot entity.
     */

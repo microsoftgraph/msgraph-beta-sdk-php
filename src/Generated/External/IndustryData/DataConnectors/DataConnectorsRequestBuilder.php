@@ -72,11 +72,11 @@ class DataConnectorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new industryDataConnector object.
+     * Create a new azureDataLakeConnector object.
      * @param IndustryDataConnector $body The request body
      * @param DataConnectorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/industrydata-industrydataconnector-post?view=graph-rest-1.0 Find more info here
+     * @link https://docs.microsoft.com/graph/api/industrydata-azuredatalakeconnector-post?view=graph-rest-1.0 Find more info here
     */
     public function post(IndustryDataConnector $body, ?DataConnectorsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -113,7 +113,7 @@ class DataConnectorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new industryDataConnector object.
+     * Create a new azureDataLakeConnector object.
      * @param IndustryDataConnector $body The request body
      * @param DataConnectorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

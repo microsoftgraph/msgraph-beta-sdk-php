@@ -31,10 +31,11 @@ class ValidateBulkResizeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action validateBulkResize
+     * Validate that a set of cloudPC devices meet the requirements to be bulk resized.
      * @param ValidateBulkResizePostRequestBody $body The request body
      * @param ValidateBulkResizeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/cloudpc-validatebulkresize?view=graph-rest-1.0 Find more info here
     */
     public function post(ValidateBulkResizePostRequestBody $body, ?ValidateBulkResizeRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -50,7 +51,7 @@ class ValidateBulkResizeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action validateBulkResize
+     * Validate that a set of cloudPC devices meet the requirements to be bulk resized.
      * @param ValidateBulkResizePostRequestBody $body The request body
      * @param ValidateBulkResizeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

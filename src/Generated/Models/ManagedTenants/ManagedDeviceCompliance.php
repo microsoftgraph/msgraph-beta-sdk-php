@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagedDeviceCompliance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new managedDeviceCompliance and sets the default values.
+     * Instantiates a new ManagedDeviceCompliance and sets the default values.
     */
     public function __construct() {
         parent::__construct();

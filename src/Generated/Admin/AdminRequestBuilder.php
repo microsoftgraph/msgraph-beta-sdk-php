@@ -5,10 +5,14 @@ namespace Microsoft\Graph\Beta\Generated\Admin;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\Admin\AppsAndServices\AppsAndServicesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Dynamics\DynamicsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Edge\EdgeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Forms\FormsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\ReportSettings\ReportSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\ServiceAnnouncementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Sharepoint\SharepointRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Todo\TodoRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\WindowsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Admin;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -23,10 +27,31 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 class AdminRequestBuilder extends BaseRequestBuilder 
 {
     /**
+     * Provides operations to manage the appsAndServices property of the microsoft.graph.admin entity.
+    */
+    public function appsAndServices(): AppsAndServicesRequestBuilder {
+        return new AppsAndServicesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the dynamics property of the microsoft.graph.admin entity.
+    */
+    public function dynamics(): DynamicsRequestBuilder {
+        return new DynamicsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the edge property of the microsoft.graph.admin entity.
     */
     public function edge(): EdgeRequestBuilder {
         return new EdgeRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the forms property of the microsoft.graph.admin entity.
+    */
+    public function forms(): FormsRequestBuilder {
+        return new FormsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -48,6 +73,13 @@ class AdminRequestBuilder extends BaseRequestBuilder
     */
     public function sharepoint(): SharepointRequestBuilder {
         return new SharepointRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the todo property of the microsoft.graph.admin entity.
+    */
+    public function todo(): TodoRequestBuilder {
+        return new TodoRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

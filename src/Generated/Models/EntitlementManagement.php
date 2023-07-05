@@ -230,7 +230,7 @@ class EntitlementManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the subjects property value. The subjects property
+     * Gets the subjects property value. Represents the subjects within entitlement management.
      * @return array<AccessPackageSubject>|null
     */
     public function getSubjects(): ?array {
@@ -370,7 +370,7 @@ class EntitlementManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the subjects property value. The subjects property
+     * Sets the subjects property value. Represents the subjects within entitlement management.
      * @param array<AccessPackageSubject>|null $value Value to set for the subjects property.
     */
     public function setSubjects(?array $value): void {

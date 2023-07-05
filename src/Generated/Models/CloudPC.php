@@ -232,7 +232,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the powerState property value. The powerState property
+     * Gets the powerState property value. The power state of a Cloud PC. The possible values are: running, poweredOff and unknown. This property only supports shift work Cloud PCs.
      * @return CloudPcPowerState|null
     */
     public function getPowerState(): ?CloudPcPowerState {
@@ -509,7 +509,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the powerState property value. The powerState property
+     * Sets the powerState property value. The power state of a Cloud PC. The possible values are: running, poweredOff and unknown. This property only supports shift work Cloud PCs.
      * @param CloudPcPowerState|null $value Value to set for the powerState property.
     */
     public function setPowerState(?CloudPcPowerState $value): void {

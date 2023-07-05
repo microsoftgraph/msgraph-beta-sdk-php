@@ -12,6 +12,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetActiveMalwareSumm
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetAllCertificatesReport\GetAllCertificatesReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetAppsInstallSummaryReport\GetAppsInstallSummaryReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetAppStatusOverviewReport\GetAppStatusOverviewReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetAutopilotDeploymentStatus\GetAutopilotDeploymentStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetCachedReport\GetCachedReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetCertificatesReport\GetCertificatesReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetCompliancePoliciesReportForDevice\GetCompliancePoliciesReportForDeviceRequestBuilder;
@@ -136,6 +137,13 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function getAppStatusOverviewReport(): GetAppStatusOverviewReportRequestBuilder {
         return new GetAppStatusOverviewReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getAutopilotDeploymentStatus method.
+    */
+    public function getAutopilotDeploymentStatus(): GetAutopilotDeploymentStatusRequestBuilder {
+        return new GetAutopilotDeploymentStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

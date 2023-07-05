@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Place;
 use Microsoft\Graph\Beta\Generated\Places\Item\GraphRoom\GraphRoomRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Places\Item\GraphRoomList\GraphRoomListRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -23,6 +24,13 @@ class PlaceItemRequestBuilder extends BaseRequestBuilder
     */
     public function graphRoom(): GraphRoomRequestBuilder {
         return new GraphRoomRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to roomList.
+    */
+    public function graphRoomList(): GraphRoomListRequestBuilder {
+        return new GraphRoomListRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

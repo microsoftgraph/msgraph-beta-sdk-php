@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Represents a particular service offered by a booking business.
+*/
 class BookingService extends BookingNamedEntity implements Parsable 
 {
     /**
-     * Instantiates a new BookingService and sets the default values.
+     * Instantiates a new bookingService and sets the default values.
     */
     public function __construct() {
         parent::__construct();
